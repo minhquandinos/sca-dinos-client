@@ -1,0 +1,21 @@
+<scaleo-manager-settings-card [title]="'administration_settings.headers.advertisers' | translate">
+    <ng-container actions>
+        <ui-button-link
+            [label]="'administration_settings.basic.save' | translate"
+            (click)="save()"
+        ></ui-button-link>
+    </ng-container>
+
+    <div class="tabs">
+        <div class="tabs__header">
+            <!--                        <a class="tabs__item pt-0" routerLink="general"-->
+            <!--                           routerLinkActive="active">{{ 'administration_settings.affiliates.general.tab_title' | translate }}</a>-->
+            <a class="tabs__item pt-0" routerLink="signup"
+               routerLinkActive="active">{{ 'administration_settings.affiliates.signup.tab_title' | translate }}</a>
+        </div>
+
+        <div class="tabs__content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</scaleo-manager-settings-card>

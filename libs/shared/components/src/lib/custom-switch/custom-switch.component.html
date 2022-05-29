@@ -1,0 +1,12 @@
+<label class="field-label field-label-top" *ngIf="label">{{ label }} <span class="field-label__required" *ngIf="required">*</span></label>
+<div class="field-switch-wrapper d-flex align-items-center">
+    <ui-switch
+        class="d-inline-flex"
+        [checked]="check"
+        [size]="sizeSwitch"
+        [disabled]="disabled"
+        (change)="change($event)"
+    ></ui-switch>
+</div>
+
+<app-validation-message2 *ngIf="control && control?.invalid && control?.touched" [validation]="control?.errors"></app-validation-message2>

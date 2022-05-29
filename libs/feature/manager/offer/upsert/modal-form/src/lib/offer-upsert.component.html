@@ -1,0 +1,380 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{ title }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        appDisableButtonDuringRequest
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+    ></ui-button-link>
+</ng-template>
+
+<form *ngIf="isLoad; else skeleton" [formGroup]="form">
+    <div class="form-row align-items-center p-0 flex-nowrap mx-0">
+        <app-form-logo
+            [editId]="editId"
+            [image]="logo"
+            typeForImage="offers"
+            type="rounded"
+            (change)="changeImage($event)"
+            (delete)="deleteImage()"
+        ></app-form-logo>
+
+        <div class="form-group m-l-6 w-100">
+            <app-input formControlName="title" [label]="'interface.basic.title' | translate" maxLength="64"></app-input>
+
+            <div class="col-5 p-0 mt-2">
+                <app-find-platform-statuses statusList="offers_statuses" formName="status"></app-find-platform-statuses>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-advertisers
+                [multiple]="false"
+                [clearable]="true"
+                formName="advertiser_id"
+                status="active"
+                [label]="'interface.form.advertiser' | translate"
+            ></app-find-advertisers>
+        </div>
+
+        <div class="form-group col-md-6">
+            <app-custom-switch [label]="'interface.form.featured' | translate" formControlName="is_featured"></app-custom-switch>
+
+            <div class="form-text">
+                {{ 'offers_page.create.descriptions.featured' | translate }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="!editId">
+        <div class="form-group col-12">
+            <div class="col-md-6 pl-0">
+                <app-find-platform-list
+                    platformList="offers_visibility"
+                    [label]="'offers_page.create.visibility' | translate"
+                    formName="visible_type"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </div>
+
+            <ul class="form-text ul-description">
+                <li>{{ 'offers_page.create.descriptions.public' | translate }}</li>
+                <li>{{ 'offers_page.create.descriptions.require_approval' | translate }}</li>
+                <li>{{ 'offers_page.create.descriptions.private' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <ng-container *ngIf="!editId">
+        <div class="title is-5 m-t-48 m-b-22">{{ 'offers_page.create.offer_urls' | translate }}</div>
+
+        <div class="form-group">
+            <app-input formControlName="default_url" [label]="'offers_page.create.offer_url_main' | translate"></app-input>
+
+            <manager-shared-available-macros></manager-shared-available-macros>
+        </div>
+
+        <div class="form-group">
+            <app-input [label]="'interface.basic.preview_url' | translate" formControlName="preview_url"></app-input>
+
+            <ul class="form-text ul-description m-b-16">
+                <li>{{ 'offers_page.create.descriptions.default_url' | translate }}</li>
+                <li>{{ 'offers_page.create.descriptions.preview_url' | translate }}</li>
+            </ul>
+        </div>
+
+        <div class="title is-5 m-t-48 m-b-22">{{ 'offers_page.create.offer_goal_title' | translate }}</div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input [label]="'offers_page.create.goal_title' | translate" formControlName="goal_title"></app-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-find-platform-list
+                    platformList="goals_types"
+                    [label]="'offers_page.create.goal_type' | translate"
+                    formName="goal_type"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input
+                    [label]="'table.column.revenue' | translate"
+                    [inputText]="currencySign$ | async"
+                    inputTextPosition="left"
+                    numeric="float"
+                    formControlName="goal_revenue"
+                    maxLength="9"
+                ></app-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-input
+                    [label]="'table.column.payout' | translate"
+                    [inputText]="currencySign$ | async"
+                    inputTextPosition="left"
+                    numeric="float"
+                    formControlName="goal_payout"
+                    maxLength="9"
+                ></app-input>
+            </div>
+
+            <div class="form-text p-l-11 d-flex flex-column mt-2">
+                <span>{{ 'offers_page.create.descriptions.goal' | translate }}</span>
+                <span>{{ 'offers_page.create.descriptions.goal_title' | translate }}</span>
+                <span>{{ 'offers_page.create.goal_type' | translate }}:</span>
+
+                <ul class="ul-description">
+                    <li>{{ 'offers_page.create.descriptions.cpc' | translate }}</li>
+                    <li>{{ 'offers_page.create.descriptions.cpa' | translate }}</li>
+                    <li>{{ 'offers_page.create.descriptions.cpl' | translate }}</li>
+                    <li>{{ 'offers_page.create.descriptions.cps' | translate }}</li>
+                    <li>{{ 'offers_page.create.descriptions.cpi' | translate }}</li>
+                </ul>
+
+                <span>{{ 'offers_page.create.descriptions.revenue' | translate }}</span>
+                <span>{{ 'offers_page.create.descriptions.payout' | translate }}</span>
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="!editId" class="title is-5 m-t-48 m-b-22">{{ 'interface.subtitle.additional_information' | translate }}</div>
+
+    <div class="form-group">
+        <app-select
+            [items]="affiliateTags$ | async"
+            [label]="'interface.form.tags' | translate"
+            itemLabel="title"
+            classNames="w-100"
+            formControlName="tags"
+            [searchable]="true"
+            [clearable]="true"
+            [multiple]="true"
+            [hideSelected]="true"
+            [placeholder]="'interface.basic.search' | translate"
+        ></app-select>
+
+        <div class="form-text">{{ 'offers_page.create.descriptions.tags' | translate }}</div>
+    </div>
+
+    <div class="form-group">
+        <app-find-platform-list
+            platformList="traffic_types"
+            [label]="'interface.form.traffic_type' | translate"
+            formName="traffic_types"
+            [clearable]="true"
+            [multiple]="true"
+            [labelShowId]="false"
+            [disableTranslate]="true"
+            [hideSelected]="true"
+            [itemValue]="null"
+        ></app-find-platform-list>
+
+        <div class="form-text">
+            {{ 'affiliate.basic.description.traffic_types' | translate }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-wysiwyg-editor [label]="'interface.form.description' | translate" formControlName="description"></app-wysiwyg-editor>
+
+        <div class="form-text">{{ 'offers_page.create.descriptions.description' | translate }}</div>
+    </div>
+
+    <div class="form-group" *ngIf="editId">
+        <app-textarea [label]="'interface.form.internal_information' | translate" formControlName="internal_info"></app-textarea>
+
+        <div class="form-text">{{ 'offers_page.create.descriptions.internal_info' | translate }}</div>
+    </div>
+
+    <app-show-hide
+        [labelShow]="'interface.basic.advanced_options' | translate"
+        [labelHide]="'interface.basic.hide_options' | translate"
+        buttonPositionOnShow="bottom"
+        buttonClass="m-t-48"
+    >
+        <div class="form-row m-t-48">
+            <div class="form-group col-md-6">
+                <app-find-platform-list
+                    platformList="currencies"
+                    [label]="'administration_settings.settings.currency' | translate"
+                    formName="currency"
+                    itemValue="code"
+                    [labelShowId]="false"
+                    [disableTranslate]="true"
+                ></app-find-platform-list>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-find-platform-list
+                    platformList="timezones"
+                    [label]="'offers_page.create.time_zone' | translate"
+                    formName="timezone"
+                    itemValue="timezone"
+                    [labelShowId]="false"
+                    [disableTranslate]="true"
+                ></app-find-platform-list>
+            </div>
+
+            <div class="form-text">
+                <span>{{ 'offers_page.create.descriptions.currency' | translate }}</span>
+                <br />
+                <span>{{ 'offers_page.create.descriptions.time_zone' | translate }}</span>
+            </div>
+        </div>
+
+        <div class="form-row m-t-48">
+            <div class="form-group col-md-6">
+                <app-custom-switch [label]="'interface.form.expires' | translate" formControlName="is_expires"></app-custom-switch>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-custom-date-range
+                    *ngIf="!!form.value.is_expires"
+                    [single]="true"
+                    type="input"
+                    drops="up"
+                    [startDate]="form.value.expiration_date"
+                    [availableFeaturesDate]="true"
+                    [label]="'interface.form.expiration_date' | translate"
+                    (toggle)="onChangeDate($event.rangeFrom)"
+                ></app-custom-date-range>
+            </div>
+
+            <span class="form-text p-l-11">{{ 'offers_page.create.descriptions.expires' | translate }}</span>
+        </div>
+    </app-show-hide>
+
+    <ui-button-link
+        *ngIf="editId"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-48"
+        (toggle)="delete()"
+    ></ui-button-link>
+</form>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-row align-items-center p-0 flex-nowrap mx-0">
+            <ui-skeleton-image size="big" type="rounded"></ui-skeleton-image>
+
+            <div class="m-l-6 w-100">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <div class="col-5 p-0 mt-2">
+                    <ui-skeleton-block height="medium"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+
+            <div class="form-group col-md-3">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <div class="mt-2">
+                    <ui-skeleton-block size="medium"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row" *ngIf="!editId">
+            <div class="form-group col-12">
+                <div class="col-md-6 pl-0">
+                    <app-ui-skeleton-input></app-ui-skeleton-input>
+                </div>
+
+                <div class="mt-2">
+                    <ui-skeleton-block size="large"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <ng-container *ngIf="!editId">
+            <ui-skeleton-block></ui-skeleton-block>
+
+            <div class="form-group">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+
+            <div class="form-group">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <ui-skeleton-block></ui-skeleton-block>
+            </div>
+
+            <div class="col-md-4 mb-2 p-0">
+                <ui-skeleton-block height="large"></ui-skeleton-block>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-ui-skeleton-input></app-ui-skeleton-input>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <app-ui-skeleton-input></app-ui-skeleton-input>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-ui-skeleton-input></app-ui-skeleton-input>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <app-ui-skeleton-input></app-ui-skeleton-input>
+                </div>
+
+                <div class="col-12">
+                    <ui-skeleton-block customHeight="96px"></ui-skeleton-block>
+                </div>
+            </div>
+        </ng-container>
+
+        <ui-skeleton-block *ngIf="!editId"></ui-skeleton-block>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+
+            <div class="mt-2">
+                <ui-skeleton-block size="medium"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="editId">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+
+            <div class="mt-2">
+                <ui-skeleton-block size="medium"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="col-3 p-0 mt-2 m-t-64">
+            <ui-skeleton-block height="medium"></ui-skeleton-block>
+        </div>
+    </ui-skeleton>
+</ng-template>

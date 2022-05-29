@@ -1,0 +1,46 @@
+{
+    "shared": {
+        "dictionary": {
+            "teammates": "Teammates",
+            "teammate": "Teammate",
+            "role": "Role",
+            "level": "Nível",
+            "goal": "Objetivo",
+            "goal_type": "Tipo de objetivo",
+            "offer": "Oferta",
+            "status": "Status",
+            "conversion_status": "Status de conversão",
+            "usage_examples": "Exemplos de uso",
+            "add": "Adicionar",
+            "edit": "Editar",
+            "short_edit": "Editar",
+            "read_more": "Leia mais",
+            "all": "Tudo",
+            "delete": "Excluir",
+            "html_code": "código HTML",
+            "two_factor_auth": "Two-Factor Authentication",
+            "two_factor_auth_2fa": "Two-Factor Authentication (2FA)",
+            "save": "Salvar",
+            "cancel": "Cancelar",
+            "apply": "Aplicar",
+            "submit": "Submit",
+            "update": "Update"
+        },
+        "managers": {
+            "manager": "Manager",
+            "affiliate": "Afiliado",
+            "advertiser": "Anunciante",
+            "administrator": "Administrator",
+            "limited-affiliate-manager": "Limited Affiliate Manager",
+            "limited-advertiser-manager": "Limited Advertiser Manager",
+            "limited_affiliate_manager": "Limited Affiliate Manager",
+            "limited_advertiser_manager": "Limited Advertiser Manager"
+        },
+        "tooltip": {
+            "edit": "Editar",
+            "email": "E-mail",
+            "details": "Detalhes",
+            "phone": "Telefone"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<app-card-widget [autoSetBottomPaddingWhenFooterEmpty]="true">
+    <app-card-widget-header>
+        <span class="title text-nowrap">
+            {{ 'affiliate.domain.title' | translate }}
+        </span>
+
+        <div class="ml-auto d-flex align-items-center">
+            <app-upgrade-plan-info class="m-r-10" [planPermission]="planFeature.domains"></app-upgrade-plan-info>
+            <div class="m-r-10" [tooltip]="'affiliate.domain.add' | translate">
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+                    [disabled]="isDomainsDisabled$ | async"
+                    icon="plus-small"
+                    type="floating"
+                    (toggle)="openModal()"
+                ></ui-button-link>
+            </div>
+
+            <ui-button-link
+                *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+                [disabled]="isDomainsDisabled$ | async"
+                [label]="'interface.basic.manage' | translate"
+                type="floating"
+                (toggle)="toDomains()"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-0" *ngIf="(count$ | async) > 0">
+        <ui-simple-table
+            [headers]="columns"
+            [items]="items$ | async"
+            [notFound]="notFound$ | async"
+            [isLoad]="loading$ | async"
+            tableStyle="clear"
+            [skeletonColCount]="2"
+            [skeletonRowCount]="5"
+            colHeight="3rem"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiSimpleTableColTpl="tracking_domain" let-item="valueRow">
+                {{ item.name | format:'idName': item.id }}
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="configuration" let-configuration>
+                {{ configuration }}
+            </ng-template>
+        </ui-simple-table>
+    </app-card-widget-content>
+    <app-card-widget-footer *ngIf="(count$ | async) > 5">
+        <ui-button-link
+            *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+            class="ml-auto btn__view-all"
+            routerLink="domains"
+            iconPosition="right"
+            icon="ic_arrow_right_blue"
+            type="link"
+            [label]="'interface.basic.view_all_count' | translate: { count: count$ | async }"
+        ></ui-button-link>
+    </app-card-widget-footer>
+</app-card-widget>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+        (toggleEdit)="openModal(item.id)"
+    ></ui-table-navigation>
+</ng-template>

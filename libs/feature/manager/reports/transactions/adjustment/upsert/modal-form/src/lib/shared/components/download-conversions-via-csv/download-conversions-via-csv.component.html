@@ -1,0 +1,24 @@
+<ng-container *ngIf="!linkToCSVFile; else linkToDownloadCSV">
+    <app-custom-file-upload
+        validatorFileExtension="csv"
+        accept="csv"
+        [labelButton]="'reports_page.adjustments.insert_conversions_via_csv.select_csv_file' | translate"
+        formControlName="source_file"
+        (selectedFile)="selectedFile($event)"
+    ></app-custom-file-upload>
+</ng-container>
+
+<ng-template #linkToDownloadCSV>
+    <a
+        [href]="linkToCSVFile"
+        target="_blank"
+        class="w-fit-content"
+    >
+        {{'reports_page.adjustments.insert_conversions_via_csv.csv_file' | translate}}
+    </a>
+</ng-template>
+
+<span class="m-t-16">{{'reports_page.adjustments.insert_conversions_via_csv.links.description' | translate}}</span>
+<div class="m-t-5 d-flex flex-column m-b-10">
+    <a class="line-height is-20" *ngFor="let link of links" [href]="link.link" target="_blank">{{link.title | translate}}</a>
+</div>

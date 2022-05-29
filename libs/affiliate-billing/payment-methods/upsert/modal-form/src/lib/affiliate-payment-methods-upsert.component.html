@@ -1,0 +1,60 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{ title$ | async }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="save()" appDisableButtonDuringRequest></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form">
+    <div class="form-row mb-2">
+        <div class="form-group col-md-6 fs-small">
+            <app-find-platform-list
+                platformList="currencies"
+                [label]="'administration_settings.settings.currency' | translate"
+                itemLabel="title"
+                itemValue="code"
+                formName="currency"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="false"
+                [labelShowId]="false"
+                (toggle)="changeFormCurrency()"
+                [disableSelect]="!!method"
+                itemIncrement="code"
+                [disableTranslate]="true"
+                [placeholder]="'interface.basic.select'"
+            ></app-find-platform-list>
+        </div>
+    </div>
+
+    <ng-container *ngIf="formCurrency$ | async as currency">
+        <ng-container *ngIf="methods$ | async as methods; else skeleton">
+            <app-affiliate-payment-method-info
+                *ngFor="let method of methods"
+                [method]="method"
+                [currency]="currency"
+                (changePaymentMethod)="changePaymentMethod()"
+            ></app-affiliate-payment-method-info>
+        </ng-container>
+    </ng-container>
+
+    <ui-button-link
+        *ngIf="!!method && hasAddedPaymentMethod"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</form>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="m-t-16" *ngFor="let fake of shared.generateFake(5)">
+            <ui-skeleton-block height="big"></ui-skeleton-block>
+        </div>
+    </ui-skeleton>
+</ng-template>

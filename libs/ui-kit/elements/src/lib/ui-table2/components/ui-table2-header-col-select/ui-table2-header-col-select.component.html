@@ -1,0 +1,12 @@
+<th class="table2__header-column-checkbox">
+    <span class="table2__column table2__column-checkbox d-inline-flex align-items-center">
+        <app-custom-checkbox
+            [checkboxId]="'select-col-all'"
+            [checked]="checked$ | async"
+            [inputValue]="true"
+            [uncheckedValue]="false"
+            (change)="select()"
+            className="table2__checkbox"
+        ></app-custom-checkbox>
+    </span>
+</th>

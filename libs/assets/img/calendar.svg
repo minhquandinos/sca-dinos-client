@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>main_calendar</title>
+    <desc>Created with Sketch.</desc>
+    <g id="💎-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/outline/calendar">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            <rect id="Rectangle" stroke="#54555B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" x="5.5" y="7.5" width="13" height="11" rx="2"></rect>
+            <line x1="5.5" y1="11.5" x2="18" y2="11.5" id="Line" stroke="#444549" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></line>
+            <line x1="15.5" y1="9" x2="15.5" y2="6" id="Line-2" stroke="#444549" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></line>
+            <line x1="8.5" y1="9" x2="8.5" y2="6" id="Line-2" stroke="#444549" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></line>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,37 @@
+<ui-tab-nav-bar>
+    <ng-container *ngIf="showAllTab$ | async">
+        <a ui-tab-nav-link routerLink="../../all" routerLinkActive="active">
+            {{ 'advertiser.filters.all' | translate }}
+            <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: total$ | async }"></ng-template>
+        </a>
+    </ng-container>
+
+    <ng-container *ngIf="showMyTab$ | async">
+        <a ui-tab-nav-link routerLink="../../my" routerLinkActive="active">
+            {{ 'advertiser.filters.my' | translate }}
+            <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: my$ | async }"></ng-template>
+        </a>
+    </ng-container>
+
+    <a ui-tab-nav-link routerLink="../../pending" routerLinkActive="active">
+        {{ 'advertiser.filters.pending' | translate }}
+        <ng-template
+            [ngTemplateOutlet]="countTpl"
+            [ngTemplateOutletContext]="{ $implicit: pending$ | async, isBadges: true }"
+        ></ng-template>
+    </a>
+
+</ui-tab-nav-bar>
+
+<ng-template #countTpl let-count let-isBadges="isBadges">
+    <ui-badges
+        *ngIf="isBadges; else defaultCountTpl"
+        class="m-l-6"
+        [content]="count | format: 'number'"
+        className="font-family-normal"
+    ></ui-badges>
+
+    <ng-template #defaultCountTpl>
+        <span class="m-l-6 color__gray3 font-family-normal">{{ count | format:'number' }}</span>
+    </ng-template>
+</ng-template>

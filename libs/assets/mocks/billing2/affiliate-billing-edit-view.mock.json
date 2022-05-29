@@ -1,0 +1,15 @@
+{
+    "info": {
+        "billing": {
+            "id": 1,
+            "invoice_Frequency": "Invoice Frequency",
+            "invoice_generation": 1,
+            "payment_terms": "Net 7",
+            "beneficiary_name": "Marvel LLC",
+            "beneficiary_address": "Orange ave 16th, Memo, US",
+            "billing_email": "billing@company.com",
+            "tax_id": "DE05646572184",
+            "vat": "20%"
+        }
+    }
+}

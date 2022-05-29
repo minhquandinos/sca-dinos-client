@@ -1,0 +1,51 @@
+<ng-container [formArrayName]="index">
+    <div uiSimpleTableCol>
+        <div class="distribution-ab-testing__index d-flex align-items-center justify-content-center rounded-circle bg__gray2 color__white">
+            {{ index | offerDistributionAbTestingCountLetter }}
+        </div>
+
+        <app-offer-distribution-ab-testing-landings
+            class="ml-3 distribution-ab-testing__select"
+            [landings]="landings | offerDistributionLandingExclude: currentLanding:selectedLandings"
+            [disabledControl]="disabledControl"
+        ></app-offer-distribution-ab-testing-landings>
+    </div>
+
+    <div uiSimpleTableCol>
+        <app-input
+            class="distribution-ab-testing__input"
+            formControlName="distribution"
+            numeric="float"
+            inputText="%"
+            [disabled]="disabledControl"
+            [hideValidationMessage]="true"
+        ></app-input>
+
+        <div class="d-flex align-items-center ml-3">
+            <ui-button-link
+                (toggle)="save()"
+                [label]="'shared.dictionary.save' | translate"
+                *ngIf="showSaveBtn$ | async; else deleteBtnTpl"
+            ></ui-button-link>
+            <ng-template #deleteBtnTpl>
+                <ui-button-link *ngIf="showDeleteBtn" type="delete" icon="delete" (toggle)="delete()"></ui-button-link>
+            </ng-template>
+        </div>
+    </div>
+
+    <div uiSimpleTableCol>
+        {{ item.added_date }}
+    </div>
+
+    <div uiSimpleTableCol>
+        {{ item.clicks }}
+    </div>
+
+    <div uiSimpleTableCol>
+        {{ item.conversions }}
+    </div>
+
+    <div uiSimpleTableCol>
+        {{ item.cr }}
+    </div>
+</ng-container>

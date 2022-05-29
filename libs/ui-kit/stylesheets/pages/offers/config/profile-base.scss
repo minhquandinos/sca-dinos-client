@@ -1,0 +1,23 @@
+@media screen and (max-width: 640px) {
+    .role-admin, .role-manager {
+        .offer-profile-base {
+            .profile-header {
+                flex-direction: column;
+
+                &__buttons {
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .role-affiliate {
+        .offer-profile-base {
+            .profile-header {
+                &__buttons {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}

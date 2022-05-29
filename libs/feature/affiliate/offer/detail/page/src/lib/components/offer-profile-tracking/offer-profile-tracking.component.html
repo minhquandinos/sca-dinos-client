@@ -1,0 +1,145 @@
+<ui-page-wrapper borderRadius="4" *ngIf="offerData; else skeleton">
+    <ui-page-wrapper-header [haveBorderBottom]="false">
+        <div class="title is-4 p-t-8 p-b-8 py-md-0">{{ 'offers_page.tracking.title' | translate }}</div>
+        <div class="page-wrapper-header__buttons ml-auto d-flex align-items-center justify-content-between m-b-6 mb-md-0">
+            <ui-button-link
+                class="m-r-2"
+                [label]="'offers_page.tracking.form.link_builder.title' | translate"
+                type="floating"
+                (click)="openLinkBuilder()"
+                [icon]="'link_builder'"
+            ></ui-button-link>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="p-0 pb-3">
+        <div class="profile-info px-3">
+            <scaleo-offer-shared-affiliate-tracking-link
+                [className]="'m-t-12'"
+                [offerId]="offerData.id"
+                [affiliateId]="affIdInfo"
+                trackingTypeFor="affiliate"
+                [infoTemplate]="infoTemplate"
+                [trackingDomain]="offerData?.tracking_domain?.name"
+            ></scaleo-offer-shared-affiliate-tracking-link>
+
+        </div>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>
+
+<ng-template #skeleton>
+    <div class="page-wrapper skeleton">
+
+        <div class="page-wrapper-header  d-flex align-items-center bg-unset">
+            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-25"></div>
+            <div class="ml-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--medium w-25"></div>
+            </div>
+        </div>
+
+        <div class="page-wrapper-content">
+            <div class="w-100 p-l-16 justify-content-center p-r-16">
+                <div class="info">
+
+                    <div class="info__title m-b-10">
+                        <div class="skeleton__animation skeleton__block skeleton__block--large w-25"></div>
+                    </div>
+
+                    <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-100"></div>
+
+                    <div class="info__title m-b-10 m-t-25">
+                        <div class="skeleton__animation skeleton__block skeleton__block--large w-25"></div>
+                    </div>
+
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-75"></div>
+                        </div>
+                    </div>
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-75"></div>
+                        </div>
+                    </div>
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-75"></div>
+                        </div>
+                    </div>
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+<ng-template #infoTemplate>
+    <div class="offer-tracking-params">
+        <section>
+            <div class="profile-info__row d-flex" *ngFor="let param of mapOptionalParam">
+                <div class="profile-info__row-name pl-0 col-2 justify-content-start offer-tracking-params">
+                    <ui-chip>{{ param }}</ui-chip>
+                </div>
+                <div class="profile-info__row-value profile-info__row-value-offer-tracking d-flex">
+                    {{ 'offers_page.tracking.optional_params.' + param | translate }}
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="title">{{'offers_page.tracking.form.usage_examples' | translate}}</div>
+            <app-field-text-info className="m-t-8" preset="copy">
+                <div class="text-break-all">
+                    {{ offerData.tracking_domain.name }}/click?o={{ offerData.id }}&a={{affIdInfo}}&aff_click_id=a3p22snfbg53shfgtekt3s
+                </div>
+            </app-field-text-info>
+
+            <app-field-text-info className="m-t-8" preset="copy">
+                <div class="text-break-all">
+                    {{ offerData.tracking_domain.name }}/click?o={{ offerData.id }}&a={{affIdInfo}}&sub_id1=Google&sub_id2=Ads
+                </div>
+            </app-field-text-info>
+
+            <app-field-text-info className="m-t-8" preset="copy">
+                <div class="text-break-all">
+                    {{ offerData.tracking_domain.name }}/click?o={{ offerData.id }}&a={{affIdInfo}}&aff_param1=John&aff_param2=john@gmail.com
+                </div>
+            </app-field-text-info>
+
+            <app-field-text-info className="m-t-8 m-b-8" preset="copy">
+                <div class="text-break-all">
+                    {{ offerData.tracking_domain.name }}/click?o={{ offerData.id }}&a={{affIdInfo}}&deep_link=https://brand.com/catalog/item/123
+                </div>
+            </app-field-text-info>
+        </section>
+    </div>
+</ng-template>
+
+<ng-template #disabled>
+    <div class="profile-info__row-value d-flex align-items-center profile-info__row-value-offer-tracking">
+        <ui-svg-icon [icon]="'ic_x'"></ui-svg-icon>
+        <span class="color__red3 offer-span-enable">
+            {{ 'interface.basic.disabled' | translate }}
+        </span>
+    </div>
+</ng-template>

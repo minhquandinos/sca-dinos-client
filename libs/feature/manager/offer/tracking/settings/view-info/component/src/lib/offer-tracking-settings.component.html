@@ -1,0 +1,96 @@
+<app-detail-info>
+    <app-detail-info-header class="justify-content-between">
+        <span class="title is-4 line-height is-19">{{ 'offers_page.profile.tracking.tracking_setting' | translate }}</span>
+
+        <ui-button-link
+            *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]"
+            [label]="'shared.dictionary.edit' | translate"
+            type="floating"
+            (click)="edit()"
+        ></ui-button-link>
+    </app-detail-info-header>
+
+    <app-detail-info-row class="m-t-14">
+        <app-detail-info-col class="col-4 color__gray2">
+            {{ 'table.column.tracking_domain' | translate }}:
+        </app-detail-info-col>
+
+        <app-detail-info-col>
+            {{ trackingDomain$ | async }}
+        </app-detail-info-col>
+    </app-detail-info-row>
+
+    <ng-container *ngIf="data$ | async as data">
+        <app-detail-info-row class="flex-nowrap">
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.fail_traffic_forwarding' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-invalid-traffic-forwarding-view [data]="invalidTrafficForwardingViewData$| async"></app-invalid-traffic-forwarding-view>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row>
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.deep_linking' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-boolean-label [value]="data.deep_linking"></app-boolean-label>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row>
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.cookie_lifetime' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                {{ data.cookie_lifetime }} {{ 'interface.date.day.multi' | translate }}
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row>
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.hide_referrer_url' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-boolean-label [value]="data.hide_referer_url"></app-boolean-label>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row>
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.unique_ips' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-boolean-label [value]="data.unique_ips"></app-boolean-label>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row *ngIf="isRequirePostbackToken$ | async">
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'advertiser.postback_security.labels.require_token' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-boolean-label [value]="data.require_postback_token"></app-boolean-label>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row class="flex-nowrap">
+            <app-detail-info-col class="col-4 color__gray2">
+                {{ 'offers_page.tracking.form.global_postback' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-field-text-info preset="copy" class="text-break-all">
+                    {{ globalPostbackLink$ | async }}
+                </app-field-text-info>
+            </app-detail-info-col>
+        </app-detail-info-row>
+    </ng-container>
+</app-detail-info>

@@ -1,0 +1,18 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    class="custom-dashboard-widget-top-offer"
+    className="overflow-auto"
+
+>
+    <scaleo-top-offer-list
+        #topOfferComponent
+        [date$]="dateRange$"
+        [trigger$]="trigger$"
+        [period]="selectedCurrentPeriod$ | async"
+    ></scaleo-top-offer-list>
+
+    <ng-container containerFooter>
+        <ng-template [ngTemplateOutlet]="topOfferComponent.footerTpl"></ng-template>
+    </ng-container>
+</app-container-widget>

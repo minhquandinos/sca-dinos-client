@@ -1,0 +1,33 @@
+<div class="custom-dashboard-widget-balance-list">
+    <div class="subtitle is-6 pl-3">{{ 'dashboard_grid.widget.balance.recent_invoices' | translate }}</div>
+    <ui-simple-table
+        skeletonColCount="3"
+        skeletonRowCount="3"
+        [isLoad]="isLoad"
+        [notFound]="invoices?.length <= 0"
+        tableStyle="clear"
+        colHeight="47px"
+    >
+        <ng-container header>
+            <div uiSimpleTableCol *ngFor="let header of headers; trackBy: trackByFn" [ngStyle]="{ width: header.width }">
+                {{ header.translateSchema | translate }}
+            </div>
+        </ng-container>
+
+        <div uiSimpleTableRow *ngFor="let invoice of invoices; trackBy: invoiceTrackByFn">
+            <div uiSimpleTableCol>
+                {{ invoice.date | format: 'date' }}
+            </div>
+
+            <div uiSimpleTableCol>
+                <span [appStatus2Color]="invoice.status" type="invoices_statuses">
+                    {{ invoice?.status | statusLabel: 'invoices_statuses' | async }}
+                </span>
+            </div>
+
+            <div uiSimpleTableCol class="font-family-medium">
+                {{ invoice?.amount?.value | format: 'money':{ currency: invoice?.amount?.currency } }}
+            </div>
+        </div>
+    </ui-simple-table>
+</div>

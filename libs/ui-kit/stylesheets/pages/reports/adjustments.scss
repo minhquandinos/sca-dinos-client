@@ -1,0 +1,70 @@
+.adjustments {
+    .page-inner {
+        padding: 0;
+    }
+}
+
+app-create-adjustment app-add-conditions app-textarea textarea {
+    //max-height: 64px;
+    //overflow-y: scroll !important;
+    //resize: none;
+}
+
+.table-adjustments {
+    thead tr {
+
+        th {
+            height: 48px;
+            max-width: 20%;
+            white-space: pre;
+
+            &:first-child {
+                width: 5%;
+            }
+            &:nth-child(2) {
+                width: 5%;
+            }
+            &:nth-child(3) {
+                width: 10%;
+            }
+            &:nth-child(4) {
+                width: 12%;
+            }
+
+            &:nth-child(5), &:nth-child(6) {
+                width: 20%;
+            }
+
+            &:nth-child(7) {
+                width: 10%;
+            }
+        }
+
+        th:nth-child(1) {
+            padding-left: 32px;
+        }
+
+        th:last-child {
+            min-width: 10%;
+            padding-right: 10px;
+        }
+    }
+
+    tbody tr {
+
+        td {
+            padding: 4px 10px 4px 0;
+            height: 48px;
+            min-width: 60px;
+
+            &:first-child {
+                padding-left: 32px;
+                width: 12%;
+
+                .table__box {
+                    white-space: pre;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<app-select
+    [addTemplate]="true"
+    [items]="items$ | async"
+    itemValue="id"
+    [formControlName]="formName"
+    [hideSelected]="true"
+    [searchable]="true"
+    [clearable]="false"
+    [multiple]="true"
+    (initialSelected)="initialSelectedHandler($event)"
+    (changeFull)="selectedFull($event)"
+    (search)="findElement($event)"
+    [loading]="loading"
+    [placeholder]="'interface.basic.search' | translate"
+    (scrolledToEnd)="scrolledToEnd()"
+    [searchFn]="customSearchFn"
+    (change)="selected($event)"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+        <ui-chip size="large" [close]="true" (closed)="clear(item)">
+            <ng-container [ngTemplateOutlet]="label" [ngTemplateOutletContext]="{item: item}"></ng-container>
+        </ui-chip>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <ng-container [ngTemplateOutlet]="label" [ngTemplateOutletContext]="{item: item}"></ng-container>
+    </ng-template>
+</app-select>
+
+<ng-template #label let-item="item">
+    <div class="d-flex">
+        <span>
+            {{item.id + ' ' + item.title | format: 'idName'}}
+        </span>
+        <span class="pl-1">
+            ({{item[parentIdKey] + ' ' + item[parentTitleKey] | format: 'idName'}})
+        </span>
+    </div>
+</ng-template>

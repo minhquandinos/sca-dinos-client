@@ -1,0 +1,28 @@
+<ui-page-wrapper [borderRadius]="4">
+    <ui-page-wrapper-header [haveBorderBottom]="false">
+        <div class="title is-4">
+            {{ title }}
+        </div>
+        <div class="ml-auto my-auto">
+            <app-date-presets
+                class="ml-auto"
+                (changed)="updateDate($event)"
+            ></app-date-presets>
+        </div>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content class="overflow-auto" className="p-0">
+        <ng-content></ng-content>
+    </ui-page-wrapper-content>
+
+    <ui-page-wrapper-footer
+        size="medium"
+        borderTop="none"
+        *ngIf="topWidget?.footerTemplate$ | async as footerTemplate"
+    >
+        <ng-template [ngTemplateOutlet]="footerTemplate"></ng-template>
+    </ui-page-wrapper-footer>
+
+</ui-page-wrapper>
+
+

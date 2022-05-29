@@ -1,0 +1,19 @@
+.smart-links {
+    &__table {
+        tbody tr *:first-child > td .table2__column {
+            padding-left: 1.25rem;
+        }
+    }
+}
+
+.role-affiliate {
+    .smart-links {
+        &__table {
+            tbody tr {
+                *:first-child > td .table2__column {
+                    padding-left: 2rem;
+                }
+            }
+        }
+    }
+}

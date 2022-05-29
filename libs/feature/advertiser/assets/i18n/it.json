@@ -1,0 +1,34 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Provente",
+            "approved_revenue": "Provente",
+            "pending_revenue": "Provente",
+            "rejected_revenue": "Provente",
+            "total_revenue": "Provente",
+            "revenue": "Provente"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Costo per clic",
+                "rpa": "Costo per conversione approvata",
+                "rpm": "Costo per 1000 impression"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Provente"
+                }
+            }
+        }
+    }
+}
+

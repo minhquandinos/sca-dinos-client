@@ -1,0 +1,164 @@
+.affiliate-create-wrapper {}
+
+.affiliate-list-wrapper {
+    &.page-wrapper,
+    .page-wrapper-content {
+        background-color: unset;
+    }
+}
+
+.table-affiliates {
+    thead tr{
+        *:not(:first-child) > th{
+            padding-left: 0;
+        }
+
+        *:nth-child(4) > th {
+            min-width: 15%;
+        }
+    }
+
+    tbody{
+        tr {
+            td {
+                .table2__column {
+                    //padding-right: 25px;
+                    //padding-left: 0;
+
+                    .table__box-image {
+                        line-height: 4rem;
+                    }
+                }
+            }
+
+            *:first-child > td .table2__column {
+                padding-left: 0;
+                padding-right: 2rem;
+            }
+
+            //*:last-child > td .table2__column {
+            //    padding-right: 5px;
+            //}
+        }
+    }
+}
+
+.affiliate-postbacks, .affiliate-sources, .affiliate-domains{
+    margin-bottom: 16px;
+    app-filters .filter {
+        min-width: 979px;
+    }
+}
+
+.affiliate-postbacks {
+    ui-table {
+        thead tr {
+            th:nth-child(1) {
+                padding-left: 16px;
+            }
+
+            th:nth-child(3) {
+                min-width: 125px;
+            }
+
+            th:nth-child(4) {
+                min-width: 150px;
+            }
+
+        }
+
+        tbody tr {
+
+            td {
+                padding: 0 4px;
+                height: 56px;
+            }
+
+            td:first-child {
+                padding-left: 16px;
+            }
+        }
+
+        .conversion-status {
+            color: white;
+            @include font-family-normal;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+            cursor: default;
+        }
+    }
+}
+
+.affiliate-profile-postbacks-table {
+    thead tr {
+        th:nth-child(1) {
+            padding-left: 16px;
+        }
+
+        th:nth-child(2) {
+            min-width: 150px;
+        }
+
+    }
+
+    tbody tr {
+
+        td {
+            padding: 0 4px;
+            height: 56px;
+        }
+
+        td:first-child {
+            padding-left: 16px;
+        }
+    }
+
+    .conversion-status {
+        color: white;
+        @include font-family-normal;
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        cursor: default;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    app-affiliate-profile {
+        & > .page-inner {
+            padding-top: 0;
+        }
+    }
+
+    .affiliates {
+        app-filters{
+            .filter {
+                min-width: auto;
+                overflow-x: scroll;
+                margin-right: 1rem;
+            }
+
+            app-filter  app-dropdown-popup .dropdown-item-selected__label {
+                white-space: nowrap;
+            }
+        }
+
+        .page-wrapper {
+            min-width: auto;
+
+            &-header {
+                overflow-x: scroll;
+                margin-right: 1rem;
+
+                ul li a {
+                    white-space: nowrap;
+                }
+
+                .my-auto {
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
+}

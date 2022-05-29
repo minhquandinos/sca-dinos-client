@@ -1,0 +1,470 @@
+{
+    "your_manager": "Twój menedżer",
+    "firstname": "Imię",
+    "lastname": "Nazwisko",
+    "email": "E-mail",
+    "password": "Hasło",
+    "password_confirmation": "Potwierdzenie hasła",
+    "statuses": {
+        "status": "Status",
+        "active": "Aktywne",
+        "inactive": "Nieaktywne",
+        "pending": "Oczekujące",
+        "rejected": "Odrzucone",
+        "testing": "Testowane",
+        "approved": "Zatwierdzone",
+        "all": "Wszystko"
+    },
+    "user_profile": {
+        "edited_notification": "Twój profil został pomyślnie zaktualizowany"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Filtruj",
+            "results": "wyniki",
+            "filtered_by": "Filtruj według",
+            "preview": "Podgląd",
+            "close": "Zamknij",
+            "clear": "Wyczyść",
+            "today": "Dzisiaj",
+            "yesterday": "Wczoraj",
+            "filters": {
+                "country": "Kraj",
+                "tag": "Tag",
+                "goals_types": "Typy celów",
+                "no_data_found": "Nie znaleziono danych"
+            },
+            "search": "Szukaj",
+            "not_found": "Nie znaleziono danych.",
+            "api_key": "Klucz API",
+            "api_access": "Dostęp API",
+            "columns": "Kolumny",
+            "breakdown_by": "Grupuj według",
+            "breakdown": "Grupuj",
+            "copy": "Kopiuj",
+            "expand": "Rozwiń",
+            "hide": "Ukryj",
+            "link_copy": "Link został skopiowany",
+            "choose_image": "Wybierz obraz",
+            "total": "Łącznie:",
+            "adblock": "Masz włączony AdBlock, przez co niektóre funkcje platformy mogą nie działać poprawnie",
+            "refresh": {
+                "button": "Odśwież",
+                "new_version": "Nowa wersja jest dostępna.",
+                "latest_version": "Odśwież, aby pobrać najnowszą wersję."
+            },
+            "undefined": "Niezdefiniowane",
+            "learn_more": "Dowiedz się więcej",
+            "view_all": "Zobacz wszystko",
+            "view_all_count": "Zobacz wszystko ({{ count }})",
+            "allowed": "połączenia",
+            "denied": "połączenia"
+        },
+        "header": {
+            "help": "Pomoc",
+            "profile": "Profil",
+            "account": "Moje konto",
+            "language": "Język",
+            "logout": "Wyloguj się"
+        },
+        "form": {
+            "tags": "Tagi",
+            "tag": "Tag",
+            "country": "Kraj",
+            "traffic_type": "Typy ruchu",
+            "timezone": "Strefa czasowa",
+            "currency": "Waluta",
+            "contact_type": "Sposób kontaktu",
+            "contact_name": "Kontakt",
+            "phone": "Telefon",
+            "street": "Ulica",
+            "city": "Miasto",
+            "region": "Region",
+            "postcode": "Kod pocztowy",
+            "payment_details": "Dane płatności",
+            "date_format": "Format daty",
+            "number_format": "Format liczbowy",
+            "featured": "Wyróżnione",
+            "description": "Opis",
+            "internal_information": "Informacje wewnętrzne",
+            "expires": "Wygasa"
+        },
+        "date": {
+            "basic": {
+                "from": "Od",
+                "to": "Do"
+            },
+            "days": {
+                "su": "Nie.",
+                "mo": "Pon.",
+                "tu": "Wt.",
+                "we": "Śr.",
+                "th": "Czw.",
+                "fr": "Pt.",
+                "sa": "Sob."
+            },
+            "month": {
+                "january": "Styczeń",
+                "february": "Luty",
+                "march": "Marzec",
+                "april": "Kwiecień",
+                "may": "Maj",
+                "june": "Czerwiec",
+                "july": "Lipiec",
+                "august": "Sierpień",
+                "september": "Wrzesień",
+                "october": "Październik",
+                "november": "Listopad",
+                "december": "Grudzień"
+            },
+            "ranges": {
+                "today": "Dzisiaj",
+                "yesterday": "Wczoraj",
+                "last7Days": "Ostatnie 7 dni",
+                "last14Days": "Ostatnie 14 dni",
+                "last30Days": "Ostatnie 30 dni",
+                "last90Days": "Ostatnie 90 dni",
+                "thisMonth": "Ten miesiąc",
+                "custom": "Niestandardowy zakres",
+                "lastMonth": "Ostatni miesiąc",
+                "thisYear": "Ten rok"
+            },
+            "based_on": "W oparciu o ",
+            "time_zone": " Strefa czasowa"
+        },
+        "subtitle": {
+            "access_credentials": "Dane dostępu",
+            "contacts": "Kontakty",
+            "address": "Adres",
+            "financial_information": "Dane finansowe",
+            "additional_information": "Dodatkowe informacje",
+            "preferences": "Preferencje"
+        },
+        "export_file": {
+            "title": "Eksport",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Podczas generowania pliku wystąpił błąd, spróbuj później"
+        },
+        "pagination": {
+            "per_page": "Pokaż"
+        },
+        "table_columns_config": {
+            "cv_approved": "Ilość",
+            "cv_pending": "Ilość",
+            "cv_rejected": "Ilość",
+            "cv_total": "Ilość",
+            "clicks": "Brutto",
+            "impressions": "Ilość",
+            "cv_trash": "Ilość"
+        },
+        "validation": {
+            "password_repeat": "Hasła nie zgadzają się",
+            "email_already_taken": "Adres e-mail jest już zajęty",
+            "required": "Pole jest wymagane",
+            "email": "Nieprawidłowy adres e-mail",
+            "min_length_password": "Hasło powinno mieć co najmniej 8 znaków",
+            "max": "Liczba przekracza dozwoloną",
+            "incorrect_amount": "Nieprawidłowa kwota"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "Statystyki",
+            "conversions": "Konwersje",
+            "clicks": "Kliknięcia"
+        }
+    },
+    "auth": {
+        "forgot_password": "Nie pamiętasz hasła?"
+    },
+    "password_change": {
+        "button": "Zmień hasło",
+        "not_change": "Nie zmieniaj hasła"
+    },
+    "password_reset": {
+        "title": "Resetuj hasło",
+        "text": "Aby zresetować hasło, wprowadź adres e-mail, którego używasz do logowania",
+        "button": "Otrzymaj link do resetowania hasła",
+        "return_to_login": "Wróć do logowania"
+    },
+    "password_reset_confirm": {
+        "title": "Potwierdzenie",
+        "text": "Sprawdź swój e-mail. Wysłaliśmy Ci dalsze instrukcje dotyczące resetowania hasła",
+        "link": "Wróć do logowania"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Dodaj kontakt",
+            "description": {
+                "payment_details": "Na przykład: dane konta bankowego, numery karty, identyfikator PayPal itp."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "Codziennie",
+        "weekly": "Tygodniowo",
+        "monthly": "Miesięcznie",
+        "total": "Łącznie"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "Statystyki 14-dniowe"
+        },
+        "navigation": {
+            "all": "Wszystkie oferty"
+        },
+        "targeting": {
+            "except": "Z wyjątkiem:",
+            "denied": "Odmowa",
+            "offers_targeting_rules": {
+                "connection_type": "Typ połączenia",
+                "mobile_operator": "Operator sieci komórkowej",
+                "device_type": "Typ urządzenia",
+                "device_os": "System operacyjny urządzenia",
+                "device_os_version": "Wersja systemu operacyjnego urządzenia",
+                "device_brand": "Marka urządzenia",
+                "device_model": "Model urządzenia",
+                "browser": "Przeglądarka",
+                "language": "Język",
+                "worldwide": "Cały świat",
+                "geo": "Geo",
+                "expect": "Oczekiwanie",
+                "denied": "Odmowa",
+                "connection_type_allowed": "Dozwolony typ połączenia",
+                "mobile_operator_allowed": "Dozwolony operator komórkowy",
+                "device_type_allowed": "Dopuszczalny typ urządzenia",
+                "device_os_allowed": "Dozwolony system operacyjny urządzenia",
+                "device_os_version_allowed": "Dozwolona wersja systemu operacyjnego urządzenia",
+                "device_brand_allowed": "Dozwolona marka urządzenia",
+                "device_model_allowed": "Dopuszczalny model urządzenia",
+                "browser_allowed": "Dozwolona przeglądarka",
+                "language_allowed": "Dozwolony język",
+                "geo_allowed": "Dozwolone Geo",
+                "connection_type_denied": "Odrzucony typ połączenia",
+                "mobile_operator_denied": "Odrzucony operator komórkowy",
+                "device_type_denied": "Odrzucony typ urządzenia",
+                "device_os_denied": "Odrzucona wersja systemu operacyjnego",
+                "device_os_version_denied": "Odrzucona wersja systemu operacyjnego urządzenia",
+                "device_brand_denied": "Odrzucona marka urządzenia",
+                "device_model_denied": "Odrzucony model urządzenia",
+                "browser_denied": "Przeglądarka odrzucona",
+                "language_denied": "Język odrzucony",
+                "geo_denied": "Geo odrzucone",
+                "affiliate_sub_id_1": "Afiliant podrz. 1",
+                "affiliate_sub_id_2": "Afiliant podrz. 2",
+                "affiliate_sub_id_3": "Afiliant podrz. 3",
+                "affiliate_sub_id_4": "Afiliant podrz. 4",
+                "affiliate_sub_id_5": "Afiliant podrz. 5"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Wiele konwersji"
+            }
+        },
+        "creatives": {
+            "title": "Zasoby kreatywne"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Cele",
+                "creatives": "Zasoby kreatywne",
+                "targeting": "Targetowanie"
+            },
+            "targeting": {
+                "geo": "Geo"
+            }
+        },
+        "urls": {
+            "title": "Strony docelowe",
+            "type": {
+                "default": "Domyślne",
+                "preview": "Podgląd"
+            },
+            "visible_to_affiliates": "Visible to Affiliates"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "Szybki przegląd funkcjonowania ofert. Aktualizowany raz dziennie.",
+                    "ar": "Współczynnik zatwierdzenia â€” liczba zatwierdzonych konwersji spośród wszystkich konwersji. Kalkulacja dla wszystkich afiliantów za poprzedni miesiąc.",
+                    "cr": "Kurs konwersji â€” średnia liczba wszystkich konwersji na kliknięcie. Kalkulacja dla wszystkich afliantów w ciągu ostatnich 7 dni.",
+                    "epc": "Zyski za kliknięcie â€ średnie zarobki za kliknięcie. Kalkulacja dla wszystkich afiliantów dla ostatnich 7 dni.",
+                    "n_a": "Za mało danych, aby wyświetlić parametry"
+                },
+                "conversions": {
+                    "info": "Wszystkie konwersje z ostatnich 7 dni Ñ w porównaniu do poprzednich 7 dni. Dane sortowania są aktualizowane raz na dobę."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Baner",
+        "email": "E-mail",
+        "html": "HTML",
+        "xml_feed": "Feed XML"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finanse"
+        },
+        "table": {
+            "transaction_id": "ID płatności",
+            "payment_details": "Metoda płatności"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Podsumowanie sieci",
+        "top_offers": "Najlepsze oferty",
+        "volume": "Wolumen",
+        "metrics": "Wskaźniki",
+        "trends": "Trendy",
+        "legend": {
+            "cv_pending": "Oczekujące konwersje",
+            "impressions": "Wyświetlenia",
+            "clicks": "Kliknięcia brutto",
+            "cv_approved": "Zatwierdzone konwersje",
+            "cr": "CR",
+            "cv_rejected": "Odrzucone konwersje",
+            "approved_payout": "Zatwierdzona wypłata",
+            "pending_payout": "Oczekująca wypłata",
+            "rejected_payout": "Odrzucona wypłata",
+            "ctr": "CTR",
+            "unique_clicks": "Unikalne kliknięcia",
+            "duplicate_clicks": "Zduplikowane kliknięcia",
+            "invalid_clicks": "Nieprawidłowe kliknięcia",
+            "pr": "PR",
+            "cv_total": "Łączna liczba konwersji",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Wypłata za kliknięcia",
+            "total_payout": "Łączna wypłata"
+        },
+        "message_when_column_max": "Można wybrać maksymalnie 6 wskaźników."
+    },
+    "conversion_statuses": {
+        "pending": "Oczekujące",
+        "rejected": "Odrzucone",
+        "approved": "Zatwierdzone",
+        "default": "Domyślne",
+        "trash": "Kosz"
+    },
+    "reports_page": {
+        "custom": "Ogólne",
+        "last_updated": "Ostatnia aktualizacja: {{ minutes }} min temu",
+        "filters": {
+            "popular": "Popularne",
+            "offers": "Oferta",
+            "offer": "Oferta",
+            "offers_goals": "Cel",
+            "goals_types": "Typ celu",
+            "currencies": "Waluta",
+            "offers_creatives": "Zasób kreatywny",
+            "offers_links": "Strona docelowa",
+            "ips": "IP",
+            "track_ids": "ID śledzące reklamodawcy",
+            "advertisers_params1": "Parametry reklamodawcy 1",
+            "advertisers_params2": "Parametry reklamodawcy 2",
+            "advertisers_params3": "Parametry reklamodawcy 3",
+            "advertisers_params4": "Parametry reklamodawcy 4",
+            "advertisers_params5": "Parametry reklamodawcy 5",
+            "conversions_referrers": "Polecający adres URL konwersji",
+            "countries": "Kraj",
+            "devices_type": "Typ urządzenia",
+            "devices_brands": "Marka urządzenia",
+            "devices_models": "Model urządzenia",
+            "devices_os": "System operacyjny urządzenia",
+            "browsers": "Przeglądarka",
+            "connections_types": "Typ połączenia",
+            "languages": "Język",
+            "mobile_operators": "Operator sieci komórkowej",
+            "technical": "Techniczne",
+            "clickIds": "ID kliknięcia",
+            "data": "Data",
+            "transactions": "ID transakcji",
+            "statuses": "Status konwersji",
+            "orders_ids": "ID zamówienia reklamodawcy",
+            "users_ids": "ID użytkownika reklamodawcy",
+            "devices_os_version": "Wersja systemu operacyjnego urządzenia",
+            "browser_version": "Wersja przeglądarki",
+            "geo": "Geo",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "Jeden element na wiersz",
+            "visible_tooltip": "Zawsze utrzymuj w widoczności"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Komputer",
+                "smartphone": "Telefon",
+                "tablet": "Tablet",
+                "feature_phone": "Telefon funkcjonalny",
+                "console": "Konsola",
+                "tv": "TV",
+                "car_browser": "Przeglądarka samochodowa",
+                "smart_display": "Inteligentny wyświetlacz",
+                "camera": "Aparat",
+                "portable_media_player": "Przenośny odtwarzacz multimediów",
+                "phablet": "Fablet"
+            }
+        },
+        "statistics": {
+            "title": "Statystyki",
+            "menus": {
+                "affiliate": "Afiliant",
+                "offer": "Oferta",
+                "advertiser": "Reklamodawca",
+                "country": "Kraj",
+                "goal": "Cel",
+                "day": "Codziennie",
+                "monthly": "Miesięcznie",
+                "hour": "Godzina",
+                "device_type": "Typ urządzenia",
+                "connection_type": "Typ połączenia"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Zatwierdzone konwersje",
+                    "pending_conversions": "Oczekujące konwersje",
+                    "rejected_conversions": "Odrzucone konwersje",
+                    "trash_conversions": "Usunięte konwersje"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Klika na link śledzenia afilianta, gdy odwiedzający jest przekierowany do strony docelowej oferty.",
+                    "clicks": "Wszystkie kliknięcia, w tym unikalne, zduplikowane i nieprawidłowe",
+                    "unique_clicks": "Kliknięcia otrzymane od innych użytkowników",
+                    "invalid_clicks": "Kliknięcia, które zostały przekierowane na adres URL Trafficback ze względu na nieprzestrzeganie warunków docelowych lub z powodu uszkodzonego linku afiliacyjnego.",
+                    "approved_conversions": "Konwersje zatwierdzone przez reklamodawcę.",
+                    "pending_conversions": "Po sprawdzeniu przez reklamodawcę konwersje te zostaną zatwierdzone lub odrzucone.",
+                    "rejected_conversions": "Konwersje odrzucone przez reklamodawcę."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Konwersje"
+        },
+        "clicks": {
+            "title": "Kliknięcia"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Kliknięcia, które zostały przekierowane na adres URL Trafficback ze względu na nieprzestrzeganie warunków docelowych lub z powodu uszkodzonego linku afiliacyjnego."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Postbacks (lub piksele) otrzymane od reklamodawcy, które pokazują, czy konwersja została zapisana pomyślnie lub czy wystąpił błąd."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Postbacks (lub piksele) wysłane do partnera. Wyświetlane, jeśli partner używa własnego trackera i zainstalował postback tego trackera na Twojej platformie."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Masowa edycja konwersji: zmień status, zmień wypłatę lub dodaj konwersje."
+        }
+    },
+
+    "POWERED_BY": "Zasilane przez "
+}

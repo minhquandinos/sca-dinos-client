@@ -1,0 +1,65 @@
+<ng-container *ngIf="selected2$ | async as selected2">
+    <div class="filtered__row" *ngIf="selected2.length" [ngClass]="{'haveItems': selected?.length > 0}">
+
+        <div class="filtered__box d-flex align-items-center" >
+
+            <div class="filtered__title">{{ title }}:</div>
+
+            <div class="filtered__values d-flex align-items-center">
+
+                <ui-chip
+                    size="large"
+                    [rounded]="(itemStyle !== 'rectangle')"
+                    [close]="true"
+                    (closed)="removeHandler(item[itemValue])"
+                    *ngFor="let item of selected2 | slice:0:sliceCounter; let i = index;"
+                >
+                    <ui-image
+                        *ngIf="item?.image"
+                        [height]="(itemStyle === 'rectangle') ? 16 : 20"
+                        [type]="(itemStyle === 'rectangle') ? 'rounded' : 'circle'"
+                        [image]="item?.image"
+                    ></ui-image>
+                    <ng-container [ngSwitch]="true">
+                        <ng-container *ngSwitchCase="!!item?.translate">
+                            {{ item?.translate | translate }}
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="!!itemTemplate">
+                            <ng-template
+                                [ngTemplateOutlet]="itemTemplate"
+                                [ngTemplateOutletContext]="{ $implicit: item }"
+                            ></ng-template>
+                        </ng-container>
+
+                        <ng-container *ngSwitchDefault>
+                            {{ item[itemTitle] }}
+                        </ng-container>
+                    </ng-container>
+                </ui-chip>
+
+                <ui-chip
+                    size="large"
+                    [rounded]="(itemStyle !== 'rectangle')"
+                    *ngIf="sliceCounter && selected2.length > sliceCounter"
+                >
+                    + {{ selected2.length - sliceCounter }}
+                </ui-chip>
+
+                <ng-container *ngIf="selected2.length > 1">
+                    <ui-chip
+                        className="filtered__close"
+                        size="large"
+                        [noColor]="true"
+                        (click)="clearHandler()">
+                        {{ 'interface.basic.clear' | translate }}
+                    </ui-chip>
+                </ng-container>
+            </div>
+
+        </div>
+
+    </div>
+</ng-container>
+
+

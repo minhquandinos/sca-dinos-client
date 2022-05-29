@@ -1,0 +1,67 @@
+<ui-table
+    [headers]="headers"
+    [headerSticky]="true"
+    headerPosition="left"
+    [isLoad]="isLoad"
+    [notFround]="notFound$ | async"
+    [skeletonTemplate]="skeleton"
+    (sorting)="sortingColumn($event)"
+    className="table-dashboard custom-dashboard-widget-top-affiliate__table pb-0"
+    [isTransparentHead]="false"
+    [reducedBorder]="true"
+    [rowTemplate]="itemTpl"
+    [items]="items$ | async"
+></ui-table>
+
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of shared.generateFake(5)" class="skeleton">
+        <td ui-table-col *ngFor="let head of headers">
+            <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+        </td>
+    </tr>
+</ng-template>
+
+<ng-template #itemTpl let-item="context">
+    <td ui-table-col>
+        <app-hyperlink
+            linkClassName="color__main-link"
+            valueClassName="text-pre-wrap"
+            [link]="{
+                link: '/affiliates/' + (item.affiliate | pregMatch: 'number') | navigateRoot,
+                title: item.affiliate | format: 'idName'
+            }"
+            [permission]="permissions.canAccessAffiliates"
+        ></app-hyperlink>
+    </td>
+    <td ui-table-col>
+        <div class="d-flex flex-column align-items-end w-100">
+            {{ item?.value | format: 'money':{ digitsAfterPoint: 0 } }}
+
+            <app-filled-line
+                [maxValue]="maxRevenueValue"
+                [revenue]="+item?.value"
+            ></app-filled-line>
+        </div>
+    </td>
+    <td ui-table-col>
+        <div class="d-flex justify-content-end w-100" appChangeColorOfNumber [value]="+item.change">
+            <span *ngIf="item.change > 0">+</span>
+            <span>{{ item.change | format: 'percent':{digitsAfterPoint: 0} }}</span>
+        </div>
+    </td>
+</ng-template>
+
+<ng-template #footerTpl>
+    <span class="date-info">{{ datePreset$ | async }}</span>
+
+    <ui-button-link
+        class="ml-auto"
+        *ngIf="(itemsLength$ | async) > 0"
+        iconPosition="right"
+        icon="arrow-right-3"
+        type="simple"
+        color="main"
+        (click)="toReport()"
+        [label]="'dashboard_page.view_report' | translate"
+    ></ui-button-link>
+</ng-template>

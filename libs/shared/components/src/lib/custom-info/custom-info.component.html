@@ -1,0 +1,14 @@
+<div class="line-info d-flex align-items-center" [ngClass]="className" #element>
+    <div class="line-info__label">
+        <span *ngIf="label; else labelContent">{{ label }}</span>
+        <ng-template #labelContent>
+            <ng-content select="[info-label]"></ng-content>
+        </ng-template>
+    </div>
+    <div class="line-info__value" [ngClass]="{'ml-auto': valueAlignRight}">
+        <span *ngIf="value; else valueContent">{{ value }}</span>
+        <ng-template #valueContent>
+            <ng-content select="[info-value]"></ng-content>
+        </ng-template>
+    </div>
+</div>

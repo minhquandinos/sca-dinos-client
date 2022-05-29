@@ -1,0 +1,65 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Cant.",
+                "cv_pending": "Cant.",
+                "cv_rejected": "Cant.",
+                "cv_total": "Cant.",
+                "clicks": "Bruto",
+                "impressions": "Cant.",
+                "antifraud_logic_score": "Fraude",
+                "cv_trash": "Cant."
+            },
+            "tooltip": {
+                "tr": "Tasa de conversión total",
+                "cr": "Tasa de conversión aprobada",
+                "pr": "Tasa de conversión pendiente",
+                "rr": "Tasa de conversión rechazada",
+                "rpc": "Ingresos por clic",
+                "cpc": "Coste por clic",
+                "epc": "Ganancias por clic",
+                "rpa": "Ingresos por conversión aprobada",
+                "cpa": "Coste por conversión aprobada",
+                "epa": "Ganancias por conversión aprobada",
+                "rpm": "Ingresos por cada 1000 impresiones",
+                "cpm": "Coste por cada 1000 impresiones",
+                "epm": "Ganancias por cada 1000 impresiones",
+                "total_conversions": "Approved and Pending conversions",
+                "total_conversions_without_rejected": "Aprobado, pendiente",
+                "total_conversions_include_rejected_in_totals": "Approved, Pending, Rejected and Trash conversions",
+                "ctr": "Tasa de clics (clics para obtener impresiones)",
+                "cv_total": "Aprobado, pendiente, rechazado, basura",
+                "ar": "Approved  Conversions Rate per Total Conversions",
+                "trash_conversions": "Conversions with incorrect data, fraud or test conversions"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Afiliado",
+            "affiliates_sources": "Origen de afiliado",
+            "affiliates_subids1": "SubId 1 de afiliado",
+            "affiliates_subids2": "SubId 2 de afiliado",
+            "affiliates_subids3": "SubId 3 de afiliado",
+            "affiliates_subids4": "SubId 4 de afiliado",
+            "affiliates_subids5": "SubId 5 de afiliado",
+            "affiliates_params1": "Parámetro 1 de afiliado",
+            "affiliates_params2": "Parámetro 2 de afiliado",
+            "affiliates_params3": "Parámetro 3 de afiliado",
+            "affiliates_params4": "Parámetro 4 de afiliado",
+            "affiliates_params5": "Parámetro 5 de afiliado",
+            "deep_links": "URL de deeplink",
+            "aff_click_ids": "Id. de clic de afiliado",
+            "reasons": "Motivo",
+            "redirections": "Redireccionamiento"
+        },
+        "logs": {
+            "title": "Registros del tráfico",
+            "menus": {
+                "clicks": "Tráfico no válido",
+                "postbacks": "Postbacks"
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "table_alternative": {
+                    "cv_approved": "Quantitat",
+                    "cv_pending": "Quantitat",
+                    "cv_rejected": "Quantitat",
+                    "cv_total": "Quantitat",
+                    "clicks": "Brut",
+                    "impressions": "Quantitat",
+                    "antifraud_logic_score": "Frau",
+                    "cv_trash": "Qty"
+                }
+            },
+            "tooltip": {
+                "tr": "Taxa de conversió total",
+                "cr": "Taxa de conversió aprovada",
+                "pr": "Taxa de conversió pendent",
+                "rr": "Taxa de conversió rebutjada",
+                "rpc": "Ingressos per clic",
+                "cpc": "Preu per clic",
+                "epc": "Beneficis per clic",
+                "rpa": "Ingressos per conversió aprovada",
+                "cpa": "Preu per conversió aprovada",
+                "epa": "Beneficis per conversió aprovada",
+                "rpm": "Ingressos per 1000 impressions",
+                "cpm": "Preu per 1000 impressions",
+                "epm": "Beneficis per 1000 impressions",
+                "total_conversions": "Aprovat, pendent, rebutjat",
+                "total_conversions_without_rejected": "Aprovat, pendent",
+                "total_conversions_include_rejected_in_totals": "Approved, Pending, Rejected and Trash conversions ",
+                "ctr": "Taxa de clics (clics a impressions)",
+                "cv_total": "Aprovat, pendent, rebutjat",
+                "ar": "Taxa de conversions aprovades pel total de conversions",
+                "trash_conversions": "Conversions with incorrect data, fraud or test conversions"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Afiliat",
+            "affiliates_sources": "Font de l'afiliat",
+            "affiliates_subids1": "Sub ID 1 de l'afiliat",
+            "affiliates_subids2": "Sub ID 2 de l'afiliat",
+            "affiliates_subids3": "Sub ID 3 de l'afiliat",
+            "affiliates_subids4": "Sub ID 4 de l'afiliat",
+            "affiliates_subids5": "Sub ID 5 de l'afiliat",
+            "affiliates_params1": "Paràmetre 1 de l'afiliat",
+            "affiliates_params2": "Paràmetre 2 de l'afiliat",
+            "affiliates_params3": "Paràmetre 3 de l'afiliat",
+            "affiliates_params4": "Paràmetre 4 de l'afiliat",
+            "affiliates_params5": "Paràmetre 5 de l'afiliat",
+            "deep_links": "URL de l'enllaç profund",
+            "aff_click_ids": "ID del clic de l'afiliat",
+            "reasons": "Motiu",
+            "redirections": "Redirecció",
+            "affiliate_billing": "Affiliate Billing",
+            "paid_to_affiliate": "Paid to Affiliate",
+            "affiliate_invoice": "Affiliate Invoice"
+        },
+        "logs": {
+            "title": "Registres de trànsit",
+            "menus": {
+                "clicks": "Clics no vàlids",
+                "postbacks": "Postbacks"
+            },
+            "info_conversions": "No trobes unes conversions en concret? Mira-ho a ",
+            "info_clicks": "No trobes certs clics? Mira-ho a "
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Qtà",
+                "cv_pending": "Qtà",
+                "cv_rejected": "Qtà",
+                "cv_total": "Qtà",
+                "clicks": "Lordo",
+                "impressions": "Qtà",
+                "antifraud_logic_score": "Frode",
+                "cv_trash": "Qtà"
+            },
+            "tooltip": {
+                "tr": "Tasso di conversione totale",
+                "cr": "Tasso di conversione approvato",
+                "pr": "Tasso di conversione in sospeso",
+                "rr": "Tasso di conversione rifiutato",
+                "rpc": "Ricavo per clic",
+                "cpc": "Costo per clic",
+                "epc": "Guadagno per clic",
+                "rpa": "Ricavo per conversione approvata",
+                "cpa": "Costo per conversione approvata",
+                "epa": "Guadagno per conversione approvata",
+                "rpm": "Ricavo per 1000 impression",
+                "cpm": "Costo per 1000 impression",
+                "epm": "Guadagno per 1000 impression",
+                "total_conversions": "Conversioni approvate e in sospeso",
+                "total_conversions_without_rejected": "Approvate, in sospeso",
+                "total_conversions_include_rejected_in_totals": "Approvate, in sospeso, rifiutate e spazzatura ",
+                "ctr": "Tasso di clic (clic a impression)",
+                "cv_total": "Approvate, in sospeso,rifiutate",
+                "ar": "Tasso di conversione approvato per conversioni totali",
+                "trash_conversions": "Conversioni con dati incorretti, frode o conversioni di prova"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Affiliato",
+            "affiliates_sources": "Fonte affiliato",
+            "affiliates_subids1": "Sub ID affiliato 1",
+            "affiliates_subids2": "Sub ID affiliato 2",
+            "affiliates_subids3": "Sub ID affiliato 3",
+            "affiliates_subids4": "Sub ID affiliato 4",
+            "affiliates_subids5": "Sub ID affiliato 5",
+            "affiliates_params1": "Param affiliato 1",
+            "affiliates_params2": "Param affiliato 2",
+            "affiliates_params3": "Param affiliato 3",
+            "affiliates_params4": "Param affiliato 4",
+            "affiliates_params5": "Param affiliato 5",
+            "deep_links": "URL deep link",
+            "aff_click_ids": "ID clic affiliato",
+            "reasons": "Motivo",
+            "redirections": "Reindirizzamento"
+        },
+        "logs": {
+            "title": "Registri traffico",
+            "menus": {
+                "clicks": "Clic non validi",
+                "postbacks": "Postback"
+            },
+            "info_conversions": "Non riesci a trovare certe conversioni? Verifica ",
+            "info_clicks": "Non riesci a trovare certi clic? Verifica "
+        }
+    }
+}

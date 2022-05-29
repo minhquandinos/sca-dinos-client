@@ -1,0 +1,56 @@
+<app-card [headerDivider]="true" contentClassName="p-0">
+    <ng-container cardHeader>
+        <div class="title"> {{ 'offers_page.goals.title' | translate }}</div>
+        <div class="d-flex my-auto ml-auto">
+            <ui-button-link
+                type="floating"
+                [label]="'offers_page.goals.add' | translate"
+                icon="plus-small"
+                (click)="upsertForm()"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+
+    <app-filters
+        [formGroup]="form"
+        [title]="'interface.basic.filtered_by' | translate"
+        [results]="totalCount$ | async"
+        className="p-l-16"
+    >
+        <app-filter>
+            <app-find-platform-statuses
+                statusList="goals_statuses"
+                itemValue="status"
+                formName="status"
+                (toggle)="statusWasChanged($event)"
+                [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+            ></app-find-platform-statuses>
+        </app-filter>
+
+        <app-filter class="ml-auto">
+            <app-custom-search
+                [placeholder]="'interface.basic.search' | translate"
+                (toggleSearch)="searching($event)"
+            ></app-custom-search>
+        </app-filter>
+    </app-filters>
+
+    <scaleo-offer-goals-list
+        [items]="items$ | async"
+        [loading]="loading$ | async"
+        (openEditForm)="upsertForm($event)"
+    ></scaleo-offer-goals-list>
+
+    <ng-container cardFooter>
+        <app-custom-pagination
+            *ngIf="showPagination$ | async"
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChanged($event)"
+        >
+        </app-custom-pagination>
+    </ng-container>
+
+
+</app-card>
+

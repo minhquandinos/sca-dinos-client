@@ -1,0 +1,89 @@
+.announcements {
+    .page-wrapper-header {
+        overflow-x: auto;
+        padding-right: 0;
+
+        .title {
+            padding-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .table-announcements {
+        thead tr th{
+            padding-right: 25px;
+
+            &:first-child {
+                padding-left: 40px;
+            }
+        }
+
+        tbody {
+            td {
+                padding-right: 25px;
+
+                &:first-child {
+                    padding-left: 8px;
+                }
+
+                &:last-child {
+                    min-width: 115px;
+                    padding-right: 4px;
+                }
+
+                .table__box-image {
+                    height: 64px;
+                }
+
+                .announcement {
+                    &__title {
+                        color: $color__gray;
+                        font-size: $font__14;
+                        line-height: 17px;
+                        @include font-family-bold;
+                        margin-bottom: 4px;
+                    }
+
+                    &__date {
+                        font-size: $font__14;
+                        line-height: 20px;
+                        color: $color__gray3;
+                    }
+
+                    &__offer {
+                        font-size: $font__14;
+                        line-height: 16px;
+                        color: $color__main-links;
+                        margin: 2.5px 0;
+                    }
+
+                    &__visible-for {
+                        display: flex;
+                        flex-direction: column;
+
+                        span {
+                            line-height: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+app-announcements-edit {
+    .page-wrapper-content {
+        padding-top: 27px;
+
+        label {
+            line-height: 17px;
+        }
+
+        quill-editor {
+            .ql-container {
+                min-height: 140px;
+            }
+        }
+    }
+
+}

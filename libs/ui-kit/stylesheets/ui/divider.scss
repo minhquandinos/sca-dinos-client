@@ -1,0 +1,16 @@
+.ui-divider {
+    display: block;
+    background: $color__light-gray10;
+
+    &--horizontal {
+        height: 1px;
+        width: auto;
+    }
+
+    &--vertical {
+        width: 1px;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: 100%;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="d-flex report-filters__selects">
+    <app-report-filters-selected
+        [selectedFiltersList]="filtersSelected$ | async"
+        (changeFilterValue)="filterValueWasChanged($event)"
+    ></app-report-filters-selected>
+     <ng-container *ngIf="filterList$ | async as filterList">
+         <app-report-filters-dropdown
+             [filtersList]="filterList"
+             class="ml-2"
+             (selectedFilter)="selectedFilter($event)"
+             (removedFilter)="removeFilter($event)"
+             (savedFilter)="savedFilter($event)"
+         ></app-report-filters-dropdown>
+     </ng-container>
+</div>
+
+<app-report-output-filters-selected
+    [selectedFiltersList]="filtersSelectedOutput$ | async"
+    (clearFilter)="clearFilter($event)"
+    (clearFilterValue)="clearFilterValue($event)"
+></app-report-output-filters-selected>

@@ -1,0 +1,70 @@
+<ng-template appModal3Title>
+    <div class="title">{{ title$ | async }}</div>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link
+        *ngIf="allowedCustomRole$ | async"
+        appDisableButtonDuringRequest
+        [label]="'shared.dictionary.save' | translate"
+        (toggle)="save()"
+    ></ui-button-link>
+</ng-template>
+
+<div class="form" [formGroup]="form">
+    <div class="form-group">
+        <app-input [formControlName]="permissionFormControl.title" [label]="'interface.basic.title' | translate"></app-input>
+    </div>
+
+    <div class="form-group" *ngIf="showFindRole">
+        <div class="form-row">
+            <div class="form-col col-6">
+                <app-find-role
+                    [roleType]="baseRoleType"
+                    itemLabel="label"
+                    itemValue="role"
+                    [label]="'settings.roles_permissions.upsert.role_type.label' | translate"
+                    [placeholder]="'interface.basic.select' | translate"
+                    [formName]="permissionFormControl.role"
+                    (toggle)="changeRoleType()"
+                ></app-find-role>
+            </div>
+        </div>
+
+        <div class="form-text">
+            <span>{{ 'settings.roles_permissions.upsert.role_type.info' | translate }}</span>
+            <ul class="ul-description">
+                <li>{{ 'settings.roles_permissions.upsert.role_type.first' | translate }}</li>
+                <li>{{ 'settings.roles_permissions.upsert.role_type.second' | translate }}</li>
+                <li>{{ 'settings.roles_permissions.upsert.role_type.third' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <scaleo-ui-loader *ngIf="loadingConfigure" class="d-flex justify-content-center" [sizeInPx]="50"></scaleo-ui-loader>
+    <ng-container *ngIf="roleConfigure$ | async as roleConfigure">
+        <div class="permissions" *ngIf="!loadingConfigure" [ngClass]="{ 'permissions--disabled': isDisabledCustomRole$ | async }">
+            <div class="d-flex align-items-center">
+                <div class="title is-4 m-0">{{ 'settings.roles_permissions.upsert.permissions_title' | translate }}</div>
+                <app-upgrade-plan-info class="ml-auto" [planPermission]="planPermissionEnum.customRole"></app-upgrade-plan-info>
+            </div>
+            <div class="permissions__list">
+                <ng-container [formArrayName]="permissionFormControl.groups">
+                    <scaleo-configuration-group
+                        *ngFor="let group of groupsControls; let i = index; trackBy: trackByFn"
+                        [group]="roleConfigure[i]"
+                        [groupIndex]="i"
+                    ></scaleo-configuration-group>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+
+    <ui-button-link
+        *ngIf="canDeleteRole$ | async"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</div>

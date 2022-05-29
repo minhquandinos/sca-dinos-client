@@ -1,0 +1,33 @@
+@import "libs/ui-kit/stylesheets/utils";
+:host {
+
+    display: block;
+
+    .sidenav {
+
+        &__group {
+            margin-top: 1.5rem;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &-title {
+                display: block;
+                text-transform: uppercase;
+                color: $color__gray3;
+                font-size: $font-size-x-small;
+                padding: 0 .75rem .25rem .75rem;
+            }
+        }
+
+        &__items {
+
+        }
+
+        &__item {
+
+        }
+
+    }
+}

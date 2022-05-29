@@ -1,0 +1,26 @@
+<ng-container *ngIf="(contacts$ | async) as contacts; else defaultPhone">
+    <div
+        class="d-flex align-items-center"
+        [ngClass]="{'m-b-6': !last}"
+         *ngFor="let contact of contacts | slice:0:this.show ? this.show : contacts.length; let last = last"
+    >
+        <shared-contact-icon
+            [icon]="contact"
+        ></shared-contact-icon>
+        <ng-container *ngIf="last">
+            <ui-svg-icon
+                *ngIf="this.show !== 'all' && contacts?.length > this.show" icon="more-horisontal-small"
+                size="14"
+                className="m-l-3"
+                [tooltip]="allContactsAsString$ | async"></ui-svg-icon>
+        </ng-container>
+    </div>
+</ng-container>
+<ng-template #defaultPhone>
+    <shared-contact-icon
+            icon="call"
+            [value]="phone"
+    ></shared-contact-icon>
+</ng-template>
+
+

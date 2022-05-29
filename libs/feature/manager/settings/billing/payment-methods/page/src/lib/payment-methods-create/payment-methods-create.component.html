@@ -1,0 +1,131 @@
+<ng-template appModal3Title>
+    <span class="title text-nowrap">
+        {{
+            !editId
+                ? ('billing2.settings.payments_methods.add_as_title' | translate)
+                : ('billing2.settings.payments_methods.edit' | translate) + ' #' + editId
+        }}
+    </span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate" (toggle)="add()"></ui-button-link>
+</ng-template>
+
+<div class="container d-flex justify-content-center" *ngIf="isLoad || !editId; else skeleton">
+    <form class="w-100" [formGroup]="form" autocomplete="off">
+        <div class="form-group w-50">
+            <app-find-platform-statuses
+                [label]="'shared.dictionary.status' | translate"
+                statusList="statuses"
+                itemLabel="title"
+                itemValue="id"
+                formName="status"
+                [exceptIds]="[platformListsStatusesEnum.Pending]"
+            ></app-find-platform-statuses>
+        </div>
+
+        <div class="form-group">
+            <app-input [label]="'table.column.title' | translate" formControlName="title" maxLength="128"></app-input>
+        </div>
+
+        <div class="form-group">
+            <app-select
+                [placeholder]="'billing2.settings.payments_methods.all_currencies' | translate"
+                [items]="currencies$ | async"
+                [label]="'billing2.settings.payments_methods.supported_currencies' | translate"
+                [hideSelected]="true"
+                itemLabel="title"
+                itemValue="code"
+                formControlName="supported_currencies"
+                [multiple]="true"
+                [clearable]="true"
+            ></app-select>
+            <div class="form-text">{{ 'billing2.settings.payments_methods.supported_currencies_description' | translate }}</div>
+        </div>
+
+        <div class="form-group pl-0">
+            <div class="form-row col-6 m-0 p-0">
+                <div class="form-group col-7 p-0 m-0 white-space-nowrap">
+                    <app-input
+                        numeric="float"
+                        [label]="'table.column.minimum_threshold' | translate"
+                        formControlName="payment_threshold"
+                        maxLength="9"
+                    ></app-input>
+                </div>
+                <div class="form-group col-5 pl-3 m-0 pr-0">
+                    <app-find-platform-list
+                        [label]="'interface.form.currency' | translate"
+                        platformList="currencies"
+                        [placeholder]="'billing2.settings.payments_methods.all_currencies' | translate"
+                        itemLabel="code"
+                        itemValue="code"
+                        formName="payment_threshold_currency"
+                    ></app-find-platform-list>
+                </div>
+            </div>
+            <div class="form-text">{{ 'billing2.settings.payments_methods.payment_threshold_description' | translate }}</div>
+        </div>
+
+        <div class="form-group pl-0">
+            <div class="w-50">
+                <app-input
+                    [inputText]="'%'"
+                    inputTextPosition="right"
+                    numeric="float"
+                    [label]="'billing2.settings.payments_methods.commission' | translate"
+                    formControlName="payment_commission"
+                    maxLength="3"
+                ></app-input>
+            </div>
+            <div class="form-text">{{ 'billing2.settings.payments_methods.commission_description' | translate }}</div>
+        </div>
+
+        <div class="form-group pl-0">
+            <div class="w-50">
+                <label class="field-label field-label-top">
+                    {{ 'billing2.settings.payments_methods.payment__method_logo' | translate }}
+                </label>
+                <ng-container *ngIf="editId && editId <= 8; else cropper">
+                    <ui-image height="96" width="96" [image]="logo" type="rounded"></ui-image>
+                </ng-container>
+                <ng-template #cropper>
+                    <app-form-logo
+                        [editId]="editId"
+                        [image]="logo"
+                        [typeForImage]="'payments-methods'"
+                        (change)="changeImage($event)"
+                        (delete)="deleteImage()"
+                        type="rounded"
+                    ></app-form-logo>
+                </ng-template>
+            </div>
+
+            <div class="form-text">{{ 'billing2.settings.payments_methods.payment__method_logo_description' | translate }}</div>
+        </div>
+
+        <ui-button-link
+            *ngIf="editId && editId > 8"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-50"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </form>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <ui-skeleton-block height="medium" size="large" [width]="25"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

@@ -1,0 +1,272 @@
+<div class="page-inner pb-0 pt-0">
+    <div class="page-wrapper bg-unset d-flex">
+        <div class="page-block m-r-16">
+            <ng-container *ngIf="advertiserData; else advertiserProfileSkeletonTpl">
+                <ng-template [ngTemplateOutlet]="detailTpl"></ng-template>
+            </ng-container>
+        </div>
+
+        <div class="page-block">
+            <!--            <app-advertiser-profile-finances [id]="id"></app-advertiser-profile-finances>-->
+
+            <app-advertiser-profile-quick-links [id]="id"></app-advertiser-profile-quick-links>
+
+            <scaleo-detail-widget-wrapper [title]="'dashboard_page.top_offers' | translate">
+                <scaleo-advertiser-detail-top-offers-widget [id]="id"></scaleo-advertiser-detail-top-offers-widget>
+            </scaleo-detail-widget-wrapper>
+
+            <scaleo-activity-log-entity-detail-widget
+                *ngxPermissionsOnly="[managerPermissions.canAccessActivityLog]"
+                [filter]="{ advertiser: id }"
+                [linkForViewAll]="'activity-log'"
+            ></scaleo-activity-log-entity-detail-widget>
+        </div>
+    </div>
+    <ng-template #skeleton>
+        <app-profile-skeleton></app-profile-skeleton>
+    </ng-template>
+</div>
+
+<ng-template #detailTpl>
+    <ui-page-wrapper [borderRadius]="4">
+        <ui-page-wrapper-header className="p-x-20 pb-3 p-t-26">
+            <div class="w-100 d-flex flex-column flex-md-row">
+                <div class="d-flex align-items-center">
+                    <div class="m-r-18">
+                        <img [src]="advertiserData?.image" alt="" class="img-profile" />
+                    </div>
+
+                    <div class="company d-flex flex-column">
+                        <div class="d-flex align-items-center">
+                            <div class="company-title m-r-8">{{ advertiserData?.company_name }}</div>
+                        </div>
+
+                        <div class="name">{{ advertiserData?.firstname }} {{ advertiserData?.lastname }}</div>
+
+                        <div class="company-status mt-2">
+                            <div class="d-flex align-items-center" *ngIf="advertiserData?.status">
+                                <app-status-dot-color
+                                    type="statuses"
+                                    [showLabel]="true"
+                                    [status]="advertiserData?.status"
+                                ></app-status-dot-color>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ml-md-auto mt-2 mt-md-0 d-flex justify-content-between">
+                    <ui-button-link
+                        *ngIf="advertiserData.status | isTruthy: statusId.Active"
+                        type="floating"
+                        [label]="'advertiser.basic.login' | translate"
+                        (click)="loginAs()"
+                        className="m-r-8"
+                    ></ui-button-link>
+                    <ui-button-link
+                        *ngxPermissionsOnly="permissions.canAddEditDeleteAdvertisers"
+                        type="floating"
+                        (click)="openModal()"
+                        [label]="'shared.dictionary.short_edit' | translate"
+                    ></ui-button-link>
+                </div>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-content className="pl-3 pr-3">
+            <div class="profile-info__title m-b-8">{{ 'interface.subtitle.contacts' | translate }}</div>
+
+            <div class="profile-info__row d-flex">
+                <div class="profile-info__row-name pl-0 col-5">{{ 'email' | translate }}:</div>
+                <div class="profile-info__row-value d-flex pl-0 col-6 align-items-center">
+                    <app-custom-info className="view-email">
+                        <ui-svg-icon
+                            info-label=""
+                            [size]="16"
+                            class=""
+                            icon="ic_mailroom"
+                            tooltip="{{ 'shared.tooltip.email' | translate }}"
+                        ></ui-svg-icon>
+                        <div info-value="" class="my-auto">
+                            <a href="mailto:{{ advertiserData?.email }}">{{ advertiserData?.email }}</a>
+                        </div>
+                    </app-custom-info>
+                </div>
+            </div>
+
+            <div class="profile-info__row d-flex" *ngIf="advertiserData?.phone">
+                <div class="profile-info__row-name pl-0 col-5">{{ 'interface.form.phone' | translate }}:</div>
+                <div class="profile-info__row-value d-flex pl-0 col-6 align-items-center">
+                    <ui-svg-icon [size]="14" class="m-r-8" icon="call" tooltip="{{ 'shared.tooltip.phone' | translate }}"></ui-svg-icon>
+                    <a href="tel:{{ advertiserData?.phone }}">{{ advertiserData?.phone }}</a>
+                </div>
+            </div>
+
+            <shared-contacts-profile *ngIf="advertiserData?.contacts" [contacts]="advertiserData?.contacts"></shared-contacts-profile>
+
+            <div class="profile-info__row d-flex flex-column flex-md-row" *ngIf="address">
+                <div class="profile-info__row-name pl-0 col-5">{{ 'interface.subtitle.address' | translate }}:</div>
+                <div class="profile-info__row-value d-flex pl-0 col-6 flex-wrap">
+                    {{ address }}
+                </div>
+            </div>
+
+            <section *ngIf="advertiserData?.payment_details">
+                <div class="profile-info__title m-b-10">{{ 'interface.subtitle.financial_information' | translate }}:</div>
+
+                <div class="profile-info__row d-flex flex-column flex-md-row" *ngIf="advertiserData?.payment_details">
+                    <div class="profile-info__row-name pl-0 col-md-5">{{ 'interface.form.payment_details' | translate }}:</div>
+                    <div class="profile-info__row-value">{{ advertiserData?.payment_details }}</div>
+                </div>
+            </section>
+
+            <app-custom-field-view
+                [customFields]="advertiserData?.custom_fields"
+                [title]="'interface.subtitle.additional_information' | translate"
+            ></app-custom-field-view>
+
+            <section>
+                <div class="profile-info__title m-b-8">{{ 'interface.subtitle.administration' | translate }}:</div>
+
+                <div class="d-flex" *ngIf="advertiserData?.tags_selected.length > 0">
+                    <div class="profile-info__row d-flex flex-column flex-md-row">
+                        <div class="profile-info__row-name pl-0 col-5">{{ 'interface.form.tags' | translate }}:</div>
+                        <div class="profile-info__row-value">
+                            <app-tags-lists
+                                *ngIf="advertiserData?.tags_selected"
+                                [tags]="advertiserData?.tags_selected"
+                                [showAll]="true"
+                            ></app-tags-lists>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column" *ngIf="advertiserData?.managers_assigned.length > 0">
+                    <div class="profile-info__row d-flex flex-column flex-md-row">
+                        <div class="profile-info__row-name pl-0 col-5">{{ 'shared.dictionary.teammates' | translate }}:</div>
+                        <div class="profile-info__row-value flex-wrap">
+                            <app-manager-list
+                                [managers]="advertiserData?.managers_assigned"
+                                [showAll]="true"
+                                className="manager-list--profile"
+                            ></app-manager-list>
+                        </div>
+                    </div>
+
+                    <div class="profile-info__row d-flex" *ngIf="advertiserData?.api_status === 1">
+                        <div class="profile-info__row-name pl-0 col-5">{{ 'interface.basic.api_access' | translate }}:</div>
+                        <div class="profile-info__row-value">
+                            <span class="color__green">
+                                {{ 'interface.basic.enabled' | translate }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex" *ngIf="advertiserData?.notes">
+                    <div class="profile-info__row d-flex flex-column flex-md-row">
+                        <div class="profile-info__row-name pl-0 col-md-5">{{ 'interface.form.internal_information' | translate }}:</div>
+                        <div class="profile-info__row-value">
+                            {{ advertiserData?.notes }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row">
+                    <div class="profile-info__row d-flex">
+                        <div class="profile-info__row-name pl-0 col-5">{{ 'interface.basic.registration' | translate }}:</div>
+                        <div class="profile-info__row-value d-flex align-items-center">
+                            <div class="mr-2">{{ advertiserData?.created | format: 'date' }}</div>
+                            <div class="d-flex align-items-center">
+                                <ui-svg-icon
+                                    class="cursor-info"
+                                    icon="info-4"
+                                    size="16"
+                                    [tooltip]="TooltipRegistration"
+                                    contentType="template"
+                                ></ui-svg-icon>
+                            </div>
+                            <ng-template #TooltipRegistration>
+                                <div>{{ advertiserData?.registration?.ip }}</div>
+                                <div class="profile-info__row-value--geo">
+                                    <img [src]="countryIcon" alt="" />
+                                    {{ advertiserData?.registration?.country }}, {{ advertiserData?.registration?.region }},
+                                    {{ advertiserData?.registration?.city }}
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                    <div class="profile-info__row d-flex" *ngIf="advertiserData?.activity || advertiserData?.visited">
+                        <div class="profile-info__row-name pl-0 col-5 white-space-nowrap">
+                            {{ 'interface.basic.sort.visited' | translate }}:
+                        </div>
+                        <div class="profile-info__row-value d-flex">
+                            <div class="mr-2" *ngIf="advertiserData?.visited">
+                                {{ advertiserData?.visited | format: 'date' }}
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <ui-svg-icon
+                                    *ngIf="!!advertiserData?.activity"
+                                    class="cursor-info"
+                                    icon="info-4"
+                                    size="16"
+                                    [tooltip]="TooltipVisited"
+                                    contentType="template"
+                                ></ui-svg-icon>
+                            </div>
+                            <ng-template #TooltipVisited>
+                                <div>{{ 'tooltip.basic.last_activity' | translate }}: {{ advertiserData?.activity | format: 'date' }}</div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+</ng-template>
+
+<ng-template #advertiserProfileSkeletonTpl>
+    <ui-skeleton>
+        <ui-page-wrapper [borderRadius]="4">
+            <ui-page-wrapper-header className="p-x-20 pb-3 p-t-26">
+                <div class="w-100 d-flex flex-column flex-md-row">
+                    <ui-skeleton-image size="big" type="circle"></ui-skeleton-image>
+
+                    <div class="ml-4 w-100">
+                        <div class="d-flex m-t-15">
+                            <ui-skeleton-block height="medium" [width]="75"></ui-skeleton-block>
+
+                            <div class="d-flex ml-auto">
+                                <ui-skeleton-block height="medium" customWidth="65px" [width]="75"></ui-skeleton-block>
+
+                                <ui-skeleton-block className="ml-3" height="medium" customWidth="35px"></ui-skeleton-block>
+                            </div>
+                        </div>
+
+                        <ui-skeleton-block className="mt-3" [width]="25"></ui-skeleton-block>
+
+                        <ui-skeleton-block className="mt-3" [width]="25"></ui-skeleton-block>
+                    </div>
+                </div>
+            </ui-page-wrapper-header>
+            <ui-page-wrapper-content className="pl-3 pr-3">
+                <div class="w-100 px-3" *ngFor="let fake of [1, 2]">
+                    <app-detail-info class="m-t-25">
+                        <app-detail-info-title class="m-b-8">
+                            <ui-skeleton-block className="mt-3" customHeight="20px" [width]="25"></ui-skeleton-block>
+                        </app-detail-info-title>
+
+                        <app-detail-info-row *ngFor="let fake of [1, 2, 3, 4]">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                <ui-skeleton-block [width]="25"></ui-skeleton-block>
+                            </app-detail-info-col>
+                            <app-detail-info-col>
+                                <ui-skeleton-block [width]="25"></ui-skeleton-block>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+                    </app-detail-info>
+                </div>
+            </ui-page-wrapper-content>
+        </ui-page-wrapper>
+    </ui-skeleton>
+</ng-template>

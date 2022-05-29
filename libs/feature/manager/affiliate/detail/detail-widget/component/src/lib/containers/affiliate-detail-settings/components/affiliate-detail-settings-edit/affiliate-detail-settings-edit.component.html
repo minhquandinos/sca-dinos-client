@@ -1,0 +1,62 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{ 'main_navigation.settings' | translate }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="save()" appDisableButtonDuringRequest></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form">
+    <div class="form-group">
+        <div class="title is-4 line-height is-19 mt-3 m-b-22">{{ 'interface.basic.api_title' | translate }}</div>
+
+        <app-api-access class="mt-0" [canRefreshApi]="false" [apiKey]="affiliateData.api_key" [apiLink]="apiLink"></app-api-access>
+    </div>
+
+    <div class="form-group m-t-48" *ngIf="showReferralProgram">
+        <div class="title is-4 line-height is-19 mt-0 m-b-22">{{ 'referrals_page.referrals_program' | translate }}</div>
+
+        <div class="d-flex">
+            <div class="w-50 pr-2">
+                <app-find-sponsor
+                    [label]="'referrals_page.form.referred_by' | translate"
+                    formName="referred_by"
+                    [searchable]="true"
+                    [clearable]="true"
+                ></app-find-sponsor>
+            </div>
+
+            <div *ngIf="form.get('referred_by').value" class="form-group mb-0 w-50 p-l-8">
+                <app-select
+                    *ngIf="showReferralCommission; else commissionFlat"
+                    [items]="referralCommissions"
+                    [label]="'interface.form.referral_commission' | translate"
+                    formControlName="referral_commission"
+                    [searchable]="false"
+                    [clearable]="false"
+                    [multiple]="false"
+                    [addTemplate]="true"
+                >
+                    <ng-template #labelTmp ng-label-tmp let-item="item">
+                        <span class="ng-value-label">{{ item }} %</span>
+                    </ng-template>
+
+                    <ng-template #optionTmp ng-option-tmp let-item="item">{{ item }} %</ng-template>
+                </app-select>
+
+                <ng-template #commissionFlat>
+                    <app-input
+                        type="number"
+                        [label]="'referrals_page.form.referral_commission' | translate"
+                        formControlName="referral_commission"
+                        [inputText]="referralCommissionCurrencySymbol"
+                    ></app-input>
+                </ng-template>
+            </div>
+        </div>
+
+        <span class="form-text mt-2">{{ 'referrals_page.form.info' | translate }}</span>
+    </div>
+</form>

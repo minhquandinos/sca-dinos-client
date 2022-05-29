@@ -1,0 +1,52 @@
+<div class="d-flex align-items-start">
+    <div class="form-group col-md-2 p-0">
+        <app-custom-switch
+            [label]="'interface.basic.api_access' | translate"
+            formControlName="api_status"
+            [enableValue]="apiAccessStatusEnum.On"
+            [disabledValue]="apiAccessStatusEnum.Off"
+            (toggle)="changeApiStatus()"
+        ></app-custom-switch>
+    </div>
+
+    <div class="form-group col-md-10 pr-0 pl-3 m-b-22" *ngIf="parentForm.form.value?.api_status | isTruthy: apiAccessStatusEnum.On">
+        <label class="field-label field-label-top m-b-8 line-height is-17">
+            {{ 'interface.basic.api_key' | translate }}
+        </label>
+
+        <app-field-text-info
+            preset="copy"
+            [callbackMessageSchema]="'notifications.copy_api' | translate"
+            className="py-0"
+        >
+            <div class="text-break-all">{{ apiKey }}</div>
+
+            <ng-container action>
+                <div
+                    *ngIf="canRefreshApi"
+                    (click)="refreshApi()"
+                    class="d-flex align-items-center h-fit-content position-relative w-fit-content ml-auto"
+                >
+                    <ui-svg-icon
+                        class="cursor-pointer"
+                        #refreshIcon
+                        icon="refresh24"
+                        [size]="24"
+                        withAnimation="rotate"
+                        [tooltip]="'tooltip.basic.generate_new_api' | translate"
+                    ></ui-svg-icon>
+
+                </div>
+            </ng-container>
+        </app-field-text-info>
+    </div>
+</div>
+
+<a
+    *ngIf="parentForm.form.value?.api_status | isTruthy: apiAccessStatusEnum.On"
+    class="color__color__cyan line-height is-17"
+    [href]="apiLink"
+    target="_blank"
+>
+    {{ 'interface.basic.api_documentation_guide' | translate }}
+</a>

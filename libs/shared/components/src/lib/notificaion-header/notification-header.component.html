@@ -1,0 +1,17 @@
+<div class="notification-header-info {{ colorClassName }}" *ngIf="show" #notificationContainer >
+    <div class="notification-header-info__content">
+        <ng-content></ng-content>
+    </div>
+    <div
+        *ngIf="close"
+        class="notification-header-info__close"
+    >
+        <ui-svg-icon
+            className="ng-value-icon"
+            aria-hidden="true"
+            icon="close2"
+            size="14"
+            (click)="onClose()">
+        </ui-svg-icon>
+    </div>
+</div>

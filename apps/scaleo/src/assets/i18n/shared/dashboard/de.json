@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Bericht ansehen",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Deine Statistiken"
+            },
+            "pending_records": {
+                "title": "Ausstehende Leistungen"
+            },
+            "top_offer": {
+                "title": "Top Angebote"
+            },
+            "performance": {
+                "title": "Performance",
+                "cumulative": "Kumulativ",
+                "settings": {
+                    "none": "Vorheriger Zeitraum",
+                    "impressions": "Impressionen",
+                    "ctr": "CTR",
+                    "unique_clicks": "Unique Clicks",
+                    "duplicate_clicks": "Doppelte Clicks",
+                    "invalid_clicks": "Ungültige Clicks",
+                    "clicks": "Clicks",
+                    "cv_total": "Conversions",
+                    "tr": "CR",
+                    "total_payout": "Auszahlung",
+                    "cr": "CR",
+                    "gross_sales": "Brutto Verkauf",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Genehmigte Einnahmen",
+                    "cv_pending": "Ausstehende Conversions",
+                    "pr": "PR",
+                    "cv_rejected": "Abgelehnte Conversions",
+                    "rr": "RR",
+                    "cv_approved": "Genehmigte Conversions",
+                    "approved_payout": "Genehmigte Auszahlung",
+                    "approved_profit": "Genehmigter Gewinn",
+                    "approved_gross_sales": "Genehmigte Verkäufe",
+                    "pending_revenue": "Ausstehende Einnahmen",
+                    "pending_payout": "Ausstehende Auszahlung",
+                    "pending_profit": "Ausstehender Gewinn",
+                    "pending_gross_sales": "Ausstehende Verkäufe",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Umsatz durch Clicks",
+                    "clicks_payout": "Clicks Auszahlung",
+                    "clicks_profit": "Gewinn durch Clicks",
+                    "total_revenue": "Umsatz",
+                    "total_profit": "Gewinn",
+                    "total_gross_sales": "Bruttoumsatz",
+                    "rejected_revenue": "Abgelehnte Einnahmen",
+                    "rejected_payout": "Abgelehnte Auszahlung",
+                    "rejected_profit": "Abgelehnter Gewinn",
+                    "rejected_gross_sales": "Abgelehnte Verkäufe"
+                }
+            },
+            "offer_promote": {
+                "title": "Angebote zum Promoten",
+                "get_link": "Link erhalten",
+                "all_categories": "Alele Kategorien"
+            },
+            "balance": {
+                "title": "Dein Guthaben",
+                "approved_payout": "Genehmigte Auszahlung",
+                "all_currencies": "Alle Währungen",
+                "paid_to_date": "Gezahlt zu Datum",
+                "recent_invoices": "Letzte Zahlungen"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Bereicht ansehen"
+    }
+}

@@ -1,0 +1,15 @@
+<div formArrayName="fields">
+    <div class="form-crud__list mb-2" *ngFor="let control of fieldsFormControlsArray; let i = index">
+        <div [formGroupName]="i">
+            <app-campaign-create-field [group]="control" [fields]="fields" [index]="i"></app-campaign-create-field>
+        </div>
+    </div>
+
+    <ui-button-link
+        className="form-crud__button"
+        type="simple"
+        [label]="'leads_ui_page.receive.campaigns.fields.add' | translate"
+        icon="plus-small"
+        (click)="add()"
+    ></ui-button-link>
+</div>

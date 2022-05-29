@@ -1,0 +1,46 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+
+// https://stackoverflow.com/questions/45776055/how-to-extend-modify-customize-bootstrap-with-sass/49070142#49070142
+// https://stackoverflow.com/questions/47747208/bootstrap-4-change-breakpoints
+// https://stackoverflow.com/questions/38792005/how-to-change-the-bootstrap-primary-color
+// https://www.dev-tips-and-tricks.com/use-bootstrap-4-media-query-mixins
+
+/*
+xs: 0,
+  nm: 320px,
+  im: 360px,
+  mkm: 400px,
+  mm: 480px,
+  sm: 550px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  hg: 1400px,
+  xh: 1600px,
+*/
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 639px,
+    md: 767px,
+    lg: 1280px,
+    xl: 1440px,
+    xxl: 1500px
+);
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1610px
+);
+$spacers: (
+    // The rest of numbers you need to use...
+    6: ($spacer * 5)
+);
+
+// $theme-colors: (
+//    primary: $purple
+// );

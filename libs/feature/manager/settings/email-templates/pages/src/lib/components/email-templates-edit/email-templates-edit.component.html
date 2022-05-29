@@ -1,0 +1,55 @@
+<ng-template appModal3Title>
+    <span class="title">
+        {{ 'administration_settings.email_templates.edit.title' | translate }}
+    </span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="save()"></ui-button-link>
+</ng-template>
+
+<div class="container d-flex justify-content-center" *ngIf="isLoad; else skeleton">
+    <div class="form w-100" [formGroup]="form">
+        <div class="form-group">
+            <app-input [label]="'administration_settings.email_templates.edit.subject' | translate" formControlName="subject"></app-input>
+        </div>
+
+        <div class="form-group">
+            <app-textarea [label]="'administration_settings.email_templates.edit.body' | translate" formControlName="body"></app-textarea>
+        </div>
+
+        <app-custom-checkbox
+            *ngIf="showCheckboxSendCopy"
+            label="administration_settings.email_templates.edit.send_copy"
+            formControlName="send_copy_to_managers"
+        ></app-custom-checkbox>
+
+        <div class="form-text">
+            {{ translatePathForDescription | translate }}
+        </div>
+
+        <manager-shared-available-macros [typeMacroses]="'email_template'" [showDescription]="false"></manager-shared-available-macros>
+
+        <ui-button-link
+            *ngIf="title === 'main_template'"
+            [label]="'administration_settings.email_templates.edit.reset_to_default' | translate"
+            type="delete"
+            className="m-t-50"
+            (toggle)="restoreToDefault()"
+        ></ui-button-link>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <ui-skeleton-block height="medium" size="large" [width]="25"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

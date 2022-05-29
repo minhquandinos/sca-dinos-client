@@ -1,0 +1,24 @@
+<button
+    #buttonRef
+    [disabled]="disabled"
+    class="d-flex align-items-center justify-content-center btn {{ className }} {{ typeClassName }}"
+    [ngClass]="{'btn-no-label': !label, 'active': active}"
+    [style.pointer-events]="disabled ? 'none' : ''"
+>
+    <ui-svg-icon
+        [icon]="icon"
+        [size]="iconSize"
+        [withAnimation]="iconAnimation"
+        [durationAnimation]="iconAnimationDuration"
+        *ngIf="icon"
+        [iconColor]="iconColor"
+        [iconType]="iconType"
+        [ngClass]="iconClass"
+    ></ui-svg-icon>
+    <span class="d-flex align-items-center text-nowrap btn-title" *ngIf="label">{{ label }}</span>
+    <span
+        class="loader-dual-ring"
+        [ngClass]="{ 'mr-2': label }"
+        *ngIf="!isLoad"
+    ></span>
+</button>

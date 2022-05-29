@@ -1,0 +1,8 @@
+<ng-container *ngFor="let language of languages$ | async">
+    <div class="dropdown-item dropdown-item-language" (click)="changeLanguage(language.lang)">
+        <app-country-flag [countryCode]="language.flag"></app-country-flag>
+        <div class="dropdown-item-language__title ml-2" *ngIf="!hiddenTitle">
+            {{ language.title }}
+        </div>
+    </div>
+</ng-container>

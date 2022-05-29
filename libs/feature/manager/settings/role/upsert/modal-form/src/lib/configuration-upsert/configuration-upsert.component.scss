@@ -1,0 +1,64 @@
+:host {
+    ::ng-deep {
+        .group {
+            //&__title {
+            //    padding: 7.5px 12px;
+            //    background-color: #F3F5F8;
+            //}
+
+            &__items {
+                padding: 10px 0 1.5rem 2rem;
+            }
+
+            &__item {
+                //padding-bottom: .75rem;
+
+                //&:last-child {
+                //    padding-bottom: 0;
+                //}
+            }
+        }
+
+        .permissions {
+            $permissionSelf: &;
+
+            margin-top: 3rem;
+
+            &__wrapper {
+            }
+
+            &--disabled {
+                background-color: #fffcf5;
+                border-radius: 4px;
+                padding: 0.906rem 0.75rem;
+            }
+
+            &__list {
+            }
+
+            &__group {
+                display: block;
+                margin-top: 1.5rem;
+            }
+
+            &__group-title {
+                padding: 7.5px 12px;
+                background-color: #f3f5f8;
+            }
+
+            &__items {
+                display: block;
+                padding: 0.625rem 0 0 2rem;
+            }
+
+            &__item {
+                display: block;
+                padding-bottom: 1rem;
+
+                &--last {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}

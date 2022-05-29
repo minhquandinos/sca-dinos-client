@@ -1,0 +1,15 @@
+<div class="menu-group" *ngFor="let group of menus$ | async; let i = index;">
+    <ng-container *ngIf="group.title !== 'tools'">
+        <div class="menu-items" *ngIf="group.items.length > 0">
+            <a [routerLink]="['/' + item.route ]" routerLinkActive="active" class="menu-item align-items-center"
+               [ngClass]="{'active': item['active']}"
+               *ngFor="let item of group.items;" id="{{item.title}}"
+            >
+
+                <ui-svg-icon [icon]="item.class"></ui-svg-icon>
+
+                <div class="menu-item__title">{{ 'main_navigation.' + item.title | translate }}</div>
+            </a>
+        </div>
+    </ng-container>
+</div>

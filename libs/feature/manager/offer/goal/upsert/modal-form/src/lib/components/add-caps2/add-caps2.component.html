@@ -1,0 +1,54 @@
+<div class="form-group m-t-25 m-b-22">
+    <div class="title is-5">{{ 'offers_page.goals.caps.title' | translate }}</div>
+</div>
+
+<div class="form-row">
+    <div class="col-md-12">
+        <div class="caps" formArrayName="caps">
+                <div class="caps__list mb-2" *ngFor="let item of capsArray.controls; let i = index">
+                    <div class=" d-flex" [formGroupName]="i">
+                        <div class="caps__item">
+                            <app-find-platform-list
+                                [placeholder]="'offers_page.goals.caps.type' | translate"
+                                platformList="goals_caps_types"
+                                formName="type"
+                                [labelShowId]="false"
+                            ></app-find-platform-list>
+                        </div>
+
+                        <div class="caps__item">
+                            <app-find-platform-list
+                                [placeholder]="'offers_page.goals.caps.period' | translate"
+                                platformList="goals_caps_periods"
+                                formName="period"
+                                [labelShowId]="false"
+                            ></app-find-platform-list>
+                        </div>
+                        <div class="caps__item">
+                            <app-input
+                                numeric="integer"
+                                [placeholder]="'offers_page.goals.caps.value' | translate"
+                                formControlName="value"
+                                maxLength="9"
+                            ></app-input>
+                        </div>
+                        <div class="caps__item mt-1">
+                            <ui-svg-icon icon="delete" (click)="delete(i)" tooltip="{{ 'tooltip.basic.delete' | translate }}"></ui-svg-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="caps__button">
+                    <ui-button-link
+                        type="simple"
+                        [label]="'offers_page.goals.caps.add' | translate"
+                        icon="plus-small"
+                        (click)="add()"
+                    ></ui-button-link>
+                </div>
+            </div>
+    </div>
+    <div class="form-text col-md-12">
+        {{ 'offers_page.goals.form.descriptions.caps' | translate }}
+    </div>
+</div>
+

@@ -1,0 +1,80 @@
+<scaleo-transaction-report-wrapper
+    [loading]="loading$ | async"
+    [pagination]="pagination$ | async"
+    [totalCount]="totalCount$ | async"
+    [defaultHeaderTemplate]="defaultHeaderTemplate"
+    (changePage)="pageWasChanged($event)"
+    (changePerPage)="perPageWasChanged($event)"
+>
+    <scaleo-ui-loader class="d-flex justify-content-center p-3" *ngIf="initialLoading$ | async" [sizeInPx]="50"></scaleo-ui-loader>
+    <scaleo-transaction-report-list
+        [@fade]
+        *ngIf="isInitialLoad$ | async"
+        class="d-block"
+        [columns]="columns$ | async"
+        [items]="newItems$ | async"
+        [sortDirection]="sortDirection$ | async"
+        [sortField]="sortField$ | async"
+        [loading]="loading$ | async"
+        [rowTemplate]="rowTemplate"
+        (sorting)="sortWasChanged($event)"
+    ></scaleo-transaction-report-list>
+</scaleo-transaction-report-wrapper>
+
+<ng-template #rowTemplate let-item let-column="column">
+    <app-report-col-fields
+        *ngIf="item"
+        [_key]="column?.value"
+        [_item]="item"
+        [reportType]="reportType"
+    ></app-report-col-fields>
+</ng-template>
+
+<ng-template #layoutHeaderTpl>
+    <ui-page-wrapper-header className="p-l-32 p-r-16" [haveBorderBottom]="false">
+        <app-report-filters
+            [filterList]="getFilters$ | async"
+            [filtersSelected]="filtersSelected$ | async"
+            (changedFilters)="changedFilters($event)"
+        ></app-report-filters>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-header className="p-l-32 p-r-20" [haveBorderBottom]="false">
+        <div class="my-auto">
+            <app-report-date-range
+                [showTimeZone]="true"
+                [showHintTimeZone]="true"
+            ></app-report-date-range>
+        </div>
+
+        <div class="d-flex my-auto ml-auto">
+            <app-report-last-updated></app-report-last-updated>
+        </div>
+    </ui-page-wrapper-header>
+</ng-template>
+
+
+<ng-template #defaultHeaderTemplate>
+    <div class="d-flex align-items-center w-100">
+        <div class="d-flex align-items-center">
+            <app-result-count [count]="totalCount$ | async"></app-result-count>
+        </div>
+        <ui-divider orientation="vertical" height="24px" class="mx-3"></ui-divider>
+        <div class="d-flex align-items-center ml-auto">
+            <app-report-export
+                *ngxPermissionsOnly="permissions.canAccessAdvertiserPostbacksLog"
+                (exportFormat)="exportData($event)"
+                buttonType="simple"
+                buttonIcon="ic_export"
+            ></app-report-export>
+
+            <app-config-table-column2
+                class="ml-2"
+                [title]="'interface.basic.columns' | translate"
+                [configs]="columnsOptions$ | async"
+                grid="3"
+                (columnChanged)="columnWasChanged($event)"
+                [configType]="pageType"
+            ></app-config-table-column2>
+        </div>
+    </div>
+</ng-template>

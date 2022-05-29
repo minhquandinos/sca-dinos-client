@@ -1,0 +1,36 @@
+<shared-layout-user-profile>
+    <div class="dropdown-item" (click)="openModal()">
+        <ui-svg-icon class="mr-2" icon="ic_profile"></ui-svg-icon>
+
+        <span>{{ 'interface.header.profile' | translate }}</span>
+    </div>
+    <div class="dropdown-item position-relative" [uiDropdownEntityTriggerFor]="languageSwitcher">
+        <ui-svg-icon icon="ic_language" class="mr-2"></ui-svg-icon>
+        <span>{{ 'interface.header.language' | translate }}</span>
+        <ui-svg-icon class="ml-auto" icon="ic_arrow_right"></ui-svg-icon>
+
+        <div
+            class="position-absolute dropdown-menu user-profile__dropdown-language mt-0"
+            uiDropdownEntityItemRef #languageSwitcher="uiDropdownEntityItemRef"
+        >
+            <app-language-switcher></app-language-switcher>
+        </div>
+    </div>
+
+    <ng-container *ngIf="false">
+        <ui-divider class="my-1" color="#f3f5f8"></ui-divider>
+
+        <div class="dropdown-item" (click)="showInfo('billing')">
+            <ui-svg-icon icon="ic_billing"></ui-svg-icon>
+            {{ 'main_navigation.billing' | translate }}
+        </div>
+    </ng-container>
+</shared-layout-user-profile>
+
+<!--<ng-template #billingTemplate>-->
+<!--    {{ 'billing2.header.info_text' | translate }}-->
+<!--</ng-template>-->
+
+<!--<ng-template #referralTemplate>-->
+<!--    {{ 'interface.header.referral_info_text' | translate}}-->
+<!--</ng-template>-->

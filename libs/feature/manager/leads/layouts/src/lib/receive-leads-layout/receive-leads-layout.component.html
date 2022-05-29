@@ -1,0 +1,17 @@
+<ui-page-wrapper [borderRadius]="4">
+    <ui-page-wrapper-header>
+        <router-outlet name="navigation"></router-outlet>
+        <div class="d-flex my-auto ml-auto">
+            <ng-template [cdkPortalOutlet]="controlPortal"></ng-template>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-header className="px-0" [haveBorderBottom]="false">
+        <ng-template [cdkPortalOutlet]="filterPortal"></ng-template>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="p-0">
+        <router-outlet></router-outlet>
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer>
+        <ng-template [cdkPortalOutlet]="footerPortal"></ng-template>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>

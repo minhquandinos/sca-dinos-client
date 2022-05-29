@@ -1,0 +1,320 @@
+.page-content-signup {
+
+    min-height: calc(100% - 148px);
+    margin-top: 83px;
+    width: 100%;
+    justify-content: center;
+
+    .ng-select {
+
+        &.ng-select-multiple .ng-select-container.ng-has-value {
+            padding: 3px 6px;
+        }
+
+        &.ng-select-multiple .ng-select-container:not(.ng-has-value) {
+            padding: 7px 6px;
+        }
+
+        &.ng-select-single .ng-select-container.ng-has-value,
+        &.ng-select-single .ng-select-container {
+            padding: 7px 6px;
+        }
+
+    }
+
+    .signup-wrapper{
+        width: 581px;
+        min-height: 264px;
+        border-radius: 4px;
+        background-color: #ffffff;
+
+
+        .signup{
+            width: 100%;
+        }
+
+        &-blocks {
+            height: 175px;
+            max-height: 175px;
+            margin-top: 27px;
+            margin-bottom: 18px;
+        }
+
+        &-block__title {
+            padding-top: 38px;
+            margin-bottom: 33px;
+        }
+
+        &-block {
+            min-width: 240px;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            max-width: 50%;
+
+            ui-button-link button{
+                max-width: 200px;
+            }
+
+            &__title {
+                @include font-family-bold;
+                font-size: $font__20;
+                line-height: 1.2;
+            }
+
+            &__left{
+                padding-right: 40px;
+                padding-left: 0;
+                border-right: 1px solid #eef2f8;
+            }
+
+            &__right{
+                padding-left: 40px;
+                padding-right: 0;
+                display: flex;
+
+                .signup-wrapper-block__title {
+                    align-self: flex-start;
+                }
+            }
+
+            ui-button-link button{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        &-bottom {
+            @include font-family-medium;
+            font-size: $font__13;
+            line-height: 1.54;
+        }
+
+
+    }
+
+    &_affiliate{
+        min-height: calc(100% - 160px);
+        margin-top: 80px;
+        width: 100%;
+        padding: 24px 15px;
+
+
+        .page-content-wrapper {
+            width: 100%;
+            max-width: 468px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff;
+            border-radius: 4px;
+            min-height: 860px;
+            padding-top: 50px;
+            padding-bottom: 26px;
+            border: 0.5px solid $color__light-gray9;
+        }
+
+        .registration{
+            max-width: 340px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100%;
+            min-height: 700px;
+        }
+
+        .registration__block-title{
+            @include font-family-bold;
+            font-size: $font__24;
+            line-height: 1.33;
+            color: $color__black;
+            margin-bottom: 23px;
+        }
+
+        .form-group {
+            margin-bottom: 23px;
+        }
+
+        .form-divider {
+            margin-bottom: 34px;
+        }
+
+        label {
+            @include font-family-medium;
+            margin-bottom: 3px;
+            line-height: 1.6;
+            font-size: $font__15;
+            color: $color__black;
+        }
+
+        .field-label-error {
+            color: #e24c54;
+            font-size: 0.8125rem;
+        }
+
+        ui-button-link {
+            margin-bottom: 20px;
+        }
+
+        shared-add-contact {
+
+            .ng-select-container {
+                height: 40px !important;
+            }
+
+            input {
+                height: 40px;
+            }
+        }
+
+        .divider {
+            margin-top: 44px;
+            background-color: $color__light-grayish-blue;
+            margin-bottom: 30px;
+        }
+
+        .alraeady-have-account {
+            display: flex;
+            justify-content: center;
+            font-size: $font__13;
+            line-height: 1.54;
+            @include font-family-medium;
+        }
+
+        .form-checkbox .checkmark {
+            margin-top: 1px;
+        }
+
+        .registration-form {
+            &__agree {
+                align-items: center;
+                label {
+                    margin-bottom: 0;
+                }
+
+                .form-checkbox {
+                    margin-right: 4px;
+                    height: fit-content;
+
+                    span {
+                        white-space: unset !important;
+                        line-height: 18px;
+                    }
+                }
+
+                a {
+                    font-size: $font__15;
+                }
+
+                &:nth-child(2) {
+                    margin-top: 23px;
+                }
+            }
+        }
+    }
+
+}
+
+.page-footer-auth {
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+
+    .footer-items {
+        height: 20px;
+    }
+    .footer-item  {
+        margin-right: 15px;
+        margin-left: 15px;
+
+        a {
+            font-size: $font__14;
+            line-height: 1.43;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .page-content-signup {
+        min-height: unset;
+        margin-top: 5rem;
+        padding-top: 0;
+
+        .signup-wrapper {
+            width: calc( 100vw - 32px );
+            padding-bottom: 2.25rem;
+
+            &-blocks {
+                max-height: none;
+                flex-direction: column;
+                height: fit-content;
+                align-items: center;
+            }
+
+            &-block {
+                padding: 0 20px;
+
+                &__left{
+                    border-right: 0;
+                    border-bottom: 1px solid #eef2f8;
+                    padding-bottom: 40px;
+
+                    .signup-wrapper-block__title {
+                        padding-top: 9px;
+                    }
+                }
+
+                &__right{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .signup-wrapper-block__title {
+                        align-self: center;
+                    }
+                }
+            }
+        }
+
+
+        &_affiliate, &_advertiser {
+            .page-content-wrapper {
+                width: calc( 100vw - 32px );
+                max-width: none;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 50px 16px 26px;
+            }
+
+            .registration__block-title{
+                text-align: center;
+            }
+
+            app-input {
+                label {
+                    //padding-left: 5px;
+                }
+            }
+        }
+
+    }
+
+
+    .page-footer {
+        height: 60px;
+    }
+
+    .page-footer-auth {
+        height: fit-content;
+        .footer-items {
+            flex-direction: column;
+            align-items: center;
+            height: 40px;
+        }
+    }
+}
+
+.signup-field-second-name {
+    visibility: hidden;
+    display: none;
+}

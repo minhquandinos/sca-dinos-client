@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="outputType">
+    <ng-container *ngSwitchCase="'advertiser'">
+        <scaleo-advertiser-activity [item]="item"></scaleo-advertiser-activity>
+    </ng-container>
+    <ng-container *ngSwitchCase="'affiliate'">
+        <scaleo-affiliate-activity [item]="item"></scaleo-affiliate-activity>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <scaleo-manager-activity [item]="item"></scaleo-manager-activity>
+    </ng-container>
+</ng-container>

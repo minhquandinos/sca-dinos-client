@@ -1,0 +1,249 @@
+<ng-template appModal3Title>
+    <span class="title">
+        {{
+            !editId
+                ? ('affiliate.basic.add_affiliate_as_title' | translate)
+                : ('affiliate.basic.edit_affiliate' | translate) + ' #' + editId
+        }}
+    </span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        *ngIf="isLoad"
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<div class="w-100 form" [formGroup]="form" *ngIf="isLoad; else skeleton">
+    <div class="form-row flex-nowrap">
+        <app-form-logo
+            [editId]="editId"
+            [image]="affiliateLogo"
+            [typeForImage]="'affiliates'"
+            (change)="changeImage($event)"
+            (delete)="deleteImage()"
+        ></app-form-logo>
+
+        <div class="form-group w-100">
+            <div class="m-b-22">
+                <app-input [label]="'interface.form.company' | translate" formControlName="company_name" maxLength="64"></app-input>
+            </div>
+
+            <div class="p-0 col-md-6">
+                <app-find-platform-statuses
+                    [label]="'shared.dictionary.status' | translate"
+                    formName="status"
+                    statusList="statuses"
+                ></app-find-platform-statuses>
+            </div>
+        </div>
+    </div>
+
+    <div class="title is-4 m-t-48">{{ 'interface.subtitle.access_credentials' | translate }}</div>
+
+    <div class="form-group">
+        <app-input [label]="'email' | translate" formControlName="email"></app-input>
+    </div>
+
+    <div class="form-row" *ngIf="changePasswordVisible || !editId">
+        <div class="form-group col-md-6">
+            <app-input type="password" [label]="'password' | translate" formControlName="password"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input type="password" [label]="'password_confirmation' | translate" formControlName="password_repeat"></app-input>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="editId">
+        <ui-button-link
+            type="simple"
+            icon="edit"
+            [label]="(!changePasswordVisible ? 'password_change.button' : 'password_change.not_change') | translate"
+            (toggle)="changePassword()"
+        ></ui-button-link>
+    </div>
+
+    <div class="form-group">
+        <app-custom-switch
+            [label]="'shared.dictionary.two_factor_auth_2fa' | translate"
+            formControlName="twoFA_enabled"
+        ></app-custom-switch>
+    </div>
+
+    <div class="title is-4">
+        <span class="">{{ 'interface.subtitle.contacts' | translate }}</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'firstname' | translate" formControlName="firstname" maxLength="64"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'lastname' | translate" formControlName="lastname" maxLength="64"></app-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.phone' | translate" formControlName="phone" maxLength="20"></app-input>
+        </div>
+    </div>
+
+    <shared-add-contact [selectedMessengers]="affiliateData?.contacts"></shared-add-contact>
+
+    <div class="title is-4">
+        <span>{{ 'interface.subtitle.address' | translate }}</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-country
+                [label]="'interface.form.country' | translate"
+                formName="country"
+                [clearable]="true"
+                [hideSelected]="true"
+            ></app-find-country>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.region' | translate" formControlName="region"></app-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.city' | translate" formControlName="city"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.postcode' | translate" formControlName="postal_code"></app-input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-input [label]="'interface.form.street' | translate" formControlName="address"></app-input>
+    </div>
+
+    <div class="title is-4" *ngIf="customFieldsConfig?.length > 0">
+        <span>{{ 'interface.subtitle.additional_information' | translate }}</span>
+    </div>
+
+    <app-custom-field
+        *ngIf="customFieldsConfig && showCustomFields"
+        formGroupName="custom_fields"
+        [customFieldsConfig]="customFieldsConfig"
+    ></app-custom-field>
+
+    <div class="title is-4">
+        <span>{{ 'interface.subtitle.administration' | translate }}</span>
+    </div>
+
+    <div class="form-group">
+        <app-find-platform-list
+            platformList="affiliates_tags"
+            [label]="'interface.form.tags' | translate"
+            formName="tags"
+            [searchable]="true"
+            [clearable]="true"
+            [multiple]="true"
+            [hideSelected]="true"
+        ></app-find-platform-list>
+        <div class="form-text">
+            {{ 'affiliate.basic.description.tags' | translate }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-find-platform-list
+            platformList="traffic_types"
+            [label]="'interface.form.traffic_type' | translate"
+            itemLabel="title"
+            itemValue="id"
+            formName="traffic_types"
+            [searchable]="true"
+            [clearable]="true"
+            [multiple]="true"
+            [hideSelected]="true"
+        ></app-find-platform-list>
+        <div class="form-text">
+            {{ 'affiliate.basic.description.traffic_types' | translate }}
+        </div>
+    </div>
+
+    <div class="form-group" *ngxPermissionsOnly="permissions.canAccessTeammates">
+        <app-find-managers
+            [multiple]="true"
+            [label]="'shared.dictionary.teammates' | translate"
+            itemLabel="name"
+            itemValue="id"
+            formName="managers"
+        ></app-find-managers>
+        <div class="form-text">
+            {{ 'affiliate.basic.description.managers' | translate }}
+        </div>
+    </div>
+
+    <div class="form-group mb-0">
+        <app-textarea [label]="'interface.form.internal_information' | translate" formControlName="internal_notes"></app-textarea>
+        <div class="form-text mt-0">
+            {{ 'interface.subtitle.internal_information' | translate }}
+        </div>
+    </div>
+
+    <ng-container *ngIf="editId">
+        <ng-container *ngxPermissionsOnly="permissions.canAddEditDeleteAffiliates">
+            <ui-br></ui-br>
+
+            <ui-button-link
+                *ngIf="editId"
+                [label]="'shared.dictionary.delete' | translate"
+                icon="delete"
+                type="delete"
+                (toggle)="delete()"
+            ></ui-button-link>
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-row align-items-center p-0 flex-nowrap mx-0">
+            <ui-skeleton-image size="big" type="rounded"></ui-skeleton-image>
+
+            <div class="m-l-6 w-100">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <div class="col-5 p-0 mt-2">
+                    <ui-skeleton-block height="medium"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+
+            <div class="mt-2">
+                <ui-skeleton-block size="medium"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="col-3 p-0 mt-2 m-t-64">
+            <ui-skeleton-block height="medium"></ui-skeleton-block>
+        </div>
+    </ui-skeleton>
+</ng-template>

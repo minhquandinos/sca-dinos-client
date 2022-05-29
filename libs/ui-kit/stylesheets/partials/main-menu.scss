@@ -1,0 +1,362 @@
+.menu {
+    height: 100%;
+    width: 210px;
+    border-right: 1px solid $color__light-blue;
+    @include font-family-medium;
+
+    &-header {
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 0.5px solid $color__light-gray9;
+        height: 60px;
+        align-self: center!important;
+        flex-direction: row;
+        display: flex;
+
+        &__logo{
+            margin-left: 23px;
+           // max-width: 114px;
+            max-width: 114px;
+            max-height: 39px;
+
+            width: 100%;
+            height: 100%;
+            background: transparent url('../../../assets/img/logodinos.png');
+            background-size: contain !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            outline: none;
+
+            &-default {
+                position: relative;
+                top: -4px;
+                max-height: 2rem;//28px
+            }
+        }
+
+        &_collapse{
+            width: 24px;
+            height: 36px;
+            margin-left: auto;
+            margin-right: 24px;
+
+            &-btn {
+                line-height: 24px;
+                font-size: 22px;
+
+                .custom-icon {
+                    fill: $color__gray4;
+                }
+            }
+        }
+    }
+
+    &-content {
+        overflow-y: scroll;
+        height: calc(100% - 60px);
+        width: 100%;
+        max-width: 212px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    }
+
+    &-group {
+        margin-top: 1.875rem;
+
+        &:empty {
+            margin-top: 0;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &--last {}
+
+        &__title {
+            color: $color__gray3;
+            font-size: $font-size-x-small;
+            margin-bottom: 4px;
+            padding-left: 7px;
+            text-transform: uppercase;
+            line-height: $font__14;
+            height: 0.9375rem;
+        }
+    }
+
+    &-item {
+        flex-direction: row;
+        display: flex;
+        height: 40px;
+        margin-bottom: 4px;
+        padding-left: 4px;
+        font-size: $font_size-base;
+        @include customTransition(background-color,  0.5s, ease);
+
+        .custom-icon {
+            width: 32px;
+            height: 32px;
+            fill: $color__gray3;
+            @include customTransition(fill,  0.5s, ease);
+        }
+
+        &.user-profile {
+            height: 40px;
+        }
+
+        &_selected,
+        &:hover,
+        &.active,
+        .user-profile:hover
+        {
+            cursor: pointer;
+            background-color: #fff !important;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        &:hover {
+
+            .menu-item__title {
+                color: $color__black3;
+            }
+
+            .custom-icon {
+                fill: $color__black3;
+            }
+        }
+
+        &.active {
+            .custom-icon {
+                fill: $color__main-bg-color;
+            }
+
+            & .menu-item__title{
+                color: $color__black3;
+            }
+        }
+
+        &__title{
+            margin-left: 4px;
+            align-self: center!important;
+            color: $color__gray2;
+            transition: color 0.5s ease;
+        }
+    }
+
+    &-pipe{
+        margin-bottom: 8px;
+        border-bottom: 1px solid $color__light-blue;
+    }
+
+    &-affiliate, &-advertiser {
+        .menu-group {
+            margin-top: 0;
+            &__title {
+                display: none;
+            }
+        }
+    }
+}
+
+/* For High Resolution Display
+  ----------------------------------------------------------------------- */
+@media
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+    .menu-header__logo{
+        background: transparent url('../../../assets/img/logodinos.png') no-repeat center center;
+    }
+}
+/* End For High Resolution Display */
+
+
+/* For Highest Resolution Display
+----------------------------------------------------------------------- */
+@media
+only screen and (min--moz-device-pixel-ratio: 3),
+only screen and (-o-min-device-pixel-ratio: 3/1),
+only screen and (-webkit-min-device-pixel-ratio: 3),
+only screen and (min-device-pixel-ratio:3) {
+
+    .menu-header__logo{
+        background: transparent url('../../../assets/img/logodinos.png') no-repeat center center;
+    }
+}
+/* End For Highest Resolution Display */
+
+@media  (max-width: 1079px) {
+    .menu {
+
+        $self: &;
+
+        display: none;
+
+        &-mobile {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 3000;
+
+            &-wrapper {
+                height: 100%;
+                background-color: #ffffff;
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                width: 210px;
+
+                .menu-content {
+                    padding: 0 24px;
+                    height: calc(100% - 1rem);
+                }
+
+                & .dropdown-menu{
+                    transform: translate3d(-1px, -94px, 0px) !important;
+                }
+            }
+
+            & #{$self}-group {
+                margin-top: 0;
+            }
+
+            & #{$self}-item{
+                margin-bottom: 16px
+            }
+
+            & #{$self}-group_logo {
+                height: 64px;
+
+                & #{$self}-header__logo {
+                    margin-left: 8px;
+                    top: 0;
+                }
+
+                & #{$self}-header_collapse {
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+
+@media  (min-width: 1080px) {
+
+    .menu-mobile {
+        display: none;
+    }
+
+    .menu-folded {
+        .menu {
+            width: 80px;
+
+            &-content {
+                padding: 24px 0;
+            }
+
+            .user-profile {
+                justify-content: center;
+                width: 48px;
+                margin: 0 auto;
+
+                &-info {
+                    &__name {
+                        display: none;
+                    }
+
+                    &__avatar {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            &-affiliate, &-advertiser {
+                .menu-pipe {
+                    display: none;
+                }
+            }
+        }
+
+        .page{
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+
+        .page-header {
+            width: calc(100% - 80px);
+        }
+
+        .menu-group {
+            margin-top: 8px;
+
+            &:empty {
+                margin-top: 0;
+            }
+
+            &:first-child{
+                margin-top: 0;
+            }
+
+            &--last {}
+        }
+
+        .menu-item,
+        .menu-pipe {
+            width: 48px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+            padding-left: 0;
+            position: relative;
+
+            .menu-item__icon {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .menu-pipe {
+            width: 32px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+        }
+
+        .menu-header_collapse {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-item .menu-item__title,
+        .menu-group .menu-group__title,
+        .menu-header__logo {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .menu-mobile {
+        .menu-group:first-child {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

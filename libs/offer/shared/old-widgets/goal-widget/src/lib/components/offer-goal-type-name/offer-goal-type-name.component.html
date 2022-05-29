@@ -1,0 +1,14 @@
+<div class="white-space-nowrap">
+    <app-goal-chip *ngIf="item?.goal_type" [goal]="item.goal_type">{{ item.goal_type_name }}</app-goal-chip>
+    <ng-container *ngIf="showAffiliatePayout">
+        {{ item?.payout_for_affiliate }}
+    </ng-container>
+    <ng-container *ngIf="showGoalTypeName">
+        <ng-container *ngIf="item.goal_type_name === 'CPS'; else defaultGoal">
+            {{ hasType ? (item[type] | number: '1.0' ) + '%' : '' }}
+        </ng-container>
+        <ng-template #defaultGoal>
+            {{ hasType ? (item[type] | format:'money':{currency: currency}) : ''  }}
+        </ng-template>
+    </ng-container>
+</div>

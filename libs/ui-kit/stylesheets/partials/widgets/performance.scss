@@ -1,0 +1,106 @@
+.custom-dashboard-widget {
+
+    $self: &;
+
+    &-performance {
+        #{$self}__header {
+        }
+
+        #{$self}__content {
+            padding: 1.5rem 1rem 0 !important;
+        }
+
+        #{$self}__footer {
+        }
+
+        &__toolbar {
+            margin-right: 2.5rem;
+            margin-left: 1.7rem;
+        }
+
+        &-metric-list {
+
+            min-width: 15rem;
+
+            &.ng-select .ng-select-container {
+                border-color: transparent;
+            }
+
+            &__item {
+                display: flex;
+                align-items: center;
+            }
+
+            &__color {
+                display: inline-block;
+                width: .5rem;
+                height: .5rem;
+                border-radius: 50%;
+                background-color: $color__gray3;
+                margin-right: .5rem;
+                min-width: .5rem;;
+            }
+        }
+
+        &__chart {
+            .highcharts-axis-labels tspan, .highcharts-axis-labels text {
+                font-size: $font__11;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .custom-dashboard-widget {
+        &-performance-metric-list {
+            min-width: 12rem;
+            width: 12rem;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .custom-dashboard-widget-performance {
+        .ui-page-wrapper-content {
+            overflow: auto;
+            .custom-dashboard-widget-performance{
+                &__toolbar {
+                    flex-direction: column;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .custom-dashboard-widget-performance {
+
+        .custom-dashboard-widget__content {
+            padding: 0 1rem !important;
+        }
+
+        .ui-page-wrapper-content {
+            .performance-metric-list {
+                width: 100%;
+            }
+        }
+
+        &-metric-list {
+            min-width: 50%;
+            width: max-content;
+        }
+
+        .ui-page-wrapper-footer {
+            .custom-dashboard-compare-period {
+                flex-direction: column;
+                overflow-y: auto;
+                max-height: 56px;
+
+                &__previous {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

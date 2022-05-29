@@ -1,0 +1,35 @@
+<ui-button-link
+    type="simple"
+    icon="ic_export"
+    (toggle)="openModal()"
+    [label]="'interface.export_file.title' | translate"
+></ui-button-link>
+
+<ng-template #modalContentTpl>
+    <form [formGroup]="form" class="m-t-20 mb-4">
+        <app-radio-group
+            formControlName="format"
+            [label]="'interface.export_items.file_format.title' | translate"
+            alignment="column"
+        >
+            <app-radio
+                *ngFor="let format of fileFormats"
+                [inputValue]="format"
+                [label]="format | modalExportFileFormatLabel | async"
+            ></app-radio>
+        </app-radio-group>
+    </form>
+</ng-template>
+
+<ng-template #modalFooterTpl>
+    <div class="d-flex ml-auto py-1">
+        <ui-button-link
+            [label]="'interface.basic.close' | translate"
+            (toggle)="closeModal()"
+            class="mr-2"
+            type="simple"
+        ></ui-button-link>
+
+        <ui-button-link [label]="'interface.export_file.title' | translate" (toggle)="saveModal()"></ui-button-link>
+    </div>
+</ng-template>

@@ -1,0 +1,65 @@
+{
+    "index": "/index.html",
+    "request-options": {
+        "mode": "no-cors"
+    },
+    "assetGroups": [
+        {
+            "name": "app",
+            "installMode": "prefetch",
+            "resources": {
+                "files": [
+                    "/index.html",
+                    "/manifest.webmanifest",
+                    "/*.css",
+                    "/*.js"
+                ]
+            }
+        },
+        {
+            "name": "assets",
+            "installMode": "lazy",
+            "updateMode": "lazy",
+            "resources": {
+                "files": [
+                    "/assets/**",
+                    "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+                ]
+            }
+        },
+        {
+            "name": "translate",
+            "installMode": "lazy",
+            "updateMode": "prefetch",
+            "resources": {
+                "files": [
+                    "/assets/i18n/*.json"
+                ]
+            }
+        }
+    ],
+    "dataGroups": [
+        {
+            "name": "api",
+            "urls": [
+                "/**"
+            ],
+            "cacheConfig": {
+                "strategy": "freshness",
+                "maxSize": 100,
+                "maxAge": "1d"
+            }
+        },
+        {
+            "name": "no-cache-api",
+            "urls": [
+                "https://set.scaletrk.com/installer/default/get-end-point"
+            ],
+            "cacheConfig": {
+                "strategy": "performance",
+                "maxSize": 0,
+                "maxAge": "0u"
+            }
+        }
+    ]
+}

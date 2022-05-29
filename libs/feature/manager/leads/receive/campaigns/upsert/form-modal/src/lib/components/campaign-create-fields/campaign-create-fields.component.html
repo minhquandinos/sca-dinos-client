@@ -1,0 +1,11 @@
+<div class="m-b-32">
+    <section class="d-flex flex-column" *ngFor="let group of groups">
+        <span class="title is-4">{{ group.title | translate }}</span>
+
+        <app-campaign-create-fields-group
+            *ngIf="leadsReceiveFields$ | async as fields"
+            [fields]="fields"
+            [fieldType]="group.type"
+        ></app-campaign-create-fields-group>
+    </section>
+</div>

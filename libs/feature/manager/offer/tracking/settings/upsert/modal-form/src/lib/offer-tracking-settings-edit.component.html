@@ -1,0 +1,254 @@
+<ng-template appModal3Title>
+    <div class="title">{{ 'offers_page.profile.tracking.tracking_setting' | translate }}</div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (click)="update()"></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-select
+                [items]="settings.tracking_domains"
+                [label]="'table.column.tracking_domain' | translate"
+                itemLabel="name"
+                itemValue="id"
+                formControlName="tracking_domain_id"
+            ></app-select>
+        </div>
+
+        <span class="form-text col-12">
+            {{ 'offers_page.tracking.form.tracking_domain_description' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-md-6">
+            <app-select
+                [items]="failTrafficForwardingTypes | customTranslate: 'offers_page.tracking.fail_traffic_forwarding' | async"
+                [label]="'offers_page.tracking.form.fail_traffic_forwarding' | translate"
+                itemLabel="title"
+                itemValue="id"
+                formControlName="fail_traffic_forwarding"
+                (change)="changeFailTrafficForwarding()"
+            ></app-select>
+        </div>
+
+        <div *ngIf="form.value.fail_traffic_forwarding | isTruthy: invalidTrafficForwardingEnum.Offer" class="form-group col-md-6 mt-auto">
+            <app-find-offer
+                [label]="'shared.dictionary.offer' | translate"
+                [labelShowId]="true"
+                itemLabel="title"
+                itemValue="id"
+                formName="offers_to_forward"
+                [status]="'active'"
+                [clearable]="true"
+                [searchable]="true"
+                [hideSelected]="true"
+            ></app-find-offer>
+        </div>
+
+        <div
+            *ngIf="form.value.fail_traffic_forwarding | isTruthy: invalidTrafficForwardingEnum.CustomTrafficbackUrl"
+            class="form-group col-md-6"
+        >
+            <app-input
+                [label]="'offers_page.tracking.form.custom_trafficback_url' | translate"
+                formControlName="custom_trafficback_url"
+                placeholder="https://www.google.com"
+            ></app-input>
+        </div>
+
+        <div class="form-text col-12 d-flex flex-column">
+            <span>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description' | translate }}</span>
+
+            <ul class="ul-description">
+                <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_main_destination' | translate }}</li>
+                <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_preview' | translate }}</li>
+                <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_offer' | translate }}</li>
+                <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_custom_trafficback' | translate }}</li>
+                <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_global_trafficback' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-12">
+            <app-custom-switch
+                [label]="'offers_page.tracking.form.deep_linking' | translate"
+                formControlName="deep_linking"
+            ></app-custom-switch>
+
+            <span class="form-text">
+                {{ 'offers_page.tracking.form.deep_linking_description' | translate }}
+            </span>
+        </div>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-md-6">
+            <app-input
+                [label]="'offers_page.tracking.form.cookie_lifetime' | translate"
+                formControlName="cookie_lifetime"
+                maxLength="9"
+                numeric="integer"
+            ></app-input>
+        </div>
+
+        <span class="form-text col-12">
+            {{ 'offers_page.tracking.form.postback_lifetime_description' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-md-6">
+            <app-custom-switch
+                [label]="'offers_page.tracking.form.hide_referrer_url' | translate"
+                formControlName="hide_referer_url"
+            ></app-custom-switch>
+        </div>
+
+        <div *ngIf="form.value.hide_referer_url" class="form-group col-md-6">
+            <app-custom-checkbox
+                label="offers_page.tracking.form.double_meta_redirect"
+                formControlName="double_meta_redirect"
+            ></app-custom-checkbox>
+        </div>
+
+        <span class="form-text col-12">
+            {{ 'offers_page.tracking.form.hide_referrer_url_description' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-md-6">
+            <app-custom-switch
+                [label]="'offers_page.tracking.form.unique_ips' | translate"
+                formControlName="unique_ips"
+            ></app-custom-switch>
+        </div>
+
+        <div *ngIf="form.value.unique_ips" class="form-group col-md-6">
+            <app-select
+                [items]="uniqueTimeMap | customTranslate: 'offers_page.tracking.unique_ips_time_spans' | async"
+                [label]="'offers_page.tracking.form.unique_ips_time_span' | translate"
+                itemLabel="title"
+                itemValue="id"
+                formControlName="unique_ips_time_span"
+            ></app-select>
+        </div>
+
+        <span class="form-text col-12">
+            {{ 'offers_page.tracking.form.unique_ips_description' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row m-t-48" *ngIf="showAdvertiserTokenPostback$ | async">
+        <div class="form-group col-md-12">
+            <app-custom-switch
+                [label]="'advertiser.postback_security.labels.require_advertiser_token_conversions' | translate"
+                [disabled]="true"
+                [checked]="!!settings.require_postback_token"
+            ></app-custom-switch>
+        </div>
+
+        <span class="form-text col-12">
+            {{ 'advertiser.postback_security.infos.require_advertiser_token_conversions' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row m-t-48">
+        <div class="form-group col-12">
+            <label class="field-label field-label-top m-b-8">
+                {{ 'offers_page.tracking.form.global_postback' | translate }}
+            </label>
+
+            <app-field-text-info preset="copy" class="text-break-all">{{ globalPostbackLink$ | async }}</app-field-text-info>
+
+            <manager-shared-available-macros
+                [trackingLink]="domain$ | async"
+                typeMacroses="tracking-goals"
+                [isMacroses]="false"
+            ></manager-shared-available-macros>
+
+            <span class="form-text px-0">
+                {{ 'offers_page.tracking.form.global_postback_description' | translate }}
+            </span>
+        </div>
+    </div>
+
+    <app-show-hide
+        [labelShow]="'interface.basic.advanced_options' | translate"
+        [labelHide]="'interface.basic.hide_options' | translate"
+        buttonPositionOnShow="bottom"
+        buttonClass="m-t48"
+    >
+        <div class="form-row m-t-48">
+            <div class="form-group col-md-6">
+                <app-textarea
+                    [label]="'offers_page.tracking.form.postback_whitelist_ips' | translate"
+                    formControlName="postback_whitelist_ips"
+                    [shouldAutosize]="false"
+                    rows="5"
+                ></app-textarea>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-textarea
+                    [label]="'offers_page.tracking.form.postback_blacklist_ips' | translate"
+                    formControlName="postback_blacklist_ips"
+                    [shouldAutosize]="false"
+                    rows="5"
+                ></app-textarea>
+            </div>
+
+            <span class="form-text col-12">
+                {{ 'offers_page.tracking.form.postback_ips_description' | translate }}
+            </span>
+        </div>
+
+        <div class="form-row m-t-48">
+            <div class="form-group col-12">
+                <app-input [label]="'offers_page.tracking.form.impressions_url' | translate" formControlName="impressions_url"></app-input>
+
+                <manager-shared-available-macros typeMacroses="impressions_url" [showDescription]="false"></manager-shared-available-macros>
+
+                <span class="form-text">
+                    {{ 'offers_page.tracking.form.impressions_url_description' | translate }}
+                </span>
+            </div>
+        </div>
+
+        <div class="form-row m-t-48">
+            <div class="form-group col-md-6">
+                <app-custom-switch
+                    [label]="'offers_page.tracking.form.sales_amount' | translate"
+                    formControlName="show_sales_amount"
+                ></app-custom-switch>
+            </div>
+
+            <span class="form-text col-12">
+                {{ 'offers_page.tracking.form.sales_amount_description' | translate }}
+            </span>
+        </div>
+
+        <div class="form-row m-t-48">
+            <div class="form-group col-12">
+                <app-custom-switch
+                    [label]="'offers_page.tracking.form.change_conversion_status' | translate"
+                    formControlName="change_conversion_status_via_postback"
+                ></app-custom-switch>
+            </div>
+
+            <div class="form-text col-12 d-flex flex-column">
+                <span>{{ 'offers_page.tracking.form.change_conversion_status_description' | translate }}</span>
+                <ul class="ul-description">
+                    <li>{{ 'offers_page.tracking.form.change_conversion_status_description_approved' | translate }}</li>
+                    <li>{{ 'offers_page.tracking.form.change_conversion_status_description_pending' | translate }}</li>
+                    <li>{{ 'offers_page.tracking.form.change_conversion_status_description_rejected' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+    </app-show-hide>
+</form>

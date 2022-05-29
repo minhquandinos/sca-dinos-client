@@ -1,0 +1,469 @@
+{
+    "your_manager": "Tu administrador",
+    "firstname": "Nombre",
+    "lastname": "Apellidos",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "password_confirmation": "Confirmación de contraseña",
+    "statuses": {
+        "status": "Estado",
+        "active": "Activo",
+        "inactive": "Inactivo",
+        "pending": "Pendiente",
+        "rejected": "Rechazado",
+        "testing": "En pruebas",
+        "approved": "Aprobado",
+        "all": "Todo"
+    },
+    "user_profile": {
+        "edited_notification": "Tu perfil se ha actualizado correctamente"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Filtro",
+            "results": "resultados",
+            "filtered_by": "Filtrar por",
+            "preview": "Previsualizar",
+            "close": "Cerrar",
+            "clear": "Borrar",
+            "today": "Hoy",
+            "yesterday": "Ayer",
+            "filters": {
+                "country": "País",
+                "tag": "Etiqueta",
+                "goals_types": "Tipos de objetivos",
+                "no_data_found": "No se han encontrado datos"
+            },
+            "search": "Buscar",
+            "not_found": "No se han encontrado datos.",
+            "api_key": "Clave API",
+            "api_access": "Acceso API",
+            "columns": "Columnas",
+            "breakdown_by": "Desglose por",
+            "breakdown": "Desglose",
+            "copy": "Copiar",
+            "expand": "Expandir",
+            "hide": "Ocultar",
+            "link_copy": "El enlace ha sido copiado",
+            "choose_image": "Elegir imagen",
+            "total": "Total:",
+            "adblock": "AdBlock está habilitado, es posible que algunas funciones de la plataforma no funcionen correctamente",
+            "refresh": {
+                "button": "Actualizar",
+                "new_version": "La nueva versión está disponible.",
+                "latest_version": "Actualiza para obtener la última versión."
+            },
+            "undefined": "Undefined",
+            "learn_more": "Learn more",
+            "view_all": "Ver todo",
+            "view_all_count": "Ver todo ({{ count }})",
+            "allowed": "permitido",
+            "denied": "denegado"
+        },
+        "header": {
+            "help": "Ayuda",
+            "profile": "Perfil",
+            "account": "Mi cuenta",
+            "language": "Idioma",
+            "logout": "Cerrar sesión"
+        },
+        "form": {
+            "tags": "Etiquetas",
+            "tag": "Etiqueta",
+            "country": "País",
+            "traffic_type": "Tipos de tráfico",
+            "timezone": "Zona horaria",
+            "currency": "Divisa",
+            "contact_type": "Tipo de Contacto",
+            "contact_name": "Contacto",
+            "phone": "Teléfono",
+            "street": "Calle",
+            "city": "Ciudad",
+            "region": "Región",
+            "postcode": "Código postal",
+            "payment_details": "Información de pago",
+            "date_format": "Formato de fecha",
+            "number_format": "Formato numérico",
+            "featured": "Destacado",
+            "description": "Descripción",
+            "internal_information": "Información interna",
+            "expires": "Fecha de vencimiento"
+        },
+        "date": {
+            "basic": {
+                "from": "De",
+                "to": "A"
+            },
+            "days": {
+                "su": "Do.",
+                "mo": "Lu.",
+                "tu": "Ma.",
+                "we": "Mi.",
+                "th": "Ju.",
+                "fr": "Vi.",
+                "sa": "Sáb."
+            },
+            "month": {
+                "january": "Enero",
+                "february": "Febrero",
+                "march": "Marzo",
+                "april": "Abril",
+                "may": "Mayo",
+                "june": "Junio",
+                "july": "Julio",
+                "august": "Agosto",
+                "september": "Septiembre",
+                "october": "Octubre",
+                "november": "Noviembre",
+                "december": "Diciembre"
+            },
+            "ranges": {
+                "today": "Hoy",
+                "yesterday": "Ayer",
+                "last7Days": "Últimos 7 días",
+                "last14Days": "Últimos 14 días",
+                "last30Days": "Últimos 30 días",
+                "last90Days": "Last 90 Days",
+                "thisMonth": "Este mes",
+                "custom": "Rango personalizado",
+                "lastMonth": "El mes pasado",
+                "thisYear": "Este año"
+            },
+            "based_on": "Ubicación ",
+            "time_zone": " Zona horaria"
+        },
+        "subtitle": {
+            "access_credentials": "Credenciales de acceso",
+            "contacts": "Contactos",
+            "address": "Dirección",
+            "financial_information": "Información financiera",
+            "additional_information": "Información adicional",
+            "preferences": "Preferencias"
+        },
+        "export_file": {
+            "title": "Exportar como",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Error al generar el archivo, inténtalo tarde"
+        },
+        "pagination": {
+            "per_page": "Mostrar"
+        },
+        "table_columns_config": {
+            "cv_approved": "Cant.",
+            "cv_pending": "Cant.",
+            "cv_rejected": "Cant.",
+            "cv_total": "Cant.",
+            "clicks": "Bruto",
+            "impressions": "Cant.",
+            "cv_trash": "Cant."
+        },
+        "validation": {
+            "password_repeat": "Las contraseñas no coinciden",
+            "email_already_taken": "El correo electrónico ya está en uso",
+            "required": "Campo obligatorio",
+            "email": "El correo electrónico no es válido",
+            "min_length_password": "La contraseña debe tener al menos 8 símbolos",
+            "max": "El número excede el número permitido",
+            "incorrect_amount": "Incorrect Amount"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "Estadísticas",
+            "conversions": "Conversiones",
+            "clicks": "Clics"
+        }
+    },
+    "auth": {
+        "forgot_password": "Forgot password?"
+    },
+    "password_change": {
+        "button": "Cambiar la contraseña",
+        "not_change": "No cambiar la contraseña"
+    },
+    "password_reset": {
+        "title": "Password Reset",
+        "text": "To reset your password, please enter the email address you use to log in",
+        "button": "Get Reset Link",
+        "return_to_login": "Return to Log in"
+    },
+    "password_reset_confirm": {
+        "title": "Confirmation",
+        "text": "Please check your email. We sent you the further instructions for password reset",
+        "link": "Return to Log in"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Añadir contacto",
+            "description": {
+                "payment_details": "Por ejemplo: datos de la cuenta bancaria, números de tarjeta, Id. de PayPal, etc."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "Diario",
+        "weekly": "Semanal",
+        "monthly": "Mensual",
+        "total": "Total"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "Estadísticas de 14 días"
+        },
+        "navigation": {
+            "all": "Todas las ofertas"
+        },
+        "targeting": {
+            "except": "Excepto:",
+            "denied": "Denegado",
+            "offers_targeting_rules": {
+                "connection_type": "Tipo de conexión",
+                "mobile_operator": "Operador móvil",
+                "device_type": "Tipo de dispositivo",
+                "device_os": "OS",
+                "device_os_version": "Versión del sistema operativo del dispositivo",
+                "device_brand": "Marca del dispositivo",
+                "device_model": "Modelo del dispositivo",
+                "browser": "Navegador",
+                "language": "Idioma",
+                "worldwide": "En todo el mundo",
+                "geo": "Geografía",
+                "expect": "Previsto",
+                "denied": "Denegado",
+                "connection_type_allowed": "Tipo de conexión permitido",
+                "mobile_operator_allowed": "Operador móvil permitido",
+                "device_type_allowed": "Tipo de dispositivo permitido",
+                "device_os_allowed": "Sistema operativo del dispositivo permitido",
+                "device_os_version_allowed": "Versión del sistema operativo del dispositivo permitida",
+                "device_brand_allowed": "Marca de dispositivo permitida",
+                "device_model_allowed": "Modelo de dispositivo permitido",
+                "browser_allowed": "Navegador permitido",
+                "language_allowed": "Idioma permitido",
+                "geo_allowed": "Geografía permitida",
+                "connection_type_denied": "Tipo de conexión denegado",
+                "mobile_operator_denied": "Operador móvil denegado",
+                "device_type_denied": "Tipo de dispositivo denegado",
+                "device_os_denied": "Sistema operativo del dispositivo denegado",
+                "device_os_version_denied": "Versión del sistema operativo del dispositivo denegado",
+                "device_brand_denied": "Marca del dispositivo denegada",
+                "device_model_denied": "Modelo de dispositivo denegado",
+                "browser_denied": "Navegador denegado",
+                "language_denied": "Idioma denegado",
+                "geo_denied": "Geografía denegada",
+                "affiliate_sub_id_1": "Sub 1 de afiliado",
+                "affiliate_sub_id_2": "Sub 2 de afiliado",
+                "affiliate_sub_id_3": "Sub 3 de afiliado",
+                "affiliate_sub_id_4": "Sub 4 de afiliado",
+                "affiliate_sub_id_5": "Sub 5 de afiliado"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Conversiones múltiples"
+            }
+        },
+        "creatives": {
+            "title": "Creativos"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Objetivos",
+                "creatives": "Creativos",
+                "targeting": "Segmentación"
+            },
+            "targeting": {
+                "geo": "Geografía"
+            }
+        },
+        "urls": {
+            "title": "Landing pages",
+            "type": {
+                "default": "Predeterminado",
+                "preview": "Previsualizar"
+            },
+            "visible_to_affiliates": "Visible to Affiliates"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "A quick overview of how offers are performing. Updated once a day.",
+                    "ar": "Approval Rate — the number of Approved Conversions from the Total Conversions. Calculated across all affiliates for the previous month.",
+                    "cr": "Conversion Rate — an average number of Total Conversions per Click. Calculated across all affiliates for the last 7 days.",
+                    "epc": "Earnings per Click — average earnings per click. Calculated across all affiliates for the last 7 days.",
+                    "n_a": "Not enough data to display the metric"
+                },
+                "conversions": {
+                    "info": "Total Conversions for the last 7 days сompared to the previous 7 days. Sorting data is updated once a day."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Banner",
+        "email": "Correo electrónico",
+        "html": "Otros",
+        "xml_feed": "XML Feed"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finanzas"
+        },
+        "table" : {
+            "transaction_id": "Id. de pago",
+            "payment_details": "Información de pago"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Resumen de la red",
+        "top_offers": "Principales ofertas",
+        "volume": "Volumen",
+        "metrics": "Métricas",
+        "trends": "Tendencias",
+        "legend": {
+            "cv_pending": "Conversiones pendientes",
+            "impressions": "Impresiones",
+            "clicks": "Clics brutos",
+            "cv_approved": "Conversiones aprobadas",
+            "cr": "CR",
+            "cv_rejected": "Conversiones rechazadas",
+            "approved_payout": "Pago aprobado",
+            "pending_payout": "Pago pendiente",
+            "rejected_payout": "Pago rechazado",
+            "ctr": "Porcentaje de clics",
+            "unique_clicks": "Clics únicos",
+            "duplicate_clicks": "Clics duplicados",
+            "invalid_clicks": "Clics no válidos",
+            "pr": "PR",
+            "cv_total": "Conversiones totales",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Pago por clics",
+            "total_payout": "Pago total"
+        },
+        "message_when_column_max": "Se puede seleccionar un máximo de 6 métricas."
+    },
+    "conversion_statuses": {
+        "pending": "Pendiente",
+        "rejected": "Rechazado",
+        "approved": "Aprobado",
+        "default": "Predeterminado",
+        "trash": "Basura"
+    },
+    "reports_page": {
+        "custom": "Personalizado",
+        "last_updated": "Last updated: {{ minutes }} min. ago",
+        "filters": {
+            "popular": "Popular",
+            "offers": "Oferta",
+            "offer": "Oferta",
+            "offers_goals": "Objetivo",
+            "goals_types": "Tipo de objetivo",
+            "currencies": "Divisa",
+            "offers_creatives": "Creativo",
+            "offers_links": "Landing page",
+            "ips": "IP",
+            "track_ids": "Id. de seguimiento del anunciante",
+            "advertisers_params1": "Parámetro 1 de anunciante",
+            "advertisers_params2": "Parámetro 2 de anunciante",
+            "advertisers_params3": "Parámetro 3 de anunciante",
+            "advertisers_params4": "Parámetro 4 de anunciante",
+            "advertisers_params5": "Parámetro 5 de anunciante",
+            "conversions_referrers": "URL para referencias de conversión",
+            "countries": "País",
+            "devices_type": "Tipo de dispositivo",
+            "devices_brands": "Marca del dispositivo",
+            "devices_models": "Modelo del dispositivo",
+            "devices_os": "Sistema operativo del dispositivo",
+            "browsers": "Navegador",
+            "connections_types": "Tipo de conexión",
+            "languages": "Idioma",
+            "mobile_operators": "Operador móvil",
+            "technical": "Técnico",
+            "clickIds": "Id. de clic",
+            "data": "Datos",
+            "transactions": "Id. de transacción",
+            "statuses": "Estado de conversión",
+            "orders_ids": "Id. de pedido del anunciante",
+            "users_ids": "Id. de usuario del anunciante",
+            "devices_os_version": "Versión del sistema operativo del dispositivo",
+            "browser_version": "Versión del navegador",
+            "geo": "Geografía",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "Un elemento por línea",
+            "visible_tooltip": "Keep Always Visible"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Desktop",
+                "smartphone": "Phone",
+                "tablet": "Tablet",
+                "feature_phone": "Feature Phone",
+                "console": "Console",
+                "tv": "Tv",
+                "car_browser": "Car Browser",
+                "smart_display": "Smart Display",
+                "camera": "Camera",
+                "portable_media_player": "Portable Media Player",
+                "phablet": "Phablet"
+            }
+        },
+        "statistics": {
+            "title": "Estadísticas",
+            "menus": {
+                "affiliate": "Afiliado",
+                "offer": "Oferta",
+                "advertiser": "Anunciante",
+                "country": "País",
+                "goal": "Objetivo",
+                "day": "Día",
+                "monthly": "Monthly",
+                "hour": "Hora",
+                "device_type": "Tipo de dispositivo",
+                "connection_type": "Tipo de conexión"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Conversiones aprobadas",
+                    "pending_conversions": "Pending Conversions",
+                    "rejected_conversions": "Conversiones rechazadas",
+                    "trash_conversions": "Conversiones de basura"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Clicks on the affiliate tracking link, when a visitor is redirected to the Offer landing page.",
+                    "clicks": "All the clicks, including Unique, Duplicate, and Invalid",
+                    "unique_clicks": "Clicks received from different users",
+                    "invalid_clicks": "Clicks that were redirected to Trafficback URL due to non-compliance with the targeting conditions or due to a broken affiliate link.",
+                    "approved_conversions": "Сonversions that were approved by the Advertiser.",
+                    "pending_conversions": "Once reviewed by the Advertiser, these conversions will become Approved or Rejected.",
+                    "rejected_conversions": "Conversions that were disapproved by the Advertiser."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Conversiones"
+        },
+        "clicks": {
+            "title": "Clics"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Clicks that were redirected to Trafficback URL due to non-compliance with targeting conditions or due to a broken affiliate link."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Postbacks (or pixels) received from the Advertiser, which shows if the conversion was recorded successfully or an error occurred."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Postbacks (or pixels) sent to Affiliate. Displayed if an affiliate uses its own tracker and has installed a postback of this tracker on your platform."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Bulk conversion editing: change status, change payout, or add conversions."
+        }
+    },
+    "POWERED_BY": "Con tecnología de "
+}

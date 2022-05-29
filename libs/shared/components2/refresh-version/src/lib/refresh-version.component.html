@@ -1,0 +1,37 @@
+<ui-alert
+    [templateCustom]="template"
+    borderColor="danger"
+    className="refresh-version justify-content-center"
+    [@fadeInOut]
+    ></ui-alert>
+
+<ng-template #template>
+    <div class="refresh d-flex align-items-center justify-content-center flex-column">
+        <div class="refresh__header d-flex justify-content-center w-100 align-items-center">
+            <div class="refresh__icon d-flex justify-content-center">
+                <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>refresh</title>
+                    <g id="-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="refresh" transform="translate(-126.000000, -864.000000)" fill="#9CA1AB">
+                            <g id="Group-2" transform="translate(8.000000, 845.000000)">
+                                <g id="refresh" transform="translate(118.000000, 19.000000)">
+                                    <path d="M28.9099217,4.55461962 C28.2504463,4.48993962 27.6672233,5.01260301 27.6070966,5.72195491 L27.4482374,7.59651406 C24.7530865,3.04337763 20.0745937,0 14.653659,0 C8.82196838,0 3.68266404,3.58042151 1.13144552,8.95421361 C0.830272493,9.58856767 1.06418514,10.365437 1.65388242,10.6894173 C2.24369958,11.0133977 2.96575952,10.7618357 3.26693255,10.1274172 C5.42603865,5.57956864 9.76181527,2.57946148 14.653659,2.57946148 C19.1123267,2.57946148 23.1360799,5.07708954 25.4412765,8.98993915 L23.7317718,7.67654185 C23.1929095,7.26260277 22.4441132,7.39686374 22.0593143,7.97646873 C21.6745154,8.55613821 21.7993248,9.36157506 22.3381272,9.77557863 L27.522032,13.7583316 C28.2817985,14.3409675 29.3297296,13.8075994 29.4128159,12.8259208 L29.9949599,5.95617002 C30.0551466,5.24675362 29.5693372,4.61929962 28.9099217,4.55461962 Z" id="Path"></path>
+                                    <path d="M28.3461174,19.309978 C27.7563599,18.9860438 27.0342398,19.2376201 26.7330667,19.87201 C24.5739598,24.4201158 20.2381817,27.4203926 15.3463363,27.4203926 C10.887667,27.4203926 6.86391244,24.9226233 4.55871505,21.0095524 L6.26822028,22.323024 C6.8070828,22.7369864 7.55581935,22.6027179 7.94067834,22.0230801 C8.32547737,21.4433778 8.20066796,20.6378954 7.66186539,20.2238684 L2.47795878,16.2408902 C1.72748376,15.66409 0.67109981,16.1814947 0.587174175,17.1733537 L0.00503000518,24.0434931 C-0.0550967174,24.7528851 0.43077276,25.3803746 1.09012851,25.4450583 C1.75038347,25.5096129 2.33288732,24.9864041 2.3929541,24.277657 L2.55181334,22.4029918 C5.24690525,26.9564502 9.9253997,30 15.3463363,30 C21.1780289,30 26.317335,26.419376 28.8685544,21.0452799 C29.1697276,20.41089 28.9358148,19.6339767 28.3461174,19.309978 Z" id="Path"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="title refresh__title">{{ 'interface.basic.refresh.new_version' | translate }}</div>
+        <div class="refresh__subtitle">{{ 'interface.basic.refresh.latest_version' | translate }}</div>
+        <div class="refresh__button">
+            <ui-button-link
+                type="main"
+                [label]="'interface.basic.refresh.button' | translate"
+                (toggle)="refresh()"
+            ></ui-button-link>
+        </div>
+    </div>
+</ng-template>

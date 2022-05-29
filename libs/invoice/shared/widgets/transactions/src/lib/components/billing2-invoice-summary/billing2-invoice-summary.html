@@ -1,0 +1,30 @@
+<ng-container *ngIf="data">
+    <div uiSimpleTableRow [hoverDisabled]="true">
+        <div uiSimpleTableCol></div>
+        <div uiSimpleTableCol></div>
+        <div uiSimpleTableCol></div>
+        <div uiSimpleTableCol align="right">
+            <div class="py-3 line-height is-22 text-nowrap">
+                <div class="color__gray2">{{ 'interface.basic.subtotal' | translate }}:</div>
+                <div class="color__gray2" *ngIf="status === invoiceStatusNameEnum.Draft && +data?.advance">
+                    {{ 'invoice.advance_available' | translate }}:
+                </div>
+                <div class="color__gray2">
+                    {{ 'interface.basic.vat' | translate }} {{ data?.vat || 0 | format: 'percent': { digitsAfterPoint: 0 } }}:
+                </div>
+                <div class="color__black">{{ 'invoice.total' | translate }}:</div>
+            </div>
+        </div>
+        <div uiSimpleTableCol align="right">
+            <div class="py-3 line-height is-22 text-nowrap">
+                <div class="color__gray2">{{ data?.subtotal || 0 | format: 'money': { currency: currency } }}</div>
+                <div class="color__gray2" *ngIf="status === invoiceStatusNameEnum.Draft && +data?.advance">
+                    {{ data?.advance | format: 'money': { currency: currency } }}
+                </div>
+                <div class="color__gray2">{{ data?.vat_amount || 0 | format:'money': { currency: currency } }}</div>
+                <div class="color__black">{{ data?.total || 0 | format: 'money': { currency: currency } }}</div>
+            </div>
+        </div>
+        <div uiSimpleTableCol></div>
+    </div>
+</ng-container>

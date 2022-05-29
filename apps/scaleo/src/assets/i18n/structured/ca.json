@@ -1,0 +1,139 @@
+{
+    "billing": "Facturació",
+    "referrals": "Referències",
+    "tools": "Eines",
+    "delete": {
+        "delete_confirm_title": "N'estàs segur?",
+        "delete_confirm_text": "Aquest article s'eliminarà"
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Destacat"
+            }
+        }
+    },
+    "finances_page": {
+        "filters": {
+            "paid": "Pagat",
+            "not_paid": "No pagat",
+            "in_progress": "En curs"
+        },
+        "balance": {
+            "title": "Saldo",
+            "approved_payout": "Desemborsament aprovat",
+            "pending_payout": "Desemborsament pendent",
+            "paid_to_date": "Pagat fins ara",
+            "balance_due": "Balance Due"
+        },
+        "details": {
+            "request_payment": "Sol·licitud de pagament",
+            "select_payment_method": "Selecciona el mètode de pagament",
+            "payment_method_added": "S'ha afegit correctament el mètode de pagament",
+            "minimal_threshold": "Llindar mínim",
+            "payment_method_details": "Número de compte, número, etc.",
+            "payment_method_info_message": "Selecciona el mètode de pagament i completa les teves dades",
+            "request_payment_was_sent": "S'ha afegit correctament la sol·licitud de pagament",
+            "request": "Request"
+        }
+    },
+    "visibility_types": {
+        "available": "Disponible"
+    },
+    "quick_links": {
+        "title": "Enllaços ràpids"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Afegeix un postback",
+            "created": "El postback s'ha afegit correctament",
+            "edit": "Edita el postback",
+            "deleted": "El postback ha estat eliminat",
+            "add_as_title": "Afegeix un postback",
+            "global": "Global",
+            "offer": "Oferta",
+            "list_postback": "Postback",
+            "list_html": "Píxel en HTML (Basant en les galetes)",
+            "list_table_postback": "Postback",
+            "list_table_html": "Píxel en HTML (Basant en les galetes)",
+            "all_postbacks": "Tots els postbacks",
+            "global_postbacks": "Postbacks globals",
+            "goal": "Objectiu",
+            "description": {
+                "level_global_for_affiliate": "El postback global s'activarà per a totes les ofertes (tots els objectius excepte el tipus CPC).",
+                "level_offer_for_affiliate": "El postback només s'executarà per a l'oferta seleccionada. Si l'objectiu no s'especifica, s'executarà per a tots els objectius d'aquesta oferta.",
+                "conversion_status_for_affiliate": "El postback s'activarà només per aquest estat de conversió.",
+                "method_for_affiliate": "Aquest tipus de postback és compatible amb el vostre sistema."
+            }
+        },
+        "source": {
+            "title": "Font",
+            "add": "Afegeix una font"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros disponibles",
+        "offer_id": "ID de l'oferta de la plataforma",
+        "affiliate_id": "ID de l’afiliat que promou l’oferta",
+        "sub_id1": "Sub ID de l'afiliat 1 especificat en l’enllaç de seguiment",
+        "sub_id2": "Sub ID de l'afiliat 2 especificat en l’enllaç de seguiment",
+        "sub_id3": "Sub ID de l'afiliat 3 especificat en l’enllaç de seguiment",
+        "sub_id4": "Sub ID de l'afiliat 4 especificat en l’enllaç de seguiment",
+        "sub_id5": "Sub ID de l'afiliat 5 especificat en l’enllaç de seguiment",
+        "click_id": "Cadena alfanumèrica única de 32 caràcters que es genera i s'assigna a cada clic a la plataforma",
+        "link_id": "Oferir un enllaç addicional especificat a l'enllaç de seguiment",
+        "source_id": "ID de la font de l'afiliat especificat a l'enllaç de seguiment",
+        "aff_param1": "Paràmetre addicional de l'afiliat 1 especificat a l'enllaç de seguiment.",
+        "aff_param2": "Paràmetre addicional de l'afiliat 2 especificat a l'enllaç de seguiment.",
+        "aff_param3": "Paràmetre addicional de l'afiliat 3 especificat a l'enllaç de seguiment.",
+        "aff_param4": "Paràmetre addicional de l'afiliat 4 especificat a l'enllaç de seguiment.",
+        "aff_param5": "Paràmetre addicional de l'afiliat 5 especificat a l'enllaç de seguiment.",
+        "adv_param1": "Paràmetre addicional de l'afiliat 1 especificat en la conversió.",
+        "adv_param2": "Paràmetre addicional de l'afiliat 2 especificat en la conversió.",
+        "adv_param3": "Paràmetre addicional de l'afiliat 3 especificat en la conversió.",
+        "adv_param4": "Paràmetre addicional de l'afiliat 4 especificat en la conversió.",
+        "adv_param5": "Paràmetre addicional de l'afiliat 5 especificat en la conversió.",
+        "amount": "Import de la venda per part de l'anunciant.",
+        "conv_status": "Estat de la conversió (aprovat / pendent / rebutjat).",
+        "offer_name": "Nom de l'oferta a la plataforma.",
+        "creative_id": "ID de l'oferta creativa utilitzada.",
+        "aff_click_id": "ID del clic de l'afiliat. ID únic per a cada clic enviat pere l'afiliat.",
+        "deep_link": "ID de la font de l'afiliat especificada a l'enllaç de seguiment.",
+        "goal_id": "ID de l’objectiu de l’oferta de la plataforma",
+        "adv_order_id": "ID de la comanda de l'anunciant especificat en la conversió.",
+        "adv_user_id": "ID de l’usuari de l'anunciant especificat en la conversió.",
+        "offer_currency": "Moneda de l'oferta seleccionada.",
+        "transaction_id": "ID de la transacció. Número d’identificació únic per a cada transacció de la plataforma.",
+        "track_id": "Informació addicional de l'anunciant, especificada a la conversió.",
+        "payout": "Valor del desemborsament de l'afiliat",
+        "ip": "Adreça IP que ha iniciat la sessió de clics",
+        "user_agent": "Cadena de caràcters de l'agent d'usuari en el moment de fer clic.",
+        "device_type": "Cadena de caràcters del dispositiu de l'usuari en el moment de fer clic.",
+        "device_os": "Cadena de caràcters del sistema operatiu de l'usuari en el moment de fer clic.",
+        "connection_type": "Cadena de caràcters del tipus de connexió de l'usuari en el moment de fer clic.",
+        "mobile_operator": "Cadena de caràcters de la companyia de telefonia de l'usuari en el moment de fer clic",
+        "geo_country_code": "Codi postal de l'usuari en el moment de fer clic.",
+        "geo_country": "País de l'usuari en el moment de fer clic.",
+        "geo_region": "La regió de l’usuari en el moment de fer clic.",
+        "geo_city": "La ciutat de l’usuari en el moment de fer clic.",
+        "idfa": "ID de publicitat d'Apple iOS (IDFA).",
+        "gaid": "ID de publicitat de Google Android (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Remet a nous afiliats i rep una comissió cada mes {{ commission }} dels guanys d'aquests afiliats.",
+        "commission_info_for_flat": "Remet a nous afiliats i rep una comissió única de {{ commission }} per cada afiliat remès.",
+        "referrals_title": "Referents",
+        "link": "El teu enllaç personal de referencia",
+        "you_referrals_title": "Les teves referències",
+        "form": {
+            "referral_commission": "Comissió de remissió"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Poseu-vos en contacte amb el mànager perquè us habiliti una API."
+        }
+    }
+}

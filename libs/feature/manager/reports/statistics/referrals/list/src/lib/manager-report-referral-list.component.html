@@ -1,0 +1,58 @@
+<scaleo-report-referrals
+    [items]="items$ | async"
+    [tableConfig]="tableConfig"
+    [loading]="loading$ | async"
+    [pagination]="pagination$ | async"
+    [initialDateRange]="initialDateRange$ | async"
+    [showFilter]="true"
+    (dateWasChanged)="dateWasChanged($event)"
+    (pageWasChanged)="pageWasChanged($event)"
+    (perPageWasChanged)="perPageWasChanged($event)"
+    (reload)="reload()"
+>
+    <scaleo-report-filter
+        *ngxPermissionsOnly="permissions.canAccessAffiliates"
+        filter
+        [params]="filters$ | async"
+    ></scaleo-report-filter>
+</scaleo-report-referrals>
+
+<ng-template #affiliateRowTpl let-item>
+    <app-hyperlink
+        [link]="{
+               title: item.affiliate | format: 'idName',
+               link: '/affiliates/' + (item.affiliate | pregMatch: 'number') | navigateRoot
+            }"
+        [permission]="permissions.canAccessAffiliates"
+    ></app-hyperlink>
+</ng-template>
+
+<ng-template #referredAffiliateTpl let-item>
+    <app-hyperlink
+        [link]="{
+               title: item.referred_affiliate | format: 'idName',
+               link: '/affiliates/' + (item.referred_affiliate | pregMatch: 'number') | navigateRoot
+            }"
+        [permission]="permissions.canAccessAffiliates"
+    ></app-hyperlink>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessAffiliates">
+        {{ item.referral | format: 'idName' }}
+    </ng-container>
+</ng-template>
+
+<ng-template #referredRateTpl let-item>
+   <span *ngIf="referralCommissionsType === referralCommissionsTypeEnum.Percentage">
+       {{ item.rate | format: 'percent' }}
+   </span>
+</ng-template>
+
+<ng-template #baseAmountTpl let-item>
+    <ng-container>
+        {{ item.base_amount | format: 'money':{ digitsAfterPoint: 2 } }}
+    </ng-container>
+</ng-template>
+
+<ng-template #referralCommissionTpl let-item>
+    {{ item.referral_commission | format: 'money':{ currency: referralCommissionCurrency, digitsAfterPoint: 2 } }}
+</ng-template>

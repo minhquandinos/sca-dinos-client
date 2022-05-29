@@ -1,0 +1,21 @@
+<a
+    *ngIf="isLink; else label"
+    class="color__main-link cursor-pointer"
+    [href]="url"
+>
+    <ng-container [ngTemplateOutlet]="label"></ng-container>
+</a>
+
+<ng-template #label>
+    <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="type === activityObjectTypeEnum.Postback || type === activityObjectTypeEnum.GloabalPostback || type === activityObjectTypeEnum.CustomParam">
+            #{{ id }}
+        </ng-container>
+        <ng-container *ngSwitchCase="type === activityObjectTypeEnum.Domain">
+            {{ name }}
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            {{ name | format: 'idName': id }}
+        </ng-container>
+    </ng-container>
+</ng-template>

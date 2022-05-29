@@ -1,0 +1,16 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+    [results]="totals"
+>
+    <app-filter [formGroup]="form">
+        <app-find-platform-statuses
+            statusList="statuses"
+            [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+            itemLabel="title"
+            itemValue="status"
+            [exceptIds]="excludeStatusId"
+            formName="status"
+            (toggle)="setFilterStatus($event.newValue)"
+        ></app-find-platform-statuses>
+    </app-filter>
+</app-filters>

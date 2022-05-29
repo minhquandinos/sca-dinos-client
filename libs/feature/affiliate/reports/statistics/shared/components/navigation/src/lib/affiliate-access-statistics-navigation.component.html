@@ -1,0 +1,51 @@
+<ui-tab-nav-bar class="h-100">
+    <a ui-tab-nav-link routerLink="statistics/general" routerLinkActive="active">
+        {{ 'reports_page.custom' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/day" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.day' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/month" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.monthly' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/offer" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.offer' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/goal" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.goal' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/country" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.country' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/device-type" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.device_type' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/os" routerLinkActive="active">
+        {{ 'table.column.device_os' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/connection-type" routerLinkActive="active">
+        {{ 'reports_page.statistics.menus.connection_type' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="statistics/smart-links" routerLinkActive="active" *ngxPermissionsOnly="[planFeature.smartLink]">
+        {{ 'smart_link_page.title2' | translate }}
+    </a>
+
+    <ng-container *ngxPermissionsOnly="[permissions.canSeeReferralReports]">
+        <ng-container *ngIf="enabledReferral">
+            <a ui-tab-nav-link routerLink="referrals" routerLinkActive="active">
+                {{ 'referrals_page.referrals_title' | translate }}
+            </a>
+        </ng-container>
+    </ng-container>
+
+</ui-tab-nav-bar>
+

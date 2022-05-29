@@ -1,0 +1,36 @@
+<div
+    class="dropdown cursor-pointer"
+    [ngClass]="className"
+    uiOldDropdown
+    #dropdownRef
+>
+    <div class="d-flex" id="filterStatus" data-toggle="dropdown" aria-expanded="false">
+
+        <div class="d-flex align-items-center dropdown-item-selected">
+            <app-status-color [status]="selectedElement" *ngIf="selectedElement?.toLowerCase() === 'status'"></app-status-color>
+            <div *ngIf="title">{{ title }}:</div>
+            <div class="filter-title" [ngClass]="{'color__steel': selectedElement?.toLowerCase() === ('role' || 'status'), 'ml-2': !title}">
+                {{ (lowerCase) ? selectedElement?.toLowerCase() : selectedElement }}
+            </div>
+        </div>
+
+        <div class="dropdown-arrows d-flex align-self-center">
+            <ui-svg-icon class="angle-down" icon="down" iconType="stroke"></ui-svg-icon>
+        </div>
+    </div>
+
+    <div class="dropdown-menu" #dropdownMenuRef>
+        <div
+            class="dropdown-item"
+            [ngClass]="{'active': element.title === selectedElement}"
+            *ngFor="let element of elements" (click)="setElement(element)"
+        >
+            <div class="d-flex align-items-center">
+                <app-status-color *ngIf="selectedElement?.toLowerCase() === 'status'" [status]="element?.title"></app-status-color>
+                <div class="filter-title" [ngClass]="{'ml-2': !title}">
+                    {{ (lowerCase) ? element?.title?.toLowerCase() : element?.title }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

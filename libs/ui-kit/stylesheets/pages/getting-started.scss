@@ -1,0 +1,72 @@
+.step-status {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    margin-right: -4px;
+    border: 2px solid $color__light-grayish-blue;
+
+
+    &-done {
+        background-color: $color__green;
+        border-color: $color__green;
+
+        &:after {
+            content: '';
+            width: 4.5px;
+            height: 9px;
+            border: solid;
+            border-width: 0 1.5px 1.5px 0;
+            border-color: white;
+            transform: rotate(45deg);
+            margin-top: -1px;
+            margin-left: 0.5px;
+        }
+    }
+}
+
+.nav li {
+    &.nav-item-getting-started a , &.nav-item-getting-started:hover a {
+        color: $color__gray2;
+    }
+}
+
+.schedule-call {
+    margin-left: 24px;
+    .page-wrapper-content {
+        padding: 12px 21px 16px 12px;
+
+        .container {
+            display: flex;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .text {
+                width: 13.625rem;
+                margin-bottom: 14px;
+                line-height: 1.43;
+            }
+        }
+    }
+}
+
+.btn-hide-getting-started {
+    color: $color__gray6;
+    opacity: .5;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+@media screen and ( max-width: 640px ) {
+    .schedule-call {
+        margin-left: 0;
+    }
+}

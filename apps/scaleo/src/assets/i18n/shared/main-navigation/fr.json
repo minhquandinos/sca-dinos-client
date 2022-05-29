@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Rapports",
+        "dashboard": "Tableau de bord",
+        "offers": "Offres",
+        "manage": "Gérer",
+        "activity-log": "Journal d'activité"
+    }
+}

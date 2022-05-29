@@ -1,0 +1,121 @@
+<app-card-widget innerClassName="pb-1">
+    <app-card-widget-header size="large" className="overflow-x-auto">
+        <span class="title text-nowrap mr-2">
+            {{ 'billing2.settings.payments_methods.title' | translate }}
+        </span>
+
+        <div class="ml-auto d-flex align-items-center">
+            <ui-button-link
+                type="floating"
+                icon="plus-small"
+                [label]="'billing2.settings.payments_methods.add' | translate"
+                (toggle)="addPaymentMethod()"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-0">
+        <ui-simple-table
+            [isLoad]="isLoad$ | async"
+            [notFound]="notFound$ | async"
+            [items]="paymentMethod$ | async"
+            [headers]="columns"
+            tableStyle="clear"
+            [skeletonColCount]="4"
+            [skeletonRowCount]="6"
+            colHeight="3rem"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiSimpleTableColTpl="payment_method" let-payment_method let-item="valueRow">
+                <ng-container *ngIf="payment_method; else selectMethod">
+                    <app-payment-method-detail
+                        [tooltipText]="payment_method.title"
+                        [logo]="payment_method.payment_method_logo"
+                        [method]="item.payment_method_info"
+                        [methodLimitText]="50"
+                    ></app-payment-method-detail>
+                </ng-container>
+                <ng-template #selectMethod>
+                    <div class="affiliate-billing-details__warning">
+                        <ui-svg-icon icon="warning" [size]="24"></ui-svg-icon>
+                        <a href="#" appStopPropagation (click)="addPaymentMethod(item)">
+                            {{ 'billing2.settings.payments_methods.add' | translate }}
+                        </a>
+                    </div>
+                </ng-template>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="approved_balance" let-approved_balance let-item="valueRow">
+                <span class="color__green">
+                    <ng-template
+                        *ngTemplateOutlet="
+                            moneyTpl;
+                            context: {
+                                $implicit: approved_balance,
+                                currency: item.currency
+                            }
+                        "
+                    ></ng-template>
+                </span>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="balance_due" let-balance_due let-item="valueRow">
+                <ng-template
+                    *ngTemplateOutlet="
+                        moneyTpl;
+                        context: {
+                            $implicit: balance_due,
+                            currency: item.currency
+                        }
+                    "
+                ></ng-template>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="payment_request" let-payment_request let-item="valueRow">
+                <ng-container *ngIf="+item.approved_balance; else minThresholdContainer">
+                    <ui-button-link
+                        *ngIf="item.approved_balance >= item?.thresholdConverted; else minThresholdContainer"
+                        [label]="'table.column.payment_request' | translate"
+                        type="main"
+                        (toggle)="sendPaymentRequest(item)"
+                        appDisableButtonDuringRequest
+                        [startTrackBy]="disableButtonStartTrack$ | async"
+                        [disabled]="!item.payment_method"
+                    ></ui-button-link>
+                </ng-container>
+
+                <ng-template #minThresholdContainer>
+                    <ng-template [ngTemplateOutlet]="minThresholdTpl" [ngTemplateOutletContext]="{ item: item }"></ng-template>
+                </ng-template>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="next_interval_date" let-next_interval_date let-item="valueRow">
+                <ng-container *ngIf="item?.payment_method">
+                    <ng-container *ngIf="item.approved_balance >= item?.thresholdConverted; else minThresholdContainer">
+                        {{ item?.next_interval_date ? (item?.next_interval_date | format: 'date') : '' }}
+                    </ng-container>
+                    <ng-template #minThresholdContainer>
+                        <ng-template [ngTemplateOutlet]="minThresholdTpl" [ngTemplateOutletContext]="{ item: item }"></ng-template>
+                    </ng-template>
+                </ng-container>
+            </ng-template>
+        </ui-simple-table>
+    </app-card-widget-content>
+</app-card-widget>
+
+<ng-template #minThresholdTpl let-item="item">
+    <div class="affiliate-billing-details__warning" *ngIf="item?.thresholdConverted || item?.thresholdConverted === 0">
+        <ui-svg-icon icon="warning" [size]="24"></ui-svg-icon>
+        <div class="affiliate-billing-details__minimum_threshold">
+            <span>{{ 'table.column.minimum_threshold' | translate }}:</span>
+            {{ item?.thresholdConverted | format: 'money':{ currency: item?.currency, digitsAfterPoint: 2 } }}
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #moneyTpl let-balance let-currency="currency">
+    {{ balance | format: 'money':{ currency: currency } }}
+</ng-template>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation class="ml-auto" (toggleEdit)="addPaymentMethod(item)"></ui-table-navigation>
+</ng-template>

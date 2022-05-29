@@ -1,0 +1,33 @@
+<div *ngIf="isLoad">
+    <ng-container *ngFor="let item of items; trackBy: trackByFn; let i = index;">
+        <div [hidden]="i > 1">
+            <ng-container [ngSwitch]="item.key">
+                <app-offer-targeting-geo
+                    #targetingComponent
+                    *ngSwitchCase="'geo'"
+                    [item]="item"
+                    itemKey="geo"
+                    [showDefaultGeo]="showDefaultGeo"
+                ></app-offer-targeting-geo>
+                <app-offer-targeting-default #targetingComponent *ngSwitchDefault  [item]="item" [itemKey]="item.key" ></app-offer-targeting-default>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ui-svg-icon
+        *ngIf="items.length > 2"
+        icon="more-horisontal-small"
+        size="14"
+        className="m-l-3"
+        [tooltip]="allTooltipTpl"
+        contentType="template">
+    </ui-svg-icon>
+</div>
+
+<ng-template #allTooltipTpl>
+    <ng-container *ngFor="let component of targetingComponent.toArray(); trackBy: trackByFn; let i = index;">
+        <ng-template
+            [ngTemplateOutlet]="component.outputTooltipTpl"
+            [ngTemplateOutletContext]="{allowed: component?.item?.allowed, denied: component?.item?.denied }"
+        ></ng-template>
+    </ng-container>
+</ng-template>

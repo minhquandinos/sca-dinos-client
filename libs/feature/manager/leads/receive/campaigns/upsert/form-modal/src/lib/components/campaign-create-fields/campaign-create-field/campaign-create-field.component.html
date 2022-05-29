@@ -1,0 +1,22 @@
+<div class="d-flex w-100" [formGroup]="group">
+    <div class="form-crud__item">
+        <app-find-platform-list
+            [exceptIds]="exceptedIds$ | async"
+            itemLabel="title"
+            itemValue="id"
+            [placeholder]="'interface.basic.select' | translate"
+            platformList="leads_receive_fields"
+            formName="name"
+            [labelShowId]="false"
+            (toggle)="changeType($event)"
+        ></app-find-platform-list>
+    </div>
+
+    <div class="form-crud__item m-r-8 w-50">
+        <app-input formControlName="value" [placeholder]="'interface.form.description' | translate"></app-input>
+    </div>
+
+    <div class="form-crud__item mt-1">
+        <ui-svg-icon icon="delete" (click)="delete()" tooltip="{{ 'tooltip.basic.delete' | translate }}"></ui-svg-icon>
+    </div>
+</div>

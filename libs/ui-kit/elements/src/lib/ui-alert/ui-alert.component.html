@@ -1,0 +1,8 @@
+<div class="ui-alert d-flex align-items-center" [ngClass]="className" #elementRef>
+    <ng-container *ngIf="!!templateCustom; else defaultTemplate">
+        <ng-container [ngTemplateOutlet]="templateCustom"></ng-container>
+    </ng-container>
+    <ng-template #defaultTemplate>
+        <ng-content></ng-content>
+    </ng-template>
+</div>

@@ -1,0 +1,109 @@
+<app-filters [title]="'interface.basic.filtered_by' | translate">
+    <form [formGroup]="filterForm" class="d-flex align-items-md-center">
+        <app-filter>
+        <app-dropdown-popup
+            [label]="'statuses.status' | translate"
+            [count]="statusCount$ | async"
+            (toggle)="applyFilter()"
+        >
+            <app-find-platform-list
+                #invoicesStatusesRef
+                platformList="invoices_statuses"
+                [formName]="invoicesParamsEnum.Status"
+                itemLabel="title"
+                itemValue="status"
+                itemIncrement="status"
+                [multiple]="true"
+                [labelShowId]="false"
+            ></app-find-platform-list>
+        </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter *ngxPermissionsOnly="permissions.canAccessAffiliates">
+            <app-dropdown-popup
+                [label]="'table.column.affiliate' | translate"
+                [count]="affiliatesCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-affiliates
+                    itemValue="id"
+                    [multiple]="true"
+                    [hideSelected]="true"
+                    [formName]="invoicesParamsEnum.Affiliates"
+                ></app-find-affiliates>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.payment_method' | translate"
+                [count]="paymentMethodsCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-payment-methods
+                    #findPaymentMethodsRef
+                    [formName]="invoicesParamsEnum.PaymentsMethods"
+                    [multiple]="true"
+                    itemValue="id"
+                    [labelShowId]="false"
+                    [placeholder]="'interface.basic.search' | translate"
+                ></app-find-payment-methods>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.currency' | translate"
+                [count]="currenciesCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findCurrenciesRef
+                    platformList="currencies"
+                    [formName]="invoicesParamsEnum.Currencies"
+                    itemLabel="title"
+                    itemValue="code"
+                    [multiple]="true"
+                    [labelShowId]="false"
+                    [disableTranslate]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+    <section filter-selected *ngIf="selectedAnyFilters">
+            <app-output-selected-filters
+                [findComponent]="invoicesStatusesRef"
+                [title]="'statuses.status' | translate"
+                itemTitle="title"
+                [selected]="filterParams.statuses"
+                (clear)="clearFilter(invoicesParamsEnum.Status)"
+                (remove)="removeFilter(invoicesParamsEnum.Status, $event)"
+            ></app-output-selected-filters>
+
+            <app-output-selected-filters
+                [findComponent]="findAffiliatesRef"
+                [title]="'table.column.affiliate' | translate"
+                itemTitle="title"
+                [selected]="filterParams.affiliates"
+                (clear)="clearFilter(invoicesParamsEnum.Affiliates)"
+                (remove)="removeFilter(invoicesParamsEnum.Affiliates, $event)"
+            ></app-output-selected-filters>
+
+            <app-output-selected-filters
+                [findComponent]="findCurrenciesRef"
+                [title]="'table.column.currency' | translate"
+                itemValue="code"
+                [selected]="filterParams.currencies"
+                (clear)="clearFilter(invoicesParamsEnum.Currencies)"
+                (remove)="removeFilter(invoicesParamsEnum.Currencies, $event)"
+            ></app-output-selected-filters>
+
+            <app-output-selected-filters
+                [findComponent]="findPaymentMethodsRef"
+                [title]="'table.column.payment_method' | translate"
+                [selected]="filterParams.payments_methods"
+                (clear)="clearFilter(invoicesParamsEnum.PaymentsMethods)"
+                (remove)="removeFilter(invoicesParamsEnum.PaymentsMethods, $event)"
+            ></app-output-selected-filters>
+        </section>
+</app-filters>

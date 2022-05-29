@@ -1,0 +1,54 @@
+<div class="d-flex" [formGroup]="group">
+    <section class="d-flex w-100 flex-column flex-md-row m-r-8">
+        <div class="form-crud__item">
+            <app-find-platform-list
+                [searchable]="false"
+                [labelShowId]="false"
+                [hideSelected]="false"
+                formName="type"
+                platformList='offers_targeting_rules'
+                (toggle)="changeType($event)"
+            ></app-find-platform-list>
+        </div>
+        <div class="form-crud__item">
+            <app-select
+                [items]="permissions | customTranslate:'interface.basic' | async"
+                [placeholder]="'offers_page.targeting.select_permission' | translate"
+                itemLabel="title"
+                itemValue="id"
+                formControlName="permission"
+            ></app-select>
+        </div>
+        <div class="form-crud__item">
+            <ng-container *ngIf="offersTargetingRulesEnum.DeviceOSVersion !== targetingType; else deviceOsInput">
+                <app-select
+                    [items]="conditions | async"
+                    [placeholder]="'offers_page.targeting.select_permission' | translate"
+                    [itemLabel]="targetingType | extendedTargetingTranslate | async"
+                    [multiple]="true"
+                    [hideSelected]="true"
+                    formControlName="conditions"
+                    [searchable]="conditionsSearch"
+                    (change)="searching('')"
+                    (search)="searching($event)"
+                ></app-select>
+            </ng-container>
+            <ng-template #deviceOsInput>
+                <app-input
+                    formControlName="conditions"
+                    numeric="float"
+                    [placeholder]="'offers_page.targeting.select_permission_device_os' | translate"
+                ></app-input>
+            </ng-template>
+        </div>
+    </section>
+
+    <div class="crud__item mt-1">
+        <ui-svg-icon
+            icon="delete"
+            (click)="deleteRule()"
+            tooltip="{{ 'tooltip.basic.delete' | translate }}"
+        ></ui-svg-icon>
+    </div>
+</div>
+

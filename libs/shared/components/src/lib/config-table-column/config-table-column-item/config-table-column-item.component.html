@@ -1,0 +1,30 @@
+<li class="config-table-column__item mb-2">
+    <label class="form-checkbox d-flex align-items-center" (click)="showMessageWhenMax()">
+        <span class="form-checkbox_title d-flex align-items-center text-nowrap">
+            {{
+            ((configColumn.alternativeColumnsConfigTranslateKey + param.key | translate) !== configColumn.alternativeColumnsConfigTranslateKey + param.key
+                ? configColumn.alternativeColumnsConfigTranslateKey + param.key
+                : 'table.column.' + param.key) | translate
+            }}
+            <span
+                class="d-flex align-items-center ml-1"
+                *ngIf="('reports.table.tooltip.' + param?.key | translate) !== 'reports.table.tooltip.' + param?.key && ('reports.table.tooltip.' + param?.key | translate) !== ''">
+                <ui-svg-icon
+                    class="cursor-info"
+                    icon="info-4"
+                    size="14"
+                    [tooltip]="'reports.table.tooltip.' + param?.keyForTooltip | translate"
+                ></ui-svg-icon>
+            </span>
+         </span>
+        <input
+            [disabled]="((disabled | async) && !param.selected) || ( require | async)"
+            type="checkbox"
+            [checked]="param.selected"
+            (click)="checked()"
+        >
+        <span class="checkmark"></span>
+    </label>
+
+    <ng-content></ng-content>
+</li>

@@ -1,0 +1,99 @@
+<div class="profile">
+    <div class="profile__columns">
+        <div class="profile__column">
+            <scaleo-advertiser-access-offer-detail-info-widget
+                [offerData]="offerData$ | async"
+            ></scaleo-advertiser-access-offer-detail-info-widget>
+
+            <scaleo-offer-goals-old-widget
+                #offerGoalsCardComponentRef
+                [goalsData]="goalsData$ | async"
+                [currency]="currency$ | async"
+                [rowTemplate]="advertiserRowTemplate"
+            ></scaleo-offer-goals-old-widget>
+
+            <scaleo-offer-targeting-old-widget
+                *ngIf="showTargeting || (isExtendedTargetingNotEmpty | async)"
+                [targeting]="targeting$ | async"
+            ></scaleo-offer-targeting-old-widget>
+
+            <scaleo-offer-landing-page-old-widget
+                *ngIf="(links$ | async).length > 0"
+                [urls]="links$ | async"
+            ></scaleo-offer-landing-page-old-widget>
+
+            <scaleo-offer-creative-old-widget
+                *ngIf="showCreatives$ | async"
+                [creatives]="creatives$ | async"
+                [affiliateId]="userId"
+                [rowTemplate]="creativeTemplate"
+                [headers]="creativesHeaders"
+            ></scaleo-offer-creative-old-widget>
+
+        </div>
+
+        <div class="profile__column d-flex flex-column">
+            <scaleo-offer-finances-old-widget [id]="offerId"></scaleo-offer-finances-old-widget>
+            <scaleo-offer-short-statistics-old-widget
+                [id]="offerId"
+                columns="clicks,cv_total,cr,total_revenue"
+                [headers]="[ 'date', 'clicks', 'conversions', 'cr', 'total_payout']"
+                [customRowTemplate]="statRowTemplate"
+                payoutColumnFor="advertiser"
+            ></scaleo-offer-short-statistics-old-widget>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #statRowTemplate let-item="context">
+    <td ui-table-col>
+        {{ item.clicks | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.cv_approved | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.cv_pending | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.cr | format:'percent' }}
+    </td>
+    <td ui-table-col>
+        {{ item.approved_revenue | format:'money' }}
+    </td>
+</ng-template>
+
+
+<ng-template #creativeTemplate let-creative="context">
+    <td ui-table-col>
+        {{ creative.id + ' ' + creative.title | format: 'idName' }}
+    </td>
+    <td ui-table-col>
+        <ui-chip class="info__label">
+            {{ creative?.type | creativeTypeTitle | async }}
+        </ui-chip>
+    </td>
+    <td ui-table-col>
+        <app-creative-preview [creative]="creative"></app-creative-preview>
+    </td>
+</ng-template>
+
+<ng-template #advertiserRowTemplate let-item="context">
+    <td ui-table-col>
+        <app-offer-goal-name [id]="item.goal_id" [name]="item.goal_name"></app-offer-goal-name>
+    </td>
+    <td ui-table-col>
+        <app-offer-goal-type-name
+            [item]="item" [currency]="currency$ | async"
+            type="revenue"
+            [showGoalTypeName]="true"
+        ></app-offer-goal-type-name>
+    </td>
+    <td ui-table-col>
+        <app-offer-goal-conversion-status [item]="item" [showM]="true"></app-offer-goal-conversion-status>
+    </td>
+    <td ui-table-col class="d-flex align-items-center h-100">
+        <app-offer-goal-cap-type [item]="item" [currency]="currency"></app-offer-goal-cap-type>
+    </td>
+</ng-template>

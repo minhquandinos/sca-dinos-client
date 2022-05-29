@@ -1,0 +1,36 @@
+<ui-dropdown-entity
+    #dropdownEntity
+    [height]="{size: 486, units: 'px'}"
+    [width]="{size: 259, units: 'px'}"
+    className="ml-0 ml-md-2 statistics-group__dropdown mt-2 mt-md-0"
+    (toggle)="dropdownStatus($event)"
+    [searchBox]="true"
+>
+    <ng-container actionContent>
+        <ui-button-link
+            icon="plus-small"
+            type="floating"
+            [label]="'interface.basic.breakdown' | translate"
+            (click)="dropdownEntity.open()"
+        ></ui-button-link>
+    </ng-container>
+    <ng-container dropdownContent>
+        <app-entity-list
+            #entityList
+            (search)="searchHandler($event)"
+            [searchPlaceholder]="'interface.basic.search' | translate"
+        >
+            <app-entity-group
+                *ngFor="let group of breakdownsList | newStatisticsGroupSearch: searchValue"
+                [label]="'table.column.' + group.key | translate"
+            >
+                <app-entity-item
+                    *ngFor="let item of group.items"
+                    [label]="'table.column.' + item.key | translate"
+                    [value]="item"
+                    (toggle)="selectHandler($event)"
+                ></app-entity-item>
+            </app-entity-group>
+        </app-entity-list>
+    </ng-container>
+</ui-dropdown-entity>

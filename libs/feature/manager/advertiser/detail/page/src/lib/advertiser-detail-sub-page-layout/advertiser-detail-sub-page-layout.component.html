@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill>
+    <div fxFlex="fit-content" fxFlex.md="100" fxLayoutGap.md="1rem" class="sidebar-wrapper mr-md-4">
+        <div appSticky="bottomTop">
+            <div class="m-b-11">
+                <ui-svg-icon
+                    class="cursor-pointer"
+                    icon="arrow-left" [tooltip]="'tooltip.basic.back' | translate"
+                    routerLink="../../{{ advertiserId }}"
+                ></ui-svg-icon>
+            </div>
+            <ul class="nav d-flex flex-column m-b-16 mb-md-0">
+                <li class="nav-item" routerLinkActive="active"
+                    *ngxPermissionsOnly="[managerPermissions.canAccessActivityLog]"
+                >
+                    <a routerLink="activity-log" class="text-nowrap">
+                        {{ 'activity_logs.title' | translate }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div fxFlex fxLayout="column">
+        <router-outlet></router-outlet>
+    </div>
+</div>

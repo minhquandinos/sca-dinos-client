@@ -1,0 +1,109 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{('outbound_page.announcements.title' | translate)}}
+    </div>
+</ng-template>
+
+<ul class="tab px-3 announcements-modal-form__tab h-auto position-fixed bg-white">
+    <li *ngFor="let menu of menus$ | async; trackBy: trackByFn">
+        <a
+            appStopPropagation
+            href="#"
+            class="white-space-nowrap"
+            (click)="changeTypeAnnouncements(menu.title)"
+            [ngClass]="{'active': menu.title === activeMenu}"
+        >
+            {{ 'outbound_page.announcements.widget.menus.' + menu.title | translate }}
+            <span class="tab__counts">{{ menu.count }}</span>
+        </a>
+    </li>
+</ul>
+
+<div
+    infiniteScroll
+    [infiniteScrollDistance]="0.5"
+    [infiniteScrollThrottle]="50"
+    infiniteScrollContainer=".page-modal"
+    [fromRoot]="true"
+    (scrolled)="onScroll()"
+></div>
+
+<div class="announcements-list announcements-modal-form__list">
+    <div class="announcements-list__wrapper-content overflow-auto h-100">
+        <div class="announcements-list__content">
+            <ui-table
+                headerPosition="left"
+                [isLoad]="isLoad"
+                [items]="(items$ | async)?.results"
+                [rowTemplate]="rowTemp"
+                [notFround]="(items$ | async)?.results.length <= 0"
+                [skeletonTemplate]="skeleton"
+                className="announcements-list__table"
+            ></ui-table>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of shared.generateFake(4)" class="skeleton">
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </td>
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </td>
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="25" className="ml-auto m-r-16"></ui-skeleton-block>
+        </td>
+    </tr>
+</ng-template>
+
+<ng-template #rowTemp let-item="context">
+    <td ui-table-col [id]="item.id">
+        <div class="announcement">
+            <div class="table__box-image">
+                <ui-image
+                    type="rounded"
+                    [image]="item.image"
+                    width="64"
+                    height="64"
+                ></ui-image>
+            </div>
+
+            <div class="w-100 d-flex flex-column justify-content-center m-l-16">
+                <div class="d-flex align-items-center">
+                    <span class="announcement__title">
+                        {{ item.title }}
+                    </span>
+                    <ui-svg-icon
+                        *ngIf="item.pin_to_top"
+                        class="m-l-5"
+                        icon="ic_pin"
+                        size="16"
+                    ></ui-svg-icon>
+                </div>
+
+                <div class="announcement__offers">
+                    <a
+                        *ngFor="let offer of item.connected_offers_selected"
+                        class="announcement__offers-link"
+                        [routerLink]="'/offers/' + (offer | pregMatch: 'number') | navigateRoot"
+                    >
+                        {{ offer | format: 'idName' }}
+                    </a>
+                </div>
+
+                <div *ngIf="item.content" class="announcement__content">
+                    <app-expand
+                        [expandText]="'shared.dictionary.read_more'"
+                    >
+                        <div [innerHtml]="item.content | expandTruncateText:400 | async"></div>
+                    </app-expand>
+                </div>
+
+                <app-date-variant class="announcement__date" [changeColor]="false" [date]="item.created"></app-date-variant>
+            </div>
+        </div>
+    </td>
+</ng-template>

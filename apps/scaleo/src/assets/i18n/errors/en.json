@@ -1,0 +1,18 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Access Denied",
+            "text": "The link you clicked may be broken or the page may have been removed or forbidden."
+        },
+        "page_not_found": {
+            "title": "Page Not Found or Forbidden",
+            "text": "The link you clicked may be broken or the page may have been removed or forbidden."
+        },
+        "connection_lost": {
+            "title": "Connection Lost",
+            "text": "Please wait a few minutes before you try again.",
+            "try_again": "Try again"
+        },
+        "return_home_page": "Return to Home Page"
+    }
+}

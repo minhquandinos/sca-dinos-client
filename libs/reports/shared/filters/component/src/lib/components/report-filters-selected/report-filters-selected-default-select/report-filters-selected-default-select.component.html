@@ -1,0 +1,26 @@
+<app-select
+    [addTemplate]="true"
+    [items]="items | async"
+    [formControlName]="_formName"
+    itemValue="id"
+    [hideSelected]="true"
+    [searchable]="true"
+    [clearable]="false"
+    [multiple]="true"
+    (search)="search($event)"
+    [searchFn]="customSearchFn"
+    (initialSelected)="initialSelectedHandler($event)"
+    (changeFull)="selectedFull($event)"
+    [loading]="loading"
+    [placeholder]="'interface.basic.search' | translate"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+        <ui-chip size="large" [close]="true" (closed)="clear(item)">
+            {{ item | reportFiltersLabelSelectPipe: _formName | async  }}
+        </ui-chip>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <span class="ng-value-label">{{ item | reportFiltersLabelSelectPipe: _formName | async }}</span>
+    </ng-template>
+</app-select>

@@ -1,0 +1,27 @@
+<scaleo-card2>
+    <scaleo-card2-header>
+        <scaleo-card2-title>
+            <div class="title text-size-16">
+                {{ 'administration_settings.headers.lists' | translate }}
+            </div>
+        </scaleo-card2-title>
+    </scaleo-card2-header>
+
+    <ui-divider></ui-divider>
+
+    <scaleo-card2-content class="pt-0 pb-0">
+        <ui-tab-nav-bar>
+            <a ui-tab-nav-link [routerLink]="['tags']" routerLinkActive="active">
+                {{ 'administration_settings.lists.tags.tab_title' | translate }}
+            </a>
+            <a ui-tab-nav-link [routerLink]="['messengers']" routerLinkActive="active">
+                {{ 'administration_settings.lists.messengers.tab_title' | translate }}
+            </a>
+            <a ui-tab-nav-link [routerLink]="['traffic-types']" routerLinkActive="active">
+                {{ 'administration_settings.lists.traffic_types.tab_title' | translate }}
+            </a>
+        </ui-tab-nav-bar>
+
+        <router-outlet></router-outlet>
+    </scaleo-card2-content>
+</scaleo-card2>

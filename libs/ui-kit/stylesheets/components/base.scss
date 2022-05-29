@@ -1,0 +1,10 @@
+.ui-image,
+.ui-chip {
+    display: inline-flex;
+    align-items: center;
+}
+
+.cdk-overlay-container {
+    z-index: 3001 !important;
+}
+

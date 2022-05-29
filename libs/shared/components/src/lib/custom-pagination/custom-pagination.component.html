@@ -1,0 +1,58 @@
+<div class="custom-pagination">
+    <div class="custom-pagination__wrapper">
+        <div>
+            <ng-container *ngIf="_pagination?.total_count > perPageDefault">
+                <ul class="custom-pagination__pages d-flex align-items-center" *ngIf="showPager">
+                    <li
+                        class="custom-pagination__page--previous"
+                        [ngClass]="{'inactive': !(pager.currentPage > 1)}"
+                        (click)="previousPage(pager.currentPage - 1)"
+                    >
+                        <a
+                            class="custom-pagination__page--link d-flex align-items-center"
+                            aria-label="Previous"
+                        >
+                            <ui-svg-icon icon="arrow-right-2" class="custom-pagination__page--arrow" aria-hidden="true"></ui-svg-icon>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <li
+                        *ngFor="let page of pager.pages"
+                        class="custom-pagination__page--item"
+                        [ngClass]="{active: pager.currentPage === page}"
+                        (click)="setPage(page)"
+                    >
+                        <a class="custom-pagination__page--link">{{ page }}</a>
+                    </li>
+
+                    <li
+                        class="custom-pagination__page--next"
+                        [ngClass]="{'inactive': pager.currentPage === pager.totalPages}"
+                        (click)="nextPage(pager.currentPage + 1)"
+                    >
+                        <a
+                            class="custom-pagination__page--link d-flex align-items-center"
+                            aria-label="Next"
+                        >
+                            <ui-svg-icon icon="arrow-right-2" class="custom-pagination__page--arrow" aria-hidden="true"></ui-svg-icon>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+        </div>
+
+        <div class="custom-pagination__dropdown d-flex align-items-center" *ngIf="totalCount >= 10 && showPerPageDropdown">
+            <p class="mr-2 mb-0">{{'interface.pagination.per_page' | translate}}:</p>
+            <app-dropdown-list
+                dropPosition="up"
+                [elements]="perPagesList"
+                [selected]="_pagination?.per_page"
+                className="filter-box pagination-drop"
+                (toggle)="perPageWasChange($event)"
+            ></app-dropdown-list>
+        </div>
+    </div>
+
+</div>

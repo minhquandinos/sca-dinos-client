@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill>
+    <div fxFlex="fit-content" fxFlex.md="100" fxLayoutGap.md="1rem" class="sidebar-wrapper mr-md-4">
+        <div appSticky="bottomTop">
+            <div class="m-b-11">
+                <ui-svg-icon
+                    class="cursor-pointer"
+                    icon="arrow-left" [tooltip]="'tooltip.basic.back' | translate"
+                    routerLink="./"
+                ></ui-svg-icon>
+            </div>
+            <ul class="nav d-flex flex-column">
+                <li class="nav-item" routerLinkActive="active">
+                    <a routerLink="postbacks" class="text-nowrap">
+                        {{ 'affiliate.postback.title' | translate }}
+                        <span class="count">{{ (affiliateCounts$| async)?.postbacks }}</span>
+                    </a>
+                </li>
+                <ng-container *ngxPermissionsOnly="planFeature.domains">
+                    <li
+                        class="nav-item"
+                        routerLinkActive="active"
+                    >
+                        <a routerLink="domains" class="text-nowrap">
+                            {{ 'affiliate.domain.title' | translate }}
+                            <span class="count">{{ (affiliateCounts$| async)?.domains }}</span>
+                        </a>
+                    </li>
+                </ng-container>
+                <ng-container *ngxPermissionsOnly="permissions.canSeeReferralReports">
+                    <li class="nav-item" routerLinkActive="active" *ngIf="showReferralProgram">
+                        <a routerLink="referrals" class="text-nowrap">
+                            {{ 'main_navigation.referrals' | translate }}
+                        </a>
+                    </li>
+                </ng-container>
+                <li class="nav-item"
+                    routerLinkActive="active"
+                    *ngxPermissionsOnly="permissions.canAccessActivityLog"
+                >
+                    <a routerLink="activity-log" class="text-nowrap">
+                        {{ 'activity_logs.title' | translate }}
+                        <span class="count">{{ (affiliateCounts$| async)?.active_logs }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div fxFlex fxLayout="column">
+        <router-outlet></router-outlet>
+    </div>
+</div>

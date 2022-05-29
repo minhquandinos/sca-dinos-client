@@ -1,0 +1,54 @@
+{
+    "finances_page": {
+        "filters": {
+            "paid": "Đã thanh toán",
+            "not_paid": "Chưa thanh toán",
+            "in_progress": "Đang xử lý"
+        },
+        "balance": {
+            "title": "Số dư",
+            "approved_payout": "Doanh thu được duyệt",
+            "pending_payout": "Doanh thu chờ xử lý",
+            "paid_to_date": "Tổng đã thanh toán",
+            "balance_due": "Số dư đến hạn"
+        },
+        "details": {
+            "select_payment_method": "Chọn phương thức thanh toán",
+            "payment_method_added": "Phương thức Thanh toán đã được thêm thành công",
+            "minimal_threshold": "Doanh thu thanh toán tối thiểu",
+            "payment_method_details": "Số tài khoản, Ngân hàng.v.v.",
+            "payment_method_info_message": "Vui lòng chọn Phương thức thanh toán và nhập thông tin chi tiết của bạn",
+            "request_payment_was_sent": "Đã gửi yêu cầu thanh toán",
+            "amount_condition": "Tối thiểu: {{ min }}, Tối đa: {{ max }}",
+            "request": "Yêu cầu"
+        }
+    },
+    "billing2": {
+        "settings": {
+            "payments_methods": {
+                "all_currencies": "Tất cả đơn vị tiền tệ",
+                "commission": "Hoa hồng"
+            }
+        },
+        "balance": {
+            "advance": "Nâng cao",
+            "pending": "Thanh toán chờ duyệt",
+            "approved": "Thanh toán đã được duyệt",
+            "due": "Số dư còn lại"
+        }
+    },
+    "invoice": {
+        "invoices_title": "Invoices",
+        "invoice_title": "Invoice",
+        "generation_date": "Date Generated",
+        "update": {
+            "due_date": "Due Date"
+        },
+        "view_conversions": "View Conversions",
+        "items": "Items",
+        "total": "Total",
+        "generate": {
+            "invoice_memo": "Invoice Memo"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<scaleo-manager-settings-card [title]="'main_navigation.offers' | translate">
+    <ng-container actions>
+        <ui-button-link [label]="'shared.dictionary.save' | translate" (click)="update()"></ui-button-link>
+    </ng-container>
+
+    <div class="form" [formGroup]="form">
+        <div class="field-label title is-5 mb-2 mt-0">
+            {{ 'administration_settings.offers.approval_questions_for_affiliate.title' | translate }}
+        </div>
+        <span class="form-text line-height is-16 mt-0 m-b-20">
+            {{ 'administration_settings.offers.approval_questions_for_affiliate.description' | translate }}
+        </span>
+
+        <app-textarea formControlName="approval_questions_for_affiliate" rows="3"></app-textarea>
+
+        <div class="m-t-40">
+            <app-custom-switch
+                [label]="'administration_settings.offers.ask_approval_questions_by_default.title' | translate"
+                formControlName="ask_approval_questions_by_default"
+            ></app-custom-switch>
+
+            <span class="form-text line-height is-16 mt-2">
+                {{ 'administration_settings.offers.ask_approval_questions_by_default.description' | translate }}
+            </span>
+        </div>
+    </div>
+</scaleo-manager-settings-card>

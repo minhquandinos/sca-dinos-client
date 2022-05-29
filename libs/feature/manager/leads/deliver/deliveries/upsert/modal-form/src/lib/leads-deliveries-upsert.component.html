@@ -1,0 +1,137 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{
+            !editId
+                ? ('leads_ui_page.deliver.deliveries.creating' | translate)
+                : ('leads_ui_page.deliver.deliveries.edit' | translate) + ' #' + editId
+        }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate" (toggle)="add()"></ui-button-link>
+</ng-template>
+
+<div class="form w-100" [formGroup]="form" *ngIf="isLoad; else skeleton">
+    <div class="m-b-8">
+        <app-input [label]="'interface.basic.title' | translate" formControlName="title"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 pl-0">
+        <app-find-platform-statuses
+            statusList="statuses"
+            [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+            [exceptIds]="excludeStatusId"
+            formName="status"
+        ></app-find-platform-statuses>
+    </div>
+
+    <div class="form-group pl-0">
+        <app-find-campaigns
+            formName="campaign_id"
+            itemValue="id"
+            [placeholder]="'interface.basic.select' | translate"
+            [label]="'table.column.campaign' | translate"
+        ></app-find-campaigns>
+    </div>
+
+    <div class="form-group">
+        <app-textarea
+            [label]="'leads_ui_page.deliver.deliveries.instructions.title' | translate"
+            formControlName="instructions"
+        ></app-textarea>
+
+        <div class="form-text">
+            <span>{{ 'leads_ui_page.deliver.deliveries.instructions.description' | translate }}</span>
+
+            <app-link-to-beacon beaconId="60f5598e6ffe270af2a9017f"></app-link-to-beacon>
+        </div>
+
+        <manager-shared-available-macros
+            className="mt-0"
+            [showDescription]="false"
+            typeMacroses="posting_instructions"
+        ></manager-shared-available-macros>
+    </div>
+
+    <div class="form-group">
+        <app-input
+            [label]="'leads_ui_page.deliver.deliveries.success_reply.title' | translate"
+            formControlName="success_reply"
+            [maxLength]="100"
+        ></app-input>
+
+        <div class="form-text">
+            {{ 'leads_ui_page.deliver.deliveries.success_reply.description' | translate }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-textarea [label]="'table.column.notes' | translate" formControlName="notes"></app-textarea>
+    </div>
+
+    <ui-button-link
+        *ngIf="editId"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        [size]="24"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</div>
+
+<ng-template #skeleton>
+    <div class="page-wrapper bg-white skeleton">
+        <div class="page-wrapper-header d-flex">
+            <div class="d-flex align-items-center my-auto mr-auto m-r-10">
+                <div class="ml-2 mr-2 page-wrapper-header__title">
+                    <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-75"></div>
+                </div>
+            </div>
+
+            <div class="d-flex my-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--large w-25"></div>
+            </div>
+        </div>
+
+        <div class="page-wrapper-content">
+            <div class="container d-flex justify-content-center">
+                <form class="w-100">
+                    <div class="form-group m-t-25">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="w-50 p-r-8">
+                            <div class="form-group mb-0">
+                                <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                                <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="w-100">
+                            <div class="form-group mb-0">
+                                <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                                <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-25"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--textarea w-100"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-25"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--textarea w-100"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>

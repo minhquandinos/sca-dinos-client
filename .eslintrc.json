@@ -1,0 +1,307 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "**/*"
+    ],
+    "plugins": [
+        "@typescript-eslint",
+        "prettier",
+        "simple-import-sort",
+        "sort-class-members",
+        "import",
+        "prefer-arrow",
+        "unused-imports",
+        "@angular-eslint/eslint-plugin-template",
+        "@nrwl/nx"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx",
+                "*.js",
+                "*.jsx"
+            ],
+            "rules": {
+                "@nrwl/nx/enforce-module-boundaries": [
+                    "error",
+                    {
+                        "enforceBuildableLibDependency": true,
+                        "allow": [],
+                        "depConstraints": [
+                            {
+                                "sourceTag": "type:app",
+                                "onlyDependOnLibsWithTags": [
+                                    "type:app",
+                                    "scope:shared",
+                                    "scope:platform",
+                                    "scope:core",
+                                    "scope:auth",
+                                    "scope:data-access",
+                                    "scope:ui-kit"
+                                ]
+                            },
+                            {
+                                "sourceTag": "scope:platform",
+                                "onlyDependOnLibsWithTags": ["scope:shared", "scope:core", "scope:platform", "lib-type:core-data", "scope:auth"]
+                            },
+                            {
+                                "sourceTag": "scope:core",
+                                "onlyDependOnLibsWithTags": ["scope:core"]
+                            },
+                            {
+                                "sourceTag": "scope:shared",
+                                "onlyDependOnLibsWithTags": ["scope:shared", "scope:platform", "scope:core", "scope:ui-kit"]
+                            },
+                            {
+                                "sourceTag": "scope:data-access",
+                                "onlyDependOnLibsWithTags": ["scope:platform", "scope:core", "scope:data-access"]
+                            },
+                            {
+                                "sourceTag": "scope:ui-kit",
+                                "onlyDependOnLibsWithTags": ["scope:ui-kit", "scope:core", "scope:platform"]
+                            },
+                            {
+                                "sourceTag": "scope:account",
+                                "onlyDependOnLibsWithTags": ["scope:account", "scope:core", "scope:platform"]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "extends": [
+                "plugin:@nrwl/nx/typescript",
+                "plugin:@nrwl/nx/angular",
+                "plugin:import/recommended",
+                "plugin:prettier/recommended"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "ecmaVersion": 2020,
+                "sourceType": "module"
+            },
+            "rules": {
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/dot-notation": "off",
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    {
+                        "selector": "default",
+                        "format": ["camelCase", "snake_case"],
+                        "leadingUnderscore": "allow",
+                        "trailingUnderscore": "allow"
+                    },
+                    {
+                        "selector": "variable",
+                        "format": ["camelCase", "snake_case", "UPPER_CASE"],
+                        "leadingUnderscore": "allow",
+                        "trailingUnderscore": "allow"
+                    },
+                    {
+                        "selector": "typeLike",
+                        "format": ["PascalCase"]
+                    },
+                    {
+                        "selector": "enumMember",
+                        "format": ["PascalCase"]
+                    },
+                    {
+                        "selector": "memberLike",
+                        "modifiers": ["private"],
+                        "format": ["camelCase"],
+                        "leadingUnderscore": "require"
+                    },
+                    {
+                        "selector": "objectLiteralProperty",
+                        "format": null
+                    }
+                ],
+                "complexity": "error",
+                "max-len": [
+                    "error",
+                    {
+                        "code": 140,
+                        "ignorePattern": "^import .*"
+                    }
+                ],
+                "no-new-wrappers": "error",
+                "no-throw-literal": "error",
+                "import/no-unresolved": "off",
+                "simple-import-sort/exports": "error",
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        "groups": [["^\\u0000"], ["^@?(?!scaleo)\\w"], ["^@scaleo?\\w"], ["^[^.]"], ["^\\."]]
+                    }
+                ],
+                "sort-imports": "off",
+                "import/named": "off",
+                "import/first": "error",
+                "import/newline-after-import": "error",
+                "lines-between-class-members": "off",
+                "@typescript-eslint/lines-between-class-members": ["error"],
+                "import/no-duplicates": "error",
+                "prefer-arrow-callback": "off",
+                "prefer-arrow/prefer-arrow-functions": [
+                    "error",
+                    {
+                        "disallowPrototype": true,
+                        "singleReturnOnly": false,
+                        "classPropertiesAllowed": false,
+                        "allowStandaloneDeclarations": true
+                    }
+                ],
+                "arrow-body-style": "error",
+                "arrow-parens": ["off", "always"],
+                "@typescript-eslint/consistent-type-definitions": "error",
+                "no-shadow": "off",
+                "@typescript-eslint/no-shadow": "error",
+                "no-invalid-this": "off",
+                "@typescript-eslint/no-invalid-this": ["warn"],
+                "@typescript-eslint/array-type": ["off"],
+                "valid-typeof:": ["off"],
+                "@typescript-eslint/explicit-function-return-type": [
+                    "off", // TODO add error
+                    {
+                        "allowExpressions": true
+                    }
+                ],
+                "@typescript-eslint/no-use-before-define": ["off"],
+                "no-unused-vars": "off",
+                "unused-imports/no-unused-imports": "error",
+                "unused-imports/no-unused-vars": [
+                    "warn",
+                    {
+                        "vars": "all",
+                        "varsIgnorePattern": "^_",
+                        "args": "after-used",
+                        "argsIgnorePattern": "^_"
+                    }
+                ],
+                "sort-class-members/sort-class-members": [
+                    "off",
+                    {
+                        "order": [
+                            "[static-properties]",
+                            "[static-methods]",
+                            "[angular-host-binding]",
+                            "[properties]",
+                            "[conventional-private-properties]",
+                            "[angular-input]",
+                            "[angular-output]",
+                            "[angular-view-child]",
+                            "[angular-view-children]",
+                            "[angular-content-child]",
+                            "[angular-content-children]",
+                            "[angular-host-listener]",
+                            "[arrow-function-properties]",
+                            "constructor",
+                            "[accessor-pairs]",
+                            "[getters]",
+                            "[setters]",
+                            "[angular-lifecycle-hooks]",
+                            "[async-methods]",
+                            "[methods]"
+                        ],
+                        "groups": {
+                            "angular-lifecycle-hooks": [
+                                { "name": "ngOnChanges", "type": "method" },
+                                { "name": "ngOnInit", "type": "method" },
+                                { "name": "ngDoCheck", "type": "method" },
+                                { "name": "ngAfterContentInit", "type": "method" },
+                                { "name": "ngAfterContentChecked", "type": "method" },
+                                { "name": "ngAfterViewInit", "type": "method" },
+                                { "name": "ngAfterViewChecked", "type": "method" },
+                                { "name": "ngOnDestroy", "type": "method" }
+                            ],
+                            "angular-input": [
+                                { "groupByDecorator": "Input", "type": "property" },
+                                { "groupByDecorator": "Input", "type": "method", "kind": "set" }
+                            ],
+                            "angular-output": [{ "groupByDecorator": "Output", "type": "property" }],
+                            "angular-view-child": [
+                                { "groupByDecorator": "ViewChild", "type": "property" },
+                                { "groupByDecorator": "ViewChild", "type": "property", "private": true },
+                                { "groupByDecorator": "ViewChild", "type": "method", "kind": "set" },
+                                { "groupByDecorator": "ViewChild", "type": "method", "kind": "set", "private": true }
+                            ],
+                            "angular-view-children": [
+                                { "groupByDecorator": "ViewChildren", "type": "property" },
+                                { "groupByDecorator": "ViewChildren", "type": "property", "private": true },
+                                { "groupByDecorator": "ViewChildren", "type": "method", "kind": "set" },
+                                { "groupByDecorator": "ViewChildren", "type": "method", "kind": "set", "private": true }
+                            ],
+                            "angular-content-child": [
+                                { "groupByDecorator": "ContentChild", "type": "property" },
+                                { "groupByDecorator": "ContentChild", "type": "property", "private": true },
+                                { "groupByDecorator": "ContentChild", "type": "method", "kind": "set" },
+                                { "groupByDecorator": "ContentChild", "type": "method", "kind": "set", "private": true }
+                            ],
+                            "angular-content-children": [
+                                { "groupByDecorator": "ContentChildren", "type": "property" },
+                                { "groupByDecorator": "ContentChildren", "type": "property", "private": true },
+                                { "groupByDecorator": "ContentChildren", "type": "method", "kind": "set" },
+                                { "groupByDecorator": "ContentChildren", "type": "method", "kind": "set", "private": true }
+                            ],
+                            "angular-host-listener": [
+                                { "groupByDecorator": "HostListener", "type": "method" },
+                                { "groupByDecorator": "HostListener", "type": "method", "private": true },
+                                { "groupByDecorator": "HostListener", "type": "method", "kind": "set" },
+                                { "groupByDecorator": "HostListener", "type": "method", "kind": "set", "private": true }
+                            ],
+                            "angular-host-binding": [
+                                { "groupByDecorator": "HostBinding", "type": "property" },
+                                { "groupByDecorator": "HostBinding", "type": "property", "private": true }
+                            ]
+                        },
+                        "accessorPairPositioning": "getThenSet"
+                    }
+                ]
+                // NOTE: DON`T WORK THIS RULES
+                // "@typescript-eslint/member-ordering": ["error", {}]
+            }
+        },
+        {
+            "files": [
+                "*.js",
+                "*.jsx"
+            ],
+            "extends": [
+                "plugin:@nrwl/nx/javascript"
+            ],
+            "rules": {}
+        },
+        {
+            "files": ["*.component.ts"],
+            "extends": ["plugin:@angular-eslint/template/process-inline-templates"],
+            "rules": {
+            }
+        },
+        // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
+            "rules": {
+                "max-len": [
+                    "error",
+                    {
+                        "code": 140
+                    }
+                ]
+            }
+        },
+        // NOTE: WE ARE NOT APPLYING @ANGULAR-ESLINT/TEMPLATE IN THIS OVERRIDE, ONLY PRETTIER
+        {
+            "files": ["*.html"],
+            "excludedFiles": ["*inline-template-*.component.html"],
+            "extends": ["plugin:prettier/recommended"],
+            "rules": {
+                // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
+                "prettier/prettier": ["error", { "parser": "angular" }]
+            }
+        }
+    ]
+}

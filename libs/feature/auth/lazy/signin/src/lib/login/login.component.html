@@ -1,0 +1,68 @@
+<div class="auth__wrapper container-fluid d-flex align-items-center px-0">
+    <div class="auth__content mx-auto d-flex flex-column">
+        <div class="auth__title">
+            {{ 'auth.LOGIN_TITLE' | translate }}
+        </div>
+        <div class="auth__form">
+            <form [formGroup]="form">
+                <div>
+                    <label for="email" class="auth__label">
+                        {{ 'email' | translate }}
+                    </label>
+                    <app-input [autocomplete]="true" class="auth__email" formControlName="email" id="email"></app-input>
+                </div>
+
+                <div class="m-t-23">
+                    <label for="password" class="auth__label">
+                        {{ 'password' | translate }}
+                    </label>
+
+                    <app-input [autocomplete]="true" formControlName="password" id="password" size="medium" type="password"></app-input>
+                </div>
+
+                <div class="font-size is-7 cursor-pointer m-t-2 text-right color__gray2 line-height" (click)="routePasswordReset()">
+                    {{ 'auth.forgot_password' | translate }}
+                </div>
+
+                <app-error class="m-t-6" [error]="error"></app-error>
+
+                <ui-button-link
+                    className="w-100 m-t-26"
+                    type="main"
+                    [label]="'auth.LOGIN_BUTTON' | translate"
+                    (toggle)="login()"
+                    [isLoad]="!form.disabled"
+                    [disabled]="form.disabled"
+                    [size]="'medium'"
+                ></ui-button-link>
+
+                <div class="auth__dont-have-account" *ngIf="!!activeLoginLink">
+                    <div class="auth__dont-have-account-title">
+                        <span>{{ 'auth.DONT_HAVE_ACCOUNT' | translate }}</span>
+                    </div>
+
+                    <div class="m-t-32">
+                        <ui-button-link
+                            *ngIf="allowSignupAff"
+                            class="form-button"
+                            type="floating"
+                            [label]="'auth.affiliate_sign_up' | translate"
+                            (click)="linkToAuth('affiliate')"
+                            [size]="'medium'"
+                        ></ui-button-link>
+
+                        <ui-button-link
+                            *ngIf="allowSignupAdv"
+                            class="form-button"
+                            className="m-t-16"
+                            type="floating"
+                            [label]="'auth.advertiser_sign_up' | translate"
+                            (click)="linkToAuth('advertiser')"
+                            [size]="'medium'"
+                        ></ui-button-link>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

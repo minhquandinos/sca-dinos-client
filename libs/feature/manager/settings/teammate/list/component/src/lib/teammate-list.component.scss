@@ -1,0 +1,7 @@
+.teammate-list {
+    &__table {
+        .table2 tbody tr *:first-child > td .table2__column {
+            padding-left: 0;
+        }
+    }
+}

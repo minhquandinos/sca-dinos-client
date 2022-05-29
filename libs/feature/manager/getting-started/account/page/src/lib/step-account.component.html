@@ -1,0 +1,185 @@
+<app-card widthSize="half">
+    <ng-container cardHeader>
+        <div class="title">
+            {{ 'getting_started.account.header_title' | translate }}
+        </div>
+        <div class="d-flex my-auto ml-auto">
+            <ui-button-link
+                class="m-r-4"
+                [label]="'getting_started.skip' | translate"
+                (click)="skip()"
+                type="simple"
+            ></ui-button-link>
+            <ui-button-link
+                [label]="'administration_settings.basic.save' | translate"
+                (click)="save()"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+
+    <div class="container  justify-content-center">
+        <div class="form w-100" [formGroup]="form" autocomplete="off">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-input
+                        [label]="'firstname' | translate"
+                        formControlName="firstname"
+                    ></app-input>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <app-input
+                        [label]="'lastname' | translate"
+                        formControlName="lastname"
+                    ></app-input>
+                </div>
+            </div>
+            <div class="form-group pl-0 col-md-6">
+                <app-input
+                    [label]="'email' | translate"
+                    formControlName="email"
+                ></app-input>
+            </div>
+        </div>
+
+        <div class="form" [formGroup]="platformForm" autocomplete="off">
+
+            <div class="title is-5">{{ 'getting_started.account.platform_settings' | translate }}</div>
+
+            <div class="d-flex flex-column m-b-17">
+                <label for="default_language" class="m-b-5">{{'administration_settings.settings.default_language' | translate}}</label>
+                <div class="form-row align-items-center">
+                    <div class="form-group col-md-6 mb-0">
+                        <app-select
+                            [items]="languages$ | async"
+                            itemLabel="title"
+                            itemValue="code"
+                            formControlName="default_language"
+                            [searchable]="false"
+                            [clearable]="false"
+                            [multiple]="false"
+                            [hideSelected]="false"
+                            [addTemplate]="true"
+                            id="default_language"
+                            (change)="changeLanguage()"
+                        >
+                            <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                                <div class="language-flag" *ngIf="item?.code">
+                                    <div class="language-flag__country d-flex align-items-center m-r-4">
+                                        <app-country-flag [countryCode]="item?.code"></app-country-flag>
+                                    </div>
+                                    <div class="language-flag__title ">{{ item?.title }}</div>
+                                </div>
+                            </ng-template>
+
+                            <ng-template #optionTmp ng-option-tmp let-item="item">
+                                <div class="language-flag" *ngIf="item?.code">
+                                    <div class="language-flag__country d-flex align-items-center m-r-4">
+                                        <app-country-flag [countryCode]="item?.code"></app-country-flag>
+                                    </div>
+                                    <div class="language-flag__title ">{{ item?.title }}</div>
+                                </div>
+                            </ng-template>
+                        </app-select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6 fs-small">
+                    <app-find-platform-list
+                        platformList="timezones"
+                        [label]="'administration_settings.settings.default_timezone' | translate"
+                        itemLabel="title"
+                        itemValue="timezone"
+                        formName="time_zone"
+                        [searchable]="false"
+                        [clearable]="false"
+                        [multiple]="false"
+                        [hideSelected]="false"
+                    ></app-find-platform-list>
+                </div>
+                <div class="form-group col-md-6 fs-small">
+                    <app-find-platform-list
+                        platformList="currencies"
+                        [label]="'administration_settings.settings.default_timezone' | translate"
+                        itemLabel="title"
+                        itemValue="code"
+                        formName="currency"
+                        [searchable]="false"
+                        [clearable]="false"
+                        [multiple]="false"
+                        [hideSelected]="false"
+                    ></app-find-platform-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
+
+<!--<ng-template #skeleton>-->
+<!--    <div class="page-wrapper page-wrapper&#45;&#45;size-half skeleton">-->
+<!--        <div class="page-wrapper-header d-flex">-->
+
+<!--            <div class="d-flex align-items-center my-auto mr-auto m-r-10">-->
+<!--                <div class="ml-2 mr-2 page-wrapper-header__title">-->
+<!--                    <div class="skeleton__animation skeleton__block skeleton__block&#45;&#45;large skeleton&#45;&#45;height-32 w-50"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="form-row ml-auto d-flex align-items-center">-->
+<!--                <div class="d-flex ">-->
+<!--                    <div class="skeleton__animation skeleton__button skeleton__button&#45;&#45;large w-50"></div>-->
+<!--                </div>-->
+<!--&lt;!&ndash;                <div class="d-flex ">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="skeleton__animation skeleton__button skeleton__button&#45;&#45;large w-25"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+
+<!--        <div class="page-wrapper-content">-->
+<!--            <div class="justify-content-center p-l-16">-->
+
+<!--                <div class="form-row d-flex m-0">-->
+<!--                    <div class="form-group col-md-12 p-0">-->
+<!--                        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="form-group col-md-6 p-0">-->
+<!--                    <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                </div>-->
+
+<!--                <div class="form-row d-flex m-0">-->
+<!--                    <div class="form-group col-md-12 p-0">-->
+<!--                        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="form-row d-flex m-0">-->
+<!--                    <div class="form-group col-md-12 p-0">-->
+<!--                        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+<!--                <div class="info__title m-b-10 m-t-25">-->
+<!--                    <div class="skeleton__animation skeleton__block skeleton__block&#45;&#45;large w-25"></div>-->
+<!--                </div>-->
+
+<!--                <div class="form-group col-md-5 p-0">-->
+<!--                    <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                </div>-->
+
+<!--                <div class="form-row d-flex m-0">-->
+<!--                    <div class="form-group col-md-12 p-0">-->
+<!--                        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</ng-template>-->

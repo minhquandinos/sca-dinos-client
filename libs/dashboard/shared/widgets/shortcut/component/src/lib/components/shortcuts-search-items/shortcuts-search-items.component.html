@@ -1,0 +1,16 @@
+<div class="custom-dashboard-widget-shortcuts__search">
+    <div class="btn-group" *ngIf="items.length > 0">
+        <ui-button-link
+            *ngFor="let item of items; trackBy: trackByFn"
+            type="floating-light"
+            [active]="menu === item"
+            [label]="('dashboard_grid.widget.shortcuts.' + item) | translate"
+            (click)="switchMenu(item)"
+        ></ui-button-link>
+    </div>
+
+    <app-custom-search
+        [placeholder]="'dashboard_grid.widget.shortcuts.enter_id' | translate"
+        (toggleSearch)="searching($event)"
+    ></app-custom-search>
+</div>

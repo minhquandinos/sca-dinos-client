@@ -1,0 +1,68 @@
+<ng-template appModal3Title>
+    <div class="title">{{ 'offers_page.targeting.title' | translate }}</div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (click)="save()"></ui-button-link>
+</ng-template>
+
+<div class="form" [formGroup]="form">
+    <div class="title is-4 mt-0 mb-0">{{ 'offers_page.targeting.form.geolocation' | translate }}</div>
+    <div class="form-group col-12 pl-0">
+        <div class="form-text">
+            {{ 'offers_page.targeting.form.descriptions.geo' | translate }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-6 form-group">
+            <app-multi-select-block
+                [title]="'offers_page.targeting.geo_allowed' | translate"
+                formName="gt_included_ids"
+                [data]="multiSelectDataConfig"
+                type="allowed"
+                [initSelectedItems]="includedIds"
+                [exclude]="form.get('gt_excluded_ids').value"
+            >
+                <ng-template appMultiSelectItemTemplate let-item>
+                    {{ item | geo }}
+                </ng-template>
+            </app-multi-select-block>
+        </div>
+
+        <div class="col-6 form-group">
+            <app-multi-select-block
+                [title]="'offers_page.targeting.geo_denied' | translate"
+                formName="gt_excluded_ids"
+                [data]="multiSelectDataConfig"
+                type="denied"
+                [initSelectedItems]="extendedIds"
+                [exclude]="form.get('gt_included_ids').value"
+            >
+                <ng-template appMultiSelectItemTemplate let-item>
+                    {{ item | geo }}
+                </ng-template>
+            </app-multi-select-block>
+        </div>
+    </div>
+
+    <div class="title is-5">{{ 'offers_page.targeting.form.advanced_targeting' | translate }}</div>
+
+    <app-extended-targeting formArrayName="extended_targeting"></app-extended-targeting>
+
+    <div class="form-text m-t-8">
+        {{ 'offers_page.targeting.form.descriptions.advanced_targeting' | translate }}
+    </div>
+
+    <div class="form-group m-t-64">
+        <app-custom-switch
+            [label]="'offers_page.targeting.form.strict_targeting' | translate"
+            formControlName="strict_targeting"
+        ></app-custom-switch>
+
+        <div class="form-text m-t-8 d-flex flex-column">
+            <span>{{ 'offers_page.targeting.form.descriptions.strict_targeting_enabled' | translate }}</span>
+            <span>{{ 'offers_page.targeting.form.descriptions.strict_targeting_disabled' | translate }}</span>
+        </div>
+    </div>
+</div>

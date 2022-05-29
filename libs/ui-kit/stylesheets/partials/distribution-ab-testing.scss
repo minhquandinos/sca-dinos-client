@@ -1,0 +1,50 @@
+.distribution-ab-testing {
+
+    &__input {
+        width: 5.7rem;
+    }
+
+    &__index {
+        width: 2rem;
+        height: 2rem;
+        margin-left: .8rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 1px;
+            background: $color__light-blue;
+            bottom: -13px;
+        }
+    }
+
+    &__select {
+        width: 280px;
+    }
+}
+
+.distribution-ab-testing-table {
+    overflow: unset;
+    $selfTable: &;
+    .ui-simple-table-body {
+        .ui-simple-table-col {
+            overflow: unset;
+            height: 3rem;
+
+            &__wrapper {
+                border-top: unset;
+            }
+        }
+
+        .ui-simple-table-row:last-child {
+            .distribution-ab-testing__index {
+                &:after {
+                    content: '';
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}

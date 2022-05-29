@@ -1,0 +1,18 @@
+<ng-container [ngTemplateOutlet]="renderTemplate"></ng-container>
+
+<ng-template #defaultStatisticTpl>
+    <ng-container *ngIf="parentHyperlink?.link && hyperlink?.link">
+        <span class="pr-1">{{ parentLinkLabel$ | async }}</span>
+        <app-hyperlink [link]="parentHyperlink" [permission]="permissions.canAccessOffers" valueClassName="additionalClass"></app-hyperlink>
+        <span class="pr-1">,</span>
+    </ng-container>
+
+    <ng-container *ngIf="hyperlink?.title">
+        <span class="pr-1" *ngIf="hyperlink">{{ (linkLabel$ | async)?.toLowerCase() }}</span>
+        <app-hyperlink [link]="hyperlink" [permission]="permissions.canAccessOffers" valueClassName="additionalClass"></app-hyperlink>
+    </ng-container>
+</ng-template>
+
+<ng-template #defaultTpl>
+    <app-hyperlink [link]="hyperlink" [permission]="permissions.canAccessOffers"></app-hyperlink>
+</ng-template>

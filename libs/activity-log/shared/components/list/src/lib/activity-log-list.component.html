@@ -1,0 +1,40 @@
+<ui-page-wrapper [borderRadius]="4" class="activity-log">
+    <ui-page-wrapper-header>
+        <ng-content select="[header]"></ng-content>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="mb-0 p-0 payments">
+        <ng-content select="[filters]"></ng-content>
+        <ui-table
+            [headers]="headers"
+            [headerSticky]="true"
+            headerPosition="left"
+            className="table-activity-log"
+            [skeletonTemplate]="skeleton"
+            [notFround]="items?.length <= 0"
+            [isLoad]="!loading"
+            [items]="items"
+            [rowTemplate]="rowTemplate"
+            #tableRef
+            [trackByKey]="'added_timestamp'"
+        ></ui-table>
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer *ngIf="items">
+        <app-custom-pagination
+            *ngIf="!loading && pagination?.total_count > 9"
+            [pagination]="pagination"
+            (toggle)="pageChange($event)"
+            (togglePerPage)="perPageChange($event)"
+        >
+        </app-custom-pagination>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<ng-template #skeleton>
+    <ng-container *ngIf="headers?.length > 0">
+        <tr ui-table-row #tableElement *ngFor="let fake of shared.generateFake(5)" class="skeleton">
+            <td ui-table-col *ngFor="let td of shared.generateFake(headers.length)">
+                <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+            </td>
+        </tr>
+    </ng-container>
+</ng-template>

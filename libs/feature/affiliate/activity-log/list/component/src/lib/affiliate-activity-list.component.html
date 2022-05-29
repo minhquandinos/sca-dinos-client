@@ -1,0 +1,40 @@
+<scaleo-activity-log-list
+    [items]="items$ | async"
+    [pagination]="pagination$ | async"
+    [initialDate]="initialData$ | async"
+    [headers]="headers"
+    [loading]="loading$ | async"
+    [rowTemplate]="rowTemplate"
+    (dateWasChanged)="dateWasChanged($event)"
+    (pageWasChanged)="pageWasChanged($event)"
+    (perPageWasChange)="perPageWasChange($event)"
+>
+    <ng-container filters>
+        <app-filters>
+            <app-filter className="ml-0">
+                <app-result-count [count]="totalCount$ | async"></app-result-count>
+            </app-filter>
+        </app-filters>
+    </ng-container>
+
+    <ng-container header>
+        <div class="my-auto p-l-16">
+            <app-custom-date-range
+                *ngIf="initialData$ | async as initialData"
+                position="right"
+                [startDate]="initialData?.rangeFrom"
+                [endDate]="initialData?.rangeTo"
+                (toggle)="dateWasChanged($event)"
+            ></app-custom-date-range>
+        </div>
+    </ng-container>
+</scaleo-activity-log-list>
+
+<ng-template #rowTemplate let-item="context" let-index="index">
+    <td ui-table-col>
+        <app-date-variant [showTime]="true" [date]="item.added_timestamp"></app-date-variant>
+    </td>
+    <td ui-table-col>
+        <scaleo-activity [item]="item" outputType="affiliate"></scaleo-activity>
+    </td>
+</ng-template>

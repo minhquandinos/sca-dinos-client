@@ -1,0 +1,232 @@
+<div class="settings-wrapper" *ngIf="isLoad; else skeleton">
+    <div class="form" [formGroup]="form">
+        <div class="form-group">
+            <app-custom-switch
+                [label]="'settings.roles_permissions.permissions.can_see_pending_conversions' | translate"
+                [formControlName]="formControl.canSeePendingConv"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                [label]="'settings.roles_permissions.permissions.can_see_rejected_conversions' | translate"
+                [formControlName]="formControl.generalSeeRejectedConv"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                [label]="'settings.roles_permissions.permissions.can_see_trash_conversions' | translate"
+                [formControlName]="formControl.generalSeeTrashConv"
+            ></app-custom-switch>
+        </div>
+
+        <ui-br></ui-br>
+
+<!--        <div class="form-row mb-0">-->
+<!--            <div class="form-group col-md-12 mb-0">-->
+<!--                <app-custom-switch-->
+<!--                    [label]="'administration_settings.affiliates.general.auto_approve_affiliate_postbacks' | translate"-->
+<!--                    formControlName="auto_approve_postbacks"-->
+<!--                ></app-custom-switch>-->
+<!--            </div>-->
+
+<!--            <div class="form-text">-->
+<!--                {{ 'administration_settings.affiliates.general.auto_approve_affiliate_postbacks_description' | translate }}-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <ui-br></ui-br>-->
+
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                <app-custom-switch
+                    [label]="'administration_settings.affiliates.general.refferal_program' | translate"
+                    [formControlName]="formControl.referralProgram"
+                ></app-custom-switch>
+            </div>
+
+            <span class="form-text">
+                {{ 'administration_settings.affiliates.general.refferal_program_start_date_text' | translate }}
+            </span>
+        </div>
+
+        <ng-container *ngIf="form.value.referral_program">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-select
+                        [items]="commissionsTypes"
+                        [label]="'interface.form.referral_commission_type' | translate"
+                        itemLabel="title"
+                        itemValue="id"
+                        [clearable]="false"
+                        [multiple]="false"
+                        [hideSelected]="false"
+                        [formControlName]="formControl.referralCommissionType"
+                        [addTemplate]="true"
+                    >
+                        <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                            <span>{{ item.title | translate }}</span>
+                        </ng-template>
+
+                        <ng-template #optionTmp ng-option-tmp let-item="item">
+                            <span class="ng-value-label">
+                                {{ item.title | translate }}
+                            </span>
+                        </ng-template>
+                    </app-select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <ng-container
+                    *ngIf="
+                        form.value?.[formControl.referralCommissionType] === commissionTypeEnum.Percentage;
+                        else commissionTypeFlat
+                    "
+                >
+                    <div class="form-group col-md-6">
+                        <app-select
+                            [items]="referralCommissions"
+                            [label]="'interface.form.referral_commission' | translate"
+                            [formControlName]="formControl.referralCommission"
+                            [searchable]="false"
+                            [clearable]="false"
+                            [multiple]="false"
+                            [hideSelected]="false"
+                            id="referral_commission"
+                            [addTemplate]="true"
+                        >
+                            <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                                <span class="ng-value-label">{{ item }} %</span>
+                                <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                            </ng-template>
+
+                            <ng-template #optionTmp ng-option-tmp let-item="item"> {{ item }} % </ng-template>
+                        </app-select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <app-select
+                            [items]="commissionSources"
+                            [label]="'interface.form.referral_commission_source' | translate"
+                            itemLabel="title"
+                            itemValue="id"
+                            [clearable]="false"
+                            [multiple]="false"
+                            [hideSelected]="false"
+                            [formControlName]="formControl.referralCommissionSource"
+                            [addTemplate]="true"
+                        >
+                            <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                                <span>{{ item.title | translate }}</span>
+                            </ng-template>
+
+                            <ng-template #optionTmp ng-option-tmp let-item="item">
+                                <span class="ng-value-label">
+                                    {{ item.title | translate }}
+                                </span>
+                            </ng-template>
+                        </app-select>
+                    </div>
+                </ng-container>
+                <ng-template #commissionTypeFlat>
+                    <div class="form-group col-md-6">
+                        <label class="field-label field-label-top">
+                            {{ 'interface.form.referral_commission' | translate }}
+                            <span class="field-label__required">*</span>
+                        </label>
+                        <div class="d-flex">
+                            <div class="w-25">
+                                <app-input
+                                    [formControlName]="formControl.referralCommission"
+                                    [hideValidationMessage]="true"
+                                ></app-input>
+                            </div>
+                            <div class="ml-3 w-75 mt-auto">
+                                <app-find-platform-list
+                                    platformList="currencies"
+                                    itemLabel="title"
+                                    itemValue="code"
+                                    [clearable]="false"
+                                    [multiple]="false"
+                                    [hideSelected]="false"
+                                    [formName]="formControl.referralCommissionCurrency"
+                                ></app-find-platform-list>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <div class="settings-wrapper skeleton">
+        <form>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-12">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+                <div class="form-group col-md-6">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+                <div class="form-group col-md-12 mb-0">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+                <div class="form-group col-md-6">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+
+                </div>
+
+                <div class="form-text col-md-12">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-100"></div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</ng-template>

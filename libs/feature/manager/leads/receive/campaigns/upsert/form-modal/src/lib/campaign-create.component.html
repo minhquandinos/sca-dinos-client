@@ -1,0 +1,124 @@
+<ng-template appModal3Title>
+    <span class="title">{{ title }}</span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        appDisableButtonDuringRequest
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+    ></ui-button-link>
+</ng-template>
+
+<ng-container *ngIf="isLoad; else skeletonTpl">
+    <form class="w-100" [formGroup]="form" autocomplete="off">
+        <div class="form-group">
+            <app-input [label]="'interface.basic.title' | translate" formControlName="title"></app-input>
+        </div>
+
+        <div class="form-group col-md-6 pl-0">
+            <app-find-platform-statuses
+                statusList="statuses"
+                [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+                [exceptIds]="excludeStatusId"
+                formName="status"
+            ></app-find-platform-statuses>
+        </div>
+
+        <div class="form-row mb-0">
+            <div class="form-group col-md-6">
+                <app-find-offer
+                    formName="offer_id"
+                    [hideSelected]="true"
+                    [itemValue]="'id'"
+                    [placeholder]="'interface.basic.select' | translate"
+                    [label]="'shared.dictionary.offer' | translate"
+                    (toggle)="changedOffer($event)"
+                ></app-find-offer>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-find-goals
+                    itemLabel="title"
+                    formName="goal_id"
+                    [itemValue]="'id'"
+                    [label]="'shared.dictionary.goal' | translate"
+                    [offerId]="form.get('offer_id').value"
+                    [firstItem]="false"
+                    [placeholder]="'interface.basic.select' | translate"
+                ></app-find-goals>
+            </div>
+        </div>
+
+        <app-campaign-create-fields></app-campaign-create-fields>
+
+        <app-campaign-field-validations></app-campaign-field-validations>
+
+        <ui-br [height]="32"></ui-br>
+
+        <div class="form-group mb-0">
+            <app-textarea
+                [label]="'leads_ui_page.receive.campaigns.additional_info_for_reply' | translate"
+                formControlName="additional_info_for_reply"
+            ></app-textarea>
+        </div>
+
+        <ui-br [height]="56"></ui-br>
+
+        <div class="form-group mb-0">
+            <app-textarea [label]="'table.column.notes' | translate" formControlName="notes"></app-textarea>
+        </div>
+
+        <ui-br></ui-br>
+
+        <ui-button-link
+            *ngIf="editId"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </form>
+</ng-container>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group col-md-6 pl-0">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-row mb-0">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <ui-br></ui-br>
+
+        <ui-skeleton-block height="big"></ui-skeleton-block>
+
+        <ui-br></ui-br>
+
+        <ui-skeleton-block height="big"></ui-skeleton-block>
+
+        <ui-br></ui-br>
+
+        <div class="form-group mb-0">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+        </div>
+    </ui-skeleton>
+</ng-template>

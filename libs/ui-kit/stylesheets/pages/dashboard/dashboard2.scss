@@ -1,0 +1,117 @@
+.dashboard-grid-toolbar {
+    margin-bottom: .75rem;
+    margin-top: -.5rem;
+
+    &__info {
+        color: $color__gray3;
+        font-size: $font__13;
+    }
+}
+
+.dashboard-grid {
+
+    gridster-item {
+
+        &.gridster-item-moving, &.gridster-item-resizing {
+            box-shadow: 0 0 5px 5px rgba($color__gray7, 0.2),
+            0 6px 10px 0 rgba($color__gray7, .14),
+            0 1px 18px 0 rgba($color__gray7, .12);
+        }
+    }
+
+    &-active {
+        &--edit {
+
+            gridster-preview{
+                border-radius: 4px;
+                background: unset;
+                border: 1px dashed $color__gray7;
+            }
+
+            gridster-item {
+                border: 1px dashed $color__gray7;
+                box-shadow: unset;
+
+                &:hover {
+                    border: 1px dashed $color__blue3;
+                    cursor: move;
+                }
+            }
+        }
+    }
+}
+
+.custom-dashboard-widget {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__edit-bg {
+        background: rgba(255, 255, 255, 0.85);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        .btn-no-label {
+            .custom-icon {
+                margin: 0;
+            }
+        }
+    }
+
+    &__title {
+        z-index: 2;
+        font-size: $font__16 !important;
+        line-height: 19px;
+        white-space: nowrap;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        > .ui-page-wrapper-footer {
+            margin-top: auto;
+        }
+    }
+
+    &__header, &__footer {
+        height: 56px;
+        min-height: 56px;
+        border: unset;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .dashboard-grid-toolbar {
+        &__info {
+            overflow: hidden;
+
+            span {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow:ellipsis;
+            }
+        }
+    }
+
+    .dashboard-grid {
+
+        gridster-item {
+            max-width: calc(100vw - 32px);
+
+            &#network_summary, &#performance {
+                height: fit-content !important;
+
+                .page-wrapper-content {
+                    overflow-y: hidden;
+                }
+            }
+        }
+    }
+
+}

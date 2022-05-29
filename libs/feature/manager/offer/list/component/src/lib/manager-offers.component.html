@@ -1,0 +1,55 @@
+<app-offers-list
+    [items]="offers$ | async"
+    (editModal)="openModal($event)"
+    (sorting)="sortingColumn($event)"
+></app-offers-list>
+
+<ng-template #hintContainer>
+    <ng-container *ngIf="showHint$ | async">
+        <app-hint-create-first-item
+            *ngIf="isLoad$ | async"
+            nameList="offer"
+            [idFirstItem]="firstOfferId$ | async"
+        ></app-hint-create-first-item>
+    </ng-container>
+</ng-template>
+
+<ng-template #filterContainer>
+    <app-offers-list-filters
+        [params]="params$ | async"
+        [totals]="(pagination$ | async)?.total_count"
+    >
+        <app-modal-export
+            *ngxPermissionsOnly="permissions.canExportOffers"
+            [modalTitle]="'offers_page.tracking.export' | translate"
+            (exportFormat)="export($event)"
+        ></app-modal-export>
+
+        <app-custom-search
+            className="ml-2"
+            [placeholder]="'interface.basic.search' | translate"
+            (toggleSearch)="searching($event)"
+        ></app-custom-search>
+
+    </app-offers-list-filters>
+</ng-template>
+
+<ng-template #footerContainer>
+    <app-custom-pagination
+        *ngIf="showPagination$ | async"
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+    ></app-custom-pagination>
+</ng-template>
+
+<ng-template #openModalContainer>
+    <ui-button-link
+        *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]"
+        type="floating"
+        [label]="'offers_page.basic.add' | translate"
+        icon="plus-small"
+        (click)="openModal()"
+    ></ui-button-link>
+</ng-template>

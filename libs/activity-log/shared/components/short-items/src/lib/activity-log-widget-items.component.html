@@ -1,0 +1,57 @@
+<ui-simple-table
+    class="dashboard-notifications__table"
+    tableStyle="clear"
+    [skeletonColCount]="2"
+    [skeletonRowCount]="5"
+    [notFound]="items?.length <= 0"
+    [isLoad]="loading"
+    colHeight="4.125rem"
+>
+    <div uiSimpleTableRow *ngFor="let item of items">
+        <ng-container [ngSwitch]="role">
+            <ng-container *ngSwitchCase="'affiliate' || 'advertiser'">
+                <div uiSimpleTableCol>
+                    <scaleo-activity [item]="item" [outputType]="role"></scaleo-activity>
+                    <div class="dashboard-notifications__date d-flex align-items-center">
+                        <app-date-variant
+                            [date]="item.added_timestamp"
+                            [showTime]="true"
+                            [changeColor]="false"
+                        ></app-date-variant>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <div uiSimpleTableCol>
+                    <div class="d-flex flex-column justify-content-center">
+                        <scaleo-activity [item]="item"></scaleo-activity>
+
+                        <div class="dashboard-notifications__date">
+                            <app-date-variant
+                                [date]="item.added_timestamp"
+                                [showTime]="true"
+                                [changeColor]="false"
+                            ></app-date-variant>
+                        </div>
+                    </div>
+                </div>
+
+                <div uiSimpleTableCol>
+                    <app-activity-log-user
+                        class="ml-auto"
+                        [item]="item"
+                    ></app-activity-log-user>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</ui-simple-table>
+
+
+<ng-template #defaultTemplate let-item>
+
+</ng-template>
+
+<ng-template #affiliateAdvTemplate let-item>
+
+</ng-template>

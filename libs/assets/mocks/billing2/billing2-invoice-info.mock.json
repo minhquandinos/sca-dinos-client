@@ -1,0 +1,26 @@
+{
+    "info": {
+        "invoice": {
+            "id": 1,
+            "title": "INV-AFF-0343-02",
+            "status": 1,
+            "affiliate": {
+                "id": 1,
+                "title": "John Affiliate"
+            },
+            "currency": "USD",
+            "start_date": "2021-03-01",
+            "end_date": "2021-03-23",
+            "generation_date": "2021-03-23 11:43:22",
+            "due_date": "2021-03-30 (5 days left)",
+            "payment_method": {
+                "id": 1,
+                "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/payments-methods/5.WebMoney.svg",
+                "value": "webmoney"
+            },
+            "invoice_memo": "Thank you for your business!",
+            "notes": "Text is visible to managers only.",
+            "pdf": "http://localhost:4200/admin/dashboard"
+        }
+    }
+}

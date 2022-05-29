@@ -1,0 +1,11 @@
+<div class="dashboard-grid-skeleton skeleton">
+    <div
+        *ngFor="let skeleton of skeletons; trackBy: trackByFn"
+         class="dashboard-grid-skeleton__widget">
+        <ng-template [ngTemplateOutlet]="skeletonTpl"></ng-template>
+    </div>
+</div>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton-block customHeight="100%"></ui-skeleton-block>
+</ng-template>

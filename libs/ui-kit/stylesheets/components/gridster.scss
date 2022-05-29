@@ -1,0 +1,28 @@
+gridster {
+    padding: 0 !important;
+    overflow: unset !important;
+    width: 100% !important;
+}
+
+gridster.gridSize {
+    overflow: unset !important;
+    min-height: auto;
+}
+
+gridster-item {
+    border-radius: 4px;
+    background: unset;
+
+    .gridster-item-resizable-handler.handle-se {
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='11px' height='11px' viewBox='0 0 11 11' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EGroup 10%3C/title%3E%3Cg id='-Design' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg id='custom-dashboar-2' transform='translate(-1403.000000, -947.000000)' stroke='%239CA0A8' stroke-width='1.3'%3E%3Cg id='Group-5' transform='translate(1031.000000, 544.000000)'%3E%3Cg id='Group-10' transform='translate(373.470192, 404.500000)'%3E%3Cline x1='5' y1='8.02937486' x2='8.02980816' y2='5' id='Path-2'%3E%3C/line%3E%3Cline x1='1.07469589e-13' y1='8.02937486' x2='8.02980816' y2='3.97903932e-13' id='Path-2'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        margin-right: 2px;
+        padding-bottom: 3px;
+        border-color: transparent !important;
+    }
+
+    &:hover {
+        .gridster-item-resizable-handler.handle-se {
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='11px' height='11px' viewBox='0 0 11 11' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EGroup 10%3C/title%3E%3Cg id='-Design' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg id='custom-dashboar-2' transform='translate(-1403.000000, -947.000000)' stroke='%232e9ce8' stroke-width='1.3'%3E%3Cg id='Group-5' transform='translate(1031.000000, 544.000000)'%3E%3Cg id='Group-10' transform='translate(373.470192, 404.500000)'%3E%3Cline x1='5' y1='8.02937486' x2='8.02980816' y2='5' id='Path-2'%3E%3C/line%3E%3Cline x1='1.07469589e-13' y1='8.02937486' x2='8.02980816' y2='3.97903932e-13' id='Path-2'%3E%3C/line%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    }
+}

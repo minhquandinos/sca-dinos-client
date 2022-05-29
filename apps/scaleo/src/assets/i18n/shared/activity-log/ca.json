@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Registre d'activitat",
+        "details": "Detalls",
+        "new_values": "Nous valors",
+        "old_values": "Valors antics",
+        "object": {
+            "affiliate": "Afiliat",
+            "postback": "Postback",
+            "gloabal_postback": "Postback global",
+            "source": "Font",
+            "advertiser": "Anunciant",
+            "domain": "Domini",
+            "manager": "Mànager",
+            "offer": "Oferta",
+            "offer_request": "Sol·licitud d'oferta",
+            "goal": "Objectiu",
+            "tracking": "Seguiment",
+            "targeting": "Segmentació",
+            "affiliate_access": "Accés per a afiliats",
+            "landing_page": "Pàgina landing",
+            "creative": "Creativitat",
+            "custom_param": "Paràmetres personalitzats",
+            "you": "Tu",
+            "announcement": "Anunci"
+        },
+        "owner": {
+            "offer" : "Per a l'oferta",
+            "affiliate": "Per a l'afiliat",
+            "you": "Per a tu"
+        },
+        "action": {
+            "add": "S'ha afegit",
+            "edit": "S'ha actualitzat",
+            "view": "S'ha vist",
+            "delete": "S'ha eliminat",
+            "signup": "Inscriu-te",
+            "login": "Connecta't",
+            "profile_edit": "Actualitza el seu perfil",
+            "logout": "Desconnecta't",
+            "approved": "Ha estat aprovat",
+            "declined": "Ha estat rebutjat",
+            "login_as": "Connectat com a"
+        },
+        "action_for_offer_request": {
+            "add": "Sol·licitada",
+            "approved": "Ha estat aprovada",
+            "declined": "Ha estat rebutjada"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "Sol·licitada",
+            "approved": "Ha estat aprovada",
+            "declined": "Ha estat rebutjada"
+        },
+        "action_for_goal": {
+            "add": "Ha estat afegida",
+            "edit": "S'ha actualitzat",
+            "delete": "S'ha eliminat"
+        },
+        "action_custom_params": {
+            "add": "S'han afegit",
+            "edit": "S’han actualitzat",
+            "delete": "S’han rebutjat"
+        }
+    }
+}

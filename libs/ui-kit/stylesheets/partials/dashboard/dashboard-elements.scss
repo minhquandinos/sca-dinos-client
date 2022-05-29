@@ -1,0 +1,54 @@
+.custom-dashboard-compare-period {
+
+    $self: &;
+    font-size: $font__13;
+
+    &__current,
+    &__previous {
+        position: relative;
+        color: $color__gray2;
+    }
+
+    i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-flex;
+        margin-right: .5rem;
+    }
+
+    &__current {
+        i {
+            background: var(--main-bg-color);
+        }
+    }
+
+    &__previous {
+        margin-left: 1.5rem;
+
+        i {
+            background: var(--main-bg-color);
+            opacity: .3;
+        }
+    }
+
+    &__total {
+        color: $color__black;
+        @include font-family-medium;
+        margin-left: .375rem;
+    }
+
+    &__diff {
+
+        margin-left: .375rem;
+        @include font-family-medium;
+
+        &--up {
+            color: $color__green;
+        }
+
+        &--down {
+            color: $color__red;
+        }
+    }
+}

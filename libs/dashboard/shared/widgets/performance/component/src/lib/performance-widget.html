@@ -1,0 +1,38 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+>
+    <div class="custom-dashboard-widget-performance__toolbar d-flex justify-content-center">
+        <div class="d-flex">
+            <app-performance-metric-list></app-performance-metric-list>
+        </div>
+
+        <div class="ml-auto">
+            <app-custom-switch
+                [label]="'dashboard_grid.widget.performance.cumulative' | translate"
+                [checked]="cumulative$ | async"
+                (toggle)="cumulativeToggle($event)"
+                [inlineSwitch]="true"
+            ></app-custom-switch>
+        </div>
+    </div>
+
+    <div class="custom-dashboard-widget-performance__chart">
+        <app-performance-widget-chart
+            [data]="data$ | async"
+            [selectedMetric]="selectedMetric$ | async"
+            [dateRange]="dateRange$ | async"
+        ></app-performance-widget-chart>
+    </div>
+
+    <ng-container containerFooter>
+        <app-performance-widget-footer
+            [data]="data$ | async"
+            [selectedMetric]="selectedMetric$ | async"
+            [selectedCurrentPeriod]="selectedCurrentPeriod$ | async"
+            [selectedPreviousPeriod]="selectedPreviousPeriod$ | async"
+            [selectedDates]="selectedDates$ | async"
+        ></app-performance-widget-footer>
+    </ng-container>
+</app-container-widget>
+

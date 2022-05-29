@@ -1,0 +1,113 @@
+<app-card-widget [autoSetBottomPaddingWhenFooterEmpty]="true">
+    <app-card-widget-header>
+        <div class="title is-4">{{ 'affiliate.postback.title' | translate }}</div>
+        <div class="ml-auto d-flex align-items-center">
+            <ui-button-link
+                icon="plus-small"
+                type="floating"
+                (click)="openModal()"
+                [tooltip]="'affiliate.postback.add' | translate"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-0" *ngIf="postbacks?.length > 0">
+        <ui-simple-table
+            [isLoad]="true"
+            [items]="postbacks"
+            [headers]="columns"
+            tableStyle="clear"
+            [skeletonColCount]="4"
+            [skeletonRowCount]="5"
+            colHeight="3rem"
+            [controlTemplate]="controlTpl"
+        >
+            <ng-template uiSimpleTableColTpl="level" let-level let-item="valueRow">
+                <app-status-dot-color
+                    *ngIf="item.status"
+                    type="postback_statuses"
+                    [status]="item.status"
+                    class="mr-2"
+                ></app-status-dot-color>
+
+                <span>
+                        {{item.level_name | postbackLevelName | async }}
+                    </span>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="offer" let-offer let-item="valueRow">
+                <div
+                    *ngIf="item.level_id === postbackLevelsEnums.Offer; else globalLevelTpl"
+                    class="d-flex flex-wrap line-height is-16"
+                >
+                    <ng-container *ngIf="item?.offer_id">
+                        <span class="mr-1">{{ 'shared.dictionary.offer' | translate }}</span>
+
+                        <a [routerLink]="'/affiliate/offers/' + item.offer_id">
+                            <span class="line-height is-16">
+                                {{ item.offerName | truncateText: 15 | format: 'idName': item.offer_id }}
+                            </span>
+                        </a>
+                    </ng-container>
+
+                    <ng-container *ngIf="item?.offer_id && item?.goal_id">
+                        <span>,</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="item?.goal_id">
+                        <span class="mx-1">
+                                {{ 'shared.dictionary.goal' | translate }}
+                            </span>
+
+                        <span>#{{ item.goal_id }}</span>
+                    </ng-container>
+                </div>
+
+                <ng-template #globalLevelTpl>
+                    –
+                </ng-template>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="status" let-offer let-item="valueRow">
+                <app-conversion-status
+                    [showConversionStatusLabel]="false"
+                    [conversionStatus]="item.conversion_status"
+                ></app-conversion-status>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="postback" let-offer let-item="valueRow">
+                <app-field-text-info
+                    class="m-y-6 m-r-12 w-100 cursor-pointer"
+                    (click)="showPostbackCode(postbackCodeTpl)"
+                >
+                    <span class="text-size-12 text-break-all line-height-14">{{ item.code | truncateText: 100 }}</span>
+                </app-field-text-info>
+                <ng-template #postbackCodeTpl>
+                    <app-field-text-info
+                        preset="copy"
+                        class="m-y-6"
+                    >
+                        <span class="text-size-12 text-break-all line-height-14">{{ item.code }}</span>
+                    </app-field-text-info>
+
+                </ng-template>
+            </ng-template>
+        </ui-simple-table>
+    </app-card-widget-content>
+    <app-card-widget-footer *ngIf="postbacks?.length > 10">
+        <ui-button-link
+            class="ml-auto btn__view-all"
+            [routerLink]="linkToAllPostbacks"
+            iconPosition="right"
+            icon="ic_arrow_right_blue"
+            type="link"
+            [label]="'interface.basic.view_all_count' | translate: { count: postbacks?.length }"
+        ></ui-button-link>
+    </app-card-widget-footer>
+</app-card-widget>
+
+<ng-template #controlTpl let-item>
+    <ui-table-navigation
+        class="ml-auto"
+        (toggleEdit)="openModal(item.id)"
+    ></ui-table-navigation>
+</ng-template>

@@ -1,0 +1,24 @@
+<div class="ui-tabs" [ngClass]="className">
+    <div class="ui-tabs__header"  [ngClass]="[headerClassName, headerSticky ? 'ui-tabs__header--sticky' : '']">
+        <div
+            class="ui-tabs__item"
+            (click)="selectTab(item)"
+            [class.active]="activeTab === item"
+            *ngFor="let item of tabItems$ | async"
+        >
+            <ng-container *ngIf="item.tabLabelComponent">
+                <ng-container *ngTemplateOutlet="item.tabLabelComponent.labelContent"></ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="!item.tabLabelComponent"> {{ item.label }} </ng-container>
+        </div>
+    </div>
+    <div class="ui-tabs__content" [ngClass]="contentClassName">
+        <ng-container *ngIf="activeTab && activeTab.tabBodyComponent">
+            <ng-container *ngTemplateOutlet="activeTab.tabBodyComponent.bodyContent"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="activeTab && activeTab.tabBodyDirective">
+            <ng-container *ngTemplateOutlet="activeTab.tabBodyDirective.template"></ng-container>
+        </ng-container>
+    </div>
+</div>

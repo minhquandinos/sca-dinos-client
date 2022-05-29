@@ -1,0 +1,61 @@
+<ui-page-wrapper borderRadius="4"  *ngIf="loadGoals; else skeleton">
+    <ui-page-wrapper-header [haveBorderBottom]="false">
+        <div class="title is-4">{{ 'offers_page.profile.page_title.goals' | translate }}</div>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content className="p-0" *ngIf="goals?.length > 0">
+        <ui-table
+            [headers]="headers"
+            headerPosition="left"
+            [notFround]="goals?.length <= 0"
+            [isLoad]="loadGoals"
+            className="table-offer-goals-in-offer-profile"
+            [isTransparentHead]="true"
+            [items]="goals"
+            [rowTemplate]="rowTemplate"
+        >
+        </ui-table>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>
+
+<ng-template #skeleton>
+    <ui-page-wrapper borderRadius="4" className="skeleton">
+        <div class="page-wrapper-header  d-flex align-items-center bg-unset">
+            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-25"></div>
+            <div class="ml-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--medium w-25"></div>
+            </div>
+        </div>
+
+        <div class="info-list">
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+        </div>
+    </ui-page-wrapper>
+</ng-template>

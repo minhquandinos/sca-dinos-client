@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Посмотреть отчет",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Ваша статистика"
+            },
+            "pending_records": {
+                "title": "В ожидании"
+            },
+            "top_offer": {
+                "title": "Топ офферы"
+            },
+            "performance": {
+                "title": "Показатели",
+                "cumulative": "Кумулятив",
+                "settings": {
+                    "none": "Предыдущий период",
+                    "impressions": "Показы",
+                    "ctr": "CTR",
+                    "clicks": "Клики",
+                    "unique_clicks": "Уникальные клики",
+                    "invalid_clicks": "Неподходящие клики",
+                    "cv_total": "Конверсии",
+                    "cr": "CR",
+                    "gross_sales": "Gross",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Подтвержденный доход",
+                    "approved_payout": "Подтвержденная выплата",
+                    "cv_pending": "Неподтвержденные конверсии",
+                    "pr": "PR",
+                    "cv_rejected": "Отклоненные конверсии",
+                    "rr": "RR",
+                    "cv_approved": "Подтвержденные конверсии",
+                    "duplicate_clicks": "Дубликаты клики",
+                    "tr": "CR",
+                    "approved_profit": "Подтвержденная прибыль",
+                    "approved_gross_sales": "Подтвержденные продажи",
+                    "pending_revenue": "Неподтвержденный доход",
+                    "pending_payout": "Неподтвержденная выплата",
+                    "pending_profit": "Неподтвержденная прибыль",
+                    "pending_gross_sales": "Неподтвержденные продажи",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Доход клики",
+                    "clicks_payout": "Выплата клики",
+                    "clicks_profit": "Прибыль клики",
+                    "total_revenue": "Доход",
+                    "total_payout": "Выплата",
+                    "total_profit": "Прибыль",
+                    "total_gross_sales": "Продажи",
+                    "rejected_revenue": "Отклоненные доход",
+                    "rejected_payout": "Отклоненная выплата",
+                    "rejected_profit": "Отклоненная прибыль",
+                    "rejected_gross_sales": "Отклоненные продажи"
+                }
+            },
+            "offer_promote": {
+                "title": "Офферы для продвижения",
+                "get_link": "Ссылка",
+                "all_categories": "Все категории"
+            },
+            "balance": {
+                "title": "Ваш баланс",
+                "approved_payout": "Выплата",
+                "all_currencies": "Все валюты",
+                "paid_to_date": "Выплачено за все время",
+                "recent_invoices": "Последние счета"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Посмотреть отчет"
+    }
+}

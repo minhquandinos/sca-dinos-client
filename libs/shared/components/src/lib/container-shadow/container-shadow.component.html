@@ -1,0 +1,13 @@
+<div
+    class="container-shadow-on-scroll__top"
+    [ngClass]="{'container-shadow-on-scroll__visible': containerShadowPosition.top}"
+></div>
+
+<div #scrollContainer class="overflow-x-auto" [style.max-height]="maxHeight">
+    <ng-content></ng-content>
+</div>
+
+<div
+    class="container-shadow-on-scroll__bottom"
+    [ngClass]="{'container-shadow-on-scroll__visible': containerShadowPosition.bottom}"
+></div>

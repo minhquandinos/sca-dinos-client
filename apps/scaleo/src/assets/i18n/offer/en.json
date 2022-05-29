@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Links",
+        "table": {
+            "allowed_traffic_types": "Allowed Traffic Types",
+            "available_for_aff": {
+                "available": "Available for Affiliates",
+                "unavailable": "Unavailable for Affiliates"
+            },
+            "offers_with_tags": "Offers with tags",
+            "offers_with_tags_description": "All active offers with selected tags will be included into Smart Link.",
+            "other_offers": "Other offers",
+            "get_link": "Get Link",
+            "traffic_distribution": {
+                "highest_epc": "Highest EPC"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Traffic Distribution"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Featured Offers",
+            "my": "My Offers"
+        },
+        "tracking": {
+            "title": "Tracking",
+            "form": {
+                "additional_parameters": "Additional Parameters",
+                "tracking_link_for_affiliate": "Your Tracking Link",
+                "tracking_link_description_for_affiliate": "This is your personalized link that can be used to promote the offer.",
+                "landing_page": "Landing Page",
+                "usage_examples": "Usage Examples",
+                "link_builder": {
+                    "title": "Link Builder",
+                    "affiliate_link_builder": "Affiliate Link Builder",
+                    "add_sub_id": "Add Sub ID",
+                    "add_aff_click_id": "Add Affiliate Click ID",
+                    "add_mobile_parameters": "Add Mobile Parameters",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Add Deeplink ",
+                    "deeplink": "Deeplink URL",
+                    "add_more": "Add More",
+                    "affiliate": {
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "aff_param1": "Affiliate Param 1",
+                        "aff_param2": "Affiliate Param 2",
+                        "aff_param3": "Affiliate Param 3",
+                        "aff_param4": "Affiliate Param 4",
+                        "aff_param5": "Affiliate Param 5"
+                    },
+                    "impressions_pixel": "Impressions Pixel"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "Affiliate Click ID. Unique ID for every click sent from Affiliate.",
+                "sub_id1": "Affiliate Sub ID 1 to specify traffic sub sources.",
+                "sub_id2": "Affiliate Sub ID 2 to specify traffic sub sources.",
+                "sub_id3": "Affiliate Sub ID 3 to specify traffic sub sources.",
+                "sub_id4": "Affiliate Sub ID 4 to specify traffic sub sources.",
+                "sub_id5": "Affiliate Sub ID 5 to specify traffic sub sources.",
+                "aff_param1": "Additional parameter 1 for any purposes.",
+                "aff_param2": "Additional parameter 2 for any purposes.",
+                "aff_param3": "Additional parameter 3 for any purposes.",
+                "aff_param4": "Additional parameter 4 for any purposes.",
+                "aff_param5": "Additional parameter 5 for any purposes.",
+                "source_id": "Affiliate Source ID previously added into platform (should exist and be active).",
+                "link_id": "Offer additional link (should exist and be active).",
+                "deep_link": "Link to any page on the advertiser website. Feature must be enabled for the Offer.",
+                "creative_id": "Creative ID for the Offer (should exist and be active).",
+                "idfa": "Apple iOS Advertising Identifier (iOS 6+).",
+                "gaid": "Google Android Advertising Identifier."
+            }
+        },
+        "custom_url": {
+            "title": "API Send Order"
+        },
+        "request": {
+            "active": "You are allowed to run this Offer.",
+            "pending": "Offer request was sent {{ date }}",
+            "rejected": "Offer request was rejected.",
+            "button": "Request Offer"
+        }
+    }
+}

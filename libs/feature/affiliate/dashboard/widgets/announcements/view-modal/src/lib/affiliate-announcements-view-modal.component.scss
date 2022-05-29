@@ -1,0 +1,18 @@
+@import "libs/ui-kit/stylesheets/utils";
+
+.announcements-modal-form {
+    .page-wrapper-header {
+        border-bottom: none;
+    }
+
+    &__tab {
+        top: 60px;
+        z-index: 50;
+        width: 37.438rem;
+    }
+
+    &__list {
+        display: block;
+        margin-top: 26px;
+    }
+}

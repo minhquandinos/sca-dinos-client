@@ -1,0 +1,11 @@
+<ui-tab-nav-bar class="h-100">
+    <a ui-tab-nav-link routerLink="conversions" routerLinkActive="active" *ngxPermissionsOnly="permissions.canAccessConversions">
+        {{ 'reports_page.conversions.title' | translate }}
+    </a>
+
+    <a ui-tab-nav-link routerLink="clicks" routerLinkActive="active" *ngxPermissionsOnly="permissions.canAccessClicks">
+        {{ 'reports_page.clicks.title' | translate }}
+    </a>
+</ui-tab-nav-bar>
+
+

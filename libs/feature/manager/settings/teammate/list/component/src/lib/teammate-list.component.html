@@ -1,0 +1,235 @@
+<ui-page-wrapper borderRadius="4" className="mb-3" class="managers">
+    <ui-page-wrapper-header className="overflow-x-auto">
+        <div class="title p-l-16 mr-2">{{ 'settings.teammates.title' | translate }}</div>
+        <div class="d-flex my-auto ml-auto">
+            <ui-button-link
+                type="floating"
+                [label]="'settings.teammates.add' | translate"
+                icon="plus-small"
+                (click)="openModal()"
+            ></ui-button-link>
+        </div>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <app-filters [formGroup]="filterForm" [title]="'interface.basic.filtered_by' | translate" [results]="totalCount$ | async">
+            <app-filter>
+                <app-find-platform-statuses
+                    statusList="statuses"
+                    formName="status"
+                    itemValue="status"
+                    [exceptIds]="excludeStatusId"
+                    [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+                    (toggle)="setFilterStatus($event?.newValue)"
+                ></app-find-platform-statuses>
+            </app-filter>
+
+            <app-filter>
+                <app-find-role
+                    formName="role"
+                    [firstElement]="{ role: '', label: test$ | async }"
+                    (toggle)="setFilterManager($event?.newValue)"
+                ></app-find-role>
+            </app-filter>
+
+            <app-filter class="ml-md-auto">
+                <app-custom-search
+                    [placeholder]="'interface.basic.search' | translate"
+                    (toggleSearch)="searching($event)"
+                ></app-custom-search>
+            </app-filter>
+        </app-filters>
+
+        <ui-table2
+            class="teammate-list__table"
+            [columns]="columns"
+            [items]="items$ | async"
+            [loading]="loading$ | async"
+            [stickyHead]="true"
+            [customHorizontalScroll]="true"
+            rowSize="medium"
+            [skeletonTemplate]="skeleton"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiTable2ColTemplate="manager" let-item="valueRow">
+                <div class="table__box-status m-r-12 d-flex align-items-center">
+                    <app-status-dot-color [status]="item.status" type="statuses"></app-status-dot-color>
+                </div>
+                <div class="table__box-image">
+                    <ui-image class="cursor-pointer" [image]="item.image | defaultImage: 'manager'" width="64" height="64"></ui-image>
+                </div>
+
+                <div class="w-100 d-flex align-self-center m-l-14">
+                    <div class="mr-2">
+                        <div>{{ item.firstname }} {{ item.lastname }}</div>
+
+                        <div class="name-subtitle d-flex align-items-center ml-n1 m-t-6" *ngIf="item?.role?.role?.label">
+                            <ui-svg-icon
+                                [size]="16"
+                                icon="ic_user"
+                                tooltip="{{ 'tooltip.settings.managers.users' | translate }}"
+                            ></ui-svg-icon>
+                            <span class="m-l-5">{{ item?.role?.role?.label }}</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <!--            <ng-template uiTable2ColTemplate="contacts" let-item="valueRow">-->
+            <!--                <div>-->
+            <!--                    <app-custom-info className="view-email m-b-6">-->
+            <!--                        <ui-svg-icon info-label [size]="16" icon="ic_mailroom" class="mailroom"-->
+            <!--                                     tooltip="{{ 'shared.tooltip.email' | translate }}"></ui-svg-icon>-->
+            <!--                        <div info-value class="my-auto">-->
+            <!--                            <a class="color__gray fs-base" href="mailto:{{ item.email }}">{{ item.email }}</a>-->
+            <!--                        </div>-->
+            <!--                    </app-custom-info>-->
+
+            <!--                    <shared-contact-list-icon-->
+            <!--                        show="2"-->
+            <!--                        [contacts]="item.contacts"-->
+            <!--                        [phone]="item.phone"-->
+            <!--                    ></shared-contact-list-icon>-->
+
+            <!--                </div>-->
+            <!--            </ng-template>-->
+
+            <ng-template uiTable2ColTemplate="permissions" let-item="valueRow">
+                <span class="color__gray2" *ngIf="item?.role?.base_role?.value">
+                    {{ item?.role?.base_role?.value | rolePermissionInfo: item?.role | async }}
+                </span>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="user_visibility" let-item="valueRow">
+                <div>
+                    <app-custom-info *ngIf="item?.role?.visibility?.key">
+                        <div info-label>
+                            {{ item.role.visibility.key | rolePermissionVisibility | async }}
+                        </div>
+                    </app-custom-info>
+
+                    <app-custom-info
+                        class="m-t-6 ml-n1"
+                        *ngIf="item?.role?.visibility?.key === rolePermissionListVisibility.AssignedUsersOnly"
+                    >
+                        <ui-svg-icon
+                            info-label
+                            [size]="16"
+                            icon="ic_user"
+                            tooltip="{{ 'tooltip.settings.managers.users' | translate }}"
+                        ></ui-svg-icon>
+                        <div info-value>{{ item?.users_count }}</div>
+                    </app-custom-info>
+                </div>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="visited" let-visited="value" let-item="valueRow">
+                <div>
+                    <app-custom-info>
+                        <ui-svg-icon
+                            info-label
+                            [size]="16"
+                            class="activity-login"
+                            icon="affiliate_activity_login"
+                            tooltip="{{ 'tooltip.basic.last_visited' | translate }}"
+                        ></ui-svg-icon>
+                        <div info-value class="my-auto">
+                            <app-date-variant class="text-nowrap" [date]="visited"></app-date-variant>
+                        </div>
+                    </app-custom-info>
+                </div>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="properties" let-item="valueRow">
+                <div>
+                    <ng-container
+                        [ngTemplateOutlet]="enabledDisabledTpl"
+                        [ngTemplateOutletContext]="{
+                            $implicit: item.twoFA_enabled === booleanEnum.True,
+                            icon: 'ic_two_fa',
+                            tooltip: 'shared.dictionary.two_factor_auth' | translate
+                        }"
+                    ></ng-container>
+                    <ng-container
+                        [ngTemplateOutlet]="enabledDisabledTpl"
+                        [ngTemplateOutletContext]="{
+                            $implicit: item.api_status === apiStatus.enabled,
+                            icon: 'ic_manager_api',
+                            tooltip: 'interface.basic.api_access' | translate
+                        }"
+                    ></ng-container>
+                </div>
+            </ng-template>
+        </ui-table2>
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer>
+        <app-custom-pagination
+            *ngIf="showPagination$ | async"
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChange($event)"
+        ></app-custom-pagination>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation class="ml-auto" (toggleEdit)="openModal(item.id)">
+        <ng-container group>
+            <ui-button-link
+                *ngIf="item?.role?.role?.value !== defaultRole.Admin && item?.status === platformListsStatuses.Active"
+                tooltip="{{ 'tooltip.settings.managers.login_as' | translate }}"
+                type="simple"
+                icon="manager_login_as"
+                [iconSize]="24"
+                (click)="loginAs(item?.email)"
+            ></ui-button-link>
+        </ng-container>
+    </ui-table-navigation>
+</ng-template>
+
+<ng-template #skeleton>
+    <ui-table2-row [rowSize]="'medium'" *ngFor="let fake of [0, 1, 2, 3]" className="skeleton">
+        <ui-table2-col class="pl-0">
+            <div class="table__box-status m-r-18" style="width: 8px"></div>
+            <div class="table__box-image">
+                <ui-skeleton-image type="circle"></ui-skeleton-image>
+            </div>
+
+            <div class="w-100 d-flex align-self-center m-l-14">
+                <div class="w-100 mr-2">
+                    <div class="name-title">
+                        <ui-skeleton-block size="large" [width]="50"></ui-skeleton-block>
+                    </div>
+
+                    <div class="name-subtitle">
+                        <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                    </div>
+                </div>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <div>
+                <ui-skeleton-block size="small" [width]="25"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+    </ui-table2-row>
+</ng-template>
+
+<ng-template #enabledDisabledTpl let-enabled let-icon="icon" let-tooltip="tooltip">
+    <app-custom-info className="m-t-8">
+        <ui-svg-icon info-label [size]="16" [icon]="icon" [tooltip]="tooltip"></ui-svg-icon>
+        <span info-value [ngClass]="enabled ? 'color__green' : 'color__very-dark-grayish-blue'">
+            {{ (enabled ? 'interface.basic.enabled' : 'interface.basic.disabled') | translate }}
+        </span>
+    </app-custom-info>
+</ng-template>

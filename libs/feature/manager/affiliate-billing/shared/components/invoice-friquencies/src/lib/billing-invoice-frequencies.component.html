@@ -1,0 +1,35 @@
+<div class="d-flex">
+    <app-find-platform-list
+        [labelShowId]="false"
+        platformList="payments_frequencies"
+        [label]="'invoice.settings.frequency_title' | translate"
+        [multiple]="false"
+        [formName]="invoiceFrequencyControl"
+        [searchable]="false"
+        [hideSelected]="false"
+        (toggle)="changeInvoiceFrequencyValue()"
+    ></app-find-platform-list>
+
+    <ng-container *ngIf="formNameForInvoiceFrequencyItemSelect$ | async as formNameForInvoiceFrequencyItemSelect">
+        <app-select
+            *ngIf="formNameForInvoiceFrequencyItemSelect"
+            #invoiceFrequencyItemSelect
+            class="ml-3"
+            [formControlName]="formNameForInvoiceFrequencyItemSelect"
+            [items]="invoiceFrequencyItems$ | async | invoiceFrequencyItemsTransform : invoiceFrequency | async"
+            [label]="invoiceFrequency | invoiceFrequencySelectTitle | async"
+            itemLabel="title"
+            itemValue="id"
+        ></app-select>
+    </ng-container>
+
+    <app-select
+        *ngIf="invoiceFrequency | isTruthy: paymentFrequencyIdEnum.BiMonthly"
+        class="ml-3"
+        [items]="getHalfOfMonth"
+        [label]="'interface.date.month.title' | translate"
+        [formControlName]="secondDayOfTheMonthControl"
+        itemLabel="title"
+        itemValue="id"
+    ></app-select>
+</div>

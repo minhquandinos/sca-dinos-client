@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Links",
+        "table": {
+            "allowed_traffic_types": "Tipus de trànsit permesos",
+            "available_for_aff": {
+                "available": "Disponible pels afiliats",
+                "unavailable": "No disponible pels afiliats"
+            },
+            "offers_with_tags": "Ofertes amb etiquetes",
+            "offers_with_tags_description": "Totes les ofertes actives que concordin amb les etiquetes seleccionades s’inclouran a un Smartlink.",
+            "other_offers": "Altres ofertes",
+            "get_link": "Obtenir l'enllaç",
+            "traffic_distribution": {
+                "highest_epc": "EPC més alt"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Distribució del trànsit"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Ofertes destacades",
+            "my": "Les meves ofertes"
+        },
+        "tracking": {
+            "title": "Seguiment",
+            "form": {
+                "additional_parameters": "Paràmetres addicionals",
+                "tracking_link_for_affiliate": "El teu enllaç de seguiment",
+                "tracking_link_description_for_affiliate": "Aquest és el teu enllaç personalitzat per poder promocionar l'oferta.",
+                "landing_page": "Pàgina landing",
+                "usage_examples": "Exemples d'ús",
+                "link_builder": {
+                    "title": "Link Builder",
+                    "affiliate_link_builder": "Creador d'enllaç d'afiliació",
+                    "add_sub_id": "Afegir un Sub ID",
+                    "add_aff_click_id": "Afegir l'ID de clic de l'afiliat",
+                    "add_mobile_parameters": "Afegir paràmetres del dispositiu mòbil",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Afegir un enllaç profund",
+                    "deeplink": "URL de l'enllaç profund",
+                    "add_more": "Afegir-ne més",
+                    "affiliate": {
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "aff_param1": "Paràmetre 1 de l'afiliat",
+                        "aff_param2": "Paràmetre 2 de l'afiliat",
+                        "aff_param3": "Paràmetre 3 de l'afiliat",
+                        "aff_param4": "Paràmetre 4 de l'afiliat",
+                        "aff_param5": "Paràmetre 5 de l'afiliat"
+                    },
+                    "impressions_pixel": "Píxel d’impressió"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "ID de clics de l'afiliat. ID únic per a cada clic enviat per l’afiliat",
+                "sub_id1": "SUB ID de l'afiliat 1 per especificar les subfonts de trànsit.",
+                "sub_id2": "SUB ID de l'afiliat 2 per especificar les subfonts de trànsit.",
+                "sub_id3": "SUB ID de l'afiliat 3 per especificar les subfonts de trànsit.",
+                "sub_id4": "SUB ID de l'afiliat 4 per especificar les subfonts de trànsit.",
+                "sub_id5": "SUB ID de l'afiliat 5 per especificar les subfonts de trànsit.",
+                "aff_param1": "Paràmetre addicional 1 per a qualsevol propòsit.",
+                "aff_param2": "Paràmetre addicional 2 per a qualsevol propòsit.",
+                "aff_param3": "Paràmetre addicional 3 per a qualsevol propòsit.",
+                "aff_param4": "Paràmetre addicional 4 per a qualsevol propòsit.",
+                "aff_param5": "Paràmetre addicional 5 per a qualsevol propòsit.",
+                "source_id": "ID de la font de l'afiliat que s'ha afegit prèviament a la plataforma (ha d'existir i ha d'estar actiu).",
+                "link_id": "Oferir un enllaç addicional (ha d'existir i ha d'estar actiu).",
+                "deep_link": "Enllaç a qualsevol pàgina del lloc web de l'anunciant. La funció ha d'estar habilitada per a l'oferta.",
+                "creative_id": "ID de creativitat de l'oferta (ha d'existir i ha d'estar actiu).",
+                "idfa": "ID de publicitat d'Apple iOS (iOS 6).",
+                "gaid": "ID de publicitat de Google Android."
+            }
+        },
+        "custom_url": {
+            "title": "Ordre d'enviament d'API"
+        },
+        "request": {
+            "active": "Tens permís per executar aquesta oferta.",
+            "pending": "S'ha enviat la sol·licitud d'oferta {{ date }}",
+            "rejected": "La sol·licitud d'oferta ha estat rebutjada",
+            "button": "Sol·licita una oferta"
+        }
+    }
+}

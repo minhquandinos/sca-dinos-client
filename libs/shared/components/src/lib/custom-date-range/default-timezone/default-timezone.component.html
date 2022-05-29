@@ -1,0 +1,12 @@
+<app-select
+    [items]="timezones$ | async"
+    itemLabel="title"
+    itemValue="timezone"
+    [searchable]="false"
+    [clearable]="false"
+    [multiple]="false"
+    [hideSelected]="false"
+    [(ngModel)]="timezone"
+    id="time_zone"
+    (change)="changeTimeZone($event)"
+></app-select>

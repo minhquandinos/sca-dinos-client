@@ -1,0 +1,9 @@
+<div [formGroup]="form">
+    <app-textarea
+        appReportFilterTextarea
+        [formControlName]="formName"
+        [shouldAutosize]="false"
+        [rows]="5"
+        [placeholder]="'reports_page.filters.textarea_hint' | translate"
+    ></app-textarea>
+</div>

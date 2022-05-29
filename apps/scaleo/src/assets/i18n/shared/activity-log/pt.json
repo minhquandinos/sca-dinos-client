@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Registro de atividade",
+        "details": "Detalhes",
+        "new_values": "Novos valores",
+        "old_values": "Valores antigos",
+        "object": {
+            "affiliate": "Afiliado",
+            "postback": "Postback",
+            "gloabal_postback": "Postback global",
+            "source": "Fonte",
+            "advertiser": "Anunciante",
+            "domain": "Domínio",
+            "manager": "Teammate",
+            "offer": "Oferta",
+            "offer_request": "Solicitação de oferta",
+            "goal": "Objetivo",
+            "tracking": "Rastreamento",
+            "targeting": "Segmentação",
+            "affiliate_access": "Acesso do afiliado",
+            "landing_page": "Landing page",
+            "creative": "Criativo",
+            "custom_param": "Parâmetros personalizados",
+            "you": "Você",
+            "announcement": "Anúncios"
+        },
+        "owner": {
+            "offer" : "por oferta",
+            "affiliate": "para afiliados",
+            "you": "para você"
+        },
+        "action": {
+            "add": "foi adicionado(a)",
+            "edit": "foi atualizado(a)",
+            "view": "foi visualizado(a)",
+            "delete": "foi deletado(a)",
+            "signup": "inscrito",
+            "login": "logado",
+            "profile_edit": "atualizou seu perfil",
+            "logout": "desconectado",
+            "approved": "foi aprovado(a)",
+            "declined": "foi rejeitado(a)",
+            "login_as": "logou como"
+        },
+        "action_for_offer_request": {
+            "add": "solicitada",
+            "approved": "foi aprovada",
+            "declined": "foi rejeitada"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "solicitada",
+            "approved": "foi aprovada",
+            "declined": "foi rejeitada"
+        },
+        "action_for_goal": {
+            "add": "foi adicionado",
+            "edit": "foi atualizado",
+            "delete": "foi deletado"
+        },
+        "action_custom_params": {
+            "add": "foram adicionados",
+            "edit": "foram atualizados",
+            "delete": "foram deletados"
+        }
+    }
+}

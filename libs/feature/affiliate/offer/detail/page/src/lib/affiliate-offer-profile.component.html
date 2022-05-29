@@ -1,0 +1,84 @@
+<div class="profile">
+    <div class="profile__columns">
+        <div class="profile__column">
+            <scaleo-affiliate-access-offer-detail-info-widget
+                [offerData]="offerData$ | async"
+                [visibilityLabel]="visibilityLabel$ | async"
+                [visibilityColor]="visibilityColor"
+                [showRequestButton]="showRequestButton"
+            ></scaleo-affiliate-access-offer-detail-info-widget>
+
+            <scaleo-offer-custom-url-old-widget
+                *ngIf="!hideCard && isShowOfferCustomUrl"
+                [offerId]="offerId"
+                [userId]="userId"
+                [url]="offerCustomUrl"
+            ></scaleo-offer-custom-url-old-widget>
+
+            <scaleo-offer-tracking-old-widget
+                *ngIf="!hideCard"
+                [offerInfo]="offerData$ | async"
+            ></scaleo-offer-tracking-old-widget>
+
+            <scaleo-offer-goals-old-widget
+                [goalsData]="goalsData$ | async"
+                [currency]="currency$ | async"
+                [rowTemplate]="affiliateRowTemplate"
+            ></scaleo-offer-goals-old-widget>
+
+            <scaleo-offer-targeting-old-widget
+                [targeting]="targeting$ | async"
+            ></scaleo-offer-targeting-old-widget>
+
+            <scaleo-offer-landing-page-old-widget *ngIf="!hideCard" [urls]="links$ | async"></scaleo-offer-landing-page-old-widget>
+
+            <scaleo-offer-creative-old-widget
+                *ngIf="!hideCard && showCreativeWidget$ | async"
+                [creatives]="creatives$ | async"
+                [offerId]="offerId"
+            ></scaleo-offer-creative-old-widget>
+        </div>
+
+        <div class="profile__column d-flex flex-column">
+            <scaleo-offer-finances-old-widget [id]="offerId"></scaleo-offer-finances-old-widget>
+
+            <scaleo-offer-quick-links-old-widget [offerId]="offerId"></scaleo-offer-quick-links-old-widget>
+
+            <scaleo-affiliate-offer-postback-widget
+                *ngIf="!hideCard"
+                [postbacks]="postbacks$ | async"
+                [offerId]="offerId"
+                (updated)="postbackWasUpdated()"
+            ></scaleo-affiliate-offer-postback-widget>
+
+            <scaleo-offer-short-statistics-old-widget
+                *ngIf="tableColumnsForShortStatistics"
+                [columns]="tableColumnsForShortStatistics"
+                [headers]="tableHeadersForShortStatistics"
+                [checkCrColumn]="true"
+                [id]="offerId"
+                payoutColumnFor="affiliate"
+            ></scaleo-offer-short-statistics-old-widget>
+        </div>
+    </div>
+</div>
+
+<ng-template #affiliateRowTemplate let-item="context">
+    <td ui-table-col>
+        <app-offer-goal-name [id]="item.goal_id" [name]="item.goal_name"></app-offer-goal-name>
+    </td>
+
+    <td ui-table-col>
+        <app-offer-goal-type-name
+            [item]="item" [currency]="currency$ | async"
+            type="payout"
+            [showAffiliatePayout]="true"
+        ></app-offer-goal-type-name>
+    </td>
+    <td ui-table-col *ngIf="isNotMobile$ | async">
+        <app-offer-goal-conversion-status [item]="item" [showM]="true"></app-offer-goal-conversion-status>
+    </td>
+    <td ui-table-col class="d-flex align-items-center h-100">
+        <app-offer-goal-cap-type [item]="item" [currency]="currency"></app-offer-goal-cap-type>
+    </td>
+</ng-template>

@@ -1,0 +1,10 @@
+<div
+    class="d-flex align-items-center"
+    [ngClass]="{'cursor-pointer': item.user.role === 'advertiser' || item.user.role === 'affiliate'}"
+    (click)="navigate()"
+>
+    <ui-chip size="large" rounded="true" className="p-r-9">
+        <ui-image type="circle" [height]="20" [image]="item.user.image"></ui-image>
+        <span class="fs-base manager-list__title">{{ item.user.name }}</span>
+    </ui-chip>
+</div>

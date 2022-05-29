@@ -1,0 +1,36 @@
+<app-select
+    [items]="items$ | async"
+    [loading]="loading"
+    [label]="label"
+    [itemLabel]="itemLabel"
+    [itemValue]="itemValue"
+    [labelShowId]="true"
+    [searchable]="searchable"
+    [multiple]="multiple"
+    (search)="findElement($event)"
+    [formControlName]="formName"
+    [clearable]="clearable"
+    (change)="selected($event)"
+    (changeFull)="selectedFull($event)"
+    (initialSelected)="initialSelectedHandler($event)"
+    [hideDropdownArrow]="hideDropdownArrow"
+    [hideSelected]="hideSelected"
+    [placeholder]="placeholder$ | async"
+    (scrolledToEnd)="scrolledToEnd()"
+    [disableSelect]="disableSelect"
+    [addTemplate]="true"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item">
+        <ng-template [ngTemplateOutlet]="optionTpl" [ngTemplateOutletContext]="{ $implicit: item  }"></ng-template>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <ng-template [ngTemplateOutlet]="optionTpl" [ngTemplateOutletContext]="{ $implicit: item  }"></ng-template>
+    </ng-template>
+</app-select>
+
+<ng-template #optionTpl let-item>
+    <div class="d-flex align-items-center">
+        <span>{{ item?.title | format:'idName':item?.id }}</span>
+    </div>
+</ng-template>

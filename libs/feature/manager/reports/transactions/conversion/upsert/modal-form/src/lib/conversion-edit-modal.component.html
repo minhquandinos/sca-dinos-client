@@ -1,0 +1,83 @@
+<ng-template appModal3Title>
+    <div class="title">{{ 'reports_page.conversions.edit.title' | translate }}</div>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="save()"></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form" class="mt-3">
+    <div class="form-group">
+        <app-input [label]="'table.column.notes' | translate" formControlName="public_notes"></app-input>
+
+        <div class="form-text">{{ 'invoice.generate.notes_info' | translate }}</div>
+    </div>
+
+    <div class="form-group">
+        <app-input [label]="'interface.form.internal_information' | translate" formControlName="private_notes"></app-input>
+
+        <div class="form-text">{{ 'interface.subtitle.internal_information' | translate }}</div>
+    </div>
+
+    <div class="title is-5 m-t-48">
+        <span>{{ 'table.column.lead' | translate }}</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'firstname' | translate" formControlName="firstname"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'lastname' | translate" formControlName="lastname"></app-input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-input [label]="'email' | translate" formControlName="email"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input [label]="'phone' | translate" formControlName="phone"></app-input>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.country' | translate" formControlName="country"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.region' | translate" formControlName="region"></app-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.city' | translate" formControlName="city"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.postcode' | translate" formControlName="postcode"></app-input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-input [label]="'table.column.address' | translate" formControlName="address"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input [label]="'table.column.gender' | translate" formControlName="gender"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input [label]="'table.column.birthday' | translate" formControlName="birthday"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input [label]="'table.column.vertical' | translate" formControlName="vertical"></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input [label]="'table.column.ip' | translate" formControlName="ip"></app-input>
+    </div>
+
+    <div class="form-group" *ngFor="let field of customFieldsControlsMap">
+        <app-input [label]="'table.column.' + field | translate" [formControlName]="field"></app-input>
+    </div>
+</form>

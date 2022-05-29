@@ -1,0 +1,93 @@
+<ui-tab-nav-bar class="h-100">
+    <ng-container *ngxPermissionsOnly="permissions.canAccessConversions">
+        <a ui-tab-nav-link routerLink="conversions" routerLinkActive="active">
+            {{ 'reports_page.conversions.title' | translate }}
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessClicks">
+        <a ui-tab-nav-link routerLink="clicks" routerLinkActive="active">
+            {{ 'reports_page.clicks.title' | translate }}
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessInvalidClicks">
+        <a ui-tab-nav-link routerLink="invalid-clicks" routerLinkActive="active">
+            {{ 'reports_page.logs.menus.clicks' | translate }}
+            <app-custom-info-tooltip
+                class="h-100"
+                [text]="invalidClickTooltipTpl"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessAdvertiserPostbacksLog">
+        <a
+            ui-tab-nav-link routerLink="advertiser-postbacks"
+            routerLinkActive="active"
+        >
+            {{ 'reports_page.logs.menus.advertiser_postbacks' | translate }}
+            <app-custom-info-tooltip
+                class="h-100"
+                [text]="advertisersPostbackTooltipTpl"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessAffiliatePostbacksLog">
+        <a
+            ui-tab-nav-link
+            routerLink="affiliates-postbacks"
+            routerLinkActive="active"
+        >
+            {{ 'reports_page.logs.menus.affiliates_postbacks' | translate }}
+            <app-custom-info-tooltip
+                class="h-100"
+                [text]="affiliatesPostbackTooltipTpl"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+
+    <ng-container *ngIf="showAdjustments$ | async">
+        <a
+            ui-tab-nav-link
+            routerLink="adjustments"
+            routerLinkActive="active"
+        >
+            {{ 'reports_page.adjustments.title' | translate }}
+            <app-custom-info-tooltip
+                class="h-100"
+                [text]="adjustmentsPostbackTooltipTpl"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+</ui-tab-nav-bar>
+
+<ng-template #invalidClickTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'reports_page.invalid_clicks.nav_tooltip' | translate"
+        beaconId="5f070ec02c7d3a10cbaa475e"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+<ng-template #advertisersPostbackTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'reports_page.advertisers_postback.nav_tooltip' | translate"
+        beaconId="5efc72632c7d3a10cba9d72b"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+<ng-template #affiliatesPostbackTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'reports_page.affiliates_postback.nav_tooltip' | translate"
+        beaconId="5ef4b0e304286306f805c1ce"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+<ng-template #adjustmentsPostbackTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'reports_page.adjustments_postback.nav_tooltip' | translate"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+

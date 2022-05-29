@@ -1,0 +1,11 @@
+.manager-activity {
+    &__value-compare-data {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .activity-values {
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+    }
+}

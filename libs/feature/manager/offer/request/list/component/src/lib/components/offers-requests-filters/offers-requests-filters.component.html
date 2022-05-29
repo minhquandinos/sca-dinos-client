@@ -1,0 +1,83 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+    [results]="totals$ | async"
+>
+    <form [formGroup]="form" class="d-flex align-self-md-start">
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'statuses.status' | translate"
+                [count]="statusesCount$ | async"
+                (toggle)="applyFilter('statuses')"
+            >
+                <app-find-platform-list
+                    #findRequestStatusRef
+                    platformList="offers_requests_statuses"
+                    formName="statuses"
+                    [multiple]="true"
+                    itemLabel="title"
+                    itemValue="id"
+                    itemIncrement="id"
+                    [hideSelected]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.offer' | translate"
+                [count]="offerCount$ | async"
+                (toggle)="applyFilter('offers')"
+            >
+                <app-find-offer
+                    #findOfferRef
+                    formName="offers"
+                    itemValue="id"
+                    [multiple]="true"
+                ></app-find-offer>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.affiliate' | translate"
+                [count]="affiliateCount$ | async"
+                (toggle)="applyFilter('affiliates')"
+            >
+                <app-find-affiliates
+                    #findAffiliatesRef
+                    formName="affiliates"
+                    itemValue="id"
+                    [multiple]="true"
+                ></app-find-affiliates>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+
+    <section filter-selected="" *ngIf="selectedAnyOutputFilter$ | async">
+        <app-output-selected-filters
+            [findComponent]="findRequestStatusRef"
+            [title]="'statuses.status' | translate"
+            [selected]="statusesOutput$ | async"
+            (remove)="removeElement('statuses', $event)"
+            (clear)="clear('statuses', $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findOfferRef"
+            [title]="'table.column.offer' | translate"
+            itemTitle="title"
+            [selected]="offerOutput$ | async"
+            (remove)="removeElement('offers', $event)"
+            (clear)="clear('offers', $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findAffiliatesRef"
+            [title]="'table.column.affiliate' | translate"
+            itemTitle="title"
+            [selected]="affiliateOutput$ | async"
+            (remove)="removeElement('affiliates', $event)"
+            (clear)="clear('affiliates', $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>

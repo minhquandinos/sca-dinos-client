@@ -1,0 +1,21 @@
+<app-radio-group
+    [formControlName]="controlName"
+    [label]="'invoice.settings.generation.title' | translate"
+>
+    <app-radio
+        [inputValue]="booleanEnum.False"
+        [label]="'invoice.settings.generation.manually' | translate"
+    ></app-radio>
+
+    <app-radio
+        [inputValue]="booleanEnum.True"
+        [label]="'invoice.settings.generation.automatically' | translate"
+        [disabled]="!allowGenerateInvoiceAutomatically"
+    ></app-radio>
+</app-radio-group>
+
+<app-upgrade-plan-info
+    *ngIf="!allowGenerateInvoiceAutomatically"
+    class="mb-2 ml-3"
+    planPermission="generateInvoiceAutomatically"
+></app-upgrade-plan-info>

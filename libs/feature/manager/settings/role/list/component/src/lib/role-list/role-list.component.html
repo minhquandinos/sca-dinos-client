@@ -1,0 +1,61 @@
+<scaleo-card2>
+    <scaleo-card2-header class="flex-column">
+        <scaleo-card2-title>
+            <div class="title text-size-16">
+                {{ 'settings.roles_permissions.title' | translate }}
+            </div>
+        </scaleo-card2-title>
+
+        <div class="d-flex align-items-center py-3">
+            <div class="d-flex align-items-center ml-auto">
+                <app-upgrade-plan-info [planPermission]="planFeature.customRole"></app-upgrade-plan-info>
+
+                <ui-button-link
+                    className="ml-3"
+                    type="floating"
+                    [label]="'settings.roles_permissions.upsert.add_title' | translate"
+                    icon="plus-small"
+                    (toggle)="openModal()"
+                ></ui-button-link>
+            </div>
+        </div>
+    </scaleo-card2-header>
+
+    <scaleo-card2-content class="pt-0 pb-0">
+        <ui-simple-table
+            class="mx-n3-5"
+            tableStyle="clear"
+            [headers]="columns"
+            [items]="items$ | async"
+            [notFound]="notFound$ | async"
+            [isLoad]="isLoad$ | async"
+            [controlTemplate]="controlTemplate"
+            skeletonRowCount="4"
+            skeletonColCount="4"
+            colHeight="80px"
+            [tableConfig]="tableConfig"
+        >
+            <ng-template uiSimpleTableColTpl="role" let-role let-item="valueRow" width="max-content">
+                <span class="color__gray">{{ item.label }}</span>
+            </ng-template>
+            <ng-template uiSimpleTableColTpl="type" let-type let-item="valueRow">
+                <ui-chip
+                    className="text-nowrap"
+                    *ngIf="item.role | roleDefault | async as roleDefault"
+                >
+                    {{ roleDefault }}
+                </ui-chip>
+            </ng-template>
+            <ng-template uiSimpleTableColTpl="permissions" let-item="valueRow">
+                <span class="color__gray2">{{ item?.base_role | rolePermissionInfo: item?.role | async }}</span>
+            </ng-template>
+            <ng-template uiSimpleTableColTpl="visibility" let-visibility let-item="valueRow">
+                {{ visibility?.key | rolePermissionVisibility | async }}
+            </ng-template>
+        </ui-simple-table>
+    </scaleo-card2-content>
+</scaleo-card2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation (toggleEdit)="openModal(item.role)"></ui-table-navigation>
+</ng-template>

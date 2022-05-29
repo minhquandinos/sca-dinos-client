@@ -1,0 +1,115 @@
+{
+    "billing": "Thanh Toán",
+    "referrals": "Referrals",
+    "tools": "Tools",
+    "delete": {
+        "delete_confirm_title": "Bạn có chắc chắn không?",
+        "delete_confirm_text": "Lựa chọn của bạn sẽ bị xoá"
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Nổi bật"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Duyệt tự động"
+    },
+    "quick_links": {
+        "title": "Lối tắt"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Thêm Postback",
+            "created": "Postback đã được thêm vào",
+            "edit": "Sửa Postback",
+            "deleted": "Postback đã được xoá",
+            "add_as_title": "Thêm Postback",
+            "global": "Global",
+            "offer": "Offer",
+            "list_postback": "Postback",
+            "list_html": "HTML Pixel (Cookie-based)",
+            "list_table_postback": "Postback",
+            "list_table_html": "HTML Pixel (Cookie-based)",
+            "all_postbacks": "Tất cả Postbacks",
+            "global_postbacks": "Global Postbacks",
+            "goal": "goal",
+            "description": {
+                "level_global_for_affiliate": "Toàn cầu: Postback sẽ được kích hoạt cho tất cả các phiếu mua hàng (tất cả các mục tiêu ngoại trừ loại CPC)",
+                "level_offer_for_affiliate": "Ưu đãi: Postback sẽ chỉ được thực hiện cho ưu đãi đã chọn. Nếu mục tiêu không được chỉ định - nó sẽ được thực hiện cho tất cả các mục tiêu trên phiếu mua hàng đó.",
+                "conversion_status_for_affiliate": "Postback sẽ chỉ được kích hoạt cho trạng thái chuyển đổi này",
+                "method_for_affiliate": "Postback được hệ thống của bạn hỗ trợ."
+            }
+        },
+        "source": {
+            "title": "Nguồn",
+            "add": "Thêm nguồn"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros Available",
+        "offer_id": "Offer’s ID in platform",
+        "affiliate_id": "ID of Affiliate promoting the offer.",
+        "sub_id1": "Affiliate Sub ID 1 specified in the tracking link.",
+        "sub_id2": "Affiliate Sub ID 2 specified in the tracking link.",
+        "sub_id3": "Affiliate Sub ID 3 specified in the tracking link.",
+        "sub_id4": "Affiliate Sub ID 4 specified in the tracking link.",
+        "sub_id5": "Affiliate Sub ID 5 specified in the tracking link.",
+        "click_id": "Unique 32 character alphanumeric string, which is generated and assigned to each click in platform",
+        "link_id": "Offer additional link specified in the tracking link.",
+        "source_id": "Affiliate Source ID specified in the tracking link.",
+        "aff_param1": "Affiliate additional parameter 1 specified in the tracking link.",
+        "aff_param2": "Affiliate additional parameter 2 specified in the tracking link.",
+        "aff_param3": "Affiliate additional parameter 3 specified in the tracking link.",
+        "aff_param4": "Affiliate additional parameter 4 specified in the tracking link.",
+        "aff_param5": "Affiliate additional parameter 5 specified in the tracking link.",
+        "adv_param1": "Advertiser additional parameter 1 specified upon the conversion.",
+        "adv_param2": "Advertiser additional parameter 2 specified upon the conversion.",
+        "adv_param3": "Advertiser additional parameter 3 specified upon the conversion.",
+        "adv_param4": "Advertiser additional parameter 4 specified upon the conversion.",
+        "adv_param5": "Advertiser additional parameter 5 specified upon the conversion.",
+        "amount": "Doanh thu bán hàng (Tính theo giá trị đơn hàng).",
+        "conv_status": "Trạng thái chuyển đổi (approved / pending / rejected).",
+        "offer_name": "Tên Offer’s trong hệ thống.",
+        "creative_id": "Offer Creative ID used.",
+        "aff_click_id": "Affiliate Click ID. Unique ID for every click sent from Affiliate.",
+        "deep_link": "Affiliate Source ID specified in the tracking link.",
+        "goal_id": "Offer’s goal ID in platform.",
+        "adv_order_id": "ID đặt hàng của nhà quảng cáo được chỉ định khi chuyển đổi.",
+        "adv_user_id": "ID người dùng của nhà quảng cáo được chỉ định khi chuyển đổi.",
+        "offer_currency": "Đơn vị tiền tệ của offer đã được chọn",
+        "transaction_id": " ID giao dịch. ID duy nhất cho mọi giao dịch trong nền tảng.",
+        "track_id": "Thông tin bổ sung từ Nhà quảng cáo, được chỉ định khi chuyển đổi.",
+        "payout": "Value of Afiliate's payout",
+        "ip": "Địa chỉ IP bắt đầu phiên nhấn chuột.",
+        "user_agent": "User's agent string determined at the time of click.",
+        "device_type": "Chuỗi hệ điều hành của người dùng được xác định tại thời điểm nhấn chuột.",
+        "device_os": "User's OS string determined at the time of click.",
+        "connection_type": "Chuỗi loại kết nối của người dùng được xác định tại thời điểm nhấn chuột.",
+        "mobile_operator": "Chuỗi nhà cung cấp dịch vụ di động của người dùng được xác định tại thời điểm nhấn chuột.",
+        "geo_country_code": " Mã quốc gia của người dùng được xác định tại thời điểm nhấn chuột.",
+        "geo_country": " Quốc gia của người dùng được xác định tại thời điểm nhấn chuột.",
+        "geo_region": "Khu vực của người dùng được xác định tại thời điểm nhấn chuột.",
+        "geo_city": "Thành phố của người dùng được xác định tại thời điểm nhấn chuột.",
+        "idfa": "Mã nhận dạng quảng cáo Apple iOS (IDFA).",
+        "gaid": "Mã nhận dạng quảng cáo Google Android (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Giới thiệu Publisher mới và nhận hoa hồng {{commission}} tính trên doanh thu của các Publisher đó hàng tháng.",
+        "commission_info_for_flat": "Giới thiệu Publisher mới và nhận hoa hồng {{commission}} cho mỗi Publisher được giới thiệu.",
+        "referrals_title": "Giới thiệu người mới",
+        "link": "Link giới thiệu:",
+        "you_referrals_title": "Người dùng được giới thiệu",
+        "form": {
+            "referral_commission": "Hoa hồng giới thiệu"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Liên hệ với AM để nhận API của bạn"
+        }
+    }
+}

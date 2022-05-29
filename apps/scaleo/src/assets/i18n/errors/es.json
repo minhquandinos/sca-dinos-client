@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Página no encontrada o prohibida",
+            "text": "El enlace en el que hiciste clic puede estar roto o la página puede haber sido eliminada o estar prohibida."
+        },
+        "page_not_found": {
+            "title": "Página no encontrada o prohibida",
+            "text": "El enlace en el que hiciste clic puede estar roto o la página puede haber sido eliminada o estar prohibida."
+        },
+        "connection_lost": {
+            "title": "Conexión perdida",
+            "text": "Espere unos minutos antes de volver a intentarlo.",
+            "try_again": "Intentar otra vez"
+        }
+    }
+}

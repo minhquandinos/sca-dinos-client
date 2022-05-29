@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Links",
+        "table": {
+            "allowed_traffic_types": "Types de trafic autorisés",
+            "available_for_aff": {
+                "available": "Disponible pour les affiliés",
+                "unavailable": "Non disponible pour les affiliés"
+            },
+            "offers_with_tags": "Offres associées à des tags",
+            "offers_with_tags_description": "Toutes les offres actives associées aux tags sélectionnés seront incluses dans Smart Link.",
+            "other_offers": "Autres offres",
+            "get_link": "Obtenir un lien",
+            "traffic_distribution": {
+                "highest_epc": "EPC le plus élevé"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Distribution du trafic"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Offres à la une",
+            "my": "Mes offres"
+        },
+        "tracking": {
+            "title": "Tracking",
+            "form": {
+                "additional_parameters": "Paramètres supplémentaires",
+                "tracking_link_for_affiliate": "Votre lien de Tracking",
+                "tracking_link_description_for_affiliate": "Voici votre lien personnalisé qui peut être utilisé pour promouvoir l'offre.",
+                "landing_page": "Page d'atterrissage",
+                "usage_examples": "Exemples d'utilisation",
+                "link_builder": {
+                    "title": "Générateur de liens",
+                    "affiliate_link_builder": "Générateur de liens d'affiliation",
+                    "add_sub_id": "Ajouter Sous-ID",
+                    "add_aff_click_id": "Ajouter ID Clic Affilié",
+                    "add_mobile_parameters": "Ajouter Paramètres de portable",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Ajouter un lien profond ",
+                    "deeplink": "URL du lien profond",
+                    "add_more": "Ajouter plus",
+                    "affiliate": {
+                        "sub_id1": "Sous-ID 1",
+                        "sub_id2": "Sous-ID 2",
+                        "sub_id3": "Sous-ID 3",
+                        "sub_id4": "Sous-ID 4",
+                        "sub_id5": "Sous-ID 5",
+                        "aff_param1": "Paramètres Affilié 1",
+                        "aff_param2": "Paramètres Affilié 2",
+                        "aff_param3": "Paramètres Affilié 3",
+                        "aff_param4": "Paramètres Affilié 4",
+                        "aff_param5": "Paramètres Affilié 5"
+                    },
+                    "impressions_pixel": "Pixel d'impression"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "ID Clic Affilié. ID unique pour chaque clic envoyé par l'affilié.",
+                "sub_id1": "Sous-ID Affilié 1 pour spécifier les sous-sources de trafic.",
+                "sub_id2": "Sous-ID Affilié 2 pour spécifier les sous-sources de trafic.",
+                "sub_id3": "Sous-ID Affilié 3 pour spécifier les sous-sources de trafic.",
+                "sub_id4": "Sous-ID Affilié 4 pour spécifier les sous-sources de trafic.",
+                "sub_id5": "Sous-ID Affilié 5 pour spécifier les sous-sources de trafic.",
+                "aff_param1": "Paramètre supplémentaire 1 pour tout usage.",
+                "aff_param2": "Paramètre supplémentaire 2 pour tout usage.",
+                "aff_param3": "Paramètre supplémentaire 3 pour tout usage.",
+                "aff_param4": "Paramètre supplémentaire 4 pour tout usage.",
+                "aff_param5": "Paramètre supplémentaire 5 pour tout usage.",
+                "source_id": "ID Source Affilié précédemment ajouté dans la plateforme (doit exister et être actif).",
+                "link_id": "Lien supplémentaire de l'offre (doit exister et être actif).",
+                "deep_link": "Lien vers n'importe quelle page du site Web de l'annonceur. La fonctionnalité doit être activée pour l'offre.",
+                "creative_id": "ID Contenu publicitaire pour l'offre (doit exister et être actif).",
+                "idfa": "Apple iOS Advertising Identifier (iOS 6+).",
+                "gaid": "Google Android Advertising Identifier."
+            }
+        },
+        "custom_url": {
+            "title": "API Send Order"
+        },
+        "request": {
+            "active": "Vous êtes autorisé à lancer cette offre.",
+            "pending": "La demande d'offre a été envoyée {{ date }}",
+            "rejected": "La demande d'offre a été rejetée.",
+            "button": "Demande d'offre"
+        }
+    }
+}

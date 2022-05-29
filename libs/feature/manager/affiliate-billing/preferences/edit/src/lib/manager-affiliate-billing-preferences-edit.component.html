@@ -1,0 +1,85 @@
+<ng-template appModal3Title>
+    <div class="title">{{ 'billing2.affiliate.edit.title' | translate }}</div>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.update' | translate" (toggle)="save()"></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form">
+    <ng-container *ngIf="paymentsType === affiliateInvoiceFrequencyEnum.BySchedule">
+        <div class="form-row ml-0">
+            <scaleo-mng-billing-invoice-frequencies></scaleo-mng-billing-invoice-frequencies>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group mb-0 d-flex align-items-end">
+            <scaleo-mng-billing-invoice-automatically
+                controlName="generate_invoice_automatically"
+            ></scaleo-mng-billing-invoice-automatically>
+        </div>
+
+        <ui-br></ui-br>
+    </ng-container>
+
+    <div class="form-group mb-0">
+        <div class="col-md-6 p-0">
+            <app-find-platform-list
+                [searchable]="false"
+                [labelShowId]="false"
+                platformList="invoices_payments_terms"
+                [label]="'registration.basic.payment_terms' | translate"
+                [multiple]="false"
+                formName="payment_terms"
+            ></app-find-platform-list>
+        </div>
+
+        <div class="form-text col-md-12 p-0">
+            {{ 'invoice.settings.other.payment_terms.description' | translate }}
+        </div>
+    </div>
+
+    <ui-br></ui-br>
+
+    <div class="form-group">
+        <app-input [label]="'billing2.affiliate.preferences.beneficiary_name' | translate" formControlName="beneficiary_name"></app-input>
+    </div>
+
+    <div class="form-group">
+        <app-input
+            [label]="'billing2.affiliate.preferences.beneficiary_address' | translate"
+            formControlName="beneficiary_address"
+        ></app-input>
+    </div>
+
+    <div class="form-group mb-0">
+        <app-input [label]="'billing2.affiliate.preferences.billing_email' | translate" formControlName="billing_email"></app-input>
+    </div>
+
+    <ui-br></ui-br>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'billing2.affiliate.preferences.tax_id' | translate" formControlName="tax_id"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-select
+                [items]="vatCommissions"
+                [label]="'interface.basic.vat' | translate"
+                formControlName="vat"
+                [searchable]="false"
+                [clearable]="false"
+                [multiple]="false"
+                [hideSelected]="false"
+                [addTemplate]="true"
+            >
+                <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                    <span class="ng-value-label">{{ item }} %</span>
+                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                </ng-template>
+
+                <ng-template #optionTmp ng-option-tmp let-item="item">{{ item }} %</ng-template>
+            </app-select>
+        </div>
+    </div>
+</form>

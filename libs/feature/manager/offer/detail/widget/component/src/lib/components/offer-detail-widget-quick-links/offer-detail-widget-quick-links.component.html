@@ -1,0 +1,28 @@
+<app-quick-links>
+    <app-quick-link
+        [icon]="quickLinksIconEnum.Visibility"
+        [label]="'table.column.preview' | translate"
+        [link]="preview()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessReports"
+        [icon]="quickLinksIconEnum.Reports"
+        [label]="'main_navigation.reports' | translate"
+        [link]="linkToReports()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessClicks"
+        [icon]="quickLinksIconEnum.Clicks"
+        [label]="'quick_links.buttons.clicks' | translate"
+        [link]="linkToClicks()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessConversions"
+        [icon]="quickLinksIconEnum.Conversions"
+        [label]="'quick_links.buttons.conversions' | translate"
+        [link]="linkToConversions()"
+    ></app-quick-link>
+</app-quick-links>

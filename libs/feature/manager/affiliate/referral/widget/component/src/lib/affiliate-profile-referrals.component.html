@@ -1,0 +1,68 @@
+<app-card-widget [autoSetBottomPaddingWhenFooterEmpty]="true">
+    <app-card-widget-header className="align-items-center">
+        <div class="title is-4">{{ 'referrals_page.referrals_title' | translate }}</div>
+
+        <ui-button-link
+            class="ml-auto"
+            [label]="'interface.basic.manage' | translate"
+            type="floating"
+            routerLink="referrals"
+        ></ui-button-link>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-0" *ngIf="(totalCount$ | async) > 0">
+        <ui-simple-table
+            tableStyle="clear"
+            [skeletonColCount]="4"
+            [skeletonRowCount]="5"
+            colHeight="3rem"
+        >
+            <ng-container header>
+                <div
+                    *ngFor="let col of columns"
+                    uiSimpleTableCol
+                    [ngStyle]="{ width: col.width }"
+                >
+                    {{ col.translateSchema | translate }}
+                </div>
+            </ng-container>
+
+            <div uiSimpleTableRow *ngFor="let item of referrals$ | async">
+                <div uiSimpleTableCol>
+                    <a
+                        [routerLink]="'/affiliates/' + (item.referred_affiliate | pregMatch: 'number') | navigateRoot"
+                    >
+                        {{ item.referred_affiliate | format: 'idName' }}
+                    </a>
+                </div>
+
+                <div uiSimpleTableCol>
+                    {{ item.created | format: 'date' }}
+                </div>
+
+                <div uiSimpleTableCol>
+                    <ng-container *ngIf="referralCommissionIsFlat; else referralIsPercentageTpl">
+                        {{item.rate | format: 'money' : {currency: item.referral_commission_currency, digitsAfterPoint: 2} }}
+                    </ng-container>
+
+                    <ng-template #referralIsPercentageTpl>
+                        {{ item.rate }}%
+                    </ng-template>
+                </div>
+
+                <div uiSimpleTableCol>
+                    {{ item.referral_commission | format: 'money':{ digitsAfterPoint: 2 } }}
+                </div>
+            </div>
+        </ui-simple-table>
+    </app-card-widget-content>
+    <app-card-widget-footer *ngIf="(totalCount$ | async) > 10">
+        <ui-button-link
+            class="ml-auto btn__view-all"
+            routerLink="referrals"
+            iconPosition="right"
+            icon="ic_arrow_right_blue"
+            type="link"
+            [label]="'interface.basic.view_all_count' | translate: { count: totalCount$ | async }"
+        ></ui-button-link>
+    </app-card-widget-footer>
+</app-card-widget>

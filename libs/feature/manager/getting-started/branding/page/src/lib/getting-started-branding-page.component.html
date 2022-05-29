@@ -1,0 +1,19 @@
+<scaleo-manager-settings-card [title]="'administration_settings.headers.branding' | translate">
+    <ng-container actions>
+        <div class="d-flex align-items-center">
+            <ui-button-link
+                class="m-r-4"
+                [label]="'getting_started.skip' | translate"
+                (click)="skip()"
+                type="simple"
+            ></ui-button-link>
+            <ui-button-link
+                [label]="'administration_settings.basic.save' | translate"
+                (click)="save()"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+
+    <scaleo-manager-branding-form (afterSaved)="afterSaved()"></scaleo-manager-branding-form>
+
+</scaleo-manager-settings-card>

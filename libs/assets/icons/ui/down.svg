@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icons/ui/arrow dropdown/down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/ui/arrow-dropdown/down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mini_arrow_shack" transform="translate(11.500000, 12.500000) rotate(90.000000) translate(-11.500000, -12.500000) translate(8.500000, 7.500000)"></g>
+        <path d="M9.9997317,17 C9.73375446,17 9.47897971,16.8945457 9.29285071,16.7074627 C8.9023831,16.3152213 8.9023831,15.6874704 9.29285071,15.295229 L12.5854819,11.9996809 L9.29285071,8.70514149 C8.9023831,8.31290014 8.9023831,7.68514918 9.29285071,7.29290783 C9.4788499,7.10559129 9.73367572,7 9.9997317,7 C10.2657877,7 10.5206135,7.10559129 10.7066127,7.29290783 L14.7071493,11.2955815 C15.0976169,11.6878229 15.0976169,12.3155738 14.7071493,12.7078152 L10.7066127,16.7104889 C10.5199067,16.8963645 10.2652389,17.0006654 9.9997317,17 Z" id="mini_arrow_shack" fill="#718290" transform="translate(12.000000, 12.000000) rotate(90.000000) translate(-12.000000, -12.000000) "></path>
+        <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+    </g>
+</svg>

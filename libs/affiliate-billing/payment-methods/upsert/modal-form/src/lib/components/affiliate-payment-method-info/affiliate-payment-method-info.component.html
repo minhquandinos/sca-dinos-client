@@ -1,0 +1,35 @@
+<div class="payment-method-radio__container" [ngClass]="{'payment-method-radio__selected' : method.id === (formIdValue$ | async)}">
+    <div class="payment-method-radio__info" (click)="setPaymentMethodId(method.id)">
+        <app-radio
+            [formControlName]="'payment_method_id'"
+            [inputValue]="method.id"
+        ></app-radio>
+        <div class="d-flex align-items-center w-100">
+            <div class="d-flex flex-column">
+                <span class="payment-method-radio__title">{{method.title}}</span>
+                <span class="payment-method-radio__threshold">
+                    {{'finances_page.details.minimal_threshold' | translate}}:
+                    {{method.payment_threshold | format:'money':{digitsAfterPoint: 0, currency: method.payment_threshold_currency} }}
+                </span>
+                <span class="payment-method-radio__commissions">
+                    {{'billing2.settings.payments_methods.commission' | translate}}:
+                    {{method.payment_commission | format:'percent' }}
+                </span>
+            </div>
+            <div class="payment-method-radio__logo">
+                <ui-image
+                    type="rounded"
+                    [image]="method.payment_method_logo | defaultImage: 'payment' "
+                    width="64"
+                    height="64"
+                ></ui-image>
+            </div>
+        </div>
+    </div>
+    <div class="payment-method-radio__description" *ngIf="method.id === (formIdValue$ | async)">
+        <app-textarea
+            formControlName="payment_method_info"
+            [placeholder]="'finances_page.details.payment_method_details' | translate"
+        ></app-textarea>
+    </div>
+</div>

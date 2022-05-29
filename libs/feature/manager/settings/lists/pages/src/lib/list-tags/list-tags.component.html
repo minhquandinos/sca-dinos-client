@@ -1,0 +1,27 @@
+<div class="d-flex pt-2 p-b-15">
+    <ui-button-link
+        class="ml-auto"
+        [label]="'administration_settings.lists.tags.add' | translate"
+        (click)="openModal()"
+        type="floating"
+        icon="plus-small"
+    ></ui-button-link>
+</div>
+<div class="mx-n3-5">
+    <ng-container class="p-0 m-0" *ngIf="tags$ | async as tagsList; else skeleton">
+        <scaleo-mng-add-lists
+            [lists]="tagsList"
+            (toggle)="openModal($event)"
+            (toggleChangeSort)="changeSort($event)"
+        ></scaleo-mng-add-lists>
+    </ng-container>
+
+    <ng-template #skeleton>
+        <ui-skeleton>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+        </ui-skeleton>
+    </ng-template>
+</div>

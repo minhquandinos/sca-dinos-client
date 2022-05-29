@@ -1,0 +1,27 @@
+<div class="form-row">
+    <div class="form-group col-md-12 mb-0">
+        <app-select
+            classNames="col-md-6 pl-0 pr-0"
+            [items]="signUpProcessWays | customTranslate:'administration_settings.affiliates.signup.sign_up_process' | async"
+            [label]="'administration_settings.affiliates.signup.sign_up_process.title' | translate"
+            itemLabel="title"
+            itemValue="id"
+            [formControlName]="'signup_process'"
+            [hideSelected]="true"
+        ></app-select>
+        <div class="form-text">
+            <span>{{ 'administration_settings.affiliates.signup.sign_up_process.description.title' | translate }}</span>
+            <ul class="ul-description">
+                <li>
+                    {{ 'administration_settings.affiliates.signup.sign_up_process.description.without_approval' | translate }}
+                </li>
+                <li>
+                    {{ 'administration_settings.affiliates.signup.sign_up_process.description.email_verification_required' | translate }}
+                </li>
+                <li>
+                    {{ 'administration_settings.affiliates.signup.sign_up_process.description.approval_required' | translate }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

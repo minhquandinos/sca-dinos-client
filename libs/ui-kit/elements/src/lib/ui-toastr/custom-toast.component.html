@@ -1,0 +1,21 @@
+
+
+<!--        <div-->
+<!--            *ngIf="message && options.enableHtml"-->
+<!--            aria-live="polite"-->
+<!--            role="alertdialog"-->
+<!--            class="toast-message ng-star-inserted"-->
+<!--            [attr.aria-label]="message"-->
+<!--            [innerHTML]="message"></div>-->
+
+        <div
+            *ngIf="message && !options.enableHtml"
+            aria-live="polite"
+            role="alertdialog"
+            class="toast-message ng-star-inserted"
+            [attr.aria-label]="message"
+            [innerHTML]="message"
+        >
+            {{ message }}
+        </div>
+

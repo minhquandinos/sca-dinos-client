@@ -1,0 +1,150 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+    [results]="totals"
+    [className]="'align-items-baseline p-t-12'"
+>
+    <form [formGroup]="filterForm" class="d-flex align-self-md-start">
+        <app-filter>
+            <app-find-platform-statuses
+                [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+                (toggle)="setFilterStatus($event)"
+                statusList="offers_statuses"
+                formName="status"
+                itemValue="status"
+            ></app-find-platform-statuses>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'offers_page.affiliate.form.visibility' | translate"
+                [count]="(filterParams$ | async)?.visible_type?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findAffiliateVisibilityRef
+                    platformList="affiliate_visibility"
+                    formName="visible_type"
+                    itemValue="key"
+                    [multiple]="true"
+                    [hideSelected]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter *ngxPermissionsOnly="permissions.canAccessAdvertisers">
+            <app-dropdown-popup
+                [label]="'interface.basic.filters.advertisers' | translate"
+                [count]="(filterParams$ | async)?.advertisers?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-advertisers
+                    #findAdvertiserRef
+                    formName="advertisers"
+                    [multiple]="true"
+                ></app-find-advertisers>
+            </app-dropdown-popup>
+        </app-filter>
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'interface.form.country' | translate"
+                [count]="(filterParams$ | async)?.countries?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-country
+                    #findCountryRef
+                    formName="countries"
+                    [hideSelected]="true"
+                    [multiple]="true"
+                ></app-find-country>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'interface.form.tag' | translate"
+                [count]="(filterParams$ | async)?.tags?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findTagsRef
+                    platformList="affiliates_tags"
+                    formName="tags"
+                    class="w-100"
+                    [searchable]="true"
+                    [multiple]="true"
+                    [itemLabel]="'title'"
+                    [disableTranslate]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'shared.dictionary.goal_type' | translate"
+                [count]="(filterParams$ | async)?.goalsTypes?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findGoalsTypesRef
+                    platformList="goals_types"
+                    formName="goalsTypes"
+                    class="w-100"
+                    [searchable]="true"
+                    [multiple]="true"
+                    [itemLabel]="'title'"
+                    [disableTranslate]="true"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+
+    <div class="d-flex align-items-center ml-md-auto my-auto">
+        <ng-content></ng-content>
+    </div>
+
+    <section filter-selected="" *ngIf="selectedAnyFilters">
+        <app-output-selected-filters
+            [findComponent]="findAffiliateVisibilityRef"
+            itemValue="key"
+            [title]="'offers_page.affiliate.form.visibility' | translate"
+            [selected]="(filterParams$ | async)?.visible_type"
+            (clear)="clearFilter(offersListFiltersEnum.Visibility)"
+            (remove)="removeFilter(offersListFiltersEnum.Visibility, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findAdvertiserRef"
+            [title]="'interface.basic.filters.advertisers' | translate"
+            [itemTitle]="'title'"
+            [selected]="(filterParams$ | async)?.advertisers"
+            (clear)="clearFilter(offersListFiltersEnum.Advertisers)"
+            (remove)="removeFilter(offersListFiltersEnum.Advertisers, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findCountryRef"
+            [title]="'interface.basic.filters.country' | translate"
+            [showImage]="true"
+            [selected]="(filterParams$ | async)?.countries"
+            (clear)="clearFilter(offersListFiltersEnum.Countries)"
+            (remove)="removeFilter(offersListFiltersEnum.Countries, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findTagsRef"
+            [title]="'interface.form.tag' | translate"
+            [selected]="(filterParams$ | async)?.tags"
+            (clear)="clearFilter(offersListFiltersEnum.Tags)"
+            (remove)="removeFilter(offersListFiltersEnum.Tags, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findGoalsTypesRef"
+            [title]="'interface.basic.filters.goals_types' | translate"
+            [selected]="(filterParams$ | async)?.goalsTypes"
+            (clear)="clearFilter(offersListFiltersEnum.GoalsTypes)"
+            (remove)="removeFilter(offersListFiltersEnum.GoalsTypes, $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>

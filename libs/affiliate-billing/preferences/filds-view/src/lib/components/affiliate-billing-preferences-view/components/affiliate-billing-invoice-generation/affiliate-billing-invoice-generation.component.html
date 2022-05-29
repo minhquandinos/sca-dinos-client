@@ -1,0 +1,8 @@
+<ng-container *ngIf="byAffiliateRequest$ | async">
+    {{ 'billing2.affiliate.preferences.by_request' | translate }}
+</ng-container>
+<ng-container *ngIf="bySchedule$ | async">
+    <span [ngClass]="{ 'color__green': automatically }">
+        {{ automatically | affiliateBillingInvoiceGenerationName | async }}
+    </span>
+</ng-container>

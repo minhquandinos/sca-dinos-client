@@ -1,0 +1,15 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    class="custom-dashboard-widget-top-affiliate"
+    className="overflow-auto"
+>
+    <scaleo-manager-top-affiliates
+        #topAffiliateComponent
+        [date$]="dateRange$"
+    ></scaleo-manager-top-affiliates>
+
+    <ng-container containerFooter>
+        <ng-template [ngTemplateOutlet]="topAffiliateComponent.footerTpl"></ng-template>
+    </ng-container>
+</app-container-widget>

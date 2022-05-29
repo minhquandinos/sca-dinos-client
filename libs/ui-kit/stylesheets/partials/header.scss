@@ -1,0 +1,127 @@
+.page-header {
+
+    width: calc(100% - 210px);
+    height: 60px;
+    border-bottom: 0.5px solid $color__light-gray9;
+    background-color: $color__full-white;
+    z-index: 1000;
+
+    &-logo{
+        cursor: pointer;
+        height: 100%;
+    }
+
+    &-info {
+        router-outlet {
+            display: none;
+        }
+    }
+
+    &-notification{
+
+    }
+    //
+    //&-help{
+    //    margin-left: 8px;
+    //}
+}
+
+.page-header-title {
+    min-width: 150px;
+}
+
+// TODO fixed this style, refactor animation for dropdown
+.language-select {
+    border-radius: 0.25rem;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+
+    &__open, &:hover {
+        background-color: $color__light-gray3;
+    }
+
+    // TODO fixed this style, refactor animation for dropdown
+    .dropdown {
+        &-menu {
+            border: 0.5px solid $color__light-gray9;
+            box-shadow: 1px 3px 14px rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    .language-switcher {
+        .dropdown-item-language {
+            justify-content: flex-start;
+            padding: 0 0.75rem 0 1rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+.language-switcher {
+    .dropdown-item-language {
+        justify-content: flex-start;
+        align-items: center;
+
+        &__flag {
+            width: 1.25rem;
+            height: 1rem;
+            border-radius: 4px;
+        }
+
+        &__title {
+            font-size: $font__14;
+        }
+    }
+}
+
+@media  (max-width: 1079px) {
+    .page-header {
+        width: 100%;
+
+        &--desktop {
+            display: none;
+        }
+
+        &--mobile {
+            padding: 0 16px;
+            display: flex;
+            flex-direction: row!important;
+            position: fixed!important;
+        }
+    }
+
+    .page-header-title {
+        padding-left: 24px;
+    }
+}
+
+@media  (min-width: 1080px) {
+
+    .page-header {
+        &--desktop {
+            display: flex;
+            flex-direction: row!important;
+            position: fixed!important;
+            z-index: 3000;
+            justify-content: space-between;
+            padding: 0 24px;
+            border-bottom: 0.5px solid $color__light-gray9;
+        }
+
+        &--mobile {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .page-header {
+        min-height: 60px;
+        height: auto;
+
+        &-logo {
+            height: auto;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<ui-button-link [label]="'interface.basic.preview' | translate" type="link-static" (toggle)="showInfo()"></ui-button-link>
+
+<ng-template #bannerTpl>
+    <img alt="" class="w-100 h-100" [src]="creative.image" />
+</ng-template>
+
+<ng-template #xmlTpl>
+    <app-field-text-info action="copy">
+        <div class="text-break-all">{{ creative.xml_feed_url }}</div>
+    </app-field-text-info>
+</ng-template>
+
+<ng-template #defaultTpl>
+    <app-custom-iframe [htmlCode]="creative.html_code"></app-custom-iframe>
+</ng-template>

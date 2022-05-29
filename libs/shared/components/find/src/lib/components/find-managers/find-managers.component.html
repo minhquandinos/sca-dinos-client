@@ -1,0 +1,54 @@
+<app-select
+    [items]="items$ | async"
+    [label]="label"
+    [loading]="loading"
+    [labelShowId]="false"
+    [searchable]="searchable"
+    (search)="findElement($event)"
+    [itemLabel]="itemLabel"
+    [itemValue]="itemValue"
+    [multiple]="multiple"
+    [placeholder]="placeholder$ | async"
+    [formControlName]="formName"
+    (change)="selected($event)"
+    (changeFull)="selectedFull($event)"
+    (initialSelected)="initialSelectedHandler($event)"
+    [clearable]="clearable"
+    [hideSelected]="hideSelected"
+    id="managers"
+    [addTemplate]="true"
+    [appendTo]="appendTo"
+    [searchFn]="customSearchFn"
+    (scrolledToEnd)="scrolledToEnd()"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+        <ui-chip size="large" rounded="true" [close]="true" (closed)="clear(item)">
+            <ui-image type="circle" height="20" [image]="item?.image"></ui-image>
+            <span class="d-flex align-items-center">
+                <ng-container *ngIf="itemTemplate; else defaultLabelTpl">
+                    <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+                </ng-container>
+                <ng-template #defaultLabelTpl>
+                     <ng-template [ngTemplateOutlet]="defaultTpl" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+                </ng-template>
+           </span>
+        </ui-chip>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <ui-image type="circle" width="20" height="20" [image]="item?.image"></ui-image>
+        <span class="ml-2">
+            <ng-container *ngIf="itemTemplate; else defaultOptionTpl">
+                <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+            </ng-container>
+            <ng-template #defaultOptionTpl>
+                <ng-template [ngTemplateOutlet]="defaultTpl" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+            </ng-template>
+        </span>
+    </ng-template>
+
+</app-select>
+
+<ng-template #defaultTpl let-item>
+    {{ item?.title }}
+</ng-template>

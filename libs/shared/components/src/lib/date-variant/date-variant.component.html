@@ -1,0 +1,12 @@
+<span
+    class="line-height is-17"
+    [tooltip]="tooltipDate"
+    [display]="!!tooltipDate"
+>
+    <ng-container *ngIf="showTime; else withOutTime">
+        {{ renderDate + ', ' + renderTime}}
+    </ng-container>
+    <ng-template #withOutTime>
+        {{ renderDate }}
+    </ng-template>
+</span>

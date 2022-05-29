@@ -1,0 +1,22 @@
+<scaleo-manager-settings-card [title]="'main_navigation.billing' | translate">
+    <ng-container actions>
+        <ui-button-link
+            *ngIf="showSaveButton$ | async"
+            [label]="'administration_settings.basic.save' | translate"
+            (toggle)="save()"
+        ></ui-button-link>
+    </ng-container>
+
+    <div class="tabs">
+        <div class="tabs__header">
+            <a class="tabs__item pt-0" routerLink="affiliate" (click)="changeShowSaveButton(true)"
+               routerLinkActive="active">{{ 'main_navigation.affiliate_billing' | translate }}</a>
+            <a class="tabs__item pt-0" routerLink="payment-methods" (click)="changeShowSaveButton(false)"
+               routerLinkActive="active">{{ 'billing2.settings.payments_methods.title' | translate }}</a>
+        </div>
+    </div>
+    <div class="mx-n3-5">
+        <router-outlet></router-outlet>
+    </div>
+
+</scaleo-manager-settings-card>

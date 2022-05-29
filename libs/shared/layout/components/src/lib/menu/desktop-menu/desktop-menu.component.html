@@ -1,0 +1,32 @@
+<div class="menu-group"
+     [ngClass]="{'menu-group--last': last, 'mt-0': !group.title}"
+     *ngFor="let group of menus$ | async; let i = index; let last = last"
+>
+    <ng-container *ngIf="group.title !== 'tools'">
+        <div class="menu-pipe" *ngIf="group.items[0]['title'] === 'administration' && !(collapseMenu$ | async)"></div>
+
+        <div
+            class="menu-pipe"
+            *ngIf="!(group.items[0]['title'] === 'dashboard' || group.items[0]['title'] === 'getting-started') && collapseMenu$ | async"
+        ></div>
+
+        <div class="menu-group__title" *ngIf="group.title !== ''">{{ 'main_navigation.' + group.title | translate }}</div>
+
+        <div class="menu-items" *ngIf="group.items.length > 0">
+            <a [routerLink]="[ '/' + item.route ]" routerLinkActive="active" class="menu-item align-items-center"
+               *ngFor="let item of group.items; let j = index;"
+               id="{{item.title}}"
+            >
+                <ui-svg-icon
+                    *ngIf="item.title !== 'getting-started'"
+                    [ngClass]="{'mr-auto ml-auto': (collapseMenu$ | async)}"
+                    [icon]="item.class"
+                    [tooltip]="'main_navigation.' +item?.title | translate"
+                    [placement]="(collapseMenu$ | async) ? 'right' : 'bottom'"
+                ></ui-svg-icon>
+
+                <div *ngIf="item.title !== 'getting-started'" class="menu-item__title">{{ 'main_navigation.' + item.title | translate }}</div>
+            </a>
+        </div>
+    </ng-container>
+</div>

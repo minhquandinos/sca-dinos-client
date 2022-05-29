@@ -1,0 +1,121 @@
+.custom-dashboard-widget-shortcuts {
+
+    &__container {
+        padding: 0 16px;
+    }
+
+    &__label {
+        @include font-family-medium;
+        margin-top: 24px;
+        margin-bottom: 10px;
+        font-size: $font__14;
+        line-height: 16px;
+        color: $color__gray2;
+    }
+
+    &__search {
+        width: 100%;
+        padding: 2px;
+        background-color: $color__light-gray3;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        .btn-group > *:not(:last-child) .btn, .btn-group > *:not(:last-child) .btn,
+        .btn-group > *:not(:first-child) .btn, .btn-group > *:not(:first-child) .btn {
+            border-radius: 4px;
+        }
+
+        .btn-floating-light {
+            min-width: 90px;
+            border: none;
+            background-color: transparent !important;
+            color: $color__gray2;
+
+            &.active {
+                background-color: white !important;
+                box-shadow: 0 0 7px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.03);
+                color: $color__black;
+            }
+        }
+
+        .custom-search {
+            width: 100%;
+            margin-left: 8px;
+            height: 24px;
+            border-left: 1px solid $color__light-blue;
+
+            input {
+                background: $color__light-gray3;
+                border: none;
+                height: 24px;
+                padding-bottom: 0;
+                padding-top: 0;
+
+                &:active, &:focus {
+                    box-shadow: none;
+                }
+
+                &::placeholder {
+                    color: $color__light-blue;
+                }
+            }
+
+            .remove {
+                padding-top: 0;
+            }
+
+        }
+    }
+
+    &__reports, &__actions {
+        display: flex;
+        flex-wrap: wrap;
+
+        ui-button-link {
+            margin-right: 8px;
+            margin-bottom: 6px;
+
+            .btn-icon-right {
+                .custom-icon {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+
+    .btn-floating {
+        border-radius: 4px;
+    }
+
+    .btn-floating-light {
+        transition-duration: 0s;
+    }
+}
+
+
+@media screen and (max-width: 1140px) {
+    .custom-dashboard-widget-shortcuts  {
+
+        &__container {
+            min-width: fit-content;
+        }
+
+        .ui-page-wrapper-content {
+            overflow: auto;
+
+            .custom-search {
+                min-width: 8rem;
+            }
+        }
+
+        &__search {
+            min-width: fit-content;
+        }
+
+        .ui-page-wrapper-footer {
+            display: none;
+        }
+    }
+}

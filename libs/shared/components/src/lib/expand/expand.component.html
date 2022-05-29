@@ -1,0 +1,22 @@
+<ng-container [ngTemplateOutlet]="inlineTpl"></ng-container>
+
+<!--<ng-template #htmlTpl>-->
+<!--    <div class="expand-text&#45;&#45;html" [ngStyle]="{'max-height': limitTextHeight}" [ngClass]="{'expand-text&#45;&#45;open': opened$ | async}">-->
+<!--        <ng-template [ngTemplateOutlet]="contentTpl"></ng-template>-->
+<!--    </div>-->
+<!--</ng-template>-->
+
+<ng-template #inlineTpl>
+    <ng-template [ngTemplateOutlet]="contentTpl"></ng-template>
+</ng-template>
+
+<ng-template #contentTpl>
+    <ng-content></ng-content>
+</ng-template>
+
+<span
+    *ngIf="showExpandLabel$ | async"
+    [ngClass]="{ 'mt-1 d-inline-block': isHtml$ | async }"
+    class="expand" (click)="showFullText()">
+    {{ label$ | async}}
+</span>

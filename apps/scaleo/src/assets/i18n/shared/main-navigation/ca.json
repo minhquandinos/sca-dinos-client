@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Informes",
+        "dashboard": "Pantalla principal",
+        "offers": "Ofertes",
+        "manage": "Organitzar",
+        "activity-log": "Registre d’activitat"
+    }
+}

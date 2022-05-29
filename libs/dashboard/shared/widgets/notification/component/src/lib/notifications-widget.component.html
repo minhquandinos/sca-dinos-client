@@ -1,0 +1,25 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    [className]="'overflow-auto'"
+    class="custom-dashboard-widget-notification"
+>
+    <div class="custom-dashboard-widget-notification__container" #containerTable>
+        <scaleo-activity-log-widget-items
+            [items]="(items$ | async)?.results"
+            [loading]="isLoad"
+        ></scaleo-activity-log-widget-items>
+    </div>
+
+    <ng-container containerFooter>
+        <ui-button-link
+            class="ml-auto"
+            iconPosition="right"
+            icon="arrow-right-3"
+            type="simple"
+            color="main"
+            [routerLink]="'/activity-log' | navigateRoot"
+            [label]="'interface.basic.view_all' | translate"
+        ></ui-button-link>
+    </ng-container>
+</app-container-widget>

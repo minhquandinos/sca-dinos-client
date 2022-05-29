@@ -1,0 +1,11 @@
+{
+    "offers_requests_page": {
+        "title": "Sol·licituds d'oferta"
+    },
+    "statuses": {
+        "paid": "Pagat",
+        "not_paid": "No pagat",
+        "in_progress": "En curs",
+        "require_approval": "A l'espera de ser aprovat"
+    }
+}

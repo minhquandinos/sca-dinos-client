@@ -1,0 +1,38 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    className="overflow-auto h-100"
+>
+    <ui-tabs (changeTab)="changeTab($event)" headerClassName="p-x-16" [headerSticky]="true">
+        <ui-tab-item *ngFor="let item of categories$ | async; trackBy: trackByFn">
+            <ui-tab-label>
+                <div class="d-flex align-items-center">
+                    {{ item.category_title | offerPromoteAllCategoriesTranslate: item.category_id | async }}
+                    <span class="ml-2 color__gray3 font-size">{{ item.count }}</span>
+                </div>
+            </ui-tab-label>
+            <ng-template uiTabBodyTpl>
+                <ng-template [ngTemplateOutlet]="offerPromoteListTpl"></ng-template>
+            </ng-template>
+        </ui-tab-item>
+    </ui-tabs>
+
+    <ng-container containerFooter>
+        <div class="w-100 d-flex align-items-center">
+            <div class="ml-auto">
+                <ui-button-link
+                    iconPosition="right"
+                    icon="arrow-right-3"
+                    type="simple"
+                    color="main"
+                    routerLink="/affiliate/offers"
+                    [label]="'interface.basic.view_all' | translate"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ng-container>
+</app-container-widget>
+
+<ng-template #offerPromoteListTpl>
+    <app-offer-promote-list></app-offer-promote-list>
+</ng-template>

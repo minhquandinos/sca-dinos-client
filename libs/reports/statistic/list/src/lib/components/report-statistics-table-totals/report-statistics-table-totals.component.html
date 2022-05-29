@@ -1,0 +1,21 @@
+<ui-table2-row className="new-table-statistics__totals">
+    <ui-table2-col
+        *ngFor="let col of columns; let first = first;"
+        appReportStatisticsTableColClassName
+        [dataAttributes]="col?.dataAttributes"
+    >
+
+        <ng-container *ngIf="first; else defaultTpl">{{ 'interface.basic.total' | translate }}</ng-container>
+        <ng-template #defaultTpl>
+            <app-report-col-fields
+                *ngIf="col?.value && item | renderReportColField:col?.value"
+                [reportType]="reportType"
+                [_key]="col?.value"
+                [_item]="item"
+                [_isBreakdown]="col?.isBreakdown"
+                [_isTotals]="true"
+                [currency]="currency"
+            ></app-report-col-fields>
+        </ng-template>
+    </ui-table2-col>
+</ui-table2-row>

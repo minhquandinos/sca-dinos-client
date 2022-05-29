@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Payout",
+            "approved_revenue": "Payout",
+            "pending_revenue": "Payout",
+            "rejected_revenue": "Payout",
+            "total_revenue": "Payout",
+            "revenue": "Payout"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Cost per Click",
+                "rpa": "Cost per Approved Conversion",
+                "rpm": "Cost per 1000 impressions"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Payout"
+                }
+            }
+        }
+    }
+}

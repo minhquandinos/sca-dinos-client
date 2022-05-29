@@ -1,0 +1,32 @@
+{
+    "main_navigation": {
+        "getting-started": "Начало работы",
+        "affiliates": "Партнеры",
+        "advertisers": "Рекламодатели",
+        "statistics": "Отчеты",
+        "reports": "Отчеты",
+        "payments": "Платежи",
+        "outbound": "Исходящие",
+        "team": "Команда",
+        "analyse": "Анализ",
+        "pay": "Биллинг",
+        "administer": "Администрирование",
+        "configure": "Конфигурация",
+        "administrate": "Администрирование",
+        "administration": "Администрирование",
+        "settings": "Настройки",
+        "affiliate_billing": "Биллинг партнера",
+        "transactions": "Транзакции",
+        "dashboard": "Главная",
+        "offers": "Офферы",
+        "manage": "Управление",
+        "activity_log": "Лог активности",
+        "leads": "Лиды",
+        "logs": "Логи",
+        "receive-leads": "Получение",
+        "deliver-leads": "Отправка",
+        "billing": "Биллинг",
+        "referrals": "Рефералы",
+        "tools": "Инструменты"
+    }
+}

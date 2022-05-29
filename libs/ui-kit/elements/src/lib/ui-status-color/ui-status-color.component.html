@@ -1,0 +1,5 @@
+<div class="d-flex align-items-center justify-content-center" [ngClass]="className">
+    <div class="status-{{ statusLabel }}" [display]="!showLabel" [tooltip]="'statuses.' + statusLabel | translate"></div>
+
+    <span *ngIf="showLabel" class="ml-2">{{'statuses.' + statusLabel | translate}}</span>
+</div>

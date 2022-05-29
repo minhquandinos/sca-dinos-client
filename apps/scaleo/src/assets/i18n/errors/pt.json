@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Página não encontrada ou acesso proibido",
+            "text": "O link que você clicou pode estar quebrado ou a página pode ter sido removida."
+        },
+        "page_not_found": {
+            "title": "Página não encontrada ou acesso proibido",
+            "text": "O link que você clicou pode estar quebrado ou a página pode ter sido removida."
+        },
+        "connection_lost": {
+            "title": "Conexão perdida",
+            "text": "Aguarde alguns minutos antes de tentar novamente.",
+            "try_again": "Tente novamente"
+        }
+    }
+}

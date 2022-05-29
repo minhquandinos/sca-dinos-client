@@ -1,0 +1,179 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    [className]="'h-100 overflow-auto'"
+    class="custom-dashboard-widget-pending-records"
+>
+
+    <ui-tabs
+        (changeTab)="changeTab($event)"
+        headerClassName="p-x-16"
+        [headerSticky]="true"
+    >
+        <ui-tab-item
+            *ngFor="let widget of innerWidgets$ | async"
+            [name]="widget?.name"
+        >
+            <ui-tab-label>
+                <ng-template
+                    [ngTemplateOutlet]="tabLabelTpl"
+                    [ngTemplateOutletContext]="{ label: widget.labelName, count: widget.count$ | async }"
+                ></ng-template>
+            </ui-tab-label>
+            <ng-template uiTabBodyTpl>
+                <ng-template [ngTemplateOutlet]="widget?.bodyTemplate"></ng-template>
+            </ng-template>
+        </ui-tab-item>
+
+    </ui-tabs>
+
+    <ng-container containerFooter *ngIf="showFooter">
+        <div class="w-100 d-flex align-items-center">
+            <div class="ml-auto">
+                <ui-button-link
+                    iconPosition="right"
+                    icon="arrow-right-3"
+                    type="simple"
+                    color="main"
+                    (click)="navigate()"
+                    [label]="'interface.basic.view_all' | translate"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ng-container>
+</app-container-widget>
+
+
+<ng-template #pendingAffiliateBodyTpl>
+    <scaleo-manager-dashboard-pending-affiliate-list></scaleo-manager-dashboard-pending-affiliate-list>
+</ng-template>
+
+<ng-template #pendingAdvertiserBodyTpl>
+    <scaleo-manager-dashboard-pending-advertiser-list></scaleo-manager-dashboard-pending-advertiser-list>
+</ng-template>
+
+<ng-template #pendingOfferBodyTpl>
+    <scaleo-dashboard-pending-offer
+        [controlTemplate]="controlOfferRequestTemplate"
+        [infoColTemplate]="infoOfferRequestTemplate"
+        [previewColTemplate]="previewOfferRequestTemplate"
+    >
+    </scaleo-dashboard-pending-offer>
+</ng-template>
+
+<!--<ng-template #pendingPostbackBodyTpl>-->
+<!--    <scaleo-dashboard-affiliate-pending-postbacks-->
+<!--        [controlTemplate]="controlPendingPostbackTemplate"-->
+<!--        [infoColTemplate]="infoPendingPostbackTemplate"-->
+<!--    >-->
+<!--    </scaleo-dashboard-affiliate-pending-postbacks>-->
+<!--</ng-template>-->
+
+<ng-template #tabLabelTpl let-label="label" let-count="count">
+    <div class="d-flex align-items-center">
+        <span class="m-r-8">{{ label | translate }}</span>
+        <ui-badges
+            *ngIf="count; else emptyCount"
+            className="font-family-normal"
+            [content]="count"
+            color="#f65a63"
+        ></ui-badges>
+        <ng-template #emptyCount><span class="color__gray3">0</span></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #infoPendingPostbackTemplate let-item>
+    {{ 'table.column.affiliate' | translate }}&nbsp;
+    <app-hyperlink
+        linkClassName="name-title"
+        valueClassName="text-pre-wrap d-inline-block line-height-16"
+        [link]="{
+            link: 'affiliates/' + item?.affiliate_id | navigateRoot,
+            title: item?.affiliate_name | format: 'idName': item?.affiliate_id
+        }"
+        [permission]="permissions.canAccessAffiliates"
+    ></app-hyperlink>
+    {{ item?.level === 'offer' ? '&nbsp;' : ',&nbsp;' }}
+    <ng-container *ngIf="item?.level === 'offer'; else adminTemplateLevelGlobal">
+        {{ 'offers_page.basic.for_offer' | translate }}&nbsp;
+        <app-hyperlink
+            linkClassName="name-title"
+            valueClassName="text-pre-wrap d-inline-block line-height-16"
+            [link]="{
+            link: 'offers/' + item?.offer_id | navigateRoot,
+            title: item?.offer_name | format: 'idName': item?.offer_id
+        }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+    </ng-container>
+    <ng-container *ngIf="item?.level === 'offer' && item?.goal_id">
+        {{ 'offers_page.basic.for_goal' | translate }}&nbsp;
+        <app-hyperlink
+            linkClassName="name-title"
+            valueClassName="text-pre-wrap d-inline-block line-height-16"
+            [link]="{
+            link: 'offers/' + item?.offer_id | navigateRoot,
+            title: item?.goal_name | format: 'idName': item?.goal_id
+        }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+    </ng-container>
+    <ng-template #adminTemplateLevelGlobal>
+        {{ 'affiliate.postback.' + item?.level | translate }} ({{ 'affiliate.postback.all_offers' | translate }})
+    </ng-template>
+</ng-template>
+
+<ng-template #controlPendingPostbackTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canAddEditDeletePostbacks"
+        (toggleEdit)="openModal(item.id, item.affiliate_id)"
+    ></ui-table-navigation>
+</ng-template>
+
+
+<ng-template #infoOfferRequestTemplate let-item>
+    <div>
+        {{ 'table.column.offer' | translate }}&nbsp;
+        <app-hyperlink
+            valueClassName="text-pre-wrap"
+            [link]="{
+                link: '/manager/offers/' + item?.offer_id,
+                title: item?.offer_name | format:'idName': item?.offer_id
+            }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+        <span class="px-1">{{ 'offers_requests_page.requested_by' | translate | lowercase }}</span>
+        <app-hyperlink
+            valueClassName="text-pre-wrap"
+            [link]="{
+                link: '/manager/affiliates/' + item?.affiliate_id,
+                title: item?.affiliate_name | format:'idName':item?.affiliate_id
+            }"
+            [permission]="permissions.canAccessAffiliates"
+        ></app-hyperlink>
+        <app-date-variant
+            [changeColor]="false"
+            class="mt-1 text-size-13 d-block color__gray3"
+            [date]="item.created"
+        ></app-date-variant>
+    </div>
+</ng-template>
+
+<ng-template #previewOfferRequestTemplate let-item>
+    <scaleo-manager-offer-request-modal-view-answer
+        *ngIf="item.questions && item.answer"
+        [id]="item.id"
+        [status]="item.status"
+        [questions]="item.questions"
+        [answer]="item.answer"
+        (solved)="changedOfferRequest()"
+    ></scaleo-manager-offer-request-modal-view-answer>
+</ng-template>
+
+<ng-template #controlOfferRequestTemplate let-item>
+    <scaleo-manager-offer-request-control
+        *ngxPermissionsOnly="permissions.canManageOfferRequests"
+        [id]="item.id"
+        (changed)="changedOfferRequest()"
+    ></scaleo-manager-offer-request-control>
+</ng-template>

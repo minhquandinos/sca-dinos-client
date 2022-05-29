@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Registro attività",
+        "details": "Dettagli",
+        "new_values": "Nuovi valori",
+        "old_values": "Vecchi valori",
+        "object": {
+            "affiliate": "Affiliato",
+            "postback": "Postback",
+            "gloabal_postback": "Postback globale",
+            "source": "Fonte",
+            "advertiser": "Inserzionista",
+            "domain": "Dominio",
+            "manager": "Teammate",
+            "offer": "Offerta",
+            "offer_request": "Richiesta offerta",
+            "goal": "Obiettivo",
+            "tracking": "Tracciamento",
+            "targeting": "Individuazione target",
+            "affiliate_access": "Accesso affiliato",
+            "landing_page": "Pagina di destinazione",
+            "creative": "Creativo",
+            "custom_param": "Parametri personalizzati",
+            "you": "Tu",
+            "announcement": "Annuncio"
+        },
+        "owner": {
+            "offer" : "per offerta",
+            "affiliate": "per affiliato",
+            "you": "per te"
+        },
+        "action": {
+            "add": "è stato aggiunto",
+            "edit": "è stato aggiornato",
+            "view": "è stato visto",
+            "delete": "è stato eliminato",
+            "signup": "ha eseguito iscrizione",
+            "login": "ha eseguito accesso",
+            "profile_edit": "ha aggiornato il suo profilo",
+            "logout": "ha eseguito logout",
+            "approved": "è stato approvato",
+            "declined": "è stato declinato",
+            "login_as": "ha eseguto accesso come"
+        },
+        "action_for_offer_request": {
+            "add": "richiesta",
+            "approved": "è stata approvata",
+            "declined": "è stata declinata"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "richiesta",
+            "approved": "è stata approvata",
+            "declined": "è stata declinata"
+        },
+        "action_for_goal": {
+            "add": "è stato aggiunto",
+            "edit": "è stato aggiornato",
+            "delete": "è stato eliminato"
+        },
+        "action_custom_params": {
+            "add": "sono stati aggiunti",
+            "edit": "sono stati aggiornati",
+            "delete": "sono stati eliminati"
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.custom-chart {
+}
+
+.custom-chart-tooltip {
+    > span {
+        background-color: $color__full-white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.07),
+        0 0 2px 0 rgba(0, 0, 0, 0.11),
+        0 1px 6px 0 rgba(0, 0, 0, 0.05),
+        0 2px 8px 0 rgba(0, 0, 0, 0.08),
+        0 3px 10px 0 rgba(0, 0, 0, 0.08);
+        min-width: 184px;
+    }
+
+    &__subtitle {
+        font-size: $font-size-small;
+        text-transform: capitalize;
+    }
+
+    &__items {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 6px;
+        margin-bottom: 0;
+    }
+
+    &__item-name-wrapper {
+        line-height: 1.43;
+    }
+
+    &__item {
+        margin-bottom: 6px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__color {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
+
+    &__item-name {
+        color: $color__gray2;
+        font-size: $font-size-base;
+        @include font-family-medium;
+    }
+
+    &__item-value {
+        color: $color__black;
+        font-size: $font-size-medium;
+        @include font-family-medium;
+        padding-left: 13px;
+        line-height: 1.6;
+    }
+}

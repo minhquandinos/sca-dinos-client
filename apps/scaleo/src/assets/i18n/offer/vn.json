@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Links",
+        "table": {
+            "allowed_traffic_types": "Loại traffic được chấp nhận",
+            "available_for_aff": {
+                "available": "Mở cho Pub",
+                "unavailable": "Đóng cho Pub"
+            },
+            "offers_with_tags": "Nhóm/ ngành chiến dịch",
+            "offers_with_tags_description": "All active offers with selected tags will be included into Smart Link.",
+            "other_offers": "Các chiến dịch khác",
+            "get_link": "Lấy Link",
+            "traffic_distribution": {
+                "highest_epc": "EPC cao nhất"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Traffic Distribution"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "new": "Chiến dịch mới",
+            "featured": "Chiến dịch HOT"
+        },
+        "tracking": {
+            "title": "Tracking",
+            "form": {
+                "additional_parameters": "Các thông số bổ sung",
+                "tracking_link_for_affiliate": "Tracking Link",
+                "tracking_link_description_for_affiliate": "Đây là link để quảng cáo và ghi nhận đơn hàng cho bạn.",
+                "landing_page": "Landing Page",
+                "usage_examples": "Ví dụ",
+                "link_builder": {
+                    "title": "Sửa link",
+                    "affiliate_link_builder": "Sửa link affiliate",
+                    "add_sub_id": "Thêm Sub ID",
+                    "add_aff_click_id": "Thêm Affiliate Click ID",
+                    "add_mobile_parameters": "Thêm thông số Mobile",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Thêm Deeplink ",
+                    "deeplink": "Deeplink URL",
+                    "add_more": "Bổ sung thêm",
+                    "affiliate": {
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "aff_param1": "Affiliate Param 1",
+                        "aff_param2": "Affiliate Param 2",
+                        "aff_param3": "Affiliate Param 3",
+                        "aff_param4": "Affiliate Param 4",
+                        "aff_param5": "Affiliate Param 5"
+                    },
+                    "impressions_pixel": "Impressions Pixel"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "Affiliate Click ID. ID duy nhất cho mỗi click được gửi từ Affiliate.",
+                "sub_id1": "Affiliate Sub ID 1 to specify traffic sub sources.",
+                "sub_id2": "Affiliate Sub ID 2 to specify traffic sub sources.",
+                "sub_id3": "Affiliate Sub ID 3 to specify traffic sub sources.",
+                "sub_id4": "Affiliate Sub ID 4 to specify traffic sub sources.",
+                "sub_id5": "Affiliate Sub ID 5 to specify traffic sub sources.",
+                "aff_param1": "Additional parameter 1 for any purposes.",
+                "aff_param2": "Additional parameter 2 for any purposes.",
+                "aff_param3": "Additional parameter 3 for any purposes.",
+                "aff_param4": "Additional parameter 4 for any purposes.",
+                "aff_param5": "Additional parameter 5 for any purposes.",
+                "source_id": "Affiliate Source ID previously added into platform (should exist and be active).",
+                "link_id": "Offer additional link (should exist and be active).",
+                "deep_link": "Link to any page on the advertiser website. Feature must be enabled for the Offer.",
+                "creative_id": "Creative ID for the Offer (should exist and be active).",
+                "idfa": "Apple iOS Advertising Identifier (iOS 6+).",
+                "gaid": "Google Android Advertising Identifier."
+            }
+        },
+        "custom_url": {
+            "title": "API gửi đơn hàng"
+        },
+        "request": {
+            "active": "Yêu cầu được duyệt",
+            "pending": "Yêu cầu đang xử lý",
+            "rejected": "Yêu cầu bị từ chối",
+            "button": "Gửi yêu cầu"
+        }
+    }
+}

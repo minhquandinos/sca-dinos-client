@@ -1,0 +1,126 @@
+.custom-radio {
+    .radio{
+        position: relative;
+        margin-bottom: 8px;
+        &__title {
+            font-size: $font__14;
+            color: $color__black;
+            line-height: 17px;
+            @include font-family-normal;
+            margin-right: 32px;
+            margin-left: 0.75rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__wrapper {
+            height: 18px;
+        }
+
+        &_button {
+            height: 16px;
+            width: 16px;
+        }
+
+        &__touch {
+            height: 18px;
+            width: 16px;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            input {
+                position: absolute;
+                height: 18px;
+                width: 16px;
+                top: 0;
+                right: 0;
+                left: 0;
+                margin: 0;
+                opacity: 0;
+                z-index: 1;
+                cursor: inherit;
+
+
+                &:checked + .radio__background .mdc-radio__inner-circle {
+                    transform: scale(0.5);
+                }
+
+                &:enabled:not(:checked) + .radio__background .mdc-radio__outer-circle {
+                    border-color: $color__light-grayish-blue-2;
+                }
+
+                &:enabled:checked + .radio__background .mdc-radio__outer-circle {
+                    border-color: $color__main-bg-color;
+                }
+
+                &:enabled:checked + .radio__background .mdc-radio__inner-circle {
+                    border-color: $color__main-bg-color;
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+
+                    & + .radio__background .mdc-radio__outer-circle {
+                        border-color: var(--main-bg-color);
+                    }
+
+                    & + .radio__background .mdc-radio__inner-circle {
+                        color: var(--main-bg-color);
+                    }
+
+                    & + .radio__background .mdc-radio__outer-circle,  & + .radio__background .mdc-radio__inner-circle {
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+
+        &__background {
+            height: 16px;
+            width: 16px;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+
+            &:before {
+                position: absolute;
+                transform: scale(0, 0);
+                border-radius: 50%;
+                opacity: 0;
+                pointer-events: none;
+                content: "";
+            }
+        }
+
+        &__inner-circle {
+            border-width: 8px;
+        }
+
+        &__outer-circle {
+            border-width: 1px;
+        }
+    }
+}
+
+.radio-group {
+    &__container {
+        &-column {
+            flex-direction: column;
+            row-gap: 1rem;
+
+            .radio {
+                //height: 1.25rem;
+                margin-bottom: 0;
+
+                //&__wrapper {
+                //    height: 1rem;
+                //}
+            }
+        }
+    }
+}

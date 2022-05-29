@@ -1,0 +1,230 @@
+<div
+    *ngIf="isLoadBillingSettings$ | async; else skeleton"
+    class="d-flex flex-column px-3 p-t-21"
+    [formGroup]="form"
+>
+    <div class="title is-5 m-b-17 line-height is-18 m-t-17">{{ 'invoice.settings.generation.title' | translate }}</div>
+    <div class="form-group mb-0">
+        <div class="m-b-17">
+            <app-radio-group
+                *ngIf="paymentsTypes$ | async as paymentsTypes"
+                formControlName="invoice_type"
+            >
+                <app-radio
+                    *ngFor="let payment of paymentsTypes"
+                    [inputValue]="payment.id"
+                    [label]="'billing2.settings.affiliate.payment.' + payment.title | translate"
+                    [tooltipText]="
+                    'billing2.settings.affiliate.payment.descriptions.' +
+                    ((payment.id | isTruthy: affiliateInvoiceFrequencyEnum.BySchedule) ? 'schedule' : 'request') | translate
+                "
+                ></app-radio>
+            </app-radio-group>
+        </div>
+
+        <ng-container *ngIf="form.value.invoice_type | isTruthy: affiliateInvoiceFrequencyEnum.BySchedule; else paymentTypeByRequestTmp">
+            <div class="form-row ml-0">
+                <scaleo-mng-billing-invoice-frequencies></scaleo-mng-billing-invoice-frequencies>
+            </div>
+
+            <ui-br height="58"></ui-br>
+
+            <div class="form-group d-flex align-items-end mb-0">
+                <scaleo-mng-billing-invoice-automatically
+                    controlName="generate_invoice_automatically"
+                ></scaleo-mng-billing-invoice-automatically>
+            </div>
+
+            <ng-container *ngIf="form.value.generate_invoice_automatically">
+                <div class="form-group col-md-6 p-0 m-t-17">
+                    <app-find-platform-statuses
+                        [label]="'invoice.settings.generate_invoice_status.title' | translate"
+                        formName="default_invoice_status"
+                        statusList="invoices_statuses"
+                        itemValue="status"
+                        itemIncrement="status"
+                        [exceptIds]="excludeInvoicesPaidStatuses"
+                    ></app-find-platform-statuses>
+                </div>
+                <div class="form-text p-0">
+                    <span>{{ 'invoice.settings.generate_invoice_status.description.title' | translate }}</span>
+                    <ul class="form-text ul-description">
+                        <li>{{'invoice.settings.generate_invoice_status.description.draft' | translate}}</li>
+                        <li>{{'invoice.settings.generate_invoice_status.description.unpaid' | translate}}</li>
+                    </ul>
+                </div>
+
+                <ng-container *ngIf="showIncludeReferralBalanceSwitch">
+                    <ui-br height="58"></ui-br>
+
+                    <div class="form-group col-md-6 p-0 mb-0">
+                        <app-custom-switch
+                            [label]="'billing2.settings.affiliate.include_referral_balance' | translate"
+                            formControlName="include_referral_balance"
+                        ></app-custom-switch>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <div class="form-text col-md-12 p-0 m-0 m-t-6">
+                <ul class="form-text ul-description">
+                    <li>{{'invoice.settings.generation.descriptions.manually' | translate}}</li>
+                    <li>{{'invoice.settings.generation.descriptions.automatically' | translate}}</li>
+                </ul>
+            </div>
+        </ng-container>
+
+        <ng-template #paymentTypeByRequestTmp>
+            <div class="d-flex align-items-center">
+                <app-custom-switch
+                    class="mr-3"
+                    [label]="'billing2.settings.affiliate.payment.allow_to_enter_the_amount.title' | translate"
+                    [formControlName]="'allow_to_enter_an_amount'"
+                    (toggle)="allowToEnterAmountChanged($event)"
+                ></app-custom-switch>
+
+                <app-custom-switch
+                    *ngIf="form.value.allow_to_enter_an_amount"
+                    [label]="'billing2.settings.affiliate.payment.allow_an_attachment.title' | translate"
+                    [formControlName]="'allow_an_attachment'"
+                ></app-custom-switch>
+            </div>
+
+            <div class="form-text col-md-12 p-0 m-0 m-t-6">
+                <ul class="form-text ul-description">
+                    <li>{{'billing2.settings.affiliate.payment.allow_to_enter_the_amount.description' | translate}}</li>
+                    <li>{{'billing2.settings.affiliate.payment.allow_an_attachment.description' | translate}}</li>
+                </ul>
+            </div>
+        </ng-template>
+    </div>
+
+    <ui-br height="58"></ui-br>
+
+    <div class="title is-5 m-b-17 line-height is-18 d-flex align-items-center">
+        {{ 'invoice.settings.information.title' | translate }}
+        <app-custom-info-tooltip
+            [text]="'invoice.settings.information.tooltip' | translate"
+        ></app-custom-info-tooltip>
+    </div>
+
+    <div class="form-group col-md-12 p-0">
+        <app-input
+            [label]="'invoice.settings.information.bill_to_name' | translate"
+            [formControlName]="'bill_to_name'"
+        ></app-input>
+    </div>
+
+    <div class="form-group col-md-12 p-0">
+        <app-input
+            [label]="'invoice.settings.information.bill_to_address' | translate"
+            [formControlName]="'bill_to_address'"
+        ></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input
+            [label]="'invoice.settings.information.bill_to_email' | translate"
+            [formControlName]="'bill_to_email'"
+        ></app-input>
+    </div>
+
+    <div class="form-group col-md-6 p-0">
+        <app-input
+            [label]="'invoice.settings.information.bill_to_tax_id' | translate"
+            [formControlName]="'bill_to_tax_id'"
+        ></app-input>
+    </div>
+
+    <div class="form-group col-md-12 p-0 mb-0">
+        <app-input
+            [label]="'invoice.settings.information.invoice_footer' | translate"
+            [formControlName]="'invoice_footer'"
+        ></app-input>
+
+        <div class="form-text">{{ 'invoice.settings.information.invoice_footer_description' | translate }}</div>
+    </div>
+
+    <ui-br height="58"></ui-br>
+
+    <div class="title is-5 m-b-17 line-height is-18">{{ 'interface.basic.other' | translate }}</div>
+
+    <div class="form-group p-0 mb-0">
+        <div class="col-md-6 p-0 m-0">
+            <app-find-platform-list
+                [searchable]="false"
+                [labelShowId]="false"
+                platformList="invoices_payments_terms"
+                [label]="'table.column.payment_terms' | translate"
+                [multiple]="false"
+                [formName]="'default_payment_terms'"
+                [hideSelected]="false"
+            ></app-find-platform-list>
+        </div>
+
+        <div class="form-text">{{ 'invoice.settings.information.invoice_footer_description' | translate }}</div>
+    </div>
+
+    <ui-br height="58"></ui-br>
+
+    <div class="form-group mb-0">
+        <app-custom-switch
+            [label]="'billing2.affiliates.show_balance' | translate"
+            formControlName="show_the_balance_of_pending_conversions"
+        ></app-custom-switch>
+    </div>
+
+    <ui-br height="58"></ui-br>
+
+    <div class="form-group">
+        <app-textarea
+            formControlName="information_for_affiliates"
+            [label]="'billing2.settings.affiliate.info_for_affiliates' | translate"
+            maxLength="600"
+        ></app-textarea>
+
+        <div class="form-text">{{'billing2.settings.affiliate.info_for_affiliates_description' | translate}}</div>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <div class="skeleton p-3">
+        <form action="">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+            </div>
+
+            <ui-br height="58"></ui-br>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+            </div>
+
+            <ui-br height="58"></ui-br>
+
+            <div class="form-group">
+                <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                <div class="skeleton__animation skeleton__form skeleton__form--textarea w-100"></div>
+            </div>
+        </form>
+    </div>
+</ng-template>

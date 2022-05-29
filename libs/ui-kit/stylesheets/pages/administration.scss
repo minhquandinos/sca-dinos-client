@@ -1,0 +1,49 @@
+.settings-logo {
+    background: $color__very-light-grey-two;
+    border: solid 1px #cacaca;
+    width: 238px;
+    height: 98px;
+    background-size: contain !important;
+    background-position: center center !important;
+
+    .hover-buttons-wrapper {
+        .hover-button {
+            width: 40px;
+        }
+    }
+
+    &__img {
+        width: 236px;
+    }
+}
+.settings-favicon {
+    background: $color__very-light-grey-two;
+    width: 40px;
+    height: 40px;
+    background-size: contain !important;
+
+    .hover-buttons-wrapper {
+        left: 65px;
+
+        .hover-button {
+            width: 40px;
+        }
+    }
+
+    .active {
+        visibility: visible;
+    }
+
+    &:hover {
+        margin-right: 0;
+    }
+}
+
+.settings-logo, .settings-favicon {
+    &:hover {
+        .hover-buttons-wrapper {
+            visibility: visible;
+        }
+    }
+
+}

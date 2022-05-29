@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Выплата",
+            "approved_revenue": "Выплата",
+            "pending_revenue": "Выплата",
+            "rejected_revenue": "Выплата",
+            "total_revenue": "Выплата",
+            "revenue": "Выплата"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Выплата за клик",
+                "rpa": "Выплата за подтвержденную конверсию",
+                "rpm": "Выплата за 1000 показов"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Выплата"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<div class="form-text" [ngClass]="className">
+    <ui-button-link type="link-static" [label]="jsonKey + 'title' | translate" (toggle)="showInfo()"></ui-button-link>
+</div>
+
+<ng-template #infoTemplate>
+    <div class="aviliable-macroses">
+        <section *ngIf="mapMacroses.length > 0">
+            <div class="profile-info__row d-flex" *ngFor="let param of mapMacroses">
+                <div class="profile-info__row-name pl-0 justify-content-start offer-tracking-params">
+                    <ui-chip *ngIf="isMacroses; else notMacroses">{{ '{' + param + '}' }}</ui-chip>
+
+                    <ng-template #notMacroses>
+                        <ui-chip>{{ param }}</ui-chip>
+                    </ng-template>
+                </div>
+                <div class="profile-info__row-value profile-info__row-value-offer-tracking d-flex" *ngIf="showDescription">
+                    {{ jsonKey + param | translate }}
+                </div>
+            </div>
+        </section>
+
+        <section *ngIf="exampleUrls.length > 0">
+            <div class="title">{{ 'shared.dictionary.usage_examples' | translate }}</div>
+            <app-field-text-info *ngFor="let url of exampleUrls" className="m-t-8" preset="copy">
+                <div class="text-break-all">{{ url }}</div>
+            </app-field-text-info>
+        </section>
+    </div>
+</ng-template>

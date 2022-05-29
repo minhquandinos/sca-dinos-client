@@ -1,0 +1,67 @@
+<app-card-widget>
+    <app-card-widget-header>
+        <div class="title">{{ 'offers_page.profile.page_title.affiliate_access' | translate }}</div>
+        <div class="d-flex align-items-center ml-auto">
+            <ui-button-link
+                *ngxPermissionsOnly="[permissions.canManageOfferAccess]"
+                [label]="'shared.dictionary.edit' | translate"
+                type="floating"
+                (click)="editForm()"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-b-20">
+        <app-detail-info-row>
+            <app-detail-info-col class="col-px-200 color__gray2">
+                {{ 'offers_page.profile.affiliates.visibility' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col>
+                <app-offer-visibility
+                    mode="manager"
+                    [visibility]="visibility$ | async"
+                ></app-offer-visibility>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <ng-container *ngIf="allowed$ | async as allowed">
+            <app-detail-info-row *ngIf="allowed.length > 0">
+                <app-detail-info-col class="col-px-200 color__gray2">
+                    {{ 'offers_page.profile.affiliates.allowed_affiliates' | translate }}:
+                </app-detail-info-col>
+
+                <app-detail-info-col class="d-inline">
+                    <app-allowed-tags *ngFor="let item of allowed" [allowed]="true" className="mt-0">
+                        <span>{{ item.title | format:'idName': item.id }}</span>
+                    </app-allowed-tags>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </ng-container>
+
+        <ng-container *ngIf="denied$ | async as denied">
+            <app-detail-info-row *ngIf="denied.length > 0">
+                <app-detail-info-col class="col-px-200 color__gray2">
+                    {{ 'offers_page.profile.affiliates.denied_affiliates' | translate }}:
+                </app-detail-info-col>
+
+                <app-detail-info-col class="d-inline">
+                    <app-allowed-tags *ngFor="let item of denied" [allowed]="false" className="mt-0">
+                        <span>{{ item.title | format:'idName': item.id }}</span>
+                    </app-allowed-tags>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </ng-container>
+
+        <ng-container *ngIf="showAskAffiliatesApprovalQuestions$ | async">
+            <app-detail-info-row>
+                <app-detail-info-col class="col-px-200 color__gray2">
+                    {{ 'offers_page.affiliate.form.ask_approval_questions_to_affiliate.title' | translate }}:
+                </app-detail-info-col>
+
+                <app-detail-info-col>
+                    <app-expand>{{ (data$ | async).questions }}</app-expand>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </ng-container>
+    </app-card-widget-content>
+</app-card-widget>

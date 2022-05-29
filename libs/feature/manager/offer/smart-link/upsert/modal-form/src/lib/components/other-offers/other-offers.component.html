@@ -1,0 +1,17 @@
+<span class="m-b-6">{{'smart_link_page.table.other_offers' | translate}}</span>
+<div
+    class="form-crud__list mb-2"
+    formArrayName="other_offers"
+    *ngFor="let group of getOtherOffersFormControlsArray;
+    let i = index"
+>
+    <app-other-offers-item [i]="i"></app-other-offers-item>
+</div>
+
+<ui-button-link
+    className="form-crud__button"
+    type="simple"
+    [label]="'offers_page.basic.add' | translate"
+    icon="plus-small"
+    (click)="add()"
+></ui-button-link>

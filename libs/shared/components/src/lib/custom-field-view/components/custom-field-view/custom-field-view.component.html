@@ -1,0 +1,14 @@
+<app-detail-info class="m-t-20" *ngIf="_customFields?.length > 0">
+    <app-detail-info-title class="m-b-10">{{ title }}:</app-detail-info-title>
+    <app-detail-info-row *ngFor="let field of _customFields; i as index; trackBy: trackByFn">
+        <app-detail-info-col class="col-5 color__gray2">{{ field.title }}:</app-detail-info-col>
+        <app-detail-info-col>
+            <span *ngIf="field.type === 3; else defaultField">
+                {{  field.value | customFieldCheckboxValue | async }}
+            </span>
+            <ng-template #defaultField>
+                <span>{{ field.value }}</span>
+            </ng-template>
+        </app-detail-info-col>
+    </app-detail-info-row>
+</app-detail-info>

@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Link'ler",
+        "table": {
+            "allowed_traffic_types": "İzin Verilen Trafik Türleri",
+            "available_for_aff": {
+                "available": "Ortaklar için Kullanılabilir",
+                "unavailable": "Ortaklar için Kullanılamaz"
+            },
+            "offers_with_tags": "Etiketli teklifler",
+            "offers_with_tags_description": "Seçilen etiketlere sahip tüm aktif teklifler Smart Link'e dahil edilecektir.",
+            "other_offers": "Diğer teklifler",
+            "get_link": "Bağlantı Edin",
+            "traffic_distribution": {
+                "highest_epc": "En Yüksek EPC"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Trafik Dağılımı"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Öne Çıkan Teklifler",
+            "my": "Tekliflerim"
+        },
+        "tracking": {
+            "title": "İzleme",
+            "form": {
+                "additional_parameters": "Ek Parametreler",
+                "tracking_link_for_affiliate": "İzleme Bağlantınız",
+                "tracking_link_description_for_affiliate": "Bu, teklifi öne çıkarmak için kullanılabilecek kişiselleştirilmiş bağlantınızdır.",
+                "landing_page": "Açılış Sayfası",
+                "usage_examples": "Kullanım Örnekleri",
+                "link_builder": {
+                    "title": "Bağlantı Oluşturucu",
+                    "affiliate_link_builder": "Ortak Bağlantı Oluşturucu",
+                    "add_sub_id": "Alt Kimlik Ekle",
+                    "add_aff_click_id": "Ortak Tıklama Kimliği Ekle",
+                    "add_mobile_parameters": "Mobil Parametreler Ekle",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Deeplink Ekle ",
+                    "deeplink": "Deeplink URLsi",
+                    "add_more": "Daha Fazla Ekle",
+                    "affiliate": {
+                        "sub_id1": "Alt Kimlik 1",
+                        "sub_id2": "Alt Kimlik 2",
+                        "sub_id3": "Alt Kimlik 3",
+                        "sub_id4": "Alt Kimlik 4",
+                        "sub_id5": "Alt Kimlik 5",
+                        "aff_param1": "Ortak Param 1",
+                        "aff_param2": "Ortak Param 2",
+                        "aff_param3": "Ortak Param 3",
+                        "aff_param4": "Ortak Param 4",
+                        "aff_param5": "Ortak Param 5"
+                    },
+                    "impressions_pixel": "Impressions Pixel"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "Ortak Tıklama Kimliği. Ortaktan gönderilen her tıklama için benzersiz kimlik.",
+                "sub_id1": "Trafik alt kaynaklarını belirtmek için Ortak Alt Kimliği 1.",
+                "sub_id2": "Trafik alt kaynaklarını belirtmek için Ortak Alt Kimliği 2.",
+                "sub_id3": "Trafik alt kaynaklarını belirtmek için Ortak Alt Kimliği 3.",
+                "sub_id4": "Trafik alt kaynaklarını belirtmek için Ortak Alt Kimliği 4.",
+                "sub_id5": "Trafik alt kaynaklarını belirtmek için Ortak Alt Kimliği 5.",
+                "aff_param1": "Herhangi bir amaç için ek parametre 1.",
+                "aff_param2": "Herhangi bir amaç için ek parametre 2.",
+                "aff_param3": "Herhangi bir amaç için ek parametre 3.",
+                "aff_param4": "Herhangi bir amaç için ek parametre 4.",
+                "aff_param5": "Herhangi bir amaç için ek parametre 5.",
+                "source_id": "Daha önce platforma eklenen bağlı Ortak Kaynak Kimliği (mevcut ve aktif olmalı).",
+                "link_id": "Teklif ek bağlantısı (mevcut ve aktif olmalı).",
+                "deep_link": "Reklam Verenin sitesindeki herhangi bir sayfaya giden bağlantı. Teklif için özellik etkinleştirilmelidir.",
+                "creative_id": "Teklif için Kreatif Kimlik (mevcut ve aktif olmalı).",
+                "idfa": "Apple iOS Reklam Kimliği (iOS 6+).",
+                "gaid": "Google Android Reklam Kimliği."
+            }
+        },
+        "custom_url": {
+            "title": "API Gönderme Sırası"
+        },
+        "request": {
+            "active": "Bu Teklifi kabul edebilirsiniz.",
+            "pending": "Teklif talebi gönderildi {{ date }}",
+            "rejected": "Teklif talebi reddedildi.",
+            "button": "Teklif Talep Et"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<ng-container [formGroup]="control">
+    <div uiSimpleTableCol>
+        <app-input [placeholder]="'invoice.advance' | translate" formControlName="name" [hideValidationMessage]="true"></app-input>
+    </div>
+    <div uiSimpleTableCol></div>
+    <div uiSimpleTableCol></div>
+    <div uiSimpleTableCol></div>
+    <div uiSimpleTableCol align="right">
+        <app-input
+            style="width: 100px"
+            [inputText]="currency | currencySymbol"
+            numeric="float"
+            formControlName="amount"
+            [hideValidationMessage]="true"
+            (changed)="changed()"
+        ></app-input>
+    </div>
+    <div uiSimpleTableCol align="center">
+        <ui-button-link
+            *ngIf="showSaveBtn$ | async; else deleteBtnTpl"
+            (toggle)="save()"
+            [label]="'shared.dictionary.save' | translate"
+        ></ui-button-link>
+        <ng-template #deleteBtnTpl>
+            <ui-button-link type="delete" icon="delete" (toggle)="delete()"></ui-button-link>
+        </ng-template>
+    </div>
+</ng-container>

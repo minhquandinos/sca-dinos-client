@@ -1,0 +1,21 @@
+<div class="title is-4">{{ 'offers_page.custom_parameters.form.parameters.title' | translate }}</div>
+
+<div class="form-crud form-crud--custom-parameters" formArrayName="parameters">
+    <div class="form-crud__list mb-2" *ngFor="let control of parametersFormArray.controls; let i = index">
+        <div [formGroupName]="i">
+            <app-parameter-row
+                [index]="i"
+                [group]="control"
+                (deleted)="delete(i)"
+            ></app-parameter-row>
+        </div>
+    </div>
+
+    <ui-button-link
+        className="form-crud__button"
+        type="simple"
+        [label]="'offers_page.custom_parameters.form.parameters.add' | translate"
+        icon="plus-small"
+        (click)="add()"
+    ></ui-button-link>
+</div>

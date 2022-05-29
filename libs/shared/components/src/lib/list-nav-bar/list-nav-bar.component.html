@@ -1,0 +1,34 @@
+<ui-tab-nav-bar>
+    <ng-container *ngFor="let nav of navigation; trackBy: trackByFn">
+        <ui-divider
+            *ngIf="nav?.divider"
+            orientation="vertical"
+            height="16px"
+            class="m-r-12 m-l-12"
+        ></ui-divider>
+        <a ui-tab-nav-link [routerLink]="[nav.routeLink]" routerLinkActive="active">
+            {{ nav.title | translate }}
+
+            <ng-container *ngIf="nav?.budges?.enabled && nav.count > 0; else defaultLink">
+                <ui-badges
+                    class="m-l-6"
+                    [content]="nav.count"
+                    [color]="nav?.budges?.color"
+                    className="font-family-normal"
+                ></ui-badges>
+            </ng-container>
+
+            <ng-template #defaultLink>
+                <span class="m-l-6 color__gray3 font-family-normal">{{ nav.count | format: 'number' }}</span>
+            </ng-template>
+
+            <app-custom-info-tooltip
+                *ngIf="nav?.tooltip"
+                class="h-100"
+                [text]="nav.tooltip?.text"
+                [icon]="nav.tooltip?.icon"
+                [customTemplate]="nav.tooltip?.customTemplate"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+</ui-tab-nav-bar>

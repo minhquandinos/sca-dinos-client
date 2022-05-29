@@ -1,0 +1,36 @@
+<div class="page-wrapper" id="quick-links">
+    <div class="page-wrapper-header d-flex align-items-center bg-unset border-bottom-0">
+        <div class="page-wrapper-header__title page-wrapper-header__title--small cursor-pointer">{{'quick_links.title' | translate}}</div>
+    </div>
+
+    <div class="info-list page-wrapper-quick-links py-3">
+        <ui-button-link
+            [icon]="'context-statistics'"
+            type="floating"
+            [label]="'quick_links.buttons.statistics' | translate"
+            [routerLink]="'/reports/statistics/day' | navigateRoot"
+            [queryParams]="{'advertisers': id}"
+        ></ui-button-link>
+        <ui-button-link
+            type="floating"
+            [icon]="'context-conversions'"
+            [label]="'quick_links.buttons.conversions' | translate"
+            [routerLink]="'/transactions/conversions' | navigateRoot"
+            [queryParams]="{'advertisers': id}"
+        ></ui-button-link>
+        <ui-button-link
+            [icon]="'context-clicks'"
+            type="floating"
+            [label]="'quick_links.buttons.clicks' | translate"
+            [routerLink]="'/transactions/clicks' | navigateRoot"
+            [queryParams]="{'advertisers': id}"
+        ></ui-button-link>
+        <ui-button-link
+            *ngIf="false"
+            [icon]="'context-traffic'"
+            type="floating"
+            [label]="'quick_links.buttons.traffic_logs' | translate"
+        ></ui-button-link>
+    </div>
+
+</div>

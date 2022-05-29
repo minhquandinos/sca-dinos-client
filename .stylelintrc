@@ -1,0 +1,32 @@
+{
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-standard-scss",
+        "stylelint-config-idiomatic-order",
+        "stylelint-config-prettier",
+        "stylelint-prettier/recommended"
+    ],
+    "plugins": ["stylelint-scss"],
+    "rules": {
+        "prettier/prettier": [true, {"singleQuote": false}],
+        "order/properties-alphabetical-order": null,
+        "selector-class-pattern": "^([a-z][a-z0-9]*)([-|_]([a-z0-9]+))*$",
+        "string-quotes": "double",
+        "color-named": "never",
+        "scss/at-rule-no-unknown": [true, {
+            "ignoreAtRules": [
+                "tailwind",
+                "apply",
+                "variants",
+                "responsive",
+                "screen"
+            ]
+        }],
+        "scss/at-mixin-pattern": null,
+        "no-invalid-position-at-import-rule": true,
+        "declaration-block-trailing-semicolon": null,
+        "no-descending-specificity": null,
+        "property-no-vendor-prefix": null,
+        "selector-pseudo-class-no-unknown": null
+    }
+}

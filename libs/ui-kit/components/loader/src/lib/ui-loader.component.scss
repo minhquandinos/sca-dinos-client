@@ -1,0 +1,23 @@
+@import "libs/ui-kit/stylesheets/utils";
+:host {
+    display: inline-flex;
+    &:after {
+        content: " ";
+        display: block;
+        width: var(--ui-loader-size);
+        height: var(--ui-loader-size);
+        margin: 0;
+        border-radius: 50%;
+        border: 2px solid $color__gray3;
+        border-color: $color__gray3 $color__gray3 $color__gray3 transparent;
+        animation: loaderAnimation 1.2s linear infinite;
+    }
+    @keyframes loaderAnimation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

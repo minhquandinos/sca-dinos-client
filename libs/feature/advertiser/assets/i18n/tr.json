@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Ödeme",
+            "approved_revenue": "Ödeme",
+            "pending_revenue": "Ödeme",
+            "rejected_revenue": "Ödeme",
+            "total_revenue": "Ödeme",
+            "revenue": "Ödeme"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Tıklama Başına Maliyet",
+                "rpa": "Onaylanmış Dönüşüm Başına Maliyet",
+                "rpm": "1000 izlenim başına maliyet"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Ödeme"
+                }
+            }
+        }
+    }
+}

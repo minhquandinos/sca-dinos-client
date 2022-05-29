@@ -1,0 +1,47 @@
+<app-trends-widget
+    (activeTab)="activeTab($event)"
+    [showDatePresets]="trendsWidgetShowDatePresets"
+>
+    <ng-template appTrendTab label="interface.basic.volumes">
+        <scaleo-trend-chart-widget
+            [date$]="trendsWidgetComponent.date$"
+            [itemId]="affiliateId"
+            [metrics]="volumeMetrics"
+            filterBy="affiliates"
+        ></scaleo-trend-chart-widget>
+    </ng-template>
+
+    <ng-container *ngIf="financeMetrics.length">
+        <ng-template appTrendTab label="finances_page.basic.finances">
+            <scaleo-trend-chart-widget
+                [date$]="trendsWidgetComponent.date$"
+                [itemId]="affiliateId"
+                [metrics]="financeMetrics"
+                filterBy="affiliates"
+            ></scaleo-trend-chart-widget>
+        </ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="showOffer$ | async">
+        <ng-template appTrendTab label="dashboard_grid.widget.top_offer.title">
+            <scaleo-top-offer-list
+                [filters]="{ affiliates: affiliateId.toString() }"
+                [date$]="trendsWidgetComponent.date$"
+                [period]="period$ | async"
+                (initFooterEvent)="topOfferInitFooter($event)"
+            ></scaleo-top-offer-list>
+        </ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="showBalance$ | async">
+        <ng-template appTrendTab label="interface.basic.balance">
+            <app-affiliate-billing-balance
+                [affiliateId]="affiliateId"
+                [showPendingBalance]="showPendingBalance$ | async"
+            ></app-affiliate-billing-balance>
+        </ng-template>
+    </ng-container>
+    <ng-container widgetFooter>
+        <ng-template [ngTemplateOutlet]="topOfferFooterTpl"></ng-template>
+    </ng-container>
+</app-trends-widget>

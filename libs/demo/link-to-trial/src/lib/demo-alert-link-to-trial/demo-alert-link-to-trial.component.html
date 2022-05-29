@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center">
+    <span class="ui-alert-demo__description">
+        {{ 'interface.basic.demo_alert_link.description' | translate }}
+    </span>
+    <ui-button-link
+        className="ui-alert-demo__start-trial"
+        type="main"
+        [label]="'interface.basic.demo_alert_link.start_trial' | translate"
+        (toggle)="startTrial()"
+    ></ui-button-link>
+
+    <ui-button-link
+        className="ui-alert-demo__book-demo"
+        type="floating"
+        [label]="'interface.basic.demo_alert_link.book_a_demo' | translate"
+        (toggle)="bookDemo()"
+    ></ui-button-link>
+</div>
+
+<platform-calendly *ngIf="showCalendly" (close)="close()"></platform-calendly>

@@ -1,0 +1,490 @@
+{
+    "your_manager": "Ваши менеджеры",
+    "firstname": "Имя",
+    "lastname": "Фамилия",
+    "email": "Эл. почта",
+    "full_name": "Имя",
+    "password": "Пароль",
+    "password_confirmation": "Подтверждение пароля",
+    "statuses": {
+        "status": "Статус",
+        "active": "Активный",
+        "inactive": "Неактивный",
+        "pending": "В ожидании",
+        "rejected": "Отклоненный",
+        "testing": "Тест",
+        "approved": "Принятый",
+        "all": "Все"
+    },
+    "user_profile": {
+        "edited_notification": "Ваш профиль был успешно обновлен"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Фильтр",
+            "results": "результатов",
+            "filtered_by": "Фильтр:",
+            "preview": "Предпросмотр",
+            "close": "Закрыть",
+            "clear": "Очистить",
+            "today": "Сегодня",
+            "yesterday": "Вчера",
+            "filters": {
+                "country": "Страна",
+                "tag": "Тег",
+                "goals_types": "Типы целей",
+                "no_data_found": "Данные не найдены"
+            },
+            "search": "Поиск",
+            "not_found": "Нет данных.",
+            "api_key": "API ключ",
+            "api_access": "API доступ",
+            "columns": "Колонки",
+            "breakdown_by": "Группировка:",
+            "breakdown": "Группировка",
+            "copy": "Копировать",
+            "advanced": "Дополнительно",
+            "expand": "Развернуть",
+            "hide": "Скрыть",
+            "link_copy": "Ссылка была скопирована в буффер",
+            "choose_image": "Выберите изображение",
+            "total": "Всего:",
+            "adblock": "У вас включен AdBlock, некоторый функционал платформы может работать неправильно",
+            "refresh": {
+                "button": "Обновить",
+                "new_version": "Доступна новая версия!",
+                "latest_version": "Обновите страницу для получения новой версии."
+            },
+            "undefined": "Неопределено",
+            "learn_more": "Подробнее",
+            "view_all": "Посмотреть все",
+            "view_all_count": "Посмотреть все ({{ count }})",
+            "allowed": "разрешен",
+            "denied": "запрещен"
+        },
+        "header": {
+            "help": "Помощь",
+            "profile": "Профиль",
+            "account": "Мой аккаунт",
+            "language": "Язык",
+            "logout": "Выйти"
+        },
+        "form": {
+            "tags": "Теги",
+            "tag": "Тег",
+            "country": "Страна",
+            "traffic_type": "Типы трафика",
+            "timezone": "Часовой пояс",
+            "currency": "Валюта",
+            "contact_type": "Тип контакта",
+            "contact_name": "Контакт",
+            "phone": "Телефон",
+            "street": "Улица",
+            "city": "Город",
+            "region": "Регион",
+            "postcode": "Индекс",
+            "payment_details": "Платежная информация",
+            "date_format": "Формат даты",
+            "number_format": "Формат чисел",
+            "featured": "Топ-оффер",
+            "description": "Описание",
+            "internal_information": "Информация для менеджеров",
+            "expires": "Окончание"
+        },
+        "date": {
+            "basic": {
+                "from": "От",
+                "to": "До"
+            },
+            "days": {
+                "su": "Вс",
+                "mo": "Пн",
+                "tu": "Вт",
+                "we": "Ср",
+                "th": "Чт",
+                "fr": "Пт",
+                "sa": "Сб"
+            },
+            "month": {
+                "january": "Январь",
+                "february": "Февраль",
+                "march": "Март",
+                "april": "Апрель",
+                "may": "Май",
+                "june": "Июнь",
+                "july": "Июль",
+                "august": "Август",
+                "september": "Сетнябрь",
+                "october": "Октябрь",
+                "november": "Ноябрь",
+                "december": "Декабрь"
+            },
+            "ranges": {
+                "today": "Сегодня",
+                "yesterday": "Вчера",
+                "last7Days": "Последние 7 дней",
+                "last14Days": "Последние 14 дней",
+                "last30Days": "Последние 30 дней",
+                "last90Days": "Последние 90 дней",
+                "thisMonth": "Текущий месяц",
+                "lastMonth": "Предыдущий месяц",
+                "custom": "Выбранный период",
+                "thisYear": "Этот год"
+            },
+            "based_on": "По часовому поясу ",
+            "time_zone": ""
+        },
+        "subtitle": {
+            "access_credentials": "Данные для входа",
+            "contacts": "Контакты",
+            "address": "Адрес",
+            "financial_information": "Финансовая информация",
+            "additional_information": "Дополнительная информация",
+            "preferences": "Предпочтения"
+        },
+        "export_file": {
+            "title": "Экспорт",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Ошибка при формировании файла, попробуйте позже"
+        },
+        "pagination": {
+            "per_page": "Показывать"
+        },
+        "table_columns_config": {
+            "cv_approved": "Кол-во",
+            "cv_pending": "Кол-во",
+            "cv_rejected": "Кол-во",
+            "cv_total": "Кол-во",
+            "clicks": "Кол-во",
+            "impressions": "Кол-во",
+            "cv_trash": "Кол-во"
+        },
+        "validation": {
+            "password_repeat": "Пароли не сопадают",
+            "email_already_taken": "Эл. почта уже используется",
+            "required": "Обязательное поле",
+            "email": "Эл. адрес неправильный",
+            "min_length_password": "Минимальная длинна пароля 8 символов",
+            "max": "Введенное число превышает допустимое",
+            "incorrect_amount": "Неверная сумма"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "Статистика",
+            "conversions": "Конверсии",
+            "clicks": "Клики"
+        }
+    },
+    "auth": {
+        "forgot_password": "Забыли пароль?"
+    },
+    "password_change": {
+        "button": "Изменить пароль",
+        "not_change": "Не изменять пароль"
+    },
+    "password_reset": {
+        "title": "Восстановление пароля",
+        "text": "Чтобы сбросить пароль, введите адрес электронной почты, который вы используете для входа",
+        "button": "Восстановить пароль",
+        "return_to_login": "Назад"
+    },
+    "password_reset_confirm": {
+        "title": "Подтверждение",
+        "text": "Пожалуйста, проверьте вашу электронную почту. Мы отправили вам инструкции для сброса пароля",
+        "link": "Вернуться на страницу входа"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Добавить контакт",
+            "description": {
+                "payment_details": "Например: банковские реквизиты, номер карты, PayPal и т.д."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "День",
+        "weekly": "Неделя",
+        "monthly": "Месяц",
+        "total": "Общий"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "Статистика за 14 дней"
+        },
+        "navigation": {
+            "all": "Все офферы"
+        },
+        "targeting": {
+            "except": "Кроме:",
+            "denied": "Запрещено",
+            "offers_targeting_rules": {
+                "connection_type": "Тип коннекта",
+                "mobile_operator": "Моб. оператор",
+                "device_type": "Тип устройства",
+                "device_os": "ОС",
+                "device_os_version": "Версия ОС",
+                "device_brand": "Бренд",
+                "device_model": "Модель",
+                "browser": "Браузер",
+                "language": "Язык",
+                "worldwide": "Весь мир",
+                "geo": "Гео",
+                "expect": "Кроме",
+                "denied": "Запрещено",
+                "connection_type_allowed": "Тип коннекта разрешен",
+                "mobile_operator_allowed": "Моб. оператор разрешен",
+                "device_type_allowed": "Тип устройства разрешен",
+                "device_os_allowed": "ОС разрешена",
+                "device_os_version_allowed": "Версия ОС разрешена",
+                "device_brand_allowed": "Бренд разрешен",
+                "device_model_allowed": "Модель разрешена",
+                "browser_allowed": "Браузер разрешен",
+                "language_allowed": "Язык разрешен",
+                "geo_allowed": "Разрешенные гео",
+                "connection_type_denied": "Тип коннекта запрещен",
+                "mobile_operator_denied": "Моб. оператор запрещен",
+                "device_type_denied": "Тип устройства запрещен",
+                "device_os_denied": "ОС запрещена",
+                "device_os_version_denied": "Версия ОС запрещена",
+                "device_brand_denied": "Бренд запрещен",
+                "device_model_denied": "Модель запрещена",
+                "browser_denied": "Браузер запрещен",
+                "language_denied": "Язык запрещен",
+                "geo_denied": "Запрещенные гео",
+                "affiliate_sub_id_1": "Суб ID 1 партнера",
+                "affiliate_sub_id_2": "Суб ID 2 партнера",
+                "affiliate_sub_id_3": "Суб ID 3 партнера",
+                "affiliate_sub_id_4": "Суб ID 4 партнера",
+                "affiliate_sub_id_5": "Суб ID 5 партнера"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Множественные конверсии"
+            }
+        },
+        "creatives": {
+            "title": "Креативы"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Цели",
+                "creatives": "Креативы",
+                "targeting": "Таргетинг"
+            },
+            "targeting": {
+                "geo": "Гео"
+            }
+        },
+        "urls": {
+            "title": "Лендинги",
+            "type": {
+                "default": "Основной",
+                "preview": "Превью"
+            },
+            "visible_to_affiliates": "Виден партнерам"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "Показатели эффективности офферов. Данные обновляются один раз в день",
+                    "ar": "Процент подтвержденных конверсий — количество подтвержденных конверсий от общего числа конверсий. Считается по всем партнерам за прошедший месяц.",
+                    "cr": "Количество конверсий от общего числа кликов. Считается по всем партнерам за последние 7 дней.",
+                    "epc": "Прибыль за клик — примерная прибыль за один клик. Считается по всем партнерам за последние 7 дней.",
+                    "n_a": "Недостаточно данных для вывода метрики"
+                },
+                "conversions": {
+                    "info": "Общее число конверсий за последние 7 дней по сравнению с предыдущими 7 днями. Данные для сортировки обновляются один раз в день."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Баннер",
+        "email": "E-mail",
+        "html": "HTML",
+        "xml_feed": "XML Feed"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Финансы"
+        },
+        "table" : {
+            "transaction_id": "ID платежа",
+            "payment_details": "Детали платежа"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Статистика сети",
+        "top_offers": "Топ офферы",
+        "volume": "Объемы",
+        "metrics": "Метрики",
+        "trends": "Тренды",
+        "legend": {
+            "cv_pending": "Неподтвержденные конверсии",
+            "impressions": "Показы",
+            "clicks": " Все клики",
+            "cv_approved": "Подтвержденные конверсии",
+            "cr": "CR",
+            "cv_rejected": "Отклоненные конверсии",
+            "approved_payout": "Подтвержденная выплата",
+            "pending_payout": "Неподтвержденная выплата",
+            "rejected_payout": "Отклоненная выплата",
+            "ctr": "CTR",
+            "unique_clicks": "Уникальные клики",
+            "duplicate_clicks": "Дубликаты клики",
+            "invalid_clicks": "Неподходящие клики",
+            "pr": "PR",
+            "cv_total": "Все конверсии",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Выплата клики",
+            "total_payout": "Все выплаты"
+        },
+        "message_when_column_max": "Возможно выбрать максимум 6 метрик."
+    },
+    "conversion_statuses": {
+        "pending": "Неподтвержденная",
+        "rejected": "Отклоненная",
+        "approved": "Подтвержденная",
+        "default": "По умолчанию",
+        "trash": "Некорректная"
+    },
+    "reports_page": {
+        "custom": "Общая",
+        "last_updated": "Обновлено: {{ minutes }} мин. назад",
+        "filters": {
+            "popular": "Популярные",
+            "offers": "Оффер",
+            "offer": "Оффер",
+            "offers_goals": "Цель",
+            "goals_types": "Тип цели",
+            "currencies": "Валюта",
+            "offers_creatives": "Креатив",
+            "offers_links": "Лендинг",
+            "ips": "IP",
+            "track_ids": "Track ID рекламодателя",
+            "advertisers_params1": "Параметр 1 рекламодателя",
+            "advertisers_params2": "Параметр 2 рекламодателя",
+            "advertisers_params3": "Параметр 3 рекламодателя",
+            "advertisers_params4": "Параметр 4 рекламодателя",
+            "advertisers_params5": "Параметр 5 рекламодателя",
+            "conversions_referrers": "URL страницы конверсии",
+            "countries": "Страна",
+            "device_type": "Тип устройства",
+            "devices_brands": "Бренд устройства",
+            "devices_models": "Модель устройства",
+            "devices_os": "ОС",
+            "browsers": "Браузер",
+            "connections_types": "Тип соединения",
+            "languages": "Язык",
+            "mobile_operators": "Моб. оператор",
+            "technical": "Технические",
+            "clickIds": "Click ID",
+            "data": "Данные",
+            "transactions": "ID транзакции",
+            "statuses": "Статус конверсии",
+            "orders_ids": "Order ID рекламодателя",
+            "users_ids": "User ID рекламодателя",
+            "devices_os_version": "Версия ОС устройства",
+            "browser_version": "Версия браузера",
+            "geo": "Гео",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "Одно значение на строку",
+            "visible_tooltip": "Всегда отображать на панели"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Десктоп",
+                "smartphone": "Телефон",
+                "tablet": "Планшет",
+                "feature_phone": "Feature Phone",
+                "console": "Консоль",
+                "tv": "Телевизор",
+                "car_browser": "Автомобиль",
+                "smart_display": "Smart Display",
+                "camera": "Камера",
+                "portable_media_player": "Портативный проигрыватель",
+                "phablet": "Фаблет"
+            }
+        },
+        "statistics": {
+            "title": "Статистика",
+            "menus": {
+                "affiliate": "Партнер",
+                "offer": "Оффер",
+                "advertiser": "Рекламодатель",
+                "country": "Страна",
+                "goal": "Цель",
+                "day": "День",
+                "monthly": "Месяц",
+                "hour": "Час",
+                "device_type": "Тип устройства",
+                "connection_type": "Тип соединения"
+            },
+            "table": {
+                "impressions": "ПОКАЗЫ",
+                "clicks": "КЛИКИ",
+                "approved_conversions": "ПОДТВЕРЖДЕННЫЕ",
+                "pending_conversions": "НЕПОДТВЕРЖДЕННЫЕ",
+                "rejected_conversions": "ОТКЛОНЕННЫЕ",
+                "total_conversions": "ВСЕ КОНВЕРСИИ",
+                "calculations": "ВЫЧИСЛЕНИЯ",
+                "headers": {
+                    "approved_conversions": "Подтвержденые",
+                    "pending_conversions": "Неподтвержденные",
+                    "trash_conversions": "Некорректные",
+                    "rejected_conversions": "Отклоненные"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Клики по партнерской трекинг-ссылке, когда пользователь перенаправляется на сайт рекламодателя.",
+                    "clicks": "Все клики, которые были перенаправлены на лендинг оффера. Не включает Неподходящие клики.",
+                    "unique_clicks": "Клики, полученные от разных пользователей",
+                    "invalid_clicks": "Клики, которые были перенаправлены на Трафикбек URL из за несоответствиям условиям таргетинга или из за некорректной партнерской ссылки.",
+                    "approved_conversions": "Конверсии, которые были подтверждены Рекламодателем.",
+                    "pending_conversions": "Неподтвержденные конверсии. После рассмотрения Рекламодателем такие конверсии будут переведены в статус Подтвержденные или Отклоненные.",
+                    "rejected_conversions": "Конверсии, которые были отклонены Рекламодателем."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Конверсии"
+        },
+        "clicks": {
+            "title": "Клики"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Клики, которые были перенаправлены на Трафикбек из за несоответствиям условиям таргетинга или из за ошибки в партнерской ссылке."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Вызовы постбеков (или пикселей) ваших рекламодателей, которые показывают, если конверсия была успешно записана или возникла ошибка."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Вызовы постбеков (или пикселей) ваших партнеров. Отображаются в списке если партнер использует трекер для отслеживания своего трафика, и установил постбек этого трекера в вашу платформу."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Групповые корректировки конверсий: изменение статуса, изменение выплаты или добавление конверсий."
+        }
+    },
+    "POWERED_BY": "Работает на платформе ",
+    "mobile_app": {
+        "menu": "Моб. приложение",
+        "title": "Мобильное приложение",
+        "qr_code": {
+            "title": "Отсканируйте QR-код для доступа к мобильному приложению",
+            "description": "Отсканируйте QR-код камерой смартфона. Вы будете перенаправлены в App Store или Google Play. После установки приложения вы автоматически войдете в свою учетную запись."
+        },
+        "access": {
+            "title": "Доступ к мобильному приложению",
+            "description": "Нажмите на баннер ниже. После установки приложения вы автоматически войдете в свою учетную запись."
+        }
+    }
+}

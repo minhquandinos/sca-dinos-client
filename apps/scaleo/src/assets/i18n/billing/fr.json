@@ -1,0 +1,54 @@
+{
+    "finances_page": {
+        "filters": {
+            "paid": "Payé",
+            "not_paid": "Non payé",
+            "in_progress": "En cours"
+        },
+        "balance": {
+            "title": "Solde",
+            "approved_payout": "Rémunération approuvée",
+            "pending_payout": "Rémunération en attente",
+            "paid_to_date": "Payé à ce jour",
+            "balance_due": "Balance Due"
+        },
+        "details": {
+            "select_payment_method": "Sélectionner le mode de paiement",
+            "payment_method_added": "Le mode de paiement a été ajouté avec succès",
+            "minimal_threshold": "Seuil minimal",
+            "payment_method_details": "Coordonnées du compte, numéro, etc.",
+            "payment_method_info_message": "Veuillez sélectionner le mode de paiement et saisir vos coordonnées",
+            "request_payment_was_sent": "La demande de paiement a été ajoutée avec succès",
+            "amount_condition": "Minimum : {{ min }}, maximum : {{ max }}",
+            "request": "Request"
+        }
+    },
+    "billing2": {
+        "settings": {
+            "payments_methods": {
+                "all_currencies": "Toutes les devises",
+                "commission": "Commission"
+            }
+        },
+        "balance": {
+            "advance": "Advance",
+            "pending": "Pending Balance",
+            "approved": "Approved Balance",
+            "due": "Balance Due"
+        }
+    },
+    "invoice": {
+        "invoices_title": "Invoices",
+        "invoice_title": "Invoice",
+        "generation_date": "Date Generated",
+        "update": {
+            "due_date": "Due Date"
+        },
+        "view_conversions": "View Conversions",
+        "items": "Items",
+        "total": "Total",
+        "generate": {
+            "invoice_memo": "Invoice Memo"
+        }
+    }
+}

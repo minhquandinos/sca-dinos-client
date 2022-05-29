@@ -1,0 +1,41 @@
+@media screen and (max-width: 768px) {
+    .offer-profile {
+        .profile {
+            &__columns {
+                display: flex;
+                flex-direction: column;
+
+                .profile__column:first-child {
+                    padding-right: 0;
+                }
+            }
+
+            &-info {
+                &__row {
+                    &-name {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .role-admin, .role-manager {
+        .offer-profile {
+            &-tracking {
+                .page-wrapper-header {
+                    flex-direction: column;
+
+                    &__buttons {
+                        margin-left: 0 !important;
+                    }
+                    .title {
+                        padding-top: 1.375rem;
+                    }
+                }
+            }
+        }
+    }
+}

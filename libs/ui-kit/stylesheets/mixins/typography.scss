@@ -1,0 +1,17 @@
+@mixin text-size() {
+    $text-size-list: 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24;
+    @each $value in $text-size-list {
+        .text-size-#{$value} {
+            font-size: pxToRem($value);
+        }
+    }
+}
+
+@mixin line-height() {
+    $line-height-list: 14 16 17 18 19 20 22 23;
+    @each $value in $line-height-list {
+        .line-height-#{$value} {
+            line-height: pxToRem($value);
+        }
+    }
+}

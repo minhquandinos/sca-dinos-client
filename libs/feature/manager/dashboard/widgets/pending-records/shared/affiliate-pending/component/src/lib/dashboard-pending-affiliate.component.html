@@ -1,0 +1,35 @@
+<ui-page-wrapper-content className="m-0 p-0">
+    <ui-simple-table
+        class="dashboard-pending-offer-requests-table"
+        tableStyle="clear"
+        [headers]="columns"
+        [headersHidden]="true"
+        [items]="items$ | async"
+        [isLoad]="isLoad$ | async"
+        [notFound]="notFound$ | async"
+        skeletonRowCount="3"
+        skeletonColCount="3"
+        colHeight="50px"
+        [controlTemplate]="controlTemplate"
+    >
+        <ng-template uiSimpleTableColTpl="info" let-item="valueRow">
+            <app-hyperlink
+                [link]="{
+                    link: '/manager/affiliates/' + item.id,
+                    title:  item.id + ' ' + item.company_name | format:'idName'
+                }"
+                [permission]="permissions.canAccessAffiliates"
+                linkClassName="text-pre-wrap"
+            ></app-hyperlink>
+        </ng-template>
+        <ng-template uiSimpleTableColTpl="date" let-item="valueRow">
+            <app-date-variant [date]="item.created"></app-date-variant>
+        </ng-template>
+    </ui-simple-table>
+</ui-page-wrapper-content>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canAddEditDeleteAffiliates"
+        (toggleEdit)="openModal(item.id)"></ui-table-navigation>
+</ng-template>

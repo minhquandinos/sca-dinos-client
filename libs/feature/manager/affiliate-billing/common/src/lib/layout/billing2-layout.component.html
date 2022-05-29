@@ -1,0 +1,46 @@
+<div>
+    <ui-page-wrapper borderRadius="4">
+        <ui-page-wrapper-header>
+            <ui-tab-nav-bar>
+                <ng-container *ngFor="let nav of billingNavigation; trackBy: trackByFn">
+                    <a
+                        ui-tab-nav-link
+                        *ngxPermissionsOnly="nav.permission"
+                        [routerLink]="[nav.route]"
+                        routerLinkActive="active"
+                    >
+                        {{ nav.title | translate }}
+                        <app-custom-info-tooltip
+                            [text]="nav.tooltip"
+                        ></app-custom-info-tooltip>
+                    </a>
+                </ng-container>
+            </ui-tab-nav-bar>
+            <div class="d-flex align-items-center">
+                <ng-container #actionContainer></ng-container>
+                <router-outlet name="actionContainer"></router-outlet>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-header [className]="'px-0'" [haveBorderBottom]="false">
+            <ng-container #headerContainer></ng-container>
+            <router-outlet name="headerContainer"></router-outlet>
+        </ui-page-wrapper-header>
+    </ui-page-wrapper>
+
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #affiliatesTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'billing2.affiliates.navigation_tooltip' | translate"
+        beaconId="5f91982b46e0fb001798f9eb"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+
+<ng-template #invoicesTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'invoice.navigation_tooltip' | translate"
+        beaconId="5f91982b46e0fb001798f9eb"
+    ></app-custom-info-tooltip-template>
+</ng-template>

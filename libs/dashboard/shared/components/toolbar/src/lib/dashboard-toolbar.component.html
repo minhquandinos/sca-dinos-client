@@ -1,0 +1,6 @@
+<app-dashboard-toolbar-view
+    *ngIf="!dashboardConfigService?.isEdit"
+></app-dashboard-toolbar-view>
+<app-dashboard-toolbar-edit
+    *ngIf="dashboardConfigService?.isEdit"
+></app-dashboard-toolbar-edit>

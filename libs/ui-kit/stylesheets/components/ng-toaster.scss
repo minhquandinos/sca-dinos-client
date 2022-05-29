@@ -1,0 +1,50 @@
+.ngx-toastr.success {
+    background: $color__green url('../../../assets/img/notification_positive.svg') no-repeat center center;
+    background-size: 28px 28px;
+    background-position: 10px;
+    @include font-family-medium
+}
+.ngx-toastr.error {
+    background: $color__red3 url('../../../assets/img/notification_negative.svg') no-repeat center center;
+    background-size: 28px 28px;
+    background-position: 10px;
+    @include font-family-medium
+}
+.ngx-toastr.info {
+    background-color: #00bfe2;
+}
+.ngx-toastr.wait {
+    background-color: #00bfe2;
+}
+.ngx-toastr.warning {
+    background-color: #ffa346;
+}
+
+.toast-container.toast-top-center .ngx-toastr, .toast-container.toast-bottom-center .ngx-toastr {
+    width: 524px;
+    min-height: 48px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: unset;
+    border-radius: 4px;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.toast-container .ngx-toastr {
+    padding: 11px 15px 10px 48px;
+}
+
+.ngx-toastr.info,
+.ngx-toastr.wait,
+.ngx-toastr.warning {
+    padding: 18px 15px;
+}
+
+@media (max-width: 600px) {
+    .toast-container.toast-top-center .ngx-toastr, .toast-container.toast-bottom-center .ngx-toastr {
+        width: 300px;
+    }
+}

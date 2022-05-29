@@ -1,0 +1,50 @@
+<div
+    #affiliateBillingContainer
+    class="affiliate-billing-balance__container d-flex align-items-end flex-nowrap w-fit-content"
+>
+    <div class="d-flex align-items-center">
+        <ng-container *ngIf="showPendingBalanceBlock">
+            <app-affiliate-billing-balance-block
+                [title]="'billing2.balance.pending' | translate"
+                [tooltipText]="'billing2.balance.tooltips.pending' | translate"
+                balanceType="pending"
+                [balance]="(balance$ | async)?.pending_balance"
+            ></app-affiliate-billing-balance-block>
+
+            <ng-container [ngTemplateOutlet]="arrowRightBig"></ng-container>
+        </ng-container>
+
+        <app-affiliate-billing-balance-block
+            [title]="'billing2.balance.approved' | translate"
+            [tooltipText]="'billing2.balance.tooltips.approved' | translate"
+            balanceType="approved"
+            [balance]="(balance$ | async)?.approved_balance"
+        ></app-affiliate-billing-balance-block>
+
+        <ng-container [ngTemplateOutlet]="arrowRightBig"></ng-container>
+
+        <app-affiliate-billing-balance-block
+            [title]="'billing2.balance.due' | translate"
+            [tooltipText]="'billing2.balance.tooltips.due' | translate"
+            balanceType="date"
+            [balance]="(balance$ | async)?.balance_due"
+        ></app-affiliate-billing-balance-block>
+    </div>
+
+
+    <div class="m-l-26 affiliate-billing-balance__available-and-by-currency-balance">
+        <app-affiliate-billing-available-advance
+            *ngIf="(balance$ | async)?.available_advance > 0"
+            [availableAdvance]="(balance$ | async)?.available_advance"
+        ></app-affiliate-billing-available-advance>
+
+        <app-affiliate-billing-balance-due-by-currency
+            *ngIf="showBalanceDueByCurrency$ | async"
+            [balances]="(balance$ | async)?.balance_due_by_currencies"
+        ></app-affiliate-billing-balance-due-by-currency>
+    </div>
+</div>
+
+<ng-template #arrowRightBig>
+    <div class="affiliate-billing-balance__arrow"></div>
+</ng-template>

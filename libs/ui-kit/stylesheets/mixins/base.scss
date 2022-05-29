@@ -1,0 +1,129 @@
+@mixin borderRadius($property) {
+    border-radius: $property;
+    -moz-border-radius: $property;
+    -webkit-border-radius: $property;
+}
+
+@mixin typography-sizes {
+    &.is-1 {
+        font-size: $font-size-big;
+    }
+
+    &.is-2 {
+        font-size: $font-size-x-large;
+    }
+
+    &.is-3 {
+        font-size: $font-size-large;
+    }
+
+    &.is-4 {
+        font-size: $font-size-x-medium;
+    }
+
+    &.is-5 {
+        font-size: $font-size-medium;
+    }
+
+    &.is-6 {
+        font-size: $font-size-base;
+    }
+
+    &.is-7 {
+        font-size: $font-size-small;
+    }
+
+    &.is-8 {
+        font-size: $font-size-x-small;
+    }
+}
+
+@mixin font-family-normal {
+    font-family: ProximaNova-Regular, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font-family-medium {
+    font-family: ProximaNova-Medium, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font-family-bold {
+    font-family: ProximaNova-Semibold, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font-family-monaco {
+    font-family: monaco, monospace;
+}
+
+@mixin page-wrapper-header-sizes {
+    &.is-1 {
+        height: 4rem;
+    }
+
+    &.is-2 {
+        height: 3.75rem;
+    }
+
+    &.is-3 {
+        height: 3.5rem;
+    }
+
+    &.is-4 {
+        height: 2.5rem;
+    }
+}
+
+@mixin page-wrapper-footer-sizes {
+    &.is-1 {
+        height: 60px;
+    }
+
+    &.is-2 {
+        height: 56px;
+    }
+
+    &.is-3 {
+        height: 40px;
+    }
+}
+
+@mixin line-height-sizes {
+    &.is-14 {
+        line-height: 0.875rem;
+    }
+
+    &.is-16 {
+        line-height: 1rem;
+    }
+
+    &.is-17 {
+        line-height: 1.0625rem
+    }
+
+    &.is-18 {
+        line-height: 1.125rem;
+    }
+
+    &.is-19{
+        line-height: 1.1875rem;
+    }
+
+    &.is-20 {
+        line-height: 1.25rem
+    }
+
+    &.is-23 {
+        line-height: 1.43rem;
+    }
+}
+
+@mixin containerShadow($directions, $shadow) {
+    background: linear-gradient($directions, $shadow);
+}
+
+

@@ -1,0 +1,287 @@
+<ng-container *ngIf="affiliateData$ | async as affiliateData; else skeleton">
+    <ui-page-wrapper borderRadius="4" id="profile" *ngIf="affiliateData?.id">
+        <ui-page-wrapper-header className="p-x-20 py-3" [haveBorderBottom]="canAccessAffiliates$ | async">
+            <ng-container *ngIf="canAccessAffiliates$ | async; else declineTpl">
+                <ng-template
+                    [ngTemplateOutlet]="accessHeaderTpl"
+                    [ngTemplateOutletContext]="{
+                        image: affiliateData.image,
+                        name: affiliateData.company_name,
+                        status: affiliateData.status
+                    }"
+                ></ng-template>
+            </ng-container>
+            <ng-template #declineTpl>
+                <ng-template
+                    [ngTemplateOutlet]="declineHeaderTpl"
+                    [ngTemplateOutletContext]="{
+                        id: affiliateData.id
+                    }"
+                ></ng-template>
+            </ng-template>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content *ngxPermissionsOnly="permissions.canAccessAffiliates" className="px-0 pt-3 p-b-30">
+            <div class="container">
+                <div class="p-x-20 m-b-30">
+                    <app-affiliate-detail-quick-links
+                        [id]="affiliateData?.id"
+                        [email]="affiliateData?.email"
+                        [status]="affiliateData?.status"
+                    ></app-affiliate-detail-quick-links>
+
+                    <app-detail-info>
+                        <app-detail-info-title class="m-b-10">{{ 'interface.subtitle.contacts' | translate }}</app-detail-info-title>
+
+                        <app-detail-info-row>
+                            <app-detail-info-col class="col-5 color__gray2">{{ 'full_name' | translate }}:</app-detail-info-col>
+                            <app-detail-info-col>{{ affiliateData.firstname }} {{ affiliateData.lastname }}</app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <app-detail-info-row>
+                            <app-detail-info-col class="col-5 color__gray2">{{ 'email' | translate }}:</app-detail-info-col>
+                            <app-detail-info-col>
+                                <app-custom-info className="view-email">
+                                    <ui-svg-icon
+                                        info-label
+                                        [size]="16"
+                                        icon="ic_mailroom"
+                                        tooltip="{{ 'shared.tooltip.email' | translate }}"
+                                    ></ui-svg-icon>
+
+                                    <div info-value class="my-auto">
+                                        <a class="color__gray fs-base" href="mailto:{{ affiliateData.email }}">{{ affiliateData.email }}</a>
+                                    </div>
+                                </app-custom-info>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <app-detail-info-row *ngIf="affiliateData.phone as phone">
+                            <app-detail-info-col class="col-5 color__gray2">{{ 'interface.form.phone' | translate }}:</app-detail-info-col>
+                            <app-detail-info-col>
+                                <ui-svg-icon
+                                    [size]="14"
+                                    class="m-r-8"
+                                    icon="call"
+                                    tooltip="{{ 'shared.tooltip.phone' | translate }}"
+                                ></ui-svg-icon>
+                                <a href="tel:{{ phone }}" class="color__black">{{ phone }}</a>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <shared-contacts-profile [contacts]="affiliateData.contacts"></shared-contacts-profile>
+
+                        <app-detail-info-row *ngIf="affiliateData?.fullAddress as fullAddress">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                {{ 'interface.subtitle.address' | translate }}:
+                            </app-detail-info-col>
+                            <app-detail-info-col>{{ fullAddress }}</app-detail-info-col>
+                        </app-detail-info-row>
+                    </app-detail-info>
+
+                    <app-custom-field-view
+                        [customFields]="affiliateData.custom_fields"
+                        [title]="'interface.subtitle.additional_information' | translate"
+                    ></app-custom-field-view>
+
+                    <app-detail-info class="m-t-20">
+                        <app-detail-info-title class="m-b-10">{{ 'interface.subtitle.administration' | translate }}:</app-detail-info-title>
+
+                        <app-detail-info-row *ngIf="affiliateData.tags_selected.length > 0">
+                            <app-detail-info-col class="col-5 color__gray2">{{ 'interface.form.tags' | translate }}:</app-detail-info-col>
+
+                            <app-detail-info-col>
+                                <app-tags-lists [tags]="affiliateData.tags_selected" [showAll]="true"></app-tags-lists>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <ng-container *ngIf="affiliateData.traffic_types_selected as traffic_types_selected">
+                            <app-detail-info-row *ngIf="traffic_types_selected.length > 0">
+                                <app-detail-info-col class="col-5 color__gray2">
+                                    {{ 'interface.form.traffic_type' | translate }}:
+                                </app-detail-info-col>
+                                <app-detail-info-col>
+                                    <app-tags-lists [tags]="affiliateData.traffic_types_selected" [showAll]="true"></app-tags-lists>
+                                </app-detail-info-col>
+                            </app-detail-info-row>
+                        </ng-container>
+
+                        <ng-container *ngIf="affiliateData.managers_assigned as managers_assigned">
+                            <app-detail-info-row *ngIf="managers_assigned.length > 0">
+                                <app-detail-info-col class="col-5 color__gray2">
+                                    {{ 'shared.dictionary.teammates' | translate }}:
+                                </app-detail-info-col>
+                                <app-detail-info-col>
+                                    <app-manager-list
+                                        [managers]="managers_assigned"
+                                        [showAll]="true"
+                                        className="manager-list--profile"
+                                    ></app-manager-list>
+                                </app-detail-info-col>
+                            </app-detail-info-row>
+                        </ng-container>
+
+                        <app-detail-info-row *ngIf="affiliateData.internal_notes as internal_notes">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                {{ 'interface.form.internal_information' | translate }}:
+                            </app-detail-info-col>
+                            <app-detail-info-col>{{ internal_notes }}</app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <app-detail-info-row>
+                            <app-detail-info-col class="col-5 color__gray2">
+                                {{ 'interface.basic.registration' | translate }}:
+                            </app-detail-info-col>
+                            <app-detail-info-col>
+                                <div>
+                                    <span>{{ affiliateData.created }}</span>
+                                    <div class="w-fit-content mt-1">
+                                        <app-report-field-insights-country
+                                            [data]="{
+                                                city: affiliateData.registration.city,
+                                                country: affiliateData.registration.country,
+                                                region: affiliateData.registration.region,
+                                                country_code: affiliateData.registration.country_code
+                                            }"
+                                        ></app-report-field-insights-country>
+                                    </div>
+                                </div>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <app-detail-info-row *ngIf="affiliateData.visited as visited">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                {{ 'interface.basic.sort.visited' | translate }}:
+                            </app-detail-info-col>
+                            <app-detail-info-col>
+                                <span>{{ visited }}</span>
+
+                                <div class="w-fit-content mt-1" *ngIf="affiliateData.visited_info as info">
+                                    <app-report-field-insights-country
+                                        [data]="{
+                                            city: info.city,
+                                            country: info.country,
+                                            region: info.region,
+                                            country_code: info.country_code
+                                        }"
+                                    ></app-report-field-insights-country>
+                                </div>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+
+                        <app-detail-info-row *ngIf="affiliateData.activity as activity">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                {{ 'interface.basic.sort.activity' | translate }}:
+                            </app-detail-info-col>
+                            <app-detail-info-col>{{ activity }}</app-detail-info-col>
+                        </app-detail-info-row>
+                    </app-detail-info>
+                </div>
+
+                <ng-container *ngxPermissionsOnly="permissions.canAccessAffiliateBilling">
+                    <ui-divider></ui-divider>
+
+                    <div class="p-x-20 mt-3 m-b-30">
+                        <scaleo-manager-affiliate-billing-preferences
+                            [id]="affiliateData.id"
+                            (changed)="billingPreferencesWasChanged()"
+                        ></scaleo-manager-affiliate-billing-preferences>
+                    </div>
+                </ng-container>
+
+                <ui-divider></ui-divider>
+
+                <div class="p-x-20 mt-3">
+                    <app-affiliate-detail-settings
+                        (changed)="affiliateSettingsWasChanged()"
+                        [data]="affiliateData"
+                    ></app-affiliate-detail-settings>
+                </div>
+            </div>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+</ng-container>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <ui-page-wrapper [borderRadius]="4">
+            <ui-page-wrapper-header className="p-x-20 pb-3 p-t-26">
+                <div class="w-100 d-flex flex-column flex-md-row">
+                    <ui-skeleton-image size="big" type="circle"></ui-skeleton-image>
+
+                    <div class="ml-4 w-100">
+                        <div class="d-flex m-t-15">
+                            <ui-skeleton-block height="medium" [width]="75"></ui-skeleton-block>
+
+                            <div class="d-flex ml-auto">
+                                <ui-skeleton-block height="medium" customWidth="65px" [width]="75"></ui-skeleton-block>
+
+                                <ui-skeleton-block className="ml-3" height="medium" customWidth="35px"></ui-skeleton-block>
+                            </div>
+                        </div>
+
+                        <ui-skeleton-block className="mt-3" [width]="25"></ui-skeleton-block>
+
+                        <ui-skeleton-block className="mt-3" [width]="25"></ui-skeleton-block>
+                    </div>
+                </div>
+            </ui-page-wrapper-header>
+            <ui-page-wrapper-content className="pl-3 pr-3">
+                <div class="w-100 px-3" *ngFor="let fake of [1, 2]">
+                    <app-detail-info class="m-t-25">
+                        <app-detail-info-title class="m-b-8">
+                            <ui-skeleton-block className="mt-3" customHeight="20px" [width]="25"></ui-skeleton-block>
+                        </app-detail-info-title>
+
+                        <app-detail-info-row *ngFor="let fake of [1, 2, 3, 4]">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                <ui-skeleton-block [width]="25"></ui-skeleton-block>
+                            </app-detail-info-col>
+                            <app-detail-info-col>
+                                <ui-skeleton-block [width]="25"></ui-skeleton-block>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+                    </app-detail-info>
+                </div>
+            </ui-page-wrapper-content>
+        </ui-page-wrapper>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #accessHeaderTpl let-image="image" let-name="name" let-status="status">
+    <div class="w-100 d-flex flex-column flex-md-row">
+        <div class="d-flex">
+            <ui-image [image]="image" [width]="80" [height]="80"></ui-image>
+
+            <div class="ml-3 d-flex flex-column align-items-start">
+                <span class="font-family-medium font-size is-4 line-height is-19 m-b-13 m-t-6">
+                    {{ name }}
+                </span>
+
+                <app-status-dot-color [status]="status" [showLabel]="true" type="statuses"></app-status-dot-color>
+            </div>
+        </div>
+
+        <ui-button-link
+            *ngxPermissionsOnly="permissions.canAddEditDeleteAffiliates"
+            class="ml-auto"
+            type="floating"
+            (click)="editModal()"
+            [label]="'shared.dictionary.short_edit' | translate"
+        ></ui-button-link>
+    </div>
+</ng-template>
+
+<ng-template #declineHeaderTpl let-id="id">
+    <div class="w-100 d-flex flex-column flex-md-row">
+        <div class="d-flex">
+            <ui-image [image]="null | defaultImage: 'affiliate'" [width]="80" [height]="80"></ui-image>
+
+            <div class="ml-3 d-flex flex-column align-items-start">
+                <span class="font-family-medium font-size is-4 line-height is-19 m-b-13 m-t-6">
+                    {{ 'shared.managers.affiliate' | translate | format: 'idName':id }}
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-template>

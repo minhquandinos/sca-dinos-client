@@ -1,0 +1,7 @@
+<span
+    *ngIf="(field?.value || field?.value === 0) && key"
+    appWordWrapStringLength [string]="field?.value" [limit]="50"
+    appColorFieldByKeyValue [options]="{key: key, value: field?.value}"
+>
+   {{ defaultField$ | async }}
+</span>

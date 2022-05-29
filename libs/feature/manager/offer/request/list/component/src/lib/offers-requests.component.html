@@ -1,0 +1,136 @@
+<ui-table2
+    class="offers-requests-table"
+    [columns]="columns"
+    [items]="items$ | async"
+    [loading]="loading$ | async"
+    [sort]="true"
+    [defaultSortDirection]="defaultSortDirection$ | async"
+    [defaultSortField]="defaultSortField$ | async"
+    [showSelect]="true"
+    selectItemValue="id"
+    (selectAll)="selectAll($event)"
+    (sorting)="sort($event)"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+>
+    <ng-template uiTable2ColTemplate="affiliate" let-affiliate="value">
+        <app-hyperlink
+            [link]="{ link: '/affiliates/' + affiliate.id | navigateRoot, title: affiliate.title| format:'idName':affiliate.id }"
+            [permission]="permissions.canAccessAffiliates"
+        ></app-hyperlink>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="offer" let-offer="value">
+        <app-hyperlink
+            [link]="{ link: '/offers/' + offer.id | navigateRoot, title: offer.title | format:'idName':offer.id }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+    </ng-template>
+
+
+    <ng-template uiTable2ColTemplate="status" let-status="value">
+        <span
+            [appStatus2Color]="status"
+            type="offer_request_statuses"
+            class="text-nowrap"
+        >
+            {{ status | statusLabel:'offer_request_statuses' | async }}
+        </span>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="questions" let-questions="value" let-item="valueRow">
+        <div class="d-flex align-items-center" *ngIf="questions && item?.answer">
+            <div class="d-none d-md-block" [innerHtml]="questions | truncateText:maxQuestionLength"></div>
+            <scaleo-manager-offer-request-modal-view-answer
+                [id]="item.id"
+                [status]="item.status"
+                [questions]="questions"
+                [answer]="item.answer"
+                (solved)="solvedRequest()"
+            >
+            </scaleo-manager-offer-request-modal-view-answer>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="date" let-date="value">
+        <span class="text-nowrap">
+            {{ date | format:'date':'fullDate' }}
+        </span>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="fraud" let-fraud="value">
+        {{ fraud | format:'percent' }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="requested_by">
+        <span class="text-nowrap">
+            {{ 'offers_requests_page.requested_by' | translate | lowercase }}
+        </span>
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <scaleo-manager-offer-request-control
+        *ngIf="item.status === offerRequestStatusEnum.Pending; else logTpl"
+        [id]="item.id"
+        (changed)="changeOfferRequest()"
+    ></scaleo-manager-offer-request-control>
+    <ng-template #logTpl>
+        <app-offer-request-log
+            *ngIf="item?.action"
+            [data]="item?.action"
+            [status]="item?.status"
+        ></app-offer-request-log>
+    </ng-template>
+</ng-template>
+
+<ng-template #filterContainer>
+    <ng-container *ngIf="showFilters$ | async; else rowsActionTpl">
+        <app-offers-requests-filters></app-offers-requests-filters>
+    </ng-container>
+    <ng-template #rowsActionTpl>
+        <div class="offers-requests-rows-actions d-flex align-items-center">
+            <div class="d-flex align-items-center">
+                <span class="color__white">
+                    {{ (selectedRows$ | async)?.length }} {{ 'interface.basic.selected' | translate }}
+                </span>
+
+                <ui-svg-icon
+                    aria-hidden="true"
+                    icon="remove-tag"
+                    [size]="24"
+                    className="report-conversions__close"
+                    (click)="clearSelected()"
+                >
+                </ui-svg-icon>
+            </div>
+
+            <ui-divider class="ml-2 mr-3" orientation="vertical" color="bg__gray2" height="24px"></ui-divider>
+
+            <ui-button-link
+                [label]="'interface.basic.approve' | translate"
+                type="outlined"
+                color="green"
+                (click)="solvedMultiSelected('allow')"
+            ></ui-button-link>
+
+            <ui-button-link
+                className="ml-2"
+                [label]="'interface.basic.reject' | translate"
+                type="outlined"
+                color="red"
+                (click)="solvedMultiSelected('deny')"
+            ></ui-button-link>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #footerContainer>
+    <app-custom-pagination
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+        *ngIf="showPagination$ | async"
+    ></app-custom-pagination>
+</ng-template>

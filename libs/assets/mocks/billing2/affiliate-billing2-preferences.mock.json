@@ -1,0 +1,26 @@
+{
+    "info": {
+        "billing-preferences": {
+            "invoice_type": {
+                "id": 1,
+                "title": "By Schedule"
+            },
+            "invoice_frequency": {
+                "id": 4,
+                "title": "Monthly Quarterly"
+            },
+            "invoice_days_of_the_month": 27,
+            "invoice_day_of_the_week": "tuesday",
+            "generate_invoice_automatically": 1,
+            "payment_terms": {
+                "id": 2,
+                "title": "Net 7"
+            },
+            "beneficiary_name": "Marvel LLC",
+            "beneficiary_address": "Orange ave 16th, Memo, US",
+            "billing_email": "billing@company.com",
+            "tax_id": "DE05646572184",
+            "vat": 20
+        }
+    }
+}

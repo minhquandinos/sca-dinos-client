@@ -1,0 +1,25 @@
+@import "libs/ui-kit/stylesheets/utils";
+:host {
+    display: block;
+    margin-left: 0;
+
+    .sidenav {
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+        .sidenav {
+            width: 12.5rem;
+        }
+    }
+
+    @include media-breakpoint-between(lg, xl) {
+        margin-left: 5rem;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        margin-left: 7.75rem;
+    }
+}
+
+

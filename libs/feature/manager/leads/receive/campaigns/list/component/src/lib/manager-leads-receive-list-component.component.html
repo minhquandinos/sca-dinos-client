@@ -1,0 +1,91 @@
+<ui-table2
+    [columns]="tableHeaders"
+    [items]="items$ | async"
+    [loading]="loading$ | async"
+    [stickyHead]="true"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    class="table-receive-leads-campaigns"
+>
+    <ng-template uiTable2ColTemplate="title" let-item="valueRow">
+        <div class="table__box-status m-r-12 d-flex align-items-center">
+            <ui-status-color [status]="item.status" className="table__box-image-status"></ui-status-color>
+        </div>
+        <div class="w-100 d-flex flex-column m-l-8 h-100 justify-content-center">
+            {{ item.title }}
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="offer" let-offer="value">
+        <app-hyperlink
+            valueClassName="font-size is-6 color__blue3 line-height is-16"
+            [link]="{
+                link: '/offers/' + offer.id | navigateRoot,
+                title: offer.title | format: 'idName': offer.id
+            }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="goal" let-goal="value" let-item="valueRow">
+        <app-hyperlink
+            valueClassName="font-size is-6 color__blue3 line-height is-16"
+            [link]="{
+                link: '/offers/' + item.offer.id | navigateRoot,
+                title:  goal.goal_name | format: 'idName': goal.goal_id
+            }"
+            [permission]="permissions.canAccessOffers"
+        ></app-hyperlink>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="payout" let-item="valueRow">
+        <app-goals-list
+            [goals]="[item.goal]"
+            [currency]="item.currency"
+        ></app-goals-list>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="fields" let-fields="value">
+        {{ fields.required_fields_count }}* + {{ fields.optional_fields_count }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="validations" let-validations="value">
+        {{ validations }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="notes" let-notes="value">
+        {{ notes }}
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <div class="ml-auto">
+        <ui-table-navigation (toggleEdit)="upsert(item.id)"></ui-table-navigation>
+    </div>
+</ng-template>
+
+<ng-template #createTemplate>
+    <ui-button-link
+        type="floating"
+        [label]="'leads_ui_page.receive.campaigns.add' | translate"
+        icon="plus-small"
+        (toggle)="upsert()"
+    ></ui-button-link>
+</ng-template>
+
+<ng-template #footerTemplate>
+    <app-custom-pagination
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+        *ngIf="!(loading$ | async) && (totalCount$ | async) > 9"
+    ></app-custom-pagination>
+</ng-template>
+
+<ng-template #filterTemplate>
+    <app-campaigns-filters
+        [params]="params$ | async"
+        [totals]="totalCount$ | async"
+    ></app-campaigns-filters>
+</ng-template>

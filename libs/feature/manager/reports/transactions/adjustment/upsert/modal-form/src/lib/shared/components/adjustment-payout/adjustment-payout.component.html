@@ -1,0 +1,43 @@
+<ng-container formGroupName="details">
+    <div class="form-row" >
+        <div class="form-group col-md-6">
+            <app-find-offer
+                itemLabel="title"
+                [label]="'shared.dictionary.offer' | translate"
+                formName="offer"
+                (toggle)="selectedOffer($event)"
+            ></app-find-offer>
+        </div>
+        <div class="form-group col-md-6">
+            <app-find-goals
+                [label]="'shared.dictionary.goal' | translate"
+                itemLabel="title"
+                formName="goal"
+                [offerId]="selectedOfferId"
+                [titleZeroItem]="'all_goals'"
+                (toggle)="changeGoal($event)"
+            ></app-find-goals>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6" formGroupName="new_revenue">
+            <app-input
+                [inputText]="revenuePayoutInputText"
+                inputTextPosition="left"
+                numeric="float"
+                [label]="'reports_page.adjustments.detail.new_revenue' | translate"
+                formControlName="value"
+            ></app-input>
+        </div>
+        <div class="form-group col-md-6" formGroupName="new_payout">
+            <app-input
+                [inputText]="revenuePayoutInputText"
+                inputTextPosition="left"
+                numeric="float"
+                [label]="'reports_page.adjustments.detail.new_payout' | translate"
+                formControlName="value"
+            ></app-input>
+        </div>
+    </div>
+</ng-container>

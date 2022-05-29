@@ -1,0 +1,24 @@
+<span
+    *ngIf="column?.value"
+    class="table2__column d-inline-flex align-items-center"
+    [ngClass]="{
+        'table2__column-sort': showSort && sortDisplay$ | async,
+        'table2__column-sorted':showSort && (column?.sortValue || column?.value) === (sort$ | async)?.current?.field
+    }"
+    (click)="sortHandler()"
+>
+    {{ column | uiTable2ColumnTranslate | async }}
+    <ui-table2-sort
+        *ngIf="showSort && sortDisplay$ | async"
+        [value]="column?.sortValue || column?.value"
+    ></ui-table2-sort>
+</span>
+
+<span class="table2__column-info-tooltip d-flex align-items-center" *ngIf="column | uiTable2ColumnShowTooltip:'info'">
+    <ui-svg-icon
+        [uiTooltip]="(column | uiTable2ColumnTooltipTpl) ? column?.tooltipTpl : (column?.tooltipTranslate  | translate)"
+        [size]="16"
+        className="mr-1"
+        icon="info-4"
+    ></ui-svg-icon>
+</span>

@@ -1,0 +1,47 @@
+<app-quick-links class="m-b-30">
+    <app-quick-link
+        *ngIf="status | isTruthy: baseStatusIdEnum.Active"
+        [icon]="quickLinksIconEnum.LoginAs"
+        [label]="'affiliate.profile.login' | translate"
+        [link]="loginAs()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessReports"
+        [icon]="quickLinksIconEnum.Reports"
+        [label]="'main_navigation.reports' | translate"
+        [link]="linkToReports()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessClicks"
+        [icon]="quickLinksIconEnum.Clicks"
+        [label]="'quick_links.buttons.clicks' | translate"
+        [link]="linkToClicks()"
+    ></app-quick-link>
+
+    <app-quick-link
+        *ngxPermissionsOnly="permissions.canAccessConversions"
+        [icon]="quickLinksIconEnum.Conversions"
+        [label]="'quick_links.buttons.conversions' | translate"
+        [link]="linkToConversions()"
+    ></app-quick-link>
+
+    <ng-container *ngIf="showLinkToBilling$ | async; else linkToAffiliate">
+        <app-quick-link
+            *ngxPermissionsOnly="permissions.canAccessAffiliateBilling"
+            [icon]="quickLinksIconEnum.Billing"
+            [label]="'main_navigation.billing' | translate"
+            [link]="toBilling()"
+        ></app-quick-link>
+    </ng-container>
+
+    <ng-template #linkToAffiliate>
+        <app-quick-link
+            *ngxPermissionsOnly="permissions.canAccessAffiliates"
+            [icon]="quickLinksIconEnum.Affiliate"
+            [label]="'table.column.affiliate' | translate"
+            [link]="toAffiliate()"
+        ></app-quick-link>
+    </ng-template>
+</app-quick-links>

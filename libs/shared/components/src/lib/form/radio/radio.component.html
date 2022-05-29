@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center radio">
+    <div class="radio__wrapper">
+        <div class="mdc-radio mdc-radio--touch radio__touch">
+            <input
+                type="radio"
+                [name]="formControlName"
+                [checked]="inputValue === value"
+                [id]="id"
+                [value]="inputValue"
+                (change)="checked(inputValue)"
+                (click)="onClick(inputValue)"
+                [disabled]="disabled"
+            >
+
+            <div class="radio__background">
+                <div class="mdc-radio__outer-circle radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle radio__inner-circle"></div>
+            </div>
+        </div>
+    </div>
+    <label [for]="id" class="radio__title d-flex align-items-end" *ngIf="label">
+        <span>{{ label }}</span>
+        <app-custom-info-tooltip
+            *ngIf="tooltipText"
+            [text]="tooltipText"
+        ></app-custom-info-tooltip>
+    </label>
+</div>
+
+<app-validation-message2 *ngIf="control && control?.invalid && control?.touched" [validation]="control?.errors"></app-validation-message2>

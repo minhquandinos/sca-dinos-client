@@ -1,0 +1,115 @@
+{
+    "billing": "Faturalandırma",
+    "referrals": "Davetliler",
+    "tools": "Araçlar",
+    "delete": {
+        "delete_confirm_title": "Emin misiniz?",
+        "delete_confirm_text": "Bu öğe silinecektir."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Öne çıkan"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Uygun"
+    },
+    "quick_links": {
+        "title": "Hızlı Bağlantılar"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Geri göndermeler",
+            "add": "Geri Gönderme Ekle",
+            "created": "Geri Gönderme başarıyla eklendi",
+            "edit": "Geri Göndermeyi Düzenle",
+            "deleted": "Geri Gönderme başarıyla silindi",
+            "add_as_title": "Geri Gönderme Ekle",
+            "global": "Küresel",
+            "offer": "Teklif",
+            "list_postback": "Geri gönderme",
+            "list_html": "HTML Pixel (Çerez tabanlı)",
+            "list_table_postback": "Geri gönderme",
+            "list_table_html": "HTML Pixel (Çerez tabanlı)",
+            "all_postbacks": "Tüm Geri Göndermeler",
+            "global_postbacks": "Küresel Geri Göndermeler",
+            "goal": "hedef",
+            "description": {
+                "level_global_for_affiliate": "Küresel: Tüm teklifler için geri gönderme tetiklenir (CPC türü hariç tüm hedefler).",
+                "level_offer_for_affiliate": "Teklif: Geri gönderme yalnızca seçilen teklif için çalıştırılır. Hedef belirtilmezse o teklifin tüm hedefleri için yapılacaktır.",
+                "conversion_status_for_affiliate": "Geri gönderme yalnızca bu dönüşüm durumu için tetiklenir.",
+                "method_for_affiliate": "Geri gönderme türü sisteminiz tarafından desteklenir."
+            }
+        },
+        "source": {
+            "title": "Kaynaklar",
+            "add": "Kaynak Ekle"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Mevcut Makrolar",
+        "offer_id": "Teklifin platformdaki kimliği",
+        "affiliate_id": "Teklifi tanıtan Ortak kimliği.",
+        "sub_id1": "İzleme bağlantısında belirtilen Ortak Alt kimliği 1.",
+        "sub_id2": "İzleme bağlantısında belirtilen Ortak Alt kimliği 2.",
+        "sub_id3": "İzleme bağlantısında belirtilen Ortak Alt kimliği 3.",
+        "sub_id4": "İzleme bağlantısında belirtilen Ortak Alt kimliği 4.",
+        "sub_id5": "İzleme bağlantısında belirtilen Ortak Alt kimliği 5.",
+        "click_id": "Platformdaki her tıklama için oluşturulan ve atanan benzersiz 32 karakter alfanümerik dize",
+        "link_id": "İzleme bağlantısında belirtilen ek bağlantı sunun.",
+        "source_id": "İzleme bağlantısında belirtilen Ortak Kaynak kimliği.",
+        "aff_param1": "İzleme bağlantısında belirtilen Ortak ek parametre 1.",
+        "aff_param2": "İzleme bağlantısında belirtilen Ortak ek parametre 2.",
+        "aff_param3": "İzleme bağlantısında belirtilen Ortak ek parametre 3.",
+        "aff_param4": "İzleme bağlantısında belirtilen Ortak ek parametre 4.",
+        "aff_param5": "İzleme bağlantısında belirtilen Ortak ek parametre 5.",
+        "adv_param1": "Reklam Verenin ek parametresi 1, dönüşüm sonrasında belirtilir.",
+        "adv_param2": "Reklam Verenin ek parametresi 2, dönüşüm sonrasında belirtilir.",
+        "adv_param3": "Reklam Verenin ek parametresi 3, dönüşüm sonrasında belirtilir.",
+        "adv_param4": "Reklam Verenin ek parametresi 4, dönüşüm sonrasında belirtilir.",
+        "adv_param5": "Reklam Verenin ek parametresi 5, dönüşüm sonrasında belirtilir.",
+        "amount": "Reklam Veren tarafında satış miktarı.",
+        "conv_status": "Dönüşüm durumu (onaylanmış / bekleyen / reddedildi).",
+        "offer_name": "Teklifin platformdaki adı.",
+        "creative_id": "Kullanılan Teklik Yaratıcı Kimliği.",
+        "aff_click_id": "Ortak Tıklama Kimliği. Ortaktan gönderilen her tıklama için benzersiz kimlik.",
+        "deep_link": "Ortak Kaynak Kimliği izleme bağlantısında belirtilmiş.",
+        "goal_id": "Teklifin platformdaki amacı.",
+        "adv_order_id": "Dönüşüm sonrasında Reklam Verenin belirtilen sipariş kimliği.",
+        "adv_user_id": "Dönüşüm sonrasında belirtilen Reklam Verenin kullanıcı kimliği.",
+        "offer_currency": "Seçilen teklifin para birimi.",
+        "transaction_id": "İşlem kimliği. Platformdaki her işlem için benzersiz kimlik.",
+        "track_id": "Dönüşüm sonrasında belirtilen Reklam Verenden daha fazla bilgi.",
+        "payout": "Orağın ödemesinin değeri",
+        "ip": "Tıklama oturumunu başlatan IP adresi.",
+        "user_agent": "Tıklama sırasında belirlenen kullanıcının aracı dizesi.",
+        "device_type": "Tıklama sırasında belirlenen kullanıcının aygıt dizesi.",
+        "device_os": "Tıklama sırasında belirlenen kullanıcının işletim sistemi.",
+        "connection_type": "Tıklama sırasında belirlenen kullanıcının bağlantı türü.",
+        "mobile_operator": "Tıklama sırasında belirlenen kullanıcının mobil operatörü.",
+        "geo_country_code": "Tıklama sırasında belirlenen kullanıcının ülke kodu.",
+        "geo_country": "Tıklama sırasında belirlenen kullanıcının ülkesi.",
+        "geo_region": "Tıklama sırasında belirlenen kullanıcının bölgesi.",
+        "geo_city": "Tıklama sırasında belirlenen kullanıcının şehri.",
+        "idfa": "Apple iOS Reklam Kimliği (IDFA).",
+        "gaid": "Google Android Reklam Kimliği (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Yeni ortakları davet edin ve o ortaklardan her ay bir {{ commission }} komisyon alın.",
+        "commission_info_for_flat": "Yeni ortakları davet edin ve davet edilen her iş ortağı için bir kerelik {{ commission }} komisyon alın.",
+        "referrals_title": "Davetliler",
+        "link": "Kişisel Davet Bağlantınız:",
+        "you_referrals_title": "Davet Ettikleriniz",
+        "form": {
+            "referral_commission": "Davet Komisyonu"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Sizin için bir API'ı etkinleştirmesi için yöneticinizle görüşün."
+        }
+    }
+}

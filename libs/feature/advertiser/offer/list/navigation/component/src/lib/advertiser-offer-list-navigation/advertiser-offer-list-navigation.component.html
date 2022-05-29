@@ -1,0 +1,11 @@
+<ui-tab-nav-bar>
+    <a ui-tab-nav-link routerLink="all" routerLinkActive="active">
+        {{ 'offers_page.navigation.all' | translate }}
+        <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: total$ | async }"></ng-template>
+    </a>
+
+</ui-tab-nav-bar>
+
+<ng-template #countTpl let-count>
+    <span class="m-l-6 color__gray3 font-family-normal">{{ count | format:'number' }}</span>
+</ng-template>

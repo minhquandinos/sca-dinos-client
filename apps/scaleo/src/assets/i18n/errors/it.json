@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Pagina non trovata o vietata",
+            "text": "Il link cliccato potrebbe essere rotto o la pagina potrebbe essere stata rimossa o vietata."
+        },
+        "page_not_found": {
+            "title": "Pagina non trovata o vietata",
+            "text": "Il link cliccato potrebbe essere rotto o la pagina potrebbe essere stata rimossa o vietata."
+        },
+        "connection_lost": {
+            "title": "Connessione persa",
+            "text": "Attendi qualche minuto prima di riprovare.",
+            "try_again": "Riprova"
+        }
+    }
+}

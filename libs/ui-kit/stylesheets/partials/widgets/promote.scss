@@ -1,0 +1,59 @@
+.custom-dashboard-widget-offer_promote-control {
+    position: relative;
+    &__icon {
+        fill: $color__gray4;
+    }
+
+    &__actions {
+        display: flex;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.03);
+        border-radius: 4px;
+        background: #fff;
+        top: 50%;
+        position: absolute;
+        right: 0;
+        transform: translateY(-50%);
+        transition: opacity 100ms ease-in-out;
+    }
+
+    &__action-divider {
+        position: relative;
+        margin: 0 0 0 0.25rem;
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            height: 50%;
+            background: $color__light-gray9;
+            width: 1px;
+            transform: translateY(50%);
+        }
+    }
+
+    &__action {
+        .custom-icon {
+            margin-left: .5rem;
+        }
+    }
+}
+
+.custom-dashboard-widget-offer_promote {
+
+    $self: &;
+
+    &-table {
+        tr {
+            &:hover {
+                #{$self}-control__actions {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+
+}

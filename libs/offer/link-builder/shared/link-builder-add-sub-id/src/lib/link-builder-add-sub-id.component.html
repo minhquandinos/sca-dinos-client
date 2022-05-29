@@ -1,0 +1,21 @@
+<form formArrayName="sub_ids">
+    <div class="m-b-16" *ngFor="let item of subIdArray.controls; let i = index">
+        <ng-container [formArrayName]="i">
+            <app-input
+                [label]="(translateSchema + arrayParams[i]) | translate"
+                formControlName="value"
+            ></app-input>
+        </ng-container>
+    </div>
+</form>
+
+<div>
+    <ui-button-link
+        *ngIf="subIdArray.controls.length < 10"
+        type="simple"
+        [label]="'offers_page.tracking.form.link_builder.add_more' | translate"
+        icon="plus-small"
+        (click)="add()"
+    ></ui-button-link>
+</div>
+

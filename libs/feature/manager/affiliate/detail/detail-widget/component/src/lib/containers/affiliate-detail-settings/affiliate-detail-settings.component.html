@@ -1,0 +1,75 @@
+<app-detail-info>
+    <app-detail-info-header class="m-b-14">
+        <span class="title is-4 line-height is-19">{{ 'main_navigation.settings' | translate }}</span>
+
+        <ui-button-link
+            *ngxPermissionsOnly="permissions.canAddEditDeleteAffiliates"
+            class="ml-auto"
+            type="floating"
+            [label]="'shared.dictionary.short_edit' | translate"
+            (click)="editSettings()"
+        ></ui-button-link>
+    </app-detail-info-header>
+
+    <app-detail-info-row>
+        <app-detail-info-col class="col-5 color__gray2">{{ 'interface.basic.api_access' | translate }}:</app-detail-info-col>
+        <app-detail-info-col>
+            <ng-container *ngIf="affiliateData.api_status | isTruthy: booleanEnum.True; else disabledTpl">
+                <span class="color__green">
+                    {{ 'interface.basic.enabled' | translate }}
+                </span>
+            </ng-container>
+
+            <ng-template #disabledTpl>
+                  <span class="color__red">
+                    {{ 'interface.basic.disabled' | translate }}
+                </span>
+            </ng-template>
+        </app-detail-info-col>
+    </app-detail-info-row>
+
+    <app-detail-info-row *ngIf="affiliateData.api_status | isTruthy: booleanEnum.True" class="flex-nowrap">
+        <app-detail-info-col class="col-5 color__gray2">{{ 'interface.basic.api_key' | translate }}:</app-detail-info-col>
+        <app-detail-info-col class="d-flex flex-column overflow-hidden">
+            <div class="d-flex flex-column w-100">
+                <app-field-text-info
+                    preset="copy"
+                    [callbackMessageSchema]="'notifications.copy_api' | translate"
+                    className="py-0"
+                >
+                    <div class="overflow-hidden truncate-text">{{ affiliateData.api_key }}</div>
+                </app-field-text-info>
+                <a class="color__color__cyan m-t-12 line-height is-17" [href]="apiLink" target="_blank">
+                    {{ 'interface.basic.api_documentation_guide' | translate }}
+                </a>
+            </div>
+        </app-detail-info-col>
+    </app-detail-info-row>
+
+    <app-detail-info-row class="flex-nowrap" *ngIf="affiliateData.referred_by && showReferralProgram">
+        <app-detail-info-col class="col-5 color__gray2">{{ 'referrals_page.form.referred_by' | translate }}:</app-detail-info-col>
+        <app-detail-info-col>
+            <div class="d-flex flex-column">
+                <app-hyperlink
+                    class="m-b-12"
+                    *ngIf="affiliateData.referral_sponsor_info as sponsor"
+                    [link]="{
+                    link: 'affiliates/' + sponsor.referral_sponsor_id | navigateRoot,
+                    title: sponsor.referral_sponsor_id + ' ' + sponsor.referral_sponsor_name | format:'idName'
+                }"
+                    [permission]="affiliateData?.available_sponsor"
+                ></app-hyperlink>
+
+                <span class="line-height is-17">
+                    <ng-container *ngIf="showReferralCommission; else flatReferralTypeTpl">
+                        {{ commissionFrom$ | async }}
+                    </ng-container>
+
+                    <ng-template #flatReferralTypeTpl>
+                        {{ affiliateData.referral_commission | format: 'money' : {currency: referralCommissionsCurrency} }}
+                    </ng-template>
+                </span>
+            </div>
+        </app-detail-info-col>
+    </app-detail-info-row>
+</app-detail-info>

@@ -1,0 +1,469 @@
+{
+    "your_manager": "Account Manager",
+    "firstname": "Họ",
+    "lastname": "Tên",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "password_confirmation": "Xác nhận mật khẩu",
+    "statuses": {
+        "status": "Trạng thái",
+        "active": "Hoạt động",
+        "inactive": "Không hoạt động",
+        "pending": "Pending",
+        "rejected": "Từ chối",
+        "testing": "testing",
+        "approved": "Được duyệt",
+        "all": "Tất cả"
+    },
+    "user_profile": {
+        "edited_notification": "Hồ sơ của bạn đã được cập nhật thành công"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Lọc",
+            "results": "Các kết quả",
+            "filtered_by": "Lọc theo",
+            "preview": "Xem trước",
+            "close": "Đóng",
+            "clear": "Xoá",
+            "today": "Hôm nay",
+            "yesterday": "Hôm qua",
+            "filters": {
+                "country": "Quốc gia",
+                "tag": "Tag",
+                "goals_types": "Loại mục tiêu",
+                "no_data_found": "Không tìm thấy dữ liệu"
+            },
+            "search": "Tìm kiếm",
+            "not_found": "Không tìm thấy dữ liệu.",
+            "api_key": "API Key",
+            "api_access": "API Access",
+            "columns": "Cột",
+            "breakdown_by": "Breakdown by",
+            "breakdown": "Breakdown",
+            "copy": "Sao chép",
+            "expand": "Mở rộng",
+            "hide": "Ẩn",
+            "link_copy": "Đã copy link",
+            "choose_image": "Chọn hình ảnh",
+            "total": "Total:",
+            "adblock": "Trình chặn quảng cáo được bật có thể ảnh hưởng đến một số tính năng hệ thống",
+            "refresh": {
+                "button": "Refresh",
+                "new_version": "Phiên bản mới được cập nhật.",
+                "latest_version": "Hãy refresh để chuyển sang phiên bản mới."
+            },
+            "undefined": "Không xác định",
+            "learn_more": "Xem thêm",
+            "view_all": "xem tất cả",
+            "view_all_count": "xem tất cả ({{ count }})",
+            "allowed": "Được phép",
+            "denied": "Từ chối"
+        },
+        "header": {
+            "help": "Trợ giúp",
+            "profile": "Hồ sơ",
+            "account": "Tài khoản của tôi",
+            "language": "Ngôn ngữ",
+            "logout": "Đăng xuất"
+        },
+        "form": {
+            "tags": "Tags",
+            "tag": "Tag",
+            "country": "Quốc gia",
+            "traffic_type": "Loại traffic",
+            "timezone": "Múi giờ",
+            "currency": "Tiền tệ",
+            "contact_type": "Loại liên lạc",
+            "contact_name": "Tên liên hệ",
+            "phone": "Số điện thoại",
+            "street": "Đường",
+            "city": "Thành phố",
+            "region": "Khu vực",
+            "postcode": "Mã bưu điện",
+            "payment_details": "Chi tiết thanh toán",
+            "date_format": "Định dạng ngày tháng",
+            "number_format": "Định dạng số",
+            "featured": "Đặc biệt",
+            "description": "Mô tả",
+            "internal_information": "Thông tin nội bộ",
+            "expires": "Ngày hết hạn"
+        },
+        "date": {
+            "basic": {
+                "from": "Từ",
+                "to": "Đến"
+            },
+            "days": {
+                "su": "CN",
+                "mo": "T2",
+                "tu": "T3",
+                "we": "T4",
+                "th": "T5",
+                "fr": "T6",
+                "sa": "T7"
+            },
+            "month": {
+                "january": "Tháng Một",
+                "february": "Tháng Hai",
+                "march": "Tháng Ba",
+                "april": "Tháng Tư",
+                "may": "Tháng Năm",
+                "june": "Tháng Sáu",
+                "july": "Tháng Bảy",
+                "august": "Tháng Tám",
+                "september": "Tháng Chín",
+                "october": "Tháng Mười",
+                "november": "Tháng mười một",
+                "december": "Tháng mười hai"
+            },
+            "ranges": {
+                "today": "hôm nay",
+                "yesterday": "hôm qua",
+                "last7Days": "7 ngày trước",
+                "last14Days": "14 ngày trước",
+                "last30Days": "30 ngày trước",
+                "last90Days": "90 ngày trước",
+                "thisMonth": "tháng này",
+                "custom": "Tuỳ chỉnh",
+                "lastMonth": "tháng trước",
+                "thisYear": "năm nay"
+            },
+            "based_on": "Based on ",
+            "time_zone": " múi giờ"
+        },
+        "subtitle": {
+            "access_credentials": "Access Credentials",
+            "contacts": "Liên hệ",
+            "address": "Địa chỉ",
+            "financial_information": "Thông tin tài chính",
+            "additional_information": "Thông tin bổ sung",
+            "preferences": "Tuỳ chọn"
+        },
+        "export_file": {
+            "title": "Export as",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Lỗi khi tạo tệp, hãy thử trễ"
+        },
+        "pagination": {
+            "per_page": "Show"
+        },
+        "table_columns_config": {
+            "cv_approved": "Chuyển đổi được duyệt ",
+            "cv_pending": "Chuyển đổi đang chờ xử lí",
+            "cv_rejected": "Chuyển đổi bị từ chối",
+            "cv_total": "Tổng Chuyển đổi ",
+            "clicks": "Tổng",
+            "impressions": "Số lượng",
+            "cv_trash": "Số lượng"
+        },
+        "validation": {
+            "password_repeat": "Mật khẩu không khớp",
+            "email_already_taken": "Email đã được sử dụng",
+            "required": "Thông tin bắt buộc",
+            "email": "Email Không hợp lệ",
+            "min_length_password": "Mật khẩu phải có ít nhất 8 ký tự",
+            "max": "Số lượng vượt quá số lượng cho phép",
+            "incorrect_amount": "Số lượng không chính xác"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "số liệu",
+            "conversions": "chuyển đổi",
+            "clicks": "nhấn chọn"
+        }
+    },
+    "auth": {
+        "forgot_password": "Quên mật khẩu?"
+    },
+    "password_change": {
+        "button": "Thay đổi mật khẩu",
+        "not_change": "Không thay đổi"
+    },
+    "password_reset": {
+        "title": "Đặt lại mật khẩu",
+        "text": "Để đặt lại mật khẩu, hãy nhập vào email bạn đã dùng để đăng nhập",
+        "button": "Lấy liên kết đặt lại mật khẩu",
+        "return_to_login": "Quay lại trang đăng nhập"
+    },
+    "password_reset_confirm": {
+        "title": "Xác nhận",
+        "text": "Kiểm tra hòm thư của bạn, Chúng tôi vừa gửi hướng dẫn đặt lại mật khẩu cho bạn",
+        "link": "Quay lại trang đăng nhập"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Thêm liên hệ",
+            "description": {
+                "payment_details": "Ví dụ: chi tiết tài khoản ngân hàng, số thẻ, ID PayPal, v.v."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "hàng ngày",
+        "weekly": "hàng tuần",
+        "monthly": "hàng tháng",
+        "total": "tổng"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "Số liệu trong 14 ngày"
+        },
+        "navigation": {
+            "all": "Tất cả yêu cầu"
+        },
+        "targeting": {
+            "except": "Chấp nhận",
+            "denied": "Từ chối",
+            "offers_targeting_rules": {
+                "connection_type": "Loại kết nối",
+                "mobile_operator": "Nhà cung cấp dịch vụ di động",
+                "device_type": "Loại thiết bị",
+                "device_os": "Hệ điều hành thiết bị",
+                "device_os_version": "Phiên bản hệ điều hành thiết bị",
+                "device_brand": "Thương hiệu thiết bị",
+                "device_model": "Kiểu thiết bị",
+                "browser": "Trình duyệt",
+                "language": "Ngôn ngữ",
+                "worldwide": "Toàn cầu",
+                "geo": "Quốc gia",
+                "expect": "Mong muốn",
+                "denied": "Từ chối",
+                "connection_type_allowed": "Loại kết nối được phép",
+                "mobile_operator_allowed": "Nhà cung cấp dịch vụ di động được phép",
+                "device_type_allowed": "Loại thiết bị được phép",
+                "device_os_allowed": "Hệ điều hành thiết bị được phép",
+                "device_os_version_allowed": "Phiên bản hệ điều hành thiết bị được phép",
+                "device_brand_allowed": "Thương hiệu thiết bị được phép",
+                "device_model_allowed": "Kiểu thiết bị được phép",
+                "browser_allowed": "Trình duyệt Được phép",
+                "language_allowed": "Ngôn ngữ được phép",
+                "geo_allowed": "Địa lý được phép",
+                "connection_type_denied": "Loại kết nối bị Từ chối",
+                "mobile_operator_denied": "Nhà cung cấp dịch vụ di động bị từ chối",
+                "device_type_denied": "Loại thiết bị bị từ chối",
+                "device_os_denied": "Hệ điều hành thiết bị bị từ chối",
+                "device_os_version_denied": "Phiên bản hệ điều hành thiết bị bị từ chối",
+                "device_brand_denied": "Thương hiệu thiết bị bị từ chối",
+                "device_model_denied": "Kiểu thiết bị bị từ chối",
+                "browser_denied": "Trình duyệt bị Từ chối",
+                "language_denied": "Ngôn ngữ bị Từ chối",
+                "geo_denied": "Địa lí bị từ chối",
+                "affiliate_sub_id_1": "Affiliate Sub 1",
+                "affiliate_sub_id_2": "Affiliate Sub 2",
+                "affiliate_sub_id_3": "Affiliate Sub 3",
+                "affiliate_sub_id_4": "Affiliate Sub 4",
+                "affiliate_sub_id_5": "Affiliate Sub 5"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Multiple Conversions"
+            }
+        },
+        "creatives": {
+            "title": "Creatives"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Goals",
+                "creatives": "Creatives",
+                "targeting": "Targeting"
+            },
+            "targeting": {
+                "geo": "Geo"
+            }
+        },
+        "urls": {
+            "title": "Landing Pages",
+            "type": {
+                "default": "Mặc định",
+                "preview": "Xem trước"
+            },
+            "visible_to_affiliates": "Visible to Affiliates"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "A quick overview of how offers are performing. Updated once a day.",
+                    "ar": "Approval Rate — the number of Approved Conversions from the Total Conversions. Calculated across all affiliates for the previous month.",
+                    "cr": "Conversion Rate — an average number of Total Conversions per Click. Calculated across all affiliates for the last 7 days.",
+                    "epc": "Earnings per Click — average earnings per click. Calculated across all affiliates for the last 7 days.",
+                    "n_a": "Not enough data to display the metric"
+                },
+                "conversions": {
+                    "info": "Total Conversions for the last 7 days сompared to the previous 7 days. Sorting data is updated once a day."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Banner",
+        "email": "Email",
+        "html": "Khác",
+        "xml_feed": "XML Feed"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finances"
+        },
+        "table" : {
+            "transaction_id": "ID thanh toán",
+            "payment_details": "Chi tiết thanh toán"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Network Summary",
+        "top_offers": "Ưu đãi hàng đầu",
+        "volume": "Quy mô",
+        "metrics": "Chỉ số",
+        "trends": "Xu hướng",
+        "legend": {
+            "cv_pending": "Chuyển đổi chờ xử lí",
+            "impressions": "Hiển thị",
+            "clicks": "Tổng Clicks",
+            "cv_approved": "Chuyển đổi được duyệt",
+            "cr": "Tỷ lệ chuyển đổi",
+            "cv_rejected": "Chuyển đổi bị từ chối",
+            "approved_payout": "Doanh thu được duyệt",
+            "pending_payout": "Doanh thu chờ xử lí",
+            "rejected_payout": "Doanh thu bị từ chối",
+            "ctr": "CTR",
+            "unique_clicks": "Số lần nhấn chuột duy nhất",
+            "duplicate_clicks": "Số lần nhấn chuột trùng lặp",
+            "invalid_clicks": "Số lần nhấn chuột không hợp lệ",
+            "pr": "PR",
+            "cv_total": "Tổng số chuyển đổi",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Clicks Payout",
+            "total_payout": "Tổng hoa hồng"
+        },
+        "message_when_column_max": "Bạn có thể chọn tối đa 6 chỉ số."
+    },
+    "conversion_statuses": {
+        "pending": "Chờ xử lí",
+        "rejected": "Bị từ chối",
+        "approved": "Được duyệt",
+        "default": "Mặc định",
+        "trash": "Rác"
+    },
+    "reports_page": {
+        "custom": "Tuỳ chỉnh",
+        "last_updated": "Last updated: {{ minutes }} min. ago",
+        "filters": {
+            "popular": "Phổ biến",
+            "offers": "Chiến dịch",
+            "offer": "Các chiến dịch",
+            "offers_goals": "Mục tiêu",
+            "goals_types": "Loại mục tiêu",
+            "currencies": "Tiền tệ",
+            "offers_creatives": "Creative",
+            "offers_links": "Landing Page",
+            "ips": "IP",
+            "track_ids": "Advertiser Track ID",
+            "advertisers_params1": "Tên",
+            "advertisers_params2": "SĐT",
+            "advertisers_params3": "Ghi chú",
+            "advertisers_params4": "Advertiser Param 4",
+            "advertisers_params5": "Advertiser Param 5",
+            "conversions_referrers": "Conversion Referer URL",
+            "countries": "Quốc gia",
+            "devices_type": "Loại thiết bị",
+            "devices_brands": "Thương hiệu thiết bị",
+            "devices_models": "Model thiết bị",
+            "devices_os": "Hệ điều hành thiết bị",
+            "browsers": "Trình duyệt",
+            "connections_types": "Loại kết nối",
+            "languages": "Ngôn ngữ",
+            "mobile_operators": "Nhà mạng thiết bị",
+            "technical": "Kỹ thuật",
+            "clickIds": "Click ID",
+            "data": "Data",
+            "transactions": "Transaction ID",
+            "statuses": "Trạng thái chuyển đổi",
+            "orders_ids": "Advertiser Order ID",
+            "users_ids": "Advertiser User ID",
+            "devices_os_version": "Phiên bản hệ điều hành thiết bị",
+            "browser_version": "Phiên bản trình duyệt",
+            "geo": "Geo",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "One item per line",
+            "visible_tooltip": "Keep Always Visible"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Máy tính",
+                "smartphone": "Điện thoại thông minh",
+                "tablet": "Máy tính bảng",
+                "feature_phone": "Điện thoại phổ thông",
+                "console": "Bảng điều khiển",
+                "tv": "Tv",
+                "car_browser": "Trình duyệt Ô tô",
+                "smart_display": "Màn hình hiển thị thông minh",
+                "camera": "Camera",
+                "portable_media_player": "Portable Media Player",
+                "phablet": "Phablet"
+            }
+        },
+        "statistics": {
+            "title": "Số liệu",
+            "menus": {
+                "affiliate": "Affiliate",
+                "offer": "Chiến dịch",
+                "advertiser": "Advertiser",
+                "country": "Quốc Gia",
+                "goal": "Mục tiêu",
+                "day": "Ngày",
+                "monthly": "Hàng tháng",
+                "hour": "Giờ",
+                "device_type": "Loại thiết bị",
+                "connection_type": "Loại kết nối"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Chuyển đổi được duyệt",
+                    "pending_conversions": "Chuyển đổi chờ duyệt",
+                    "rejected_conversions": "Chuyển đổi bị từ chối",
+                    "trash_conversions": "Chuyển đổi trong thùng rác"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Clicks on the affiliate tracking link, when a visitor is redirected to the Offer landing page.",
+                    "clicks": "All the clicks, including Unique, Duplicate, and Invalid",
+                    "unique_clicks": "Clicks received from different users",
+                    "invalid_clicks": "Clicks that were redirected to Trafficback URL due to non-compliance with the targeting conditions or due to a broken affiliate link.",
+                    "approved_conversions": "Сonversions that were approved by the Advertiser.",
+                    "pending_conversions": "Once reviewed by the Advertiser, these conversions will become Approved or Rejected.",
+                    "rejected_conversions": "Conversions that were disapproved by the Advertiser."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Chuyển đổi"
+        },
+        "clicks": {
+            "title": "Clicks"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Clicks that were redirected to Trafficback URL due to non-compliance with targeting conditions or due to a broken affiliate link."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Postbacks (or pixels) received from the Advertiser, which shows if the conversion was recorded successfully or an error occurred."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Postbacks (or pixels) sent to Affiliate. Displayed if an affiliate uses its own tracker and has installed a postback of this tracker on your platform."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Bulk conversion editing: change status, change payout, or add conversions."
+        }
+    },
+    "POWERED_BY": "Powered by "
+}

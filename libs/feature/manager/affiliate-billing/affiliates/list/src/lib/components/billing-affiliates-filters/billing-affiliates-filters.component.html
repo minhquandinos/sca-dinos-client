@@ -1,0 +1,93 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+>
+    <form [formGroup]="filterForm" class="d-flex align-items-md-center">
+
+        <app-filter>
+            <app-find-platform-statuses
+                statusList="statuses"
+                formName="status"
+                itemValue="status"
+                [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+                (toggle)="setFilterStatus($event)"
+            ></app-find-platform-statuses>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.invoice_frequency' | translate"
+                [count]="filterForm.value.invoice_frequency?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findInvoiceFrequencyMethodsRef
+                    [searchable]="false"
+                    formName="invoice_frequency"
+                    platformList='invoices_frequencies_for_filter'
+                    [multiple]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.payment_method' | translate"
+                [count]="filterForm.value.payment_methods?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-payment-methods
+                    #findPaymentMethodsRef
+                    formName="payment_methods"
+                    itemValue="id"
+                    [multiple]="true"
+                ></app-find-payment-methods>
+            </app-dropdown-popup>
+        </app-filter>
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.payment_terms' | translate"
+                [count]="filterForm.value.payment_terms?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findPaymentTermsMethodsRef
+                    [searchable]="false"
+                    platformList="invoices_payments_terms_for_filter"
+                    [multiple]="true"
+                    formName="payment_terms"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+    <app-filter class="ml-md-auto">
+        <app-custom-search
+            [placeholder]="'interface.basic.search' | translate"
+            (toggleSearch)="searching($event)"
+        ></app-custom-search>
+    </app-filter>
+
+    <section filter-selected *ngIf="selectedAnyFilters">
+        <app-output-selected-filters
+            [findComponent]="findInvoiceFrequencyMethodsRef"
+            [title]="'table.column.invoice_frequency' | translate"
+            [selected]="filterParams.invoice_frequency"
+            (clear)="clearFilter('invoice_frequency')"
+            (remove)="removeFilter('invoice_frequency', $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findPaymentMethodsRef"
+            [title]="'table.column.payment_method' | translate"
+            [selected]="filterParams.payment_methods"
+            (clear)="clearFilter('payment_methods')"
+            (remove)="removeFilter('payment_methods', $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [findComponent]="findPaymentTermsMethodsRef"
+            [title]="'table.column.payment_terms' | translate"
+            [selected]="filterParams.payment_terms"
+            (clear)="clearFilter('payment_terms')"
+            (remove)="removeFilter('payment_terms', $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>

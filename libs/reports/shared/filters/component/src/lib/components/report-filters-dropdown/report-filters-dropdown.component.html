@@ -1,0 +1,55 @@
+<ui-dropdown-entity
+    #dropdownEntity
+    [height]="{size: 486, units: 'px'}"
+    [width]="{size: 259, units: 'px'}"
+    className="report-filters-select__dropdown"
+    (toggle)="dropdownStatus($event)"
+    [searchBox]="true"
+>
+    <ng-container actionContent>
+        <ui-button-link
+            icon="plus-small"
+            type="floating"
+            (click)="dropdownEntity.open()"
+            [label]="'interface.basic.filter' | translate"
+        ></ui-button-link>
+    </ng-container>
+    <ng-container dropdownContent>
+        <app-entity-list
+            #entityList
+            (search)="searching($event)"
+            [searchPlaceholder]="'interface.basic.search' | translate"
+        >
+            <app-entity-group
+                *ngFor="let group of filtersList | reportFilterSearch: searchText; trackBy: trackByFn"
+                [label]="'reports_page.filters.' + group.key | translate"
+            >
+                <app-entity-item
+                    *ngFor="let item of group.items"
+                    [value]="item"
+                    className="pr-3"
+                >
+                    <ng-template appEntityItemTemplate>
+                        <div class="d-flex w-100 align-items-center">
+                            <span class="w-100" (click)="selectFilter(item.filter)">
+                                {{ 'reports_page.filters.' + item.filter | translate }}
+                            </span>
+                            <span
+                                class="d-flex align-items-center"
+                                (click)="saveFilter(item.filter)"
+                                [tooltip]="'reports_page.filters.visible_tooltip'| translate"
+                            >
+                                <ui-svg-icon
+                                    icon="eye"
+                                    iconType="stroke"
+                                    [iconColor]="(item.filter | reportFiltersSaved | async) ? activeIconColor : inactiveIconColor"
+                                    [iconColorHover]="activeIconColor"
+                                ></ui-svg-icon>
+                            </span>
+                        </div>
+                    </ng-template>
+                </app-entity-item>
+            </app-entity-group>
+        </app-entity-list>
+    </ng-container>
+</ui-dropdown-entity>

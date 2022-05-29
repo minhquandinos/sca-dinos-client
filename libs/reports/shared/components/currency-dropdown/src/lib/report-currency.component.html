@@ -1,0 +1,27 @@
+<ui-dropdown-entity
+    #dropdownEntity
+    [width]="{size: 160, units: 'px'}"
+    [height]="{size: 260, units: 'px'}"
+    (click)="dropdownEntity.open()"
+    [extraLeftPadding]="20"
+>
+    <ng-container actionContent>
+        <ui-button-link
+            [label]="currentCurrency"
+            type="simple"
+            icon="down"
+            iconPosition="right"
+            iconType="stroke"
+            [iconClass]="dropdownEntity.show ? 'transform rotate-180' : ''"
+        ></ui-button-link>
+    </ng-container>
+    <ng-container dropdownContent>
+        <div
+            *ngFor="let currency of currencies$ | async"
+            class="dropdown-item px-3 d-flex align-items-center"
+            (click)="emitCurrency(currency)"
+        >
+            <span>{{ currency }}</span>
+        </div>
+    </ng-container>
+</ui-dropdown-entity>

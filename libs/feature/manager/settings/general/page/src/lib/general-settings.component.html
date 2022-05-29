@@ -1,0 +1,200 @@
+<scaleo-manager-settings-card [title]="'administration_settings.headers.general' | translate">
+    <ng-container actions>
+        <ui-button-link
+            class="ml-auto"
+            [label]="'administration_settings.basic.save' | translate"
+            (click)="save()"
+        ></ui-button-link>
+    </ng-container>
+
+    <div class="form" [formGroup]="form">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-select
+                    [label]="'administration_settings.settings.default_language' | translate"
+                    [items]="languages$ | async"
+                    itemLabel="title"
+                    itemValue="code"
+                    formControlName="default_language"
+                    [searchable]="false"
+                    [clearable]="false"
+                    [multiple]="false"
+                    [hideSelected]="false"
+                    [addTemplate]="true"
+                    (change)="changeLanguage()"
+                >
+                    <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+                        <div class="language-flag" *ngIf="item?.code">
+                            <div class="language-flag__country d-flex align-items-center m-r-4">
+                                <app-country-flag [countryCode]="item?.code"></app-country-flag>
+                            </div>
+                            <div class="language-flag__title ">{{ item?.title }}</div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template #optionTmp ng-option-tmp let-item="item">
+                        <div class="language-flag" *ngIf="item?.code">
+                            <div class="language-flag__country d-flex align-items-center m-r-4">
+                                <app-country-flag [countryCode]="item?.code"></app-country-flag>
+                            </div>
+                            <div class="language-flag__title ">{{ item?.title }}</div>
+                        </div>
+                    </ng-template>
+                </app-select>
+            </div>
+
+            <ng-container *ngIf="false">
+                <div class="form-group col-md-6 mb-0">
+                    <app-custom-checkbox
+                        label="administration_settings.settings.show_language"
+                        formControlName="show_language_selection"
+                    ></app-custom-checkbox>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6 fs-small">
+                <app-find-platform-list
+                    platformList="currencies"
+                    [label]="'administration_settings.settings.default_currency' | translate"
+                    itemLabel="title"
+                    itemValue="code"
+                    formName="currency"
+                    [searchable]="false"
+                    [clearable]="false"
+                    [multiple]="false"
+                    [hideSelected]="false"
+                    [placeholder]="null"
+                    [disableTranslate]="true"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </div>
+        </div>
+
+        <div class="form-row mb-0">
+            <div class="form-group col-md-6 fs-small">
+                <app-find-platform-list
+                    platformList="timezones"
+                    [label]="'administration_settings.settings.default_timezone' | translate"
+                    itemLabel="title"
+                    itemValue="timezone"
+                    formName="time_zone"
+                    [searchable]="false"
+                    [clearable]="false"
+                    [multiple]="false"
+                    [hideSelected]="false"
+                    [disableTranslate]="true"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </div>
+
+            <div class="form-group col-md-6 mb-0">
+                <app-select
+                    [items]="defaultDateRangeList | customTranslate: 'interface.date.ranges':false | async"
+                    [label]="'administration_settings.settings.platform_default_daterange' | translate"
+                    itemLabel="title"
+                    itemValue="id"
+                    formControlName="default_daterange"
+                    [searchable]="false"
+                    [clearable]="false"
+                    [multiple]="false"
+                    [hideSelected]="false"
+                ></app-select>
+            </div>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group mb-0">
+            <app-custom-switch
+                [label]="'administration_settings.settings.show_getting_started' | translate"
+                formControlName="show_getting_started"
+            ></app-custom-switch>
+            <div class="form-text">
+                {{ 'administration_settings.settings.show_getting_started_desc' | translate }}
+            </div>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input
+                    [disabled]="true"
+                    [label]="'administration_settings.settings.custom_domain' | translate"
+                    formControlName="custom_domain"
+                ></app-input>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input
+                    [disabled]="true"
+                    [label]="'administration_settings.settings.workspace' | translate"
+                    formControlName="internal_domain"
+                ></app-input>
+            </div>
+        </div>
+
+        <div class="form-row mb-0">
+            <div class="form-group col-md-6">
+                <app-input
+                    [disabled]="true"
+                    [label]="'administration_settings.settings.tracking_domain' | translate"
+                    formControlName="tracking_domain"
+                ></app-input>
+            </div>
+            <div class="form-text col-md-12">
+                {{ 'administration_settings.settings.tracking_domain_text' | translate }}
+                <a href="mailto:support@scaleo.io">support@scaleo.io</a>
+                {{ 'administration_settings.settings.tracking_domain_text2' | translate }}
+            </div>
+        </div>
+
+
+        <ui-br></ui-br>
+
+        <div class="form-row mb-0">
+            <div class="form-group col-md-12">
+                <app-input
+                    [label]="'administration_settings.settings.global_trafficback_url' | translate"
+                    formControlName="global_trafficback_url"
+                ></app-input>
+            </div>
+            <div class="form-text col-md-12 m-b-6">
+                {{ 'administration_settings.settings.global_trafficback_url_text' | translate }}
+            </div>
+
+            <div class="form-text col-md-12 mt-0">
+                <manager-shared-available-macros
+                    [className]="'mt-0'"
+                    [trackingLink]="form.value.global_trafficback_url"
+                    [typeMacroses]="'global_trafficback'"
+                ></manager-shared-available-macros>
+            </div>
+
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input
+                    [disabled]="true"
+                    [label]="'administration_settings.settings.email' | translate"
+                    formControlName="mailroom_email_address"
+                ></app-input>
+            </div>
+            <div class="form-text col-md-12 m-b-24">
+                {{ 'administration_settings.settings.email_text' | translate }}
+                <span *ngIf="translate.currentLang === 'en'; else ruEmailTpl">
+                                <a href="mailto:support@scaleo.io">support@scaleo.io</a>
+                            </span>
+                <ng-template #ruEmailTpl>
+                    <a href="mailto:support@scaleo-up.com">support@scaleo-up.com</a>
+                </ng-template>
+
+                {{ 'administration_settings.settings.email_text2' | translate }}
+            </div>
+        </div>
+    </div>
+</scaleo-manager-settings-card>

@@ -1,0 +1,36 @@
+<div class="main main-login">
+
+    <div class="page overflow-auto">
+
+        <div class="page-header d-flex flex-row position-fixed">
+
+            <div class="page-header-logo w-100 d-flex ">
+                <div class="d-flex align-items-center w-100 mx-auto">
+                    <router-outlet name="logo"></router-outlet>
+                </div>
+            </div>
+
+            <div class="ml-auto m-r-28 d-flex align-items-center">
+                <router-outlet name="toolbar-languages"></router-outlet>
+            </div>
+
+        </div>
+
+        <router-outlet></router-outlet>
+
+        <div class="page-footer page-footer-auth">
+
+            <div class="page-footer-items d-flex justify-content-center">
+
+                <div class="footer-items d-flex">
+                    <router-outlet name="footer"></router-outlet>
+                </div>
+
+            </div>
+
+            <router-outlet name="powered-by"></router-outlet>
+
+        </div>
+    </div>
+
+</div>

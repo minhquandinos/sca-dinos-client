@@ -1,0 +1,119 @@
+<div>
+    <ui-page-wrapper borderRadius="4">
+        <ui-page-wrapper-header>
+            <ui-tab-nav-bar className="d-flex h-100">
+                <a ui-tab-nav-link
+                    *ngFor="let menu of menus; trackBy: trackByFn"
+                    [routerLink]="'../' + menu.route"
+                    routerLinkActive="active"
+                >
+                    {{ menu.title | translate }}
+                </a>
+            </ui-tab-nav-bar>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-header className="p-0">
+            <scaleo-manager-leads-logs-filters
+                [params]="filters$ | async"
+            ></scaleo-manager-leads-logs-filters>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-header className="p-l-32 p-r-32" [haveBorderBottom]="false">
+            <div class="my-auto">
+                <app-custom-date-range
+                    position="right"
+                    [startDate]="rangeFrom$ | async"
+                    [endDate]="rangeTo$ | async"
+                    [showHintTimeZone]="true"
+                    (toggle)="dateWasChange($event)"
+                ></app-custom-date-range>
+            </div>
+        </ui-page-wrapper-header>
+    </ui-page-wrapper>
+
+    <ui-page-wrapper borderRadius="4" className="mt-3">
+        <ui-page-wrapper-header className="p-l-32 p-r-32">
+            <div class="d-flex my-auto">
+                <app-result-count [count]="totalCount$ | async" className="border-0"></app-result-count>
+            </div>
+            <ui-divider orientation="vertical" height="24px" class="mx-3"></ui-divider>
+            <div class="d-flex my-auto ml-auto">
+                <app-config-table-column2
+                    [configs]="columnsOptions$ | async"
+                    [title]="'interface.basic.columns' | translate"
+                    configType="leads-logs"
+                    grid="3"
+                    (columnChanged)="columnChanged($event)"
+                ></app-config-table-column2>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-content className="mb-0 p-0">
+            <ui-table2
+                [columns]="columns$ | async"
+                [items]="items$ | async"
+                [stickyHead]="true"
+                [loading]="loading$ | async"
+                [customHorizontalScroll]="true"
+            >
+                <ng-template uiTable2ColTemplate="added_timestamp" let-added_timestamp="value">
+                    {{ added_timestamp | formatByKey:'added_timestamp' }}
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="affiliate" let-affiliate="value">
+                    <app-hyperlink
+                        *ngIf="affiliate"
+                        linkClassName="text-nowrap"
+                        [permission]="permissions.canAccessAffiliates"
+                        [link]="{
+                            title: affiliate | format:'idName',
+                            link: '/affiliates/' + (affiliate | pregMatch: 'number') | navigateRoot
+                        }"
+                    ></app-hyperlink>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="offer" let-offer="value">
+                    <app-hyperlink
+                        *ngIf="offer"
+                        linkClassName="text-nowrap"
+                        [permission]="permissions.canAccessOffers"
+                        [link]="{
+                            title: offer | format:'idName',
+                            link: '/offers/' + (offer | pregMatch: 'number') | navigateRoot
+                        }"
+                    ></app-hyperlink>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="goal" let-goal="value" let-item="valueRow">
+                    <app-hyperlink
+                        *ngIf="item?.offer as offer; else tmpWithoutLink"
+                        linkClassName="text-nowrap"
+                        [permission]="permissions.canAccessOffers"
+                        [link]="{
+                            title: goal | format:'idName',
+                            link: '/offers/' + (offer | pregMatch: 'number') | navigateRoot
+                        }"
+                    ></app-hyperlink>
+
+                    <ng-template #tmpWithoutLink>
+                        <span class="text-nowrap">{{ goal | format:'idName' }}</span>
+                    </ng-template>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="api_request" let-api_request="value">
+                   <span class="word-wrap" [innerHTML]="api_request"></span>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="api_body" let-api_body="value">
+                    <span class="word-wrap" [innerHTML]="api_body"></span>
+                </ng-template>
+            </ui-table2>
+        </ui-page-wrapper-content>
+        <ui-page-wrapper-footer *ngIf="pagination$ | async as pagination">
+            <app-custom-pagination
+                [pagination]="pagination"
+                [pageInQueryParams]="true"
+                (toggle)="pageWasChanged($event)"
+                (togglePerPage)="perPageWasChange($event)"
+                *ngIf="!(loading$ | async) && (totalCount$ | async) > 9"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+    </ui-page-wrapper>
+</div>

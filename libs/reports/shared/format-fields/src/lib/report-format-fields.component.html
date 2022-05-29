@@ -1,0 +1,11 @@
+<div class="report-col-field text-wrap d-flex align-items-center"
+     [ngClass]="className"
+     appRightAlignForNumber
+     [item]="_item"
+     [key]="_key"
+     [reportType]="reportType"
+>
+    <ng-template #containerRef></ng-template>
+    <ng-content></ng-content>
+</div>
+

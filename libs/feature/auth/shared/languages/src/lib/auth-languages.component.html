@@ -1,0 +1,27 @@
+<div
+    class="language-select d-flex align-items-center justify-content-center {{className}}"
+    [ngClass]="{'language-select__open': openDropdown}"
+>
+    <ui-dropdown-entity
+        #dropdownEntity
+        className="language-select__dropdown"
+        [width]="{size: 148, units: 'px'}"
+        [scrollDisabled]="true"
+        (toggle)="dropdownStatus($event)"
+    >
+        <ng-container actionContent>
+            <div class="language-select__action d-flex align-items-center" (click)="dropdownEntity.open()">
+                <div class="language-flag">
+                    <div class="language-flag__country d-flex align-items-center">
+                        <app-country-flag [countryCode]="selectedLanguage$ | async | authLanguageSelectFlag"></app-country-flag>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container dropdownContent>
+            <div class="language-select__items">
+                <app-language-switcher (toggle)="changeLanguage()"></app-language-switcher>
+            </div>
+        </ng-container>
+    </ui-dropdown-entity>
+</div>

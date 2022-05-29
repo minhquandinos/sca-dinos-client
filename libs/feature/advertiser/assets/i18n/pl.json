@@ -1,0 +1,34 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Wypłata",
+            "approved_revenue": "Wypłata",
+            "pending_revenue": "Wypłata",
+            "rejected_revenue": "Wypłata",
+            "total_revenue": "Wypłata",
+            "revenue": "Wypłata"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Koszt kliknięcia",
+                "rpa": "Koszt na zatwierdzoną konwersję",
+                "rpm": "Koszt za 1000 wyświetleń"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Wypłata"
+                }
+            }
+        }
+    }
+}
+

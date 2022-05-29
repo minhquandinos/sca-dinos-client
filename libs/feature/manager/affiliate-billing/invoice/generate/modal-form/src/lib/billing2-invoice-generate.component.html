@@ -1,0 +1,199 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{ 'invoice.generate.invoices' | translate }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="'invoice.generate.title' | translate"
+        (toggle)="generate()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form" #formRef>
+    <div class="form-row m-b-48">
+        <div class="form-group col-md-6">
+            <app-find-affiliates
+                [label]="'table.column.affiliate' | translate"
+                itemValue="id"
+                formName="affiliate_id"
+                [hideSelected]="true"
+                [firstElement]="{ id: 0, title: 'shared.dictionary.all' | translate }"
+                [disabled]="!!affiliateId"
+                (toggle)="onChangeAffiliates($event)"
+            ></app-find-affiliates>
+        </div>
+        <div class="form-text p-l-8 col-md-12">
+            {{ 'invoice.generate.affiliate_info' | translate }}
+        </div>
+    </div>
+
+    <div class="form-row m-b-48">
+        <div class="form-group col-md-6">
+            <app-input-date
+                formControlName="start_date"
+                [label]="'interface.date.start_date' | translate"
+                [placeholder]="'interface.basic.optional' | translate"
+                [autoUpdateInput]="false"
+            ></app-input-date>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input-date
+                formControlName="end_date"
+                [label]="'interface.date.end_date' | translate"
+            ></app-input-date>
+        </div>
+        <div class="form-text p-l-8 col-md-12">{{ 'invoice.generate.date_info' | translate }}</div>
+    </div>
+
+    <ng-container *ngIf="singleAffiliate$ | async">
+        <div class="form-row m-b-48" *ngIf="singleAffiliate$ | async">
+            <ng-container
+                [ngTemplateOutlet]="currencyTpl"
+                [ngTemplateOutletContext]="{ formGroupClass: 'col-md-6', addFirstElement: false, multiple: false }"
+            ></ng-container>
+
+            <div class="form-group col-md-6">
+                <div>
+                    {{ 'table.column.payment_method' | translate }}
+                </div>
+                <div class="d-flex align-items-center mt-2">
+                    <app-payment-method-detail
+                        *ngIf="paymentInfo; else noPaymentInfoTpl"
+                        [logo]="paymentInfo?.logo"
+                        [method]="paymentInfo?.info"
+                        [tooltipText]="paymentInfo?.title"
+                        [logoWidth]="24"
+                    ></app-payment-method-detail>
+                    <ng-template #noPaymentInfoTpl>
+                    <span class="line-height is-16 color__red">
+                        {{ 'invoice.generate.no_payment_methods' | translate }}
+                    </span>
+                    </ng-template>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <app-invoice-period-balance [balance]="approvedBalance$ | async"></app-invoice-period-balance>
+            </div>
+        </div>
+    </ng-container>
+
+    <app-show-hide
+        [labelShow]="'interface.basic.advanced_options' | translate"
+        [labelHide]="'interface.basic.hide' | translate"
+        buttonPositionOnShow="bottom"
+    >
+        <ng-container *ngIf="allAffiliates$ | async">
+            <div class="form-row">
+                <ng-container
+                    [ngTemplateOutlet]="currencyTpl"
+                    [ngTemplateOutletContext]="{ formGroupClass: 'col-md-12', addFirstElement: true, multiple: true }"
+                ></ng-container>
+            </div>
+
+            <div class="form-row m-b-48">
+                <div class="form-group col-md-12">
+                    <app-find-payment-methods
+                        [label]="'billing2.settings.payments_methods.title' | translate"
+                        formName="payment_methods"
+                        [multiple]="true"
+                        [labelShowId]="false"
+                        itemValue="id"
+                        [placeholder]="'shared.dictionary.all' | translate"
+                    ></app-find-payment-methods>
+                    <div class="form-text">{{ 'invoice.generate.payment_methods_info' | translate }}</div>
+                </div>
+            </div>
+
+            <div class="form-row m-b-48">
+                <div class="form-group col-md-6">
+                    <app-find-platform-statuses
+                        [label]="'invoice.generate.with_status' | translate"
+                        formName="status"
+                        statusList="invoices_statuses"
+                        [hideDotTooltip]="true"
+                        itemValue="status"
+                        [exceptIds]="exceptInvoicesStatuses"
+                        itemIncrement="status"
+                    ></app-find-platform-statuses>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="form-text p-0">
+                        <span>{{ 'invoice.settings.generate_invoice_status.description.title' | translate }}</span>
+                        <ul class="form-text ul-description">
+                            <li>{{'invoice.settings.generate_invoice_status.description.draft' | translate}}</li>
+                            <li>{{'invoice.settings.generate_invoice_status.description.unpaid' | translate}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="form-group col-md-6 p-0 m-b-48" *ngIf="allAffiliates$ | async | isTruthy: false">
+            <app-input
+                [label]="'invoice.generate.maximum_amount' | translate"
+                formControlName="amount"
+                [inputText]="form.value.currency | currencySymbol"
+                numeric="float"
+                inputTextPosition="left"
+            ></app-input>
+        </div>
+
+        <div class="form-row m-b-48" *ngIf="this.showIncludeReferralBalance$ | async">
+            <div class="form-group col-md-12">
+                <app-custom-switch
+                    [label]="'billing2.settings.affiliate.include_referral_balance' | translate"
+                    formControlName="include_referral_balance"
+                ></app-custom-switch>
+            </div>
+        </div>
+
+
+        <div class="form-row m-b-48">
+            <div class="form-group col-md-12">
+               <app-textarea formControlName="invoice_memo" [label]="'invoice.generate.invoice_memo' | translate"></app-textarea>
+                <div class="form-text">{{ 'invoice.generate.invoice_memo_info' | translate }}</div>
+            </div>
+        </div>
+
+        <div class="form-row m-b-48">
+            <div class="form-group col-md-12">
+                <app-textarea formControlName="internal_notes" [label]="'table.column.notes' | translate"></app-textarea>
+                <div class="form-text">{{ 'invoice.generate.notes_info' | translate }}</div>
+            </div>
+        </div>
+
+        <div class="form-row m-b-48" *ngIf="singleAffiliate$ | async">
+            <div class="form-group col-md-12">
+                <app-attachment-file formName="attachment_file" [allowedAcceptFile]="allowedAcceptFile"></app-attachment-file>
+            </div>
+        </div>
+
+    </app-show-hide>
+
+    <ng-template
+        #currencyTpl
+        let-formGroupClass="formGroupClass"
+        let-addFirstElement="addFirstElement"
+        let-multiple="multiple"
+    >
+        <div class="form-group" [ngClass]="formGroupClass">
+            <app-find-platform-list
+                platformList="currencies"
+                [label]="currencyLabel$ | async"
+                formName="currency"
+                itemValue="code"
+                [labelShowId]="false"
+                [disableTranslate]="true"
+                [hideSelected]="false"
+                [multiple]="multiple"
+                [placeholder]="addFirstElement ? ('shared.dictionary.all' | translate) : ''"
+                (toggle)="onChangeCurrency($event)"
+                (initialSelected)="initialCurrency()"
+            ></app-find-platform-list>
+        </div>
+    </ng-template>
+</form>

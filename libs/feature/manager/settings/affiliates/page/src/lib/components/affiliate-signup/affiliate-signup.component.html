@@ -1,0 +1,201 @@
+<div *ngIf="formData; else skeleton">
+    <form [formGroup]="form">
+        <div class="form-row mb-0">
+
+            <div class="form-group col-md-6 mb-0">
+                <app-custom-switch
+                    [label]="'administration_settings.affiliates.signup.allow_affiliate_signup' | translate"
+                    formControlName="allow_affiliate_signup"
+                ></app-custom-switch>
+            </div>
+
+        </div>
+
+        <section [hidden]="!(form.value.allow_affiliate_signup)">
+
+            <app-signup-page-link [signUpType]="'affiliates'"></app-signup-page-link>
+
+            <ui-br></ui-br>
+
+            <app-signup-process-select></app-signup-process-select>
+
+            <ui-br height="42"></ui-br>
+
+            <div class="form-row mb-0">
+                <div class="form-group col-md-6 mb-0">
+                    <app-find-platform-list
+                        [label]="'administration_settings.affiliates.signup.assign_new_to.title' | translate"
+                        platformList="assign_new_user"
+                        formName="random_manager_enabled"
+                        [searchable]="false"
+                    ></app-find-platform-list>
+                </div>
+
+                <div class="form-group col-md-6 mb-0 m-t-25">
+                    <app-find-managers
+                        formName="default_managers"
+                        [multiple]="true"
+                        itemValue="id"
+                    ></app-find-managers>
+                </div>
+
+                <div class="form-text">
+                    {{ 'administration_settings.affiliates.signup.assign_new_to.description' | translate }}
+                </div>
+            </div>
+
+            <ui-br></ui-br>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <app-select
+                        [items]="requiredFieldsList"
+                        [label]="'administration_settings.affiliates.signup.required_fields' | translate"
+                        classNames="'w-100'"
+                        itemLabel="title"
+                        itemValue="id"
+                        formControlName="required_fields"
+                        [searchable]="true"
+                        [addTemplate]="true"
+                        [clearable]="false"
+                        [multiple]="true"
+                        [hideSelected]="true"
+                        (multiAdd)="addRemoveFields($event, 'add', 'required')"
+                        (multiRemove)="addRemoveFields($event, 'remove')"
+                        (clear)="clearAllField('required')"
+                        id="required_fields"
+                    >
+                        <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+
+                            <ui-chip size="large" [close]="true" (closed)="clear(item)" (click)="clear(item)"
+                                     *ngIf="item.id | scaleoMngSettingsForbiddenFieldsForRemove: 'affiliate'; else require"
+                                     aria-hidden="true"
+                            >
+                                <span>{{ item.title}}</span>
+                            </ui-chip>
+                            <ng-template #require>
+                                <ui-chip size="large" aria-hidden="true">
+                                    <span>{{ item.title}}</span>
+                                </ui-chip>
+                            </ng-template>
+                        </ng-template>
+
+                        <ng-template #optionTmp ng-option-tmp let-item="item">
+                            <span class="ng-value-label">
+                                {{ item.title }}
+                            </span>
+                        </ng-template>
+                    </app-select>
+                </div>
+            </div>
+
+            <div class="form-row mb-0">
+                <div class="form-group col-md-12 mb-0">
+                    <app-select
+                        [items]="optionalFieldsList"
+                        [label]="'administration_settings.affiliates.signup.optional_fields' | translate"
+                        classNames="'w-100'"
+                        itemLabel="title"
+                        itemValue="id"
+                        formControlName="optional_fields"
+                        [searchable]="true"
+                        [clearable]="true"
+                        [multiple]="true"
+                        [hideSelected]="true"
+                        (multiAdd)="addRemoveFields($event, 'add', 'optional')"
+                        (multiRemove)="addRemoveFields($event, 'remove')"
+                        (clear)="clearAllField('optional')"
+                        id="time_zone"
+                    ></app-select>
+
+                </div>
+            </div>
+
+            <ui-br></ui-br>
+
+            <div class="form-row mb-0">
+                <div class="form-group col-md-12">
+                    <label for="required_fields" class="field-label field-label-top">
+                        {{ 'administration_settings.affiliates.signup.custom_fields_title' | translate }}
+                    </label>
+                    <settings-shared-add-custom-field
+                        *ngIf="fields"
+                        [fields]="fields"
+                        [customFields]="customFields"
+                    ></settings-shared-add-custom-field>
+                </div>
+
+                <div class="form-text col-md-12">
+                    {{ 'administration_settings.affiliates.signup.custom_field_text' | translate }}
+                </div>
+            </div>
+
+            <ui-br></ui-br>
+
+            <div class="form-row mb-0">
+
+                <div class="form-group col-md-6 mb-0">
+                    <app-custom-switch
+                        [label]="'administration_settings.affiliates.signup.must_agree_terms_conditions' | translate"
+                        formControlName="must_agree_with_terms_and_conditions"
+                    ></app-custom-switch>
+                </div>
+
+                <div class="form-group col-md-6 mb-0">
+                    <app-custom-switch
+                        [label]="'administration_settings.affiliates.signup.must_agree_privacy' | translate"
+                        formControlName="must_agree_with_privacy_policy"
+                    ></app-custom-switch>
+                </div>
+
+            </div>
+
+            <ui-br></ui-br>
+
+            <div class="form-group mb-0">
+                <app-custom-switch
+                    [label]="'administration_settings.affiliates.signup.allow_teammates_to_invite_new_users.title' | translate"
+                    formControlName="invite_enabled"
+                ></app-custom-switch>
+
+                <div class="form-text">
+                    {{ 'administration_settings.affiliates.signup.allow_teammates_to_invite_new_users.description' | translate }}
+                </div>
+            </div>
+
+            <ui-br></ui-br>
+
+            <div class="form-row p-l-8">
+                <app-custom-switch
+                    [label]="'administration_settings.affiliates.signup.api_enabled_by_default' | translate"
+                    formControlName="api_enabled_by_default"
+                ></app-custom-switch>
+            </div>
+
+            <div class="form-row" *ngIf="false">
+
+                <div class="form-group col-md-12">
+                    <app-input
+                        [label]="'administration_settings.affiliates.signup.custom_signup_url' | translate"
+                        formControlName="custom_signup_url"
+                    ></app-input>
+                </div>
+
+                <div class="form-group col-md-12 mb-0">
+                    <app-input
+                        [label]="'administration_settings.affiliates.signup.redirect_url_after_signup' | translate"
+                        formControlName="redirect_url_after_signup"
+                    ></app-input>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </form>
+</div>
+
+<ng-template #skeleton>
+    <app-signup-skeleton></app-signup-skeleton>
+</ng-template>

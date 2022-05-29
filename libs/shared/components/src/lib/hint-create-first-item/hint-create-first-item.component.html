@@ -1,0 +1,67 @@
+<div class="hint-first-wrapper" *ngIf="showHint">
+    <ui-page-wrapper [borderRadius]="4" [className]="'hint-first-wrapper-border'">
+        <ui-page-wrapper-content className="p-0">
+            <div class="container hint-first m-0">
+                <div class="container container-item">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <div class="info-icon d-flex align-items-center">
+                            <ui-svg-icon  icon="info-2" [size]="16"></ui-svg-icon>
+                        </div>
+
+                        <div>
+                            {{ ((jsonPath + 'create_your_first_for_hint') | translate)  + ' ' + ('getting_started.follow_detailed_instructions' | translate) }}
+                        </div>
+                    </div>
+
+
+                    <ul class="ul-description m-l-16 mt-0">
+                        <ng-container *ngIf="nameList==='offer'; else nameListForAffiliate">
+                            <li>
+                                <a
+                                    class="color__main-link cursor-pointer"
+                                   data-beacon-article-sidebar="5ecd7d592c7d3a3dea3d0c83"
+                                >
+                                    {{jsonPath + 'follow_add' | translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="color__main-link cursor-pointer"
+                                    data-beacon-article-sidebar="5ef4a96804286306f805c15d"
+                                >
+                                    {{ jsonPath + 'follow_setup' | translate }}
+                                </a>
+                            </li>
+                        </ng-container>
+                        <ng-template #nameListForAffiliate>
+                            <li>
+                                <a
+                                    class="color__main-link cursor-pointer"
+                                    data-beacon-article-sidebar="5ef1b9072c7d3a10cba965ab">
+                                    {{jsonPath + 'follow_add' | translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="color__main-link cursor-pointer"
+                                    data-beacon-article-sidebar="5ef4b0e304286306f805c1ce"
+                                >
+                                    {{ jsonPath + 'follow_setup' | translate }}
+                                </a>
+                            </li>
+                        </ng-template>
+                    </ul>
+                </div>
+
+                <div class="semicircular-arrow">
+                    <ui-svg-icon icon="semicircular_arrow"></ui-svg-icon>
+                </div>
+
+                <div class="ml-auto d-flex align-items-center m-r-16 cursor-pointer" (click)="close()">
+                    <ui-svg-icon icon="close" [size]="16"></ui-svg-icon>
+                </div>
+            </div>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+</div>
+

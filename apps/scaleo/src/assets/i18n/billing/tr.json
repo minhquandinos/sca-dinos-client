@@ -1,0 +1,54 @@
+{
+    "finances_page": {
+        "filters": {
+            "paid": "Ödenmiş",
+            "not_paid": "Ödenmemiş",
+            "in_progress": "İşlemde"
+        },
+        "balance": {
+            "title": "Bakiye",
+            "approved_payout": "Onaylanmış Ödeme",
+            "pending_payout": "Bekleyen Ödeme",
+            "paid_to_date": "Şimdiye Kadar Ödenen",
+            "balance_due": "Balance Due"
+        },
+        "details": {
+            "select_payment_method": "Ödeme Yöntemi Seçin",
+            "payment_method_added": "Ödeme Yöntemi başarıyla eklendi",
+            "minimal_threshold": "Minimum Eşik",
+            "payment_method_details": "Hesap Kimliği, Numarası vb.",
+            "payment_method_info_message": "Lütfen Ödeme Yöntemini seçin ve bilgilerinizi girin",
+            "request_payment_was_sent": "Ödeme Talebi başarıyla eklendi",
+            "amount_condition": "Minimum: {{ min }}, maksimum: {{ max }}",
+            "request": "Request"
+        }
+    },
+    "billing2": {
+        "settings": {
+            "payments_methods": {
+                "all_currencies": "Tüm Para Birimleri",
+                "commission": "Komisyon"
+            }
+        },
+        "balance": {
+            "advance": "Advance",
+            "pending": "Pending Balance",
+            "approved": "Approved Balance",
+            "due": "Balance Due"
+        }
+    },
+    "invoice": {
+        "invoices_title": "Invoices",
+        "invoice_title": "Invoice",
+        "generation_date": "Date Generated",
+        "update": {
+            "due_date": "Due Date"
+        },
+        "view_conversions": "View Conversions",
+        "items": "Items",
+        "total": "Total",
+        "generate": {
+            "invoice_memo": "Invoice Memo"
+        }
+    }
+}

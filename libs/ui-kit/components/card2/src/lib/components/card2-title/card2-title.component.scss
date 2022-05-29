@@ -1,0 +1,11 @@
+:host {
+    display: inline-flex;
+    min-height: 3.688rem;
+    align-items: center;
+}
+
+:host-context(.card2-header) {
+    :host {
+        min-height: auto;
+    }
+}

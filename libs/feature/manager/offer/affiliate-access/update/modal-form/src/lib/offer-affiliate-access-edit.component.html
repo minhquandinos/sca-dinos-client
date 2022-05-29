@@ -1,0 +1,88 @@
+<ng-template appModal3Title>
+    <div class="title">{{ 'offers_page.affiliate.title' | translate }}</div>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="save()" appDisableButtonDuringRequest></ui-button-link>
+</ng-template>
+<div class="form" [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-6">
+            <app-find-platform-list
+                [label]="'offers_page.affiliate.form.title' | translate"
+                platformList="affiliate_visibility"
+                formName="visible_type"
+                [labelShowId]="false"
+                [hideSelected]="false"
+                [searchable]="false"
+                (toggle)="changeAffiliateVisibility($event)"
+            ></app-find-platform-list>
+        </div>
+        <div class="col-12 form-text">
+            <ul class="ul-description">
+                <li>{{ 'offers_page.affiliate.form.descriptions.public' | translate }}</li>
+                <li>{{ 'offers_page.affiliate.form.descriptions.require_approval' | translate }}</li>
+                <li>{{ 'offers_page.affiliate.form.descriptions.private' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-row mb-0">
+        <div class="col-6 form-group" *ngIf="showAllowed$ | async">
+            <app-multi-select-block
+                [title]="'offers_page.profile.affiliates.allowed_affiliates' | translate"
+                formName="allowed_affiliates"
+                [data]="multiSelectDataConfig"
+                [initSelectedItems]="initAllowedItems"
+                [exclude]="this.form.get('denied_affiliates').value"
+            >
+                <ng-template appMultiSelectItemTemplate let-item>
+                    {{ item.title | format: 'idName':item.id | truncateText }}
+                </ng-template>
+            </app-multi-select-block>
+        </div>
+
+        <div class="col-6 form-group" *ngIf="showDenied$ | async">
+            <app-multi-select-block
+                [title]="'offers_page.profile.affiliates.denied_affiliates' | translate"
+                formName="denied_affiliates"
+                [data]="multiSelectDataConfig"
+                [initSelectedItems]="initDeniedItems"
+                [autoFetchData]="form.value.visible_type === affiliateVisibilityIdEnum.Public"
+                type="denied"
+                [exclude]="this.form.get('allowed_affiliates').value"
+            >
+                <span class="d-block m-t-120">
+                    {{ 'offers_page.affiliate.denied_affiliates_except_message' | translate }}
+                </span>
+
+                <ng-template appMultiSelectItemTemplate let-item>
+                    {{ item.title | format: 'idName':item.id | truncateText }}
+                </ng-template>
+            </app-multi-select-block>
+        </div>
+    </div>
+
+    <ng-container *ngIf="displayApprovalQuestionsBlock$ | async">
+        <ui-br></ui-br>
+
+        <div class="form-group">
+            <app-custom-switch
+                [label]="'offers_page.affiliate.form.ask_approval_questions_to_affiliate.title' | translate"
+                formControlName="ask_approval_questions"
+                (toggle)="changeAskApprovalQuestions()"
+            ></app-custom-switch>
+
+            <span class="form-text line-height is-16 mt-2">
+                {{ 'offers_page.affiliate.form.ask_approval_questions_to_affiliate.description' | translate }}
+            </span>
+        </div>
+
+        <div class="form-group" *ngIf="form.value.ask_approval_questions">
+            <app-textarea
+                [label]="'offers_page.affiliate.form.approval_questions' | translate"
+                formControlName="questions"
+                rows="3"
+            ></app-textarea>
+        </div>
+    </ng-container>
+</div>

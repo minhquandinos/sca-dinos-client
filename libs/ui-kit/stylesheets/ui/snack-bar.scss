@@ -1,0 +1,24 @@
+.ui-snack-bar {
+    width: fit-content;
+    min-height: 3.5rem;
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
+    //position: fixed;
+    background: $color__black;
+    border-radius: 4px;
+    z-index: 999;
+    //bottom: 2rem;
+    left: 50%;
+    //transform: translateX(-50%);
+    filter: drop-shadow(1px 3px 14px rgba(0, 0, 0, 0.12));
+
+    &__content {
+        color: white;
+        font-size: $font__14;
+        line-height: 1rem;
+        @include font-family-medium;
+    }
+
+    &__action {
+
+    }
+}

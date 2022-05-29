@@ -1,0 +1,23 @@
+<ui-page-wrapper borderRadius="4" className="mt-3">
+    <ui-page-wrapper-header
+        className="p-l-32 p-r-20"
+        [appUiPageWrapperHeaderColor]="!!selectedItems?.length"
+        [haveBorderBottom]="false"
+    >
+        <ng-container [ngTemplateOutlet]="selectedItems?.length ? actionHeaderTemplate : defaultHeaderTemplate"></ng-container>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <ng-content></ng-content>
+    </ui-page-wrapper-content>
+
+    <ui-page-wrapper-footer>
+        <app-custom-pagination
+            *ngIf="!loading && showPagination"
+            [pagination]="pagination"
+            [pageInQueryParams]="true"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChanged($event)"
+        ></app-custom-pagination>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>

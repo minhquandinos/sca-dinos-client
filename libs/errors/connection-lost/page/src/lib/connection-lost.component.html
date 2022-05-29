@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center flex-column">
+    <div class="mx-auto">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M69.375 20.625V50.625H54.375C50.3968 50.625 46.5814 49.0446 43.7684 46.2316C40.9554 43.4186 39.375 39.6032 39.375 35.625C39.375 31.6468 40.9554 27.8314 43.7684 25.0184C46.5814 22.2054 50.3968 20.625 54.375 20.625H69.375Z" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M69.375 28.125H84.375" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M84.375 43.125H69.375" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M95.625 39.375V58.125H106.875V13.125H95.625V31.875" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M39.375 35.625H33.75C28.2799 35.625 23.0339 37.798 19.1659 41.6659C15.298 45.5339 13.125 50.7799 13.125 56.25C13.125 61.7201 15.298 66.9661 19.1659 70.8341C23.0339 74.702 28.2799 76.875 33.75 76.875H41.25C52.5 76.875 61.875 84.375 61.875 95.625" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M61.875 103.125V106.875" stroke="#B9C6D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M58.1658 31.9125L55 35L58.4658 34.2C58.8139 34.2 59.1478 34.3383 59.3939 34.5844C59.64 34.8305 59.7783 35.1644 59.7783 35.5125C59.7747 35.7384 59.7144 35.9597 59.603 36.1563C59.4917 36.3528 59.3327 36.5183 59.1408 36.6375L54.3783 39.375L57.5 36L54.0408 37.05C53.6993 37.0402 53.375 36.8976 53.1369 36.6525C52.8988 36.4075 52.7657 36.0792 52.7658 35.7375C52.762 35.5144 52.8151 35.2941 52.92 35.0972C53.025 34.9004 53.1784 34.7335 53.3658 34.6125L58.0908 31.8375L58.1658 31.9125Z" fill="#B9C6D2"/>
+        </svg>
+    </div>
+
+    <div class="connection-lost__title title is-1  m-t-40">{{ 'errors.connection_lost.title' | translate }}</div>
+    <p class="connection-lost__text m-t-12 mb-0 color__gray2">{{ 'errors.connection_lost.text' | translate }}</p>
+
+    <div class="m-t-40">
+        <ui-button-link
+            type="floating"
+            [label]="'errors.connection_lost.try_again' | translate"
+            (click)="refresh()"
+            className="connection-lost__control"
+        ></ui-button-link>
+    </div>
+</div>

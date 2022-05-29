@@ -1,0 +1,18 @@
+{
+    "table": {
+        "column": {
+            "cpc": "EPC",
+            "cpa": "EPA",
+            "cpm": "EPM"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "cpc": "Zyski za kliknięcie",
+                "cpa": "Zyski na zatwierdzoną konwersję",
+                "cpm": "Dochody za 1000 wyświetleń"
+            }
+        }
+    }
+}

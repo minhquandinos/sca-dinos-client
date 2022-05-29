@@ -1,0 +1,76 @@
+<ng-container formGroupName="details">
+<div class="form-group col-md-6 pl-0">
+    <app-find-affiliates
+        [itemValue]="null"
+        [label]="'table.column.affiliate' | translate"
+        formName="affiliate"
+        [hideSelected]="true"
+    ></app-find-affiliates>
+</div>
+
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <app-find-offer
+            itemLabel="title"
+            [label]="'shared.dictionary.offer' | translate"
+            formName="offer"
+            (toggle)="selectedOffer($event)"
+        ></app-find-offer>
+    </div>
+    <div class="form-group col-md-6">
+        <app-find-goals
+            [label]="'shared.dictionary.goal' | translate"
+            itemLabel="title"
+            formName="goal"
+            [hideTypeGoal]="1"
+            [firstItem]="false"
+            [offerId]="selectedOfferId"
+            (toggle)="selectedGoal($event)"
+        ></app-find-goals>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6 ml-auto" >
+        <app-input
+            *ngIf="showAmountField"
+            numeric="float"
+            [label]="'table.column.amount' | translate"
+            formControlName="amount"
+        ></app-input>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <app-input
+            maxLength="5"
+            numeric="integer"
+            [label]="'interface.form.number_of_conversions' | translate"
+            formControlName="conversions_quantity"
+        ></app-input>
+    </div>
+
+    <div class="form-group col-md-6">
+        <app-find-platform-statuses
+            [label]="'shared.dictionary.conversion_status'| translate"
+            formName="conversions_status"
+            statusList="conversion_statuses"
+        ></app-find-platform-statuses>
+    </div>
+</div>
+
+
+<div class="form-group col-md-6 pl-0">
+    <app-custom-date-range
+        [single]="true"
+        type="input"
+        drops="up"
+        [disabled]="parentForm.form.disabled"
+        [startDate]="parentForm.form.value.details.conversions_date"
+        [label]="'table.column.added_timestamp' | translate"
+        (toggle)="onChangeDate($event)"></app-custom-date-range>
+</div>
+</ng-container>
+

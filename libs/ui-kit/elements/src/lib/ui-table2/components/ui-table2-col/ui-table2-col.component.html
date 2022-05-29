@@ -1,0 +1,9 @@
+<td [ngClass]="className" [ngStyle]="inlineStyle" #containerRef [attr.colspan]="colspan">
+    <div
+        class="table2__column"
+        [ngClass]="innerClassName"
+        #valueContainerRef
+    >
+        <ng-content></ng-content>
+    </div>
+</td>

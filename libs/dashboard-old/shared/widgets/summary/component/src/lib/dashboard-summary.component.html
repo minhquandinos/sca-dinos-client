@@ -1,0 +1,20 @@
+<ui-page-wrapper borderRadius="4" className="p-b-4">
+    <ui-page-wrapper-header size="medium" [haveBorderBottom]="haveBorderBottom">
+        <div class="my-auto">
+            <div class="title">{{ title | translate }}</div>
+        </div>
+        <div class="ml-auto my-auto">
+            <app-custom-date-range
+                #customDateRangeComponent
+                [startDate]="dateRange?.rangeFrom"
+                [endDate]="dateRange?.rangeTo"
+                (toggle)="updateDate($event)"
+            ></app-custom-date-range>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="p-0">
+        <app-dashboard-summary-chart-type></app-dashboard-summary-chart-type>
+        <ng-template #chartContainerRef></ng-template>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>
+

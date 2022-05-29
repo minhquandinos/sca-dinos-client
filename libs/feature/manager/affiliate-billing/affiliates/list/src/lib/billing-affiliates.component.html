@@ -1,0 +1,152 @@
+<ui-page-wrapper borderRadius="4" className="mt-3">
+    <ui-page-wrapper-header [appUiPageWrapperHeaderColor]="selectedBillingAffiliates.length > 0">
+        <div class="my-auto d-flex align-items-center w-100 pl-3">
+            <ng-container [ngTemplateOutlet]="!headerColor?.toggleColor ? defaultHeader : selectedCounterTpl"></ng-container>
+        </div>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <ui-table2
+            [columns]="columns$ | async"
+            [items]="items$ | async"
+            [sort]="true"
+            [defaultSortDirection]="sortDirection$ | async"
+            [defaultSortField]="sortField$ | async"
+            [stickyHead]="true"
+            [loading]="loading$ | async"
+            (sorting)="sortingColumn($event?.current)"
+            [showSelect]="true"
+            selectItemValue="affiliate_id"
+            (selectAll)="selectAll($event)"
+            [customHorizontalScroll]="true"
+            [controlTemplate]="controlTemplate"
+            [rowSize]="rowSizeForTable"
+            [columnsTranslate]="columnsTranslate"
+        >
+            <ng-template uiTable2ColTemplate="affiliate" let-item="valueRow">
+                <a class="text-nowrap" [routerLink]="'/billing/affiliates/' + item.affiliate_id | navigateRoot">
+                    {{ item.affiliate | format: 'idName' }}
+                </a>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="status" let-status="value">
+                <ui-status-color [status]="status" [showLabel]="true"></ui-status-color>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="managers" let-managers="value">
+                <app-manager-list [managers]="managers"></app-manager-list>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="invoice_frequency" let-frequency="value">
+                {{ frequency | invoiceFrequency | translate }}
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="payment_methods" let-methods="value">
+                <app-payment-methods-list *ngIf="methods.length > 0" [methods]="methods"></app-payment-methods-list>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="payment_terms" let-payment_terms="value">
+                {{ payment_terms | paymentTerms | translate }}
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="approved_balance" let-approved_balance="value">
+                <span class="color__green line-height is-17">
+                    {{ approved_balance | format: 'money' }}
+                </span>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="pending_balance" let-pending_balance="value">
+                <span class="color__orange line-height is-17">
+                    {{ pending_balance | format: 'money' }}
+                </span>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="balance_due" let-balance_due="value">
+                <span>{{ balance_due | format: 'money' }}</span>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="referral_balance" let-referral_balance="value">
+                <span>{{ referral_balance | format: 'money' }}</span>
+            </ng-template>
+        </ui-table2>
+    </ui-page-wrapper-content>
+
+    <ui-page-wrapper-footer *ngIf="showPagination$ | async">
+        <app-custom-pagination
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChanged($event)"
+        ></app-custom-pagination>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<ng-template #defaultHeader>
+    <div class="d-flex align-items-center">
+        <app-result-count [count]="totalCount$ | async"></app-result-count>
+        <ui-divider orientation="vertical" height="24px" class="mx-3"></ui-divider>
+        <span class="color__gray2">{{ 'billing2.affiliates.total_due' | translate }}: {{ totalDue$ | async | format: 'money' }}</span>
+    </div>
+    <div class="d-flex ml-0 ml-sm-auto flex-wrap">
+        <app-report-export
+            *ngIf="(totalCount$ | async) > 0 && !headerColor.toggleColor"
+            (exportFormat)="exportData($event)"
+            buttonType="simple"
+            buttonIcon="ic_export"
+        ></app-report-export>
+
+        <app-config-table-column2
+            class="ml-2"
+            [hidden]="headerColor.toggleColor"
+            [title]="'interface.basic.columns' | translate"
+            [configs]="columnsOptions$ | async"
+            [requiredFields]="requiredColumns"
+            (columnChanged)="columnWasChanged($event)"
+            [itemTranslate]="columnsTranslate"
+        ></app-config-table-column2>
+    </div>
+</ng-template>
+
+<ng-template #selectedCounterTpl>
+    <div class="d-flex align-items-center page-wrapper-header__selected-value-counter">
+        <span class="color__white">{{ selectedBillingAffiliates.length }} {{ 'interface.basic.selected' | translate }}</span>
+        <ui-svg-icon
+            aria-hidden="true"
+            icon="remove-tag"
+            [size]="24"
+            className="report-conversions__close"
+            (click)="clearSelected()"
+        ></ui-svg-icon>
+    </div>
+
+    <app-report-export (exportFormat)="exportData($event)" buttonType="main-floating" buttonIcon="ic_export_white"></app-report-export>
+</ng-template>
+
+<ng-template #controlTemplate let-item>
+    <div class="ml-auto">
+        <ui-table-navigation [action]="null">
+            <ng-template scaleoTableNavigationDropdown>
+                <ui-button-link
+                    icon="details"
+                    type="simple"
+                    [routerLink]="'/billing/affiliates/' + item.affiliate_id | navigateRoot"
+                    [label]="'shared.tooltip.details' | translate"
+                ></ui-button-link>
+
+                <ng-container *ngIf="item.status | isTruthy: statusesId.Active">
+                    <div class="table-navigation__divider"></div>
+
+                    <ui-button-link
+                        icon="manager_login_as"
+                        type="simple"
+                        [label]="'dashboard_grid.widget.shortcuts.login_as' | translate"
+                        (toggle)="loginAs(item.email)"
+                    ></ui-button-link>
+                </ng-container>
+            </ng-template>
+        </ui-table-navigation>
+    </div>
+</ng-template>
+
+<ng-template #headerTpl>
+    <app-billing-affiliates-filters [params]="filters$ | async"></app-billing-affiliates-filters>
+</ng-template>

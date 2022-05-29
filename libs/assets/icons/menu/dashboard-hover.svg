@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icons/main menu/dashboard/hover</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/main-menu/dashboard/hover" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="⚙️-build-block/icons/main-menu/dashboard">
+            <path d="M17,6 L26,6 C27.1045695,6 28,6.8954305 28,8 L28,21 C28,22.1045695 27.1045695,23 26,23 L24.4468189,23 L25.6260465,27.4009371 L23.6941948,27.9185752 L22.6708907,24.0995523 C22.3131871,24.6420255 21.6983983,25 21,25 L17,25 L17,29 L15,29 L15,25 L11,25 C10.1659887,25 9.45120942,24.4895072 9.15108576,23.7639452 L8.037856,27.9185752 L6.10600435,27.4009371 L7.2852319,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,8 C4,6.8954305 4.8954305,6 6,6 L15,6 L15,4 L17,4 L17,6 Z M17,8 L15,8 L6,8 L6,21 L9,21 C9,19.8954305 9.8954305,19 11,19 L21,19 C22.1045695,19 23,19.8954305 23,21 L26,21 L26,8 L17,8 Z M21,23 L21,21 L11,21 L11,23 L21,23 Z M21,21 L11,21 L21,21 Z" id="🎨-Icon-color" fill="#718290" fill-rule="evenodd"></path>
+            <rect id="Rectangle" x="0" y="0" width="32" height="32"></rect>
+        </g>
+    </g>
+</svg>

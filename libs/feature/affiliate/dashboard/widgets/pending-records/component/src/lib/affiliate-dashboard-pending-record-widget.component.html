@@ -1,0 +1,99 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.pending_records.title' | translate"
+    [activeWidget]="widget?.active"
+    [className]="'h-100 overflow-auto'"
+    class="custom-dashboard-widget-pending-records"
+>
+    <ui-tabs
+        headerClassName="p-x-16"
+        [headerSticky]="true"
+    >
+        <ui-tab-item>
+            <ui-tab-label>
+                <div class="d-flex align-items-center">
+                    <span class="m-r-8">{{ 'offers_requests_page.title' | translate }}</span>
+                    <ui-badges
+                        *ngIf="(countsOfferRequest$ | async) as count; else emptyCount"
+                        className="font-family-normal"
+                        [content]="count"
+                        color="#f65a63"
+                    ></ui-badges>
+                    <ng-template #emptyCount><span class="color__gray3">0</span></ng-template>
+                </div>
+            </ui-tab-label>
+            <ng-template uiTabBodyTpl>
+                <scaleo-dashboard-pending-offer
+                    [infoColTemplate]="infoOfferRequestTemplate"
+                    [previewColTemplate]="previewOfferRequestTemplate"
+                >
+                </scaleo-dashboard-pending-offer>
+            </ng-template>
+        </ui-tab-item>
+
+<!--        <ui-tab-item>-->
+<!--            <ui-tab-label>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                    <span class="m-r-8">{{ 'dashboard_page.affiliate_postbacks' | translate }}</span>-->
+<!--                    <ui-badges-->
+<!--                        *ngIf="(countsAffiliatePostback$ | async) as count; else emptyCount"-->
+<!--                        className="font-family-normal"-->
+<!--                        [content]="count"-->
+<!--                        color="#f65a63"-->
+<!--                    ></ui-badges>-->
+<!--                    <ng-template #emptyCount><span class="color__gray3">0</span></ng-template>-->
+<!--                </div>-->
+<!--            </ui-tab-label>-->
+<!--            <ng-template uiTabBodyTpl>-->
+<!--                <scaleo-dashboard-affiliate-pending-postbacks-->
+<!--                    [infoColTemplate]="infoPendingPostbackTemplate"-->
+<!--                >-->
+<!--                </scaleo-dashboard-affiliate-pending-postbacks>-->
+<!--            </ng-template>-->
+<!--        </ui-tab-item>-->
+    </ui-tabs>
+</app-container-widget>
+
+
+<ng-template #infoPendingPostbackTemplate let-item>
+    <ng-container *ngIf="item.level === 'global'; else affiliateOfferTemplate">
+        {{ 'affiliate.postback.' + item.level | translate }} ({{ 'affiliate.postback.all_offers' | translate }})
+    </ng-container>
+    <ng-template #affiliateOfferTemplate>
+        {{ 'affiliate.postback.' + item.level | translate }}&nbsp;
+        <a routerLink="/affiliate/offers/{{ item.offer_id }}" class="name-title">
+            <span class="text-pre-wrap">{{ item.offer_id + ' ' + item.offer_name | format: 'idName' }}</span>
+        </a>
+        <ng-container *ngIf="item?.goal_id">
+            &nbsp;{{ 'offers_page.basic.for_goal' | translate }}&nbsp;<span class="text-pre-wrap">{{
+                item?.goal_id + ' ' + item?.goal_name | format: 'idName'
+            }}</span>
+        </ng-container>
+    </ng-template>
+</ng-template>
+
+
+<ng-template #infoOfferRequestTemplate let-item>
+    <div>
+        {{ 'table.column.offer' | translate }}&nbsp;
+        <a [routerLink]="'/offers/' + item?.offer_id | navigateRoot">
+            {{ item?.offer_name | format:'idName':item?.offer_id }}
+        </a>
+        <app-date-variant
+            [changeColor]="false"
+            class="mt-1 text-size-13 d-block color__gray3"
+            [date]="item.created"
+        ></app-date-variant>
+    </div>
+</ng-template>
+
+<ng-template #previewOfferRequestTemplate let-item>
+    <scaleo-offer-request-modal-qa
+        *ngIf="item.questions && item.answer"
+        [id]="item.id"
+        [status]="item.status"
+        [questions]="item.questions"
+        [answer]="item.answer"
+    >
+    </scaleo-offer-request-modal-qa>
+</ng-template>
+

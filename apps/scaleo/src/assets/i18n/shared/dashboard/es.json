@@ -1,0 +1,84 @@
+{
+    "dashboard_grid": {
+        "toolbar": {
+            "stats_based_on": "Estadísticas basadas en"
+        },
+        "view_report": "Ver informe",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Tus estadísticas"
+            },
+            "pending_records": {
+                "title": "Registros pendientes"
+            },
+            "top_offer": {
+                "title": "Principales ofertas"
+            },
+            "performance": {
+                "title": "Rendimiento",
+                "cumulative": "Acumulado",
+                "settings": {
+                    "none": "Período anterior",
+                    "impressions": "Impresiones",
+                    "ctr": "Porcentaje de clics",
+                    "unique_clicks": "Clics únicos",
+                    "duplicate_clicks": "Clics duplicados",
+                    "invalid_clicks": "Clics no válidos",
+                    "clicks": "Clics",
+                    "cv_total": "Conversiones",
+                    "tr": "CR",
+                    "total_payout": "Pago",
+                    "cr": "CR",
+                    "gross_sales": "Venta bruta",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Ingresos aprobados",
+                    "cv_pending": "Conversiones pendientes",
+                    "pr": "PR",
+                    "cv_rejected": "Conversiones rechazadas",
+                    "rr": "RR",
+                    "cv_approved": "Conversiones aprobadas",
+                    "approved_payout": "Pago aprobado",
+                    "approved_profit": "Beneficio aprobado",
+                    "approved_gross_sales": "Ventas aprobadas",
+                    "pending_revenue": "Ingresos pendientes",
+                    "pending_payout": "Pago pendiente",
+                    "pending_profit": "Beneficio pendiente",
+                    "pending_gross_sales": "Ventas pendientes",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Ingresos por clic",
+                    "clicks_payout": "Pago por clics",
+                    "clicks_profit": "Beneficio por clics",
+                    "total_revenue": "Ingresos",
+                    "total_profit": "Beneficio",
+                    "total_gross_sales": "Ventas brutas",
+                    "rejected_revenue": "Ingresos rechazados",
+                    "rejected_payout": "Pago rechazado",
+                    "rejected_profit": "Beneficio rechazado",
+                    "rejected_gross_sales": "Ventas rechazadas"
+                }
+            },
+            "offer_promote": {
+                "title": "Ofertas pendientes de promoción",
+                "get_link": "Obtener enlace",
+                "all_categories": "Todas las categorías"
+            },
+            "balance": {
+                "title": "Tu saldo",
+                "approved_payout": "Pago aprobado",
+                "all_currencies": "Todas las divisas",
+                "paid_to_date": "Pagado hasta la fecha",
+                "recent_invoices": "Pagos recientes"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Ver informe"
+    }
+}

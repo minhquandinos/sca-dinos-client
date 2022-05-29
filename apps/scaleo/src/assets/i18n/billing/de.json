@@ -1,0 +1,54 @@
+{
+    "finances_page": {
+        "filters": {
+            "paid": "Bezahlt",
+            "not_paid": "Unbezahlt",
+            "in_progress": "In Bearbeitung"
+        },
+        "balance": {
+            "title": "Guthaben",
+            "approved_payout": "Bestätigte Auszhalung",
+            "pending_payout": "Ausstehende Auszahlung",
+            "paid_to_date": "Bezahlt bis Datum",
+            "balance_due": "Balance Due"
+        },
+        "details": {
+            "select_payment_method": "Zahlungsmethode wählen",
+            "payment_method_added": "Zahlungsmethode wurde erfolgreich hinzugefügt",
+            "minimal_threshold": "Minimaler Schwellenwert",
+            "payment_method_details": "Account ID, Nummer, etc.",
+            "payment_method_info_message": "Bitte wähle die Zahlungsmethode und gib deine Daten ein",
+            "request_payment_was_sent": "Zahlungsantrag wurde erfolgreich hinzugefügt",
+            "amount_condition": "Minimum: {{ min }}, maximum: {{ max }}",
+            "request": "Request"
+        }
+    },
+    "billing2": {
+        "settings": {
+            "payments_methods": {
+                "all_currencies": "Alle Währungen",
+                "commission": "Provision"
+            }
+        },
+        "balance": {
+            "advance": "Advance",
+            "pending": "Pending Balance",
+            "approved": "Approved Balance",
+            "due": "Balance Due"
+        }
+    },
+    "invoice": {
+        "invoices_title": "Invoices",
+        "invoice_title": "Invoice",
+        "generation_date": "Date Generated",
+        "update": {
+            "due_date": "Due Date"
+        },
+        "view_conversions": "View Conversions",
+        "items": "Items",
+        "total": "Total",
+        "generate": {
+            "invoice_memo": "Invoice Memo"
+        }
+    }
+}

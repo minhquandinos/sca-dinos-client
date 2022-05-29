@@ -1,0 +1,33 @@
+<div class="table-navigation d-flex align-items-center position-relative" #navigationRef >
+    <div class="table-navigation__more">
+        <ui-svg-icon icon="more-verticale"></ui-svg-icon>
+    </div>
+    <div class="table-navigation__block" #navigationBlockRef>
+        <div class="d-flex h-100 align-items-center">
+            <div class="btn-group btn-group--shadow btn-group--center btn-group-table-nav" #buttonGroupRef>
+                <div class="table-navigation__actions d-flex" #actionsRef>
+                    <ui-button-link
+                        *ngIf="action"
+                        tooltip="{{ ('shared.tooltip.' + action ) | translate }}"
+                        type="simple"
+                        [icon]="action"
+                        [iconSize]="24"
+                        (click)="edit()"
+                    ></ui-button-link>
+                    <ng-content select="[group]"></ng-content>
+                </div>
+
+
+                <ui-old-dropdown-menu dropMenuPosition="right" *ngIf="tableNavigationDropdown?.template">
+                    <ui-button-link
+                        class="table-nav-more-btn"
+                        icon="more-verticale"
+                        type="simple"
+                        [size]="'small'"
+                    ></ui-button-link>
+                   <ng-container [ngTemplateOutlet]="tableNavigationDropdown.template"></ng-container>
+                </ui-old-dropdown-menu>
+            </div>
+        </div>
+    </div>
+</div>

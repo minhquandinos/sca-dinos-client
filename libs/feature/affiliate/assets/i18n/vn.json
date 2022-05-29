@@ -1,0 +1,18 @@
+{
+    "table": {
+        "column": {
+            "cpc": "EPC",
+            "cpa": "EPA",
+            "cpm": "EPM"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "cpc": "Số tiền kiếm được trên mỗi click",
+                "cpa": "Số tiền kiếm được trên mỗi chuyển đổi được duyệt",
+                "cpm": "Số tiền kiếm được trên mỗi 1000 lần hiển thị "
+            }
+        }
+    }
+}

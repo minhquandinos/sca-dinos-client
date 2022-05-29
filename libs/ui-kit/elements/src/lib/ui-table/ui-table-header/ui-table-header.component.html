@@ -1,0 +1,82 @@
+<ng-container *ngIf="headersType === 'level2'">
+    <tr>
+        <ng-container  *ngFor="let column of _headers">
+            <ng-container *ngIf="column?.context && column?.template; else defaultHeaderTemplate">
+                <ng-container [ngTemplateOutlet]="column?.template" [ngTemplateOutletContext]="{column: column?.context}"></ng-container>
+            </ng-container>
+            <ng-template #defaultHeaderTemplate>
+                <ng-container [ngTemplateOutlet]="headerRow" [ngTemplateOutletContext]="{column: column}"></ng-container>
+            </ng-template>
+        </ng-container>
+    </tr>
+    <tr>
+        <ng-container *ngFor="let head of _headers">
+            <ng-container *ngFor="let column of head.children">
+                <ng-container *ngIf="column?.context && column?.template; else defaultHeaderTemplate">
+                    <ng-container
+                        [ngTemplateOutlet]="column?.template" [ngTemplateOutletContext]="{column: column?.context}"
+                    ></ng-container>
+                </ng-container>
+                <ng-template #defaultHeaderTemplate>
+                    <ng-container [ngTemplateOutlet]="headerRow" [ngTemplateOutletContext]="{column: column}" ></ng-container>
+                </ng-template>
+            </ng-container>
+        </ng-container>
+    </tr>
+</ng-container>
+
+<ng-container *ngIf="headersType === 'level1'">
+    <tr>
+        <ng-container *ngFor="let column of _headers">
+            <ng-container *ngIf="column?.context && column?.template; else defaultHeaderTemplate">
+                <ng-container [ngTemplateOutlet]="column?.template" [ngTemplateOutletContext]="{column: column?.context}"></ng-container>
+            </ng-container>
+            <ng-template #defaultHeaderTemplate>
+                <ng-container [ngTemplateOutlet]="headerRow" [ngTemplateOutletContext]="{column: column}" ></ng-container>
+            </ng-template>
+        </ng-container>
+    </tr>
+</ng-container>
+
+<ng-container *ngIf="headersType === 'default'">
+    <tr>
+        <th
+            scope="col"
+            *ngFor="let head of _headers"
+        >
+            <span *ngIf="head">{{ path + head | translate }}</span>
+        </th>
+    </tr>
+</ng-container>
+
+<ng-template #headerRow let-column="column">
+    <th
+        [attr.colspan]="column?.colspan"
+        class="{{ column.styleClass }}"
+        [ngStyle]="{width: (column?.colWidth) ? column?.colWidth : 'auto'}"
+    >
+        <div class="header__box d-flex align-items-center h-100 position-relative">
+            <app-custom-checkbox
+                *ngIf="column?.type === columnTypes.Checkbox"
+                [id]="'checked-all'"
+                [checked]="selectedAllRowsStatus || selectedAnyRowsStatus"
+                (change)="toggleSelectingAllRows($event)"
+                [className]="selectedAnyRowsStatus && !selectedAllRowsStatus ? 'form-checkbox--checkmark-style-dash' : ''"
+            ></app-custom-checkbox>
+            <span
+                (click)="sort(column?.sort, column)"
+                class="table__header-value d-flex align-items-center"
+                [ngClass]="column?.styleClassForSpan"
+                [tooltip]="column?.tooltipTranslateKey | translate"
+                [display]="!!column?.tooltipDisplay">
+                <ng-container *ngIf="column?.translateKey">{{ column?.translateKey | translate }}</ng-container>
+                <span class="table__header-sort-icon" *ngIf="column?.sort">
+                    <ui-svg-icon
+                        [icon]="column?.direction === 'asc' ? 'sort-asc' : 'sort-desc'"
+                        [size]="12"
+                    ></ui-svg-icon>
+                </span>
+            </span>
+        </div>
+    </th>
+</ng-template>

@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Seite nicht gefunden oder verboten",
+            "text": "Der Link, auf den du geklickt hast, kann kaputt sein oder die Seite wurde entfernt oder verboten."
+        },
+        "page_not_found": {
+            "title": "Seite nicht gefunden oder verboten",
+            "text": "Der Link, auf den du geklickt hast, kann kaputt sein oder die Seite wurde entfernt oder verboten."
+        },
+        "connection_lost": {
+            "title": "Verbindung verloren",
+            "text": "Bitte warte ein paar Minuten bevor du es erneut versuchst.",
+            "try_again": "Erneut versuchen"
+        }
+    }
+}

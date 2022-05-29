@@ -1,0 +1,24 @@
+<ng-container *ngIf="buttonPositionOnShow === 'top'">
+    <ng-container *ngTemplateOutlet="buttonTpl"></ng-container>
+</ng-container>
+<div *ngIf="show" class="mt-1">
+    <ng-content></ng-content>
+</div>
+<ng-container *ngIf="buttonPositionOnShow === 'bottom'">
+    <ng-container *ngTemplateOutlet="buttonTpl"></ng-container>
+</ng-container>
+
+<ng-template #buttonTpl>
+    <div [ngClass]="buttonClass">
+        <ui-button-link
+            type="link"
+            (click)="showHideBlock()"
+            iconType="stroke"
+            icon="down"
+            iconColor="#2e9ce8"
+            [iconClass]="iconClass"
+            [label]="show ? labelHide : labelShow"
+            iconPosition="right"
+        ></ui-button-link>
+    </div>
+</ng-template>

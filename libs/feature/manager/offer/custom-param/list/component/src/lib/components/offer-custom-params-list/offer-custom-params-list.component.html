@@ -1,0 +1,107 @@
+<ui-table2
+    [columns]="tableHeaders"
+    [items]="items"
+    [stickyHead]="true"
+    [loading]="loading"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    rowSize="small"
+>
+    <ng-template uiTable2ColTemplate="status" let-status="value">
+        <app-status-dot-color type="custom_params_statuses" [status]="status"></app-status-dot-color>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="affiliates" let-affiliates="value">
+        <app-short-list-in-column
+            *ngIf="affiliates.length > 0; else allAffiliates"
+            [items]="affiliates"
+            [displayTooltip]="true"
+            [limit]="2"
+            [templateRow]="affiliatesTemplate"
+            [templateTooltip]="affiliatesTooltipTemplate"
+        ></app-short-list-in-column>
+
+        <ng-template #allAffiliates>
+            {{ 'shared.dictionary.all' | translate }}
+        </ng-template>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="conditions" let-conditions="value">
+        <app-short-list-in-column
+            [items]="conditions"
+            [displayTooltip]="true"
+            [limit]="2"
+            [templateRow]="conditionsTemplate"
+            [templateTooltip]="conditionsTooltipTemplate"
+        ></app-short-list-in-column>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="custom_parameters" let-item="valueRow">
+        <app-short-list-in-column
+            [items]="item.parameters"
+            [displayTooltip]="true"
+            [limit]="2"
+            [templateRow]="parametersTemplate"
+            [templateTooltip]="parametersTooltipTemplate"
+        ></app-short-list-in-column>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="effective_dates" let-item="valueRow">
+        <div class="d-flex flex-column">
+            <div class="m-y-6">
+                <span class="mr-1">{{ 'interface.date.start_date' | translate }}</span>
+                <ui-chip>{{ item.start_date | format: 'date' }}</ui-chip>
+            </div>
+
+            <div *ngIf="item.end_date" class="m-b-6">
+                <span class="mr-1">{{ 'interface.date.end_date' | translate }}</span>
+                <ui-chip>{{ item.end_date | format: 'date' }}</ui-chip>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="added_date" let-item="valueRow">
+        <app-date-variant [date]="item.created"></app-date-variant>
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation (toggleEdit)="edit(item.id)"></ui-table-navigation>
+</ng-template>
+
+<ng-template #parametersTemplate let-context="context">
+    <app-offer-custom-params-parameters-list-item [parameter]="context"></app-offer-custom-params-parameters-list-item>
+</ng-template>
+
+<ng-template #parametersTooltipTemplate let-context="context">
+    <app-offer-custom-params-parameters-list-item
+        [parameter]="context"
+        [isTooltip]="true"
+    ></app-offer-custom-params-parameters-list-item>
+</ng-template>
+
+<ng-template #conditionsTemplate let-context="context">
+    <app-offer-custom-params-conditions-list-item
+        [condition]="context"
+        limitChip="1"
+    ></app-offer-custom-params-conditions-list-item>
+</ng-template>
+
+<ng-template #conditionsTooltipTemplate let-context="context">
+    <app-offer-custom-params-conditions-list-item
+        [condition]="context"
+        [isTooltip]="true"
+    ></app-offer-custom-params-conditions-list-item>
+</ng-template>
+
+<ng-template #affiliatesTemplate let-context="context">
+    <a [routerLink]="'/affiliates/' + context.id | navigateRoot" class="text-pre-wrap line-height is-17">
+        {{ context.title | format: 'idName': context.id }}
+    </a>
+</ng-template>
+
+<ng-template #affiliatesTooltipTemplate let-context="context">
+    <span class="text-pre-wrap">
+        {{ context.title | format: 'idName': context.id }}
+    </span>
+</ng-template>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="translateLabel$ | async">
+    <span class="report-last-updated__title font-size is-7 color__gray3 m-r-8">{{translateLabel$ | async }}</span>
+</ng-container>
+<ui-button-link
+    type="floating"
+    icon="refresh"
+    [tooltip]="'interface.basic.refresh.button' | translate"
+    iconAnimation="rotate"
+    (toggle)="refresh()"
+></ui-button-link>

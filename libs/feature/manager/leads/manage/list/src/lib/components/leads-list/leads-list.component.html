@@ -1,0 +1,144 @@
+<div>
+    <ui-page-wrapper [borderRadius]="4">
+        <ui-page-wrapper-header className="p-l-32 p-r-32">
+            <app-report-filters
+                [filterList]="getFilters$ | async"
+                [filtersSelected]="filtersSelected$ | async"
+                (changedFilters)="changedFilters($event)"
+            ></app-report-filters>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-header className="p-l-32 p-r-32" [haveBorderBottom]="false">
+            <div class="d-flex align-items-center w-100">
+                <app-report-date-range></app-report-date-range>
+
+                <app-report-last-updated class="ml-auto" (refreshed)="refreshed()"></app-report-last-updated>
+            </div>
+        </ui-page-wrapper-header>
+    </ui-page-wrapper>
+
+    <ui-page-wrapper borderRadius="4" className="mt-3">
+        <ui-page-wrapper-header
+            className="p-l-32 p-r-20"
+            [appUiPageWrapperHeaderColor]="transactionReportListComponent?.hasSelectedItems"
+            [haveBorderBottom]="false"
+        >
+            <ng-container
+                [ngTemplateOutlet]="transactionReportListComponent?.hasSelectedItems ?
+                actionHeaderTemplate :
+                defaultHeaderTemplate"
+            ></ng-container>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content className="mb-0 p-0">
+            <scaleo-ui-loader class="d-flex justify-content-center p-3" *ngIf="initialLoading$ | async" [sizeInPx]="50"></scaleo-ui-loader>
+            <scaleo-transaction-report-list
+                [@fade]
+                *ngIf="isInitialLoad$ | async"
+                [columns]="columns$ | async"
+                [items]="items$ | async"
+                [sortDirection]="sortDirection$ | async"
+                [sortField]="sortField$ | async"
+                [loading]="loading$ | async"
+                [rowTemplate]="rowTemplate"
+                [showSelect]="true"
+                keyForSelectItemValue="transaction_id"
+                (sorting)="sortWasChanged($event)"
+                [controlTemplate]="controlTemplate"
+                (selectItems)="selectItems($event)"
+            >
+            </scaleo-transaction-report-list>
+        </ui-page-wrapper-content>
+
+        <ui-page-wrapper-footer>
+            <app-custom-pagination
+                *ngIf="pagination$ | async"
+                [pagination]="pagination$ | async"
+                [pageInQueryParams]="true"
+                (toggle)="pageWasChanged($event)"
+                (togglePerPage)="perPageWasChanged($event)"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+    </ui-page-wrapper>
+
+</div>
+
+<ng-template #rowTemplate let-item let-column="column">
+    <app-report-col-fields
+        *ngIf="item"
+        [_key]="column?.value"
+        [_item]="item"
+        reportType="conversions"
+    ></app-report-col-fields>
+</ng-template>
+
+<ng-template #defaultHeaderTemplate>
+    <div class="d-flex my-auto">
+        <app-result-count [count]="totalCount$ | async" className="border-0"></app-result-count>
+    </div>
+
+    <div class="d-flex my-auto ml-auto">
+        <app-report-export
+            *ngxPermissionsOnly="permissions.canExportConversions"
+            (exportFormat)="exportData($event)"
+            buttonType="simple"
+            buttonIcon="ic_export"
+        ></app-report-export>
+
+        <app-config-table-column2
+            class="m-l-2"
+            [title]="'interface.basic.columns' | translate"
+            [configs]="columnsOptions$ | async"
+            configType="leads-list"
+            popupWrapperClassName="leads-list-modal-columns-config"
+            popupMinWidth="970px"
+            (columnChanged)="columnWasChanged($event)"
+        ></app-config-table-column2>
+    </div>
+</ng-template>
+
+<ng-template #actionHeaderTemplate>
+    <div class="d-flex align-items-center">
+        <div class="page-wrapper-header__selected-value-counter d-flex align-items-center">
+            <span class="color__white">
+                {{ selectedItems.length }} {{ 'interface.basic.selected' | translate }}
+            </span>
+
+            <ui-svg-icon
+                aria-hidden="true"
+                icon="remove-tag"
+                [size]="24"
+                className="report-conversions__close"
+                (click)="clearSelected()">
+            </ui-svg-icon>
+        </div>
+
+        <ui-divider orientation="vertical" height="24px" class="ml-2 mr-3"></ui-divider>
+
+        <app-conversions-change-status
+            [selectedItems]="selectedItems"
+            (statusWasChanged)="statusWasChanged()"
+        ></app-conversions-change-status>
+
+        <app-report-export
+            *ngxPermissionsOnly="permissions.canExportConversions"
+            (exportFormat)="exportData($event)"
+            buttonType="main-floating"
+            buttonIcon="ic_export_white"
+            class="ml-2"
+        ></app-report-export>
+
+        <ui-button-link
+            class="ml-2"
+            [label]="'leads_ui_page.leads.deliver_again.title' | translate"
+            type="main-floating"
+            (toggle)="deliverAgain()"
+        ></ui-button-link>
+    </div>
+</ng-template>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canSeeLeadDetails"
+        (toggleEdit)="editLead(item.transaction_id)"
+    ></ui-table-navigation>
+</ng-template>

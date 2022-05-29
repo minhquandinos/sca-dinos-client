@@ -1,0 +1,1261 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitOverride": false,
+        "importHelpers": true,
+        "target": "es6",
+        "module": "esnext",
+        "lib": ["es2021", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "strictPropertyInitialization": false,
+        "strictNullChecks": false,
+        "baseUrl": ".",
+        "paths": {
+            "@scaleo/account/common": ["libs/account/common/src/index.ts"],
+            "@scaleo/account/data-access": ["libs/account/data-access/src/index.ts"],
+            "@scaleo/account/guards": ["libs/account/guards/src/index.ts"],
+            "@scaleo/account/service": ["libs/account/service/src/index.ts"],
+            "@scaleo/activity-log/common": ["libs/activity-log/common/src/index.ts"],
+            "@scaleo/activity-log/data-access": ["libs/activity-log/data-access/src/index.ts"],
+            "@scaleo/activity-log/shared/components/activity": ["libs/activity-log/shared/components/activity/src/index.ts"],
+            "@scaleo/activity-log/shared/components/activity-link-to-item": [
+                "libs/activity-log/shared/components/activity-link-to-item/src/index.ts"
+            ],
+            "@scaleo/activity-log/shared/components/activity-log-user": [
+                "libs/activity-log/shared/components/activity-log-user/src/index.ts"
+            ],
+            "@scaleo/activity-log/shared/components/list": ["libs/activity-log/shared/components/list/src/index.ts"],
+            "@scaleo/activity-log/shared/components/short-items": ["libs/activity-log/shared/components/short-items/src/index.ts"],
+            "@scaleo/activity-log/shared/pipes/is-activity-object-type": [
+                "libs/activity-log/shared/pipes/is-activity-object-type/src/index.ts"
+            ],
+            "@scaleo/activity-log/shared/widgets/activity-log-entity/component": [
+                "libs/activity-log/shared/widgets/activity-log-entity/component/src/index.ts"
+            ],
+            "@scaleo/activity-log/shared/widgets/activity-log-entity/data-access": [
+                "libs/activity-log/shared/widgets/activity-log-entity/data-access/src/index.ts"
+            ],
+            "@scaleo/affiliate-billing-common": ["libs/affiliate-billing/common/src/index.ts"],
+            "@scaleo/affiliate-billing/balance/data-access": ["libs/affiliate-billing/balance/data-access/src/index.ts"],
+            "@scaleo/affiliate-billing/balance/widget": ["libs/affiliate-billing/balance/widget/src/index.ts"],
+            "@scaleo/affiliate-billing/payment-methods/detail": ["libs/affiliate-billing/payment-methods/detail/src/index.ts"],
+            "@scaleo/affiliate-billing/payment-methods/upsert/data-access": [
+                "libs/affiliate-billing/payment-methods/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/affiliate-billing/payment-methods/upsert/modal-form": [
+                "libs/affiliate-billing/payment-methods/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/affiliate-billing/payment-methods/widget/data-access": [
+                "libs/affiliate-billing/payment-methods/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/affiliate-billing/payment-methods/widget/list": ["libs/affiliate-billing/payment-methods/widget/list/src/index.ts"],
+            "@scaleo/affiliate-billing/preferences/data-access": ["libs/affiliate-billing/preferences/data-access/src/index.ts"],
+            "@scaleo/affiliate-billing/preferences/edit/common": ["libs/affiliate-billing/preferences/edit/common/src/index.ts"],
+            "@scaleo/affiliate-billing/preferences/filds-view": ["libs/affiliate-billing/preferences/filds-view/src/index.ts"],
+            "@scaleo/affiliate/postback/common": ["libs/affiliate/postback/common/src/index.ts"],
+            "@scaleo/affiliate/postback/list/data-access": ["libs/affiliate/postback/list/data-access/src/index.ts"],
+            "@scaleo/affiliate/postback/shared/pipes/level-name": ["libs/affiliate/postback/shared/pipes/level-name/src/index.ts"],
+            "@scaleo/affiliate/postback/upsert/data-access": ["libs/affiliate/postback/upsert/data-access/src/index.ts"],
+            "@scaleo/affiliate/referral/common": ["libs/affiliate/referral/common/src/index.ts"],
+            "@scaleo/affiliate/referral/data-access": ["libs/affiliate/referral/data-access/src/index.ts"],
+            "@scaleo/affiliate/referral/shared/components/list": ["libs/affiliate/referral/shared/components/list/src/index.ts"],
+            "@scaleo/affiliate/referral/shared/pipes/link": ["libs/affiliate/referral/shared/pipes/link/src/index.ts"],
+            "@scaleo/announcement/data-access": ["libs/announcement/data-access/src/index.ts"],
+            "@scaleo/auth/as/service": ["libs/auth/as/service/src/index.ts"],
+            "@scaleo/auth/authentication/service": ["libs/auth/authentication/service/src/index.ts"],
+            "@scaleo/auth/credentials/service": ["libs/auth/credentials/service/src/index.ts"],
+            "@scaleo/auth/data": ["libs/auth/data/src/index.ts"],
+            "@scaleo/auth/error/interceptor": ["libs/auth/error/interceptor/src/index.ts"],
+            "@scaleo/auth/event/service": ["libs/auth/event/service/src/index.ts"],
+            "@scaleo/auth/forbidden/interceptor": ["libs/auth/forbidden/interceptor/src/index.ts"],
+            "@scaleo/auth/guards": ["libs/auth/guards/src/index.ts"],
+            "@scaleo/auth/jwt/interceptor": ["libs/auth/jwt/interceptor/src/index.ts"],
+            "@scaleo/auth/logout/service": ["libs/auth/logout/service/src/index.ts"],
+            "@scaleo/auth/remote/service": ["libs/auth/remote/service/src/index.ts"],
+            "@scaleo/auth/state": ["libs/auth/state/src/index.ts"],
+            "@scaleo/auth/two-fa-verification/guard": ["libs/auth/two-fa-verification/guard/src/index.ts"],
+            "@scaleo/auth/two-fa-verification/service": ["libs/auth/two-fa-verification/service/src/index.ts"],
+            "@scaleo/auth/workspace/service": ["libs/auth/workspace/service/src/index.ts"],
+            "@scaleo/chart/common": ["libs/chart/common/src/index.ts"],
+            "@scaleo/chart/shared/charts/compare-period": ["libs/chart/shared/charts/compare-period/src/index.ts"],
+            "@scaleo/chart/shared/components/compare-widget": ["libs/chart/shared/components/compare-widget/src/index.ts"],
+            "@scaleo/core/adblock/info-bar": ["libs/core/adblock/info-bar/src/index.ts"],
+            "@scaleo/core/adblock/service": ["libs/core/adblock/service/src/index.ts"],
+            "@scaleo/core/classes": ["libs/core/classes/src/index.ts"],
+            "@scaleo/core/connection/interceptor": ["libs/core/connection/interceptor/src/index.ts"],
+            "@scaleo/core/data": ["libs/core/data/src/index.ts"],
+            "@scaleo/core/decorators/common": ["libs/core/decorators/common/src/index.ts"],
+            "@scaleo/core/detected-clinet-device/service": ["libs/core/detected-clinet-device/service/src/index.ts"],
+            "@scaleo/core/error/common": ["libs/core/error/common/src/index.ts"],
+            "@scaleo/core/error/service": ["libs/core/error/service/src/index.ts"],
+            "@scaleo/core/locator/service": ["libs/core/locator/service/src/index.ts"],
+            "@scaleo/core/media-watcher/directive": ["libs/core/media-watcher/directive/src/index.ts"],
+            "@scaleo/core/media-watcher/service": ["libs/core/media-watcher/service/src/index.ts"],
+            "@scaleo/core/navigation/common": ["libs/core/navigation/common/src/index.ts"],
+            "@scaleo/core/page-content/service": ["libs/core/page-content/service/src/index.ts"],
+            "@scaleo/core/preload/service": ["libs/core/preload/service/src/index.ts"],
+            "@scaleo/core/resize-observer/directive": ["libs/core/resize-observer/directive/src/index.ts"],
+            "@scaleo/core/resize-observer/service": ["libs/core/resize-observer/service/src/index.ts"],
+            "@scaleo/core/rest-api/service": ["libs/core/rest-api/service/src/index.ts"],
+            "@scaleo/core/services/env": ["libs/core/services/env/src/index.ts"],
+            "@scaleo/core/services/json-convert": ["libs/core/services/json-convert/src/index.ts"],
+            "@scaleo/core/services/rest-api": ["libs/core/services/rest-api/src/index.ts"],
+            "@scaleo/core/services/translate": ["libs/core/services/translate/src/index.ts"],
+            "@scaleo/core/services/unsubscribe": ["libs/core/services/unsubscribe/src/index.ts"],
+            "@scaleo/core/shared/module": ["libs/core/shared/module/src/index.ts"],
+            "@scaleo/core/state/custom-state": ["libs/core/state/custom-state/src/index.ts"],
+            "@scaleo/core/state/entiy-state": ["libs/core/state/entiy-state/src/index.ts"],
+            "@scaleo/core/state/list-items-state": ["libs/core/state/list-items-state/src/index.ts"],
+            "@scaleo/core/state/persist-state": ["libs/core/state/persist-state/src/index.ts"],
+            "@scaleo/core/state/state": ["libs/core/state/state/src/index.ts"],
+            "@scaleo/core/storage/common": ["libs/core/storage/common/src/index.ts"],
+            "@scaleo/core/storage/local": ["libs/core/storage/local/src/index.ts"],
+            "@scaleo/core/storage/memory": ["libs/core/storage/memory/src/index.ts"],
+            "@scaleo/core/tracking-request/directive": ["libs/core/tracking-request/directive/src/index.ts"],
+            "@scaleo/core/tracking-request/interceptor": ["libs/core/tracking-request/interceptor/src/index.ts"],
+            "@scaleo/core/tracking-request/service": ["libs/core/tracking-request/service/src/index.ts"],
+            "@scaleo/core/version/service": ["libs/core/version/service/src/index.ts"],
+            "@scaleo/core/window-ref/service": ["libs/core/window-ref/service/src/index.ts"],
+            "@scaleo/dashboard-old/shared/widgets/summary/component": ["libs/dashboard-old/shared/widgets/summary/component/src/index.ts"],
+            "@scaleo/dashboard-old/shared/widgets/summary/data-access": [
+                "libs/dashboard-old/shared/widgets/summary/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/common": ["libs/dashboard/common/src/index.ts"],
+            "@scaleo/dashboard/data-access": ["libs/dashboard/data-access/src/index.ts"],
+            "@scaleo/dashboard/service": ["libs/dashboard/service/src/index.ts"],
+            "@scaleo/dashboard/shared/components/container-widget": ["libs/dashboard/shared/components/container-widget/src/index.ts"],
+            "@scaleo/dashboard/shared/components/dynamic-widget": ["libs/dashboard/shared/components/dynamic-widget/src/index.ts"],
+            "@scaleo/dashboard/shared/components/grid/component": ["libs/dashboard/shared/components/grid/component/src/index.ts"],
+            "@scaleo/dashboard/shared/components/skeleton": ["libs/dashboard/shared/components/skeleton/src/index.ts"],
+            "@scaleo/dashboard/shared/components/toolbar": ["libs/dashboard/shared/components/toolbar/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/mgcom-top/component": ["libs/dashboard/shared/widgets/mgcom-top/component/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/mgcom-top/data-access": ["libs/dashboard/shared/widgets/mgcom-top/data-access/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/network-summary/component": [
+                "libs/dashboard/shared/widgets/network-summary/component/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/network-summary/data-access": [
+                "libs/dashboard/shared/widgets/network-summary/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/notification/component": [
+                "libs/dashboard/shared/widgets/notification/component/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/notification/data-access": [
+                "libs/dashboard/shared/widgets/notification/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/affiliate-postback/component": [
+                "libs/dashboard/shared/widgets/pending-records/affiliate-postback/component/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/affiliate-postback/data-access": [
+                "libs/dashboard/shared/widgets/pending-records/affiliate-postback/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/common": [
+                "libs/dashboard/shared/widgets/pending-records/common/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/data-access": [
+                "libs/dashboard/shared/widgets/pending-records/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/offer-request/component": [
+                "libs/dashboard/shared/widgets/pending-records/offer-request/component/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/pending-records/offer-request/data-access": [
+                "libs/dashboard/shared/widgets/pending-records/offer-request/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/performance/component": ["libs/dashboard/shared/widgets/performance/component/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/performance/data-access": [
+                "libs/dashboard/shared/widgets/performance/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/shortcut/component": ["libs/dashboard/shared/widgets/shortcut/component/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/shortcut/data-access": ["libs/dashboard/shared/widgets/shortcut/data-access/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/top/common": ["libs/dashboard/shared/widgets/top/common/src/index.ts"],
+            "@scaleo/dashboard/shared/widgets/top/components/offer/common": [
+                "libs/dashboard/shared/widgets/top/components/offer/common/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/top/components/offer/data-access": [
+                "libs/dashboard/shared/widgets/top/components/offer/data-access/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/top/components/offer/list": [
+                "libs/dashboard/shared/widgets/top/components/offer/list/src/index.ts"
+            ],
+            "@scaleo/dashboard/shared/widgets/top/components/offer/widget": [
+                "libs/dashboard/shared/widgets/top/components/offer/widget/src/index.ts"
+            ],
+            "@scaleo/data-access/general-settings": ["libs/data-access/general-settings/src/index.ts"],
+            "@scaleo/data-access/top/affiliates": ["libs/data-access/top/affiliates/src/index.ts"],
+            "@scaleo/data-access/top/common": ["libs/data-access/top/common/src/index.ts"],
+            "@scaleo/data-access/top/offers": ["libs/data-access/top/offers/src/index.ts"],
+            "@scaleo/demo-link-to-trial": ["libs/demo/link-to-trial/src/index.ts"],
+            "@scaleo/demo-service": ["libs/demo/service/src/index.ts"],
+            "@scaleo/enviroment": ["libs/enviroment/src/index.ts"],
+            "@scaleo/errors/connection-lost/page": ["libs/errors/connection-lost/page/src/index.ts"],
+            "@scaleo/errors/not-found/page": ["libs/errors/not-found/page/src/index.ts"],
+            "@scaleo/errors/pages": ["libs/errors/pages/src/index.ts"],
+            "@scaleo/errors/permission-denied/page": ["libs/errors/permission-denied/page/src/index.ts"],
+            "@scaleo/errors/server-error/page": ["libs/errors/server-error/page/src/index.ts"],
+            "@scaleo/feature-affiliate-dashboard-widgets-balance-component": [
+                "libs/feature/affiliate/dashboard/widgets/balance/component/src/index.ts"
+            ],
+            "@scaleo/feature-affiliate-dashboard-widgets-balance-data-access": [
+                "libs/feature/affiliate/dashboard/widgets/balance/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-affiliate-dashboard-widgets-offer-promote-component": [
+                "libs/feature/affiliate/dashboard/widgets/offer-promote/component/src/index.ts"
+            ],
+            "@scaleo/feature-affiliate-dashboard-widgets-offer-promote-data-access": [
+                "libs/feature/affiliate/dashboard/widgets/offer-promote/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-deliver-deliveries-list-component": [
+                "libs/feature/manager/leads/deliver/deliveries/list/component/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-deliver-deliveries-list-data-access": [
+                "libs/feature/manager/leads/deliver/deliveries/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-deliver-deliveries-list-page": [
+                "libs/feature/manager/leads/deliver/deliveries/list/page/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-deliver-deliveries-upsert-data-access": [
+                "libs/feature/manager/leads/deliver/deliveries/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-deliver-deliveries-upsert-modal-form": [
+                "libs/feature/manager/leads/deliver/deliveries/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-receive-campaigns-list-component": [
+                "libs/feature/manager/leads/receive/campaigns/list/component/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-receive-campaigns-list-data-access": [
+                "libs/feature/manager/leads/receive/campaigns/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-receive-campaigns-upsert-data-access": [
+                "libs/feature/manager/leads/receive/campaigns/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-leads-receive-campaigns-upsert-form-modal": [
+                "libs/feature/manager/leads/receive/campaigns/upsert/form-modal/src/index.ts"
+            ],
+            "@scaleo/feature-manager-settings-role-list-component": ["libs/feature/manager/settings/role/list/component/src/index.ts"],
+            "@scaleo/feature-manager-settings-role-list-data-access": ["libs/feature/manager/settings/role/list/data-access/src/index.ts"],
+            "@scaleo/feature-manager-settings-role-list-page": ["libs/feature/manager/settings/role/list/page/src/index.ts"],
+            "@scaleo/feature-manager-settings-role-upsert-data-access": [
+                "libs/feature/manager/settings/role/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature-manager-settings-role-upsert-modal-form": [
+                "libs/feature/manager/settings/role/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/account/pages": ["libs/feature/account/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/activity-log/list/component": ["libs/feature/advertiser/activity-log/list/component/src/index.ts"],
+            "@scaleo/feature/advertiser/activity-log/list/data-access": [
+                "libs/feature/advertiser/activity-log/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/activity-log/list/page": ["libs/feature/advertiser/activity-log/list/page/src/index.ts"],
+            "@scaleo/feature/advertiser/core/endpoints": ["libs/feature/advertiser/core/endpoints/src/index.ts"],
+            "@scaleo/feature/advertiser/core/init": ["libs/feature/advertiser/core/init/src/index.ts"],
+            "@scaleo/feature/advertiser/core/persist-state": ["libs/feature/advertiser/core/persist-state/src/index.ts"],
+            "@scaleo/feature/advertiser/core/translate": ["libs/feature/advertiser/core/translate/src/index.ts"],
+            "@scaleo/feature/advertiser/dashboard/page": ["libs/feature/advertiser/dashboard/page/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/detail/data-access": ["libs/feature/advertiser/offer/detail/data-access/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/detail/page": ["libs/feature/advertiser/offer/detail/page/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/detail/widgets/info": ["libs/feature/advertiser/offer/detail/widgets/info/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/list/component": ["libs/feature/advertiser/offer/list/component/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/list/data-access": ["libs/feature/advertiser/offer/list/data-access/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/list/navigation/component": [
+                "libs/feature/advertiser/offer/list/navigation/component/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/offer/list/page": ["libs/feature/advertiser/offer/list/page/src/index.ts"],
+            "@scaleo/feature/advertiser/offer/pages": ["libs/feature/advertiser/offer/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/pages": ["libs/feature/advertiser/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/reports/pages": ["libs/feature/advertiser/reports/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/reports/statistics/aggregations/page": [
+                "libs/feature/advertiser/reports/statistics/aggregations/page/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/reports/statistics/shared/components/navigation": [
+                "libs/feature/advertiser/reports/statistics/shared/components/navigation/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/reports/transactions/click/page": [
+                "libs/feature/advertiser/reports/transactions/click/page/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/reports/transactions/conversion/list/component": [
+                "libs/feature/advertiser/reports/transactions/conversion/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/reports/transactions/conversion/list/page": [
+                "libs/feature/advertiser/reports/transactions/conversion/list/page/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/reports/transactions/pages": ["libs/feature/advertiser/reports/transactions/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/reports/transactions/shared/components/navigation": [
+                "libs/feature/advertiser/reports/transactions/shared/components/navigation/src/index.ts"
+            ],
+            "@scaleo/feature/advertiser/tools/mobile-app/page": ["libs/feature/advertiser/tools/mobile-app/page/src/index.ts"],
+            "@scaleo/feature/advertiser/tools/pages": ["libs/feature/advertiser/tools/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/transactions/pages": ["libs/feature/advertiser/transactions/pages/src/index.ts"],
+            "@scaleo/feature/advertiser/user-profile": ["libs/feature/advertiser/user-profile/src/index.ts"],
+            "@scaleo/feature/affiliate/activity-log/list/component": ["libs/feature/affiliate/activity-log/list/component/src/index.ts"],
+            "@scaleo/feature/affiliate/activity-log/list/data-access": [
+                "libs/feature/affiliate/activity-log/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/activity-log/list/page": ["libs/feature/affiliate/activity-log/list/page/src/index.ts"],
+            "@scaleo/feature/affiliate/billing/invoice/data-access": ["libs/feature/affiliate/billing/invoice/data-access/src/index.ts"],
+            "@scaleo/feature/affiliate/billing/invoice/page": ["libs/feature/affiliate/billing/invoice/page/src/index.ts"],
+            "@scaleo/feature/affiliate/billing/page": ["libs/feature/affiliate/billing/page/src/index.ts"],
+            "@scaleo/feature/affiliate/billing/preferences/edit": ["libs/feature/affiliate/billing/preferences/edit/src/index.ts"],
+            "@scaleo/feature/affiliate/billing/preferences/fields-view": [
+                "libs/feature/affiliate/billing/preferences/fields-view/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/billing/widgets/invoices/data-access": [
+                "libs/feature/affiliate/billing/widgets/invoices/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/billing/widgets/invoices/list": [
+                "libs/feature/affiliate/billing/widgets/invoices/list/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/core/endpoints": ["libs/feature/affiliate/core/endpoints/src/index.ts"],
+            "@scaleo/feature/affiliate/core/init": ["libs/feature/affiliate/core/init/src/index.ts"],
+            "@scaleo/feature/affiliate/core/navigation": ["libs/feature/affiliate/core/navigation/src/index.ts"],
+            "@scaleo/feature/affiliate/core/persist-state": ["libs/feature/affiliate/core/persist-state/src/index.ts"],
+            "@scaleo/feature/affiliate/core/translate": ["libs/feature/affiliate/core/translate/src/index.ts"],
+            "@scaleo/feature/affiliate/dashboard/common": ["libs/feature/affiliate/dashboard/common/src/index.ts"],
+            "@scaleo/feature/affiliate/dashboard/page": ["libs/feature/affiliate/dashboard/page/src/index.ts"],
+            "@scaleo/feature/affiliate/dashboard/widgets/announcements/data-access": [
+                "libs/feature/affiliate/dashboard/widgets/announcements/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/dashboard/widgets/announcements/view-modal": [
+                "libs/feature/affiliate/dashboard/widgets/announcements/view-modal/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/dashboard/widgets/announcements/widget": [
+                "libs/feature/affiliate/dashboard/widgets/announcements/widget/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/dashboard/widgets/pending-records/component": [
+                "libs/feature/affiliate/dashboard/widgets/pending-records/component/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/dashboard/widgets/pending-records/data-access": [
+                "libs/feature/affiliate/dashboard/widgets/pending-records/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/dashboard/widgets/performance/common": [
+                "libs/feature/affiliate/dashboard/widgets/performance/common/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/offer/detail/data-access": ["libs/feature/affiliate/offer/detail/data-access/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/detail/page": ["libs/feature/affiliate/offer/detail/page/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/detail/widgets/info": ["libs/feature/affiliate/offer/detail/widgets/info/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/list/component": ["libs/feature/affiliate/offer/list/component/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/list/data-access": ["libs/feature/affiliate/offer/list/data-access/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/list/navigation/component": [
+                "libs/feature/affiliate/offer/list/navigation/component/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/offer/list/page": ["libs/feature/affiliate/offer/list/page/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/pages": ["libs/feature/affiliate/offer/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/smart-link/list/component": [
+                "libs/feature/affiliate/offer/smart-link/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/offer/smart-link/list/data-access": [
+                "libs/feature/affiliate/offer/smart-link/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/offer/smart-link/list/guards": ["libs/feature/affiliate/offer/smart-link/list/guards/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/smart-link/list/page": ["libs/feature/affiliate/offer/smart-link/list/page/src/index.ts"],
+            "@scaleo/feature/affiliate/offer/targeting-link-builder/modal-form": [
+                "libs/feature/affiliate/offer/targeting-link-builder/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/pages": ["libs/feature/affiliate/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/postback/list/pages": ["libs/feature/affiliate/postback/list/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/postback/widget": ["libs/feature/affiliate/postback/widget/src/index.ts"],
+            "@scaleo/feature/affiliate/referral/list/component": ["libs/feature/affiliate/referral/list/component/src/index.ts"],
+            "@scaleo/feature/affiliate/referral/list/data-access": ["libs/feature/affiliate/referral/list/data-access/src/index.ts"],
+            "@scaleo/feature/affiliate/referral/list/page": ["libs/feature/affiliate/referral/list/page/src/index.ts"],
+            "@scaleo/feature/affiliate/reports/pages": ["libs/feature/affiliate/reports/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/reports/statistics/aggregations/data-access": [
+                "libs/feature/affiliate/reports/statistics/aggregations/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/aggregations/list": [
+                "libs/feature/affiliate/reports/statistics/aggregations/list/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/aggregations/page": [
+                "libs/feature/affiliate/reports/statistics/aggregations/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/pages": ["libs/feature/affiliate/reports/statistics/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/reports/statistics/referrals/data-access": [
+                "libs/feature/affiliate/reports/statistics/referrals/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/referrals/list": [
+                "libs/feature/affiliate/reports/statistics/referrals/list/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/referrals/page": [
+                "libs/feature/affiliate/reports/statistics/referrals/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/statistics/shared/components/navigation": [
+                "libs/feature/affiliate/reports/statistics/shared/components/navigation/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/affiliate-postback/page": [
+                "libs/feature/affiliate/reports/transactions/affiliate-postback/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/click/page": [
+                "libs/feature/affiliate/reports/transactions/click/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/conversion/list/component": [
+                "libs/feature/affiliate/reports/transactions/conversion/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/conversion/list/page": [
+                "libs/feature/affiliate/reports/transactions/conversion/list/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/invalid-click/page": [
+                "libs/feature/affiliate/reports/transactions/invalid-click/page/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/reports/transactions/pages": ["libs/feature/affiliate/reports/transactions/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/reports/transactions/shared/components/navigation": [
+                "libs/feature/affiliate/reports/transactions/shared/components/navigation/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/tools/activity-log/page": ["libs/feature/affiliate/tools/activity-log/page/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/api/page": ["libs/feature/affiliate/tools/api/page/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/mobile-app/page": ["libs/feature/affiliate/tools/mobile-app/page/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/pages": ["libs/feature/affiliate/tools/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/postbacks/list/data-access": [
+                "libs/feature/affiliate/tools/postbacks/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/tools/postbacks/list/page": ["libs/feature/affiliate/tools/postbacks/list/page/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/postbacks/page": ["libs/feature/affiliate/tools/postbacks/page/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/postbacks/pages": ["libs/feature/affiliate/tools/postbacks/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/tools/postbacks/upsert/modal-form": [
+                "libs/feature/affiliate/tools/postbacks/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/tools/postbacks/widget/component": [
+                "libs/feature/affiliate/tools/postbacks/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/affiliate/transactions/pages": ["libs/feature/affiliate/transactions/pages/src/index.ts"],
+            "@scaleo/feature/affiliate/user-profile": ["libs/feature/affiliate/user-profile/src/index.ts"],
+            "@scaleo/feature/affiliate2/dashboard/page": ["libs/feature/affiliate2/dashboard/page/src/index.ts"],
+            "@scaleo/feature/affiliate2/pages": ["libs/feature/affiliate2/pages/src/index.ts"],
+            "@scaleo/feature/auth/core/endpoints": ["libs/feature/auth/core/endpoints/src/index.ts"],
+            "@scaleo/feature/auth/core/init": ["libs/feature/auth/core/init/src/index.ts"],
+            "@scaleo/feature/auth/core/translate": ["libs/feature/auth/core/translate/src/index.ts"],
+            "@scaleo/feature/auth/data-access/signin": ["libs/feature/auth/data-access/signin/src/index.ts"],
+            "@scaleo/feature/auth/data-access/signin-api": ["libs/feature/auth/data-access/signin-api/src/index.ts"],
+            "@scaleo/feature/auth/data-access/signin-auto": ["libs/feature/auth/data-access/signin-auto/src/index.ts"],
+            "@scaleo/feature/auth/data-access/switch-role": ["libs/feature/auth/data-access/switch-role/src/index.ts"],
+            "@scaleo/feature/auth/lazy/logout": ["libs/feature/auth/lazy/logout/src/index.ts"],
+            "@scaleo/feature/auth/lazy/signin": ["libs/feature/auth/lazy/signin/src/index.ts"],
+            "@scaleo/feature/auth/lazy/signin-api": ["libs/feature/auth/lazy/signin-api/src/index.ts"],
+            "@scaleo/feature/auth/lazy/signin-auto": ["libs/feature/auth/lazy/signin-auto/src/index.ts"],
+            "@scaleo/feature/auth/lazy/switch-role": ["libs/feature/auth/lazy/switch-role/src/index.ts"],
+            "@scaleo/feature/auth/lazy/two-fa-verification": ["libs/feature/auth/lazy/two-fa-verification/src/index.ts"],
+            "@scaleo/feature/auth/pages": ["libs/feature/auth/pages/src/index.ts"],
+            "@scaleo/feature/auth/shared/languages": ["libs/feature/auth/shared/languages/src/index.ts"],
+            "@scaleo/feature/auth/shared/terms-conditions": ["libs/feature/auth/shared/terms-conditions/src/index.ts"],
+            "@scaleo/feature/auth/shared/two-fa-verification/page": ["libs/feature/auth/shared/two-fa-verification/page/src/index.ts"],
+            "@scaleo/feature/auth/signup/advertiser/data-access": ["libs/feature/auth/signup/advertiser/data-access/src/index.ts"],
+            "@scaleo/feature/auth/signup/advertiser/page": ["libs/feature/auth/signup/advertiser/page/src/index.ts"],
+            "@scaleo/feature/auth/signup/affiliate/data-access": ["libs/feature/auth/signup/affiliate/data-access/src/index.ts"],
+            "@scaleo/feature/auth/signup/affiliate/page": ["libs/feature/auth/signup/affiliate/page/src/index.ts"],
+            "@scaleo/feature/auth/signup/approval-required/page": ["libs/feature/auth/signup/approval-required/page/src/index.ts"],
+            "@scaleo/feature/auth/signup/pages": ["libs/feature/auth/signup/pages/src/index.ts"],
+            "@scaleo/feature/auth/signup/shared/common": ["libs/feature/auth/signup/shared/common/src/index.ts"],
+            "@scaleo/feature/auth/signup/shared/components/signup": ["libs/feature/auth/signup/shared/components/signup/src/index.ts"],
+            "@scaleo/feature/auth/signup/shared/components/signup-custom-field": [
+                "libs/feature/auth/signup/shared/components/signup-custom-field/src/index.ts"
+            ],
+            "@scaleo/feature/auth/signup/verify-email/data-access": ["libs/feature/auth/signup/verify-email/data-access/src/index.ts"],
+            "@scaleo/feature/auth/signup/verify-email/page": ["libs/feature/auth/signup/verify-email/page/src/index.ts"],
+            "@scaleo/feature/data-access/auth/signin": ["libs/feature/data-access/auth/signin/src/index.ts"],
+            "@scaleo/feature/lazy/auth/signin": ["libs/feature/lazy/auth/signin/src/index.ts"],
+            "@scaleo/feature/manager/activity-log/list/component": ["libs/feature/manager/activity-log/list/component/src/index.ts"],
+            "@scaleo/feature/manager/activity-log/list/data-access": ["libs/feature/manager/activity-log/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/activity-log/list/page": ["libs/feature/manager/activity-log/list/page/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/detail/data-access": ["libs/feature/manager/advertiser/detail/data-access/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/detail/page": ["libs/feature/manager/advertiser/detail/page/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/guards": ["libs/feature/manager/advertiser/guards/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/list/data-access": ["libs/feature/manager/advertiser/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/list/page": ["libs/feature/manager/advertiser/list/page/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/pages": ["libs/feature/manager/advertiser/pages/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/services": ["libs/feature/manager/advertiser/services/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/upsert/component": ["libs/feature/manager/advertiser/upsert/component/src/index.ts"],
+            "@scaleo/feature/manager/advertiser/upsert/data-access": ["libs/feature/manager/advertiser/upsert/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate-billing/affiliate/page": [
+                "libs/feature/manager/affiliate-billing/affiliate/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/affiliates/affiliate/page": [
+                "libs/feature/manager/affiliate-billing/affiliates/affiliate/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/affiliates/data-access": [
+                "libs/feature/manager/affiliate-billing/affiliates/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/affiliates/list": [
+                "libs/feature/manager/affiliate-billing/affiliates/list/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/affiliates/page": [
+                "libs/feature/manager/affiliate-billing/affiliates/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/common": ["libs/feature/manager/affiliate-billing/common/src/index.ts"],
+            "@scaleo/feature/manager/affiliate-billing/invoice/detail/data-access": [
+                "libs/feature/manager/affiliate-billing/invoice/detail/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/detail/page": [
+                "libs/feature/manager/affiliate-billing/invoice/detail/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/edit/data-access": [
+                "libs/feature/manager/affiliate-billing/invoice/edit/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/edit/modal-form": [
+                "libs/feature/manager/affiliate-billing/invoice/edit/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/generate/data-access": [
+                "libs/feature/manager/affiliate-billing/invoice/generate/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/generate/modal-form": [
+                "libs/feature/manager/affiliate-billing/invoice/generate/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/page": ["libs/feature/manager/affiliate-billing/invoice/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate-billing/invoice/widgets/invoices/common": [
+                "libs/feature/manager/affiliate-billing/invoice/widgets/invoices/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/widgets/invoices/data-access": [
+                "libs/feature/manager/affiliate-billing/invoice/widgets/invoices/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoice/widgets/invoices/widget": [
+                "libs/feature/manager/affiliate-billing/invoice/widgets/invoices/widget/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoices/data-access": [
+                "libs/feature/manager/affiliate-billing/invoices/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoices/list": [
+                "libs/feature/manager/affiliate-billing/invoices/list/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/invoices/page": [
+                "libs/feature/manager/affiliate-billing/invoices/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/pages": ["libs/feature/manager/affiliate-billing/pages/src/index.ts"],
+            "@scaleo/feature/manager/affiliate-billing/preferences/edit": [
+                "libs/feature/manager/affiliate-billing/preferences/edit/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/preferences/fields-view": [
+                "libs/feature/manager/affiliate-billing/preferences/fields-view/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/shared/common": [
+                "libs/feature/manager/affiliate-billing/shared/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/shared/components/invoice-automatically": [
+                "libs/feature/manager/affiliate-billing/shared/components/invoice-automatically/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate-billing/shared/components/invoice-friquencies": [
+                "libs/feature/manager/affiliate-billing/shared/components/invoice-friquencies/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/common": ["libs/feature/manager/affiliate/common/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/detail/config/pages": ["libs/feature/manager/affiliate/detail/config/pages/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/detail/data-access": ["libs/feature/manager/affiliate/detail/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/detail/detail-widget/common": [
+                "libs/feature/manager/affiliate/detail/detail-widget/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/detail/detail-widget/component": [
+                "libs/feature/manager/affiliate/detail/detail-widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/detail/detail-widget/data-access": [
+                "libs/feature/manager/affiliate/detail/detail-widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/detail/info-widget/data-access": [
+                "libs/feature/manager/affiliate/detail/info-widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/detail/page": ["libs/feature/manager/affiliate/detail/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/detail/pages": ["libs/feature/manager/affiliate/detail/pages/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/detail/trend/widget": ["libs/feature/manager/affiliate/detail/trend/widget/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/domain/data-access": ["libs/feature/manager/affiliate/domain/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/domain/list": ["libs/feature/manager/affiliate/domain/list/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/domain/page": ["libs/feature/manager/affiliate/domain/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/domain/upsert": ["libs/feature/manager/affiliate/domain/upsert/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/domain/widget": ["libs/feature/manager/affiliate/domain/widget/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/guards": ["libs/feature/manager/affiliate/guards/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/list/component": ["libs/feature/manager/affiliate/list/component/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/list/data-access": ["libs/feature/manager/affiliate/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/list/navigation": ["libs/feature/manager/affiliate/list/navigation/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/list/page": ["libs/feature/manager/affiliate/list/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/pages": ["libs/feature/manager/affiliate/pages/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/postback/data-access": ["libs/feature/manager/affiliate/postback/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/postback/list/data-access": [
+                "libs/feature/manager/affiliate/postback/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/postback/list/page": ["libs/feature/manager/affiliate/postback/list/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/postback/upsert/modal-form": [
+                "libs/feature/manager/affiliate/postback/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/postback/widget": ["libs/feature/manager/affiliate/postback/widget/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/referral/data-access": ["libs/feature/manager/affiliate/referral/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/referral/list/component": [
+                "libs/feature/manager/affiliate/referral/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/referral/list/data-access": [
+                "libs/feature/manager/affiliate/referral/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/referral/list/page": ["libs/feature/manager/affiliate/referral/list/page/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/referral/widget/component": [
+                "libs/feature/manager/affiliate/referral/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/referral/widget/data-access": [
+                "libs/feature/manager/affiliate/referral/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/affiliate/services": ["libs/feature/manager/affiliate/services/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/upsert/data-access": ["libs/feature/manager/affiliate/upsert/data-access/src/index.ts"],
+            "@scaleo/feature/manager/affiliate/upsert/modal-form": ["libs/feature/manager/affiliate/upsert/modal-form/src/index.ts"],
+            "@scaleo/feature/manager/common/entity-detail": ["libs/feature/manager/common/entity-detail/src/index.ts"],
+            "@scaleo/feature/manager/common/settings": ["libs/feature/manager/common/settings/src/index.ts"],
+            "@scaleo/feature/manager/common/trend": ["libs/feature/manager/common/trend/src/index.ts"],
+            "@scaleo/feature/manager/core/endpoints": ["libs/feature/manager/core/endpoints/src/index.ts"],
+            "@scaleo/feature/manager/core/init": ["libs/feature/manager/core/init/src/index.ts"],
+            "@scaleo/feature/manager/core/navigation": ["libs/feature/manager/core/navigation/src/index.ts"],
+            "@scaleo/feature/manager/core/permission": ["libs/feature/manager/core/permission/src/index.ts"],
+            "@scaleo/feature/manager/core/persist-state": ["libs/feature/manager/core/persist-state/src/index.ts"],
+            "@scaleo/feature/manager/core/translate": ["libs/feature/manager/core/translate/src/index.ts"],
+            "@scaleo/feature/manager/dashboard/common": ["libs/feature/manager/dashboard/common/src/index.ts"],
+            "@scaleo/feature/manager/dashboard/page": ["libs/feature/manager/dashboard/page/src/index.ts"],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/advertiser-pending/component": [
+                "libs/feature/manager/dashboard/widgets/pending-records/advertiser-pending/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/affiliate-pending/component": [
+                "libs/feature/manager/dashboard/widgets/pending-records/affiliate-pending/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/component": [
+                "libs/feature/manager/dashboard/widgets/pending-records/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/shared/advertiser-pending/component": [
+                "libs/feature/manager/dashboard/widgets/pending-records/shared/advertiser-pending/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/shared/advertiser-pending/data-access": [
+                "libs/feature/manager/dashboard/widgets/pending-records/shared/advertiser-pending/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/shared/affiliate-pending/component": [
+                "libs/feature/manager/dashboard/widgets/pending-records/shared/affiliate-pending/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/pending-records/shared/affiliate-pending/data-access": [
+                "libs/feature/manager/dashboard/widgets/pending-records/shared/affiliate-pending/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/performance/common": [
+                "libs/feature/manager/dashboard/widgets/performance/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/top/components/affiliate/api": [
+                "libs/feature/manager/dashboard/widgets/top/components/affiliate/api/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/top/components/affiliate/common": [
+                "libs/feature/manager/dashboard/widgets/top/components/affiliate/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/top/components/affiliate/data-access": [
+                "libs/feature/manager/dashboard/widgets/top/components/affiliate/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/top/components/affiliate/list": [
+                "libs/feature/manager/dashboard/widgets/top/components/affiliate/list/src/index.ts"
+            ],
+            "@scaleo/feature/manager/dashboard/widgets/top/components/affiliate/widget": [
+                "libs/feature/manager/dashboard/widgets/top/components/affiliate/widget/src/index.ts"
+            ],
+            "@scaleo/feature/manager/data-access/settings/advertisers": [
+                "libs/feature/manager/data-access/settings/advertisers/src/index.ts"
+            ],
+            "@scaleo/feature/manager/data-access/settings/affiliates": [
+                "libs/feature/manager/data-access/settings/affiliates/src/index.ts"
+            ],
+            "@scaleo/feature/manager/data-access/settings/branding": ["libs/feature/manager/data-access/settings/branding/src/index.ts"],
+            "@scaleo/feature/manager/data-access/settings/general": ["libs/feature/manager/data-access/settings/general/src/index.ts"],
+            "@scaleo/feature/manager/data-access/settings/offers": ["libs/feature/manager/data-access/settings/offers/src/index.ts"],
+            "@scaleo/feature/manager/getting-started/account/page": ["libs/feature/manager/getting-started/account/page/src/index.ts"],
+            "@scaleo/feature/manager/getting-started/branding/page": ["libs/feature/manager/getting-started/branding/page/src/index.ts"],
+            "@scaleo/feature/manager/getting-started/create-item/page": [
+                "libs/feature/manager/getting-started/create-item/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/getting-started/data-access": ["libs/feature/manager/getting-started/data-access/src/index.ts"],
+            "@scaleo/feature/manager/getting-started/pages": ["libs/feature/manager/getting-started/pages/src/index.ts"],
+            "@scaleo/feature/manager/getting-started/shared/service": ["libs/feature/manager/getting-started/shared/service/src/index.ts"],
+            "@scaleo/feature/manager/leads/common": ["libs/feature/manager/leads/common/src/index.ts"],
+            "@scaleo/feature/manager/leads/deliver/common": ["libs/feature/manager/leads/deliver/common/src/index.ts"],
+            "@scaleo/feature/manager/leads/deliver/deliveries/page": ["libs/feature/manager/leads/deliver/deliveries/page/src/index.ts"],
+            "@scaleo/feature/manager/leads/deliver/navigation": ["libs/feature/manager/leads/deliver/navigation/src/index.ts"],
+            "@scaleo/feature/manager/leads/deliver/pages": ["libs/feature/manager/leads/deliver/pages/src/index.ts"],
+            "@scaleo/feature/manager/leads/layouts": ["libs/feature/manager/leads/layouts/src/index.ts"],
+            "@scaleo/feature/manager/leads/logs/common": ["libs/feature/manager/leads/logs/common/src/index.ts"],
+            "@scaleo/feature/manager/leads/logs/data-access": ["libs/feature/manager/leads/logs/data-access/src/index.ts"],
+            "@scaleo/feature/manager/leads/logs/list": ["libs/feature/manager/leads/logs/list/src/index.ts"],
+            "@scaleo/feature/manager/leads/logs/pages": ["libs/feature/manager/leads/logs/pages/src/index.ts"],
+            "@scaleo/feature/manager/leads/manage/data-access": ["libs/feature/manager/leads/manage/data-access/src/index.ts"],
+            "@scaleo/feature/manager/leads/manage/list": ["libs/feature/manager/leads/manage/list/src/index.ts"],
+            "@scaleo/feature/manager/leads/manage/page": ["libs/feature/manager/leads/manage/page/src/index.ts"],
+            "@scaleo/feature/manager/leads/pages": ["libs/feature/manager/leads/pages/src/index.ts"],
+            "@scaleo/feature/manager/leads/receive/campaigns/page": ["libs/feature/manager/leads/receive/campaigns/page/src/index.ts"],
+            "@scaleo/feature/manager/leads/receive/common": ["libs/feature/manager/leads/receive/common/src/index.ts"],
+            "@scaleo/feature/manager/leads/receive/navigation": ["libs/feature/manager/leads/receive/navigation/src/index.ts"],
+            "@scaleo/feature/manager/leads/receive/pages": ["libs/feature/manager/leads/receive/pages/src/index.ts"],
+            "@scaleo/feature/manager/offer/affiliate-access/update/data-access": [
+                "libs/feature/manager/offer/affiliate-access/update/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/affiliate-access/update/modal-form": [
+                "libs/feature/manager/offer/affiliate-access/update/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/affiliate-access/widget/component": [
+                "libs/feature/manager/offer/affiliate-access/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/affiliate-access/widget/data-access": [
+                "libs/feature/manager/offer/affiliate-access/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/common": ["libs/feature/manager/offer/creative/common/src/index.ts"],
+            "@scaleo/feature/manager/offer/creative/list/api": ["libs/feature/manager/offer/creative/list/api/src/index.ts"],
+            "@scaleo/feature/manager/offer/creative/list/component": ["libs/feature/manager/offer/creative/list/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/creative/list/data-access": [
+                "libs/feature/manager/offer/creative/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/list/page": ["libs/feature/manager/offer/creative/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/creative/shared/directives/view-html-code": [
+                "libs/feature/manager/offer/creative/shared/directives/view-html-code/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/shared/pipes/html-code-convert": [
+                "libs/feature/manager/offer/creative/shared/pipes/html-code-convert/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/upsert/data-access": [
+                "libs/feature/manager/offer/creative/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/upsert/modal-form": [
+                "libs/feature/manager/offer/creative/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/widget/component": [
+                "libs/feature/manager/offer/creative/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/creative/widget/data-access": [
+                "libs/feature/manager/offer/creative/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/common": ["libs/feature/manager/offer/custom-param/common/src/index.ts"],
+            "@scaleo/feature/manager/offer/custom-param/list/api": ["libs/feature/manager/offer/custom-param/list/api/src/index.ts"],
+            "@scaleo/feature/manager/offer/custom-param/list/component": [
+                "libs/feature/manager/offer/custom-param/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/list/data-access": [
+                "libs/feature/manager/offer/custom-param/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/list/page": ["libs/feature/manager/offer/custom-param/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/custom-param/shared/components/condition-list-item": [
+                "libs/feature/manager/offer/custom-param/shared/components/condition-list-item/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/shared/components/parameter-list-item": [
+                "libs/feature/manager/offer/custom-param/shared/components/parameter-list-item/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/upsert/data-access": [
+                "libs/feature/manager/offer/custom-param/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/upsert/modal-form": [
+                "libs/feature/manager/offer/custom-param/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/widget/component": [
+                "libs/feature/manager/offer/custom-param/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/custom-param/widget/data-access": [
+                "libs/feature/manager/offer/custom-param/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/detail/data-access": ["libs/feature/manager/offer/detail/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/detail/pages": ["libs/feature/manager/offer/detail/pages/src/index.ts"],
+            "@scaleo/feature/manager/offer/detail/sub-pages": ["libs/feature/manager/offer/detail/sub-pages/src/index.ts"],
+            "@scaleo/feature/manager/offer/detail/widget/component": ["libs/feature/manager/offer/detail/widget/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/detail/widget/data-access": [
+                "libs/feature/manager/offer/detail/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/dublicate/component": ["libs/feature/manager/offer/dublicate/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/dublicate/data-access": ["libs/feature/manager/offer/dublicate/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/duplicate/component": ["libs/feature/manager/offer/duplicate/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/duplicate/data-access": ["libs/feature/manager/offer/duplicate/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/common": ["libs/feature/manager/offer/goal/common/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/list/api": ["libs/feature/manager/offer/goal/list/api/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/list/component": ["libs/feature/manager/offer/goal/list/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/list/data-access": ["libs/feature/manager/offer/goal/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/list/page": ["libs/feature/manager/offer/goal/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/shared/components/offer-goal-columns": [
+                "libs/feature/manager/offer/goal/shared/components/offer-goal-columns/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/goal/upsert/data-access": ["libs/feature/manager/offer/goal/upsert/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/upsert/modal-form": ["libs/feature/manager/offer/goal/upsert/modal-form/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/widget/component": ["libs/feature/manager/offer/goal/widget/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/goal/widget/data-access": ["libs/feature/manager/offer/goal/widget/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/landing-page/default/data-access": [
+                "libs/feature/manager/offer/landing-page/default/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/list/api": ["libs/feature/manager/offer/landing-page/list/api/src/index.ts"],
+            "@scaleo/feature/manager/offer/landing-page/list/component": [
+                "libs/feature/manager/offer/landing-page/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/list/data-access": [
+                "libs/feature/manager/offer/landing-page/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/list/page": ["libs/feature/manager/offer/landing-page/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/landing-page/shared/components/affiliates-visibility": [
+                "libs/feature/manager/offer/landing-page/shared/components/affiliates-visibility/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/upsert/data-access": [
+                "libs/feature/manager/offer/landing-page/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/upsert/modal-form": [
+                "libs/feature/manager/offer/landing-page/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/widget/component": [
+                "libs/feature/manager/offer/landing-page/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/landing-page/widget/data-access": [
+                "libs/feature/manager/offer/landing-page/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/list/component": ["libs/feature/manager/offer/list/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/list/data-access": ["libs/feature/manager/offer/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/list/navigation/component": [
+                "libs/feature/manager/offer/list/navigation/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/list/navigation/service": ["libs/feature/manager/offer/list/navigation/service/src/index.ts"],
+            "@scaleo/feature/manager/offer/list/page": ["libs/feature/manager/offer/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/list/pages": ["libs/feature/manager/offer/list/pages/src/index.ts"],
+            "@scaleo/feature/manager/offer/pages": ["libs/feature/manager/offer/pages/src/index.ts"],
+            "@scaleo/feature/manager/offer/request/list/component": ["libs/feature/manager/offer/request/list/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/request/list/data-access": ["libs/feature/manager/offer/request/list/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/request/list/page": ["libs/feature/manager/offer/request/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/request/solve/control": ["libs/feature/manager/offer/request/solve/control/src/index.ts"],
+            "@scaleo/feature/manager/offer/request/solve/data-access": [
+                "libs/feature/manager/offer/request/solve/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/request/solve/modal-view-answer": [
+                "libs/feature/manager/offer/request/solve/modal-view-answer/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/smart-link/list/component": [
+                "libs/feature/manager/offer/smart-link/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/smart-link/list/data-access": [
+                "libs/feature/manager/offer/smart-link/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/smart-link/list/guards": ["libs/feature/manager/offer/smart-link/list/guards/src/index.ts"],
+            "@scaleo/feature/manager/offer/smart-link/list/page": ["libs/feature/manager/offer/smart-link/list/page/src/index.ts"],
+            "@scaleo/feature/manager/offer/smart-link/upsert/data-access": [
+                "libs/feature/manager/offer/smart-link/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/smart-link/upsert/modal-form": [
+                "libs/feature/manager/offer/smart-link/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/data-access": ["libs/feature/manager/offer/targeting/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/targeting/shared/components/extended-targeting": [
+                "libs/feature/manager/offer/targeting/shared/components/extended-targeting/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/shared/components/extended-targeting2": [
+                "libs/feature/manager/offer/targeting/shared/components/extended-targeting2/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/upsert/data-access": [
+                "libs/feature/manager/offer/targeting/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/upsert/modal-form": [
+                "libs/feature/manager/offer/targeting/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/widget/component": [
+                "libs/feature/manager/offer/targeting/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/targeting/widget/data-access": [
+                "libs/feature/manager/offer/targeting/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/common": ["libs/feature/manager/offer/tracking/common/src/index.ts"],
+            "@scaleo/feature/manager/offer/tracking/link/view-info/component": [
+                "libs/feature/manager/offer/tracking/link/view-info/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/link/view-info/data-access": [
+                "libs/feature/manager/offer/tracking/link/view-info/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/settings/upsert/data-access": [
+                "libs/feature/manager/offer/tracking/settings/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/settings/upsert/modal-form": [
+                "libs/feature/manager/offer/tracking/settings/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/settings/view-info/component": [
+                "libs/feature/manager/offer/tracking/settings/view-info/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/tracking/settings/view-info/data-access": [
+                "libs/feature/manager/offer/tracking/settings/view-info/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/traffic-distribution/widget/component": [
+                "libs/feature/manager/offer/traffic-distribution/widget/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/traffic-distribution/widget/data-access": [
+                "libs/feature/manager/offer/traffic-distribution/widget/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/offer/trend/widget/component": ["libs/feature/manager/offer/trend/widget/component/src/index.ts"],
+            "@scaleo/feature/manager/offer/upsert/data-access": ["libs/feature/manager/offer/upsert/data-access/src/index.ts"],
+            "@scaleo/feature/manager/offer/upsert/modal-form": ["libs/feature/manager/offer/upsert/modal-form/src/index.ts"],
+            "@scaleo/feature/manager/outbound/announcements/list/component": [
+                "libs/feature/manager/outbound/announcements/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/outbound/announcements/list/data-access": [
+                "libs/feature/manager/outbound/announcements/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/outbound/announcements/list/page": [
+                "libs/feature/manager/outbound/announcements/list/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/outbound/announcements/upsert/data-access": [
+                "libs/feature/manager/outbound/announcements/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/outbound/announcements/upsert/modal-form": [
+                "libs/feature/manager/outbound/announcements/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/outbound/pages": ["libs/feature/manager/outbound/pages/src/index.ts"],
+            "@scaleo/feature/manager/pages": ["libs/feature/manager/pages/src/index.ts"],
+            "@scaleo/feature/manager/profile": ["libs/feature/manager/profile/src/index.ts"],
+            "@scaleo/feature/manager/reports/adjustment/list/page": ["libs/feature/manager/reports/adjustment/list/page/src/index.ts"],
+            "@scaleo/feature/manager/reports/statistics/aggregations/data-access": [
+                "libs/feature/manager/reports/statistics/aggregations/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/aggregations/list": [
+                "libs/feature/manager/reports/statistics/aggregations/list/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/aggregations/page": [
+                "libs/feature/manager/reports/statistics/aggregations/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/aggregations/pages": [
+                "libs/feature/manager/reports/statistics/aggregations/pages/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/page": ["libs/feature/manager/reports/statistics/page/src/index.ts"],
+            "@scaleo/feature/manager/reports/statistics/referrals/data-access": [
+                "libs/feature/manager/reports/statistics/referrals/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/referrals/list": [
+                "libs/feature/manager/reports/statistics/referrals/list/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/referrals/page": [
+                "libs/feature/manager/reports/statistics/referrals/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/statistics/shared/components/navigation/component": [
+                "libs/feature/manager/reports/statistics/shared/components/navigation/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/common": [
+                "libs/feature/manager/reports/transactions/adjustment/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/list/component": [
+                "libs/feature/manager/reports/transactions/adjustment/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/list/data-access": [
+                "libs/feature/manager/reports/transactions/adjustment/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/list/page": [
+                "libs/feature/manager/reports/transactions/adjustment/list/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/upsert/data-access": [
+                "libs/feature/manager/reports/transactions/adjustment/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/adjustment/upsert/modal-form": [
+                "libs/feature/manager/reports/transactions/adjustment/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/advertiser-postback/page": [
+                "libs/feature/manager/reports/transactions/advertiser-postback/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/affiliate-postback/page": [
+                "libs/feature/manager/reports/transactions/affiliate-postback/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/click/page": [
+                "libs/feature/manager/reports/transactions/click/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/change-status/component": [
+                "libs/feature/manager/reports/transactions/conversion/change-status/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/change-status/data-access": [
+                "libs/feature/manager/reports/transactions/conversion/change-status/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/import/component": [
+                "libs/feature/manager/reports/transactions/conversion/import/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/list/component": [
+                "libs/feature/manager/reports/transactions/conversion/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/list/data-access": [
+                "libs/feature/manager/reports/transactions/conversion/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/list/page": [
+                "libs/feature/manager/reports/transactions/conversion/list/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/upsert/data-access": [
+                "libs/feature/manager/reports/transactions/conversion/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/conversion/upsert/modal-form": [
+                "libs/feature/manager/reports/transactions/conversion/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/invalid-click/page": [
+                "libs/feature/manager/reports/transactions/invalid-click/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/reports/transactions/page": ["libs/feature/manager/reports/transactions/page/src/index.ts"],
+            "@scaleo/feature/manager/reports/transactions/shared/components/navigation/component": [
+                "libs/feature/manager/reports/transactions/shared/components/navigation/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/advertisers/page": ["libs/feature/manager/settings/advertisers/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/affiliates/general/component": [
+                "libs/feature/manager/settings/affiliates/general/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/affiliates/general/data-access": [
+                "libs/feature/manager/settings/affiliates/general/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/affiliates/page": ["libs/feature/manager/settings/affiliates/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/billing/affiliate/data-access": [
+                "libs/feature/manager/settings/billing/affiliate/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/billing/affiliate/page": [
+                "libs/feature/manager/settings/billing/affiliate/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/billing/pages": ["libs/feature/manager/settings/billing/pages/src/index.ts"],
+            "@scaleo/feature/manager/settings/billing/payment-methods/data-access": [
+                "libs/feature/manager/settings/billing/payment-methods/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/billing/payment-methods/page": [
+                "libs/feature/manager/settings/billing/payment-methods/page/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/billing/shared": ["libs/feature/manager/settings/billing/shared/src/index.ts"],
+            "@scaleo/feature/manager/settings/branding/form": ["libs/feature/manager/settings/branding/form/src/index.ts"],
+            "@scaleo/feature/manager/settings/branding/page": ["libs/feature/manager/settings/branding/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/email-templates/pages": ["libs/feature/manager/settings/email-templates/pages/src/index.ts"],
+            "@scaleo/feature/manager/settings/general/page": ["libs/feature/manager/settings/general/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/lists/pages": ["libs/feature/manager/settings/lists/pages/src/index.ts"],
+            "@scaleo/feature/manager/settings/mobile-app/data-access": [
+                "libs/feature/manager/settings/mobile-app/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/mobile-app/page": ["libs/feature/manager/settings/mobile-app/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/offers/page": ["libs/feature/manager/settings/offers/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/pages": ["libs/feature/manager/settings/pages/src/index.ts"],
+            "@scaleo/feature/manager/settings/role-permission/common": [
+                "libs/feature/manager/settings/role-permission/common/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/role/common": ["libs/feature/manager/settings/role/common/src/index.ts"],
+            "@scaleo/feature/manager/settings/role/shared": ["libs/feature/manager/settings/role/shared/src/index.ts"],
+            "@scaleo/feature/manager/settings/security/page": ["libs/feature/manager/settings/security/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/shared": ["libs/feature/manager/settings/shared/src/index.ts"],
+            "@scaleo/feature/manager/settings/shared/add-custom-fields": [
+                "libs/feature/manager/settings/shared/add-custom-fields/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/shared/components/signup-page-link": [
+                "libs/feature/manager/settings/shared/components/signup-page-link/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/shared/components/signup-process-select": [
+                "libs/feature/manager/settings/shared/components/signup-process-select/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/shared/forbidden-signup-fields": [
+                "libs/feature/manager/settings/shared/forbidden-signup-fields/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/teammate/list/component": [
+                "libs/feature/manager/settings/teammate/list/component/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/teammate/list/data-access": [
+                "libs/feature/manager/settings/teammate/list/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/teammate/list/page": ["libs/feature/manager/settings/teammate/list/page/src/index.ts"],
+            "@scaleo/feature/manager/settings/teammate/upsert/data-access": [
+                "libs/feature/manager/settings/teammate/upsert/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/manager/settings/teammate/upsert/modal-form": [
+                "libs/feature/manager/settings/teammate/upsert/modal-form/src/index.ts"
+            ],
+            "@scaleo/feature/manager/shared/layout/ui-interface-switcher": [
+                "libs/feature/manager/shared/layout/ui-interface-switcher/src/index.ts"
+            ],
+            "@scaleo/feature/manager/user-profile": ["libs/feature/manager/user-profile/src/index.ts"],
+            "@scaleo/feature/shared/available/macros": ["libs/feature/shared/available-macros/src/index.ts"],
+            "@scaleo/feature/shared/layouts/collection": ["libs/feature/shared/layouts/collection/src/index.ts"],
+            "@scaleo/feature/shared/mobile-app/generate-deep-link/component": [
+                "libs/feature/shared/mobile-app/generate-deep-link/component/src/index.ts"
+            ],
+            "@scaleo/feature/shared/mobile-app/generate-deep-link/data-access": [
+                "libs/feature/shared/mobile-app/generate-deep-link/data-access/src/index.ts"
+            ],
+            "@scaleo/feature/shared/mobile-app/guards": ["libs/feature/shared/mobile-app/guards/src/index.ts"],
+            "@scaleo/feature/shared/mobile-app/view-deep-link": ["libs/feature/shared/mobile-app/view-deep-link/src/index.ts"],
+            "@scaleo/feature/shared/offer/shared/components/top-offers-widget": [
+                "libs/feature/shared/offer/shared/components/top-offers-widget/src/index.ts"
+            ],
+            "@scaleo/feature/shared/offer/top-offer-widget": ["libs/feature/shared/offer/top-offer-widget/src/index.ts"],
+            "@scaleo/feature/shared/user-profile/common": ["libs/feature/shared/user-profile/common/src/index.ts"],
+            "@scaleo/invoice/common": ["libs/invoice/common/src/index.ts"],
+            "@scaleo/invoice/data-access": ["libs/invoice/data-access/src/index.ts"],
+            "@scaleo/invoice/shared/attachment": ["libs/invoice/shared/attachment/src/index.ts"],
+            "@scaleo/invoice/shared/download/component": ["libs/invoice/shared/download/component/src/index.ts"],
+            "@scaleo/invoice/shared/download/data-access": ["libs/invoice/shared/download/data-access/src/index.ts"],
+            "@scaleo/invoice/shared/link-to-detail": ["libs/invoice/shared/link-to-detail/src/index.ts"],
+            "@scaleo/invoice/shared/widgets/info": ["libs/invoice/shared/widgets/info/src/index.ts"],
+            "@scaleo/invoice/shared/widgets/transactions": ["libs/invoice/shared/widgets/transactions/src/index.ts"],
+            "@scaleo/offer-creative-shared-components-iframe": ["libs/offer/creative/shared/components/iframe/src/index.ts"],
+            "@scaleo/offer-creative-shared-components-preview": ["libs/offer/creative/shared/components/preview/src/index.ts"],
+            "@scaleo/offer/common": ["libs/offer/common/src/index.ts"],
+            "@scaleo/offer/goal/common": ["libs/offer/goal/common/src/index.ts"],
+            "@scaleo/offer/goal/shared/components/cap-type": ["libs/offer/goal/shared/components/cap-type/src/index.ts"],
+            "@scaleo/offer/goal/shared/components/chip": ["libs/offer/goal/shared/components/chip/src/index.ts"],
+            "@scaleo/offer/goal/shared/components/tracking-method": ["libs/offer/goal/shared/components/tracking-method/src/index.ts"],
+            "@scaleo/offer/layouts/list": ["libs/offer/layouts/list/src/index.ts"],
+            "@scaleo/offer/link-builder/common": ["libs/offer/link-builder/common/src/index.ts"],
+            "@scaleo/offer/link-builder/offer": ["libs/offer/link-builder/offer/src/index.ts"],
+            "@scaleo/offer/link-builder/shared/affiliate-tracking-link": [
+                "libs/offer/link-builder/shared/affiliate-tracking-link/src/index.ts"
+            ],
+            "@scaleo/offer/link-builder/shared/link-builder-add-sub-id": [
+                "libs/offer/link-builder/shared/link-builder-add-sub-id/src/index.ts"
+            ],
+            "@scaleo/offer/link-builder/smart-link": ["libs/offer/link-builder/smart-link/src/index.ts"],
+            "@scaleo/offer/offers-list/data-access": ["libs/offer/offers-list/data-access/src/index.ts"],
+            "@scaleo/offer/request/modal-view-answer": ["libs/offer/request/modal-view-answer/src/index.ts"],
+            "@scaleo/offer/request/view-answer/common": ["libs/offer/request/view-answer/common/src/index.ts"],
+            "@scaleo/offer/request/view-answer/modal-info": ["libs/offer/request/view-answer/modal-info/src/index.ts"],
+            "@scaleo/offer/shared/components/top-offers-widget": ["libs/offer/shared/components/top-offers-widget/src/index.ts"],
+            "@scaleo/offer/shared/fields/goals-list": ["libs/offer/shared/fields/goals-list/src/index.ts"],
+            "@scaleo/offer/shared/fields/offer-targeting-list": ["libs/offer/shared/fields/offer-targeting-list/src/index.ts"],
+            "@scaleo/offer/shared/fields/offer-visibility": ["libs/offer/shared/fields/offer-visibility/src/index.ts"],
+            "@scaleo/offer/shared/fields/offer-visibility-affiliate-access": [
+                "libs/offer/shared/fields/offer-visibility-affiliate-access/src/index.ts"
+            ],
+            "@scaleo/offer/shared/old-widgets/creative-widget": ["libs/offer/shared/old-widgets/creative-widget/src/index.ts"],
+            "@scaleo/offer/shared/old-widgets/finance-widget": ["libs/offer/shared/old-widgets/finance-widget/src/index.ts"],
+            "@scaleo/offer/shared/old-widgets/goal-widget": ["libs/offer/shared/old-widgets/goal-widget/src/index.ts"],
+            "@scaleo/offer/shared/old-widgets/landing-page-widget": ["libs/offer/shared/old-widgets/landing-page-widget/src/index.ts"],
+            "@scaleo/offer/shared/old-widgets/short-statistic-widget": [
+                "libs/offer/shared/old-widgets/short-statistic-widget/src/index.ts"
+            ],
+            "@scaleo/offer/shared/old-widgets/targeting-widget": ["libs/offer/shared/old-widgets/targeting-widget/src/index.ts"],
+            "@scaleo/offer/shared/widget/top-offers-widget": ["libs/offer/shared/widget/top-offers-widget/src/index.ts"],
+            "@scaleo/offer/shared/widgets/top-offers-widget": ["libs/offer/shared/widgets/top-offers-widget/src/index.ts"],
+            "@scaleo/offer/smart-link/common": ["libs/offer/smart-link/common/src/index.ts"],
+            "@scaleo/offer/smart-link/list/data-access": ["libs/offer/smart-link/list/data-access/src/index.ts"],
+            "@scaleo/offer/smart-link/notify-upgrade-plan": ["libs/offer/smart-link/notify-upgrade-plan/src/index.ts"],
+            "@scaleo/offer/targeting-link-builder/modal-form": ["libs/offer/targeting-link-builder/modal-form/src/index.ts"],
+            "@scaleo/platform-permission-plan-common": ["libs/platform/permission/plan/common/src/index.ts"],
+            "@scaleo/platform-permission-plan-service": ["libs/platform/permission/plan/service/src/index.ts"],
+            "@scaleo/platform/branding": ["libs/platform/branding/src/index.ts"],
+            "@scaleo/platform/calendly/component": ["libs/platform/calendly/component/src/index.ts"],
+            "@scaleo/platform/chart/common": ["libs/platform/chart/common/src/index.ts"],
+            "@scaleo/platform/client-code": ["libs/platform/client-code/src/index.ts"],
+            "@scaleo/platform/counts/data-access": ["libs/platform/counts/data-access/src/index.ts"],
+            "@scaleo/platform/currency/models": ["libs/platform/currency/models/src/index.ts"],
+            "@scaleo/platform/currency/pipe": ["libs/platform/currency/pipe/src/index.ts"],
+            "@scaleo/platform/currency/service": ["libs/platform/currency/service/src/index.ts"],
+            "@scaleo/platform/currency/util": ["libs/platform/currency/util/src/index.ts"],
+            "@scaleo/platform/data": ["libs/platform/data/src/index.ts"],
+            "@scaleo/platform/date/model": ["libs/platform/date/model/src/index.ts"],
+            "@scaleo/platform/date/service": ["libs/platform/date/service/src/index.ts"],
+            "@scaleo/platform/date/util": ["libs/platform/date/util/src/index.ts"],
+            "@scaleo/platform/date/watcher": ["libs/platform/date/watcher/src/index.ts"],
+            "@scaleo/platform/endpoints": ["libs/platform/endpoints/src/index.ts"],
+            "@scaleo/platform/enviroment": ["libs/platform/enviroment/src/index.ts"],
+            "@scaleo/platform/environment": ["libs/platform/environment/src/index.ts"],
+            "@scaleo/platform/format/models": ["libs/platform/format/models/src/index.ts"],
+            "@scaleo/platform/format/pipe": ["libs/platform/format/pipe/src/index.ts"],
+            "@scaleo/platform/format/service": ["libs/platform/format/service/src/index.ts"],
+            "@scaleo/platform/init/service": ["libs/platform/init/service/src/index.ts"],
+            "@scaleo/platform/language/common": ["libs/platform/language/common/src/index.ts"],
+            "@scaleo/platform/language/init": ["libs/platform/language/init/src/index.ts"],
+            "@scaleo/platform/language/interceptors": ["libs/platform/language/interceptors/src/index.ts"],
+            "@scaleo/platform/language/switch": ["libs/platform/language/switch/src/index.ts"],
+            "@scaleo/platform/list/access-data": ["libs/platform/list/access-data/src/index.ts"],
+            "@scaleo/platform/list/pipe": ["libs/platform/list/pipe/src/index.ts"],
+            "@scaleo/platform/permission/adapter": ["libs/platform/permission/adapter/src/index.ts"],
+            "@scaleo/platform/permission/checker/guards": ["libs/platform/permission/checker/guards/src/index.ts"],
+            "@scaleo/platform/permission/checker/service": ["libs/platform/permission/checker/service/src/index.ts"],
+            "@scaleo/platform/permission/role": ["libs/platform/permission/role/src/index.ts"],
+            "@scaleo/platform/plan": ["libs/platform/plan/src/index.ts"],
+            "@scaleo/platform/profile/access-data": ["libs/platform/profile/access-data/src/index.ts"],
+            "@scaleo/platform/redirect": ["libs/platform/redirect/src/index.ts"],
+            "@scaleo/platform/referral/common": ["libs/platform/referral/common/src/index.ts"],
+            "@scaleo/platform/referral/service": ["libs/platform/referral/service/src/index.ts"],
+            "@scaleo/platform/refferal/common": ["libs/platform/refferal/common/src/index.ts"],
+            "@scaleo/platform/refferal/service": ["libs/platform/refferal/service/src/index.ts"],
+            "@scaleo/platform/role/models": ["libs/platform/role/models/src/index.ts"],
+            "@scaleo/platform/role/util": ["libs/platform/role/util/src/index.ts"],
+            "@scaleo/platform/services/format": ["libs/platform/services/format/src/index.ts"],
+            "@scaleo/platform/settings/access-data": ["libs/platform/settings/access-data/src/index.ts"],
+            "@scaleo/platform/state/ui": ["libs/platform/state/ui/src/index.ts"],
+            "@scaleo/platform/statuses": ["libs/platform/statuses/src/index.ts"],
+            "@scaleo/platform/theme/common": ["libs/platform/theme/common/src/index.ts"],
+            "@scaleo/platform/theme/service": ["libs/platform/theme/service/src/index.ts"],
+            "@scaleo/platform/version": ["libs/platform/version/src/index.ts"],
+            "@scaleo/reports/common": ["libs/reports/common/src/index.ts"],
+            "@scaleo/reports/models": ["libs/reports/models/src/index.ts"],
+            "@scaleo/reports/referrals/data-access": ["libs/reports/referrals/data-access/src/index.ts"],
+            "@scaleo/reports/referrals/list": ["libs/reports/referrals/list/src/index.ts"],
+            "@scaleo/reports/shared/components/currency-dropdown": ["libs/reports/shared/components/currency-dropdown/src/index.ts"],
+            "@scaleo/reports/shared/components/date-range": ["libs/reports/shared/components/date-range/src/index.ts"],
+            "@scaleo/reports/shared/components/info-wrapper": ["libs/reports/shared/components/info-wrapper/src/index.ts"],
+            "@scaleo/reports/shared/filters/common": ["libs/reports/shared/filters/common/src/index.ts"],
+            "@scaleo/reports/shared/filters/component": ["libs/reports/shared/filters/component/src/index.ts"],
+            "@scaleo/reports/shared/filters/service": ["libs/reports/shared/filters/service/src/index.ts"],
+            "@scaleo/reports/shared/format-fields": ["libs/reports/shared/format-fields/src/index.ts"],
+            "@scaleo/reports/shared/layouts/list": ["libs/reports/shared/layouts/list/src/index.ts"],
+            "@scaleo/reports/state": ["libs/reports/state/src/index.ts"],
+            "@scaleo/reports/statistic/common": ["libs/reports/statistic/common/src/index.ts"],
+            "@scaleo/reports/statistic/data-access": ["libs/reports/statistic/data-access/src/index.ts"],
+            "@scaleo/reports/statistic/list": ["libs/reports/statistic/list/src/index.ts"],
+            "@scaleo/reports/transactions/click/data-access": ["libs/reports/transactions/click/data-access/src/index.ts"],
+            "@scaleo/reports/transactions/click/list": ["libs/reports/transactions/click/list/src/index.ts"],
+            "@scaleo/reports/transactions/common": ["libs/reports/transactions/common/src/index.ts"],
+            "@scaleo/reports/transactions/conversion/common": ["libs/reports/transactions/conversion/common/src/index.ts"],
+            "@scaleo/reports/transactions/conversion/data-access": ["libs/reports/transactions/conversion/data-access/src/index.ts"],
+            "@scaleo/reports/transactions/conversion/list": ["libs/reports/transactions/conversion/list/src/index.ts"],
+            "@scaleo/reports/transactions/logs/advertiser-postback/data-access": [
+                "libs/reports/transactions/logs/advertiser-postback/data-access/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/logs/advertiser-postback/list": [
+                "libs/reports/transactions/logs/advertiser-postback/list/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/logs/affiliate-postback/data-access": [
+                "libs/reports/transactions/logs/affiliate-postback/data-access/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/logs/affiliate-postback/list": [
+                "libs/reports/transactions/logs/affiliate-postback/list/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/logs/common": ["libs/reports/transactions/logs/common/src/index.ts"],
+            "@scaleo/reports/transactions/logs/data-access": ["libs/reports/transactions/logs/data-access/src/index.ts"],
+            "@scaleo/reports/transactions/logs/invalid-click/data-access": [
+                "libs/reports/transactions/logs/invalid-click/data-access/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/logs/invalid-click/list": ["libs/reports/transactions/logs/invalid-click/list/src/index.ts"],
+            "@scaleo/reports/transactions/shared/components/transaction-list": [
+                "libs/reports/transactions/shared/components/transaction-list/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/shared/components/transaction-wrapper": [
+                "libs/reports/transactions/shared/components/transaction-wrapper/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/shared/components/transcation-list": [
+                "libs/reports/transactions/shared/components/transcation-list/src/index.ts"
+            ],
+            "@scaleo/reports/transactions/shared/components/transcation-report-wrapper": [
+                "libs/reports/transactions/shared/components/transcation-report-wrapper/src/index.ts"
+            ],
+            "@scaleo/shared/animations": ["libs/shared/animations/src/index.ts"],
+            "@scaleo/shared/common": ["libs/shared/common/src/index.ts"],
+            "@scaleo/shared/components": ["libs/shared/components/src/index.ts"],
+            "@scaleo/shared/components/contact": ["libs/shared/components/contact/src/index.ts"],
+            "@scaleo/shared/components/find": ["libs/shared/components/find/src/index.ts"],
+            "@scaleo/shared/components/select": ["libs/shared/components/select/src/index.ts"],
+            "@scaleo/shared/components/validation-message2": ["libs/shared/components/validation-message2/src/index.ts"],
+            "@scaleo/shared/components2/attachment-file": ["libs/shared/components2/attachment-file/src/index.ts"],
+            "@scaleo/shared/components2/detail-flex-layout": ["libs/shared/components2/detail-flex-layout/src/index.ts"],
+            "@scaleo/shared/components2/multi-select-block": ["libs/shared/components2/multi-select-block/src/index.ts"],
+            "@scaleo/shared/components2/preload": ["libs/shared/components2/preload/src/index.ts"],
+            "@scaleo/shared/components2/refresh-version": ["libs/shared/components2/refresh-version/src/index.ts"],
+            "@scaleo/shared/components2/trends-widget": ["libs/shared/components2/trends-widget/src/index.ts"],
+            "@scaleo/shared/components2/view-belong-account": ["libs/shared/components2/view-belong-account/src/index.ts"],
+            "@scaleo/shared/data": ["libs/shared/data/src/index.ts"],
+            "@scaleo/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+            "@scaleo/shared/data-access/custom-fields": ["libs/shared/data-access/custom-fields/src/index.ts"],
+            "@scaleo/shared/data-access/short-entity-list": ["libs/shared/data-access/short-entity-list/src/index.ts"],
+            "@scaleo/shared/directives": ["libs/shared/directives/src/index.ts"],
+            "@scaleo/shared/layout/components": ["libs/shared/layout/components/src/index.ts"],
+            "@scaleo/shared/pipes": ["libs/shared/pipes/src/index.ts"],
+            "@scaleo/shared/regexp": ["libs/shared/regexp/src/index.ts"],
+            "@scaleo/shared/services/filters": ["libs/shared/services/filters/src/index.ts"],
+            "@scaleo/shared/services/page-title": ["libs/shared/services/page-title/src/index.ts"],
+            "@scaleo/shared/services/path-file": ["libs/shared/services/path-file/src/index.ts"],
+            "@scaleo/shared/services/shared-methods": ["libs/shared/services/shared-methods/src/index.ts"],
+            "@scaleo/shared/ui-kit/layout/logo": ["libs/shared/ui-kit/layout/logo/src/index.ts"],
+            "@scaleo/shared/ui-kit/layout/powered-by": ["libs/shared/ui-kit/layout/powered-by/src/index.ts"],
+            "@scaleo/shared/utils": ["libs/shared/utils/src/index.ts"],
+            "@scaleo/shared/validators": ["libs/shared/validators/src/index.ts"],
+            "@scaleo/shared/widgets/common/top-widget": ["libs/shared/widgets/common/top-widget/src/index.ts"],
+            "@scaleo/shared/widgets/detail-widget-wrapper": ["libs/shared/widgets/detail-widget-wrapper/src/index.ts"],
+            "@scaleo/trial-service": ["libs/trial/service/src/index.ts"],
+            "@scaleo/trial/notification-message": ["libs/trial/notification-message/src/index.ts"],
+            "@scaleo/ui-kit/components/card2": ["libs/ui-kit/components/card2/src/index.ts"],
+            "@scaleo/ui-kit/components/dropdown-entity": ["libs/ui-kit/components/dropdown-entity/src/index.ts"],
+            "@scaleo/ui-kit/components/form": ["libs/ui-kit/components/form/src/index.ts"],
+            "@scaleo/ui-kit/components/loader": ["libs/ui-kit/components/loader/src/index.ts"],
+            "@scaleo/ui-kit/components/modal3": ["libs/ui-kit/components/modal3/src/index.ts"],
+            "@scaleo/ui-kit/custom-flex-layout": ["libs/ui-kit/custom-flex-layout/src/index.ts"],
+            "@scaleo/ui-kit/elements": ["libs/ui-kit/elements/src/index.ts"],
+            "@scaleo/ui-kit/elements/tooltip": ["libs/ui-kit/elements/tooltip/src/index.ts"],
+            "@scaleo/ui-kit/layout": ["libs/ui-kit/layout/src/index.ts"],
+            "@scaleo/ui-kit/pipes": ["libs/ui-kit/pipes/src/index.ts"],
+            "@scaleo/ui-kit/stylesheets": ["libs/ui-kit/stylesheets/src/index.ts"],
+            "@scaleo/ui/elements": ["libs/ui/elements/src/index.ts"],
+            "@scaleo/ui/layout": ["libs/ui/layout/src/index.ts"],
+            "@scaleo/utils": ["libs/utils/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

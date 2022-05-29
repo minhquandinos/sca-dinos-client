@@ -1,0 +1,40 @@
+<div>
+    <label
+        class="field-label field-label-top"
+        *ngIf="label"
+    >
+        {{ label }} <span class="field-label__required" *ngIf="required">*</span>
+    </label>
+    <input
+        type="file"
+        [id]="formControlName"
+        [placeholder]="placeholder"
+        [accept]="_acceptFileFormat"
+        #inputRef
+        [hidden]="true"
+    >
+    <div class="d-flex align-items-center">
+        <ui-button-link (toggle)="inputRef.click()" [type]="typeButton" [label]="labelButton"></ui-button-link>
+        <div class="ml-2 font-size color__light-blue-grey" *ngIf="!hideSelectedFile">
+            <ng-container *ngIf="fileName; else defaultTpl">{{ fileName }}</ng-container>
+            <ng-template #defaultTpl>
+                <ng-template [ngTemplateOutlet]="placeholderTpl"></ng-template>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="placeholder && fileName">
+        <span class="font-size is-8 color__light-blue-grey">
+            (<ng-template [ngTemplateOutlet]="placeholderTpl"></ng-template>)
+        </span>
+    </div>
+
+</div>
+
+<app-validation-message2
+    *ngIf="control && control?.invalid && control?.touched"
+    [validation]="control?.errors"
+></app-validation-message2>
+
+<ng-template #placeholderTpl>
+    <ng-container *ngIf="placeholder">{{ placeholder}}</ng-container>
+</ng-template>

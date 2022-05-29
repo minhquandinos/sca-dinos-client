@@ -1,0 +1,96 @@
+<div>
+    <ui-page-wrapper borderRadius="4" className="reports-results mb-3">
+        <ui-page-wrapper-header>
+            <div class="reports-results__header position-sticky w-auto d-flex align-items-center ml-3">
+                <app-result-count [count]="pagination?.total_count"></app-result-count>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-content className="p-0 mb-0">
+            <ui-table2
+                *ngIf="tableConfig?.headers && tableConfig?.rowsTemplate"
+                [columns]="tableConfig?.headers"
+                [items]="items"
+                [stickyHead]="true"
+                [loading]="loading"
+                [customHorizontalScroll]="true"
+                rowSize="small"
+            >
+                <ng-template
+                    *ngFor="let row of tableConfig?.rowsTemplate | keyvalue"
+                    [uiTable2ColTemplate]="row.key"
+                    let-item="valueRow"
+                >
+                    <ng-template [ngTemplateOutlet]="row.value" [ngTemplateOutletContext]="{$implicit: item}"></ng-template>
+                </ng-template>
+            </ui-table2>
+        </ui-page-wrapper-content>
+        <ui-page-wrapper-footer>
+            <app-custom-pagination
+                [pagination]="pagination"
+                (toggle)="pageChange($event)"
+                (togglePerPage)="perPageChange($event)"
+                *ngIf="pagination?.total_count > 9"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+    </ui-page-wrapper>
+</div>
+
+<ng-template #layoutHeaderTpl>
+    <ui-page-wrapper-header className="px-0" *ngIf="showFilter">
+        <div class="w-100">
+            <ng-content select="[filter]"></ng-content>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-header className="p-l-32 p-r-20" [haveBorderBottom]="false">
+        <div class="my-auto">
+            <app-custom-date-range
+                #customDateRangeComponent
+                position="right"
+                [startDate]="initialDateRange?.rangeFrom"
+                [endDate]="initialDateRange?.rangeTo"
+                [showTimeZone]="true"
+                [showHintTimeZone]="true"
+                (toggle)="dateChange($event)"
+            ></app-custom-date-range>
+        </div>
+        <div class="ml-auto my-auto"><app-report-last-updated (refreshed)="refreshed()"></app-report-last-updated></div>
+    </ui-page-wrapper-header>
+</ng-template>
+
+<!--<ng-template #rowTemplate let-item="context" let-index="index">-->
+<!--    <td ui-table-col *ngxPermissionsOnly="['ADMIN', 'MANAGER', 'LIMITED-AFFILIATE-MANAGER']">-->
+<!--        <a routerLink="/{{ slug }}/affiliates/profile/{{ item.affiliate | pregMatch: 'number' }}">-->
+<!--            {{ item.affiliate | format: 'idName' }}-->
+<!--        </a>-->
+<!--    </td>-->
+<!--    <td ui-table-col>-->
+<!--        <app-hyperlink-->
+<!--            [link]="{-->
+<!--               title: item.referred_affiliate | format: 'idName',-->
+<!--               link: '/' + slug + '/affiliates/profile/' +  (item.referred_affiliate | pregMatch: 'number')-->
+<!--            }"-->
+<!--            [permission]="['ADMIN','MANAGER']"-->
+<!--        ></app-hyperlink>-->
+
+<!--        <ng-container *ngxPermissionsOnly="'AFFILIATE'">-->
+<!--            {{ item.referral | format: 'idName' }}-->
+<!--        </ng-container>-->
+<!--    </td>-->
+<!--    <td-->
+<!--        ui-table-col-->
+<!--        *ngIf="referralCommissionsType === referralCommissionsTypeEnum.Percentage"-->
+<!--    >-->
+<!--        {{ item.rate | format: 'percent' }}-->
+<!--    </td>-->
+<!--    <ng-container *ngxPermissionsOnly="['ADMIN', 'MANAGER', 'LIMITED-AFFILIATE-MANAGER']">-->
+<!--        <td ui-table-col *ngIf="showBaseAmountField" className="justify-content-end">-->
+<!--            {{ item.base_amount | format: 'money':{ digitsAfterPoint: 2 } }}-->
+<!--        </td>-->
+<!--    </ng-container>-->
+<!--    <td ui-table-col className="justify-content-end">-->
+<!--        {{-->
+<!--        item.referral_commission-->
+<!--            | format: 'money':{ currency: referralCommissionCurrency, digitsAfterPoint: 2 }-->
+<!--        }}-->
+<!--    </td>-->
+<!--</ng-template>-->

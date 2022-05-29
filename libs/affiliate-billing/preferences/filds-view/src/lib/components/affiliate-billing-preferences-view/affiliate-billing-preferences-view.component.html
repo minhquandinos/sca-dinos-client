@@ -1,0 +1,33 @@
+<app-detail-info>
+    <app-detail-info-header>
+        <ng-content select="[header]"></ng-content>
+    </app-detail-info-header>
+
+    <ng-container *ngFor="let field of fields">
+        <ng-container *ngIf="tplMapper[field] as item">
+            <app-detail-info-row *ngIf="item?.condition">
+                <app-detail-info-col class="color__gray2 col-5">{{ item?.label | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <ng-template [ngTemplateOutlet]="item.tpl" [ngTemplateOutletContext]="{ context: item.context }"></ng-template>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </ng-container>
+    </ng-container>
+</app-detail-info>
+
+<ng-template #frequencyTpl let-data="context">
+    <app-invoice-frequency-view
+        [type]="data?.type"
+        [dayOfTheWeek]="data?.dayOfTheWeek"
+        [firstDay]="data?.firstDay"
+        [lastDay]="data?.lastDay"
+    ></app-invoice-frequency-view>
+</ng-template>
+
+<ng-template #generationInvoiceTpl let-data="context">
+    <app-affiliate-billing-invoice-generation [automatically]="data?.generateAutomatically"></app-affiliate-billing-invoice-generation>
+</ng-template>
+
+<ng-template #defaultTpl let-data="context">
+    {{ data }}
+</ng-template>

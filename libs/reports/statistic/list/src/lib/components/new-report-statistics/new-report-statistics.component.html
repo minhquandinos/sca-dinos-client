@@ -1,0 +1,102 @@
+<scaleo-ui-loader class="d-flex justify-content-center p-3" *ngIf="!isLoad" [sizeInPx]="50"></scaleo-ui-loader>
+<div >
+    <ui-table2
+        [@fade]
+        *ngIf="isLoad"
+        class="d-block new-table-statistics"
+        [items]="statistics$ | async"
+        [sort]="true"
+        defaultSortDirection="desc"
+        [defaultSortField]="sortField$ | async"
+        [stickyHead]="true"
+        [loading]="loading$ | async"
+        (sorting)="sortWasChanged($event?.current)"
+        [customHorizontalScroll]="true"
+    >
+        <ng-container thead="">
+            <app-report-statistics-table-header
+                [columnsTree$]="columnsTree$"
+                [breakdownColumnsTree$]="breakdownColumnsTree$"
+                #reportStatisticsTableHeaderComponent
+            >
+                <ui-table2-header
+                    [columns]="reportStatisticsTableHeaderComponent.columnsLevel1"
+                    level="1"
+                ></ui-table2-header>
+                <ui-table2-header
+                    [columns]="reportStatisticsTableHeaderComponent.columnsLevel2"
+                    level="2"
+                ></ui-table2-header>
+            </app-report-statistics-table-header>
+        </ng-container>
+
+        <ng-container rows="">
+            <app-report-statistics-table-row
+                *ngFor="let item of statistics$ | async; let i = index"
+                [item]="item"
+                [breakdown]="breakdown$ | async"
+                [columns]="reportStatisticsTableHeaderComponent.columnsLevel2"
+                [reportType]="reportType"
+                [rootFilters]="rootFilters$ | async"
+                [currency]="currency$ | async"
+            ></app-report-statistics-table-row>
+        </ng-container>
+
+        <ng-container tfoot="">
+            <app-report-statistics-table-totals
+                *ngIf="showTotals$ | async"
+                [item]="totals$ | async"
+                [columns]="reportStatisticsTableHeaderComponent.columnsLevel2"
+                [reportType]="reportType"
+                [currency]="currency$ | async"
+            ></app-report-statistics-table-totals>
+        </ng-container>
+
+        <ng-container *ngIf="loading$ | async" skeleton="">
+            <ui-table2-row *ngFor="let fake of [1, 2, 3, 4]; let i = index; trackBy: trackBySkeletonFn">
+                <ui-table2-col
+                    *ngFor="let column of reportStatisticsTableHeaderComponent.columnsLevel2; trackBy: trackBySkeletonFn"
+                    className="skeleton"
+                >
+                    <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                </ui-table2-col>
+            </ui-table2-row>
+        </ng-container>
+
+        <ng-template uiTable2HeaderColTooltipTemplate="clicks_main" tooltipType="info">
+            <app-custom-info-tooltip-template
+                [text]="'reports_page.statistics.tooltip.table.clicks_main' | translate"
+                beaconId="5eeb522204286306f8056094"
+            ></app-custom-info-tooltip-template>
+        </ng-template>
+
+        <ng-template uiTable2HeaderColTooltipTemplate="approved_conversions" tooltipType="info">
+            <app-custom-info-tooltip-template
+                [text]="'reports_page.statistics.tooltip.table.approved_conversions' | translate"
+                beaconId="5eeb522204286306f8056094"
+            ></app-custom-info-tooltip-template>
+        </ng-template>
+
+        <ng-template uiTable2HeaderColTooltipTemplate="pending_conversions" tooltipType="info">
+            <app-custom-info-tooltip-template
+                [text]="'reports_page.statistics.tooltip.table.pending_conversions' | translate"
+                beaconId="5eeb522204286306f8056094"
+            ></app-custom-info-tooltip-template>
+        </ng-template>
+
+        <ng-template uiTable2HeaderColTooltipTemplate="rejected_conversions" tooltipType="info">
+            <app-custom-info-tooltip-template
+                [text]="'reports_page.statistics.tooltip.table.rejected_conversions' | translate"
+                beaconId="5eeb522204286306f8056094"
+            ></app-custom-info-tooltip-template>
+        </ng-template>
+
+        <ng-template uiTable2HeaderColTooltipTemplate="trash_conversions" tooltipType="info">
+            <app-custom-info-tooltip-template
+                [text]="'reports.table.tooltip.trash_conversions' | translate"
+                beaconId="5eeb522204286306f8056094"
+            ></app-custom-info-tooltip-template>
+        </ng-template>
+    </ui-table2>
+</div>
+

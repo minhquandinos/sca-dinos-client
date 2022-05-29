@@ -1,0 +1,135 @@
+<ui-page-wrapper borderRadius="4">
+    <ui-page-wrapper-header className="w-100 align-items-center p-x-20">
+        <div class="title is-6">{{ data?.invoice_number }}</div>
+        <div class="d-flex align-items-center ml-auto" *ngIf="data">
+            <ng-content select="[header]"></ng-content>
+        </div>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-content className="p-y-30 p-x-20">
+        <app-detail-info>
+            <app-detail-info-title class="m-b-8">{{ 'table.column.details' | translate }}</app-detail-info-title>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'statuses.status' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <div class="d-flex align-items-center" *ngIf="data?.status; else skeletonTpl">
+                        <span [appStatus2Color]="data?.status" type="invoices_statuses">
+                            {{ data?.status | statusLabel: 'invoices_statuses' | async }}
+                        </span>
+                    </div>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'table.column.affiliate' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <app-hyperlink
+                        *ngIf="data?.affiliate; else skeletonTpl"
+                        linkClassName="text-wrap"
+                        [link]="{
+                            title: data?.affiliate?.name | format: 'idName':data.affiliate?.id,
+                            link: '/billing/affiliates/' + data?.affiliate?.id | navigateRoot
+                        }"
+                        [permission]="permissions.canAccessAffiliateBilling"
+                    ></app-hyperlink>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'table.column.currency' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <ng-container *ngIf="data?.currency; else skeletonTpl">
+                        {{ data.currency }}
+                    </ng-container>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'table.column.period' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <ng-container *ngIf="data?.period; else skeletonTpl">
+                        <span class="d-flex align-items-center">
+                            <span>{{ data.period }}</span>
+                        </span>
+                    </ng-container>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'invoice.generation_date' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <ng-container *ngIf="data?.date_gen; else skeletonTpl">
+                        {{ data.date_gen | format: 'date' }}
+                    </ng-container>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row>
+                <app-detail-info-col class="col-5 color__gray2">{{ 'invoice.update.due_date' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <ng-container *ngIf="data?.date_due; else skeletonTpl">
+                        {{ data.date_due | format: 'date' }}
+                    </ng-container>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </app-detail-info>
+
+        <scaleo-billing-preferences-view class="d-block m-t-25 mb-2" [data]="billingPreferences" [fields]="billingPreferencesFields">
+            <ng-container header>
+                <app-detail-info-title class="m-b-8">
+                    {{ 'billing2.affiliate.preferences.title' | translate }}
+                </app-detail-info-title>
+            </ng-container>
+        </scaleo-billing-preferences-view>
+
+        <app-detail-info *ngIf="data">
+            <app-detail-info-title class="m-t-25 m-b-8">{{ 'table.column.payment_method' | translate }}</app-detail-info-title>
+
+            <app-detail-info-row>
+                <app-detail-info-col>
+                    <app-payment-method-detail
+                        [logo]="data?.payment_method?.image"
+                        [method]="data?.payment_method?.info"
+                        [tooltipText]="data?.payment_method?.title"
+                        [logoWidth]="24"
+                        [methodLimitText]="null"
+                    ></app-payment-method-detail>
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-title class="m-t-25 m-b-8" *ngIf="data?.invoice_memo || data?.internal_notes">
+                {{ 'interface.basic.other' | translate }}:
+            </app-detail-info-title>
+
+            <app-detail-info-row *ngIf="data?.invoice_memo">
+                <app-detail-info-col class="col-5 color__gray2">{{ 'invoice.generate.invoice_memo' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    {{ data.invoice_memo }}
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row *ngIf="data?.internal_notes">
+                <app-detail-info-col class="col-5 color__gray2">{{ 'table.column.notes' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    {{ data.internal_notes }}
+                </app-detail-info-col>
+            </app-detail-info-row>
+
+            <app-detail-info-row *ngIf="data?.attachment">
+                <app-detail-info-col class="col-5 color__gray2">{{ 'table.column.attachment' | translate }}:</app-detail-info-col>
+                <app-detail-info-col>
+                    <a target="_blank" [href]="data.attachment">
+                        {{ 'interface.basic.download' | translate }}
+                    </a>
+                </app-detail-info-col>
+            </app-detail-info-row>
+        </app-detail-info>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

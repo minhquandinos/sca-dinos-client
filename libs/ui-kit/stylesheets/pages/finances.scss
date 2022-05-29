@@ -1,0 +1,26 @@
+.finances-list-wrapper {
+
+    .table {
+        thead tr {
+            th {
+                width: auto;
+            }
+            th:nth-child(1) {
+                width: 1%;
+            }
+            th:last-child {
+                width: 1%;
+            }
+        }
+
+        tbody td {
+            min-height: auto;
+            padding: 0px 4px !important;
+            color: $color__black;
+
+            .table-box {
+                min-height: auto;
+            }
+        }
+    }
+}

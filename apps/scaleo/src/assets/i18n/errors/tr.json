@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Sayfa Bulunamadı veya Yasaklandı",
+            "text": "Tıkladığınız bağlantı bozuk olabilir veya sayfa kaldırılmış veya yasaklanmış olabilir."
+        },
+        "page_not_found": {
+            "title": "Sayfa Bulunamadı veya Yasaklandı",
+            "text": "Tıkladığınız bağlantı bozuk olabilir veya sayfa kaldırılmış veya yasaklanmış olabilir."
+        },
+        "connection_lost": {
+            "title": "Bağlantı Kesildi",
+            "text": "Lütfen tekrar denemeden önce birkaç dakika bekleyin.",
+            "try_again": "Tekrar dene"
+        }
+    }
+}

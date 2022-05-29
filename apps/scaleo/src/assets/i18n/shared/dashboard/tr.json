@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Raporu Görüntüle",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "İstatistikleriniz"
+            },
+            "pending_records": {
+                "title": "Bekleyen Kayıtlar"
+            },
+            "top_offer": {
+                "title": "En İyi Teklifler"
+            },
+            "performance": {
+                "title": "Performans",
+                "cumulative": "Kümülatif",
+                "settings": {
+                    "none": "Önceki dönem",
+                    "impressions": "İzlenimler",
+                    "ctr": "CTR",
+                    "unique_clicks": "Benzersiz Tıklamalar",
+                    "duplicate_clicks": "Yinelenen Tıklamalar",
+                    "invalid_clicks": "Geçersiz Tıklamalar",
+                    "clicks": "Tıklamalar",
+                    "cv_total": "Dönüşümler",
+                    "tr": "CR",
+                    "total_payout": "Ödeme",
+                    "cr": "CR",
+                    "gross_sales": "Brüt Satış",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Onaylanmış Gelir",
+                    "cv_pending": "Bekleyen Dönüşümler",
+                    "pr": "PR",
+                    "cv_rejected": "Reddedilmiş Dönüşümler",
+                    "rr": "RR",
+                    "cv_approved": "Onaylanmış Dönüşümler",
+                    "approved_payout": "Onaylanmış Ödeme",
+                    "approved_profit": "Onaylanmış Kar",
+                    "approved_gross_sales": "Onaylanmış Satışlar",
+                    "pending_revenue": "Bekleyen Gelir",
+                    "pending_payout": "Bekleyen Ödeme",
+                    "pending_profit": "Bekleyen Kar",
+                    "pending_gross_sales": "Bekleyen Satışlar",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Tıklama Geliri",
+                    "clicks_payout": "Tıklama Ödemesi",
+                    "clicks_profit": "Tıklama Karı",
+                    "total_revenue": "Gelir",
+                    "total_profit": "Kar",
+                    "total_gross_sales": "Brüt Satışlar",
+                    "rejected_revenue": "Reddedilmiş Gelir",
+                    "rejected_payout": "Reddedilmiş Ödeme",
+                    "rejected_profit": "Reddedilmiş Kar",
+                    "rejected_gross_sales": "Reddedilmiş Satışlar"
+                }
+            },
+            "offer_promote": {
+                "title": "Tanıtma Teklifleri",
+                "get_link": "Bağlantı Edin",
+                "all_categories": "Tüm Kategoriler"
+            },
+            "balance": {
+                "title": "Bakiyeniz",
+                "approved_payout": "Onaylanmış Ödeme",
+                "all_currencies": "Tüm para birimleri",
+                "paid_to_date": "Şimdiye Kadar Ödenen",
+                "recent_invoices": "Son Ödemeler"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Raporu Görüntüle"
+    }
+}

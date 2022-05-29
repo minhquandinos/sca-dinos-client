@@ -1,0 +1,42 @@
+<div
+    class="filter__wrapper d-flex align-items-center"
+    [ngClass]="className"
+>
+    <div class="d-flex justify-content-between align-items-center" [ngClass]="{'w-100': isMobileDevice$ | async}">
+        <div class="filter__title" *ngIf="results === 0 || results > 0">
+            <ng-template #resultContainerRef></ng-template>
+        </div>
+
+        <ui-button-link
+            *ngIf="(isMobileDevice$ | async) && !haveNotFilter"
+            [label]="'interface.basic.filter' | translate"
+            [type]="'simple'"
+            [icon]="'down'"
+            (click)="displayFilters()"
+            [iconPosition]="'right'"
+            [iconSize]="16"
+        ></ui-button-link>
+    </div>
+
+<!--        <div class="filter__block d-flex align-items-start align-items-md-center" *ngIf="showFilters" #filtersRef>-->
+<!--            <div class="filter__title color__gray2" *ngIf="title">{{ title }}</div>-->
+<!--            <ng-content></ng-content>-->
+<!--        </div>-->
+
+    <div class="filter__block d-flex align-items-center" *ngIf="showFilters" #filtersRef>
+        <div class="filter__title color__gray2" *ngIf="title">{{ title }}</div>
+        <ng-content></ng-content>
+    </div>
+
+</div>
+
+<div class="filtered w-100">
+    <div class="filter__wrapper filter__wrapper-expanded">
+        <ng-content select="[filter-selected]"></ng-content>
+    </div>
+</div>
+
+
+<ng-template #defaultResultTemplate>
+    {{ results | format:'number' }} {{ 'interface.basic.results' | translate }}
+</ng-template>

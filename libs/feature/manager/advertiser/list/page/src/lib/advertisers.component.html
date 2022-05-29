@@ -1,0 +1,232 @@
+<ng-container *coreScaleoIsMobile>
+    <div class="d-flex justify-content-end">
+        <ng-template [ngTemplateOutlet]="openModalTpl" [ngTemplateOutletContext]="{ className: 'mb-2' }"></ng-template>
+    </div>
+</ng-container>
+
+<div class="advertisers">
+    <ui-page-wrapper [borderRadius]="4">
+        <ui-page-wrapper-header>
+            <scaleo-manager-access-advertisers-navigation></scaleo-manager-access-advertisers-navigation>
+            <div class="d-flex my-auto ml-auto" *coreScaleoIsNotMobile>
+                <ng-template [ngTemplateOutlet]="openModalTpl"></ng-template>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-content className="mb-0 p-0">
+            <scaleo-mng-advertisers-list-filters
+                [params]="params$ | async"
+                [totals]="(pagination$ | async)?.total_count"
+                [pathPage]="pathPage"
+            >
+                <app-modal-export
+                    *ngxPermissionsOnly="permissions.canExportAdvertisers"
+                    (exportFormat)="export($event)"
+                    [modalTitle]="'advertiser.export' | translate"
+                ></app-modal-export>
+
+                <app-custom-search
+                    class="ml-2"
+                    [placeholder]="'interface.basic.search' | translate"
+                    (toggleSearch)="searching($event)"
+                ></app-custom-search>
+            </scaleo-mng-advertisers-list-filters>
+
+            <ui-table2
+                class="table-advertisers"
+                [columns]="tableHeaders"
+                [items]="items$ | async"
+                [sort]="true"
+                [loading]="loading$ | async"
+                [defaultSortDirection]="sortDirection$ | async"
+                [defaultSortField]="sortField$ | async"
+                (sorting)="sortingColumn($event.current)"
+                [stickyHead]="true"
+                [skeletonTemplate]="skeletonTemplate"
+                [customHorizontalScroll]="true"
+                rowSize="medium"
+                [controlTemplate]="controlTemplate"
+            >
+                <ng-template uiTable2ColTemplate="id" let-id="value" let-item="valueRow">
+                    <div class="table__box-status d-flex align-items-center m-r-12 m-l-32">
+                        <ui-status-color [status]="item.status" className="table__box-image-status"></ui-status-color>
+                    </div>
+                    <div class="table__box-image">
+                        <div class="table__box-image-star position-absolute" *ngIf="item.account_type === 2">
+                            <ui-svg-icon
+                                icon="star-white-bg"
+                                class="m-r-8"
+                                tooltip="{{ 'tooltip.advertiser.premium_account' | translate }}"
+                            ></ui-svg-icon>
+                        </div>
+                        <ui-image
+                            class="cursor-pointer"
+                            routerLink="../../{{ id }}"
+                            [image]="item.image"
+                            [width]="64"
+                            [height]="64"
+                        ></ui-image>
+                    </div>
+
+                    <div class="w-100 d-flex flex-column m-l-8 h-100 justify-content-center">
+                        <a routerLink="../../{{ item.id }}" class="font-size is-6 color__blue3 line-height is-16">
+                            {{ id + ' ' + item.company_name | format: 'idName' }}
+                        </a>
+
+                        <div class="m-t-8 line-height is-17">{{ item.firstname }} {{ item.lastname }}</div>
+                    </div>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="contacts" let-contacts="value" let-item="valueRow">
+                    <div>
+                        <app-custom-info className="view-email m-b-6">
+                            <ui-svg-icon
+                                info-label
+                                [size]="16"
+                                class="mailroom"
+                                icon="ic_mailroom"
+                                tooltip="{{ 'shared.tooltip.email' | translate }}"
+                            ></ui-svg-icon>
+                            <div info-value class="my-auto">
+                                <a class="color__gray fs-base" href="mailto:{{ item.email }}">{{ item.email }}</a>
+                            </div>
+                        </app-custom-info>
+
+                        <shared-contact-list-icon show="2" [contacts]="contacts" [phone]="item.phone"></shared-contact-list-icon>
+                    </div>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="tags" let-item="valueRow">
+                    <app-tags-lists *ngIf="item?.tags_selected" [tags]="item?.tags_selected"></app-tags-lists>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="manager" let-item="valueRow">
+                    <app-manager-list [managers]="item.managers_assigned" className="manager-list--table"></app-manager-list>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="created" let-item="valueRow">
+                    <div class="d-flex flex-column align-items-start">
+                        <app-date-variant [date]="item.created"></app-date-variant>
+                        <app-report-field-insights-country
+                            class="m-t-4 m-b-4 m-l-2"
+                            [data]="item.registration"
+                        ></app-report-field-insights-country>
+                    </div>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="conversions" let-item="valueRow">
+                    <app-table-conversion *ngIf="item.live_stats" [liveStats]="item.live_stats"></app-table-conversion>
+                </ng-template>
+            </ui-table2>
+        </ui-page-wrapper-content>
+        <ui-page-wrapper-footer>
+            <app-custom-pagination
+                [pagination]="pagination$ | async"
+                [pageInQueryParams]="true"
+                (toggle)="pageWasChanged($event)"
+                (togglePerPage)="perPageWasChange($event)"
+                *ngIf="!(loading$ | async) && (pagination$ | async)?.total_count > 9"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+    </ui-page-wrapper>
+
+    <ng-template #skeletonTemplate>
+        <ui-table2-row rowSize="medium" *ngFor="let fake of shared.generateFake(4)" className="skeleton">
+            <ui-table2-col>
+                <div class="table__box-status" style="width: 8px"></div>
+                <div class="table__box-image">
+                    <ui-skeleton-image type="circle"></ui-skeleton-image>
+                </div>
+
+                <div class="w-100 d-flex align-self-center m-l-14">
+                    <div class="w-100 mr-2">
+                        <div class="name-title">
+                            <ui-skeleton-block size="large" [width]="50"></ui-skeleton-block>
+                        </div>
+
+                        <div class="name-subtitle">
+                            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                        </div>
+                    </div>
+                </div>
+            </ui-table2-col>
+            <ui-table2-col>
+                <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+            </ui-table2-col>
+            <ui-table2-col>
+                <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+            </ui-table2-col>
+            <ui-table2-col>
+                <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+            </ui-table2-col>
+            <ui-table2-col>
+                <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+            </ui-table2-col>
+            <ui-table2-col>
+                <ui-skeleton-block size="small" [width]="25"></ui-skeleton-block>
+            </ui-table2-col>
+        </ui-table2-row>
+    </ng-template>
+</div>
+
+<ng-template #openModalTpl let-className="className">
+    <ui-button-link
+        *ngxPermissionsOnly="permissions.canAddEditDeleteAdvertisers"
+        [className]="className"
+        type="floating"
+        [label]="'advertiser.basic.add_advertiser' | translate"
+        icon="plus-small"
+        (click)="openModal()"
+    ></ui-button-link>
+</ng-template>
+
+<ng-template #controlTemplate let-item>
+    <div class="ml-auto">
+        <ui-table-navigation [action]="null">
+            <ng-template scaleoTableNavigationDropdown>
+                <ui-button-link
+                    icon="details"
+                    type="simple"
+                    routerLink="../../{{ item.id }}"
+                    [label]="'shared.tooltip.details' | translate"
+                ></ui-button-link>
+                <div class="table-navigation__divider"></div>
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAddEditDeleteAdvertisers"
+                    icon="edit"
+                    type="simple"
+                    (click)="openModal(item.id)"
+                    [label]="'quick_links.buttons.quick_edit' | translate"
+                ></ui-button-link>
+                <ui-button-link
+                    *ngIf="item.status | isTruthy: statusId.Active"
+                    icon="manager_login_as"
+                    type="simple"
+                    (click)="loginAs(item?.email)"
+                    [label]="'quick_links.buttons.login_as_advertiser' | translate"
+                ></ui-button-link>
+                <div class="table-navigation__divider"></div>
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAccessReports"
+                    [icon]="'context-statistics'"
+                    type="simple"
+                    (click)="toLink('statistics', item.id)"
+                    [label]="'quick_links.buttons.statistics' | translate"
+                ></ui-button-link>
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAccessConversions"
+                    type="simple"
+                    [icon]="'context-conversions'"
+                    (click)="toLink('conversions', item.id)"
+                    [label]="'quick_links.buttons.conversions' | translate"
+                ></ui-button-link>
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAccessClicks"
+                    [icon]="'context-clicks'"
+                    type="simple"
+                    (click)="toLink('clicks', item.id)"
+                    [label]="'quick_links.buttons.clicks' | translate"
+                ></ui-button-link>
+            </ng-template>
+        </ui-table-navigation>
+    </div>
+</ng-template>

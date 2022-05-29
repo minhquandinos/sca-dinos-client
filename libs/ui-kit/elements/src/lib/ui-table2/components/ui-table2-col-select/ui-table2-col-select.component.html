@@ -1,0 +1,11 @@
+<td>
+    <div class="table2__column table2__column-checkbox d-flex align-items-center">
+        <app-custom-checkbox
+            [checkboxId]="'select-col-' + index"
+            [checked]="checked$ | async"
+            [inputValue]="selectItemValue ? item[selectItemValue] : item"
+            (change)="select()"
+            className="table2__checkbox"
+        ></app-custom-checkbox>
+    </div>
+</td>

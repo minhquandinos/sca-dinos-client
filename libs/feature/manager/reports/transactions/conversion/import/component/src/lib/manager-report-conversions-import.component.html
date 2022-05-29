@@ -1,0 +1,25 @@
+<ui-dropdown-entity-menu
+    [menu]="menu"
+    [dropWidth]="(isMobile$ | async) ? 250 : 290"
+    [label]="'interface.basic.import' | translate"
+    [buttonType]="'simple'"
+    [buttonIcon]="'ic_import'"
+    [dropdownItemTemplate]="dropdownItemTemplate"
+    classNameList="report-conversions-import__items p-t-2 p-b-2"
+    classNameListItem="report-conversions-import__item"
+    [rightDropdownMenu]="isNotMobile$ | async"
+></ui-dropdown-entity-menu>
+
+<div class="vertical-divider ml-1 mr-1"></div>
+
+<ng-template #dropdownItemTemplate let-element="context">
+    <div class="p-l-8 p-r-8 p-t-12 p-b-12">
+        <div class="subtitle is-6 color__black line-height is-16">
+            {{ element?.title | async }}
+        </div>
+
+        <div class="m-t-4 font-size color__gray2 line-height is-17">
+            {{ element?.subtitle | async }}
+        </div>
+    </div>
+</ng-template>

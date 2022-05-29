@@ -1,0 +1,77 @@
+<ui-table2
+    [columns]="columns"
+    [items]="items"
+    [stickyHead]="true"
+    [loading]="loading"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    rowSize="small"
+>
+    <ng-template uiTable2ColTemplate="title" let-title="value" let-item="valueRow">
+        <app-offer-goals-column-title
+            [status]="item?.status"
+            [id]="item?.id"
+            [title]="title"
+            [alias]="item?.alias"
+            [isDefault]="item?.is_default"
+        ></app-offer-goals-column-title>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="type" let-type="value">
+        <ui-chip colorText="white" [color]="type.id | goalTypeColor">
+            {{ type.id | goalTypeName }}
+        </ui-chip>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="revenue" let-revenue="value" let-item="valueRow">
+        <div *ngIf="item?.type?.id === goalTypeEnum.CPS; else defaultGoalRev">
+            {{ (revenue | number: '1.0' ) + '%' }}
+        </div>
+        <ng-template #defaultGoalRev>
+            {{ revenue |  format:'money':{currency: item?.currency } }}
+        </ng-template>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="payout" let-payout="value" let-item="valueRow">
+        <div *ngIf="item?.type?.id === goalTypeEnum.CPS; else defaultGoal">
+            {{ (payout | number: '1.0' ) + '%' }}
+        </div>
+        <ng-template #defaultGoal>
+            {{ payout |  format:'money':{ currency: item?.currency } }}
+        </ng-template>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="conversion_status" let-conversion_status="value" let-item="valueRow">
+        <ng-container *ngIf="item?.type?.id !== goalTypeEnum.CPC">
+            <span [appStatus2Color]="conversion_status" type="conversion_statuses">
+                {{ conversion_status | statusLabel:'conversion_statuses' | async }}
+            </span>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="hidden" let-item="valueRow">
+        <ng-container *ngIf="item?.type?.id !== goalTypeEnum.CPC">
+            <app-boolean-label [value]="item?.is_private"></app-boolean-label>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="multiple" let-item="valueRow">
+        <ng-container *ngIf="item?.type?.id !== goalTypeEnum.CPC">
+            <app-boolean-label [value]="item?.multiple_conversions"></app-boolean-label>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="caps" let-caps="value" let-item="valueRow">
+        <div *ngIf="caps?.length > 0">
+            <app-offer-goal-cap-type [item]="item" [currency]="item?.currency"></app-offer-goal-cap-type>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="postback" let-item="valueRow">
+        <app-offer-goal-tracking-method [item]="item" [link]="item?.tracking_domain" [isProfile]="true"></app-offer-goal-tracking-method>
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation (toggleEdit)="openModal(item?.id)"></ui-table-navigation>
+</ng-template>

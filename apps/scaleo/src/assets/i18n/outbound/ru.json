@@ -1,0 +1,13 @@
+{
+    "outbound_page": {
+        "announcements": {
+            "title": "Новости",
+            "widget": {
+                "menus": {
+                    "all": "Все",
+                    "offers": "По моим офферам"
+                }
+            }
+        }
+    }
+}

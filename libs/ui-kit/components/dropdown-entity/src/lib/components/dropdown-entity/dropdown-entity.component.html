@@ -1,0 +1,25 @@
+<div
+    class="dropdown dropdown--custom-action"
+    #dropdownRef
+    [ngClass]="{'show': show}"
+    [attr.class]="className"
+>
+    <div class="d-flex" data-toggle="dropdown" aria-expanded="false">
+        <ng-content select="[actionContent]"></ng-content>
+    </div>
+
+    <div
+        class="dropdown-menu"
+        [ngClass]="{'show': show, 'dropdown-menu-right': rightDropdownMenu}"
+        #dropdownContentRef
+    >
+        <ng-scrollbar
+            [disabled]="scrollDisabled"
+            class="my-scrollbar123"
+            trackClass="custom-scrollbar-track"
+            [autoHeightDisabled]="false"
+        >
+            <ng-content select="[dropdownContent]"></ng-content>
+        </ng-scrollbar>
+    </div>
+</div>

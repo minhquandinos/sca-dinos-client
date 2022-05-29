@@ -1,0 +1,17 @@
+<ui-chip
+    size="large"
+    rounded="true"
+    class="d-flex align-items-center white-space-nowrap"
+    *ngIf="advertiser && advertiser?.id"
+>
+    <ui-image *ngIf="advertiser.image" type="circle" height="20" [image]="advertiser.image"></ui-image>
+    <span class="fs-base advertiser-list" *ngIf="showCompanyName; else name">
+             <span *ngIf="showWithId">#{{advertiser.id}}&nbsp;</span> {{ advertiser.company_name }}
+            </span>
+    <ng-template #name>
+            <span class="fs-base advertiser-list">
+                <span *ngIf="showWithId">#{{ advertiser.id }}&nbsp;</span>
+                {{ advertiser.firstname }} {{ advertiser.lastname }}
+            </span>
+    </ng-template>
+</ui-chip>

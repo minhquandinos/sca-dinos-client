@@ -1,0 +1,17 @@
+<div *ngFor="let item of balances" class="d-flex justify-content-between line-height is-16">
+    <span class="w-50 pr-1">
+        {{ item.currency }}
+    </span>
+
+    <span class="w-50 pl-1 text-right min-w-fit-content">
+        {{ item.amount | format: 'money': { currency: item.currency } }}
+    </span>
+</div>
+
+<div class="affiliate-billing-balance__breakdown-by-currency-triangle d-flex">
+    <ui-svg-icon
+        [icon]="'triangle-left'"
+        [customWidth]="6"
+        [customHeight]="14"
+    ></ui-svg-icon>
+</div>

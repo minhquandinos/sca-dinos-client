@@ -1,0 +1,48 @@
+<app-card-widget>
+    <app-card-widget-header className="overflow-x-auto">
+        <div class="title">{{ 'offers_page.traffic_distribution.widget_title' | translate }}</div>
+        <app-date-presets
+            *ngIf="isMethodAbTesting$ | async"
+            class="ml-auto"
+            (changed)="changePreset($event)"
+        ></app-date-presets>
+    </app-card-widget-header>
+    <app-card-widget-content className="p-0">
+        <div class="container" [ngClass]="{'m-b-30': !(isMethodAbTesting$ | async)}">
+            <div class="row py-0 p-x-20">
+                <div class="col col-px-200 d-flex align-items-center pr-0 color__gray2">
+                    {{ 'offers_page.traffic_distribution.distribution_method' | translate }}:
+                </div>
+                <div class="col d-flex align-items-center pl-0" [formGroup]="form">
+                    <app-find-platform-list
+                        [searchable]="false"
+                        [labelShowId]="false"
+                        platformList="traffic_distribution_methods"
+                        [multiple]="false"
+                        [hideSelected]="false"
+                        formName="method"
+                        (toggle)="updateMethod($event)"
+                        theme="inlineBottomLine"
+                    ></app-find-platform-list>
+                </div>
+            </div>
+        </div>
+
+        <app-offer-distribution-ab-testing
+            *ngIf="isMethodAbTesting$ | async"
+            class="m-t-20"
+        ></app-offer-distribution-ab-testing>
+    </app-card-widget-content>
+    <app-card-widget-footer>
+        <ui-button-link
+            *ngIf="showBtnToReport$ | async"
+            class="ml-auto"
+            iconPosition="right"
+            icon="arrow-right-3"
+            type="simple"
+            color="main"
+            (click)="toReport()"
+            [label]="'dashboard_page.view_report' | translate"
+        ></ui-button-link>
+    </app-card-widget-footer>
+</app-card-widget>

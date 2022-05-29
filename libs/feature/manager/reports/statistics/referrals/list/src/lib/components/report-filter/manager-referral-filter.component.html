@@ -1,0 +1,34 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+    [results]="totals"
+>
+    <form [formGroup]="filterForm" class="d-flex align-self-md-start">
+        <app-filter *ngxPermissionsOnly="[permissions.canAccessAffiliates]">
+            <app-dropdown-popup
+                [label]="'main_navigation.affiliates' | translate"
+                [count]="affiliateCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-affiliates
+                    #findAffiliatesRef
+                    itemValue="id"
+                    [multiple]="true"
+                    [hideDropdownArrow]="true"
+                    [formName]="referralFilter.affiliates"
+                    [hideSelected]="true"
+                ></app-find-affiliates>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+
+    <section filter-selected="" *ngIf="selectedAnyFilters">
+        <app-output-selected-filters
+            [findComponent]="findAffiliatesRef"
+            [title]="'main_navigation.affiliates' | translate"
+            [itemTitle]="'title'"
+            [selected]="affiliateSelected$ | async"
+            (clear)="clearFilter(referralFilter.affiliates)"
+            (remove)="removeFilter(referralFilter.affiliates, $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>

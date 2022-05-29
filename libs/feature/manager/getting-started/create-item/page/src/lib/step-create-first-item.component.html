@@ -1,0 +1,67 @@
+<app-card widthSize="half">
+    <ng-container cardHeader="">
+        <div class="title"> {{ 'getting_started.' + id + '.header_title' | translate }}</div>
+        <div class="d-flex my-auto ml-auto">
+            <ui-button-link
+                [label]="'getting_started.skip' | translate"
+                (click)="skip()"
+                type="simple"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+
+    <div class="container d-flex flex-column justify-content-center">
+        <div class="subtitle is-5 m-b-4">{{ ('getting_started.' + id + '.create_your_first') | translate }}</div>
+        <ui-button-link
+            [label]="label | translate"
+            iconPosition="right"
+            icon="arrow-link"
+            (click)="navigateToList()"
+        ></ui-button-link>
+
+        <ui-br></ui-br>
+        <div class="subtitle is-5">{{ 'getting_started.follow_detailed_instructions' | translate }}</div>
+        <ul class="ul-description">
+            <ng-container *ngTemplateOutlet="id === 'offer' ? offersTpl : affiliateTpl"></ng-container>
+
+        </ul>
+    </div>
+</app-card>
+
+<ng-template #offersTpl>
+    <li>
+        <a
+            class="color__main-link cursor-pointer"
+            data-beacon-article-sidebar="5ecd7d592c7d3a3dea3d0c83"
+        >
+            {{'getting_started.' + id + '.follow_add' | translate}}
+        </a>
+    </li>
+    <li>
+        <a
+            class="color__main-link cursor-pointer"
+            data-beacon-article-sidebar="5ef4a96804286306f805c15d"
+        >
+            {{ 'getting_started.' + id + '.follow_setup' | translate }}
+        </a>
+    </li>
+</ng-template>
+
+<ng-template #affiliateTpl>
+    <li>
+        <a
+            class="color__main-link cursor-pointer"
+            data-beacon-article-sidebar="5ef1b9072c7d3a10cba965ab"
+        >
+            {{'getting_started.' + id + '.follow_add' | translate}}
+        </a>
+    </li>
+    <li>
+        <a
+            class="color__main-link cursor-pointer"
+            data-beacon-article-sidebar="5ef4b0e304286306f805c1ce"
+        >
+            {{ 'getting_started.' + id + '.follow_setup' | translate }}
+        </a>
+    </li>
+</ng-template>

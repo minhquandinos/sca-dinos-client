@@ -1,0 +1,50 @@
+<div class="menu-pipe" [ngClass]="(collapseMenu$ | async) ? 'd-block' : 'd-none'"></div>
+<div class="assigned-manager" *ngIf="showManagers$ | async">
+    <div class="assigned-manager__title">{{ 'your_manager' | translate }}</div>
+    <div class="assigned-manager__card" *ngFor="let manager of managers$ | async">
+        <div class="assigned-manager__image" [tooltip]="manager?.firstname + ' ' + manager?.lastname" [display]="!!(collapseMenu$ | async)">
+            <img src="{{ manager.image }}" alt="" />
+        </div>
+
+        <div class="assigned-manager__name">{{ manager.firstname }} {{ manager.lastname }}</div>
+        <div class="assigned-manager__contacts">
+            <div class="assigned-manager__contact" *ngIf="manager?.email && +manager?.show_email_for_users === 1">
+                <app-custom-info className="view-email m-b-6">
+                    <ui-svg-icon
+                        info-label
+                        [size]="16"
+                        class="mailroom"
+                        icon="ic_mailroom"
+                        [tooltip]="'shared.tooltip.email' | translate"
+                    ></ui-svg-icon>
+                    <div info-value class="assigned-manager__contact_value my-auto">
+                        <a class="color__gray d-block truncate-text fs-base" href="mailto:{{ manager?.email }}">
+                            {{ manager?.email }}
+                        </a>
+                    </div>
+                </app-custom-info>
+            </div>
+
+            <div class="assigned-manager__contact" *ngIf="manager?.phone">
+                <app-custom-info className="view-email m-b-6">
+                    <ui-svg-icon
+                        info-label
+                        [size]="16"
+                        class="mailroom"
+                        icon="ic_call"
+                        [tooltip]="'shared.tooltip.phone' | translate"
+                    ></ui-svg-icon>
+                    <div info-value class="assigned-manager__contact_value my-auto">
+                        <a class="color__gray d-block truncate-text fs-base" href="tel:{{ manager?.email }}">{{ manager?.phone }}</a>
+                    </div>
+                </app-custom-info>
+            </div>
+
+            <ng-container *ngIf="manager?.contacts">
+                <div class="assigned-manager__contact" *ngFor="let contact of manager?.contacts">
+                    <shared-contact-icon [maxWidth]="125" [icon]="contact"></shared-contact-icon>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

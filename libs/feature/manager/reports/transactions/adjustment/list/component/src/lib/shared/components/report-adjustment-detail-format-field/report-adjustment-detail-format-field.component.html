@@ -1,0 +1,47 @@
+<span *ngIf="item || item === 0">
+    {{('reports_page.adjustments.' + pathTranslate + '.' + key) | translate}}:
+    <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="key === 'new_payout' || key === 'new_revenue'">
+            <ng-container *ngIf="item.currency === '%'; else defaultRevenuePayoutTemplate">
+                {{ item.value + '%' }}
+            </ng-container>
+            <ng-template #defaultRevenuePayoutTemplate>
+                  {{ item.value | format:'money' : {digitsAfterPoint: 2 , currency: item.currency} }}
+            </ng-template>
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'new_status'">
+            {{ item | statusLabel: 'conversion_statuses' | async }}
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'conversions_status'">
+            {{ item | statusLabel: 'conversion_statuses' | async }}
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'new_date'">
+            <ng-container *ngIf="item === 0; else newDate">
+                {{'reports_page.adjustments.new_date.original' | translate}}
+            </ng-container>
+            <ng-template #newDate>
+                {{item}}
+            </ng-template>
+        </ng-container>
+          <ng-container *ngSwitchCase="key === 'dates_range'">
+            {{ item.from + ' - ' + item.to  }}
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'offer' || key === 'goal'">
+            <ng-container *ngIf="item.id !== 0">
+                 {{ item.id + ' ' +  item.title  | format:'idName' }}
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'affiliate'">
+            <ng-container *ngIf="item?.id !== 0">
+                 {{  item?.title  | format:'idName': item?.id }}
+            </ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="key === 'fire_affiliate_postback'">
+            <app-boolean-label [value]="item"></app-boolean-label>
+        </ng-container>
+
+         <ng-container *ngSwitchDefault>
+             {{ item  | truncateText : 25 }}
+        </ng-container>
+    </ng-container>
+</span>

@@ -1,0 +1,121 @@
+<router-outlet name="trial"></router-outlet>
+<div
+    class="main d-flex"
+    [ngClass]="[( collapseMenu$ | async )? 'menu-folded' : 'menu-expanded', clientDevice]"
+    [lang]="currentLang$ | async"
+>
+
+    <!--Menu-->
+    <div class="menu position-fixed" [ngClass]="menuClass">
+
+        <div class="menu-header d-flex">
+            <router-outlet name="logo"></router-outlet>
+            <div class="menu-header_collapse cursor-pointer d-flex align-self-center p-t-5" (click)="collapseMenuBar()">
+                <div class="menu-header_collapse-btn align-self-center mx-auto">
+                    <ui-svg-icon icon="menu-collapse" *ngIf="!(collapseMenu$ | async)"></ui-svg-icon>
+                    <ui-svg-icon icon="list-view" *ngIf="collapseMenu$ | async"></ui-svg-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-content">
+            <router-outlet name="desktop-menu"></router-outlet>
+
+            <router-outlet name="assigned-managers"></router-outlet>
+        </div>
+    </div>
+    <!--End Menu-->
+
+
+
+    <!--Page-->
+    <div class="page">
+        <div
+            class="page-header pr-0"
+            [ngClass]="{ 'page-header--desktop': isNotMobile$ | async, 'page-header--mobile': isMobile$ | async }"
+        >
+            <ng-container  *ngIf="isNotMobile$ | async">
+                <div class="page-header-title d-flex align-items-center h-100 w-auto">
+                    <router-outlet name="page-title"></router-outlet>
+                </div>
+
+                <div class="align-items-center d-flex page-header-info gap-2">
+                    <router-outlet name="notifications"></router-outlet>
+
+                    <router-outlet name="helpMenu"></router-outlet>
+
+                    <router-outlet name="languages"></router-outlet>
+
+                    <router-outlet name="interfaceSwitcher"></router-outlet>
+
+<!--                    <div class="d-flex gap-1">-->
+<!--                        -->
+<!--                    </div>-->
+
+
+                    <router-outlet name="userProfile"></router-outlet>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isMobile$ | async">
+                <div class="d-flex align-items-center" (click)="toggleMobileMenu()">
+                    <ui-svg-icon icon="list-view"></ui-svg-icon>
+                </div>
+
+                <div class="d-flex w-100 justify-content-between">
+                    <router-outlet name="pagetitle"></router-outlet>
+
+                    <div class="d-flex align-items-center">
+                        <router-outlet name="userProfile"></router-outlet>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+
+        <!-- Menu Mobile -->
+        <div class="menu-mobile" [ngClass]="menuClass" *ngIf="mobileMenu$ | async">
+
+            <div class="menu-mobile-wrapper">
+                <div class="menu-content">
+
+                    <div class="menu-group menu-group_logo d-flex">
+                        <div class="d-flex align-items-center w-100">
+                            <router-outlet name="logo"></router-outlet>
+                            <div class="menu-header_collapse cursor-pointer d-flex align-self-center p-t-5">
+                                <div class="menu-header_collapse-btn align-self-center mx-auto">
+                                    <ui-svg-icon icon="burger" (click)="toggleMobileMenu()"></ui-svg-icon>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <router-outlet name="mobile-menu"></router-outlet>
+
+                    <router-outlet name="assigned-managers"></router-outlet>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--Page Content-->
+        <div class="page-content d-flex flex-column justify-content-between" #pageContentRef>
+            <div class="h-auto">
+                <router-outlet></router-outlet>
+            </div>
+
+            <div class="powered_by position-sticky">
+                <router-outlet name="powered-by"></router-outlet>
+            </div>
+
+        </div>
+        <!--End Page Content-->
+
+    </div>
+    <!--End Page-->
+
+</div>

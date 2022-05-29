@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Strona nie została znaleziona lub jest zabroniona",
+            "text": "Kliknięty link jest uszkodzony lub strona mogła zostać usunięta bądź zabroniona."
+        },
+        "page_not_found": {
+            "title": "Strona nie została znaleziona lub jest zabroniona",
+            "text": "Kliknięty link jest uszkodzony lub strona mogła zostać usunięta bądź zabroniona."
+        },
+        "connection_lost": {
+            "title": "Utracono połączenie",
+            "text": "Poczekaj kilka minut zanim spróbujesz ponownie.",
+            "try_again": "Spróbuj ponownie"
+        }
+    }
+}

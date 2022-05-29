@@ -1,0 +1,87 @@
+<ng-container *ngIf="referralProgram">
+    <ui-alert borderColor="success" size="medium" className="mb-3">
+        <div class="w-100">
+            <ng-container
+                *ngIf="referralCommissionsType === referralCommissionsTypeEnum.Percentage; else referralCommissionsIsFlat"
+            >
+                <p>{{ 'referrals_page.commission_info' | translate: { commission: commissionInfo } }}</p>
+            </ng-container>
+            <ng-template #referralCommissionsIsFlat>
+                <p>{{ 'referrals_page.commission_info_for_flat' | translate: { commission: commissionInfo } }}</p>
+            </ng-template>
+            <div class="referral-copy-link referral-copy-link-for-affiliate">
+                <div>
+                    <strong>{{ 'referrals_page.link' | translate }}</strong>
+                </div>
+                <app-field-text-info preset="copy">
+                    {{ affiliateId | referralLink }}
+                </app-field-text-info>
+            </div>
+        </div>
+    </ui-alert>
+
+    <ui-page-wrapper [borderRadius]="4">
+        <ui-page-wrapper-header>
+            <div class="my-auto">
+                <div class="title">{{ 'referrals_page.you_referrals_title' | translate }}</div>
+            </div>
+        </ui-page-wrapper-header>
+        <ui-page-wrapper-content className="mb-0 p-0">
+            <app-filters
+                [formGroup]="filterForm"
+                [title]="'interface.basic.filtered_by' | translate"
+                [results]="totalCount$ | async"
+                className="p-l-16"
+            >
+                <app-filter>
+                    <app-find-platform-statuses
+                        statusList="statuses"
+                        formName="status"
+                        itemValue="status"
+                        [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+                        (toggle)="setFilterStatus($event)"
+                    ></app-find-platform-statuses>
+                </app-filter>
+            </app-filters>
+
+            <app-referrals-list
+                [tableHeaders]="tableHeaders"
+                [items]="items$ | async"
+                [isLoad]="isLoad$ | async"
+                [template]="rowTemplate"
+            ></app-referrals-list>
+        </ui-page-wrapper-content>
+
+        <ui-page-wrapper-footer *ngIf="showPagination$ | async">
+            <app-custom-pagination
+                [pagination]="pagination$ | async"
+                (toggle)="pageWasChanged($event)"
+                (togglePerPage)="perPageWasChange($event)"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+    </ui-page-wrapper>
+
+
+</ng-container>
+
+<ng-template #rowTemplate let-item="context">
+    <td ui-table-col>
+        <ui-status-color [status]="item?.status"></ui-status-color>
+    </td>
+    <td ui-table-col>
+        {{ item?.referral | format: 'idName' }}
+    </td>
+    <td ui-table-col>
+        <app-date-variant [date]="item?.created"></app-date-variant>
+    </td>
+    <td ui-table-col>
+        <div>
+            <ng-container *ngIf="item?.referral_commission_type === commissionsTypeEnum.Percentage">
+                {{ item?.referral_commission | format: 'money':{ digitsAfterPoint: 2 } }}
+            </ng-container>
+            <ng-container *ngIf="item?.referral_commission_type === commissionsTypeEnum.Flat">
+                {{ item?.referral_commission | format: 'money':{ currency: currency, digitsAfterPoint: 2 } }}
+            </ng-container>
+        </div>
+    </td>
+</ng-template>

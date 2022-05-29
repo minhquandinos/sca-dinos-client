@@ -1,0 +1,15 @@
+.invoice-items-table, .invoices-widget-table {
+    tr, .invoices-widget-table__row {
+        .invoice-download, .invoice-upload-attachment {
+            opacity: 0;
+        }
+    }
+}
+
+.invoice-items-table, .invoices-widget-table {
+    tr:hover, .invoices-widget-table__row:hover {
+        .invoice-download, .invoice-upload-attachment {
+            opacity: 1;
+        }
+    }
+}

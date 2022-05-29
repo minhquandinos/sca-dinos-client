@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Hoa hồng",
+            "approved_revenue": "Hoa hồng",
+            "pending_revenue": "Hoa hồng",
+            "rejected_revenue": "Hoa hồng",
+            "total_revenue": "Hoa hồng",
+            "revenue": "Hoa hồng"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Giá mỗi click",
+                "rpa": "Giá trên mỗi chuyển đổi được duyệt",
+                "rpm": "Giá trên mỗi 1000 lần hiển thị"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Hoa hồng"
+                }
+            }
+        }
+    }
+}

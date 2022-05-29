@@ -1,0 +1,34 @@
+<div fxLayout="column">
+    <div fxFlex="100">
+        <scaleo-affiliate-billing-alert
+            *ngIf="showAlert && affPaymentInfo"
+            [paymentInfo]="affPaymentInfo"
+            (toogle)="close()"
+        ></scaleo-affiliate-billing-alert>
+    </div>
+    <div fxLayout="row" fxLayout.md="column" fxFlexFill fxLayoutGap="1rem">
+        <div fxFlex="400px" fxFlex.md="100" fxFlex.xxl="500px">
+            <div class="h-100">
+                <ui-page-wrapper borderRadius="4" className="h-100">
+                    <ui-page-wrapper-content  className="page-wrapper-content p-l-20 p-r-12 p-y-12">
+                        <scaleo-affiliate-billing-preferences
+                            [fields]="preferencesFields"
+                        ></scaleo-affiliate-billing-preferences>
+                    </ui-page-wrapper-content>
+                </ui-page-wrapper>
+            </div>
+        </div>
+        <div fxFlex fxLayoutGap="1rem" fxLayout="column">
+            <scaleo-affiliate-billing-balance-widget
+                [showPendingBalance]="showPendingBalance$ | async"
+            ></scaleo-affiliate-billing-balance-widget>
+            <scaleo-affiliate-billing-payments-methods
+                [affiliateId]="affiliateId$ | async"
+                (requestSended)="requestSended()"
+            ></scaleo-affiliate-billing-payments-methods>
+        </div>
+    </div>
+    <div fxFlex="100">
+        <app-affiliate-access-invoices-widget></app-affiliate-access-invoices-widget>
+    </div>
+</div>

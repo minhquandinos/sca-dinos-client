@@ -1,0 +1,73 @@
+image: node:14.16.0
+definitions:
+    steps:
+        - step: &InstallDependencies
+              name: Install dependencies
+              caches:
+                  - node
+              script:
+                  - npm install
+                  - npm install -g @angular/cli
+        - step: &Build
+              name: Build
+              size: 2x
+              script:
+                  - npm run build-prod
+              caches:
+                  - node
+              artifacts:
+                  - dist/**
+        - step: &Test
+              name: Run test
+              caches:
+                  - node
+              script:
+                  - npm test
+        - step: &Lint
+              name: Code linting
+              script:
+                  - npm install eslint
+                  - npx eslint
+              caches:
+                  - node
+        - step: &Zip
+              name: Zip build
+              script:
+                  - apt-get update # required to install zip
+                  - apt-get install -y zip # required for packaging up the application
+                  - zip -rv artifact.zip ./*
+              artifacts:
+                  - build.zip
+        -  step: &DeployAWS
+               name: Deploy to AWS S3
+               script:
+                   - pipe: atlassian/aws-s3-deploy:0.3.8
+                     variables:
+                         AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                         AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                         AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                         S3_BUCKET: $S3_BUCKET
+                         LOCAL_PATH: ${pwd} # ${pwd} is current directory, after step Build current directory is ./dist
+                         ACL: 'public-read'
+
+pipelines:
+    custom:
+        dev2:  # The name that is displayed in the list in the Bitbucket Cloud GUI
+            - step: *InstallDependencies
+            - step: *Build
+            - step:
+                  <<: *DeployAWS
+                  deployment: Staging
+    branches:
+        test:
+            - step: *InstallDependencies
+            - step: *Build
+            -   step:
+                    <<: *DeployAWS
+                    deployment: Test
+#        master:
+#            - step: *InstallDependencies
+#            - step:
+#                  <<: *Build
+#                  trigger: manual
+#                  deployment: Test

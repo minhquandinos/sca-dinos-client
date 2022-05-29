@@ -1,0 +1,24 @@
+<app-payment-method-detail
+    class="my-1 white-space-nowrap"
+    *ngFor="let method of methods | slice: 0 : endIndexForSLicePipe"
+    [logo]="method.payment_method_logo"
+    [tooltipText]="method.title"
+    [method]="method.payment_method_info"
+    [logoWidth]="24"
+></app-payment-method-detail>
+
+<div class="d-flex align-items-center" *ngIf="methods.length > 3">
+    <ui-svg-icon
+        icon="more-horisontal-small"
+        size="14"
+        contentType="template"
+        [tooltip]="tooltipTpl"
+    ></ui-svg-icon>
+</div>
+
+<ng-template #tooltipTpl>
+    <div class="text-break-all" *ngFor="let method of methods">
+        <span class="title-for-tooltip mr-1">{{ method.title }}:</span>
+        <span class="text-for-tooltip">{{ method.payment_method_info | truncateText: 50 }}</span>
+    </div>
+</ng-template>

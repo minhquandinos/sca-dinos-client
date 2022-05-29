@@ -1,0 +1,46 @@
+{
+    "shared": {
+        "dictionary": {
+            "teammates": "Менеджеры",
+            "teammate": "Менеджер",
+            "role": "Роль",
+            "level": "Уровень",
+            "goal": "Цель",
+            "goal_type": "Тип цели",
+            "offer": "Оффер",
+            "status": "Статус",
+            "conversion_status": "Статус конверсии",
+            "usage_examples": "Примеры использования",
+            "add": "Добавить",
+            "edit": "Изменить",
+            "short_edit": "Ред.",
+            "read_more": "Подробнее",
+            "all": "Все",
+            "delete": "Удалить",
+            "html_code": "HTML код",
+            "two_factor_auth": "Двухфакторная аутентификация",
+            "two_factor_auth_2fa": "Двухфакторная аутентификация (2FA)",
+            "save": "Сохранить",
+            "cancel": "Отмена",
+            "apply": "Применить",
+            "submit": "Отправить",
+            "update": "Обновить"
+        },
+        "managers": {
+            "manager": "Менеджер",
+            "affiliate": "Партнер",
+            "advertiser": "Рекламодатель",
+            "administrator": "Администратор",
+            "limited-affiliate-manager": "Ограниченный менеджер партнеров",
+            "limited-advertiser-manager": "Ограниченный менеджер рекламодателей",
+            "limited_affiliate_manager": "Огран. менеджер партнеров",
+            "limited_advertiser_manager": "Огран. менеджер рекламодателей"
+        },
+        "tooltip": {
+            "edit": "Редактировать",
+            "email": "Эл. почта",
+            "details": "Детали",
+            "phone": "Телефон"
+        }
+    }
+}

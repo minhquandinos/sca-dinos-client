@@ -1,0 +1,306 @@
+<ng-template appModal3Title>
+    <span class="title">
+        {{ !editId ? ('settings.teammates.add_as_title' | translate) : ('settings.teammates.edit' | translate) + ' #' + editId }}
+    </span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        appDisableButtonDuringRequest
+        (toggle)="save()"
+    ></ui-button-link>
+</ng-template>
+
+<div class="form w-100" [formGroup]="form" *ngIf="isLoad; else skeleton">
+    <div class="row">
+        <div class="col-md-3 d-flex align-items-start m-t-32">
+            <app-form-logo [editId]="editId" [image]="managerImage" (change)="changeImage($event)" (delete)="deleteImage()"></app-form-logo>
+        </div>
+
+        <div class="col-md-9">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-input [label]="'firstname' | translate" formControlName="firstname" maxLength="64"></app-input>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <app-input [label]="'lastname' | translate" formControlName="lastname" maxLength="64"></app-input>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-find-platform-statuses
+                        [label]="'shared.dictionary.status' | translate"
+                        statusList="statuses"
+                        formName="status"
+                        [disabled]="currentsUser"
+                        [exceptIds]="exceptStatusIds"
+                    ></app-find-platform-statuses>
+                </div>
+                <div class="form-group col-md-6">
+                    <app-find-role
+                        [disableSelect]="currentsUser"
+                        [label]="'shared.dictionary.role' | translate"
+                        formName="role"
+                        (initialSelected)="changeRole($event)"
+                        (toggleFull)="changeRole($event)"
+                    ></app-find-role>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title is-5 mt-0">{{ 'interface.subtitle.access_credentials' | translate }}</div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'email' | translate" formControlName="email"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-custom-switch
+                [label]="'administration_settings.managers.basic.show_email_for_users' | translate"
+                formControlName="show_email_for_users"
+            ></app-custom-switch>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="changePasswordVisible || !editId">
+        <div class="form-group col-md-6">
+            <app-input type="password" [label]="'password' | translate" formControlName="password"></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input type="password" [label]="'password_confirmation' | translate" formControlName="password_repeat"></app-input>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="editId">
+        <ui-button-link
+            type="simple"
+            icon="edit"
+            [label]="(!changePasswordVisible ? 'password_change.button' : 'password_change.not_change') | translate"
+            (toggle)="changePassword()"
+        ></ui-button-link>
+    </div>
+
+    <div class="form-group">
+        <app-custom-switch
+            [label]="'shared.dictionary.two_factor_auth_2fa' | translate"
+            formControlName="twoFA_enabled"
+        ></app-custom-switch>
+    </div>
+
+    <div class="title is-5">
+        <span class="">{{ 'interface.subtitle.contacts' | translate }}</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input [label]="'interface.form.phone' | translate" formControlName="phone" maxLength="20"></app-input>
+        </div>
+    </div>
+
+    <shared-add-contact [selectedMessengers]="managerData?.contacts"></shared-add-contact>
+
+    <div class="title is-5">
+        <span class="">{{ 'interface.subtitle.preferences' | translate }}</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-list
+                [label]="'interface.form.number_format' | translate"
+                platformList="number_formats"
+                formName="number_format_id"
+                [labelShowId]="false"
+                [hideSelected]="false"
+                [disableTranslate]="true"
+                placeholder=""
+            ></app-find-platform-list>
+        </div>
+        <div class="form-group col-md-6">
+            <app-find-platform-list
+                [label]="'interface.form.date_format' | translate"
+                platformList="date_formats"
+                formName="date_format_id"
+                [labelShowId]="false"
+                [hideSelected]="false"
+                [disableTranslate]="true"
+                placeholder=""
+            ></app-find-platform-list>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <app-find-platform-list
+            [label]="'interface.form.timezone' | translate"
+            platformList="timezones"
+            itemLabel="title"
+            itemValue="timezone"
+            formName="timezone"
+            [labelShowId]="false"
+            [hideSelected]="false"
+            [disableTranslate]="true"
+            placeholder=""
+        ></app-find-platform-list>
+    </div>
+
+    <ng-container *ngIf="editId">
+        <app-manager-referrer-link-to-sign-up
+            *appDisplayManagerReferrerLinkToSignUp="currentRole$ | async"
+            [id]="editId"
+            [role]="currentRole$ | async"
+        ></app-manager-referrer-link-to-sign-up>
+    </ng-container>
+
+    <ng-container *ngIf="editId">
+        <div class="title is-5">
+            <span class="">{{ 'interface.subtitle.administration' | translate }}</span>
+        </div>
+
+        <app-api-access [apiKey]="managerData?.api_key" (refresh)="refreshApi()" [apiLink]="apiLink"></app-api-access>
+    </ng-container>
+
+    <ui-button-link
+        *ngIf="!currentsUser && editId"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="openInActiveDeleteManagerModal('delete_manager')"
+    ></ui-button-link>
+</div>
+
+<ng-template #replaceManager>
+    <div class="form-row p-l-8">
+        {{ confirm + '.text' | translate }}
+    </div>
+    <form [formGroup]="formManager" class="mt-2">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <app-find-managers
+                    appendTo="body"
+                    [exceptIds]="[editId]"
+                    [multiple]="true"
+                    [label]="'administration_settings.managers.modal.title_input' | translate"
+                    itemLabel="name"
+                    itemValue="id"
+                    formName="new_managers"
+                    [clearable]="false"
+                    [queryParams]="excludeRoleQueryParams"
+                ></app-find-managers>
+            </div>
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #replaceManagerFooter>
+    <div class="d-flex">
+        <ui-button-link className="mr-2" type="simple" [label]="'shared.dictionary.cancel' | translate" (click)="cancel()"></ui-button-link>
+        <ui-button-link type="delete" [label]="confirm + '.button_text' | translate" (click)="update()"></ui-button-link>
+    </div>
+</ng-template>
+
+<ng-template #skeleton>
+    <div class="w-100 skeleton">
+        <div class="row">
+            <div class="col-md-3 d-flex align-items-center">
+                <div class="skeleton__animation skeleton__image--96 rounded-circle"></div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group m-t-25 m-b-22">
+            <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+        </div>
+
+        <div class="form-group mb-0">
+            <div class="d-flex">
+                <div class="w-100 p-r-8">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+
+                <div class="w-100 p-r-8">
+                    <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                    <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group m-t-33 m-b-22">
+            <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+        </div>
+
+        <div class="form-group mb-0">
+            <div class="d-flex">
+                <div class="w-100 p-r-8">
+                    <div class="form-group">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+
+                <div class="w-100 p-l-8">
+                    <div class="form-group">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-50 p-r-8">
+            <div class="form-group">
+                <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="d-flex">
+                <div class="w-100 p-r-8">
+                    <div class="form-group mb-0">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+
+                <div class="w-100 p-l-8">
+                    <div class="form-group mb-0">
+                        <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                        <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

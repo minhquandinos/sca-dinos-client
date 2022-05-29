@@ -1,0 +1,136 @@
+<app-detail-info-widget [isLoad]="loading$ | async">
+    <app-detail-info-widget-header
+        [image]="image$ | async | defaultImage: 'offer'"
+        imageType="rounded"
+        [title]="title$ | async"
+    >
+        <app-status-dot-color
+            titleContent
+            class="m-t-10 h-auto"
+            [status]="status$ | async"
+            [showLabel]="true"
+            type="statuses"
+        ></app-status-dot-color>
+
+        <div class="d-flex align-items-center ml-auto h-fit-content" controlContent>
+            <scaleo-manager-offer-duplicate
+                #managerOfferDuplicateComponent
+                (duplicated)="duplicated($event)"
+                *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]"
+            >
+                <ui-button-link
+                    icon="duplicate"
+                    type="floating"
+                    (click)="managerOfferDuplicateComponent.duplicate(id)"
+                    [tooltip]="'offers_page.duplicate.title' | translate"
+                ></ui-button-link>
+            </scaleo-manager-offer-duplicate>
+
+            <ui-button-link
+                *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]"
+                class="ml-2"
+                type="floating"
+                (click)="edit()"
+                [label]="'shared.dictionary.short_edit' | translate"
+            ></ui-button-link>
+        </div>
+    </app-detail-info-widget-header>
+
+    <app-detail-info-widget-content>
+        <ng-container *ngIf="data$ | async as data">
+            <app-offer-detail-widget-quick-links
+                class="d-block p-b-20"
+                [offerId]="id"
+                [previewLink]="previewLink"
+            ></app-offer-detail-widget-quick-links>
+
+            <app-detail-info>
+                <app-detail-info-row *ngIf="data?.advertiser">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'table.column.advertiser' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-advertiser-chip
+                            [showCompanyName]="true"
+                            [showWithId]="true"
+                            [advertiser]="data.advertiser"
+                        ></app-advertiser-chip>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="data?.tags.length > 0">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.tags' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-tags-lists
+                            [tags]="data.tags"
+                            [showAll]="true"
+                        ></app-tags-lists>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="data.traffic_types.length > 0">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.traffic_type' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-tags-lists
+                            [tags]="data.traffic_types"
+                            [showAll]="true"
+                        ></app-tags-lists>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="data?.description as description">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.description' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-expand class="quill-results">
+                            <div
+                                class="text-break"
+                                [innerHTML]="description | expandTruncateText: limitForDescription | async"
+                            ></div>
+                        </app-expand>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="data.internal_info as internalInfo">
+                    <app-detail-info-col class="col-4 color__gray2">
+                        {{ 'interface.form.internal_information' | translate }}:
+                    </app-detail-info-col>
+
+                    <app-detail-info-col>
+                        <app-expand class="text-break">
+                            {{ internalInfo | expandTruncateText: limitForDescription | async }}
+                        </app-expand>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row>
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.currency' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        {{ data.currency.title }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="showTimeZone$ | async">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.timezone' | translate }}:</app-detail-info-col>
+
+                    <app-detail-info-col>
+                        {{ data.timezone.timezone }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="data.is_expires && data.expiration_date">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.expires' | translate }}:</app-detail-info-col>
+
+                    <app-detail-info-col>
+                        {{ data.expiration_date | format: 'date' }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+            </app-detail-info>
+        </ng-container>
+
+        <ui-divider class="m-t-30"></ui-divider>
+
+        <app-offer-tracking-link></app-offer-tracking-link>
+
+        <ui-divider class="m-t-30"></ui-divider>
+
+        <app-offer-tracking-settings></app-offer-tracking-settings>
+    </app-detail-info-widget-content>
+</app-detail-info-widget>

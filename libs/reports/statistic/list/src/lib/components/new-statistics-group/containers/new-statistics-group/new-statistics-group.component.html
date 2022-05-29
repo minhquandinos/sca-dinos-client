@@ -1,0 +1,11 @@
+<div class="d-flex align-items-start align-items-md-center flex-column flex-md-row">
+    <app-new-statistics-selected-group
+        [selectedBreakdowns]="selectedBreakdowns$ | async"
+        (remove)="removeBreakdown($event)"
+    ></app-new-statistics-selected-group>
+    <app-new-statistics-selection-group
+        [breakdownsList]="breakdownsList$ | async"
+        (selected)="addBreakdown($event)"
+    ></app-new-statistics-selection-group>
+</div>
+

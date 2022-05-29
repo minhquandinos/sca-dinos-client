@@ -1,0 +1,87 @@
+{
+    "invoice": {
+        "navigation_tooltip": "Invoices are documents that show a payable balance of your affiliates for a certain period. They are generated automatically or manually based on Approved Conversions.",
+        "edit_title": "Edit Invoice",
+        "advance": "Advance",
+        "add_advance": "Add an Advance",
+        "advance_available": "Advance Available",
+        "adjustment": "Adjustment",
+        "updated": {
+            "success": "Invoice Adjustment has been successfully changed",
+            "exception": "Error on Invoice adjustment changed, try later"
+        },
+        "multi_delete": {
+            "confirm": {
+                "message": "Only invoices with status Draft can be deleted. \nAffiliate balances will be updated within 5 minutes."
+            },
+            "success": "All Draft invoices have been successfully deleted",
+            "exception": "No Draft Invoices were found that can be deleted"
+        },
+        "multi_change_status": {
+            "success": "All selected invoices status changed successfully",
+            "exception": "No Draft or Unpaid Invoices were found that can be changed status"
+        },
+        "generate": {
+            "title": "Generate",
+            "invoice": "Generate Invoice",
+            "invoices": "Generate Invoices",
+            "with_status": "Generate Invoices with Status",
+            "approved_period_balance": "Approved Balance for the period",
+            "affiliate_info": "Select the Affiliate you want to generate an invoice for.",
+            "date_info": "The invoice will be generated for the selected period (included Start and End Date). If the Start Date is not specified, all the approved conversions that are not included in any other invoice will be included in this invoice.",
+            "payment_methods_info": "Invoices will be generated for selected payment methods only. Leave blank if you want to include all payment methods. ",
+            "invoice_memo_info": "This information will be displayed in the invoice.",
+            "notes_info": "Visible to everyone.",
+            "no_payment_methods": "No payment methods selected for this currency.",
+            "no_payment_methods_exception": "Payment Method is not defined for currency, choose other any currency with payment methods",
+            "maximum_amount": "Maximum Amount"
+        },
+        "update": {
+            "attachment_info": "Attach files to the invoice (screenshots, tax documents, etc.)",
+            "confirm_paid_status": "The invoice status will be changed to Paid. It will not be possible to modify or delete the invoice.\nAll conversions included in this invoice will be marked as Paid. It can take about 5 minutes."
+        },
+        "delete_confirm_text": "The Invoice will be deleted. Affiliate balance will be updated within 5 minutes.",
+        "settings": {
+            "frequency_title": "Invoice Frequency",
+            "frequency": {
+                "weekly": "Weekly",
+                "bimonthly": "Bimonthly",
+                "monthly": "Monthly",
+                "monthly_quarterly": "Quarterly"
+            },
+            "generation": {
+                "title": "Invoice Generation",
+                "manually": "Manually",
+                "automatically": "Automatically",
+                "descriptions": {
+                    "manually": "Manually: you will be able to generate the invoices in the Affiliate Billing - Invoices section.",
+                    "automatically": "Automatically: the invoices will be created automatically according to the Invoice Frequency settings. Affiliates should have an approved balance and a payment method selected."
+                }
+            },
+            "information": {
+                "title": "Invoice Information",
+                "tooltip": "The Billing Details of your company. Used for the invoice (Bill to section).",
+                "bill_to_name": "Billing Name",
+                "bill_to_address": "Billing Address",
+                "bill_to_email": "Billing Email",
+                "bill_to_tax_id": "Billing Tax ID",
+                "invoice_footer": "Invoice Footer",
+                "invoice_footer_description": "Information displayed at the footer of every invoice."
+            },
+            "generate_invoice_status": {
+                "title": "Generate Invoice with Status",
+                "description": {
+                    "title": "The invoices will be generated with selected Status.",
+                    "draft": "Draft: invoice is not visible to Affiliates and can be modified.",
+                    "unpaid": "Unpaid: invoice is visible to Affiliates."
+                }
+            },
+            "other": {
+                "title": "Other",
+                "payment_terms": {
+                    "description": "Determines Invoice’s due date."
+                }
+            }
+        }
+    }
+}

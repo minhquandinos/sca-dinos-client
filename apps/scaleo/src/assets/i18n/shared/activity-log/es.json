@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Registro de actividad",
+        "details": "Detalles",
+        "new_values": "Valores nuevos",
+        "old_values": "Valores antiguos",
+        "object": {
+            "affiliate": "Afiliado",
+            "postback": "Postback",
+            "gloabal_postback": "Postback global",
+            "source": "Origen",
+            "advertiser": "Anunciante",
+            "domain": "Dominio",
+            "manager": "Teammate",
+            "offer": "Oferta",
+            "offer_request": "Solicitud de oferta",
+            "goal": "Objetivo",
+            "tracking": "Seguimiento",
+            "targeting": "Segmentación",
+            "affiliate_access": "Acceso de afiliados",
+            "landing_page": "Landing page",
+            "creative": "Creativo",
+            "custom_param": "Parámetros personalizados",
+            "you": "Tú",
+            "announcement": "Anuncio"
+        },
+        "owner": {
+            "offer" : "para oferta",
+            "affiliate": "para afiliado",
+            "you": "para ti"
+        },
+        "action": {
+            "add": "se ha añadido",
+            "edit": "se ha actualizado",
+            "view": "se ha visualizado",
+            "delete": "se ha eliminado",
+            "signup": "se ha registrado",
+            "login": "ha iniciado sesión",
+            "profile_edit": "actualizó su perfil",
+            "logout": "ha cerrado la sesión",
+            "approved": "se ha aprobado",
+            "declined": "se ha rechazado",
+            "login_as": "ha iniciado sesión como"
+        },
+        "action_for_offer_request": {
+            "add": "se ha solicitado",
+            "approved": "se ha aprobado",
+            "declined": "se ha rechazado"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "se ha solicitado",
+            "approved": "se ha aprobado",
+            "declined": "se ha rechazado"
+        },
+        "action_for_goal": {
+            "add": "se ha añadido",
+            "edit": "se ha actualizado",
+            "delete": "se ha eliminado"
+        },
+        "action_custom_params": {
+            "add": "se han añadido",
+            "edit": "se han actualizado",
+            "delete": "se han eliminado"
+        }
+    }
+}

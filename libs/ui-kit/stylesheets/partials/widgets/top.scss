@@ -1,0 +1,108 @@
+.custom-dashboard-widget-top-offer, .custom-dashboard-widget-top-affiliate {
+    .custom-dashboard-widget {
+        &__wrapper{
+            .page-wrapper-footer {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+
+                .btn-icon-right {
+                    .btn-title {
+                        line-height: 20px;
+                    }
+
+                    .custom-icon {
+                        margin-right: 0;
+                        margin-left: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__table {
+
+        thead, thead th {
+            background: #fff;
+            top: 0;
+        }
+
+        .table__header {
+            &-sort {
+                flex-direction: row-reverse;
+                color: $color__black;
+
+                &-icon {
+                    margin-left: 0;
+                    margin-right: 0.4375rem;
+                    opacity: 1;
+                }
+
+                &:not(.table__header-sorted):hover, &.table__header-sorted {
+                    background-color: transparent
+                }
+
+                .custom-icon {
+                    stroke: $color__black;
+                }
+            }
+        }
+
+        .table-wrapper {
+            padding-bottom: 0;
+
+            .custom-dashboard-widget-top-offer__table,
+            .custom-dashboard-widget-top-affiliate__table {
+                tbody {
+                    font-size: $font__14;
+                    line-height: 16px;
+
+                    tr {
+                        height: 53px !important;
+
+                        &:hover{
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+.fill-scale {
+    width: 105px;
+    height: 3px;
+    margin-top: 2px;
+    display: flex;
+
+
+    &__full {
+        opacity: 1;
+        background-color: $color__main-bg-color;
+        height: inherit;
+    }
+
+    &__blank {
+        background-color: $color__main-bg-color;
+        opacity: 0.12;
+        height: inherit;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .custom-dashboard-widget-top-offer, .custom-dashboard-widget-top-affiliate {
+        .ui-page-wrapper-content {
+            overflow: auto;
+        }
+
+        .ui-page-wrapper-footer {
+            .date-info {
+                margin-left: 1rem;
+            }
+        }
+    }
+}

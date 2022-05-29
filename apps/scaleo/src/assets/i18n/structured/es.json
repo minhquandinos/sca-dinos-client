@@ -1,0 +1,115 @@
+{
+    "billing": "Facturación",
+    "referrals": "Referencias",
+    "tools": "Instrumentos",
+    "delete": {
+        "delete_confirm_title": "¿Estás seguro?",
+        "delete_confirm_text": "Este elemento se eliminará."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Destacado"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Disponible"
+    },
+    "quick_links": {
+        "title": "Enlaces rápidos"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Añadir postback",
+            "created": "El postback se ha añadido correctamente",
+            "edit": "Editar postback",
+            "deleted": "El postback se ha eliminado correctamente",
+            "add_as_title": "Añadir postback",
+            "global": "Global",
+            "offer": "Oferta",
+            "list_postback": "Postback",
+            "list_html": "Píxel HTML (basado en cookies)",
+            "list_table_postback": "Postback (sin cookies)",
+            "list_table_html": "Píxel HTML (basado en cookies)",
+            "all_postbacks": "Todos los postbacks",
+            "global_postbacks": "Postbacks globales",
+            "goal": "objetivo",
+            "description": {
+                "level_global_for_affiliate": "Global: el postback se activará para todas las ofertas (todos los objetivos excepto el de tipo coste por clic).",
+                "level_offer_for_affiliate": "Oferta: el postback se ejecutará únicamente para la oferta seleccionada. Si el objetivo no se especifica, se ejecutará para todos los objetivos de esa oferta.",
+                "conversion_status_for_affiliate": "El postback se activará únicamente para este estado de conversión.",
+                "method_for_affiliate": "Tipo de postback admitido por el sistema."
+            }
+        },
+        "source": {
+            "title": "Orígenes",
+            "add": "Añadir origen"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros disponibles",
+        "offer_id": "Id. de la oferta en la plataforma",
+        "affiliate_id": "Id. del afiliado promotor de la oferta.",
+        "sub_id1": "SubId 1 de afiliado especificado en el enlace de seguimiento.",
+        "sub_id2": "SubId 2 de afiliado especificado en el enlace de seguimiento.",
+        "sub_id3": "SubId 3 de afiliado especificado en el enlace de seguimiento.",
+        "sub_id4": "SubId 4 de afiliado especificado en el enlace de seguimiento.",
+        "sub_id5": "SubId 5 de afiliado especificado en el enlace de seguimiento.",
+        "click_id": "Cadena alfanumérica única de 32 caracteres, que se genera y asigna a cada clic en la plataforma",
+        "link_id": "Enlace adicional de oferta especificado en el enlace de seguimiento.",
+        "source_id": "Id. de origen de afiliado especificado en el enlace de seguimiento.",
+        "aff_param1": "Parámetro adicional 1 de afiliado especificado en el enlace de seguimiento.",
+        "aff_param2": "Parámetro adicional 2 de afiliado especificado en el enlace de seguimiento.",
+        "aff_param3": "Parámetro adicional 3 de afiliado especificado en el enlace de seguimiento.",
+        "aff_param4": "Parámetro adicional 4 de afiliado especificado en el enlace de seguimiento.",
+        "aff_param5": "Parámetro adicional 5 de afiliado especificado en el enlace de seguimiento.",
+        "adv_param1": "Parámetro adicional 1 del anunciante especificado en la conversión.",
+        "adv_param2": "Parámetro adicional 2 del anunciante especificado en la conversión.",
+        "adv_param3": "Parámetro adicional 3 del anunciante especificado en la conversión.",
+        "adv_param4": "Parámetro adicional 4 del anunciante especificado en la conversión.",
+        "adv_param5": "Parámetro adicional 5 del anunciante especificado en la conversión.",
+        "amount": "Cantidad de venta de la parte del anunciante.",
+        "conv_status": "Estado de la conversión (aprobado/pendiente/rechazado).",
+        "offer_name": "Nombre de la oferta en la plataforma.",
+        "creative_id": "Id. de creativo de la oferta en uso.",
+        "aff_click_id": "Id. de clic de afiliado. Id. único para cada clic enviado desde el afiliado.",
+        "deep_link": "Id. de origen de afiliado especificado en el enlace de seguimiento.",
+        "goal_id": "Id. de objetivo de la oferta en la plataforma.",
+        "adv_order_id": "Id. de pedido del anunciante especificado en la conversión.",
+        "adv_user_id": "Id. de usuario del anunciante especificado en la conversión.",
+        "offer_currency": "Divisa de la oferta seleccionada.",
+        "transaction_id": "Id. de transacción. Id. único para cada transacción en la plataforma.",
+        "track_id": "Información adicional del anunciante, especificada en la conversión.",
+        "payout": "Valor del pago del afiliado",
+        "ip": "Dirección IP que inició la sesión de clic.",
+        "user_agent": "Cadena de agente del usuario determinada en el momento del clic.",
+        "device_type": "Cadena de dispositivo del usuario determinada en el momento del clic.",
+        "device_os": "Cadena de sistema operativo del usuario determinada en el momento del clic.",
+        "connection_type": "Cadena de tipo de conexión del usuario determinada en el momento del clic.",
+        "mobile_operator": "Cadena de operador móvil del usuario determinada en el momento del clic.",
+        "geo_country_code": "Código de país del usuario determinado en el momento del clic.",
+        "geo_country": "País del usuario determinado en el momento del clic.",
+        "geo_region": "Región del usuario determinada en el momento del clic.",
+        "geo_city": "Ciudad del usuario determinada en el momento del clic.",
+        "idfa": "Identificador de publicidad de iOS de Apple (IDFA).",
+        "gaid": "Identificador de publicidad de Android de Google (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Recomienda a nuevos afiliados y recibe una comisión del {{ commission }} de las ganancias de estos nuevos afiliados cada mes.",
+        "commission_info_for_flat": "Recomienda a nuevos afiliados y recibe una comisión única de {{ commission }} por cada afiliado recomendado.",
+        "referrals_title": "Referencias",
+        "link": "Tu enlace de referencia personal:",
+        "you_referrals_title": "Tus referencias",
+        "form": {
+            "referral_commission": "Comisión de referencias"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Please contact your manager to enable an API for you."
+        }
+    }
+}

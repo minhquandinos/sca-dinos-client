@@ -1,0 +1,9 @@
+<ng-container *ngIf="sort$ | async as sort">
+    <span class="table2__column-sort-icon">
+        <ui-svg-icon
+            [icon]="value === sort?.current?.field && sort?.current?.direction === 'asc' ? 'sort-asc' : 'sort-desc'"
+            [size]="12"
+        ></ui-svg-icon>
+    </span>
+</ng-container>
+

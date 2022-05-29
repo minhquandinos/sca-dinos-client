@@ -1,0 +1,81 @@
+<div class="page-content-signup page-content-signup_affiliate d-flex">
+    <div class="page-content-wrapper align-self-center d-flex">
+        <div class="registration align-self-center" *ngIf="isLoad; else skeleton">
+            <div class="registration__block-title">
+                {{ 'auth.affiliate_sign_up' | translate }}
+            </div>
+
+            <div class="registration-form" *ngIf="allowSignup">
+                <auth-shared-signup
+                    *ngIf="allSignUpFieldsConfig && form"
+                    [form]="form"
+                    [allSignUpFieldsConfig]="allSignUpFieldsConfig"
+                    [requiredFieldsIds]="requiredFieldsIds"
+                    [optionalFieldsIds]="optionalFieldsIds"
+                    [allowSignup]="allowSignup"
+                    [mustAgreeTermsAndConditions]="mustAgreeTermsAndConditions"
+                    [mustAgreePrivacyPolicy]="mustAgreePrivacyPolicy"
+                    [privacyPolicyLink]="privacyPolicyLink"
+                    [agreeTermsAndConditionsLink]="agreeTermsAndConditionsLink"
+                    [cont]="cont"
+                    [isLoading]="isLoading"
+                    (setRegisterUser)="signUp($event)"
+                >
+                    <app-error class="m-t-6" [error]="error"></app-error>
+                </auth-shared-signup>
+            </div>
+        </div>
+
+        <ng-template #skeleton>
+            <div class="registration align-self-center skeleton">
+                <div class="registration__block-title">
+                    <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-40"></div>
+                </div>
+
+                <div class="registration-form">
+                    <form>
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="skeleton__animation skeleton__form skeleton__form--label w-100"></div>
+                            <div class="skeleton__animation skeleton__form skeleton__form--input w-100"></div>
+                        </div>
+
+                        <div class="form-divider m-b-32"></div>
+
+                        <div class="form-button">
+                            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-50"></div>
+                        </div>
+
+                        <div class="alraeady-have-account cursor-pointer">
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,418 @@
+{
+    "administration_settings": {
+        "basic": {
+            "save": "Save"
+        },
+        "headers": {
+            "settings": "Settings",
+            "general": "General",
+            "branding": "Branding",
+            "managers": "Teammates",
+            "affiliates": "Affiliates",
+            "advertisers": "Advertisers",
+            "lists": "Lists",
+            "email_templates": "Email Templates",
+            "widgets": "Widgets",
+            "API": "API"
+        },
+        "settings": {
+            "default_language": "Default Language",
+            "currency": "Currency",
+            "default_currency": "Default Currency",
+            "show_language": "Show language selection",
+            "custom_domain": "Custom Domain for Interface",
+            "internal_domain": "Scaleo Internal Domain",
+            "workspace": "Workspace",
+            "tracking_domain": "Custom Domain for Tracking",
+            "tracking_domain_text": "Please contact support at",
+            "tracking_domain_text2": "if you want to use your Custom Domain or add Custom Tracking Domain",
+            "global_trafficback_url": "Global Trafficback URL",
+            "global_trafficback_url_text": "All inappropriate traffic (inactive offer, denied geo, etc.) will be redirected to this URL.",
+            "available_tokens": "Available Tokens",
+            "email": "Email Address",
+            "email_text": "Email address, which will be used for sending email notifications from the platform. Need to be verified before the usage. Please contact support",
+            "email_text2": "if you want to change it.",
+            "mailroom_access": "Mailroom Access",
+            "timezone": "Timezone",
+            "default_timezone": "Default Time Zone",
+            "save_notification": "Settings were updated successfully",
+            "show_getting_started": "Show Getting Started",
+            "show_getting_started_desc": "Quick start guide on how to begin using your Scaleo platform.",
+            "platform_default_daterange": "Default Date Range"
+        },
+        "branding": {
+            "network_name": "Network Name",
+            "logo": "Logo",
+            "favicon": "Favicon",
+            "main_color": "Main Color",
+            "links_color": "Links Color",
+            "company_website_url": "Company Website URL",
+            "privacy_policy_url": "Privacy Policy URL",
+            "terms_and_conditions_url": "Terms and Conditions URL",
+            "login_page_text": "Leave blank if you don't want to show the link",
+            "login_page_theme_id": "Log in Page Theme",
+            "set_theme_automatically": "Set Automatically",
+            "client_custom_code": "Code",
+            "client_custom_code_text": "HTML, JavaScript, CSS code which will be implemented to every page of the platform. For example: Analytics, Live Chat, Support.",
+            "save_notification": "Branding has been successfully updated",
+            "intercom_client_id": "Intercom ID",
+            "intercom_client_id_placeholder": "Set your APP_ID"
+        },
+        "offers": {
+            "title": "Offers settings",
+            "approval_questions_for_affiliate": {
+                "title": "Ask Affiliates the Approval Questions",
+                "description": "Ask your affiliates to provide additional information required to promote an offer (e.g., traffic sources an affiliate will use)."
+            },
+            "ask_approval_questions_by_default": {
+                "title": "Set Approval Questions by Default",
+                "description": "If enabled, the questions above will be activated automatically for all new offers with availability Requires Approval."
+            },
+            "update_message": "Offers settings were updated successfully"
+        },
+        "affiliates": {
+            "general": {
+                "tab_title": "General",
+                "default_managers": "Default Manager",
+                "payment_requests": "Allow Payment Requests",
+                "payment_threshold": "Payment Threshold",
+                "refferal_program": "Referral Program",
+                "refferal_program_start_date": "Referral Program Start Date",
+                "refferal_program_start_date_text": "Referral Program allows your Affiliates to bring new Affiliates to your network and earn additional commission from their revenue.",
+                "save_notification": "General settings were updated successfully",
+                "auto_approve_affiliate_postbacks": "Allow to add Postbacks themselves",
+                "auto_approve_affiliate_postbacks_description": "If enabled, affiliates will be able to add and edit their postbacks themselves. Postbacks will be active automatically, without manager approval."
+            },
+            "signup": {
+                "tab_title": "Sign Up",
+                "allow_affiliate_signup": "Allow Affiliate Sign Up",
+                "auto_approve_new_user": "Auto Approve New User",
+                "required_fields": "Required Fields",
+                "optional_fields": "Optional Fields",
+                "custom_fields_title": "Custom Fields",
+                "add_custom_field": "Add Custom Field",
+                "custom_field_text": "Additional questions for the Sign Up form that users can provide additional information when they apply for your network.",
+                "must_agree_terms_conditions": "Must agree with Terms and Conditions",
+                "must_agree_privacy": "Must agree with Privacy",
+                "custom_signup_url": "Custom Sign Up URL",
+                "redirect_url_after_signup": "Redirect URL after Sign Up",
+                "required": "Required",
+                "long_text": "Textarea",
+                "short_text": "Input",
+                "boolean": "Checkbox",
+                "field_title_placeholder": "Field name",
+                "field_type_placeholder": "Field type",
+                "field_name_placeholder": "Field code",
+                "field_description_placeholder": "Notes (optional)",
+                "save_notification": "Sign Up settings were updated successfully",
+                "sign_up_process": {
+                    "title": "Sign Up Process",
+                    "without_approval": "Without Approval",
+                    "email_verification_required": "Email Verification Required",
+                    "approval_required": "Approval Required",
+                    "description": {
+                        "title": "Determines the way your users sign up.",
+                        "without_approval": "Without Approval: after the registration, the user logs  in to his account automatically.",
+                        "email_verification_required": "Email Verification Required: the user needs to verify his email before he will be able to access his account.",
+                        "approval_required": "Approval Required: the manager should review a new sign up and approve it."
+                    }
+                },
+                "sign_up_page": {
+                    "title": "Affiliate Sign Up Page",
+                    "description": "A hosted sign up page where affiliates can apply to your network."
+                },
+                "api_enabled_by_default": "API Enabled by Default",
+                "allow_teammates_to_invite_new_users": {
+                    "title": "Allow Teammates to Invite New Users",
+                    "description": "If enabled, a Teammate will receive a personal referral link to invite new users. A user, who signed up through this link, will be automatically assigned to that Teammate."
+                },
+                "assign_new_to": {
+                    "title": "Assign New Affiliates to",
+                    "description": "Determines the way your new Affiliates are assigned to the Managers.",
+                    "all_selected_managers": "All Selected Managers",
+                    "random_manager": "A Random Manager from the Selected"
+                }
+            }
+        },
+        "advertisers": {
+            "general": {
+                "save_notification": "General settings were updated successfully"
+            },
+            "signup": {
+                "allow_advertiser_signup": "Allow Advertiser Sign Up",
+                "save_notification": "Sign Up settings were updated successfully",
+                "sign_up_page": {
+                    "title": "Advertiser Sign Up Page",
+                    "description": "A hosted sign up page where advertisers can apply to your network."
+                },
+                "assign_new_to": {
+                    "title": "Assign New Advertisers to",
+                    "description": "Determines the way your new Advertisers are assigned to the Managers."
+                }
+            }
+        },
+        "managers": {
+            "basic": {
+                "new_manager": "New Manager",
+                "created_notification": "Manager has been successfully added",
+                "edited_notification": "Manager has been successfully changed",
+                "show_email_for_users": "Show to Affiliates and Advertisers",
+                "show_network_revenue": "Show Network Revenue"
+            },
+            "modal": {
+                "title_input": "Transfer all records to:"
+            }
+        },
+        "lists": {
+            "delete_confirm_title": "Are you sure?",
+            "delete_confirm_text": "This will delete the item and will remove it from all records where it was used.",
+            "tags": {
+                "add": "Add Tag",
+                "tab_title": "Tags",
+                "form": {
+                    "title": "Tag",
+                    "new": "New Tag",
+                    "update": "Update Tag"
+                },
+                "notification": {
+                    "delete": "Tag were deleted successfully",
+                    "create": "Tag were created successfully",
+                    "update": "Tag were updated successfully"
+                }
+            },
+            "messengers": {
+                "tab_title": "Messengers",
+                "form": {
+                    "title": "Messenger",
+                    "new": "New Messenger",
+                    "update": "Update Messenger"
+                },
+                "notification": {
+                    "delete": "Messenger were deleted successfully",
+                    "create": "Messenger were created successfully",
+                    "update": "Messenger were updated successfully"
+                }
+            },
+            "traffic_types": {
+                "add": "Add Traffic Type",
+                "tab_title": "Traffic Types",
+                "form": {
+                    "title": "Traffic Type",
+                    "new": "New Traffic Type",
+                    "update": "Update Traffic Type"
+                },
+                "notification": {
+                    "delete": "Traffic Type were deleted successfully",
+                    "create": "Traffic Type were created successfully",
+                    "update": "Traffic Type were updated successfully"
+                }
+            }
+        },
+        "email_templates": {
+            "title": "Email Templates",
+            "general": {
+                "title": "General",
+                "description": {
+                    "main_template": "The template which is used for all outgoing emails. Macro {content} will be replaced with actual text from the other corresponding template. Please be careful when editing this template,you can  break the style template for all emails."
+                },
+                "types_email": {
+                    "main_template": "Main Template"
+                }
+            },
+            "signup": {
+                "title": "Sign up",
+                "types_email": {
+                    "affiliate_welcome_email": "Affiliate Welcome Email",
+                    "affiliate_activation": "Affiliate Activation",
+                    "affiliate_inactivation": "Affiliate Inactivation",
+                    "advertiser_welcome_email": "Advertiser Welcome Email",
+                    "advertiser_activation": "Advertiser Activation",
+                    "advertiser_inactivation": "Advertiser Inactivation",
+                    "password_recovery": "Password Recovery",
+                    "affiliate_email_verification": "Affiliate Email Verification",
+                    "advertiser_email_verification": "Advertiser Email Verification",
+                    "2fa_code_email": "Two-Factor Authentication Login",
+                    "2fa_code_email_sign_up": "Two-Factor Authentication Sign Up"
+                },
+                "description": {
+                    "affiliate_welcome_email": "The welcome email is sent automatically upon successful user Sign up.",
+                    "advertiser_welcome_email": "The welcome email is sent automatically upon successful user Sign up.",
+                    "affiliate_activation": "The email is sent when user status is changed to Active and checkbox Send Email Notification is checked.",
+                    "advertiser_activation": "The email is sent when user status is changed to Active and checkbox Send Email Notification is checked.",
+                    "affiliate_inactivation": "The email is sent when user status is changed to Inactive and checkbox Send Email Notification is checked.",
+                    "advertiser_inactivation": "The email is sent when user status is changed to Inactive and checkbox Send Email Notification is checked.",
+                    "password_recovery": "The email is sent when someone recovers their password. The token {link} is required and will be replaced with an actual password recovery link.",
+                    "affiliate_email_verification": "The email is sent when the “Sign Up Process” option is set to “Email Verification Required”. The macros {link} is required and will be replaced with an actual Email Verification link.",
+                    "advertiser_email_verification": "The email is sent when the “Sign Up Process” option is set to “Email Verification Required”. The macros {link} is required and will be replaced with an actual Email Verification link.",
+                    "2fa_code_email": "The email with Verification Code. It is sent when Two-Factor Authentication is enabled. The macro {verification_code} is required and will be replaced with a generated Verification Code.",
+                    "2fa_code_email_sign_up": "The email with Verification Code. It is sent when Two-Factor Authentication is enabled. The macro {verification_code} is required and will be replaced with a generated Verification Code."
+                }
+            },
+            "offers": {
+                "title": "Offers",
+                "description": {
+                    "offer_request_sent_email": "The email is sent to an Affiliate when he requests to run an offer (if offer requires affiliate’s confirmation). Macro {offer} is mandatory and will be replaced with the actual offer details.",
+                    "offer_request_approval_email": "The email which is sent to an Affiliate when his offer request is approved. Macro {offer} is mandatory and will be replaced with the actual offer details.",
+                    "offer_request_denial_email": "The email which is sent to an Affiliate when his offer request is rejected. Macro {offer} is mandatory and will be replaced with the actual offer details."
+                },
+                "types_email": {
+                    "offer_request_sent_email": "Offer Request sent",
+                    "offer_request_approval_email": "Offer Request approved",
+                    "offer_request_denial_email": "Offer Request rejected"
+                }
+            },
+            "edit": {
+                "title": "Edit Template",
+                "subject": "Email Subject",
+                "body": "Email Body",
+                "edited": "Edit Template has been successfully changed",
+                "send_copy": "Send a copy to Manager",
+                "reset_to_default": "Reset to Default",
+                "reset_to_default_title": "Are you sure?",
+                "reset_to_default_text": "The settings will be reset to default.",
+                "action": "Continue"
+            }
+        },
+        "security": {
+            "title": "Security",
+            "two_factor_auth_role": "Two-Factor Authentication for {{ role }}",
+            "content": "Protect your users with two-factor authentication via email. Once enabled, then the next time your users log in, they are asked to enter the 4-digit verification code sent to their email. They only need to verify themselves every 30 days on each device.",
+            "confirm_content": "The Two-Factor Authentication settings will be updated for all users of the selected role. If the user has their own settings they will be reset.",
+            "toastr": {
+                "update": "Security settings were updated successfully"
+            }
+        },
+        "mobile_app": {
+            "access": {
+                "role": {
+                    "managers": "Show Mobile App Access Page for Teammates",
+                    "affiliates": "Show Mobile App Access Page for Affiliates",
+                    "advertisers": "Show Mobile App Access Page for Advertisers"
+                }
+            }
+        }
+    },
+    "settings": {
+        "teammates": {
+            "title": "Teammates",
+            "add": "Add Teammate",
+            "add_as_title": "Add Teammate",
+            "edit": "Edit Teammate",
+            "list": {
+                "columns": {
+                    "users_visibility": "Users Visibility",
+                    "last_login": "Last Login"
+                }
+            }
+        },
+        "roles_permissions": {
+            "title": "Roles and Permissions",
+            "list": {
+                "columns": {
+                    "role": "Role",
+                    "permissions": "Permissions",
+                    "user_visibility": "User Visibility"
+                },
+                "role_info": {
+                    "admin": "Has access to all the sections and features.",
+                    "manager": "Manages both affiliates and advertisers-related information. Has no access to Settings.",
+                    "affiliate_manager": "Manages affiliates including all the related information.",
+                    "advertiser_manager": "Manages advertisers, their offers and all the related information.",
+                    "financial_manager": "Manages financial and invoicing information for both affiliates and advertisers."
+                },
+                "visibility": {
+                    "visibility_all_users": "All Users",
+                    "visibility_assigned_users": "Assigned Users Only"
+                }
+            },
+            "upsert": {
+                "add_title": "Add Custom Role",
+                "edit_title": "Edit Role",
+                "permissions_title": "Permissions",
+                "role_type": {
+                    "label": "Role Type",
+                    "info": "Select the Role Type that will be taken as a basis for creating a custom role:",
+                    "first": "Manager: manages both affiliates and advertisers related information.",
+                    "second": "Affiliate Manager: manages affiliates and all related information.",
+                    "third": "Advertiser Manager: manages advertisers, their offers and all related information."
+                },
+                "toastr": {
+                    "role": "Default Role",
+                    "custom_role": "Custom Role",
+                    "created": "{{ roleName }} has been successfully added",
+                    "updated": "{{ roleName }} has been successfully changed",
+                    "deleted": "{{ roleName }} has been successfully deleted"
+                }
+            },
+            "groups": {
+                "dashboard": "Dashboard",
+                "leads": "Leads",
+                "affiliates": "Affiliates",
+                "advertisers": "Advertisers",
+                "reports": "Reports",
+                "transactions": "Transactions",
+                "affiliate_billing": "Affiliate Billing",
+                "anouncements": "Anouncements",
+                "team": "Team",
+                "hidden_advertiser": "Hidden Advertiser",
+                "fixes": "Fixes",
+                "offers": "Offers",
+                "user_visibility": "User Visibility",
+                "general": "General",
+                "activity_log": "Activity Log"
+            },
+            "permissions": {
+                "can_access_dashboard": "Can access the Dashboard",
+                "can_access_offers": "Can access Offers",
+                "can_add_edit_delete_offers": "Can add, edit, and delete Offers",
+                "can_manage_offer_access": "Can manage Offer Access",
+                "can_manage_offer_requests": "Can manage Offer Requests",
+                "can_manage_custom_parameters": "Can manage Custom Parameters",
+                "can_add_edit_delete_smart_links": "Can add, edit, and delete Smartlinks",
+                "can_export_offers": "Can export Offers",
+                "can_access_affiliates": "Can access the Affiliates",
+                "can_add_edit_delete_affiliates": "Can add, edit, and delete Affiliates",
+                "can_add_edit_delete_postbacks": "Can add, edit, and delete Postbacks",
+                "can_add_edit_delete_domains": "Can add, edit, and delete Domains",
+                "can_export_affiliates": "Can export Affiliates",
+                "can_access_advertisers": "Can access the Advertisers",
+                "can_add_edit_delete_advertisers": "Can add, edit, and delete Advertisers",
+                "can_export_advertisers": "Can export the Advertisers",
+                "can_access_reports": "Can access the Reports",
+                "can_see_referral_reports": "Can see the Referral Reports",
+                "can_export_reports": "Can export the Reports",
+                "can_access_conversions": "Can access the Conversions",
+                "can_add_edit_conversions": "Can change Conversion status",
+                "can_export_conversions": "Can export Conversions",
+                "can_access_clicks": "Can access Clicks",
+                "can_export_clicks": "Can export Clicks",
+                "can_access_invalid_clicks": "Can access Invalid Clicks",
+                "can_access_affiliate_postbacks_log": "Can access Affiliate’s Postbacks Log",
+                "can_access_advertiser_postbacks_log": "Can access Advertiser’s Postbacks Log",
+                "can_access_affiliate_billing": "Can access Affiliate Billing",
+                "can_access_affiliate_invoices": "Can access Affiliate Invoices",
+                "can_generate_edit_delete_invoices": "Can generate, edit, and delete Invoices",
+                "can_access_announcements": "Can access Announcements",
+                "can_add_edit_delete_announcements": "Can add, edit, and delete Announcements",
+                "can_access_teammates": "Can add, edit, and delete Teammates",
+                "can_invite_edit_delete_teammates": "Can invite, edit, and delete Teammates",
+                "can_access_activity_log": "Can access the Activity Log",
+                "can_access_leads": "Can access the Leads",
+                "can_add_edit_delete_leads_campaigns": "Can add, edit, and delete Leads Campaigns",
+                "can_add_edit_delete_leads_delivery": "Can add, edit, and delete Leads Delivery",
+                "can_access_leads_log": "Can access the Leads Log",
+                "can_export_leads": "Can export Leads",
+                "can_access_all_users": "All Users",
+                "can_access_assigned_users_only": "Assigned Users Only",
+                "can_see_payout": "Can see the Payout",
+                "can_see_revenue": "Can see the Revenue",
+                "can_see_pending_conversions": "Can see the Pending conversions",
+                "can_see_rejected_conversions": "Can see the Rejected conversions",
+                "can_see_trash_conversions": "Can see Trash conversions",
+                "can_see_lead_details": "Can see the Lead details",
+                "can_manage_leads_campaigns_and_delivery": "Can access Leads Campaigns and Delivery",
+                "can_access_smart_links": "Can access the Smart Links"
+            }
+        }
+    }
+}

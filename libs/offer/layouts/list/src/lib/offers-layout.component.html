@@ -1,0 +1,30 @@
+<ng-container *coreScaleoIsMobile>
+    <div class="d-flex justify-content-end mb-2">
+       <ng-template [ngTemplateOutlet]="openModalTpl"></ng-template>
+    </div>
+</ng-container>
+
+<ng-container #hintContainer></ng-container>
+
+<ui-page-wrapper borderRadius="4">
+    <ui-page-wrapper-header>
+        <router-outlet name="navigation"></router-outlet>
+        <div class="d-flex my-auto ml-auto p-r-16 pr-md-0" *coreScaleoIsNotMobile>
+            <ng-template [ngTemplateOutlet]="openModalTpl"></ng-template>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <ng-container #filterContainer></ng-container>
+        <router-outlet></router-outlet>
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer>
+        <ng-container #footerContainer></ng-container>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<!--<ng-container #upgradeContainer></ng-container>-->
+<router-outlet name="upgrade"></router-outlet>
+
+<ng-template #openModalTpl>
+    <ng-container #openModalContainer></ng-container>
+</ng-template>

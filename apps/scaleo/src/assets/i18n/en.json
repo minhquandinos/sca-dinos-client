@@ -1,0 +1,1726 @@
+{
+    "mailRoom": "Mailroom",
+    "administration": "Administration",
+    "my_account": "My Account",
+    "id": "ID",
+    "password_confirm": "Password Confirm",
+    "company_name": "Company",
+    "payment_details": "Payment Details",
+    "address": "Street",
+    "city": "City",
+    "region": "Region",
+    "postal_code": "Postcode",
+    "phone": "Phone",
+    "display": "Display",
+    "delete_manager": {
+        "title": "Are you sure?",
+        "text": "This will delete the item and will remove it from all records where it was used.",
+        "button_text": "Delete"
+    },
+    "update_manager": {
+        "title": "Are you sure?",
+        "text": "This will deactivate the item and will remove it from all records where it was used.",
+        "button_text": "Deactivate"
+    },
+    "statuses": {
+        "default": "Default",
+        "deleted": "Deleted",
+        "public": "Public",
+        "require": "Require Approval",
+        "private": "Private",
+        "completed": "Completed",
+        "processing": "Processing",
+        "failed": "Failed",
+        "available": "Available",
+        "request_sent": "Request Sent",
+        "draft": "Draft",
+        "success": "Success",
+        "fail": "Fail",
+        "paid": "Paid",
+        "not_paid": "Unpaid",
+        "in_progress": "In Progress",
+        "require_approval": "Require Approval",
+        "request_rejected": "Request Rejected"
+    },
+    "interface": {
+        "basic": {
+            "active": "Active",
+            "add_filter": "Add Filter",
+            "manage": "Manage",
+            "api_title": "API",
+            "api_documentation_guide": "API Documentation",
+            "registration": "Registration",
+            "add_contact": "Add Contact",
+            "balance": "Balance",
+            "enabled": "Enabled",
+            "volumes": "Volumes",
+            "disabled": "Disabled",
+            "yes": "Yes",
+            "no": "No",
+            "optional_parameters": "Optional Parameters",
+            "available_tokens": "Available Tokens",
+            "confirmation": "Confirmation",
+            "view": "View",
+            "filters": {
+                "manager": "Manager",
+                "advertisers": "Advertisers",
+                "fetching_data": "Fetching data",
+                "campaigns": "Campaigns"
+            },
+            "n_a": "n/a",
+            "sort": {
+                "sort_by": "",
+                "order_by": "Order by",
+                "asc": "ASC",
+                "desc": "DESC",
+                "id": "ID",
+                "created": "Registration",
+                "visited": "Last Log in",
+                "traffic_type_id": "Traffic",
+                "activity": "Last Traffic Seen"
+            },
+            "0": "No",
+            "1": "Yes",
+            "select": "Select",
+            "select2": "Select",
+            "one_per_line": "One per line, 1000 lines max",
+            "selected": "Selected",
+            "change_status": "Change Status",
+            "for": "for",
+            "contact_us": "Contact Us",
+            "load_more": "Load More",
+            "remove_all": "Remove All",
+            "demo_alert_link" : {
+                "description": "You’re looking at the demo version of the platform.",
+                "start_trial": "Start a 14-days free trial",
+                "book_a_demo": "Book a Demo"
+            },
+            "import": "Import",
+            "download": "Download",
+            "download_file": "Download {{ file }}",
+            "upload": "Upload",
+            "continue": "Continue",
+            "none": "None",
+            "subtotal": "Subtotal",
+            "total": "Total",
+            "vat": "VAT",
+            "other": "Other",
+            "conversion_short_title": "Conv.",
+            "click": "Click",
+            "currency": "Currency",
+            "currencies": "Currencies",
+            "optional": "Optional",
+            "advanced": "Advanced",
+            "advanced_options": "Advanced Options",
+            "hide_options": "Hide Options",
+            "trends": "Trends",
+            "preview_url": "Preview URL",
+            "manager": "Manager",
+            "approve": "Approve",
+            "reject": "Reject",
+            "approved_by": "Approved by",
+            "rejected_by": "Rejected by",
+            "allow": "Allow",
+            "deny": "Deny",
+            "title": "Title",
+            "description": "Description",
+            "default": "Default"
+        },
+        "date": {
+            "start_date": "Start Date",
+            "end_date": "End Date",
+            "month": {
+                "title": "Day of the Month",
+                "plural": {
+                    "first": "st",
+                    "second": "nd",
+                    "third": "rd",
+                    "other": "th"
+                }
+            },
+            "week": {
+                "title": "Day of the Week",
+                "list": {
+                    "monday": "Monday",
+                    "tuesday": "Tuesday",
+                    "wednesday": "Wednesday",
+                    "thursday": "Thursday",
+                    "friday": "Friday",
+                    "saturday": "Saturday",
+                    "sunday": "Sunday"
+                }
+            },
+            "day": {
+                "short": "D",
+                "multi": "days"
+            }
+        },
+        "header": {
+            "referral": "Referral Program",
+            "referral_info_text": "Your Scaleo referral program details will be here",
+            "help": {
+                "help_site": "Help Site",
+                "api_docs": "API Docs",
+                "feature_roadmap": "Feature Roadmap",
+                "suggest_a_feature": "Suggest a Feature",
+                "what_new": "What's new?",
+                "chat_with_us": "Chat with us"
+            }
+        },
+        "form": {
+            "message": "Message",
+            "company": "Company",
+            "skype": "Skype",
+            "addittional_info": "Addittional Information",
+            "select_tags": "Select Tags",
+            "managers": "Teammates",
+            "manager": "Manager",
+            "select_managers": "Select Managers",
+            "referral_share": "Referral Share",
+            "referral_commission": "Referral Commission",
+            "referral_commission_source": "Commission Source",
+            "referral_commission_type": "Referral Type",
+            "no_found_managers": "No Managers Found",
+            "title": "Title",
+            "url": "URL",
+            "expiration_date": "Expiration Date",
+            "advertiser": "Advertiser",
+            "type": "Type",
+            "html_code": "HTML Code",
+            "plain_text": "Plain Text",
+            "action": "Action",
+            "new_status": "New Status",
+            "number_of_conversions": "Number of Conversions",
+            "user_role": "User Role"
+        },
+        "validation": {
+            "custom_url": "Invalid url",
+            "custom_positive_number": "Allow only positive number",
+            "custom_domain": "Invalid domain, valid domain format is google.com",
+            "required_file_type": "This file type cann't be uploaded",
+            "max_upload_size": "Max upload file size is {{ availableSize }} MB, your file size is {{ uploadFileSize }} MB",
+            "count_record": "The number of records is exceeded: {{ maxCount }}",
+            "forbidden_characters": {
+                "default": "Some characters or words are forbidden",
+                "intercom": "You cannot add intercom code here."
+            }
+        },
+        "subtitle": {
+            "managers": "Teammates",
+            "administration": "Administration",
+            "data_format": "Data Format",
+            "internal_information": "The information is accessible to managers only."
+        },
+        "confirm": {
+            "title": "Are you sure?"
+        },
+        "export_items": {
+            "file_format": {
+                "title": "File Format",
+                "xls": "XLS (Excel)",
+                "csv": "CSV (comma separated values)"
+            }
+        }
+    },
+    "auth": {
+        "LOGIN_TITLE": "Log in",
+        "LOGIN_BUTTON": "Log in",
+        "DONT_HAVE_ACCOUNT": "Don't have an account?",
+        "AFFILIATE": "Become an Affiliate",
+        "ADVERTISER": "Become an Advertiser",
+        "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+        "REGISTRATION_BUTTON": "Sign Up",
+        "advertiser_sign_up": "Advertiser Sign Up",
+        "affiliate_sign_up": "Affiliate Sign Up",
+        "logged_as": "You’re logged in as",
+        "back_to_you_account": "Back to Your Account"
+    },
+    "password_change": {
+        "title": "Password Change",
+        "repeat": "Password Repeat"
+    },
+    "registration": {
+        "basic": {
+            "messenger": "Messanger",
+            "messager_account": "Messenger Account",
+            "payment_method": "Payment Method",
+            "payment_terms": "Payment Terms",
+            "agree_with" : "Agree with ",
+            "agree_terms": "Terms and Conditions",
+            "agree_policy": "Privacy Policy"
+        },
+        "successes_no_auto_approved": {
+            "title": "Thank you!",
+            "message": "We have received your registration information. Our manager will review it and contact you shortly."
+        }
+    },
+    "two_fa_verification": {
+        "title": "Two-step Verification",
+        "content": "We’ve sent a 4-digit verification code to",
+        "code_label": "Verification Code",
+        "resend_code": "Resend Code",
+        "resend_code_delay": "You can resend code after <span>{{ time }}</span> sec.",
+        "wrong_code": "That code wasn't valid. Give it another go."
+    },
+    "server_validation": {
+        "blank_email": "Email can't be blank",
+        "incorrect_email": "Incorrect email or password",
+        "blank_password": "Password can't be blank",
+        "valid_email": "Email is not a valid email address",
+        "no_user": "User with this Email doesn't exist",
+        "email_alredy_taken": "Email \"{{ email }}\" has already been taken.",
+        "default_message": "Unexpected error",
+        "account_is_pending_approval": "Account is pending approval",
+        "goal_id_already_taken": "Goal ID {{ goalId }} has already been taken.",
+        "unavailable_login": "Login temporarily unavailable for security reasons. Please try again later.",
+        "payment_method_blank": "Please select the Payment Method and enter your details",
+        "amount_should_higher_payment_threshold": "Can not generate the Invoice. Please enter a higher amount"
+    },
+    "email_verification": {
+        "sent": {
+            "title": "Thank you!",
+            "subtitle": "We have received your registration. To access your personal account, please confirm your email first - we have sent you a verification link. The verification link is valid for 24 hours."
+        },
+        "successful": {
+            "title": "Verification Successful",
+            "subtitle": "Thank you for verifying your email.  Your account is now Active. Please use your credentials to login in."
+        },
+        "failed": {
+            "title": "Verification Failed",
+            "subtitle": "The verification link is valid for 24 hours. Please contact the support if you need assistance."
+        },
+        "return_to_login": "Return to Log in"
+    },
+    "affiliate": {
+        "basic": {
+            "add_affiliate": "Add Affiliate",
+            "add_affiliate_as_title": "Add Affiliate",
+            "new_affiliate": "New Affiliate",
+            "edit_affiliate": "Edit Affiliate",
+            "affiliate_created": "Affiliate has been successfully added",
+            "affiliate_edited": "Affiliate has been successfully changed",
+            "deleted": "Affiliate has been successfully deleted",
+            "single": "Affiliate",
+            "description": {
+                "tags": "Select tags which will be used for offers’ suggestions.",
+                "traffic_types": "Supported traffic types.",
+                "managers": "Teammates the affiliate is assigned to."
+            }
+        },
+        "filters": {
+            "all": "All Affiliates",
+            "my": "My Affiliates",
+            "premium": "Premium Affiliates",
+            "pending": "Pending Affiliates"
+        },
+        "postback": {
+            "new": "New Postback",
+            "edited": "Postback has been successfully changed",
+            "edited_affiliate": "Affiliate postback has been successfully changed",
+            "method": "Method",
+            "offer_goal": "Offer(goal)",
+            "postback_code": "Postback Code",
+            "pixel_code": "Pixel Code",
+            "postback_url": "Postback URL or pixel",
+            "postback_pending_url": "Postback URL for conversion \"Pending\"",
+            "postback_rejected_url": "Postback URL for conversion \"Inactive\"",
+            "available_tokens_info": "Available Tokens",
+            "limitations": "Limitations",
+            "postback_pending_rejected_info": "Postback URL for conversion on status \"Pending\" и \"Inactive\"",
+            "all_offers": "All Offers",
+            "description": {
+                "level_global": "Global: Postback will be triggered for all offers affiliate runs (all goals except CPC type).",
+                "level_offer": "Offer: Postback will be executed for the selected offer only. If the goal is not specified – it will be executed for all goals of that offer.",
+                "conversion_status": "Postback will be executed only for chosen status conversions.",
+                "method": "Postback type supported by the affiliate system."
+            }
+        },
+        "source": {
+            "add_as_title": "Add Source",
+            "new": "New Source",
+            "edit": "Edit Source",
+            "created": "Source has been successfully added",
+            "edited": "Source has been successfully changed",
+            "deleted": "Source has been successfully deleted",
+            "description": {
+                "title": "Traffic source name. For example: Google Ads,  Facebook or website name.",
+                "traffic_types": "Supported traffic types."
+            }
+        },
+        "domain": {
+            "title": "Tracking Domains",
+            "add": "Add Domain",
+            "add_as_title": "Add Domain",
+            "new": "New Domain",
+            "edit": "Edit Domain",
+            "created": "Tracking Domains has been successfully added",
+            "edited": "Tracking Domains has been successfully changed",
+            "deleted": "Tracking Domains has been successfully deleted",
+            "explanation_text": "Affiliate can add own tracking domain which can be used for any offer Tracking URL. Just add the domain and configure the CNAME record. The domain will be activated automatically.",
+            "description": {
+                "tracking_domain": "Affiliate custom domain, which will be used to promote the offer."
+            }
+        },
+        "profile": {
+            "country_work_with": "Which countries do you work with:",
+            "login": "Login as Affiliate"
+        },
+        "finances": {
+            "title": "Trends"
+        },
+        "tooltip": {
+            "table": {
+                "balance": {
+                    "update": "Balances are updated in real-time. Sorting data is updated once a day.",
+                    "approved_conversions": "Balance for Approved Conversions (to be paid to the Affiliate)",
+                    "pending_conversions": "Balance for Pending Conversions"
+                }
+            }
+        },
+        "export": "Export Affiliates"
+    },
+    "advertiser": {
+        "basic": {
+            "login": "Login as Advertiser",
+            "add_advertiser": "Add Advertiser",
+            "add_advertiser_as_title": "Add Advertiser",
+            "new_advertiser": "New Advertiser",
+            "edit_advertiser": "Edit Advertiser",
+            "advertiser_created": "Advertiser has been successfully added",
+            "advertiser_edited": "Advertiser has been successfully changed",
+            "deleted": "Advertiser has been successfully deleted",
+            "single": "Advertiser",
+            "delete_confirm_title": "Are you sure?",
+            "delete_confirm_text": "Advertiser and all his offers will be deleted. The connected statistic in reports will not be removed.",
+            "description": {
+                "payment_details": "For example: bank account details, card number, PayPal ID, etc.",
+                "tags": "Assign tags for a faster search.",
+                "managers": "Teammates, which  the advertiser is assigned to."
+            }
+        },
+        "filters": {
+            "all": "All Advertisers",
+            "my": "My Advertisers",
+            "pending": "Pending Advertisers"
+        },
+        "export": "Export Advertisers",
+        "postback_security": {
+            "labels": {
+                "require_token_conversions": "Require Security Token for Conversions",
+                "advertiser_token_postback": "Advertiser Security Token for Postback",
+                "require_token": "Require Security Token",
+                "token": "Security Token",
+                "generate_new_token": "Generate New Token",
+                "require_advertiser_token_conversions": "Require Advertiser Security Token for Conversion"
+            },
+            "infos": {
+                "require_token_conversions": "Protect your conversions tracking by adding an Advertiser Security Token. If enabled, it will be activated by checking the advertiser token for each postback. If the token is incorrect or isn’t filled in, this conversion will not be recorded.",
+                "require_token_conversions_on_to_off": "The advertiser’s security token will be added to all the postbacks for existing offers. When it will be placed on the advertiser side you can activate it on the Advertiser Edit page.",
+                "require_token_conversions_off_to_on": "The advertiser’s security token will be removed from all the postbacks and will not be required for all offers.",
+                "advertiser_token_postback": "Protect your conversions tracking by adding a security token for postbacks. This Token is known to your Advertiser only and can be managed at the Advertiser Edit page.",
+                "require_token": "The current Advertiser Security Token will stop functioning and a new one will be generated.",
+                "generate_new_token": "The current Advertiser Security Token will stop functioning and a new one will be generated.",
+                "require_advertiser_token_conversions": "If enabled, every postback received to the system requires a correct security token sent. To disable this option go to the Advertisers’ Settings."
+            },
+            "toastr": {
+                "generate_token_success": "New Token has been generated successfully",
+                "generate_token_exception": "Error on Generate New Token, try later"
+            }
+        }
+    },
+    "finances_page": {
+        "basic": {
+            "output_parameters": "Output Parameters",
+            "add_payment": "Add Payment",
+            "add_payment_as_title": "Add Payment",
+            "new_payment": "New Payment",
+            "edit_payment": "Edit Payment",
+            "export": "Export",
+            "activity": "Activity",
+            "edited": "Payment has been successfully changed",
+            "created": "Payment has been successfully created",
+            "deleted": "Payment has been successfully deleted",
+            "no_payment_methods": "No payment methods selected for this affiliate. Go to Affiliate Details and select Payment Method there.",
+            "available_balance": "Available Balance",
+            "select_file": "Select File"
+        },
+        "filters": {
+            "all": "All Payments",
+            "account_type": "Account Type",
+            "affiliates": "Affiliates",
+            "advertisers": "Advertisers"
+        },
+        "export": {
+            "export": "Export"
+        },
+        "details": {
+            "title": "Details",
+            "payment_date": "Payment Date",
+            "commissions": "Commissions"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "traffic_logs": "Traffic Logs",
+            "payments": "Payments",
+            "quick_edit": "Quick Edit",
+            "login_as_affiliate": "Login as Affiliate",
+            "login_as_advertiser": "Login as Advertiser"
+        }
+    },
+    "offers_page": {
+        "basic": {
+            "add": "Add Offer",
+            "new": "New Offer",
+            "add_as_title": "Add Offer",
+            "edit": "Edit Offer",
+            "created": "Offer has been successfully added",
+            "edited": "Offer has been successfully changed",
+            "deleted": "Offer has been successfully deleted",
+            "delete_confirm_title": "Are you sure?",
+            "delete_confirm_text": "Deleting this item doesn't delete the connected statistic in reports. It only removes the item from the list.",
+            "single": "Offer",
+            "create_new": "Create new",
+            "for_offer": "For Offer",
+            "for_goal": "For Goal",
+            "request_changed": "Offer request has been successfully changed",
+            "14_days_statistics": "14-day Statistics"
+        },
+        "duplicate": {
+            "title": "Duplicate",
+            "confirm_text": {
+                "description": "The offer and all its properties will be duplicated, except:",
+                "affiliates": "allowed or denied affiliates",
+                "creatives": "creatives",
+                "custom_parameters": "custom parameters",
+                "postbacks": "affiliate postbacks"
+            },
+            "res_successfully_message": "The offer has been successfully duplicated"
+        },
+        "create": {
+            "visibility": "Offer Availability",
+            "offer_urls": "Offer Landing Page",
+            "offer_url_main": "Landing Page URL",
+            "offer_goal_title": "Offer Goal",
+            "goal_title": "Goal Title",
+            "goal_type": "Goal Type",
+            "time_zone": "Time Zone",
+            "descriptions": {
+                "featured": "Featured offers appear highlighted in the affiliate's dashboard.",
+                "public": "Public: all affiliates can see the offer and promote it.",
+                "require_approval": "Requires Approval: affiliates must send a request and receive approval to promote the offer.",
+                "private": "Private: no affiliates will see the offer, the manager can share it  with certain affiliates.",
+                "default_url": "Landing Page URL: the URL where affiliates will be sending traffic to.",
+                "preview_url": "Preview URL: the URL without Geo or other restrictions where an affiliate can see the offer.",
+                "goal": "A goal is a completed action the advertiser pays affiliates for.",
+                "goal_title": "Goal Title: e.g, Purchase, App Install, Registration.",
+                "cpc": "CPC: Cost per Click. The advertiser pays for every click on the tracking link.",
+                "cpa": "CPA: Cost per Action. The advertiser pays a fixed price for a certain action (registration, sale, transaction, etc.).",
+                "cpl": "CPL: Cost per Lead. The advertiser pays when a lead form is filled and submitted.",
+                "cps": "CPS: Cost per Sale (Revenue Share). The advertiser pays a percentage of generated revenue.",
+                "cpi": "CPI: Cost per Install. The advertiser pays for each installed app.",
+                "revenue": "Revenue: the amount advertiser pays for Goal completion.",
+                "payout": "Payout: the amount you pay your affiliates for Goal completion.",
+                "tags": "Assign tags to your offer for a quick search.",
+                "description": "Provide details or other helpful information for your affiliates.",
+                "internal_info": "This information is visible to managers only.",
+                "currency": "The currency is used for all Offer Goals and can not be changed later.",
+                "time_zone": "Time Zone is used for different purposes, for example: Goals Caps, Expiration, etc.",
+                "expires": "If the offer has an expiration date, please specify it here. The Offer status will be changed automatically to Inactive on that day."
+            }
+        },
+        "filters": {
+            "requested": "Requested Offers"
+        },
+        "tracking": {
+            "edited": "Tracking has been successfully changed",
+            "form": {
+                "tracking_link": "Affiliate Tracking Link",
+                "generate_tracking_link": "Generate Tracking Link",
+                "tracking_link_description": "The link that affiliates can use to promote the offer. Select the affiliate below and his personal link will be generated.",
+                "global_postback": "Global Postback",
+                "global_postback_description": "Universal Postback for all offers across the platform. When triggered, the default goal is converted.",
+                "tracking_domain_description": "Will be used for both Affiliate Tracking Link and Advertiser Postback.",
+                "fail_traffic_forwarding": "Invalid Traffic Forwarding",
+                "fail_traffic_forwarding_description": "Invalid traffic – traffic that doesn't comply with offer settings (targeting, caps, etc). It can be redirected to the following channels:",
+                "fail_traffic_forwarding_description_main_destination": "Default Landing Page: traffic will be redirected to the Default Landing Page URL, conversions won’t be recorded.",
+                "fail_traffic_forwarding_description_preview": "Preview URL: traffic will be redirected to Default Landing Page Preview URL, conversions won’t be recorded.",
+                "fail_traffic_forwarding_description_offer": "Offer: you can define specifiс offers and the traffic will be redirected to the first available offer from the list.",
+                "fail_traffic_forwarding_description_custom_trafficback": "Custom Trafficback URL: traffic will be redirected to the specified URL.",
+                "fail_traffic_forwarding_description_global_trafficback": "Global Trafficback URL: traffic will be redirected to the URL specified in Administration - Settings page.",
+                "deep_linking": "Deep Linking",
+                "deep_linking_description": "Allows the affiliate to send traffic to a specific page on a website, instead of the website's home page (e.g. specific product or category)",
+                "hide_referrer_url": "Hide Referrer URL",
+                "hide_referrer_url_description": "Prevents the traffic source (referrer data) from being sent through to the offer or the landing page. Double META Redirect is the most reliable redirect method to ensure that the referrer data is never leaked, however a bit slower.",
+                "double_meta_redirect": "Double META Redirect",
+                "sales_amount": "Show Order Amount to the Affiliate",
+                "sales_amount_description": "If set, affiliates will be able to see the order amount of the conversions in the reports.",
+                "change_conversion_status": "Change Conversion Status via Postback",
+                "change_conversion_status_description": "If enabled, the advertiser can trigger a Postbacks with conversion status he wants to assign to the conversion. Available options:",
+                "change_conversion_status_description_approved": "conv_status=approved (for approved conversions)",
+                "change_conversion_status_description_pending": "conv_status=pending (for pending conversions)",
+                "change_conversion_status_description_rejected": "conv_status=rejected (for rejected conversions)",
+                "unique_ips": "Unique IPs",
+                "unique_ips_time_span": "Time Span",
+                "unique_ips_description": "Allows clicks from unique IP’s only. Time Span – time-frame during which an IP must be unique.",
+                "postback_unique_ips_description": "Postback Unique Ips Description",
+                "postback_lifetime": "Postback Duration",
+                "postback_lifetime_description": "Click session duration, during which conversions can be made.",
+                "cookie_lifetime": "Cookies Lifetime",
+                "postback_password": "Postback Password",
+                "postback_password_description": "If the password is set, the advertiser must fill it with the postback every time conversion is made. Alphanumeric, no spaces.",
+                "usage_example": "Usage Example",
+                "postback_whitelist_ips": "Postback Whitelist IPs",
+                "postback_blacklist_ips": "Postback Blacklist IPs",
+                "postback_ips_description": "Only postbacks from these IPs will be allowed (Whitelist IPs) or denied (Blacklist IPs). One IP per line.",
+                "custom_trafficback_url": "Custom Trafficback URL",
+                "link_builder": {
+                    "select_affiliate": "Select Affiliate"
+                },
+                "impressions_url": "Impressions URL",
+                "impressions_url_description": "Impressions URL is used to pass impressions to the advertiser system. This URL is triggered when an impression is recorded."
+            },
+            "fail_traffic_forwarding": {
+                "main_destination_url": "Default Landing Page",
+                "preview_url": "Preview URL",
+                "offer": "Offer",
+                "custom_trafficback_url": "Custom Trafficback URL",
+                "global_trafficback_url": "Global Trafficback URL"
+            },
+            "optional_params": {
+                "affiliate_description": "Can You Get Free Games For Your Iphone",
+                "offer_description": "How Plasma Tvs And Lcd Tvs Differ",
+                "sub_description": "Video Games Playing With Imagination",
+                "subscription": "Referral Program allows your Affiliates to bring new Affiliates to your network and earn additional commission from their revenue."
+            },
+            "unique_ips_time_spans": {
+                "fifteen_seconds": "Within 15 seconds",
+                "thirty_seconds": "Within 30 seconds",
+                "one_minute": "Within 1 minute",
+                "one_hour": "Within 1 hour",
+                "one_day": "Within 1 day"
+            },
+            "export": "Export Offers"
+        },
+        "goals": {
+            "title": "Goals",
+            "add": "Add Goal",
+            "add_as_title": "Add Goal",
+            "new": "New Goal",
+            "edit": "Edit Goal",
+            "edited": "Goal has been successfully changed",
+            "created": "Goal has been successfully created",
+            "delete": "Goal has been successfully deleted",
+            "default_goal": "Default Goal",
+            "form": {
+                "revenue_payout_title": "Revenue & Payout",
+                "type": "Type",
+                "revenue": "Default Revenue",
+                "payout": "Default Payout",
+                "conversion_title": "Conversion",
+                "goal_alias": "Goal Alias",
+                "tracking_title": "Tracking",
+                "tracking_method": "Tracking Method",
+                "private": "Private",
+                "payout_tiers": "Payout Tiers",
+                "tier_silver": "Tier Silver",
+                "tier_gold": "Tier Gold",
+                "tier_platinum": "Tier Platinum",
+                "unique_track_id": "Unique Track Id",
+                "fire_affiliate_postback": "Trigger Affiliate Postback",
+                "postback_url": "Postback URL",
+                "hidden": "Hidden",
+                "payout_for_affiliate": "Display Payout for Affiliate",
+                "payout_for_affiliate_placeholder": "Example: $1-$10",
+                "goal_types": {
+                    "cpc": "CPC (fixed payout)",
+                    "cpa": "CPA (fixed payout)",
+                    "cpl": "CPL (fixed payout)",
+                    "cps": "CPS (revenue share)",
+                    "cpi": "CPI (fixed payout)"
+                },
+                "descriptions": {
+                    "hidden": "The hidden Goal will be visible for managers and advertisers only. It is used for tracking additional goals that affiliates are not paid for.",
+                    "goal_type": "Goal Type",
+                    "cpc": "CPC: Cost per Click. The advertiser pays for every click on the tracking link.",
+                    "cpa": "CPA: Cost per Action. The advertiser pays a fixed amount for a defined action (registration, sale, transaction, etc.).",
+                    "cpl": "CPL: Cost per Lead. The advertiser pays when a lead form is filled and submitted.",
+                    "cps": "CPS: Cost per Sale (Revenue Share). The advertiser pays a percentage from the generated revenue.",
+                    "cpi": "CPI: Cost per Install. The advertiser pays for every installed app.",
+                    "revenue": "Revenue: the amount advertiser pays you for a completed Goal.",
+                    "payout": "Payout: The amount you pay to your affiliates for the Goal completed.",
+                    "initial_status": "Initial Status indicated which status will be recorded upon the conversion.",
+                    "goal_alias": "An alternative Goal ID. Allows you to use one Postback for different offers. This is useful for offers that have more than one goal.",
+                    "goal_alias_example": "Only  lowercase letters and numbers are allowed (for example: registration).",
+                    "multiple_conversion": "Multiple Conversions allow you to generate multiple conversions from a single user's click for the same Goal. This is useful for subscriptions and recurring sales.",
+                    "fire_affiliate_postback": "Trigger Affiliate Postbacks: if disabled, affiliate postback won’t be triggered.",
+                    "unique_track_id": "Unique Track ID obligates the advertiser to send unique values upon the conversion in the Track ID parameter.",
+                    "caps": "This option allows limiting the number of conversions or budget for a specific time period. Select conversions type, period (Daily, Weekly, Monthly, Total) and enter the limit value.",
+                    "tracking_method": "How the conversion data will be transferred from an advertiser to the network. The method depends on Advertiser possibilities.",
+                    "postback": "Postback: Recommended, the most reliable method based on a unique Click ID, which is passed to the advertiser with every click. ",
+                    "postback_aff": "Affiliate Postback support: cookieless postbacks only.",
+                    "iframe": "IFRAME Pixel (Cookie-based): Unique ID is stored in the user’s browser cookies (1st party).",
+                    "iframe_aff": "Affiliate Postback support: both cookieless postback and cookie-based pixel.",
+                    "img": "IMG Pixel: Unique ID is stored in the user’s browser cookies.",
+                    "img_aff": "Affiliate Postback support: cookieless postback only.",
+                    "javascript": "JavaScript Pixel: the same as IMG pixel, just a different HTML tag."
+                }
+            },
+            "caps": {
+                "title": "Caps",
+                "description": "Cap description",
+                "add": "Add Cap",
+                "period": "Period",
+                "type": "Type",
+                "value": "Value"
+            },
+            "none_goals": "None",
+            "all_goals": "All Goals"
+        },
+        "creatives": {
+            "add": "Add Creative",
+            "add_as_title": "Add Creative",
+            "new": "New Creative",
+            "edit": "Edit Creative",
+            "download": "Download All",
+            "edited": "Creative has been successfully changed",
+            "created": "Creative has been successfully changed",
+            "deleted": "Creative has been successfully deleted",
+            "form": {
+                "count_impressions": "Count Impressions",
+                "offer_url": "Offer Link",
+                "select_files": "Select Files",
+                "select_required_types": "PNG, JPG, GIF or ZIP with image files",
+                "select_required_types_edit": "PNG, JPG, GIF",
+                "description": "Description...",
+                "xml_feed_url": "XML Feed URL",
+                "xml_feed_limitation": "The maximum XML file size is 100 MB",
+                "macros_available" : {
+                    "title": "Macros Available",
+                    "tracking_url": "Required. Will be replaced with actual Offer Tracking URL",
+                    "offer_id": "Offer’s ID in platform",
+                    "affiliate_id": "ID of Affiliate promoting the offer",
+                    "creative_id": "ID of the Offer Creative"
+                },
+                "descriptions": {
+                    "banner": "Banner: an image ad affiliates can use to promote the offer.",
+                    "email": "Email: an email example the affiliates can use for Email marketing. If Count Impressions is enabled, the impression pixel will be added and impressions will be counted.",
+                    "other": "HTML: can be any other formats (e.g., Flash, JS). If Count Impressions is enabled, the impression pixel will be added and impressions will be counted.",
+                    "offer_link": "Offer’s link that will be tied to this creative. It is possible to select various оffer links (different landing pages) for different creatives.",
+                    "xml_feed": "XML Feed: advertiser product feed URL"
+                }
+            }
+        },
+        "urls": {
+            "add": "Add Landing Page",
+            "add_as_title": "Add Landing Page",
+            "new": "New Link",
+            "edit": "Edit Landing Page",
+            "edited": "Link has been successfully changed",
+            "created": "Link has been successfully changed",
+            "deleted": "Link has been successfully deleted",
+            "description": "Advertiser’s URL,  where the affiliate will send traffic to. For example: https://www.landing-page.com",
+            "visible_to_all_affiliates": "Visible to All Affiliates",
+            "visible_to_specific_affiliates_only": "Visible to Specific Affiliates Only",
+            "descriptions": {
+                "preview_url": "The URL without Geo or other restrictions where an affiliate can see the offer."
+            }
+        },
+        "targeting": {
+            "title": "Targeting",
+            "edited": "Targeting has been successfully changed",
+            "add_as_title": "Add Rule",
+            "add": "Add Rule",
+            "select_rule": "Select Rule",
+            "select_permission": "Select parameters",
+            "select_permission_device_os": "Enter device os, example: 1.0, 1.1",
+            "select_conditions": "Select Conditions",
+            "worldwide": "Worldwide",
+            "geo_allowed": "Allowed Geo",
+            "geo_denied": "Denied Geo",
+            "form": {
+                "geolocation": "Geolocation",
+                "geolocation_description": "geolocation description",
+                "advanced_targeting": "Advanced Targeting",
+                "advanced_targeting_description": "Advanced Targeting description",
+                "strict_targeting": "Strict Targeting",
+                "descriptions": {
+                    "geo": "You can select Countries, Regions, Cities the offer is targeted to.",
+                    "advanced_targeting": "Used for a more precise offer targeting based on the user’s device, software or ISP settings. The user should match ALL the set rules.",
+                    "strict_targeting_enabled": "If enabled, non-targeted traffic is not allowed for that offer and is marked as Invalid Traffic. This traffic will be redirected according to the Inappropriate Traffic Forwarding settings on the Tracking page.",
+                    "strict_targeting_disabled": "If disabled, non-targeted traffic is allowed and will be redirected to the Offer’s Landing Page and conversions will be recorded."
+                }
+            }
+        },
+        "custom_parameters": {
+            "title": "Custom Parameters",
+            "add": "Add Parameters",
+            "edited": "Custom Parameter has been successfully changed",
+            "created": "Custom Parameter has been successfully created",
+            "deleted": "Custom Parameter has been successfully deleted",
+            "form": {
+                "add_title": "Add Custom Parameters",
+                "edit_title": "Edit Custom Parameters",
+                "affiliate_info": "Leave blank if you want these parameters to be effective for all affiliates.",
+                "date_info": "If you don’t have an end date, leave it blank. The parameters don’t retroactively update past transactions, they will take effect for future transactions only.",
+                "conditions": {
+                    "title": "Conditions",
+                    "add": "Add Condition",
+                    "select_conditions": "Select",
+                    "affiliate_sub": "Comma separated list"
+                },
+                "parameters": {
+                    "title": "Custom Parameters",
+                    "add": "Add Parameter",
+                    "select_parameter": "Select"
+                },
+                "not_perform_action": "You can not perform this action for this parameter"
+            },
+            "actions": {
+                "revenue": "Revenue",
+                "payout": "Payout",
+                "daily_cap": "Daily Cap",
+                "weekly_cap": "Weekly Cap",
+                "monthly_cap": "Monthly Cap",
+                "total_cap": "Total Cap",
+                "throttle_rate_to_pending": "Throttle Rate to Pending",
+                "throttle_rate_to_rejected": "Throttle Rate to Rejected",
+                "trafficback_url": "Trafficback URL",
+                "force_redirect": "Force Redirect",
+                "trafficback_offer": "Trafficback Offer"
+            },
+            "types": {
+                "include": "Include",
+                "exclude": "Exclude"
+            },
+            "connection_types": {
+                "wifi_cable": "WiFi / Cable",
+                "mobile_internet": "Mobile Internet"
+            }
+        },
+        "affiliate": {
+            "title": "Affiliate Access",
+            "save": "Affiliate Access has been successfully changed",
+            "form": {
+                "title": "Offer Availability",
+                "visibility": "Availability",
+                "availability": "Availability",
+                "require_add_info": "Require additional information from an affiliate",
+                "additional_info_desc": "Additional Information Description",
+                "description": "Description...",
+                "descriptions": {
+                    "public": "Public: all the affiliates can see the offer and promote it.",
+                    "require_approval": "Requires Approval: the affiliate must send a request and receive an approval to promote the offer.",
+                    "private": "Private: affiliates won't see the offer, the manager can share it with selected affiliates.",
+                    "require_add_info": "Ask your affiliate to provide additional information required to promote this offer (e.g, what traffic sources the affiliate will be using)."
+                },
+                "ask_approval_questions_to_affiliate":{
+                    "title": "Ask Affiliates the Approval Questions",
+                    "description": "Ask your affiliates to provide additional information required to promote an offer (e.g. traffic sources the affiliate will be using)."
+                },
+                "approval_questions": "Approval Questions"
+            },
+            "requests": {
+                "title": "Offer requests"
+            },
+            "denied_affiliates_except_message": "Denied all the affiliates, except Allowed."
+        },
+        "profile": {
+            "manage": "Manage",
+            "custom_parameters": {
+                "device": "Device type",
+                "connection": "Connection type",
+                "geolocation": "Geolocation"
+            },
+            "notification": {
+                "edited_notification": "Profile has been successfully updated"
+            },
+            "page_title": {
+                "tracking": "Tracking",
+                "urls": "Links",
+                "top_affiliates": "Top Affiliates",
+                "affiliate_access": "Affiliate Access",
+                "custom_parameters": "Custom Parameters"
+            },
+            "finances": {
+                "revenue": "Revenue",
+                "payout": "Payout",
+                "profit": "Profit"
+            },
+            "tracking": {
+                "tracking_setting": "Tracking Settings",
+                "updated": "Tracking Settings has been successfully changed"
+            },
+            "targeting": {
+                "device_type": "Device type",
+                "connection": "Connection",
+                "traffic_type": "Traffic Type"
+            },
+            "affiliates": {
+                "visibility": "Offer Availability",
+                "allowed_affiliates": "Allowed Affiliates",
+                "denied_affiliates": "Denied Affiliates",
+                "require": "Require Additional Info from Affiliate"
+            }
+        },
+        "traffic_distribution": {
+            "title": "Traffic Distribution",
+            "widget_title": "Landing Pages Traffic Distribution",
+            "distribution_method": "Distribution Method",
+            "distribution": "Distribution",
+            "updated": "Settings have been successfully changed"
+        }
+    },
+    "smart_link_page": {
+        "add": "Add Smart Link",
+        "add_as_title": "Add Smart Link",
+        "edit": "Edit Smart Link",
+        "edited": "Smart Link has been successfully changed",
+        "created": "Smart Link has been successfully changed",
+        "deleted": "Smart Link has been successfully deleted",
+        "delete_confirm_title": "Are you sure?",
+        "delete_confirm_text": "This smart link will be deleted.",
+        "info": "Smart Link allows you to provide your affiliates just one link for many offers. It automatically selects the most profitable offer based on user Geo, Device, OS, Connection and Language."
+    },
+    "offers_requests_page": {
+        "title": "Offers Requests",
+        "requested_by": "Requested by",
+        "approval_questions": "Approval Questions",
+        "ask_questions_affiliate": "Additional information is required to run the Offer",
+        "statuses": {
+            "pending": "Pending",
+            "rejected": "Rejected",
+            "approved": "Approved"
+        },
+        "toastr": {
+            "approve": "The Offer Request has been successfully approved",
+            "reject": "The Offer Request has been successfully rejected",
+            "approve_exception": "Error on Offer Request approved, try later",
+            "reject_exception": "Error on Offer Request rejected, try later"
+        }
+    },
+    "notifications": {
+        "success": "Success",
+        "copy_api": "API key was copied",
+        "refresh_api": "API was refreshed",
+        "expired_trial": "Hi {{ name }}! You have {{ day }} days left for your free trial. <a href=\"https://www.scaleo.io/en/contacts\" target=\"_blank\">Сontact us</a>"
+    },
+    "geo": {
+        "choose_country": "Choose country",
+        "choose_region": "Choose region",
+        "choose_city": "Choose city"
+    },
+    "tooltip": {
+        "basic": {
+            "sort_by_asc": "Low to High",
+            "sort_by_desc": "High to Low",
+            "generate_new_api": "Generate new API key",
+            "created": "Created",
+            "last_visited": "Last Log in ",
+            "last_activity": "Last Traffic Seen",
+            "properties_offers": "Offers",
+            "properties_postback_url": "Postback URL",
+            "properties_source": "Sources",
+            "properties_domains": "Tracking Domains",
+            "properties_postbacks": "Postbacks",
+            "statistics": "Statistics",
+            "manager_users": "Users",
+            "login": "Login",
+            "move": "Move",
+            "back": "Return Back",
+            "delete": "Delete",
+            "add": "Add",
+            "offers": "Offers"
+        },
+        "header": {
+            "fullscreen": "Fullscreen",
+            "notifications": "Notifications"
+        },
+        "affiliate": {
+            "premium_account": "Premium Affiliate",
+            "edit": "Edit Affiliate"
+        },
+        "advertiser": {
+            "edit": "Edit Advertiser"
+        },
+        "statuses": {
+            "1": "Active",
+            "3": "Pending",
+            "2": "Inactive"
+        },
+        "main_menu": {
+            "affiliates": "Pending Affiliates",
+            "advertisers": "Pending Advertisers"
+        },
+        "settings": {
+            "managers": {
+                "users": "Users",
+                "login_as": "Login as Manager",
+                "edit": "Manager Edit"
+            }
+        },
+        "offer": {
+            "featured": "Featured",
+            "edit": "Edit Offer"
+        }
+    },
+    "reports_page": {
+        "d": "d",
+        "filters": {
+            "affiliates": "Affiliate",
+            "advertisers": "Advertiser",
+            "trackIds": "Track IDs",
+            "subIds": "Sub IDs",
+            "extras": "Extras",
+            "status": "Status",
+            "result": "Result",
+            "redirection": "Redirection",
+            "reason": "Reason",
+            "transaction_id": "Transaction ID ",
+            "advertiser": "Advertiser",
+            "clicks_referrers": "Click Referer URL",
+            "affiliates_managers": "Affiliate Manager",
+            "advertisers_managers": "Advertiser Manager",
+            "click_id": "Click ID",
+            "smartlinks": "Smart Link",
+            "smartlink": "Smart Link"
+        },
+        "statistics": {
+            "grouping": {
+                "goal": "goal",
+                "link": "landing page",
+                "creative": "creative"
+            }
+        },
+        "conversions": {
+            "menus": {},
+            "confirm": {
+                "confirm_title": "Are you sure?",
+                "confirm_text": "The status will be changed for the selected conversions. If the conversion is included into an invoice, it will not be changed.",
+                "checkbox_label": "Trigger Affiliate Postbacks (takes about 5 minutes)",
+                "action": "Continue"
+            },
+            "import": {
+                "insert_conversions": "Insert Conversions",
+                "insert_conversions_via_csv": "Insert Conversions via CSV",
+                "description": {
+                    "insert_conversions": "Inserts a certain number of conversions with the same parameters.",
+                    "insert_conversions_via_csv": "Adds or updates conversions with different parameters."
+                }
+            },
+            "edit": {
+                "title": "Edit Conversion",
+                "updated_message": "Conversion was updated"
+            }
+        },
+        "adjustments": {
+            "title": "Adjustments",
+            "add": "Add Adjustment",
+            "edit": "Edit Adjustment",
+            "detail_as_title": "Adjustment Details",
+            "add_as_title": "Add Adjustment",
+            "edited": "Adjustment has been successfully changed",
+            "created": "Adjustment has been successfully created",
+            "deleted": "Adjustment has been successfully deleted",
+            "details_not_null": "Affiliate, Offer, Goal and Number of Conversions cannot be empty",
+            "filter": {
+                "status": "Status",
+                "completed": "Completed",
+                "in_progress": "Processing"
+            },
+            "add_confirm": {
+                "confirm_title": "Are you sure?",
+                "confirm_text": "The changes will be applied within 5 minutes and it is not possible to roll them back. If the conversions are included into an invoice, they will not be changed.",
+                "action": "Continue"
+            },
+            "action": {
+                "change_status": "Change Status",
+                "change_payouts": "Change Payouts",
+                "insert_conversions": "Insert Conversions",
+                "insert_conversions_via_csv": "Insert Conversions via CSV"
+            },
+            "insert_conversions_via_csv": {
+                "select_csv_file": "Select the CSV File",
+                "csv_file": "CSV File",
+                "links": {
+                    "description": "The CSV file should be formatted properly. You can use the templates below.",
+                    "template_1": "Template 1. Insert conversions without clicks",
+                    "template_2": "Template 2. Insert or Update conversions by Click ID",
+                    "template_3": "Template 3. Update conversions by Transaction ID"
+                },
+                "add_confirm": {
+                    "confirm_text": "The conversions will be added within 5 minutes and it is not possible to roll back this action.\n\nThe status of this task will be possible to check at",
+                    "confirm_text_bold": "Transactions > Adjustments."
+                }
+            },
+            "conditions": {
+                "title": "Conditions",
+                "description": "Conditions description",
+                "add": "Add Condition",
+                "period": "Period",
+                "type": "Type",
+                "value": "Value",
+                "transactions_ids": "Transaction IDs",
+                "goal": "Goal",
+                "track_ids": "Track IDs",
+                "offer": "Offer",
+                "transactions_ips": "Transaction IPs",
+                "dates_range": "Dates range",
+                "click_ids": "Click IDs",
+                "conversion_status": "Conversion status"
+            },
+            "parameters": {
+                "title": "Optional Parameters",
+                "description": "Parameters description",
+                "add": "Add Parameter",
+                "period": "Period",
+                "type": "Type",
+                "value": "Value",
+                "transactions_ids": "Transaction id",
+                "goal": "goal",
+                "track_ids": "track_ids",
+                "offer": "offer",
+                "transactions_ips": "Transactions Ips",
+                "dates_range": "Dates Range",
+                "click_ids": "Click IDs",
+                "click_id": "Advertiser Click ID",
+                "goal_id": "Advertiser Goal ID",
+                "amount": "Advertiser Amount",
+                "track_id": "Advertiser Track ID",
+                "adv_order_id": "Advertiser Order ID",
+                "adv_user_id": "Advertiser User ID",
+                "adv_param1": "Advertiser Param 1",
+                "adv_param2": "Advertiser Param 2",
+                "adv_param3": "Advertiser Param 3",
+                "adv_param4": "Advertiser Param 4",
+                "adv_param5": "Advertiser Param 5"
+            },
+            "new_date": {
+                "original": "Original",
+                "custom": "Custom"
+            },
+            "detail": {
+                "new_revenue": "New Revenue",
+                "new_payout": "New Payout",
+                "new_status": "New Status",
+                "conversions_status": "Conversion Status",
+                "conversions_quantity": "Conversions Quantity",
+                "conversions_date": "Conversions Date",
+                "affiliate": "Affiliate",
+                "offer": "Offer",
+                "goal": "Goal",
+                "fire_affiliate_postback": "Trigger Affiliate Postback",
+                "new_timestamp": "New Timestamp",
+                "new_date": "New Date",
+                "amount": "Amount",
+                "change_date": "Change Date",
+                "dates_range": "Dates Range"
+            }
+        },
+        "logs": {
+            "menus": {
+                "advertiser_postbacks": "Advertisers Postbacks",
+                "affiliates_postbacks": "Affiliates Postbacks"
+            }
+        }
+    },
+    "dashboard_page": {
+        "top_affiliates": "Top Affiliates",
+        "pending_records": "Pending Records",
+        "notifications": "Notifications",
+        "affiliate_postbacks": "Affiliate Postbacks",
+        "postbacks": "Postbacks",
+        "chart-no-data": "No Data to Display, please check metrics options",
+        "legend": {
+            "approved_revenue": "Approved Revenue",
+            "approved_profit": "Approved Profit",
+            "approved_gross_sales": "Approved Gross",
+            "pending_revenue": "Pending Revenue",
+            "pending_profit": "Pending Profit",
+            "pending_gross_sales": "Pending Gross",
+            "rpc": "RPC",
+            "cpc": "CPC",
+            "epc": "EPC",
+            "rpa": "RPA",
+            "cpa": "CPA",
+            "epa": "EPA",
+            "rpm": "RPM",
+            "cpm": "CPM",
+            "epm": "EPM",
+            "clicks_revenue": "Clicks Revenue",
+            "clicks_payout": "Clicks Payout",
+            "clicks_profit": "Clicks Profit",
+            "total_revenue": "Total Revenue",
+            "total_payout": "Total Payout",
+            "total_profit": "Total Profit",
+            "total_gross_sales": "Total Gross",
+            "rejected_revenue": "Rejected Revenue",
+            "rejected_profit": "Rejected Profit",
+            "rejected_gross_sales": "Rejected Gross"
+        },
+        "volume_columns_config": {
+            "cv_approved": "Approved Conversions",
+            "cv_pending": "Pending Conversions",
+            "cv_rejected": "Rejected Conversions",
+            "cv_total": "Total Conversions",
+            "clicks": "Gross Clicks",
+            "unique_clicks": "Unique Clicks",
+            "duplicate_clicks": "Duplicate Clicks",
+            "invalid_clicks": "Invalid Clicks"
+        },
+        "new_hot_offers": "New & Hot Offers"
+    },
+    "dashboard_grid": {
+        "toolbar": {
+            "add_widget": "Add widget",
+            "restore_default": "Restore to default"
+        },
+        "inactive_widget": "Inactive Widget",
+        "widget": {
+            "live_stream": {
+                "title": "Live Stream",
+                "last_30_min": "Conversions last 30 min"
+            },
+            "network_summary": {
+                "title": "Network Summary"
+            },
+            "top_affiliate": {
+                "title": "Top Affiliates"
+            },
+            "notifications": {
+                "title": "Activity Log"
+            },
+            "shortcuts": {
+                "title": "Shortcuts",
+                "affiliate": "Affiliate",
+                "advertiser": "Advertiser",
+                "offer": "Offer",
+                "not_found": "The {{ item }} with entered ID was not found",
+                "enter_id": "Enter ID",
+                "login_as": "Login as",
+                "conversions_report": "Conversions Report",
+                "add_offer": "Add Offer",
+                "add_affiliate": "Add Affiliate",
+                "add_advertiser": "Add Advertiser"
+            },
+            "mgcom": {
+                "top": {
+                    "web_master_title": "Top Sub Affiliates",
+                    "table": {
+                        "clicks_for_the_month": "Clicks for the month",
+                        "conversions_for_the_month": "Conv for the month",
+                        "clicks_for_the_day": "Clicks for the day",
+                        "conversions_for_the_day": "Conv for the day",
+                        "clicks_change_for_the_day": "Clicks change for the day ",
+                        "conversions_change_for_the_day": "Conv change for the day",
+                        "clicks_for_six_hours": "Clicks for 6 hours",
+                        "conversions_for_six_hours": "Conv for 6 hours",
+                        "clicks_change_for_six_hours": "Clicks change for 6 hours",
+                        "conversions_change_for_six_hours": "Conv change for 6 hours",
+                        "clicks_for_seven_days": "Clicks for 7 days",
+                        "conversions_for_seven_days": "Conv. for 7 days",
+                        "clicks_change_for_seven_days": "Clicks change for 7 days",
+                        "conversions_change_for_seven_days": "Conv. change for 7 days",
+                        "critical_change": "Critical Change"
+                    }
+                }
+            }
+        }
+    },
+    "referrals_page": {
+        "referrals_program": " Referral Program",
+        "link_for_admin": "Referral Link:",
+        "form": {
+            "info": "Referral Program allows your Affiliates to bring new Affiliates to your network and earn additional commission from their revenue.",
+            "referred_by": "Referred By"
+        },
+        "commission_types_list": {
+            "percentage": "Percentage",
+            "flat": "Flat (one time)"
+        },
+        "reports": {
+            "from_payout": "from Payout",
+            "from_revenue": "from Revenue",
+            "from_profit": "from Profit"
+        },
+        "tooltip": {
+            "navigation": "Referrals — 2nd-tier affiliates. These are new Affiliates who your other affiliates have invited through a second-tier referral program."
+        }
+    },
+    "leads_ui_page": {
+        "leads": {
+            "deliver_again": {
+                "title": "Deliver Again",
+                "message": "The leads will be delivered again by the connected instructions.",
+                "response_message": "The Leads have been delivered"
+            }
+        },
+        "logs": {
+            "incoming": "Receive Leads",
+            "outgoing": "Deliver Leads",
+            "changing": "Update Leads"
+        },
+        "switcher_menu": {
+            "default": {
+                "title": "Affiliate Tracking",
+                "info": "Track, Analyze and Optimize your affiliate campaigns"
+            },
+            "leads": {
+                "title": "Lead Management",
+                "info": "Manage your leads"
+            }
+        },
+        "receive": {
+            "campaigns": {
+                "title": "Campaigns",
+                "add": "Add Campaign",
+                "creating": "Add Campaign",
+                "edit": "Edit Campaign",
+                "created": "Campaign has been successfully added",
+                "edited": "Campaign has been successfully changed",
+                "fields": {
+                    "add": "Add Field",
+                    "title": {
+                        "required_fields": "Required Fields",
+                        "optional_fields": "Optional Fields"
+                    },
+                    "names": {
+                        "email": "Email",
+                        "first_name": "First Name",
+                        "last_name": "Last Name",
+                        "address": "Address",
+                        "city": "City",
+                        "region": "Region",
+                        "postcode": "Postcode",
+                        "country": "Country",
+                        "ip": "IP",
+                        "phone": "Phone",
+                        "gender": "Gender",
+                        "birthday": "Birthday",
+                        "vertical": "Vertical",
+                        "affiliate_click_id": "Affiliate Click ID",
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "custom_field1": "Custom 1",
+                        "custom_field2": "Custom 2",
+                        "custom_field3": "Custom 3",
+                        "custom_field4": "Custom 4",
+                        "custom_field5": "Custom 5",
+                        "custom_field6": "Custom 6",
+                        "custom_field7": "Custom 7",
+                        "custom_field8": "Custom 8",
+                        "custom_field9": "Custom 9",
+                        "custom_field10": "Custom 10",
+                        "custom_field11": "Custom 11",
+                        "custom_field12": "Custom 12",
+                        "custom_field13": "Custom 13",
+                        "custom_field14": "Custom 14",
+                        "custom_field15": "Custom 15",
+                        "custom_field16": "Custom 16",
+                        "custom_field17": "Custom 17",
+                        "custom_field18": "Custom 18",
+                        "custom_field19": "Custom 19",
+                        "custom_field20": "Custom 20"
+                    }
+                },
+                "validations": {
+                    "title": "Validations",
+                    "add": "Add Validation",
+                    "placeholder": {
+                        "select_field": "Select Field",
+                        "type": "Type"
+                    },
+                    "types": {
+                        "format": "Format",
+                        "duplicate_offer": "Duplicate (Offer)",
+                        "duplicate_all_offers": "Duplicate (All Offers)",
+                        "regexp": "Regexp"
+                    },
+                    "selects": {
+                        "format": {
+                            "email": "Email",
+                            "name": "Name",
+                            "phone_us": "Phone US",
+                            "phone_vn": "Phone VN",
+                            "phone_th": "Phone TH",
+                            "phone_id": "Phone ID"
+                        },
+                        "duplicate": {
+                            "1_hour": "1 hour",
+                            "6_hours": "6 hours",
+                            "24_hours": "24 hours",
+                            "48_hours": "48 hours",
+                            "7_days": "7 days",
+                            "30_days": "30 days",
+                            "90_days": "90 days"
+                        }
+                    }
+                },
+                "delete_confirm_title": "Are you sure?",
+                "delete_confirm_text": "This campaign will be deleted.",
+                "deleted": "Campaign has been successfully deleted",
+                "additional_info_for_reply": "Additional Info for Reply"
+            }
+        },
+        "deliver": {
+            "deliveries": {
+                "title": "Deliveries",
+                "add": "Add Delivery",
+                "creating": "Add Delivery",
+                "edit": "Edit Delivery",
+                "created": "Delivery has been successfully added",
+                "edited": "Delivery has been successfully changed",
+                "delete_confirm_title": "Are you sure?",
+                "delete_confirm_text": "This delivery will be deleted.",
+                "deleted": "Delivery has been successfully deleted",
+                "instructions": {
+                    "title": "Posting Instructions",
+                    "description": "Posting instructions should be entered in a valid JSON format."
+                },
+                "macros_available": {
+                    "title": "Macros Available"
+                },
+                "success_reply": {
+                    "title": "Success Reply",
+                    "description": "If the reply from the advertiser's server contains the entered word, the Delivery Status will be set to Success, otherwise it will be set to Fail. Success Reply Example: success"
+                }
+            }
+        }
+    },
+    "TERMS": "Terms and Conditions",
+    "POLICY": "Privacy Policy",
+    "goals_caps_types": {
+        "approved": "Approved",
+        "approved_pending": "Approved, Pending",
+        "budget": "Budget"
+    },
+    "tracking_methods": {
+        "postback_recommended": "Postback",
+        "html_cookies_pixel": "HTML Cookies Pixel"
+    },
+    "tracking_methods_create": {
+        "postback_recommended": "Postback (Recommended)",
+        "html_cookies_pixel": "HTML Cookies Pixel"
+    },
+    "offers_visibility": {
+        "public": "Public",
+        "by_request": "Require Approval",
+        "private": "Private"
+    },
+    "visibility_types": {
+        "public": "Public",
+        "require": "Require Approval",
+        "private": "Private"
+    },
+    "macros_available": {
+        "title": "Macros Available",
+        "offer_id": "Offer’s ID in platform",
+        "affiliate_id": "ID of Affiliate promoting the offer.",
+        "sub_id1": "Affiliate Sub ID 1 specified in the tracking link.",
+        "sub_id2": "Affiliate Sub ID 2 specified in the tracking link.",
+        "sub_id3": "Affiliate Sub ID 3 specified in the tracking link.",
+        "sub_id4": "Affiliate Sub ID 4 specified in the tracking link.",
+        "sub_id5": "Affiliate Sub ID 5 specified in the tracking link.",
+        "click_id": "Unique 32 character alphanumeric string, which is generated and assigned to each click in platform",
+        "link_id": "Offer additional link specified in the tracking link.",
+        "source_id": "Affiliate Source ID specified in the tracking link.",
+        "aff_param1": "Affiliate additional parameter 1 specified in the tracking link.",
+        "aff_param2": "Affiliate additional parameter 2 specified in the tracking link.",
+        "aff_param3": "Affiliate additional parameter 3 specified in the tracking link.",
+        "aff_param4": "Affiliate additional parameter 4 specified in the tracking link.",
+        "aff_param5": "Affiliate additional parameter 5 specified in the tracking link.",
+        "offer_name": "Offer’s name in platform.",
+        "creative_id": "Offer Creative ID used.",
+        "idfa": "Apple iOS Advertising Identifier (IDFA) specified in the tracking link.",
+        "gaid": "Google Android Advertising Identifier (GAID) specified in the tracking link."
+    },
+    "macros_available_goals": {
+        "title": "Additional Parameters",
+        "click_id": "Unique 32 character alphanumeric string, which is generated and assigned to each click in platform",
+        "goal_id": "Offer’s goal ID in platform. If no Goal ID set Default Goal will be used.",
+        "amount": "Sale amount on Advertiser side. Required for CPS Goals. Should match Offer's Currency.",
+        "goal_alias": "Goal alias. If there is no goal with such alias, the default goal will be used.",
+        "adv_track_id": "Additional information from Advertiser (Not available for Affiliates).",
+        "adv_order_id": "Advertiser's order ID (available for Affiliates).",
+        "adv_user_id": "Advertiser's user ID (available for Affiliates).",
+        "adv_param1": "Advertiser additional parameter 1 (available for Affiliates).",
+        "adv_param2": "Advertiser additional parameter 2 (available for Affiliates).",
+        "adv_param3": "Advertiser additional parameter 3 (available for Affiliates).",
+        "adv_param4": "Advertiser additional parameter 4 (available for Affiliates).",
+        "adv_param5": "Advertiser additional parameter 5 (available for Affiliates).",
+        "idfa": "Apple iOS Advertising Identifier (IDFA).",
+        "gaid": "Google Android Advertising Identifier (GAID)."
+    },
+    "macros_available_global_trafficback": {
+        "title": "Additional Parameters",
+        "offer_id": "Offer’s ID in platform",
+        "affiliate_id": "ID of Affiliate promoting the offer.",
+        "sub_id1": "Affiliate Sub ID 1 specified in the tracking link.",
+        "sub_id2": "Affiliate Sub ID 2 specified in the tracking link.",
+        "sub_id3": "Affiliate Sub ID 3 specified in the tracking link.",
+        "sub_id4": "Affiliate Sub ID 4 specified in the tracking link.",
+        "sub_id5": "Affiliate Sub ID 5 specified in the tracking link.",
+        "source_id": "Affiliate Source ID previously added into platform (should exist and be active).",
+        "idfa": "Apple iOS Advertising Identifier (IDFA) specified in the tracking link.",
+        "gaid": "Google Android Advertising Identifier (GAID) specified in the tracking link."
+    },
+    "macros_available_announcement": {
+        "title": "Macros Available",
+        "offerID": "for example: {offer43} will be replaced with the title and link for the offer with ID 43.",
+        "first_name": "User’s first name.",
+        "last_name": "User’s last name.",
+        "email": "User’s Email.",
+        "company_name": "Network name specified in Settings.",
+        "homepage_url": "Company website URL specified in Settings.",
+        "platform_url": "URL of your affiliate platform.",
+        "logo_url": "URL of your logo specified in Settings.",
+        "main_color": "branding main color specified in Settings.",
+        "links_color": "branding links color specified in Settings.",
+        "unsubscribe_url": "URL to cancel Email subscription."
+    },
+    "macros_available_email_template": {
+        "title": "Macros Available"
+    },
+    "goal_tracking_methods_profile": {
+        "postback_cookieless": "Postback",
+        "iframe_pixel_cookie-based": "IFRAME Pixel",
+        "javascript_pixel_cookie-based": "JavaScript Pixel",
+        "img_pixel_cookie-based": "IMG Pixel"
+    },
+    "goal_tracking_methods": {
+        "postback_cookieless": "Postback",
+        "iframe_pixel_cookie-based": "IFRAME Pixel (Cookie-based)",
+        "javascript_pixel_cookie-based": "JavaScript Pixel (Cookie-based)",
+        "img_pixel_cookie-based": "IMG Pixel (Cookie-based)"
+    },
+    "trial": {
+        "modal_info": {
+            "title": "Your Scaleo trial expired",
+            "text": "Please let us know if you need more time to make a decision and we can extend your trial for a few more days. Also, let us know if you are no longer interested so that we don’t bother you again. <a href=\"https://www.scaleo.io/en/contacts\" target=\"_blank\">Сontact us</a>"
+        }
+    },
+    "getting_started": {
+        "breadcrumb": "Quick Start",
+        "skip": "Skip",
+        "hide_getting_started": "Hide Getting Started",
+        "hide_getting_started_desc": "You can activate this guide anytime at",
+        "path_to_settings": "Settings > General.",
+        "learn_more": "Learn more",
+        "hide_getting_started_menu": "Hide Getting Started Menu",
+        "read_article": "Read article",
+        "follow_detailed_instructions": "Follow the detailed instructions:",
+        "schedule_demo_call": "Schedule demo call",
+        "account": {
+            "title": "Step 1. Account",
+            "header_title": "Account",
+            "not_verified": "Not verified",
+            "verified_description": "Verify your email address before you’ll start use your platform.",
+            "resend_email": "Resend email",
+            "platform_settings": "Platform Settings"
+        },
+        "branding": {
+            "title": "Step 2. Branding"
+        },
+        "offer": {
+            "title": "Step 3. Add an Offer",
+            "header_title": "Add an Offer",
+            "create_your_first": "Create your first Offer to start promoting your products.",
+            "create_your_first_for_hint": "Create your first Offer to start promoting your products. ",
+            "follow_add": "Add an Offer",
+            "follow_setup": "Tracking Basics"
+        },
+        "affiliate": {
+            "title": "Step 4. Add an Affiliate",
+            "header_title": "Add an Affiliate",
+            "create_your_first": "Create your first Affiliate in order to promote your Offer.",
+            "create_your_first_for_hint": "Create your first Affiliate in order to promote your Offer. ",
+            "follow_add": "Add an Affiliate",
+            "follow_setup": "Manage Affiliates"
+        },
+        "hint_create_first_item": {
+            "hey": "Hey",
+            "manager_message": "I’m Ann. I’m here to help you with setting up your affiliate business. Let’s start with the following 4 steps."
+        }
+    },
+    "outbound_page": {
+        "title": "Outbound",
+        "announcements": {
+            "visible_for": {
+                "affiliate": "Affiliates",
+                "advertiser": "Advertisers"
+            },
+            "basic": {
+                "add": "Add Announcement",
+                "creating": "Add Announcement",
+                "edit": "Edit Announcement",
+                "author": "Author",
+                "emails_sent": "Emails Sent",
+                "draft": "Draft",
+                "content": "Content",
+                "connected_offers": "Connected Offers",
+                "connected_offers_description": "If the announcement is concerning  any  offers, please select them here.",
+                "visible_for": "Visible for",
+                "visible_for_description": "The announcements will be visible to selected type of users on their Dashboard.",
+                "pinned_to_top": "Pinned to Top",
+                "pinned_to_top_description": "Pinned announcements will be displayed first, at the top of the list.",
+                "send_email_notification_to_users": "Send Email Notification to Users",
+                "send_email_notification_to_users_description": "When the announcement becomes Active, it will be sent via Email to all active affiliates or advertisers.",
+                "create_confirm_title": "Are you sure?",
+                "create_confirm_text": "This announcement will become visible to users and will be sent to them by Email.",
+                "delete_confirm_title": "Are you sure?",
+                "delete_confirm_text": "This announcement will be deleted.",
+                "deleted": "Announcement has been successfully deleted",
+                "created": "Announcement has been successfully added",
+                "edited": "Announcement has been successfully changed",
+                "send_a_test_email": {
+                    "title": "Send a Test Email",
+                    "send": "Send",
+                    "successfully": "Email has been successfully sent",
+                    "wrong": "Something went wrong, please contact support"
+                },
+                "mailroom_email_configuration": {
+                    "title": "Mailroom Email Configuration",
+                    "description": "To send mass emails you need either to use your own SMTP server or verify your “from” Email address. Please contact our Support Team."
+                }
+            }
+        }
+    },
+    "billing2": {
+        "affiliates": {
+            "total_due": "Total Due",
+            "show_balance": "Show the Balance of Pending Conversions",
+            "navigation_tooltip": "Manage your Affiliate's Billing Preferences, Payment Methods and Balances."
+        },
+        "affiliate": {
+            "preferences": {
+                "title": "Billing Preferences",
+                "beneficiary_name": "Beneficiary Name",
+                "beneficiary_address": "Beneficiary Address",
+                "billing_email": "Billing Email",
+                "tax_id": "Tax ID",
+                "by_request": "By Affiliate Request",
+                "invoice_frequency": {
+                    "weekly": "{{type}} on {{week}}",
+                    "bimonthly": "{{type}}, {{firstDay}}{{ endingFirst }} & {{lastDay}}{{ endingSecond }} day",
+                    "monthly": "{{type}}, on the {{firstDay}}{{ endingFirst }} day",
+                    "monthly_quarterly": "{{type}}, on the {{firstDay}}{{ endingFirst }} day"
+                }
+            },
+            "edit": {
+                "title": "Edit Billing Preferences",
+                "updated": "Billing Details has been successfully updated",
+                "error": "Unexpected error while updating Billing Details"
+            }
+        },
+        "settings": {
+            "affiliate": {
+                "info_for_affiliates": "Information for Affiliates",
+                "info_for_affiliates_description": "This information is shown at the top of the Billing page. You can describe your payment terms, thresholds and supported payment methods.",
+                "save_notification": "Affiliate Billing settings were updated successfully",
+                "include_referral_balance": "Include Referral Balance",
+                "payment": {
+                    "title": "Affiliate Payment",
+                    "by_affiliate_request": "By Affiliate Request",
+                    "by_schedule": "By Schedule",
+                    "description": "Determines the way you pay your affiliates",
+                    "descriptions": {
+                        "schedule": "Select this method if you pay your affiliates on a pre-defined day. For example: 10th day of the month, on Friday, etc.",
+                        "request": "Select this method if affiliates should request the payment themselves. Upon request the system generates an Invoice."
+                    },
+                    "allow_to_enter_the_amount": {
+                        "title": "Allow to enter an Amount",
+                        "description": "Allow Affiliates to request a certain Amount."
+                    },
+                    "allow_an_attachment": {
+                        "title": "Allow an Attachment",
+                        "description": "Allow Affiliates to attach a file during a request."
+                    }
+                }
+            },
+            "payments_methods": {
+                "title": "Payment Methods",
+                "add": "Add Payment Method",
+                "add_as_title": "Add Payment Method",
+                "edit": "Edit Payment Method",
+                "edited": "Payment Method has been successfully changed",
+                "created": "Payment Method has been successfully created",
+                "deleted": "Payment Method has been successfully deleted",
+                "supported_currencies": "Supported Currencies",
+                "supported_currencies_description": "If you want this method displayed for certain currencies only, please select them here. If nothing is selected, all currencies will be supported.",
+                "payment_threshold": "Payment Threshold",
+                "payment_threshold_description": "Affiliates should earn a minimum of this amount or equivalent in a different currency to be paid.",
+                "commission_description": "If you want to charge the affiliate an additional commission for using this payment method, you can set it here. This commission will be added to every payment that  uses this method.",
+                "payment__method_logo": "Payment Method Logo",
+                "payment__method_logo_description": "Optional. Will be displayed to affiliates during Payment Method selection."
+            }
+        },
+        "header": {
+            "info_text": "Your Scaleo billing details will be here"
+        }
+    },
+    "platform_list": {
+        "default_payment_terms": {
+            "title": "Default Payment Terms",
+            "net_7": "Net 7",
+            "net_14": "Net 14",
+            "net_30": "Net 30",
+            "net_60": "Net 60"
+        },
+        "traffic_distribution_methods": {
+            "ab_testing": "A/B Testing",
+            "rotation": "Rotation",
+            "targeting_based": "Targeting Based"
+        }
+    },
+    "upgrade_plan": {
+        "title": "Upgrade.",
+        "message": "Please Upgrade your plan to be able to use this feature",
+        "upgrade_to": "Upgrade to {{ plan }}",
+        "plans": {
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise",
+            "custom": "Custom"
+        }
+    },
+    "refresh_api_key_confirm": {
+        "title": "Are you sure?",
+        "message": "The current API Key will stop functioning and the new one will be generated."
+    },
+    "response_message": {
+        "created": "{{ title }} has been successfully created",
+        "updated": "{{ title }} has been successfully changed",
+        "deleted": "{{ title }} has been successfully deleted",
+        "exception_created": "Error on {{ title }} creating, try later",
+        "exception_updated": "Error on {{ title }} updating, try later",
+        "exception_deleted": "Error on {{ title }} deleting, try later",
+        "not_found": "{{ title }} Not Found",
+        "deleted_file": "File has been successfully deleted",
+        "deleted_file_exception": "Error on file deleting, try later",
+        "download_file_exception": "Error on file generating, try late",
+        "upload_file": "File has been successfully upload",
+        "upload_file_exception": "Error on file uploading, try late",
+        "default_exception": "Something went wrong, please try again later",
+        "default_success": "Successfully",
+        "login_as_exception": "There was an unexpected login on account  error, please try again later"
+    },
+    "confirm_message": {
+        "are_you_sure": "Are you sure?",
+        "delete": "The {{ title }} will be deleted."
+    },
+    "profile": {
+        "invitation_link": {
+            "affiliate": {
+                "title": "Invitation Link for New Affiliates",
+                "description": "A new Affiliate signed up from this link will be automatically assigned to this account."
+            },
+            "advertiser": {
+                "title": "Invitation Link for New Advertisers",
+                "description": "A new Advertiser signed up from this link will be automatically assigned to this account."
+            }
+        }
+    }
+}

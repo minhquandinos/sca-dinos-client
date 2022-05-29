@@ -1,0 +1,10 @@
+<ui-table2-row>
+    <ui-table2-header-col-select *ngIf="showSelect$ | async"></ui-table2-header-col-select>
+    <ui-table2-header-col
+        *ngFor="let column of columns; let i = index"
+        [column]="column"
+        [index]="i"
+        [level]="level"
+    ></ui-table2-header-col>
+    <th *ngIf="withControl" class="table2__header-column-control"></th>
+</ui-table2-row>

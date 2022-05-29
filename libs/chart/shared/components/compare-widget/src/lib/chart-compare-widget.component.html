@@ -1,0 +1,52 @@
+<div class="custom-dashboard-widget-network_summary-base">
+    <ng-container *ngIf="widget; else titleSkeletonTpl">
+        <div class="custom-dashboard-widget-network_summary-base__title subtitle is-6 line-height is-17">
+            {{ 'dashboard_grid.widget.performance.settings.' +  widget.key | translate }}
+        </div>
+
+        <div class="custom-dashboard-widget-network_summary-base__date-update line-height is-20">
+            {{ date }}
+        </div>
+    </ng-container>
+
+    <div class="custom-dashboard-widget-network_summary-base__info d-flex align-items-center">
+        <div class="title is-1">
+            <ng-container *ngIf="widget; else totalSkeletonTpl">
+                {{ widget?.current?.total | formatByKey: widget?.key }}
+            </ng-container>
+        </div>
+        <div
+            *ngIf="widget?.current?.total_change"
+            class="custom-dashboard-widget-network_summary-base__diff d-flex align-items-center"
+            [ngClass]="{
+                'custom-dashboard-widget-network_summary-base__diff-up': widget?.current?.total_change > 0,
+                'custom-dashboard-widget-network_summary-base__diff-down': widget?.current?.total_change < 0
+            }"
+        >
+            {{ widget?.current?.total_change | format:'percent':{digitsAfterPoint: 0} | positiveNegative  }}
+        </div>
+    </div>
+
+    <div class="custom-dashboard-widget-network_summary-base__chart" [hidden]="!widget">
+        <app-chart-compare-period
+            class="d-block w-100"
+            height="72"
+            marginBottom="4"
+        ></app-chart-compare-period>
+    </div>
+    <div class="custom-dashboard-widget-network_summary-base__chart" *ngIf="!widget">
+        <ui-skeleton>
+            <ui-skeleton-block [width]="100" height="big" customHeight="72px"></ui-skeleton-block>
+        </ui-skeleton>
+    </div>
+</div>
+
+<ng-template #titleSkeletonTpl>
+    <ui-skeleton>
+        <ui-skeleton-block customHeight="37px" size="medium" [width]="25"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #totalSkeletonTpl>
+    <span class="color__gray3">0</span>
+</ng-template>

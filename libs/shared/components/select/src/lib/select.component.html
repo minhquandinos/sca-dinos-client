@@ -1,0 +1,81 @@
+<label
+    [for]="formControlName"
+    class="field-label field-label-top"
+    [ngClass]="{'field-select-error': control?.invalid && control?.touched, 'field-label-reverse': positionLabelRequired === 'left'}"
+    *ngIf="label"
+>
+    {{ label }}  <span class="field-label__required" *ngIf="required">*</span>
+</label>
+<ng-select
+    #selectRef
+    [appendTo]="appendTo"
+    [disabled]="disabled"
+    *ngIf="_items"
+    [id]="formControlName"
+    class="ng-select ng-select-size-{{this.size}}"
+    [ngClass]="[
+        classNames,
+        themeClass,
+        control?.invalid && control?.touched ? 'field-select-error' : '',
+        hideDropdownArrow ? 'ng-select-hide-dropdown-arrow' : ''
+    ]"
+    [items]="_items"
+    [bindLabel]="itemLabel"
+    [bindValue]="itemValue"
+    [placeholder]="placeholder"
+    [searchable]="searchable"
+    [clearable]="clearable"
+    [multiple]="multiple"
+    [hideSelected]="hideSelected"
+    [loading]="loading"
+    [searchFn]="searchFn"
+    (change)="changed($event)"
+    (clear)="onClear()"
+    (add)="onMultiAdd($event)"
+    (remove)="onMultiRemove($event)"
+    (search)="searching($event)"
+    [(ngModel)]="value"
+    (scrollToEnd)="scrollToEnd()"
+>
+    <ng-template ng-label-tmp let-item="item" let-clear="clear">
+        <ng-container *ngIf="addTemplate; else defaultLabel">
+            <ng-template [ngTemplateOutlet]="labelTemplate" [ngTemplateOutletContext]="{item: item, clear: clear}"></ng-template>
+        </ng-container>
+        <ng-template #defaultLabel>
+            <span class="ng-value-label" *ngIf="!multiple; else multipleTemplate">
+                <span *ngIf="labelShowId && item[itemLabel] && item.id !== 0">#{{ item.id }}</span> {{ item[itemLabel] }}
+            </span>
+            <ng-template #multipleTemplate>
+                <ui-chip size="large" [close]="true" (closed)="clear(item)" (click)="clear(item)" aria-hidden="true">
+                    <span class="text-pre-wrap text-left">
+                        <span *ngIf="labelShowId && item[itemLabel]">#{{ item.id }}</span>
+                        <span [ngClass]="{'pl-1': labelShowId}">{{ item[itemLabel] }}</span>
+                    </span>
+                </ui-chip>
+            </ng-template>
+        </ng-template>
+    </ng-template>
+    <ng-template ng-option-tmp let-item="item">
+        <ng-container *ngIf="addTemplate; else defaultOption">
+            <ng-template [ngTemplateOutlet]="optionTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+        </ng-container>
+        <ng-template #defaultOption>
+            <span class="ng-value-label">
+                <span *ngIf="labelShowId && item[itemLabel] && item.id !== 0">#{{ item.id }}</span> {{ item[itemLabel] }}
+            </span>
+        </ng-template>
+    </ng-template>
+
+    <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+        <div class="ng-option disabled">
+            {{ 'interface.basic.filters.no_data_found' | translate }}
+        </div>
+    </ng-template>
+
+    <ng-template ng-loadingtext-tmp let-searchTerm="searchTerm">
+        <div class="ng-option disabled">
+            {{ 'interface.basic.filters.fetching_data' | translate }}
+        </div>
+    </ng-template>
+</ng-select>
+<app-validation-message2 *ngIf="_items && control?.invalid && control?.touched" [validation]="control?.errors"></app-validation-message2>

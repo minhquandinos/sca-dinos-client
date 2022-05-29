@@ -1,0 +1,17 @@
+<div class="form-crud form-crud--targeting-rules" [formArrayName]="formArrayName">
+    <div class="form-crud__list mb-2" *ngFor="let control of targetingRules; let i = index">
+        <app-extended-targeting-item
+            [group]="control"
+            [index]="i"
+            (remove)="deleteRule($event)"
+        ></app-extended-targeting-item>
+    </div>
+
+    <ui-button-link
+        className="form-crud__button"
+        type="simple"
+        [label]="'offers_page.targeting.add' | translate"
+        icon="plus-small"
+        (click)="addRule()"
+    ></ui-button-link>
+</div>

@@ -1,0 +1,35 @@
+<span class="d-flex align-items-center m-b-12">
+    {{ data.fail_traffic_forwarding | failTrafficForwardingName | async }}
+    <app-custom-info-tooltip [text]="failTrafficForwardingTooltip"></app-custom-info-tooltip>
+</span>
+
+<ng-container *ngIf="forwardingValueTpl" [ngTemplateOutlet]="forwardingValueTpl"></ng-container>
+
+<ng-template #failTrafficForwardingTooltip>
+    <div class="pl-3">
+        {{ 'offers_page.tracking.form.fail_traffic_forwarding_description' | translate }}
+        <ul class="ul-description">
+            <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_main_destination' | translate }}</li>
+            <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_preview' | translate }}</li>
+            <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_offer' | translate }}</li>
+            <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_custom_trafficback' | translate }}</li>
+            <li>{{ 'offers_page.tracking.form.fail_traffic_forwarding_description_global_trafficback' | translate }}</li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #globalTrafficbackUrlTpl>
+    <app-field-text-info class="text-break-all">
+        {{ globalTrafficbackUrl }}
+    </app-field-text-info>
+</ng-template>
+
+<ng-template #customTrafficbackUrlTpl>
+    <app-field-text-info class="text-break-all">
+        {{ data.custom_trafficback_url }}
+    </app-field-text-info>
+</ng-template>
+
+<ng-template #offerTpl>
+    {{ data.offers_to_forward_obj.title | format: 'idName': data.offers_to_forward_obj.id }}
+</ng-template>

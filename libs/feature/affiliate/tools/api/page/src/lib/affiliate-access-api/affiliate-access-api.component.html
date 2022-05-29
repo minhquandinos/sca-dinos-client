@@ -1,0 +1,42 @@
+<scaleo-card2 size="half">
+    <scaleo-card2-title>
+        <div class="title">{{ 'tools_page.api.title' | translate }}</div>
+    </scaleo-card2-title>
+
+    <ui-divider></ui-divider>
+
+    <scaleo-card2-content>
+        <div *ngIf="enableApiForUser; else apiDisable">
+            <div class="title is-5 color__green m-b-32">{{ 'interface.basic.enabled' | translate}}</div>
+
+            <div class="w-75">
+                <label
+                    class="field-label field-label-top m-b-8"
+                >{{ 'interface.form.url' | translate }}</label>
+                <app-field-text-info preset="copy">
+                    <div class="text-break-all">{{ trackingUrl }}</div>
+                </app-field-text-info>
+
+            </div>
+
+            <div class="m-t-16 w-75">
+                <label
+                    class="field-label field-label-top m-b-8"
+                >{{ 'interface.basic.api_key' | translate }}</label>
+
+                <app-field-text-info preset="copy">
+                    <div class="text-break-all">{{ apiKey }}</div>
+                </app-field-text-info>
+            </div>
+
+        </div>
+
+        <ng-template #apiDisable>
+            <div class="d-flex flex-column">
+                <span class="title is-5 mt-0 color__red m-b-22">{{ 'interface.basic.disabled' | translate }}</span>
+                <span>{{ 'tools_page.api.hint_for_enable_api' | translate }}</span>
+            </div>
+        </ng-template>
+    </scaleo-card2-content>
+
+</scaleo-card2>

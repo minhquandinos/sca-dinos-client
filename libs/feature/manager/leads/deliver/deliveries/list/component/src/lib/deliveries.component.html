@@ -1,0 +1,58 @@
+<ui-table2
+    [columns]="tableHeaders"
+    [items]="items$ | async"
+    [loading]="loading$ | async"
+    [stickyHead]="true"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    class="table-receive-leads-deliveries"
+>
+    <ng-template uiTable2ColTemplate="title" let-item="valueRow">
+        <div class="table__box-status m-r-12 d-flex align-items-center">
+            <ui-status-color [status]="item.status" className="table__box-image-status"></ui-status-color>
+        </div>
+        <div class="w-100 d-flex flex-column m-l-8 h-100 justify-content-center">
+            {{ item.id + ' ' + item.title | format: 'idName' }}
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="campaign" let-campaign="value">
+        {{ campaign.id + ' ' + campaign.title | format: 'idName' }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="notes" let-notes="value">
+        {{ notes }}
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <div class="ml-auto">
+        <ui-table-navigation (toggleEdit)="upsert(item.id)"></ui-table-navigation>
+    </div>
+</ng-template>
+
+<ng-template #createTemplate>
+    <ui-button-link
+        type="floating"
+        [label]="'leads_ui_page.deliver.deliveries.add' | translate"
+        icon="plus-small"
+        (click)="upsert()"
+    ></ui-button-link>
+</ng-template>
+
+<ng-template #filterTemplate>
+    <scaleo-leads-deliveries-filters
+        [params]="params$ | async"
+        [totals]="totalCount$ | async"
+    ></scaleo-leads-deliveries-filters>
+</ng-template>
+
+<ng-template #footerTemplate>
+    <app-custom-pagination
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+        *ngIf="!(loading$ | async) && (totalCount$ | async) > 9"
+    ></app-custom-pagination>
+</ng-template>

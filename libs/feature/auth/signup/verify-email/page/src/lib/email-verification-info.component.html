@@ -1,0 +1,29 @@
+<div class="page-content-password_reset-confirmation d-flex">
+    <div class="page-content-wrapper password-reset__wrapper align-self-center d-flex">
+        <div class="password-reset-confirmation align-self-center">
+            <ng-container *ngIf="emailVerificationInfoType; else skeleton">
+                <div
+                    class="password-reset__block-title"
+                    [ngClass]="{'password-reset__block-title-fail': emailVerificationInfoType === emailVerificationInfoEnum.Failed}"
+                >
+                    {{ 'email_verification.' + emailVerificationInfoType +'.title' | translate }}
+                </div>
+
+                <div class="password-reset__block-description password-reset__block-description-info">
+                    {{ 'email_verification.' + emailVerificationInfoType + '.subtitle' | translate }}
+                </div>
+
+                <div class="m-t-24" *ngIf="emailVerificationInfoType !== emailVerificationInfoEnum.Sent">
+                    <a routerLink="/login">{{ 'email_verification.return_to_login' | translate }}</a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+        <ui-skeleton-block height="big" size="large" className="m-b-1 m-t-20"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

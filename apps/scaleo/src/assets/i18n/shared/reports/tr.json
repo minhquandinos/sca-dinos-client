@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Miktar",
+                "cv_pending": "Miktar",
+                "cv_rejected": "Miktar",
+                "cv_total": "Miktar",
+                "clicks": "Brüt",
+                "impressions": "Miktar",
+                "antifraud_logic_score": "Dolandırıcılık",
+                "cv_trash": "Miktar"
+            },
+            "tooltip": {
+                "tr": "Toplam Dönüşüm Oranı",
+                "cr": "Onaylanmış Dönüşüm Oranı",
+                "pr": "Bekleyen Dönüşüm Oranı",
+                "rr": "Reddedilmiş Dönüşüm Oranı",
+                "rpc": "Tıklama Başına Gelir",
+                "cpc": "Tıklama Başına Maliyet",
+                "epc": "Tıklama Başına Kazanç",
+                "rpa": "Onaylanmış Dönüşüm Başına Gelir",
+                "cpa": "Onaylanmış Dönüşüm Başına Maliyet",
+                "epa": "Onaylanmış Dönüşüm Başına Kazanç",
+                "rpm": "1000 izlenmiş başına gelir",
+                "cpm": "1000 izlenim başına maliyet",
+                "epm": "1000 izlenim başına kazanç",
+                "total_conversions": "Onaylanmış ve Bekleyen dönüşümler",
+                "total_conversions_without_rejected": "Onaylanmış, Bekleyen",
+                "total_conversions_include_rejected_in_totals": "Onaylanmış, Bekleyen, Reddedilmiş ve Çöp dönüşümler ",
+                "ctr": "Tıklama oranı (İzlenimlerden Tıklamalara)",
+                "cv_total": "Onaylanmış, Beklemede, Reddedilmiş",
+                "ar": "Toplam  Dönüşüm Başına Onaylanmış Dönüşüm Oranı",
+                "trash_conversions": "Yanlış veri, dolandırıcılık veya test dönüşümleri ile dönüşümler"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Ortak",
+            "affiliates_sources": "Ortak Kaynağı",
+            "affiliates_subids1": "Ortak Alt Kimliği 1",
+            "affiliates_subids2": "Ortak Alt Kimliği 2",
+            "affiliates_subids3": "Ortak Alt Kimliği 3",
+            "affiliates_subids4": "Ortak Alt Kimliği 4",
+            "affiliates_subids5": "Ortak Alt Kimliği 5",
+            "affiliates_params1": "Ortak Param 1",
+            "affiliates_params2": "Ortak Param 2",
+            "affiliates_params3": "Ortak Param 3",
+            "affiliates_params4": "Ortak Param 4",
+            "affiliates_params5": "Ortak Param 5",
+            "deep_links": "Deep Link URL'si",
+            "aff_click_ids": "Ortak Tıklama Kimliği",
+            "reasons": "Sebep",
+            "redirections": "Yönlendirme"
+        },
+        "logs": {
+            "title": "Trafik Kayıtları",
+            "menus": {
+                "clicks": "Geçersiz Tıklamalar",
+                "postbacks": "Geri göndermeler"
+            },
+            "info_conversions": "Belirli dönüşümleri bulamıyor musunuz? Kontrol edin ",
+            "info_clicks": "Belirli tıklamaları bulamıyor musunuz? Kontrol edin "
+        }
+    }
+}

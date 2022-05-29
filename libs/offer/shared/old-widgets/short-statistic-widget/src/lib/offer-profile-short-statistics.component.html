@@ -1,0 +1,70 @@
+<ui-page-wrapper borderRadius="4">
+    <ui-page-wrapper-header size="medium" [haveBorderBottom]="false">
+        <div class="title is-4">{{ 'offers_page.basic.14_days_statistics' | translate }}</div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="p-0">
+        <ui-table
+            [headers]="headers"
+            headerPosition="left"
+            [isLoad]="isLoad"
+            [notFround]="(items$ | async)?.results.rows?.length <= 0"
+            [skeletonTemplate]="skeleton"
+            [items]="(items$ | async)?.results.rows"
+            [rowTemplate]="defaultTemplate"
+            rowSize="medium"
+            [isTransparentHead]="true"
+        ></ui-table>
+    </ui-page-wrapper-content>
+
+    <ui-page-wrapper-footer size="medium">
+        <ui-button-link
+            *ngIf="(items$ | async)?.pagination?.total_count >= 10"
+            iconPosition="right"
+            icon="arrow-right-2"
+            type="simple"
+            (click)="navigate()"
+            [label]="'interface.basic.view_all' | translate"
+        ></ui-button-link>
+    </ui-page-wrapper-footer>
+
+    <ng-template #defaultTemplate let-item="context">
+        <td ui-table-col>
+            {{ item.date | format:'date' }}
+        </td>
+        <td ui-table-col>
+            {{ item.clicks | format:'number' }}
+        </td>
+        <td ui-table-col>
+            <ng-container *ngIf="columnsAsArray.includes('cv_approved')">
+                {{ item.cv_approved | format:'number' }}
+            </ng-container>
+            <ng-container *ngIf="columnsAsArray.includes('cv_total')">
+                {{ item.cv_total | format:'number' }}
+            </ng-container>
+        </td>
+        <td ui-table-col>
+            {{ (showTrInsteadCr ? item.tr : item.cr) | format:'percent' }}
+        </td>
+        <td ui-table-col>
+            <ng-container *ngIf="payoutColumnFor === 'affiliate'">
+                <ng-container *ngIf="columnsAsArray.includes('approved_payout')">
+                    {{ item.approved_payout | format:'money' }}
+                </ng-container>
+                <ng-container *ngIf="columnsAsArray.includes('total_payout')">
+                    {{ item.total_payout | format:'money' }}
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="payoutColumnFor === 'advertiser'">
+                {{ item.total_revenue | format:'money' }}
+            </ng-container>
+        </td>
+    </ng-template>
+
+    <ng-template #skeleton>
+        <tr ui-table-row *ngFor="let fake of shared.generateFake(10)" class="skeleton">
+            <td ui-table-col *ngFor="let fakeTd of shared.generateFake(headers.length)" >
+                <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+            </td>
+        </tr>
+    </ng-template>
+</ui-page-wrapper>

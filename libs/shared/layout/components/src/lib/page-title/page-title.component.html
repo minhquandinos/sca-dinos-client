@@ -1,0 +1,25 @@
+<div class="page-header-title d-flex align-items-center h-100 w-auto">
+    <div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb" *ngIf="showBreadcrumbs$ | async">
+            <ol class="breadcrumb">
+                <li
+                    class="breadcrumb-item"
+                    [ngClass]="{active: !(!!item.current)}"
+                    *ngFor="let item of breadcrumbs$ | async"
+                >
+                    <a *ngIf="!item.current" class="cursor-pointer" [routerLink]="item.link">
+                        <span *ngIf="item?.title">{{ item?.title }}</span>
+                        <span *ngIf="!item?.title"> {{ item.key | translate }}</span>
+                    </a>
+                    <span *ngIf="item.current">{{ item.key | translate }} {{ item?.title }}</span>
+                </li>
+            </ol>
+        </nav>
+
+        <div class="title is-2">
+            {{ headerTranslateKey$ | async | translate }}&nbsp; {{ headerTitle$ | async }}
+        </div>
+    </div>
+
+
+</div>

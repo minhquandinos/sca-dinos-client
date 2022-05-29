@@ -1,0 +1,47 @@
+.title {
+    color: $color__black3;
+    line-height: 1.125;
+    font-size: $font-size-x-large;
+    font-stretch: normal;
+    font-style: normal;
+
+    @include font-family-bold;
+    @include typography-sizes;
+}
+
+.subtitle {
+    font-size: $font-size-medium;
+    line-height: 1.6;
+    color: $color__gray;
+
+    @include font-family-medium;
+    @include typography-sizes;
+}
+
+.font-size {
+    font-size: $font-size-base;
+    @include typography-sizes;
+}
+
+.line-height {
+    line-height: 1.6;
+    @include line-height-sizes;
+}
+
+.font-family {
+    &-bold {
+        @include font-family-bold;
+    }
+
+    &-medium {
+        @include font-family-medium;
+    }
+
+    &-normal {
+        @include font-family-normal;
+    }
+
+    &-monaco {
+        @include font-family-monaco;
+    }
+}

@@ -1,0 +1,17 @@
+<section formArrayName="validations" class="m-b-32">
+    <div class="title is-4 m-b-22">{{ 'leads_ui_page.receive.campaigns.validations.title' | translate }}</div>
+
+    <div class="form-crud__list mb-2" *ngFor="let control of validationsFormControlsArray; let i = index">
+        <div [formGroupName]="i">
+            <app-campaign-field-validation [group]="control" [index]="i" [fields]="campaignFields$ | async"></app-campaign-field-validation>
+        </div>
+    </div>
+
+    <ui-button-link
+        className="form-crud__button"
+        type="simple"
+        [label]="'leads_ui_page.receive.campaigns.validations.add' | translate"
+        icon="plus-small"
+        (click)="add()"
+    ></ui-button-link>
+</section>

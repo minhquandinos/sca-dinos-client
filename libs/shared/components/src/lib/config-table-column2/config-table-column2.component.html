@@ -1,0 +1,36 @@
+<ui-button-link [label]="title" [icon]="icon" type="simple" [className]="classNameForButton" (click)="showInfo()"></ui-button-link>
+
+<ng-template #infoTemplate>
+    <div class="config-table-column" #tableConfig>
+        <div class="config-table-column__groups" *ngIf="_configs" [ngClass]="{ 'config-table-column__groups--half': grid === 2 }">
+            <div class="config-table-column__group" *ngFor="let column of _configs; let iGroup = index">
+                <div class="mb-2" [ngClass]="{ 'd-none': !showGroup }">
+                    <span class="title is-6 d-flex align-items-center" [appConfigTableColumn2SelectAll]="column.items">
+                        {{ column?.key | configEntityTranslate: 'key' | async }}
+                        <!--                        <span class="ml-1">-->
+                        <!--                            <ui-svg-icon-->
+                        <!--                                class="cursor-info"-->
+                        <!--                                icon="info"-->
+                        <!--                                size="14"-->
+                        <!--                                appConfigTableColumn2ItemTooltip-->
+                        <!--                            ></ui-svg-icon>-->
+                        <!--                        </span>-->
+                    </span>
+                </div>
+                <app-config-table-column2-list [params]="column.items"></app-config-table-column2-list>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #infoFooterTemplate>
+    <div class="d-flex align-items-center justify-content-center" *ngIf="_configs">
+        <ui-button-link
+            type="simple"
+            [label]="'shared.dictionary.cancel' | translate"
+            (click)="cancel()"
+            className="m-r-8"
+        ></ui-button-link>
+        <ui-button-link [label]="confirmButtonLabel | translate" (click)="apply()"></ui-button-link>
+    </div>
+</ng-template>

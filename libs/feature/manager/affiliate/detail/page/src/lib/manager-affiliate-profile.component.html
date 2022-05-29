@@ -1,0 +1,42 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill fxLayoutGap="1rem">
+    <div fxFlex="400px" fxFlex.md="100" fxFlex.xxl="500px">
+        <div appSticky="bottomTop">
+            <app-affiliate-detail
+                [affiliateId]="id$ | async"
+                (affiliate)="setCompanyName($event)"
+            ></app-affiliate-detail>
+        </div>
+    </div>
+
+    <div fxFlex fxLayoutGap="1rem" fxLayout="column">
+
+        <scaleo-manager-affiliate-trend-widget
+            [affiliateId]="id$ | async"
+        ></scaleo-manager-affiliate-trend-widget>
+
+        <scaleo-affiliate-billing-payments-methods
+            *ngxPermissionsOnly="permissions.canAccessAffiliateBilling"
+            [affiliateId]="id$ | async"
+        ></scaleo-affiliate-billing-payments-methods>
+
+        <scaleo-postback-widget [affiliateId]="id$ | async"></scaleo-postback-widget>
+
+        <scaleo-manager-affiliate-profile-domains
+            [affiliateId]="id$ | async"
+        ></scaleo-manager-affiliate-profile-domains>
+
+
+        <ng-container *ngxPermissionsOnly="[permissions.canSeeReferralReports]">
+            <scaleo-manager-affiliate-referral-list
+                *ngIf="allowReferralProgram"
+                [id]="id$ | async"
+            ></scaleo-manager-affiliate-referral-list>
+        </ng-container>
+
+        <scaleo-activity-log-entity-detail-widget
+            *ngxPermissionsOnly="[permissions.canAccessActivityLog]"
+            [filter]="{'affiliate': id$ | async}"
+            linkForViewAll="activity-log"
+        ></scaleo-activity-log-entity-detail-widget>
+    </div>
+</div>

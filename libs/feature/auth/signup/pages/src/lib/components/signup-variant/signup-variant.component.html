@@ -1,0 +1,39 @@
+<div class="page-content-signup d-flex ">
+    <div class="signup align-self-center d-flex">
+        <div class="signup-wrapper mx-auto ">
+            <div class="h-100 flex-fill d-flex flex-column align-items-center">
+
+                <div class="signup-wrapper-blocks text-center d-flex ">
+
+                    <div class="signup-wrapper-block signup-wrapper-block__left ">
+                        <div class="signup-wrapper-block__title">{{ 'auth.AFFILIATE' | translate }}</div>
+                        <ui-button-link
+                            class="form-button"
+                            type="main"
+                            [label]="'auth.REGISTRATION_BUTTON' | translate"
+                            routerLink="affiliate"
+                            [size]="'medium'"
+                        ></ui-button-link>
+                    </div>
+                    <div class="signup-wrapper-block signup-wrapper-block__right">
+                        <div
+                            class="signup-wrapper-block__title white-space-nowrap">{{ 'auth.ADVERTISER' | translate }}</div>
+                        <ui-button-link
+                            class="form-button"
+                            type="main"
+                            [label]="'auth.REGISTRATION_BUTTON' | translate"
+                            routerLink="advertiser"
+                            [size]="'medium'"
+                        ></ui-button-link>
+                    </div>
+
+                </div>
+
+                <div class="signup-wrapper-bottom d-flex justify-content-center">
+                    <a routerLink="/login">{{ 'auth.ALREADY_HAVE_ACCOUNT' | translate }}</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

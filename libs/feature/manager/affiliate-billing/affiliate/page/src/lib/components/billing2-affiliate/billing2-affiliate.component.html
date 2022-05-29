@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill fxLayoutGap="1rem">
+    <div fxFlex="400px" fxFlex.md="100" fxFlex.xxl="500px">
+        <div appSticky="bottomTop">
+            <app-affiliate-detail
+                [affiliateId]="affiliateId"
+                (changed)="updatedWidget(['balance', 'paymentMethods'])"
+                (affiliate)="setPageTitle($event)"
+            ></app-affiliate-detail>
+        </div>
+    </div>
+    <div fxFlex fxLayoutGap="1rem" fxLayout="column">
+        <scaleo-affiliate-billing-balance-widget
+            [affiliateId]="affiliateId"
+            [showPendingBalance]="showPendingBalance$ | async"
+        ></scaleo-affiliate-billing-balance-widget>
+        <scaleo-affiliate-billing-payments-methods
+            [affiliateId]="affiliateId"
+            (requestSended)="updatedWidget(['invoices'])"
+        ></scaleo-affiliate-billing-payments-methods>
+        <app-billing2-affiliate-invoices-widget
+            *ngxPermissionsOnly="permissions.canAccessAffiliateInvoices"
+            [affiliateId]="affiliateId"
+            (updated)="updatedWidget(['balance', 'paymentMethods'])"
+        ></app-billing2-affiliate-invoices-widget>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="dashboard-notifications">
+    <app-card-widget [autoSetBottomPaddingWhenFooterEmpty]="true">
+        <app-card-widget-header [divider]="false" size="large">
+            <span class="title is-4">{{ 'activity_logs.title' | translate }}</span>
+        </app-card-widget-header>
+        <app-card-widget-content className="p-0">
+            <app-container-shadow maxHeight="396px" [shadowOnScroll]="true">
+                <scaleo-activity-log-widget-items
+                    [items]="items$ | async"
+                    [loading]="isLoad$ | async"
+                ></scaleo-activity-log-widget-items>
+            </app-container-shadow>
+        </app-card-widget-content>
+
+        <app-card-widget-footer divider="inline" *ngIf="(totalCount$ | async) > 10">
+            <ng-container *ngTemplateOutlet="(canManager$ | async) ? managerLinkTpl : paginationTp"></ng-container>
+        </app-card-widget-footer>
+    </app-card-widget>
+</div>
+
+<ng-template #managerLinkTpl>
+    <ui-button-link
+        class="ml-auto btn__view-all"
+        (click)="navigate()"
+        iconPosition="right"
+        icon="ic_arrow_right_blue"
+        type="link"
+        [label]="'interface.basic.view_all' | translate"
+    ></ui-button-link>
+</ng-template>
+
+<ng-template #paginationTp>
+    <app-custom-pagination
+        *ngIf="showPagination$ | async"
+        [pagination]="pagination$ | async"
+        [showPerPageDropdown]="false"
+        [scrollToTopAfterPageChange]="false"
+        (toggle)="pageWasChanged($event)"
+    ></app-custom-pagination>
+</ng-template>

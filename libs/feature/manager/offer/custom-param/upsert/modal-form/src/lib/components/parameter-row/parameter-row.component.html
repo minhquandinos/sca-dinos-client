@@ -1,0 +1,100 @@
+<div class="d-flex" [formGroup]="group">
+    <section class="d-flex w-100 flex-column flex-md-row m-r-8">
+        <div class="form-crud__item">
+            <app-find-platform-list
+                platformList="custom_params_actions"
+                [placeholder]="'offers_page.custom_parameters.form.parameters.select_parameter' | translate"
+                formName="type"
+                [labelShowId]="false"
+                (toggle)="changeType($event)"
+            ></app-find-platform-list>
+        </div>
+        <ng-container *ngIf="showOffer; else defaultParameters">
+            <div class="form-crud__item w-100">
+                <app-find-offer
+                    [placeholder]="'shared.dictionary.offer' | translate"
+                    [exceptIds]="[offerId]"
+                    formName="parameter"
+                ></app-find-offer>
+            </div>
+        </ng-container>
+        <ng-template #defaultParameters>
+            <ng-container *ngIf="parameterType$ | async as type">
+                <div
+                    class="form-crud__item"
+                    *ngIf="
+                        type === customParamsActionIdEnum.DailyCap ||
+                        type === customParamsActionIdEnum.MonthlyCap ||
+                        type === customParamsActionIdEnum.TotalCap ||
+                        type === customParamsActionIdEnum.WeeklyCap
+                    ">
+                        <app-find-platform-list
+                            platformList="goals_caps_types"
+                            formName="cap_type"
+                            (toggle)="setFormControlForCapTypeParameter($event?.newValue)"
+                        ></app-find-platform-list>
+                </div>
+                <div class="form-crud__item" *ngIf="showGoals">
+                    <app-find-goals
+                        itemLabel="title"
+                        formName="goal_id"
+                        [offerId]="offerId"
+                        [selectedFirstElement]="true"
+                        [firstItem]="false"
+                        [hideSelected]="false"
+                    ></app-find-goals>
+                </div>
+                <div
+                    class="form-crud__item"
+                    [ngClass]="type === customParamsActionIdEnum.TrafficBackURL ? 'w-100' : 'w-auto'"
+                >
+                    <ng-container [ngSwitch]="true">
+                        <ng-container *ngSwitchCase="formControlForParameter === 'money'">
+                            <app-input
+                                [inputText]="offerCurrencySymbol"
+                                inputTextPosition="left"
+                                numeric="float"
+                                formControlName="parameter"
+                                [maxLength]="maxLengthForInput"
+                            ></app-input>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="formControlForParameter === 'percent'">
+                            <app-input
+                                inputText="%"
+                                inputTextPosition="left"
+                                numeric="integer"
+                                formControlName="parameter"
+                                [maxLength]="maxLengthForInput"
+                            ></app-input>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="formControlForParameter === 'percentWithDrop'">
+                            <app-input
+                                inputText="%"
+                                inputTextPosition="left"
+                                numeric="float"
+                                formControlName="parameter"
+                                [maxLength]="maxLengthForInput"
+                            ></app-input>
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <app-input
+                                [numeric]="valueIsInteger"
+                                formControlName="parameter"
+                                [maxLength]="maxLengthForInput"
+                            ></app-input>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </ng-template>
+    </section>
+
+    <div class="d-flex align-items-center">
+        <ui-svg-icon
+            *ngIf="index !== 0"
+            icon="delete"
+            (click)="delete()"
+            [tooltip]="'tooltip.basic.delete' | translate"
+        ></ui-svg-icon>
+    </div>
+</div>

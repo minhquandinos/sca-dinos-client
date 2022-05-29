@@ -1,0 +1,33 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    class="custom-dashboard-widget-shortcuts"
+>
+    <div class="custom-dashboard-widget-shortcuts__container">
+        <section>
+            <p class="custom-dashboard-widget-shortcuts__label">{{'interface.basic.search' | translate }}</p>
+            <app-shortcuts-search-items
+                [items]="searchItems$ | async"
+            ></app-shortcuts-search-items>
+        </section>
+
+        <section>
+            <p class="custom-dashboard-widget-shortcuts__label">{{'dashboard_grid.widget.shortcuts.login_as' | translate }}</p>
+            <app-shortcuts-search-items
+                [componentTask]="componentTaskEnum.LoginAs"
+                [items]="loginAsItems$ | async"
+            ></app-shortcuts-search-items>
+        </section>
+
+        <section>
+            <p class="custom-dashboard-widget-shortcuts__label">{{'table.column.actions' | translate }}</p>
+            <app-shortcuts-add-items></app-shortcuts-add-items>
+        </section>
+
+        <section>
+            <p class="custom-dashboard-widget-shortcuts__label">{{'main_navigation.reports' | translate }}</p>
+            <app-shortcuts-reports></app-shortcuts-reports>
+        </section>
+    </div>
+
+</app-container-widget>

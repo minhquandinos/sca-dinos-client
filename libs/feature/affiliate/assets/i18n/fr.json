@@ -1,0 +1,18 @@
+{
+    "table": {
+        "column": {
+            "cpc": "EPC",
+            "cpa": "EPA",
+            "cpm": "EPM"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "cpc": "Gains par clic",
+                "cpa": "Gains par conversion approuvée",
+                "cpm": "Gains pour 1000 impressions"
+            }
+        }
+    }
+}

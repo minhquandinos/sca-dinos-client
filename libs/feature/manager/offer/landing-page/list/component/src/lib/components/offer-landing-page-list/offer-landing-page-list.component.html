@@ -1,0 +1,55 @@
+<ui-table2
+    [columns]="columns"
+    [items]="items"
+    [stickyHead]="true"
+    [loading]="loading"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    rowSize="small"
+>
+    <ng-template uiTable2ColTemplate="title" let-title="value" let-item="valueRow">
+        <app-status-dot-color type="offer_urls_statuses" [status]="item.status"></app-status-dot-color>
+        <span class="text-pre-wrap pl-2">{{ title | format: 'idName':item.id }}</span>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="type" let-type="value">
+        <ui-chip *ngIf="type.id === offerUrlsTypeIdEnum.Default || type.id === offerUrlsTypeIdEnum.Preview">
+            {{ type.id | platformListTranslate:'offer_urls_types' | async }}
+        </ui-chip>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="url" let-url="value" let-item="valueRow">
+        <a class="text-break-all" target="_blank" href="{{ url}}">{{ url }}</a>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="preview" let-preview="value" let-item="valueRow">
+        <ui-button-link
+            *ngIf="preview"
+            type="link-static"
+            [label]="'interface.basic.preview' | translate"
+            (toggle)="toPreview(preview)"
+        ></ui-button-link>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="targeting" let-targeting="value">
+        <div class="py-2">
+            <app-offer-targeting-list [inputTargeting]="targeting" [showDefaultGeo]="false"></app-offer-targeting-list>
+        </div>
+    </ng-template>
+
+    <ng-template
+        uiTable2ColTemplate="visible_to_specific_affiliates_only"
+        let-visible_to_specific_affiliates_only="value"
+        let-item="valueRow"
+    >
+        <app-offer-landing-page-affiliates-visibility
+            [visible]="item.visible_to_all_affiliates"
+            [visibleAffiliates]="visible_to_specific_affiliates_only"
+        ></app-offer-landing-page-affiliates-visibility>
+    </ng-template>
+
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation (toggleEdit)="edit(item?.id)"></ui-table-navigation>
+</ng-template>

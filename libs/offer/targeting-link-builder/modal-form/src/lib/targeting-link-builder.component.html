@@ -1,0 +1,156 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap">
+        {{ 'offers_page.tracking.form.link_builder.affiliate_link_builder' | translate }}
+    </div>
+</ng-template>
+<form [formGroup]="form" class="m-b-40">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <ng-container
+                *ngTemplateOutlet="(builderDefaultType$ | async) ? templateOfferTpl : templateSmartLinkTpl; context: { form: form }"
+            ></ng-container>
+        </div>
+
+        <app-find-affiliates
+            *ngIf="!isAffiliateAccess"
+            [label]="'table.column.affiliate' | translate"
+            itemValue="id"
+            class="form-group col-md-6"
+            formName="a"
+        ></app-find-affiliates>
+    </div>
+    <ng-container *ngIf="builderDefaultType$ | async">
+        <ng-container *ngTemplateOutlet="ngTemplateLinksCreativeTpl; context: { form: form }"></ng-container>
+    </ng-container>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">{{ 'offers_page.tracking.form.link_builder.add_sub_id' | translate }}</label>
+            <ui-switch (change)="changeShowSource('sub_ids')" [size]="'small'" [checked]="showSubId"></ui-switch>
+        </div>
+        <div class="form-group col-md-6" *ngIf="showSubId">
+            <app-add-sub-id formArrayName="sub_ids" [isAffiliate]="isAffiliateAccess"></app-add-sub-id>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">
+                {{ 'offers_page.tracking.form.link_builder.add_aff_click_id' | translate }}
+            </label>
+            <ui-switch (change)="changeShowSource('aff_click_id')" [size]="'small'" [checked]="showAffiliateClickId"></ui-switch>
+        </div>
+        <div class="form-group col-md-6" *ngIf="showAffiliateClickId">
+            <app-input [label]="'table.column.aff_click_id' | translate" formControlName="aff_click_id"></app-input>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">
+                {{ 'offers_page.tracking.form.link_builder.add_mobile_parameters' | translate }}
+            </label>
+            <ui-switch
+                (change)="changeShowSource('mobileParams', ['idfa', 'gaid'])"
+                [size]="'small'"
+                [checked]="showMobileParams"
+            ></ui-switch>
+        </div>
+        <div class="form-group col-md-6" *ngIf="showMobileParams">
+            <app-input [label]="'offers_page.tracking.form.link_builder.apple_ios_idfa' | translate" formControlName="idfa"></app-input>
+            <div class="m-t-16">
+                <app-input
+                    [label]="'offers_page.tracking.form.link_builder.google_android_gaid' | translate"
+                    formControlName="gaid"
+                ></app-input>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="haveDeepLink">
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">
+                {{ 'offers_page.tracking.form.link_builder.set_deeplink' | translate }}
+            </label>
+            <ui-switch (change)="changeShowSource('deep_link')" [size]="'small'" [checked]="showDeepLink"></ui-switch>
+        </div>
+        <div class="form-group col-md-6" *ngIf="showDeepLink">
+            <app-input [label]="'offers_page.tracking.form.link_builder.deeplink' | translate" formControlName="deep_link"></app-input>
+        </div>
+    </div>
+
+    <div class="offer-tracking-params m-b-17">
+        <div class="profile-info__title m-b-8" *ngIf="!isAffiliateAccess">
+            {{ 'offers_page.tracking.form.tracking_link' | translate }}
+        </div>
+        <div class="profile-info__title m-b-8" *ngIf="!!isAffiliateAccess">
+            {{ 'offers_page.tracking.form.tracking_link_for_affiliate' | translate }}
+        </div>
+        <app-field-text-info preset="copy">
+            <div class="text-break-all">{{ trackingLink$ | async }}</div>
+        </app-field-text-info>
+    </div>
+
+    <div class="m-b-17" *ngIf="!!isAffiliateAccess">
+        <ui-button-link
+            [label]="'offers_page.tracking.form.link_builder.impressions_pixel' | translate"
+            [type]="'link'"
+            (toggle)="changeDisplayImpressionPixel()"
+        ></ui-button-link>
+        <app-field-text-info preset="copy" *ngIf="displayImpressionPixel">
+            <div class="text-break-all">{{ impressionsPixelsLink$ | async }}</div>
+        </app-field-text-info>
+    </div>
+</form>
+
+<ng-template #templateOfferTpl let-form="form">
+    <ng-container [formGroup]="form">
+        <app-find-offer [label]="'shared.dictionary.offer' | translate" formName="o" itemValue="id"></app-find-offer>
+    </ng-container>
+</ng-template>
+
+<ng-template #templateSmartLinkTpl>
+    <ng-container [formGroup]="form">
+        <app-find-smart-link [label]="'smart_link_page.title' | translate" formName="s" itemValue="id"></app-find-smart-link>
+    </ng-container>
+</ng-template>
+
+<ng-template #ngTemplateLinksCreativeTpl let-form="form">
+    <div [formGroup]="form" class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-landing-page
+                *ngIf="!isAffiliateAccess"
+                [label]="'offers_page.tracking.form.landing_page' | translate"
+                formName="link_id"
+                [offerId]="offerId"
+            ></app-find-landing-page>
+
+            <app-select
+                *ngIf="isAffiliateAccess"
+                [label]="'offers_page.tracking.form.landing_page' | translate"
+                [items]="links$ | async"
+                itemLabel="title"
+                itemValue="id"
+                formControlName="link_id"
+                [clearable]="false"
+                [multiple]="false"
+                [hideSelected]="false"
+            ></app-select>
+        </div>
+
+        <div class="form-group col-md-6" *ngIf="creatives$ | async as creatives">
+            <app-select
+                *ngIf="creatives.length > 0"
+                [label]="'table.column.creative' | translate"
+                [items]="creatives"
+                (scrolledToEnd)="creativesScrollEnd($event)"
+                (search)="creativeSearch($event)"
+                itemLabel="title"
+                itemValue="id"
+                formControlName="creative_id"
+                [clearable]="true"
+                [multiple]="false"
+                [hideSelected]="true"
+            ></app-select>
+        </div>
+    </div>
+</ng-template>

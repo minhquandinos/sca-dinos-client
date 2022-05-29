@@ -1,0 +1,66 @@
+<div class="table-wrapper">
+    <div class="table-header">
+        <ng-content select="[header]"></ng-content>
+    </div>
+    <div [ngStyle]="{'overflow-x': overflowX ? 'auto': ''}">
+        <table class="table table--hover" [ngClass]="className" #table>
+            <thead
+                #tableHead
+                ui-thead
+                [headers]="_headers"
+                [path]="path"
+                [selectedAllRowsStatus]="getSelectedRows?.length === items?.length"
+                [selectedAnyRowsStatus]="getSelectedRows?.length > 0"
+                (sortColumn)="sortColumn($event)"
+                (selectAllRows)="selectAllRows($event)"
+                [style.visibility]="hideHeader?'collapse':''"
+            ></thead>
+            <tbody #tableTbody>
+            <ng-container *ngIf="isLoad; else loadingTemplate">
+                <ng-container [ngSwitch]="true">
+                    <ng-container *ngSwitchCase="items && !!rowTemplate">
+                        <tr *ngFor="let item of items; let i = index, trackBy: trackByFn"
+                            ui-table-row
+                        >
+                            <ng-container
+                                [ngTemplateOutlet]="rowTemplate" [ngTemplateOutletContext]="{context: item, index: i}"
+                            ></ng-container>
+                        </tr>
+                        <ng-content select="[lastTableRow]"></ng-content>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        <ng-content></ng-content>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <ng-template #loadingTemplate>
+                <ng-container *ngIf="skeletonTemplate; else defaultSkeleton">
+                    <ng-container *ngTemplateOutlet="skeletonTemplate"></ng-container>
+                </ng-container>
+                <ng-template #defaultSkeleton>
+                    <tr ui-table-row *ngFor="let fake of 4 | uiFakeArray; let i = index, trackBy: trackBySkeletonFn" class="skeleton">
+                        <td ui-table-col *ngFor="let key of colLengthForSkeleton; let i = index, trackBy: trackBySkeletonFn">
+                            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                        </td>
+                    </tr>
+                </ng-template>
+            </ng-template>
+            </tbody>
+        </table>
+        <div
+            class="table-not-found d-flex align-items-center justify-content-center"
+            *ngIf="isLoad && notFround"
+        >
+            {{'interface.basic.not_found' | translate}}
+        </div>
+        <!--        <div-->
+        <!--            class="table-not-found d-flex align-items-center justify-content-center"-->
+        <!--            *ngIf="isLoad && tableRows?.toArray()?.length < 1"-->
+        <!--        >-->
+        <!--            {{'interface.basic.not_found' | translate}}-->
+        <!--        </div>-->
+    </div>
+    <div class="table-footer">
+        <ng-content select="[footer]"></ng-content>
+    </div>
+</div>

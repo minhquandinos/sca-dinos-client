@@ -1,0 +1,88 @@
+<ui-page-wrapper borderRadius="4" *ngIf="urlsList; else skeleton">
+    <ui-page-wrapper-header [haveBorderBottom]="false">
+        <div class="title is-4">{{ 'offers_page.urls.title' | translate }}</div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="profile-card__content p-0" *ngIf="urlsList?.length > 0">
+        <ui-table
+                [headers]="tableHeadersForUrls"
+                headerPosition="left"
+                [notFround]="urlsList?.length <= 0"
+                [skeletonTemplate]="skeleton"
+                className="table-offer-urls-in-offer-profile"
+                [isTransparentHead]="true"
+            >
+                <tr
+                    ui-table-row
+                    *ngFor="let url of urlsList; let i = index"
+                >
+                    <td ui-table-col>
+                        <span class="text-break">{{ url.title | format:'idName': url.id }}</span>
+                    </td>
+                    <td ui-table-col>
+                        <ui-chip
+                            *ngIf="url.type === offerUrlsTypeIdEnum.Default || url.type === offerUrlsTypeIdEnum.Preview"
+                            class="info__label"
+                        >
+                            {{ url.type | platformListTranslate:'offer_urls_types' | async }}
+                        </ui-chip>
+                    </td>
+                    <td ui-table-col>
+                        <a class="text-break" target="_blank" href="{{url.url}}">{{ url.url }}</a>
+                    </td>
+                    <td ui-table-col>
+                        <ui-button-link
+                            *ngIf="url.preview as preview"
+                            type="link-static"
+                            [label]="'interface.basic.preview' | translate"
+                            (toggle)="toPreview(preview)"
+                        ></ui-button-link>
+                    </td>
+                </tr>
+            </ui-table>
+    </ui-page-wrapper-content>
+
+</ui-page-wrapper>
+
+<ng-template #skeleton>
+    <div class="page-wrapper skeleton">
+
+        <div class="page-wrapper-header  d-flex align-items-center bg-unset">
+            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-25"></div>
+            <div class="ml-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--medium w-25"></div>
+            </div>
+        </div>
+
+        <div class="info-list">
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

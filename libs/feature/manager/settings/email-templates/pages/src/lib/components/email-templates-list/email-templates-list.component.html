@@ -1,0 +1,23 @@
+<ui-table
+    headerPosition="left"
+    [isLoad]="isLoad"
+    [notFround]="(emails$ | async)?.length <= 0"
+    [skeletonTemplate]="skeleton"
+    className="table-dashboard table-dashboard-activity-log"
+>
+    <tr ui-table-row *ngFor="let item of emails$ | async">
+        <td ui-table-col>
+            {{ item.translatePathForTitle | translate }}
+            <div class="ml-auto">
+                <ui-table-navigation (toggleEdit)="openModal(item.id)"></ui-table-navigation>
+            </div>
+        </td>
+    </tr>
+</ui-table>
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of countRowForSkeleton | uiFakeArray" class="skeleton">
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </td>
+    </tr>
+</ng-template>

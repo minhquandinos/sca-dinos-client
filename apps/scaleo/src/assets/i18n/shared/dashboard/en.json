@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "View Report",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Your Statistics"
+            },
+            "pending_records": {
+                "title": "Pending Records"
+            },
+            "top_offer": {
+                "title": "Top Offers"
+            },
+            "performance": {
+                "title": "Performance",
+                "cumulative": "Cumulative",
+                "settings": {
+                    "none": "Previous period",
+                    "impressions": "Impressions",
+                    "ctr": "CTR",
+                    "unique_clicks": "Unique Clicks",
+                    "duplicate_clicks": "Duplicate Clicks",
+                    "invalid_clicks": "Invalid Clicks",
+                    "clicks": "Clicks",
+                    "cv_total": "Conversions",
+                    "tr": "CR",
+                    "total_payout": "Payout",
+                    "cr": "CR",
+                    "gross_sales": "Gross Sale",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Approved Revenue",
+                    "cv_pending": "Pending Conversions",
+                    "pr": "PR",
+                    "cv_rejected": "Rejected Conversions",
+                    "rr": "RR",
+                    "cv_approved": "Approved Conversions",
+                    "approved_payout": "Approved Payout",
+                    "approved_profit": "Approved Profit",
+                    "approved_gross_sales": "Approved Sales",
+                    "pending_revenue": "Pending Revenue",
+                    "pending_payout": "Pending Payout",
+                    "pending_profit": "Pending Profit",
+                    "pending_gross_sales": "Pending Sales",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Clicks Revenue",
+                    "clicks_payout": "Clicks Payout",
+                    "clicks_profit": "Clicks Profit",
+                    "total_revenue": "Revenue",
+                    "total_profit": "Profit",
+                    "total_gross_sales": "Sale Amount",
+                    "rejected_revenue": "Rejected Revenue",
+                    "rejected_payout": "Rejected Payout",
+                    "rejected_profit": "Rejected Profit",
+                    "rejected_gross_sales": "Rejected Sales"
+                }
+            },
+            "offer_promote": {
+                "title": "Offers to Promote",
+                "get_link": "Get Link",
+                "all_categories": "All Categories"
+            },
+            "balance": {
+                "title": "Your Balance",
+                "approved_payout": "Approved Payout",
+                "all_currencies": "All currencies",
+                "paid_to_date": "Paid To Date",
+                "recent_invoices": "Recent Invoices"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "View Report"
+    }
+}

@@ -1,0 +1,5 @@
+<div *ngIf="(icon || status) && label" class="d-flex align-items-center">
+    <ui-svg-icon *ngIf="icon" size="16" [icon]="icon" class="info__label m-r-5"></ui-svg-icon>
+    <ui-status-color *ngIf="status" [status]="status" class="mr-2"></ui-status-color>
+    <span class="text-nowrap">{{ label | translate }}</span>
+</div>

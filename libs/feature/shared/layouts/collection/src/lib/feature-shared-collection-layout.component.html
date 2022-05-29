@@ -1,0 +1,30 @@
+<ng-container *coreScaleoIsMobile>
+    <div class="d-flex justify-content-end">
+        <ng-template
+            [ngTemplateOutlet]="openModalTpl"
+            [ngTemplateOutletContext]="{className: 'mb-2'}"
+        ></ng-template>
+    </div>
+</ng-container>
+
+<ng-template [cdkPortalOutlet]="hintPortal"></ng-template>
+
+<ui-page-wrapper [borderRadius]="4">
+    <ui-page-wrapper-header>
+        <router-outlet name="navigation"></router-outlet>
+        <div class="d-flex my-auto ml-auto" *coreScaleoIsNotMobile>
+            <ng-template [ngTemplateOutlet]="openModalTpl"></ng-template>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <ng-template [cdkPortalOutlet]="filterPortal"></ng-template>
+        <router-outlet></router-outlet>
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer>
+        <ng-template [cdkPortalOutlet]="footerPortal"></ng-template>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<ng-template #openModalTpl>
+    <ng-template [cdkPortalOutlet]="controlPortal"></ng-template>
+</ng-template>

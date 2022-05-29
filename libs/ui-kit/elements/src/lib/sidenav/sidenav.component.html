@@ -1,0 +1,34 @@
+<ng-container *ngIf="isGroup">
+    <ng-container *ngFor="let elem of navigations">
+        <scaleo-sidenav-group>
+            <scaleo-sidenav-group-title>{{ elem.title | translate }}</scaleo-sidenav-group-title>
+            <ng-template [ngTemplateOutlet]="itemsTpl" [ngTemplateOutletContext]="{ $implicit: elem?.items }"></ng-template>
+        </scaleo-sidenav-group>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="isSingle">
+    <ng-template [ngTemplateOutlet]="itemsTpl" [ngTemplateOutletContext]="{ $implicit: navigations }"></ng-template>
+</ng-container>
+
+<ng-container *ngIf="isProjectionContent">
+    <ng-content></ng-content>
+</ng-container>
+
+
+<ng-template #itemsTpl let-items>
+    <scaleo-sidenav-items>
+        <ng-container *ngFor="let item of items; trackBy: trackByFn">
+            <ng-template [ngTemplateOutlet]="itemTpl" [ngTemplateOutletContext]="{$implicit: item}"></ng-template>
+        </ng-container>
+    </scaleo-sidenav-items>
+</ng-template>
+
+<ng-template #itemTpl let-item>
+    <scaleo-sidenav-item routerLinkActive="active">
+        <a [routerLink]="item.routeLink">
+            {{ item.title | translate }}
+        </a>
+    </scaleo-sidenav-item>
+</ng-template>
+

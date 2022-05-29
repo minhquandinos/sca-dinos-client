@@ -1,0 +1,26 @@
+<app-select
+    [items]="landings"
+    formControlName="landing_page"
+    itemValue="id"
+    itemLabel="title"
+    [hideSelected]="true"
+    [addTemplate]="true"
+    [disableSelect]="disabledControl"
+    appendTo="body"
+    [searchable]="true"
+    (search)="searchLanding($event)"
+    [searchFn]="customSearchFn"
+    (scrolledToEnd)="scrolledLandingsToEnd()"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item">
+        <div class="d-flex align-items-center">
+            <span>{{ item?.title | format:'idName':item?.id }}</span>
+        </div>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <div class="d-flex align-items-center">
+            <span>{{ item?.title | format:'idName':item?.id }}</span>
+        </div>
+    </ng-template>
+</app-select>

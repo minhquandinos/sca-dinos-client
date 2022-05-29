@@ -1,0 +1,48 @@
+<div *ngIf="item.caps.length > 3; else withOutTool">
+    <div *ngFor="let cap of item.caps | slice : 0 : 2">
+        <span *ngIf="cap.type === goalsCapsTypesEnum.Budget; else notBudget">
+            {{ cap.period | platformListTranslate:'goals_caps_periods' | async }}: {{ cap.value | format:'money':{
+            currency: currency,
+            digitsAfterPoint: 2
+        }  }}
+        </span>
+        <ng-template #notBudget>
+            {{ cap.period | platformListTranslate:'goals_caps_periods' | async  }}: {{ cap.value }}
+        </ng-template>
+    </div>
+    <div class="d-flex align-items-center">
+        <ui-svg-icon
+            icon="more-horisontal-small"
+            size="14"
+            className="m-l-3"
+            [tooltip]="TooltipContent"
+            contentType="template"
+        ></ui-svg-icon>
+    </div>
+    <ng-template #TooltipContent>
+        <div *ngFor="let cap of item.caps">
+            <span *ngIf="cap.type === goalsCapsTypesEnum.Budget; else notBudget">
+                {{ cap.period | platformListTranslate:'goals_caps_periods' | async }}: {{ cap.value | format:'money':{
+                currency: currency,
+                digitsAfterPoint: 2
+            }  }}
+            </span>
+            <ng-template #notBudget>
+                {{ cap.period | platformListTranslate:'goals_caps_periods' | async }}: {{ cap.value }}
+            </ng-template>
+        </div>
+    </ng-template>
+</div>
+<ng-template #withOutTool>
+    <div *ngFor="let cap of item.caps">
+        <ng-container *ngIf="cap.type === goalsCapsTypesEnum.Budget; else notBudget">
+            {{ cap.period | platformListTranslate:'goals_caps_periods' | async }}: {{ cap.value | format:'money':{
+            currency: currency,
+            digitsAfterPoint: 2
+        }  }}
+        </ng-container>
+        <ng-template #notBudget>
+            {{ cap.period | platformListTranslate:'goals_caps_periods' | async }}: {{ cap.value }}
+        </ng-template>
+    </div>
+</ng-template>

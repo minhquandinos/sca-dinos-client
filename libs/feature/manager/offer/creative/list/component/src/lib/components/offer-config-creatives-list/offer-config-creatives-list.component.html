@@ -1,0 +1,77 @@
+<ui-table2
+    [columns]="tableHeaders"
+    [items]="items"
+    [stickyHead]="true"
+    [loading]="loading"
+    [customHorizontalScroll]="true"
+    [controlTemplate]="controlTemplate"
+    rowSize="small"
+>
+    <ng-template uiTable2ColTemplate="status" let-status="value">
+        <app-status-dot-color type="creatives_statuses" [status]="status"></app-status-dot-color>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="title" let-title="value" let-item="valueRow">
+        <span class="text-pre-wrap pl-2">{{ title | format: 'idName':item.id }}</span>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="type" let-type="value">
+        <ui-chip>{{ type.id | platformListTranslate: 'creatives_types' | async }}</ui-chip>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="details" let-item="valueRow">
+        <ng-container *ngIf="item.image">
+            {{ item.image_height }}x{{ item.image_width }}, {{ item.image_size | fileSizeFormat | async }}
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="offer_url" let-offer_url="value">
+        {{ offer_url.title }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="preview" let-item="valueRow">
+        <app-creative-preview
+            *ngIf="!item.isXmlFeed"
+            [creative]="item"
+        ></app-creative-preview>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="tracking_url" let-item="valueRow">
+        <ng-container *ngIf="!item.isXmlFeed">
+            <app-link-to-modal-info
+                [linkLabel]="'table.column.tracking_url' | translate"
+                [content]="trackingTemplate"
+                [modalTitle]="'table.column.tracking_url' | translate"
+            ></app-link-to-modal-info>
+
+            <ng-template #trackingTemplate>
+                <app-field-text-info preset="copy">
+                    <span class="text-break-all">{{ item.offer_url.url }}</span>
+                </app-field-text-info>
+            </ng-template>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="html_code" let-item="valueRow">
+        <ng-container *ngIf="!item.isXmlFeed">
+            <app-link-to-modal-info
+                [linkLabel]="'shared.dictionary.html_code' | translate"
+                [content]="htmlInfoTemplate"
+                [modalTitle]="'table.column.html_code' | translate"
+            ></app-link-to-modal-info>
+
+            <ng-template #htmlInfoTemplate>
+                <app-textarea [appCreativeViewHtmlCode]="item | creativeHtmlCodeConvert"></app-textarea>
+            </ng-template>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="added_date" let-item="valueRow">
+        {{ item.added_date | format:'date' }}
+    </ng-template>
+
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation (toggleEdit)="edit(item?.id)"></ui-table-navigation>
+</ng-template>

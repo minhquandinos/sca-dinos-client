@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill fxLayoutGap="1rem">
+    <div fxFlex="400px" fxFlex.md="100" fxFlex.xxl="500px">
+        <div appSticky="bottomTop">
+            <app-billing2-invoice-info-card [data]="info$ | async">
+                <ng-container header="">
+                    <app-invoice-download place="detail" [invoice]="id$ | async"></app-invoice-download>
+
+                    <ui-button-link
+                        *ngxPermissionsOnly="permissions.canGenerateEditDeleteInvoices"
+                        [label]="'shared.dictionary.edit' | translate"
+                        type="floating"
+                        (toggle)="edit()"
+                        className="ml-2"
+                    ></ui-button-link>
+                </ng-container>
+            </app-billing2-invoice-info-card>
+        </div>
+    </div>
+    <div fxFlex fxLayoutGap="1rem" fxLayout="column">
+        <app-billing2-invoice-transactions-card
+            [status]="status$ | async"
+            [data]="transactions$ | async"
+            [currency]="currency$ | async"
+            [adjustmentsAdvanceAccess]="adjustmentsAdvanceAccess$ | async"
+            (updateAmount)="updateAmount($event)"
+        >
+            <ui-button-link
+                *ngxPermissionsOnly="permissions.canAccessConversions"
+                actionButton
+                type="floating"
+                [label]="'invoice.view_conversions' | translate"
+                [icon]="'arrow-link2'"
+                iconPosition="right"
+                (click)="toReport()"
+            ></ui-button-link>
+        </app-billing2-invoice-transactions-card>
+    </div>
+</div>

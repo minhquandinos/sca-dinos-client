@@ -1,0 +1,115 @@
+{
+    "billing": "Rozliczenie",
+    "referrals": "Polecenia",
+    "tools": "Narzędzia",
+    "delete": {
+        "delete_confirm_title": "Czy na pewno?",
+        "delete_confirm_text": "Ten element zostanie usunięty."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Wyróżnione"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Dostępne"
+    },
+    "quick_links": {
+        "title": "Szybkie linki"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Dodaj Postback",
+            "created": "Postback został pomyślnie dodany",
+            "edit": "Edytuj Postback",
+            "deleted": "Postback został pomyślnie usunięty",
+            "add_as_title": "Dodaj Postback",
+            "global": "Globalnie",
+            "offer": "Oferta",
+            "list_postback": "Postback",
+            "list_html": "Piksel HTML (oparty na pliku cookie)",
+            "list_table_postback": "Postback",
+            "list_table_html": "Piksel HTML (oparty na pliku cookie)",
+            "all_postbacks": "Wszystkie Postbacks",
+            "global_postbacks": "Globalne Postbacks",
+            "goal": "cel",
+            "description": {
+                "level_global_for_affiliate": "Globalnie: Postback ostanie uruchomiony dla wszystkich ofert (wszystkie cele z wyjątkiem typu CPC).",
+                "level_offer_for_affiliate": "Oferta: Postback zostanie zrealizowany tylko dla wybranej oferty. Jeśli cel nie zostanie określony, zostanie on zrealizowany dla wszystkich celów w tej ofercie.",
+                "conversion_status_for_affiliate": "Postback zostanie uruchomiony tylko dla tego statusu konwersji.",
+                "method_for_affiliate": "Typ postback obsługiwany przez Twój system."
+            }
+        },
+        "source": {
+            "title": "Źródła",
+            "add": "Dodaj źródło"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Makra dostępne",
+        "offer_id": "ID oferty na platformie",
+        "affiliate_id": "ID afilianta promującego ofertę.",
+        "sub_id1": "ID podrz. afilianta 1 określone w linku śledzenia.",
+        "sub_id2": "ID podrz. afilianta 2 określone w linku śledzenia.",
+        "sub_id3": "ID podrz. afilianta 3 określone w linku śledzenia.",
+        "sub_id4": "ID podrz. afilianta 4 określone w linku śledzenia.",
+        "sub_id5": "ID podrz. afilianta 5 określone w linku śledzenia.",
+        "click_id": "Unikalny ciąg alfanumeryczny 32 znaków, który jest generowany i przypisany do każdego kliknięcia na platformie",
+        "link_id": "Oferta dodatkowego linku określonego w linku śledzenia.",
+        "source_id": "ID źródła afilianta określone w linku śledzenia.",
+        "aff_param1": "Dodatkowy parametr afilianta 1 określony w linku śledzenia.",
+        "aff_param2": "Dodatkowy parametr afilianta 2 określony w linku śledzenia.",
+        "aff_param3": "Dodatkowy parametr afilianta 3 określony w linku śledzenia.",
+        "aff_param4": "Dodatkowy parametr afilianta 4 określony w linku śledzenia.",
+        "aff_param5": "Dodatkowy parametr afilianta 5 określony w linku śledzenia.",
+        "adv_param1": "Dodatkowy parametr reklamodawcy 1 określony podczas konwersji.",
+        "adv_param2": "Dodatkowy parametr reklamodawcy 2 określony podczas konwersji.",
+        "adv_param3": "Dodatkowy parametr reklamodawcy 3 określony podczas konwersji.",
+        "adv_param4": "Dodatkowy parametr reklamodawcy 4 określony podczas konwersji.",
+        "adv_param5": "Dodatkowy parametr reklamodawcy 5 określony podczas konwersji.",
+        "amount": "Kwota sprzedaży po stronie reklamodawcy.",
+        "conv_status": "Status konwersji (zatwierdzony/oczekujący / odrzucony).",
+        "offer_name": "Nazwa oferty na platformie.",
+        "creative_id": "Użyte ID zasobu kreatywnego oferty.",
+        "aff_click_id": "Identyfikator kliknięcia afilianta. Unikalny identyfikator dla każdego kliknięcia wysłanego od afilianta.",
+        "deep_link": "ID źródła afilianta określone w linku śledzenia.",
+        "goal_id": "ID celu oferty na platformmie.",
+        "adv_order_id": "ID zamówienia reklamodawcy określone podczas konwersji.",
+        "adv_user_id": "ID użytkownika reklamodawcy określone podczas konwersji.",
+        "offer_currency": "Waluta wybranej oferty.",
+        "transaction_id": "ID transakcji. Unikalny ID dla każdej transakcji na platformie.",
+        "track_id": "Dodatkowe informacje od reklamodawcy, określone w trakcie konwersji.",
+        "payout": "Kwota wypłaty afilianta",
+        "ip": "Adres IP, który rozpoczął sesję kliknięcia.",
+        "user_agent": "Wiersz agenta użytkownika określonego w momencie kliknięcia.",
+        "device_type": "Wiersz urządzenia użytkownika określonego w momencie kliknięcia.",
+        "device_os": "Wiersz systemu oprogramowania użytkownika określonego w momencie kliknięcia.",
+        "connection_type": "Wiersz typu połączenia użytkownika określonego w momencie kliknięcia.",
+        "mobile_operator": "Wiersz operatora komórkowego użytkownika określonego w momencie kliknięcia.",
+        "geo_country_code": "Wiersz kodu kraju użytkownika określonego w momencie kliknięcia.",
+        "geo_country": "Kod kraju użytkownika określony w momencie kliknięcia.",
+        "geo_region": "Region użytkownika określony w momencie kliknięcia.",
+        "geo_city": "Miasto użytkownika określony w momencie kliknięcia.",
+        "idfa": "Identyfikator reklamowy Apple iOS (IDFA).",
+        "gaid": "Identyfikator reklamowy Google Android (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Poleć nowych afiliantów i otrzymaj {{ commission }} prowizji od ich zarobków każdego miesiąca.",
+        "commission_info_for_flat": "Poleć nowych afiliantów i otrzymaj {{ commission }} jednorazowej prowizji za każdą poleconą osobę.",
+        "referrals_title": "Polecenia",
+        "link": "Twój osobisty link polecający:",
+        "you_referrals_title": "Twoje polecenia",
+        "form": {
+            "referral_commission": "Prowizja od poleceń"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Skontaktuj się z menedżerem, aby aktywować API."
+        }
+    }
+}

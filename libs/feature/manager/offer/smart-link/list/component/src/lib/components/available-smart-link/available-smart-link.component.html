@@ -1,0 +1,6 @@
+<ng-container *ngIf="availableForAffiliate | isTruthy: booleanEnum.True; else disable">
+    <span class="color__green">{{'smart_link_page.table.available_for_aff.available' | translate}}</span>
+</ng-container>
+<ng-template #disable>
+    <span class="color__red">{{'smart_link_page.table.available_for_aff.unavailable' | translate}}</span>
+</ng-template>

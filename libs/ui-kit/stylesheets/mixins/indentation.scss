@@ -1,0 +1,62 @@
+@mixin customIdent($type, $side, $count) {
+
+    $identSide: sideShortNameFn($side);
+
+    $plane: planeFromSideFn($side);
+
+    $typeShortName: map-get((
+        padding : 'p',
+        margin : 'm'
+    ), $type);
+
+    @for $i from 1 through $count {
+        .#{$typeShortName}-#{$identSide}-#{$i}, .#{$typeShortName}-#{$plane}-#{$i} {
+            #{$type}-#{$side}: #{$i}px !important;
+        }
+    }
+}
+
+@mixin fullSideIdent($type, $count, $startCount) {
+
+    $typeShortName: map-get((
+        padding : 'p',
+        margin : 'm'
+    ), $type);
+
+    @for $i from $startCount through $count {
+        .#{$typeShortName}-#{$i} {
+            #{$type}: #{$i}px !important;
+        }
+    }
+}
+
+@function sideShortNameFn($side) {
+    $result: map-get((
+        right : 'r',
+        left : 'l',
+        top : 't',
+        bottom : 'b'
+    ), $side);
+
+    @return $result;
+}
+
+@function planeFromSideFn($side) {
+    $result: map-get((
+        right : 'x',
+        left : 'x',
+        top : 'y',
+        bottom : 'y'
+    ), $side);
+
+    @return $result;
+}
+
+@mixin customGap($count) {
+
+    @for $i from 1 through $count {
+        .gap-#{$i} {
+            gap: #{$i * 0.25}rem !important;
+        }
+    }
+}

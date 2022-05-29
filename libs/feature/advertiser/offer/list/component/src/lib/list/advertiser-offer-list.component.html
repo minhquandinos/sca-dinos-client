@@ -1,0 +1,214 @@
+<ui-table2
+    class="table-offers"
+    [columns]="tableHeaders"
+    [items]="items"
+    [sort]="true"
+    [loading]="loading$ | async"
+    [defaultSortDirection]="sortDirection$ | async"
+    [defaultSortField]="sortField$ | async"
+    (sorting)="sortWasChanged($event.current)"
+    [stickyHead]="true"
+    [customHorizontalScroll]="true"
+    [skeletonTemplate]="skeleton"
+    [rowSize]="'medium'"
+    [controlTemplate]="controlTemplate"
+>
+    <ng-template uiTable2ColTemplate="id" let-id="value" let-item="valueRow">
+        <div class="table__box-status m-r-12 d-flex align-items-center">
+            <ui-status-color [status]="item.status" className="table__box-image-status"></ui-status-color>
+        </div>
+
+        <div class="table__box-image d-flex align-items-center">
+            <ui-image
+                class="cursor-pointer"
+                type="rounded"
+                routerLink="../{{ item.id }}"
+                [image]="item.image"
+                width="64"
+                height="64"
+            ></ui-image>
+        </div>
+
+        <div class="w-100 d-flex align-self-center m-l-8">
+            <div class="mr-2">
+                <div class="d-flex align-items-center">
+                    <a routerLink="../{{ item.id }}" class="font-size is-6 color__blue3 line-height is-16">
+                        {{ item.id + ' ' + item.title | format: 'idName' }}
+                    </a>
+
+                    <ui-svg-icon
+                        *ngIf="item.isFeatured"
+                        icon="star-fill-static"
+                        tooltip="{{ 'interface.form.featured' | translate }}"
+                    ></ui-svg-icon>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="goals" let-goals="value" let-item="valueRow">
+        <app-goals-list [currency]="item?.currency" [goals]="goals"></app-goals-list>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="targeting" let-targeting="value">
+        <div class="table-offers__targeting">
+            <app-offer-targeting-list *ngIf="targeting" [inputTargeting]="targeting"></app-offer-targeting-list>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="tags" let-item="valueRow">
+        <app-tags-lists *ngIf="item?.tags_selected" [tags]="item?.tags_selected"></app-tags-lists>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="cr" let-item="valueRow">
+        <div class="d-flex table-offers__performance">
+            <div class="m-r-4 d-flex flex-column">
+                <span [tooltip]="'offers_page.tooltip.table.performance.ar' | translate" class="m-b-8 cursor-info">AR</span>
+                <span [tooltip]="'offers_page.tooltip.table.performance.cr' | translate" class="cursor-info">CR</span>
+                <span [tooltip]="'offers_page.tooltip.table.performance.epc' | translate" class="m-t-8 cursor-info">CPC</span>
+            </div>
+            <div class="d-flex flex-column">
+                <span
+                    [tooltip]="'offers_page.tooltip.table.performance.n_a' | translate"
+                    [display]="item.ar | isEmpty: '0.00'"
+                    class="m-b-8 cursor-info"
+                >
+                    {{ item.ar | formatOrEmpty: 'percent':'0.00':'―' }}
+                </span>
+                <span
+                    [tooltip]="'offers_page.tooltip.table.performance.n_a' | translate"
+                    [display]="item.adv_cr | isEmpty: '0.00'"
+                    class="cursor-info"
+                >
+                    {{ item.adv_cr | formatOrEmpty: 'percent':'0.00':'―' }}
+                </span>
+
+                <span
+                    [tooltip]="'offers_page.tooltip.table.performance.n_a' | translate"
+                    [display]="item[ePCKey] | isEmpty: '0.00'"
+                    class="m-t-8 cursor-info"
+                >
+                    {{ item[ePCKey] | formatOrEmpty: 'money':'0.00':'―' }}
+                </span>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="properties" let-item="valueRow">
+        <div>
+            <app-custom-info className="m-t-6">
+                <ui-svg-icon
+                    info-label
+                    size="16"
+                    icon="offer_properties_links"
+                    tooltip="{{ 'offers_page.urls.title' | translate }}"
+                ></ui-svg-icon>
+                <span info-value class="linkValue" [ngClass]="{ 'pr-1': item?.links_count < 10 }">
+                    {{ item.links_count }}
+                </span>
+            </app-custom-info>
+
+            <app-custom-info className="m-t-6">
+                <ui-svg-icon
+                    info-label
+                    size="16"
+                    icon="offer_properties_creatives"
+                    tooltip="{{ 'offers_page.creatives.title' | translate }}"
+                ></ui-svg-icon>
+                <span info-value class="linkValue" [ngClass]="{ 'pr-1': item?.creatives_count < 10 }">
+                    {{ item.creatives_count }}
+                </span>
+            </app-custom-info>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="conversions" let-item="valueRow">
+        <app-table-conversion *ngIf="item.live_stats" [liveStats]="item.live_stats"></app-table-conversion>
+    </ng-template>
+</ui-table2>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation [action]="null">
+        <ng-template scaleoTableNavigationDropdown>
+            <ui-button-link
+                icon="details"
+                type="simple"
+                [routerLink]="['../', item.id]"
+                [label]="'shared.tooltip.details' | translate"
+            ></ui-button-link>
+            <div class="table-navigation__divider"></div>
+            <ui-button-link
+                [icon]="'context-statistics'"
+                (click)="toLink('statistics', item.id)"
+                type="simple"
+                [label]="'quick_links.buttons.statistics' | translate"
+            ></ui-button-link>
+            <ui-button-link
+                type="simple"
+                [icon]="'context-conversions'"
+                [label]="'quick_links.buttons.conversions' | translate"
+                (click)="toLink('conversions', item.id)"
+            ></ui-button-link>
+            <ui-button-link
+                [icon]="'context-clicks'"
+                type="simple"
+                [label]="'quick_links.buttons.clicks' | translate"
+                (click)="toLink('clicks', item.id)"
+            ></ui-button-link>
+        </ng-template>
+    </ui-table-navigation>
+</ng-template>
+
+<ng-template #skeleton>
+    <ui-table2-row
+        [rowSize]="'medium'"
+        *ngFor="let fake of shared.generateFake(4); let i = index; trackBy: trackBySkeletonFn"
+        className="skeleton"
+    >
+        <ui-table2-col>
+            <div class="table__box-status m-r-18" style="width: 8px"></div>
+            <div class="table__box-image">
+                <ui-skeleton-image type="rounded"></ui-skeleton-image>
+            </div>
+
+            <div class="w-100 d-flex align-self-center m-l-8">
+                <div class="w-100 mr-2">
+                    <div class="name-title">
+                        <ui-skeleton-block size="large" [width]="50"></ui-skeleton-block>
+                    </div>
+
+                    <div class="name-subtitle">
+                        <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                    </div>
+                </div>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <div>
+                <ui-skeleton-block size="small" [width]="25"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <div>
+                <ui-skeleton-block size="small" [width]="25"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <div>
+                <ui-skeleton-block size="small" [width]="25"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+                <ui-skeleton-block size="small" [width]="25" className="m-t-8"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+    </ui-table2-row>
+</ng-template>

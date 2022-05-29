@@ -1,0 +1,45 @@
+{
+    "info": {
+        "traffic-distribution": {
+            "type": 1,
+            "items": [
+                {
+                    "id": 1,
+                    "landing": {
+                        "id": 1058,
+                        "type": 1
+                    },
+                    "distribution": 100,
+                    "added_date": "28.10.2021",
+                    "clicks": 100,
+                    "conversion": 10,
+                    "cr": 12
+                },
+                {
+                    "id": 2,
+                    "landing": {
+                        "id": 1059,
+                        "type": 2
+                    },
+                    "distribution": 0,
+                    "added_date": "28.10.2021",
+                    "clicks": 15,
+                    "conversion": 5,
+                    "cr": 4
+                },
+                {
+                    "id": 3,
+                    "landing": {
+                        "id": 1079,
+                        "type": 3
+                    },
+                    "distribution": 0,
+                    "added_date": "28.10.2021",
+                    "clicks": 10,
+                    "conversion": 0,
+                    "cr": 2
+                }
+            ]
+        }
+    }
+}

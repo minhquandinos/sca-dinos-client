@@ -1,0 +1,17 @@
+<div class="view-contact d-flex align-items-center" *ngIf="account">
+    <ui-svg-icon
+        [icon]="iconClass"
+        size="16"
+        tooltip="{{ ((this.accountName === 'Call') ? 'interface.form.phone' : this.accountName) | translate }}"
+    ></ui-svg-icon>
+
+    <section
+        class="d-flex cursor-pointer"
+        [tooltip]="'interface.basic.copy' | translate"
+        (click)="copyAccount()"
+    >
+        <div class="view-contact__login d-flex align-items-center">
+            <span class="truncate-text">{{ account }}</span>
+        </div>
+    </section>
+</div>

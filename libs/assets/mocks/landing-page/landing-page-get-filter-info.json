@@ -1,0 +1,26 @@
+{
+    "info": {
+        "landings": [
+            {
+                "id": 1,
+                "title": "Default Landing Page"
+            },
+            {
+                "id": 2,
+                "title": "Preview Landing Page"
+            },
+            {
+                "id": 3,
+                "title": "Temp 4"
+            },
+            {
+                "id": 4,
+                "title": "Temp 2"
+            },
+            {
+                "id": 5,
+                "title": "Temp 3"
+            }
+        ]
+    }
+}

@@ -1,0 +1,370 @@
+.filter {
+    $self: &;
+
+    &__wrapper {
+        flex-direction: row;
+    }
+
+    &__title {
+        font-size: $font-size-base;
+        line-height: 24px;
+        color: $color__gray;
+        white-space: nowrap;
+        border-right: 1px solid $color__light-blue2;
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+
+    &__block {
+        //border-left: 1px solid #eeeff1;
+        //padding-left: 8px;
+        //margin-left: 8px;
+        width: 100%;
+        align-items: center;
+
+        .filter__box {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .filter__title {
+            border-right: 0;
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+
+    &__box {
+        margin-left: 8px;
+        flex-direction: row;
+
+        .filter-dropdown-wrapper {
+            .ng-select {
+                .ng-arrow-wrapper {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+.filtered {
+    &__row {
+        min-height: 32px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin:0;
+        padding:0;
+
+        &.haveItems {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+
+    &__box {
+        display: flex;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    &__title {
+        font-size: $font-size-base;
+        color: $color__gray;
+        margin-right: 6px;
+    }
+
+    &__values  {
+        flex-wrap: wrap;
+
+        ui-chip {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .marker {
+            font-size: $font-size-small;
+            color: $color__black3;
+            margin-right: 6px;
+        }
+    }
+
+    &__close {
+
+        &.marker {
+            color: $color__blue2 !important;
+
+            .custom-icon {
+                fill: $color__blue2;
+            }
+        }
+
+        &:hover {
+            &.marker {
+                cursor: pointer;
+                color: $color__gray !important;
+
+                .custom-icon {
+                    fill: $color__gray;
+                }
+            }
+        }
+    }
+}
+
+.filter__wrapper{
+    width: 100%;
+    min-height: 60px;
+    padding: .625rem 1rem 0.625rem 2rem;
+}
+
+.filter__wrapper-expanded{
+    border-top: 1px solid $color__light-gray10;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    min-height: 32px !important;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.filter-search{
+    height: 32px;
+    margin-left: 28px;
+    padding-left: 10px;
+
+    input {
+        background-size: 24px 24px;
+        padding-left: 28px;
+    }
+
+    & ui-svg-icon.input-group-prepend {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        padding-left: 12px;
+        transform: translate(0, -50%);
+
+
+        &.texted svg{
+            fill: $color__black3;
+        }
+
+        svg {
+            fill: $color__blue;
+        }
+    }
+
+    ui-svg-icon.remove {
+        position: absolute;
+        top:0;
+        right: 0;
+        padding-right: 3px;
+        border-radius: 50%;
+        padding-top: 4px;
+        display: none !important;
+
+        &.have-text {
+            display: inline-flex !important;
+        }
+    }
+
+}
+
+.filter-title{
+    //margin: 0 0 0 8px;
+}
+
+.filter-title-sort{
+    color: #3b4655;
+}
+
+.filter-icon{
+    width: 24px;
+    height: 24px;
+    background-size: 26px 26px;
+    margin-right: 8px;
+}
+
+.filter__wrapper .ng-select-container{
+    min-height: 32px;
+}
+
+//.filter__wrapper .ng-arrow-wrapper {
+//    display: none;
+//}
+
+//.affiliate-create-wrapper .ng-select-multiple .ng-arrow-wrapper{
+//  //display: none;
+//}
+
+.values{
+    width: auto;
+    height: 24px;
+}
+
+.value {
+    min-width: 50px;
+    height: 100%;
+    background-color: #f3f5f7;
+    border-radius: 15px;
+    margin-left: 10px;
+
+    .icon {
+        opacity: .7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.value .name-title{
+    margin-left: 8px;
+}
+
+.values-remove {
+
+    .name-title {
+        color: $color__gray;
+        //color: $color__black;
+    }
+
+    .icon {
+        opacity: .7;
+    }
+
+    &:hover {
+
+        .name-title {
+            color: $color__black;
+        }
+
+        .icon {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.value-rectangle{
+    border-radius: 4px;
+}
+
+.values .value-rectangle .icon{
+    margin-top: 0 !important;
+}
+
+.filter__wrapper {
+
+    .table-icon{
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+        margin-right: 8px;
+    }
+}
+
+.sortby-box {
+
+    opacity: .7;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+@media screen and ( max-width: 1180px ) {
+    app-filters  {
+        .filter {
+            min-width: unset !important;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        app-filter {
+            .dropdown .dropdown-item-selected__label {
+                white-space: nowrap;
+            }
+        }
+
+        .custom-search {
+            min-width: 5rem;
+        }
+
+    }
+}
+
+@media screen and ( max-width: 640px ) {
+    app-filters  {
+        .filter {
+            &__wrapper {
+                flex-direction: column;
+
+                .filter__block {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    form {
+                        flex-direction: column;
+
+                        .filter__box {
+                            margin-left: 0;
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+
+            &__box {
+                flex-direction: column;
+            }
+
+            &__title {
+                border-right: 0;
+                margin-right: 0;
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+
+            .filtered {
+                .filtered__box {
+                    align-items: flex-start !important;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        app-filter {
+            .filter__box {
+                margin-left: 0;
+                width: fit-content;
+            }
+
+            app-dropdown-list .filter-title {
+                white-space: nowrap;
+            }
+
+            .custom-search {
+                margin-left: 0;
+                margin-top: 8px;
+                padding-left: 0;
+                min-width: 14.625rem;
+
+                ui-svg-icon.input-group-prepend {
+                    padding-left: 3px;
+                }
+            }
+
+            app-config-table-column button{
+                margin-top: 8px;
+            }
+        }
+
+    }
+}

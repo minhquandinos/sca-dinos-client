@@ -1,0 +1,19 @@
+.detail {
+    $self: &;
+
+    &-container {
+        display: grid;
+        grid-template-columns: minmax(400px, 500px) 1fr;
+        grid-gap: 1rem;
+    }
+
+    &__tile {
+        margin-top: 1rem;
+    }
+
+    &__side {
+        #{$self}__tile:first-child {
+            margin-top: 0;
+        }
+    }
+}

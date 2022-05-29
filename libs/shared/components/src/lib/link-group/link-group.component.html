@@ -1,0 +1,12 @@
+<div
+    class="table__box-wrapper ml-auto w-24 m-r-8"
+    [ngClass]="className"
+>
+    <div class="table__box-edit">
+        <ui-svg-icon icon="more-verticale" style="left: unset" class="my-auto position-relative" [ngClass]="oneElement ? 'mx-auto' : 'ml-auto'"></ui-svg-icon>
+    </div>
+
+    <div class="table__box-info cursor-pointer">
+        <ng-content></ng-content>
+    </div>
+</div>

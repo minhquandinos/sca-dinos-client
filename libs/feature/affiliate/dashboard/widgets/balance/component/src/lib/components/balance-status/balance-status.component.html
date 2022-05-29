@@ -1,0 +1,25 @@
+<div class="custom-dashboard-widget-balance-status">
+    <div class="custom-dashboard-widget-balance-status__content p-b-8">
+        <div class="subtitle is-6 white-space-nowrap line-height is-16">
+            {{ 'dashboard_grid.widget.balance.approved_payout' | translate }}
+        </div>
+        <div class="font-size is-7 color__gray2 mt-1 line-height is-16 m-b-12">
+            {{ 'dashboard_grid.widget.balance.all_currencies' | translate }}
+        </div>
+        <div class="custom-dashboard-widget-balance-status__sum color__green white-space-nowrap">
+            {{ data?.approved_balance | format: 'money':{ currency: data?.currency } }}
+        </div>
+    </div>
+    <ui-divider orientation="vertical" class="custom-dashboard-widget-balance-status__divider"></ui-divider>
+    <div class="custom-dashboard-widget-balance-status__content p-b-8">
+        <div class="subtitle is-6 white-space-nowrap line-height is-16">
+            {{ 'finances_page.balance.balance_due' | translate }}
+        </div>
+        <div class="font-size is-7 color__gray2 mt-1 line-height is-16 m-b-12">
+            {{ 'dashboard_grid.widget.balance.all_currencies' | translate }}
+        </div>
+        <div class="custom-dashboard-widget-balance-status__sum color__black white-space-nowrap">
+            {{ data?.balance_due | format: 'money':{ currency: data?.currency } }}
+        </div>
+    </div>
+</div>

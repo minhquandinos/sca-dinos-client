@@ -1,0 +1,48 @@
+<app-custom-info
+    *ngIf="!isTooltip; else tooltipTpl"
+    class="d-flex align-items-center"
+>
+    <span info-label>{{ condition.type | platformListTranslate: 'custom_params_conditions' | async }}:</span>
+    <div info-value class="my-auto d-flex flex-wrap">
+        <app-allowed-tags *ngIf="isSingleCondition; else conditionsList" [allowed]="conditionIncludePermission" className="m-0">
+            {{ condition.conditions }}
+        </app-allowed-tags>
+
+        <ng-template #conditionsList>
+            <app-allowed-tags
+                [allowed]="conditionIncludePermission"
+                *ngFor="let cond of condition.conditions | slice:0:limitChip"
+                className="m-0"
+            >
+                {{ cond | offerCustomParamsConditionTitle: condition.type | async }}
+            </app-allowed-tags>
+        </ng-template>
+
+        <div class="d-flex align-items-center m-t-6" *ngIf="showTooltipInList">
+            <ui-svg-icon
+                icon="more-horisontal-small"
+                size="14"
+                className="m-l-3"
+                [tooltip]="tooltipTpl"
+                contentType="template"
+            ></ui-svg-icon>
+        </div>
+    </div>
+</app-custom-info>
+
+<ng-template #tooltipTpl>
+    {{ condition.type | platformListTranslate: 'custom_params_conditions' | async }}:
+
+    <span
+        *ngIf="isSingleCondition; else conditionsList"
+        [ngClass]="conditionIncludePermission ? 'color__green' : 'color__red'"
+    >
+        {{ condition.conditions }}
+    </span>
+
+    <ng-template #conditionsList>
+        <span [ngClass]="conditionIncludePermission ? 'color__green' : 'color__red'">
+            {{ condition.conditions | offerCustomParamsConditionJoinTitles: condition.type | async }}
+        </span>
+    </ng-template>
+</ng-template>

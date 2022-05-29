@@ -1,0 +1,11 @@
+{
+    "offers_requests_page": {
+        "title": "Żądania oferty"
+    },
+    "statuses": {
+        "paid": "Zapłacone",
+        "not_paid": "Niezapłacone",
+        "in_progress": "W trakcie",
+        "require_approval": "Zażądaj zatwierdzenia"
+    }
+}

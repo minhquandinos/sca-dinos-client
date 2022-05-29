@@ -1,0 +1,20 @@
+.custom-highcharts-container {
+    overflow: unset !important;
+    padding: 0 10px;
+}
+
+.highcharts-container {
+    font-family: ProximaNova-Regular, sans-serif !important;
+    overflow: unset !important;
+}
+
+.chart-wrapper {
+    padding: 17px 24px 24px 17px;
+}
+
+.highcharts-axis-labels {
+    tspan, text {
+        font-size: $font-size-x-small;
+        font-family: ProximaNova-Regular, sans-serif;
+    }
+}

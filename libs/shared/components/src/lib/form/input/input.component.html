@@ -1,0 +1,47 @@
+<label
+    [for]="formControlName"
+    class="field-label field-label-top"
+    *ngIf="label"
+    [ngClass]="{'field-label-reverse': positionLabelRequired === 'left'}"
+>
+    {{ label }} <span class="field-label__required" *ngIf="required">*</span>
+    <ui-svg-icon
+        *ngIf="labelTooltip"
+        className="m-l-6"
+        [uiTooltip]="labelTooltip"
+        [size]="16"
+        icon="info-4"
+    ></ui-svg-icon>
+</label>
+
+<div
+    #inputContainerRef
+    class="input-container"
+    [ngClass]="{
+    'input-group input-group-custom': inputText,
+    'input-container--error': control?.invalid && control?.touched,
+    'input-group-custom--prepend': inputText && inputTextPosition === 'left',
+    'input-group-custom--append': inputText && inputTextPosition === 'right'
+    }"
+>
+    <div class="input-group-custom-prepend input-group-prepend" *ngIf="inputText && inputTextPosition === 'left'">
+        <span class="input-group-text">{{ inputText }}</span>
+    </div>
+    <input
+        #elementRef
+        [type]="type"
+        [id]="formControlName"
+        class="form-control field-text"
+        [autocomplete]="(autocomplete) ? 'on' : 'new-password'"
+        [disabled]="inputStatus || disabled"
+        [placeholder]="placeholder"
+    >
+    <div class="input-group-append" *ngIf="inputText && inputTextPosition === 'right'">
+        <span class="input-group-text">{{ inputText }}</span>
+    </div>
+</div>
+
+<app-validation-message2
+    *ngIf="control && control?.invalid && control?.touched && !hideValidationMessage"
+    [validation]="control?.errors"
+></app-validation-message2>

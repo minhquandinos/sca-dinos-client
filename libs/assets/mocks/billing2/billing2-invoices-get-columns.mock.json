@@ -1,0 +1,78 @@
+{
+    "info": {
+        "columns-list": [
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "invoice",
+                "label": "Invoice",
+                "reportSort": 1,
+                "sort": 1
+            },
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "date_generated",
+                "label": "Date",
+                "reportSort": 1,
+                "sort": 1
+            },
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "status",
+                "label": "Status",
+                "reportSort": 5,
+                "sort": 4
+            },
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "amount",
+                "label": "Amount",
+                "reportSort": 6,
+                "sort": 5
+            },
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "attachment",
+                "label": "Attachment",
+                "reportSort": 6,
+                "sort": 6
+            },
+            {
+                "default": 1,
+                "group": "Data",
+                "groupSort": 1,
+                "key": "notes",
+                "label": "Notes",
+                "reportSort": 6,
+                "sort": 6
+            },
+            {
+                "default": 1,
+                "group": "Affiliate",
+                "groupSort": 1,
+                "key": "affiliate",
+                "label": "Affiliate",
+                "reportSort": 6,
+                "sort": 6
+            },
+            {
+                "default": 1,
+                "group": "Affiliate",
+                "groupSort": 1,
+                "key": "payment_methods",
+                "label": "Payment Methods",
+                "reportSort": 6,
+                "sort": 6
+            }
+        ]
+    }
+}

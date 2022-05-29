@@ -1,0 +1,45 @@
+<form [formGroup]="form">
+    <div class="form-group d-flex align-items-start request-payment-modal__amount mb-0">
+        <app-input
+            [label]="'table.column.amount' | translate"
+            formControlName="amount"
+            [inputText]="currencySign"
+            numeric="float"
+            inputTextPosition="left"
+        ></app-input>
+
+        <span class="color__gray3 font-size is-7 m-l-8 m-t-32">
+            {{ amountCondition$ | async }}
+        </span>
+    </div>
+
+    <div class="m-t-21 d-flex align-items-end" *ngIf="allowAttachment">
+        <app-custom-file-upload
+            [label]="'table.column.attachment' | translate"
+            [labelButton]="'finances_page.basic.select_file' | translate"
+            formControlName="attachment_file"
+            [accept]="allowedAcceptFile"
+        ></app-custom-file-upload>
+
+        <span *ngIf="!form.value.attachment_file" class="color__light-blue-grey mb-1 ml-1">
+            {{ attachmentFileExtension }}
+        </span>
+    </div>
+</form>
+
+<ng-template scaleoModal3InfoAction>
+    <div class="d-flex ml-auto">
+        <ui-button-link
+            type="simple"
+            [label]="'shared.dictionary.cancel' | translate"
+            (toggle)="cancel()"
+            className="mr-2"
+        ></ui-button-link>
+        <ui-button-link
+            [type]="'main'"
+            [label]="'table.column.payment_request' | translate"
+            (toggle)="save()"
+            appDisableButtonDuringRequest
+        ></ui-button-link>
+    </div>
+</ng-template>

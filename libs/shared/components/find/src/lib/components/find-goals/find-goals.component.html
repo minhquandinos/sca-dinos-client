@@ -1,0 +1,53 @@
+<app-select
+    [items]="items$ | async"
+    [loading]="loading"
+    [label]="label"
+    [itemLabel]="itemLabel"
+    [itemValue]="itemValue"
+    [labelShowId]="labelShowId"
+    [searchable]="true"
+    [multiple]="multiple"
+    (search)="findElement($event)"
+    (clear)="cleared()"
+    [formControlName]="formName"
+    (change)="selected($event)"
+    (changeFull)="selectedFull($event)"
+    (initialSelected)="initialSelectedHandler($event)"
+    [searchFn]="customSearchFn"
+    [hideDropdownArrow]="hideDropdownArrow"
+    [hideSelected]="hideSelected"
+    [placeholder]="placeholder$ | async"
+    [addTemplate]="true"
+    (scrolledToEnd)="scrolledToEnd()"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item">
+        <ng-container *ngIf="item.title === 'all_goals' || item.title === 'none_goals'; else defaultTemplate">
+            {{ 'offers_page.goals.' + item.title | translate }}
+        </ng-container>
+        <ng-template #defaultTemplate>
+            <ng-container *ngIf="item.title ">
+                <ng-container *ngIf="labelShowId && item.title && item.id !== 0; else defaultLabelTemplate">
+                    {{ item.id + ' ' + item.title | format:'idName'}}
+                </ng-container>
+                <ng-template #defaultLabelTemplate>
+                    {{ item.title }}
+                </ng-template>
+            </ng-container>
+
+        </ng-template>
+    </ng-template>
+
+    <ng-template #optionTmp ng-option-tmp let-item="item">
+        <ng-container *ngIf="item.title === 'all_goals' || item.title === 'none_goals'; else defaultTemplate">
+            {{ 'offers_page.goals.' + item.title | translate }}
+        </ng-container>
+        <ng-template #defaultTemplate>
+            <ng-container *ngIf="labelShowId && item.title && item.id !== 0; else defaultOptionTemplate">
+                {{ item.id + ' ' + item.title | format:'idName'}}
+            </ng-container>
+            <ng-template #defaultOptionTemplate>
+                {{ item.title }}
+            </ng-template>
+        </ng-template>
+    </ng-template>
+</app-select>

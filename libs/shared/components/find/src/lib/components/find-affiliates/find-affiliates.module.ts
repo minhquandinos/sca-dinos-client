@@ -1,0 +1,14 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { SharedModule } from '@scaleo/core/shared/module';
+import { SelectModule } from '@scaleo/shared/components/select';
+
+import { FindAffiliatesComponent } from './find-affiliates.component';
+
+@NgModule({
+    declarations: [FindAffiliatesComponent],
+    imports: [CommonModule, SelectModule, SharedModule],
+    exports: [FindAffiliatesComponent]
+})
+export class FindAffiliatesModule {}

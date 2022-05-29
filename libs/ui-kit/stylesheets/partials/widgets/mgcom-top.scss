@@ -1,0 +1,91 @@
+.custom-dashboard-widget {
+
+    $self: &;
+
+    &-mgcom_top {
+
+        #{$self}__header {
+            border-bottom: 1px solid $color__light-blue2;
+        }
+
+        .ui-page-wrapper-content {
+            overflow: auto;
+            min-height: 310px;
+        }
+
+        #{$self}__content {
+            .table--sticky thead th {
+                top: 0;
+            }
+        }
+
+        //#{$self}__footer {
+        //    position: relative;
+        //
+        //    &:before {
+        //        content: '';
+        //        position: absolute;
+        //        width: 100%;
+        //        background: linear-gradient(180deg, #45484F 0%, rgba(69, 72, 79, 0) 100%);
+        //        opacity: .05;
+        //        height: 0.5rem;
+        //        top: 0;
+        //        margin: 0 -1rem;
+        //    }
+        //}
+
+        &-table {
+            &__vertical-separator-first-col {
+
+                td:first-child {
+                    position: relative;
+                }
+
+                // TODO refactore dublicate
+                td:first-child, th:first-child {
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background: linear-gradient(90deg, #45484F 0%, rgba(69, 72, 79, 0) 100%);
+                        opacity: .05;
+                        height: 100%;
+                        width: .5rem;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+
+                td:nth-child(2), th:nth-child(2) {
+                    padding-left: .5rem;
+                }
+            }
+
+            &__vertical-separator-second-col {
+                td:nth-child(2) {
+                    position: relative;
+                }
+
+                td:nth-child(2), th:nth-child(2) {
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background: linear-gradient(90deg, #45484F 0%, rgba(69, 72, 79, 0) 100%);
+                        opacity: .05;
+                        height: 100%;
+                        width: .5rem;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+
+                td:nth-child(3), th:nth-child(3) {
+                    padding-left: .5rem;
+                }
+            }
+        }
+
+        &-filter-managers {
+            width: 16rem;
+        }
+    }
+}

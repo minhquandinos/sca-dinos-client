@@ -1,0 +1,5 @@
+<div @fade>
+    <ng-container [ngTemplateOutlet]="templateTextTpl ? templateTextTpl : simpleTextTpl"></ng-container>
+</div>
+
+<ng-template #simpleTextTpl>{{ simpleText }}</ng-template>

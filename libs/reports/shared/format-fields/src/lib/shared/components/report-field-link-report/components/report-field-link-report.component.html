@@ -1,0 +1,27 @@
+<ng-container *ngIf="showValueTpl$ | async; else permissionTpl">
+   <ng-container [ngTemplateOutlet]="valueTpl"></ng-container>
+</ng-container>
+
+<ng-template #permissionTpl>
+    <ng-template
+        [ngxPermissionsOnly]="linkPermission"
+        [ngxPermissionsOnlyThen]="linkTpl"
+        [ngxPermissionsOnlyElse]="valueTpl"
+    ></ng-template>
+</ng-template>
+
+<ng-template #valueTpl>
+    <span
+        *ngIf="(field?.value || field?.value === 0) && key"
+        appColorFieldByKeyValue
+        [options]="{ key: key, value: field?.value }"
+    >
+        {{ field.value | formatByKey:key }}
+    </span>
+</ng-template>
+
+<ng-template #linkTpl>
+    <a class="report-col-field__link-to-transaction-report" (click)="navigate()">
+        <ng-container [ngTemplateOutlet]="valueTpl"></ng-container>
+    </a>
+</ng-template>

@@ -1,0 +1,26 @@
+<scaleo-advertiser-offer-list
+    [items]="offers$ | async"
+    (sorting)="sortingColumn($event)"
+></scaleo-advertiser-offer-list>
+
+<ng-template #filterContainer>
+    <scaleo-advertiser-offers-list-filters
+        [params]="params$ | async"
+        [totals]="(pagination$ | async)?.total_count"
+    >
+        <app-custom-search
+            [placeholder]="'interface.basic.search' | translate"
+            (toggleSearch)="searching($event)"
+        ></app-custom-search>
+    </scaleo-advertiser-offers-list-filters>
+</ng-template>
+
+<ng-template #footerContainer>
+    <app-custom-pagination
+        *ngIf="showPagination$ | async"
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+    ></app-custom-pagination>
+</ng-template>

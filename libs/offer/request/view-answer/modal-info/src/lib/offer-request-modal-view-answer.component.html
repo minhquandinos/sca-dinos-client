@@ -1,0 +1,17 @@
+<ui-button-link
+    className="m-l-6 offers-requests-table__view-questions"
+    icon="eye"
+    iconType="stroke"
+    type="simple"
+    (toggle)="viewQA()"
+></ui-button-link>
+
+<ng-template #viewFullQuestionTpl>
+    <span
+        class="text-pre-wrap color__gray line-height-17 font-family-bold"
+        [innerHtml]="questions"
+    ></span>
+    <app-field-text-info class="d-block m-t-20" *ngIf="answer">
+        <span class="text-break-all line-height-17">{{ answer }}</span>
+    </app-field-text-info>
+</ng-template>

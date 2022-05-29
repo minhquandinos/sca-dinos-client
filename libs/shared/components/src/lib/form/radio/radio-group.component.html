@@ -1,0 +1,9 @@
+<label class="field-label field-label-top" *ngIf="label">
+    {{ label }} <span class="field-label__required" *ngIf="required">*</span>
+</label>
+
+<div class="d-flex" [ngClass]="{ 'radio-group__container-column': alignment === 'column' }">
+    <ng-content></ng-content>
+</div>
+
+<app-validation-message2 *ngIf="control && control?.invalid && control?.touched" [validation]="control?.errors"></app-validation-message2>

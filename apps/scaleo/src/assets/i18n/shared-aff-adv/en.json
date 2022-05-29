@@ -1,0 +1,483 @@
+{
+    "your_manager": "Your Manager",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "Email",
+    "full_name": "Full Name",
+    "password": "Password",
+    "password_confirmation": "Password Confirmation",
+    "statuses": {
+        "status": "Status",
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending",
+        "rejected": "Rejected",
+        "testing": "Testing",
+        "approved": "Approved",
+        "all": "All"
+    },
+    "user_profile": {
+        "edited_notification": "You profile has been successfully updated"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Filter",
+            "results": "results",
+            "filtered_by": "Filter by",
+            "preview": "Preview",
+            "close": "Close",
+            "clear": "Clear",
+            "today": "Today",
+            "yesterday": "Yesterday",
+            "filters": {
+                "country": "Country",
+                "tag": "Tag",
+                "goals_types": "Goals Types",
+                "no_data_found": "No data found"
+            },
+            "search": "Search",
+            "not_found": "No data found.",
+            "api_key": "API Key",
+            "api_access": "API Access",
+            "columns": "Columns",
+            "breakdown_by": "Group by",
+            "breakdown": "Group",
+            "copy": "Copy",
+            "advanced": "Advanced",
+            "expand": "Expand",
+            "hide": "Hide",
+            "link_copy": "The link has been copied",
+            "choose_image": "Choose image",
+            "total": "Total:",
+            "adblock": "You have AdBlock enabled, some platform functionality may not work correctly",
+            "refresh": {
+                "button": "Refresh",
+                "new_version": "The new version is available.",
+                "latest_version": "Refresh to get the latest version."
+            },
+            "undefined": "Undefined",
+            "learn_more": "Learn more",
+            "view_all": "View All",
+            "view_all_count": "View all ({{ count }})",
+            "allowed": "Allowed",
+            "denied": "Denied"
+        },
+        "header": {
+            "help": "Help",
+            "profile": "Profile",
+            "account": "My Account",
+            "language": "Language",
+            "logout": "Logout"
+        },
+        "form": {
+            "tags": "Tags",
+            "tag": "Tag",
+            "country": "Country",
+            "traffic_type": "Traffic Types",
+            "timezone": "Time Zone",
+            "currency": "Currency",
+            "contact_type": "Contact Type",
+            "contact_name": "Contact",
+            "phone": "Phone",
+            "street": "Street",
+            "city": "City",
+            "region": "Region",
+            "postcode": "Postcode",
+            "payment_details": "Payment Details",
+            "date_format": "Date Format",
+            "number_format": "Number Format",
+            "featured": "Featured",
+            "description": "Description",
+            "internal_information": "Internal Information",
+            "expires": "Expires"
+        },
+        "date": {
+            "basic": {
+                "from": "From",
+                "to": "To"
+            },
+            "days": {
+                "su": "Su",
+                "mo": "Mo",
+                "tu": "Tu",
+                "we": "We",
+                "th": "Th",
+                "fr": "Fr",
+                "sa": "Sa"
+            },
+            "month": {
+                "january": "January",
+                "february": "February",
+                "march": "March",
+                "april": "April",
+                "may": "May",
+                "june": "June",
+                "july": "July",
+                "august": "August",
+                "september": "September",
+                "october": "October",
+                "november": "November",
+                "december": "December"
+            },
+            "ranges": {
+                "today": "Today",
+                "yesterday": "Yesterday",
+                "last7Days": "Last 7 Days",
+                "last14Days": "Last 14 Days",
+                "last30Days": "Last 30 Days",
+                "last90Days": "Last 90 Days",
+                "thisMonth": "This Month",
+                "custom": "Custom range",
+                "lastMonth": "Last Month",
+                "thisYear": "This Year"
+            },
+            "based_on": "Based on ",
+            "time_zone": " Time Zone"
+        },
+        "subtitle": {
+            "access_credentials": "Access Credentials",
+            "contacts": "Contacts",
+            "address": "Address",
+            "financial_information": "Financial Information",
+            "additional_information": "Additional Information",
+            "preferences": "Preferences"
+        },
+        "export_file": {
+            "title": "Export",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Error on file generating, try late"
+        },
+        "pagination": {
+            "per_page": "Show"
+        },
+        "table_columns_config": {
+            "cv_approved": "Qty",
+            "cv_pending": "Qty",
+            "cv_rejected": "Qty",
+            "cv_total": "Qty",
+            "clicks": "Gross",
+            "impressions": "Qty",
+            "cv_trash": "Qty"
+        },
+        "validation": {
+            "password_repeat": "Passwords do not match",
+            "email_already_taken": "Email has already been taken",
+            "required": "Field is required",
+            "email": "Email is invalid",
+            "min_length_password": "Password should be at least 8 symbols",
+            "max": "Number exceeds the allowable number",
+            "incorrect_amount": "Incorrect Amount"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "Statistics",
+            "conversions": "Conversions",
+            "clicks": "Clicks"
+        }
+    },
+    "auth": {
+        "forgot_password": "Forgot password?"
+    },
+    "password_change": {
+        "button": "Change Password",
+        "not_change": "Don't Change Password"
+    },
+    "password_reset": {
+        "title": "Password Reset",
+        "text": "To reset your password, please enter the email address you use to log in",
+        "button": "Get Reset Link",
+        "return_to_login": "Return to Log in"
+    },
+    "password_reset_confirm": {
+        "title": "Confirmation",
+        "text": "Please check your email. We sent you the further instructions for password reset",
+        "link": "Return to Log in"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Add Contact",
+            "description": {
+                "payment_details": "For example: bank account details, card numbers, PayPal ID, etc."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "total": "Total"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "14-day Statistics"
+        },
+        "navigation": {
+            "all": "All Offers"
+        },
+        "targeting": {
+            "except": "Except:",
+            "denied": "Denied",
+            "offers_targeting_rules": {
+                "connection_type": "Connection Type",
+                "mobile_operator": "Mobile Operator",
+                "device_type": "Device Type",
+                "device_os": "Device OS",
+                "device_os_version": "Device OS Version",
+                "device_brand": "Device Brand",
+                "device_model": "Device Model",
+                "browser": "Browser",
+                "language": "Language",
+                "worldwide": "Worldwide",
+                "geo": "Geo",
+                "expect": "Expect",
+                "denied": "Denied",
+                "connection_type_allowed": "Connection Type Allowed",
+                "mobile_operator_allowed": "Mobile Operator Allowed",
+                "device_type_allowed": "Device Type Allowed",
+                "device_os_allowed": "Device OS Allowed",
+                "device_os_version_allowed": "Device OS Version Allowed",
+                "device_brand_allowed": "Device Brand Allowed",
+                "device_model_allowed": "Device Model Allowed",
+                "browser_allowed": "Browser Allowed",
+                "language_allowed": "Language Allowed",
+                "geo_allowed": "Allowed Geo",
+                "connection_type_denied": "Connection Type Denied",
+                "mobile_operator_denied": "Mobile Operator Denied",
+                "device_type_denied": "Device Type Denied",
+                "device_os_denied": "Device OS Denied",
+                "device_os_version_denied": "Device OS Version Denied",
+                "device_brand_denied": "Device Brand Denied",
+                "device_model_denied": "Device Model Denied",
+                "browser_denied": "Browser Denied",
+                "language_denied": "Language Denied",
+                "geo_denied": "Denied Geo",
+                "affiliate_sub_id_1": "Affiliate Sub 1",
+                "affiliate_sub_id_2": "Affiliate Sub 2",
+                "affiliate_sub_id_3": "Affiliate Sub 3",
+                "affiliate_sub_id_4": "Affiliate Sub 4",
+                "affiliate_sub_id_5": "Affiliate Sub 5"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Multiple Conversions"
+            }
+        },
+        "creatives": {
+            "title": "Creatives"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Goals",
+                "creatives": "Creatives",
+                "targeting": "Targeting"
+            },
+            "targeting": {
+                "geo": "Geo"
+            }
+        },
+        "urls": {
+            "title": "Landing Pages",
+            "type": {
+                "default": "Default",
+                "preview": "Preview"
+            },
+            "visible_to_affiliates": "Visible to Affiliates"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "A quick overview of how offers are performing. Updated once a day.",
+                    "ar": "Approval Rate — the number of Approved Conversions from the Total Conversions. Calculated across all affiliates for the previous month.",
+                    "cr": "Conversion Rate — an average number of Total Conversions per Click. Calculated across all affiliates for the last 7 days.",
+                    "epc": "Earnings per Click — average earnings per click. Calculated across all affiliates for the last 7 days.",
+                    "n_a": "Not enough data to display the metric"
+                },
+                "conversions": {
+                    "info": "Total Conversions for the last 7 days сompared to the previous 7 days. Sorting data is updated once a day."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Banner",
+        "email": "Email",
+        "html": "HTML",
+        "xml_feed": "XML Feed"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finances"
+        },
+        "table": {
+            "transaction_id": "Payment ID",
+            "payment_details": "Payment Method"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Network Summary",
+        "top_offers": "Top Offers",
+        "volume": "Volume",
+        "metrics": "Metrics",
+        "trends": "Trends",
+        "legend": {
+            "cv_pending": "Pending Conversions",
+            "impressions": "Impressions",
+            "clicks": "Gross Clicks",
+            "cv_approved": "Approved Conversions",
+            "cr": "CR",
+            "cv_rejected": "Rejected Conversions",
+            "approved_payout": "Approved Payout",
+            "pending_payout": "Pending Payout",
+            "rejected_payout": "Rejected Payout",
+            "ctr": "CTR",
+            "unique_clicks": "Unique Clicks",
+            "duplicate_clicks": "Duplicate Clicks",
+            "invalid_clicks": "Invalid Clicks",
+            "pr": "PR",
+            "cv_total": "Total Conversions",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Clicks Payout",
+            "total_payout": "Total Payout"
+        },
+        "message_when_column_max": "It is possible to select maximum 6 metrics."
+    },
+    "conversion_statuses": {
+        "pending": "Pending",
+        "rejected": "Rejected",
+        "approved": "Approved",
+        "default": "Default",
+        "trash": "Trash"
+    },
+    "reports_page": {
+        "custom": "General",
+        "last_updated": "Last updated: {{ minutes }} min. ago",
+        "filters": {
+            "popular": "Popular",
+            "offers": "Offer",
+            "offer": "Offer",
+            "offers_goals": "Goal",
+            "goals_types": "Goal Type",
+            "currencies": "Currency",
+            "offers_creatives": "Creative",
+            "offers_links": "Landing Page",
+            "ips": "IP",
+            "track_ids": "Advertiser Track ID",
+            "advertisers_params1": "Advertiser Param 1",
+            "advertisers_params2": "Advertiser Param 2",
+            "advertisers_params3": "Advertiser Param 3",
+            "advertisers_params4": "Advertiser Param 4",
+            "advertisers_params5": "Advertiser Param 5",
+            "conversions_referrers": "Conversion Referer URL",
+            "countries": "Country",
+            "devices_types": "Device Type",
+            "devices_brands": "Device Brand",
+            "devices_models": "Device Model",
+            "devices_os": "Device OS",
+            "browsers": "Browser",
+            "connections_types": "Connection Type",
+            "languages": "Language",
+            "mobile_operators": "Mobile Operator",
+            "technical": "Technical",
+            "clickIds": "Click ID",
+            "data": "Data",
+            "transactions": "Transaction ID",
+            "statuses": "Conversion Status",
+            "orders_ids": "Advertiser Order ID",
+            "users_ids": "Advertiser User ID",
+            "devices_os_version": "Device OS Version",
+            "browser_version": "Browser Version",
+            "geo": "Geo",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "One item per line",
+            "visible_tooltip": "Keep Always Visible"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Desktop",
+                "smartphone": "Phone",
+                "tablet": "Tablet",
+                "feature_phone": "Feature Phone",
+                "console": "Console",
+                "tv": "Tv",
+                "car_browser": "Car Browser",
+                "smart_display": "Smart Display",
+                "camera": "Camera",
+                "portable_media_player": "Portable Media Player",
+                "phablet": "Phablet"
+            }
+        },
+        "statistics": {
+            "title": "Statistics",
+            "menus": {
+                "affiliate": "Affiliate",
+                "offer": "Offer",
+                "advertiser": "Advertiser",
+                "country": "Country",
+                "goal": "Goal",
+                "day": "Daily",
+                "monthly": "Monthly",
+                "hour": "Hour",
+                "device_type": "Device Type",
+                "connection_type": "Connection Type"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Approved Conversions",
+                    "pending_conversions": "Pending Conversions",
+                    "rejected_conversions": "Rejected Conversions",
+                    "trash_conversions": "Trash Conversions"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Clicks on the affiliate tracking link, when a visitor is redirected to the Offer landing page.",
+                    "clicks": "All the clicks that were redirected to the Landing Page URL. Invalid clicks are not included.",
+                    "unique_clicks": "Clicks received from different users",
+                    "invalid_clicks": "Clicks that were redirected to Trafficback URL due to non-compliance with the targeting conditions or due to a broken affiliate link.",
+                    "approved_conversions": "Сonversions that were approved by the Advertiser.",
+                    "pending_conversions": "Once reviewed by the Advertiser, these conversions will become Approved or Rejected.",
+                    "rejected_conversions": "Conversions that were disapproved by the Advertiser."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Conversions"
+        },
+        "clicks": {
+            "title": "Clicks"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Clicks that were redirected to Trafficback URL due to non-compliance with targeting conditions or due to a broken affiliate link."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Postbacks (or pixels) received from the Advertiser, which shows if the conversion was recorded successfully or an error occurred."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Postbacks (or pixels) sent to Affiliate. Displayed if an affiliate uses its own tracker and has installed a postback of this tracker on your platform."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Bulk conversion editing: change status, change payout, or add conversions."
+        }
+    },
+    "POWERED_BY": "Powered by",
+    "mobile_app": {
+        "menu": "Mobile App",
+        "title": "Mobile App",
+        "qr_code": {
+            "title": "Scan a QR-Code to Access the Mobile App",
+            "description": "Scan the QR-Code with a smartphone's camera. You will be redirected to the App Store or Google Play. After installing the app, you will be logged in to your account automatically."
+        },
+        "access": {
+            "title": "Access the Mobile App",
+            "description": "Tap on the banner below. After installing the app you will be logged in to your account automatically."
+        }
+    }
+}

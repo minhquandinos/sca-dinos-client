@@ -1,0 +1,25 @@
+$padding: 1.25rem;
+
+:host {
+    display: block;
+    position: relative;
+    background-color: #ffffff;
+    padding: 0 $padding $padding;
+    border: 0.5px solid #e5e8ec;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+    &.card2 {
+        &--size-half {
+            width: 560px;
+        }
+    }
+
+    ::ng-deep {
+        .ui-divider {
+            margin-left: -$padding;
+            margin-right: -$padding;
+        }
+    }
+}

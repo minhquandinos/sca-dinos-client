@@ -1,0 +1,80 @@
+<div class="w-100 p-r-16 m-t-8 m-b-16 d-flex justify-content-end">
+    <ui-button-link
+        type="floating"
+        [label]="'billing2.settings.payments_methods.add' | translate"
+        icon="plus-small"
+        (click)="openModal()"
+    ></ui-button-link>
+</div>
+<div
+    *ngIf="items | async; else skeletonTemp"
+    class="payment-methods-config-lists"
+    [sortablejs]="newLists"
+    [sortablejsOptions]="options"
+    [sortablejsContainer]="'tbody'"
+>
+    <ui-table
+        [headers]="tableHeaders"
+        headerPosition="left"
+        [skeletonTemplate]="skeleton"
+        [notFround]="newLists?.length <= 0"
+        [isLoad]="!(isLoad$ | async)"
+        [items]="newLists"
+        [rowTemplate]="rowTemp"
+    ></ui-table>
+</div>
+
+<ng-template #rowTemp let-item="context">
+    <td ui-table-col>
+        <div class="config-list__sort align-items-center position-absolute m-l-3">
+            <ui-svg-icon
+                icon="move"
+                class="text-left cursor-move"
+                [@showHideSortInList]="(items | async)?.length > 1 ? 'show' : 'hide'"
+                [tooltip]="'tooltip.basic.move' | translate"
+            ></ui-svg-icon>
+        </div>
+        <div class="d-flex align-items-center p-l-16">
+            <div class="m-r-12">
+                <ui-status-color [status]="item.status"></ui-status-color>
+            </div>
+            {{ item.title }}
+        </div>
+    </td>
+    <td ui-table-col>
+        <ng-container *ngIf="item.supported_currencies; else allCurrencies">
+            {{ item.supportedCurrenciesTransformToString }}
+        </ng-container>
+        <ng-template #allCurrencies>
+            {{'billing2.settings.payments_methods.all_currencies' | translate}}
+        </ng-template>
+    </td>
+    <td ui-table-col>
+        {{item.payment_threshold | format: 'money':{currency: item.payment_threshold_currency, digitsAfterPoint: null } }}
+    </td>
+    <td ui-table-col>
+        <div class="d-flex align-items-center" *ngIf="item.payment_commission > 0">
+            {{ item.payment_commission | format: 'percent' }}
+        </div>
+        <div class="ml-auto mr-0">
+            <ui-table-navigation (toggleEdit)="openModal(item.id)"></ui-table-navigation>
+        </div>
+    </td>
+</ng-template>
+
+<ng-template #skeletonTemp>
+    <ui-table
+        [headers]="tableHeaders"
+        headerPosition="left"
+    >
+        <ng-container [ngTemplateOutlet]="skeleton"></ng-container>
+    </ui-table>
+</ng-template>
+
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of shared.generateFake(5)" class="skeleton">
+        <td ui-table-col *ngFor="let td of shared.generateFake(tableHeaders.length)">
+            <ui-skeleton-block size="medium" [width]="50"></ui-skeleton-block>
+        </td>
+    </tr>
+</ng-template>

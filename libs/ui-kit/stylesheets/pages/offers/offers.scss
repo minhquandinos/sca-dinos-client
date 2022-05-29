@@ -1,0 +1,228 @@
+.offer-profile {
+
+}
+
+.offers-layout {
+    .ui-page-wrapper {
+        height: fit-content !important;
+    }
+
+    .filter {
+        &__block {
+            align-items: baseline;
+            form {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+.offers-title {
+    min-height: 24px;
+}
+
+.offer-goal-create-wrapper{
+    .title {
+        margin-right: 10px;
+    }
+}
+
+.offer-profile-targeting {
+    .info-list__block {
+        border-top: 1px solid #e6e8ed;
+    }
+}
+
+.table-offers {
+    tbody tr {
+        td {
+            &.table2__column {
+                padding-right: 25px;
+                .table__box-image {
+                    line-height: 64px;
+                }
+            }
+        }
+
+        *:first-child > td .table2__column {
+            padding-left: 1.25rem;
+            padding-right: 2rem;
+        }
+
+        *:last-child > td .table2__column {
+            padding-right: 5px;
+        }
+    }
+
+    &__conversions {
+        .highcharts-point {
+            opacity: .5;
+            fill: var(--main-bg-color);
+        }
+    }
+
+    &__performance span {
+        line-height: 17px;
+    }
+
+    &__targeting {
+        app-offer-targeting-list {
+            max-height: 75px;
+
+            app-custom-info {
+                margin-top: 6px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .shorting-block {
+                    ui-svg-icon {
+                        display: none !important;
+                    }
+
+                    .shorting-text {
+                        white-space: inherit;
+                    }
+                }
+
+                .shorting {
+                    .shorting-block {
+                        max-width: 100%;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: row;
+                        height: 16px;
+
+                        ui-svg-icon {
+                            margin-top: 5px;
+                            display: flex !important;
+                        }
+
+                        .shorting-text {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            max-width: 12vw;
+                            height: 16px;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+
+            .threeTargeting {
+                padding-bottom: 6px;
+
+                app-custom-info:first-child {
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+}
+
+.offer-urls {
+    app-filters .filter {
+        .filter__block .filter__title {
+            border-right: 0;
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+
+    .table-offer-urls {
+
+        thead tr {
+            th:nth-child(1) {
+                width: 5%;
+            }
+            th:nth-child(2) {
+                width: 5%;
+            }
+        }
+    }
+}
+
+.offer-tracking-params {
+    .marker {
+        font-family: monaco, monospace;
+    }
+
+    .title {
+        font-size: $font__14;
+        margin-top: 25px;
+        margin-bottom: 14px;
+    }
+
+    .profile-info__row-name {
+        margin-right: 0;
+    }
+}
+
+.offer-creatives-macros {
+    .marker {
+        font-family: monaco, monospace;
+    }
+
+    .profile-info__row-name {
+        margin-right: 0;
+    }
+}
+
+.role-affiliate {
+    .table-offers {
+        tbody tr {
+            *:first-child > td .table2__column {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+    }
+}
+
+//delete
+.field-text-info-with-copy {
+    padding-right: 28px;
+    height: fit-content;
+    line-height: normal;
+
+    .copy {
+        position: absolute;
+        margin-left: auto;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        right: 4px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .offers-layout {
+        app-filters{
+            .filter {
+                min-width: auto;
+                overflow-x: scroll;
+                margin-right: 1rem;
+            }
+
+            app-filter  app-dropdown-popup .dropdown-item-selected__label {
+                white-space: nowrap;
+            }
+        }
+
+        .page-wrapper {
+            min-width: auto;
+            //overflow-x: hidden;
+
+            &-header {
+                overflow-x: scroll;
+                margin-right: 1rem;
+
+                ul li a {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}

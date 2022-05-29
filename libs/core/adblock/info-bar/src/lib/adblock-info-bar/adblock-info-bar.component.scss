@@ -1,0 +1,30 @@
+@import "libs/ui-kit/stylesheets/utils";
+.adblock-info {
+    //width: 100%;
+    //position: absolute;
+    //display: flex;
+    //align-items: center;
+    //margin-top: 15px;
+
+    span {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        background: $color__red3;
+        max-width: 524px;
+        min-height: 48px;
+        padding: 11px 15px 10px 15px;
+        border-radius: 4px;
+        z-index: 10;
+        color: #fff;
+        //@include font-family-medium
+    }
+}
+
+@media (max-width: 600px) {
+    .adblock-info {
+        span {
+            max-width: 300px;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<app-card contentClassName="p-0" footerDivider="none" headerSize="large" footerClassName="p-x-20">
+    <ng-container cardHeader>
+        <div class="d-flex align-items-center">
+            <div class="title is-4">{{ 'interface.basic.trends' | translate }}</div>
+        </div>
+        <div class="ml-auto d-flex align-items-center">
+            <span [hidden]="!showDatePresets">
+                <app-date-presets (changed)="changePreset($event)"></app-date-presets>
+            </span>
+        </div>
+    </ng-container>
+
+    <ui-tabs
+        (changeTab)="changeTab($event)"
+        headerClassName="p-x-20 overflow-x-auto" contentClassName="p-0"
+    >
+        <ui-tab-item *ngFor="let item of widgetTabs; trackBy: trackByFn">
+            <ui-tab-label class="h-fit-content">
+                <div class="d-flex align-items-center line-height is-18">
+                    {{ item?.label | async }}
+                </div>
+            </ui-tab-label>
+            <ng-template uiTabBodyTpl>
+                <ng-template [ngTemplateOutlet]="item?.template"></ng-template>
+            </ng-template>
+        </ui-tab-item>
+    </ui-tabs>
+
+    <ng-container cardFooter>
+        <ng-content select="[widgetFooter]"></ng-content>
+    </ng-container>
+</app-card>

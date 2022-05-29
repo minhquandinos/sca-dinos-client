@@ -1,0 +1,19 @@
+<ui-table2
+    [columns]="columns"
+    [items]="items"
+    [stickyHead]="true"
+    [defaultSortDirection]="sortDirection"
+    [sort]="true"
+    [defaultSortField]="sortField"
+    [loading]="loading"
+    (sorting)="sortWasChanged($event?.current)"
+    [controlTemplate]="controlTemplate"
+    [selectItemValue]="keyForSelectItemValue"
+    (selectAll)="selectAll($event)"
+    [customHorizontalScroll]="true"
+    [showSelect]="showSelect"
+>
+    <ng-template *ngFor="let column of columns" [uiTable2ColTemplate]="column.value" let-item="valueRow">
+        <ng-template [ngTemplateOutlet]="rowTemplate" [ngTemplateOutletContext]="{$implicit: item, column: column}"></ng-template>
+    </ng-template>
+</ui-table2>

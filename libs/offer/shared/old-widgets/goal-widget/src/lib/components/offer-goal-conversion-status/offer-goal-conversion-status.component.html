@@ -1,0 +1,20 @@
+<div class="d-flex">
+    <app-conversion-status
+        [conversionStatus]="item.conversion_status"
+        [label]="'table.column.initial_status' | translate"
+    ></app-conversion-status>
+    <ui-chip
+        [className]="'ml-1'"
+        [tooltip]="'offers_page.goals.form.multiple_conversions' | translate"
+        *ngIf="showM && item.multiple_conversions"
+    >
+        M
+    </ui-chip>
+    <ui-chip
+        [className]="'ml-1'"
+        [tooltip]="'offers_page.goals.caps.title' | translate"
+        *ngIf="showC && item.has_caps"
+    >
+        C
+    </ui-chip>
+</div>

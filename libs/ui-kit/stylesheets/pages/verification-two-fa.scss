@@ -1,0 +1,16 @@
+.verification-2fa {
+    &__input {
+        input {
+            width: 48px;
+            height: 56px;
+            font-size: 22px;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        &-entered input {
+            background-color: #F3F5F8;
+            transition: background-color 100ms ease-in;
+        }
+    }
+}

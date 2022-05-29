@@ -1,0 +1,32 @@
+<div [formGroupName]="formGroupName">
+    <div class="form-group" *ngFor="let customField of customFieldsConfig; let i = index">
+
+            <div *ngIf="customField?.field_type_id === fieldTypeIdEnum.Input">
+                <app-input
+                    [size]="'medium'"
+                    [label]="customField.title"
+                    [formControlName]="customField.field_name"
+                    [placeholder]="customField.description"
+                ></app-input>
+            </div>
+
+            <div *ngIf="customField?.field_type_id  === fieldTypeIdEnum.TextArea">
+                <app-textarea
+                    [label]="customField.title"
+                    [formControlName]="customField.field_name"
+                    [placeholder]="customField.description"
+                ></app-textarea>
+            </div>
+
+            <div *ngIf="customField?.field_type_id  === fieldTypeIdEnum.Checkbox">
+                <app-custom-checkbox
+                    [label]="customField.title"
+                    [formControlName]="customField.field_name"
+                    [placeholder]="customField.description"
+                ></app-custom-checkbox>
+            </div>
+
+        </div>
+</div>
+
+

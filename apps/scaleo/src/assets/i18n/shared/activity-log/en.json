@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Activity Log",
+        "details": "Details",
+        "new_values": "New Values",
+        "old_values": "Old Values",
+        "object": {
+            "affiliate": "Affiliate",
+            "postback": "Postback",
+            "gloabal_postback": "Global postback",
+            "source": "Source",
+            "advertiser": "Advertiser",
+            "domain": "Domain",
+            "manager": "Teammate",
+            "offer": "Offer",
+            "offer_request": "Offer Request",
+            "goal": "Goal",
+            "tracking": "Tracking",
+            "targeting": "Targeting",
+            "affiliate_access": "Affiliate Access",
+            "landing_page": "Landing Page",
+            "creative": "Creative",
+            "custom_param": "Custom Parameters",
+            "you": "You",
+            "announcement": "Announcement"
+        },
+        "owner": {
+            "offer" : "for offer",
+            "affiliate": "for affiliate",
+            "you": "for you"
+        },
+        "action": {
+            "add": "was added",
+            "edit": "was updated",
+            "view": "was viewed",
+            "delete": "was deleted",
+            "signup": "signed up",
+            "login": "logged in",
+            "profile_edit": "updated his profile",
+            "logout": "logged out",
+            "approved": "was approved",
+            "declined": "was declined",
+            "login_as": "logged in as"
+        },
+        "action_for_offer_request": {
+            "add": "requested",
+            "approved": "was approved",
+            "declined": "was declined"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "requested",
+            "approved": "was approved",
+            "declined": "was declined"
+        },
+        "action_for_goal": {
+            "add": "was added",
+            "edit": "was updated",
+            "delete": "was deleted"
+        },
+        "action_custom_params": {
+            "add": "were added",
+            "edit": "were updated",
+            "delete": "were deleted"
+        }
+    }
+}

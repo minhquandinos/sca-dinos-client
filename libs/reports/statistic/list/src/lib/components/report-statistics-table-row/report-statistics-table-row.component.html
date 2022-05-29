@@ -1,0 +1,86 @@
+<ui-table2-row [className]="className">
+    <ng-container [ngTemplateOutlet]="rowTemplate" [ngTemplateOutletContext]="{context: item}"></ng-container>
+</ui-table2-row>
+
+<ng-container *ngIf="(children$| async).length > 0 && (isOpen$ | async)">
+    <app-report-statistics-table-row
+        *ngFor="let child of children$ | async; let i = index"
+        [item]="child"
+        [columns]="columns"
+        [reportType]="reportType"
+        [breakdown]="breakdown$ | async"
+        [filterData]="parentFilters$ | async"
+        [dateRange]="dateRange$ | async"
+        [currency]="currency"
+        className="new-table-statistics__children"
+    ></app-report-statistics-table-row>
+    <ui-table2-row
+        className="new-table-statistics__load-more"
+        *ngIf="(pagination$ | async).page_count > 1 && (pagination$ | async).current_page < (pagination$ | async).page_count"
+    >
+        <ui-table2-col
+            *ngFor="let col of columns; let i = index; let first = first; trackBy: trackByFn"
+            appReportStatisticsTableColClassName
+            [dataAttributes]="col?.dataAttributes"
+            innerClassName="pl-0 pr-0"
+        >
+            <ng-container *ngIf="i === (breakdownIndex$ | async)">
+                <ui-button-link
+                    className="new-table-statistics__load-more-btn ml-3"
+                    (click)="loadMore()"
+                    [isLoad]="isLoadMore$ | async"
+                    type="simple"
+                    color="main"
+                    [label]="'interface.basic.load_more' | translate"
+                ></ui-button-link>
+            </ng-container>
+        </ui-table2-col>
+    </ui-table2-row>
+</ng-container>
+
+<ng-container *ngIf="(children$| async) <= 0 && (isOpen$ | async)">
+    <ui-table2-row>
+        <ui-table2-col
+            [colspan]="columns.length"
+            innerClassName="table2__not-found d-flex align-items-center justify-content-center m-auto"
+        >
+            {{'interface.basic.not_found' | translate}}
+        </ui-table2-col>
+    </ui-table2-row>
+</ng-container>
+
+<ng-template #rowTemplate let-item="context" let-index="index">
+    <ui-table2-col
+        *ngFor="let col of columns; let first = first; let i = index; trackBy: trackByFn"
+        appReportStatisticsTableColClassName
+        [dataAttributes]="col?.dataAttributes"
+    >
+        <app-report-col-fields
+            *ngIf="item | renderReportColField:col?.value"
+            [_key]="col.value"
+            [_item]="item"
+            [_isBreakdown]="col?.isBreakdown"
+            [breakdown]="breakdown"
+            [filterData]="filterData$ | async"
+            [reportType]="reportType"
+            [className]="col.isBreakdown ? 'pr-4' : ''"
+            [currency]="currency"
+        >
+            <ng-template
+                *ngIf="col.isBreakdown"
+                appRenderBreakdownExpandCollapseBtn
+                [itemValue]="item"
+                [itemColumn]="col.value"
+            >
+                <ui-button-link
+                    class="new-table-statistics__toggle-breakdown"
+                    className="position-static"
+                    (toggle)="toggle(col.value)"
+                    type="text"
+                    [isLoad]="isLoad$ | async"
+                    [icon]="!(isLoad$ | async) ? '': (isOpen$ | async) ? 'minus-small' : 'plus-small'"
+                ></ui-button-link>
+            </ng-template>
+        </app-report-col-fields>
+    </ui-table2-col>
+</ng-template>

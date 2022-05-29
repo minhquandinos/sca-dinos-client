@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Etkinlik Kaydı",
+        "details": "Detaylar",
+        "new_values": "Yeni Değerler",
+        "old_values": "Eski Değerler",
+        "object": {
+            "affiliate": "Ortak",
+            "postback": "Geri Gönderme",
+            "gloabal_postback": "Küresel geri gönderme",
+            "source": "Kaynak",
+            "advertiser": "Reklam Veren",
+            "domain": "Domain",
+            "manager": "Yönetici",
+            "offer": "Teklif",
+            "offer_request": "Teklif Talebi",
+            "goal": "Hedef",
+            "tracking": "İzleme",
+            "targeting": "Hedeflenen",
+            "affiliate_access": "Ortak Erişimi",
+            "landing_page": "Açılış Sayfası",
+            "creative": "Kreatif",
+            "custom_param": "Özel Parametreler",
+            "you": "Siz",
+            "announcement": "Duyuru"
+        },
+        "owner": {
+            "offer": "teklif için",
+            "affiliate": "ortak için",
+            "you": "sizin için"
+        },
+        "action": {
+            "add": "eklendi",
+            "edit": "güncellendi",
+            "view": "görüntülendi",
+            "delete": "silindi",
+            "signup": "kaydoldu",
+            "login": "giriş yaptı",
+            "profile_edit": "profilini güncelledi",
+            "logout": "çıkış yaptı",
+            "approved": "onaylandı",
+            "declined": "reddedildi",
+            "login_as": "olarak oturum açtı"
+        },
+        "action_for_offer_request": {
+            "add": "talep etti",
+            "approved": "onaylandı",
+            "declined": "reddedildi"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "talep etti",
+            "approved": "onaylandı",
+            "declined": "reddedildi"
+        },
+        "action_for_goal": {
+            "add": "eklendi",
+            "edit": "güncellendi",
+            "delete": "silindi"
+        },
+        "action_custom_params": {
+            "add": "eklendi",
+            "edit": "güncellendi",
+            "delete": "silindi"
+        }
+    }
+}

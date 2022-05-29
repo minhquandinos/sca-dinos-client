@@ -1,0 +1,180 @@
+<app-container-widget
+    [title]="'dashboard_grid.widget.' + widget?.identifier + '.title' | translate"
+    [activeWidget]="widget?.active"
+    [headerLeftSideTemplate]="headerLeftSideTemplate"
+    #containerWidgetComponent
+>
+    <div
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        infiniteScrollContainer=".mgcom-top-infinity-scroll .ui-page-wrapper-content"
+        [fromRoot]="true"
+        (scrolled)="onScroll()"
+    ></div>
+    <app-filters
+        [title]="'interface.basic.filtered_by' | translate"
+        [results]="(widgetData$ | async)?.pagination?.total_count"
+    >
+        <form [formGroup]="filterForm" class="d-flex align-items-md-center flex-column flex-md-row">
+            <app-filter className="custom-dashboard-widget-mgcom_top-filter-managers">
+                <app-find-managers
+                    [multiple]="true"
+                    [placeholder]="'shared.dictionary.teammate' | translate"
+                    itemLabel="name"
+                    itemValue="id"
+                    formName="manager"
+                ></app-find-managers>
+            </app-filter>
+        </form>
+    </app-filters>
+    <ui-table
+        [ngClass]="verticalSeparator | async"
+        [headers]="tableHeaders"
+        [headerSticky]="true"
+        headerPosition="left"
+        className="custom-dashboard-widget-mgcom_top-table"
+        [isLoad]="isLoad$ | async"
+        [notFround]="(widgetData$ | async)?.results?.length <= 0"
+        [items]="(widgetData$ | async)?.results"
+        [rowTemplate]="rowTemplate"
+        colLength="13"
+        rowSize="medium"
+        (sorting)="sort($event)"
+        #tableRef
+    ></ui-table>
+
+    <ng-container containerFooter>
+        <div class="w-100">
+            <ui-button-link
+                iconPosition="right"
+                icon="arrow-right-3"
+                type="simple"
+                color="main"
+                className="ml-auto"
+                (click)="linkToReport()"
+                [label]="'dashboard_grid.view_report' | translate"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+</app-container-widget>
+
+<ng-template #headerLeftSideTemplate>
+    <ui-tab-nav-bar>
+        <a
+            ui-tab-nav-link
+            [ngClass]="{'active': (activeTab$ | async) === mgComTopEnum.Offer}"
+            (click)="switchTab(mgComTopEnum.Offer)"
+        >
+            {{ 'dashboard_grid.widget.top_offer.title' | translate }}
+        </a>
+        <a
+            ui-tab-nav-link
+            [ngClass]="{'active': (activeTab$ | async) === mgComTopEnum.Affiliate}"
+            (click)="switchTab(mgComTopEnum.Affiliate)"
+        >
+            {{ 'dashboard_grid.widget.top_affiliate.title' | translate }}
+        </a>
+        <a
+            ui-tab-nav-link
+            [ngClass]="{'active': (activeTab$ | async) === mgComTopEnum.AffiliateSubId1}"
+            (click)="switchTab(mgComTopEnum.AffiliateSubId1)"
+        >
+            {{ 'dashboard_grid.widget.mgcom.top.web_master_title'  | translate }}
+        </a>
+    </ui-tab-nav-bar>
+</ng-template>
+
+<ng-template #rowTemplate let-item="context">
+    <td ui-table-col *ngIf="(activeTab$ | async) === mgComTopEnum.AffiliateSubId1">
+        <a
+            [routerLink]="'/affiliates/' + (item.affiliate | pregMatch:'number') | navigateRoot"
+        >
+            {{ item.affiliate | format:'idName' }}
+        </a>
+    </td>
+    <td ui-table-col>
+        <ng-container [ngSwitch]="activeTab$ | async">
+            <ng-container *ngSwitchCase="mgComTopEnum.Offer">
+                <a
+                    [routerLink]="'/offers/' + (item.offer | pregMatch:'number')  | navigateRoot"
+                >
+                    {{ item.offer | format:'idName' }}
+                </a>
+            </ng-container>
+            <ng-container *ngSwitchCase="mgComTopEnum.Affiliate">
+                <a
+                    [routerLink]="'/affiliates/' + (item.affiliate | pregMatch:'number')  | navigateRoot"
+                >
+                    {{ item.affiliate | format:'idName' }}
+                </a>
+            </ng-container>
+            <ng-container *ngSwitchCase="mgComTopEnum.AffiliateSubId1">
+                {{ item.sub_id1 }}
+            </ng-container>
+        </ng-container>
+
+    </td>
+    <td ui-table-col>
+        <app-manager-list [managers]="item.managers" className="manager-list--table"></app-manager-list>
+    </td>
+    <td ui-table-col>
+        {{ item.clicks_for_the_month | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.conversions_for_the_month | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.clicks_for_seven_days | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.conversions_for_seven_days | format:'number' }}
+    </td>
+    <td ui-table-col>
+        <span appChangeColorOfNumber [value]="item.clicks_change_for_seven_days">
+            {{ item.clicks_change_for_seven_days > 0 ? '+' : '' }}{{ item.clicks_change_for_seven_days | format:'percent':{digitsAfterPoint: 0} }}
+        </span>
+    </td>
+    <td ui-table-col>
+        <span appChangeColorOfNumber [value]="item.conversions_change_for_seven_days">
+            {{ item.conversions_change_for_seven_days > 0 ? '+' : '' }}{{ item.conversions_change_for_seven_days | format:'percent':{digitsAfterPoint: 0} }}
+        </span>
+    </td>
+    <td ui-table-col>
+        {{ item.clicks_for_the_day | format:'number' }}
+    </td>
+    <td ui-table-col>
+        {{ item.conversions_for_the_day | format:'number' }}
+    </td>
+    <td ui-table-col>
+        <span appChangeColorOfNumber [value]="item.clicks_change_for_the_day">
+            {{ item.clicks_change_for_the_day > 0 ? '+' : '' }}{{ item.clicks_change_for_the_day | format:'percent':{digitsAfterPoint: 0} }}
+        </span>
+    </td>
+    <td ui-table-col>
+        <span appChangeColorOfNumber [value]="item.conversions_change_for_the_day">
+            {{ item.conversions_change_for_the_day > 0 ? '+' : '' }}{{ item.conversions_change_for_the_day | format:'percent':{digitsAfterPoint: 0} }}
+        </span>
+    </td>
+<!--    <td ui-table-col>-->
+<!--        {{ item.clicks_for_six_hours | format:'number' }}-->
+<!--    </td>-->
+<!--    <td ui-table-col>-->
+<!--        {{ item.conversions_for_six_hours | format:'number' }}-->
+<!--    </td>-->
+<!--    <td ui-table-col>-->
+<!--        <span appChangeColorOfNumber [value]="item.clicks_change_for_six_hours">-->
+<!--            {{ item.clicks_change_for_six_hours > 0 ? '+' : '' }}{{ item.clicks_change_for_six_hours | format:'percent':{digitsAfterPoint: 0} }}-->
+<!--        </span>-->
+<!--    </td>-->
+<!--    <td ui-table-col>-->
+<!--        <span appChangeColorOfNumber [value]="item.conversions_change_for_six_hours">-->
+<!--            {{ item.conversions_change_for_six_hours > 0 ? '+' : '' }}{{ item.conversions_change_for_six_hours | format:'percent':{digitsAfterPoint: 0} }}-->
+<!--        </span>-->
+<!--    </td>-->
+    <td ui-table-col>
+        <span appChangeColorOfNumber [value]="item.critical_change" *ngIf="item.critical_change < -20 || item.critical_change > 20">
+           {{ item.critical_change > 0 ? '+' : '' }}{{ item.critical_change | format:'percent':{digitsAfterPoint: 0} }}
+        </span>
+    </td>
+</ng-template>

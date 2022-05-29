@@ -1,0 +1,18 @@
+{
+    "table": {
+        "column": {
+            "cpc": "EPC",
+            "cpa": "EPA",
+            "cpm": "EPM"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "cpc": "Ganancias por clic",
+                "cpa": "Ganancias por conversión aprobada",
+                "cpm": "Ganancias por cada 1000 impresiones"
+            }
+        }
+    }
+}

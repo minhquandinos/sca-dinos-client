@@ -1,0 +1,94 @@
+.field-text {
+    width: 100%;
+    height: 2rem;
+    font-size: $font__14;
+    padding: .25rem .5rem;
+
+    &-size {
+        &-small {
+            height: 1.5rem;
+        }
+
+        &-base {
+            height: 2rem;
+        }
+
+        &-medium {
+            height: 2.5rem;
+        }
+
+        &-big {
+            height: 3rem;
+        }
+    }
+
+    &:disabled {
+        color: $color__gray3;
+        border-color: $color__light-blue;
+        background-color: $color__very-light-gray;
+        box-shadow: none;
+    }
+
+}
+
+.input-group-custom {
+    position: relative;
+    height: 2rem;
+
+    &-prepend {
+        height: inherit;
+    }
+
+    .input-group-text {
+        height: auto;
+        background: $color__very-light-gray;
+        color: $color__dark-grayish-blue;
+        font-size: $font__14;
+        border: 1px solid $color__light-blue-grey;
+        padding: 0 0.75rem;
+        @include customTransition(border, 500ms, ease-in-out);
+    }
+
+    &:hover:not(.input-container--error) {
+        .input-group-text, input {
+            border-color: $default-border-color;
+        }
+    }
+
+    &--focus {
+        box-shadow: 0 0 0 4px $color__light-gray3;
+
+        .field-text, .input-group-text {
+            border-color: #bec8d5;
+        }
+    }
+
+    .field-text {
+        box-shadow: unset;
+    }
+
+    &--prepend {
+        .field-text {
+            border-left: 0;
+        }
+    }
+
+    &--append {
+        .field-text {
+            border-right: 0;
+        }
+    }
+}
+
+.input-container {
+    &--error {
+        .field-text, .input-group-text {
+            border-color: $color__red;
+            box-shadow: none;
+        }
+
+        &.input-group-custom--focus {
+            box-shadow: unset;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.offers-requests {
+    &-table {
+
+        $self: &;
+
+        .table2 {
+            tr {
+                #{$self}__view-questions {
+                    visibility: hidden;
+                    opacity: 0;
+                    background: $color__light-gray3;
+                }
+
+                &:hover {
+                    #{$self}__view-questions {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: all 300ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    &-rows-actions {
+        background: $color__gray;
+        height: 3.75rem;
+        padding-left: 2rem;
+    }
+}

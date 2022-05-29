@@ -1,0 +1,91 @@
+/* styles from bootstrap.css library */
+.tooltip {
+
+    //
+    //.tooltip-arrow {
+    //
+    //}
+}
+
+.custom-tooltip.tooltip {
+    //font-size: .8125rem;
+    font-size: .6875rem;
+    color: #ffffff;
+    border-radius: .125rem;
+    background-color: $color__black;
+    padding: 4px 8px;
+    line-height: 1.2;
+    letter-spacing: .016rem; //.025rem;
+    z-index: 3100;
+    text-align: left;
+
+    .title-for-tooltip {
+        @include font-family-bold;
+        line-height: 1.5;
+    }
+
+    .text-for-tooltip {
+        font-size: .6875rem;
+        line-height: 1.5;
+    }
+
+
+    &::after {
+        width: 10px;
+        height: 10px;
+        //border: unset;
+        //border-radius: 2px;
+        //background: $color__black;
+        //transform: rotate(45deg);
+        background-color: $color__black;
+        border: inherit;
+        position: absolute;
+        bottom: -10px;
+        left: calc(50% - 10px);
+        clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+        border-radius: 0 0 0 0.258rem;
+
+    }
+
+    &.tooltip-top::after {
+        //border-color: $color__black transparent transparent transparent;
+        border-color: $color__black;
+        //top: 70%;
+        bottom: -4px !important;
+        top: unset;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        transform: rotate(-45deg);
+    }
+
+    &.tooltip-bottom::after {
+        border-color: $color__black;
+        //bottom: 70%;
+        top: -4px;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        transform: rotate(135deg);
+    }
+
+    &.tooltip-left::after {
+        border-color: $color__black;
+        top: 50%;
+        right: -4px;
+        left: unset;
+        transform: rotate(225deg);
+    }
+
+    &.tooltip-right::after {
+        border-color: $color__black;
+        top: 50%;
+        left: -4px;
+        right: unset;
+        transform: rotate(45deg);
+    }
+
+
+}
+
+

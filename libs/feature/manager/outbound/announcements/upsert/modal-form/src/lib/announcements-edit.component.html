@@ -1,0 +1,195 @@
+<ng-template appModal3Title>
+    <div class="title">{{ title }}</div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="buttonLabel"
+        (toggle)="add()"
+    ></ui-button-link>
+</ng-template>
+
+<div class="container d-flex flex-column align-items-start" *ngIf="isLoad; else skeleton">
+    <form class="w-100" [formGroup]="form" autocomplete="off">
+        <div class="form-row mx-0 flex-nowrap">
+            <div class="form-group">
+                <app-form-logo
+                    [editId]="editId"
+                    [image]="announcementLogo"
+                    typeForImage="announcements"
+                    (change)="changeImage($event)"
+                    (delete)="deleteImage()"
+                    type="rounded"
+                ></app-form-logo>
+            </div>
+
+            <div class="form-group w-100">
+                <div class="mb-2">
+                    <app-input [label]="'interface.basic.title' | translate" formControlName="title"></app-input>
+                </div>
+
+                <div class="p-0 col-md-6">
+
+                    <app-find-platform-statuses
+                        statusList="announcement_statuses"
+                        formName="status"
+                        itemLabel="title"
+                        itemValue="id"
+                    ></app-find-platform-statuses>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="this.form.getRawValue()?.visible_for === visibleRoleEnum.Affiliate">
+            <app-find-offer
+                [multiple]="true"
+                formName="connected_offers"
+                [hideSelected]="true"
+                itemValue="id"
+                [label]="'outbound_page.announcements.basic.connected_offers' | translate"
+            ></app-find-offer>
+            <div class="form-text">
+                {{ 'outbound_page.announcements.basic.connected_offers_description' | translate }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-wysiwyg-editor
+                [label]="'outbound_page.announcements.basic.content' | translate"
+                formControlName="content"
+            ></app-wysiwyg-editor>
+            <manager-shared-available-macros typeMacroses="announcement"></manager-shared-available-macros>
+        </div>
+
+        <div class="form-group mb-0">
+            <app-custom-radio
+                [label]="'outbound_page.announcements.basic.visible_for' | translate"
+                [items]="itemsVisibleRoles"
+                trackByKey="id"
+                itemLabel="title"
+                formControlName="visible_for"
+            ></app-custom-radio>
+
+            <div class="form-text mt-0">
+                {{ 'outbound_page.announcements.basic.visible_for_description' | translate }}
+            </div>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group mb-0">
+            <app-custom-switch
+                [label]="'outbound_page.announcements.basic.pinned_to_top' | translate"
+                formControlName="pin_to_top"
+            ></app-custom-switch>
+            <div class="form-text mt-0">
+                {{ 'outbound_page.announcements.basic.pinned_to_top_description' | translate }}
+            </div>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group">
+            <div class="d-flex align-items-start">
+                <app-custom-switch
+                    #sendEmailNotificationSwitch
+                    [label]="'outbound_page.announcements.basic.send_email_notification_to_users' | translate"
+                    formControlName="send_notification_to_users"
+                    (toggle)="changeSendNotificationUser($event)"
+                    [disabled]="!allowSendEmailNotificationToUser"
+                ></app-custom-switch>
+
+                <app-upgrade-plan-info
+                    *ngIf="!allowSendEmailNotificationToUser"
+                    class="ml-4"
+                    planPermission="sendEmailNotificationToUser"
+                ></app-upgrade-plan-info>
+            </div>
+
+            <div class="form-text mt-0">
+                {{ 'outbound_page.announcements.basic.send_email_notification_to_users_description' | translate }}
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="testEmailForm">
+        <div class="form-group d-flex" *ngIf="form.value.send_notification_to_users">
+            <app-input
+                [label]="'outbound_page.announcements.basic.send_a_test_email.title' | translate"
+                formControlName="email"
+                class="mr-2"
+            ></app-input>
+
+            <ui-button-link
+                class="m-t-22"
+                type="floating"
+                [label]="'outbound_page.announcements.basic.send_a_test_email.send' | translate"
+                (toggle)="sendTestEmail()"
+            ></ui-button-link>
+        </div>
+    </form>
+
+    <ui-button-link
+        *ngIf="editId"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-row align-items-center p-0 flex-nowrap mx-0">
+            <ui-skeleton-image size="big" type="rounded"></ui-skeleton-image>
+
+            <div class="m-l-6 w-100">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <div class="col-5 p-0 mt-2">
+                    <ui-skeleton-block height="medium"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <ui-skeleton-block customHeight="96px"></ui-skeleton-block>
+        </div>
+
+        <div class="form-group mb-0">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group mb-0">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <ui-br></ui-br>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #mailRoomEmailConfigurationDesc>
+     <span class="color__gray3 font-size is-7">
+        {{ 'outbound_page.announcements.basic.mailroom_email_configuration.description' | translate }}
+    </span>
+</ng-template>
+
+<ng-template #mailRoomEmailConfigFooter>
+    <div class="d-flex ml-auto">
+        <ui-button-link
+            [label]="'interface.basic.close' | translate"
+            (toggle)="closeMailRoomEmailConfigInfo()"
+        ></ui-button-link>
+    </div>
+</ng-template>

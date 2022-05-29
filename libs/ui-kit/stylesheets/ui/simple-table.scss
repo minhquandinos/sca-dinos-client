@@ -1,0 +1,134 @@
+:root {
+    --uiSimpleTable__colXPadding: .5rem;
+}
+
+.ui-simple-table {
+
+    $self: &;
+    position: relative;
+
+    &__wrapper {
+        display: table;
+        width: 100%;
+
+        @include for-small-phone {
+            min-width: max-content;
+        }
+    }
+
+    &-header, &-body {
+        display: table-row-group;
+    }
+
+    &-header {
+        #{$self}-col {
+            height: 2.5rem;
+
+            &__wrapper {
+                border-bottom: 1px solid #E9EDF3;
+                color: #687B88;
+                padding-left: var(--uiSimpleTable__colXPadding);
+                line-height: 1rem;
+            }
+
+            &:first-child {
+                #{$self}-col__wrapper {
+                    padding-left: 0;
+                    margin-left: 1.25rem;
+                }
+            }
+
+            &:last-child {
+                #{$self}-col__wrapper {
+                    padding-right: 1.25rem;
+                    margin-right: 1.25rem;
+                }
+            }
+        }
+    }
+
+    &-row {
+        display: table-row;
+        position: relative;
+
+        .table-navigation {
+            &__more {
+                margin-right: 0;
+            }
+        }
+
+        &:hover:not(#{$self}-row__hover-disabled) {
+            background-color: $color__light-gray4;
+
+            .table-navigation {
+                &__block {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    &-col {
+        display: table-cell;
+        height: 2.625rem;
+        overflow: hidden;
+        vertical-align: middle;
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+    }
+
+    &-body {
+        > :first-child {
+            #{$self}-col {
+                &__wrapper {
+                    border-top: unset;
+                }
+            }
+        }
+
+        #{$self}-col {
+            &__wrapper {
+                border-top: 1px solid #E9EDF3;
+                padding-left: var(--uiSimpleTable__colXPadding);
+                line-height: 1.25rem;
+            }
+        }
+
+        // , #{$self}-col:not(#{$self}-col:last-child)
+
+    }
+
+    &--clear {
+        #{$self}-body {
+            #{$self}-col:first-child {
+                #{$self}-col__wrapper {
+                    margin-left: 1.25rem;
+                    padding-left: 0;
+                }
+            }
+
+            #{$self}-col:last-child {
+                #{$self}-col__wrapper {
+                    margin-right: 1.25rem;
+                }
+            }
+        }
+    }
+
+    &-not-found {
+        position: absolute;
+        width: 100%;
+        border-top: 0;
+        height: 100%;
+        color: #b9c6d2;
+    }
+
+    .btn-group-table-nav {
+        padding: 1px;
+    }
+}

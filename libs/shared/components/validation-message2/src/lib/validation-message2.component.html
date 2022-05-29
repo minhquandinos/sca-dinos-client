@@ -1,0 +1,28 @@
+<label class="field-label field-label-error field-label-bottom">
+    <span [ngSwitch]="validationType">
+        <span *ngSwitchCase="'required'">{{ 'interface.validation.required' | translate }}</span>
+        <span *ngSwitchCase="'email'">{{ 'interface.validation.email' | translate }}</span>
+        <span *ngSwitchCase="'minlength'">{{ 'interface.validation.min_length_password' | translate }}</span>
+        <span *ngSwitchCase="'passwordRepeat'">{{ 'interface.validation.password_repeat' | translate }}</span>
+        <span *ngSwitchCase="'emailAlreadyTaken'">{{ 'interface.validation.email_already_taken' | translate }}</span>
+        <span *ngSwitchCase="'custom_url'">{{ 'interface.validation.custom_url' | translate }}</span>
+        <span *ngSwitchCase="'custom_positive_number'">{{ 'interface.validation.custom_positive_number' | translate }}</span>
+        <span *ngSwitchCase="'custom_domain'">{{ 'interface.validation.custom_domain' | translate }}</span>
+        <span *ngSwitchCase="'required_file_type'">{{ 'interface.validation.required_file_type' | translate }}</span>
+        <span *ngSwitchCase="'max_upload_size'">
+            {{
+                'interface.validation.max_upload_size'
+                    | translate: { availableSize: validation?.availableSize, uploadFileSize: validation?.uploadFileSize }
+            }}
+        </span>
+        <span *ngSwitchCase="'max'">{{ 'interface.validation.max' | translate }}</span>
+        <span *ngSwitchCase="'max_count_record'">
+            {{ 'interface.validation.count_record' | translate: { maxCount: validation?.maxCount } }}
+        </span>
+        <span *ngSwitchCase="'forbidden_characters'">
+            {{ 'interface.validation.forbidden_characters.' + validation.translateKey | translate }}
+        </span>
+        <span *ngSwitchCase="'incorrect_amount'">{{ 'interface.validation.incorrect_amount' | translate }}</span>
+        <span *ngSwitchDefault>default validation</span>
+    </span>
+</label>

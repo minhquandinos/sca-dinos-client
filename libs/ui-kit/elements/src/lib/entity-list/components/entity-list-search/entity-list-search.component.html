@@ -1,0 +1,15 @@
+<div class="input-group-custom position-relative custom-search entity-list__search-input">
+    <input type="text"
+           id="custom-search"
+           class="field-text"
+           [placeholder]="placeholder"
+           name="custom-search"
+           (keyup)="initFilterSearch()"
+           autocomplete="off"
+           [(ngModel)]="search"
+    >
+    <ng-container>
+        <ui-svg-icon [ngClass]="{'texted': haveText}" class="input-group-prepend custom-search__icon" icon="search"></ui-svg-icon>
+        <ui-svg-icon (click)="clear()" [ngClass]="{'have-text': search}" [className]="'p-t-2 remove d-none cursor-pointer'" icon="clear-field"></ui-svg-icon>
+    </ng-container>
+</div>

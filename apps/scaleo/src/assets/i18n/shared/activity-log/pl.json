@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Dziennik aktywności",
+        "details": "Szczegóły",
+        "new_values": "Nowe wartości",
+        "old_values": "Stare wartości",
+        "object": {
+            "affiliate": "Afiliant",
+            "postback": "Postback",
+            "gloabal_postback": "Globalny post",
+            "source": "Źródło",
+            "advertiser": "Reklamodawca",
+            "domain": "Domena",
+            "manager": "Menedżer",
+            "offer": "Oferta",
+            "offer_request": "Żądanie oferty",
+            "goal": "Cel",
+            "tracking": "Śledzenie",
+            "targeting": "Targetowanie",
+            "affiliate_access": "Dostęp afilianta",
+            "landing_page": "Strona docelowa",
+            "creative": "Zasób kreatywny",
+            "custom_param": "Parametry niestandardowe",
+            "you": "Ty",
+            "announcement": "Ogłoszenie"
+        },
+        "owner": {
+            "offer": "dla oferty",
+            "affiliate": "dla afilianta",
+            "you": "dla Ciebie"
+        },
+        "action": {
+            "add": "został dodany",
+            "edit": "został zaktualizowany",
+            "view": "został wyświetlony",
+            "delete": "został usunięty",
+            "signup": "zarejestrował się",
+            "login": "zalogował się",
+            "profile_edit": "zaktualizował swój profil",
+            "logout": "wylogował się",
+            "approved": "został zatwierdzony",
+            "declined": "został odrzucony",
+            "login_as": "zalogował się jako"
+        },
+        "action_for_offer_request": {
+            "add": "zażądał",
+            "approved": "został zatwierdzony",
+            "declined": "został odrzucony"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "zażądał",
+            "approved": "został zatwierdzony",
+            "declined": "został odrzucony"
+        },
+        "action_for_goal": {
+            "add": "został dodany",
+            "edit": "został zaktualizowany",
+            "delete": "został odrzucony"
+        },
+        "action_custom_params": {
+            "add": "został dodany",
+            "edit": "został zaktualizowany",
+            "delete": "został odrzucony"
+        }
+    }
+}

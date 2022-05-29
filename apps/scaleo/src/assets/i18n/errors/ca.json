@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "La pàgina no s’ha trobat o és d’accés restringit",
+            "text": "L'enllaç en el qual has fet clic pot està danyat o la pàgina pot haver estat eliminada o ser d’accés restringit."
+        },
+        "page_not_found": {
+            "title": "La pàgina no s’ha trobat o és d’accés restringit",
+            "text": "L'enllaç en el qual has fet clic pot està danyat o la pàgina pot haver estat eliminada o ser d’accés restringit."
+        },
+        "connection_lost": {
+            "title": "Connection Lost",
+            "text": "Please wait a few minutes before you try again.",
+            "try_again": "Try again"
+        }
+    }
+}

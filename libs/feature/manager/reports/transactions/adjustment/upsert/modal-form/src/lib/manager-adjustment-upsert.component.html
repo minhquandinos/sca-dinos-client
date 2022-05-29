@@ -1,0 +1,141 @@
+<ng-template appModal3Title>
+    <span class="title">{{ title$ | async }}</span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        *ngIf="!editId"
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<div
+    class="container d-flex justify-content-center"
+    *ngIf="(isLoad || !editId) && (platformLists | async)?.adjustments_actions; else skeleton"
+>
+    <div class="form w-100" [formGroup]="form" autocomplete="off">
+        <div class="form-group col-md-6 pl-0">
+            <app-find-platform-list
+                platformList="adjustments_actions"
+                [label]="'interface.form.action' | translate"
+                itemLabel="title"
+                itemValue="id"
+                formName="action_id"
+                [disableSelect]="disableActionButton"
+                (toggle)="changeDetail($event.newValue)"
+            ></app-find-platform-list>
+        </div>
+
+        <ng-container *ngIf="form.value.action_id === adjustmentActionsEnum.ChangeStatus">
+            <ng-container formGroupName="details">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <app-find-platform-statuses
+                            [label]="'interface.form.new_status' | translate"
+                            formName="new_status"
+                            statusList="conversion_statuses"
+                        ></app-find-platform-statuses>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <div *ngIf="form.value.action_id === adjustmentActionsEnum.ChangePayouts">
+            <app-adjustment-payout
+                *ngIf="(platformLists | async)?.currencies as currency"
+                [currencyList]="currency"
+            ></app-adjustment-payout>
+        </div>
+
+        <ng-container
+            *ngIf="
+                (form.value.action_id === adjustmentActionsEnum.ChangeStatus ||
+                    form.value.action_id === adjustmentActionsEnum.ChangePayouts) &&
+                (platformLists | async)?.adjustments_conditions as adjustCond
+            "
+        >
+            <app-add-conditions
+                formArrayName="conditions"
+                [platformConditions]="[adjustCond, form.value.action_id]"
+                class="pl-0"
+            ></app-add-conditions>
+        </ng-container>
+
+        <ng-container *ngIf="form.value.action_id === adjustmentActionsEnum.InsertConversions">
+            <app-adjustemnt-details formGroupName="details" (showedAmountField)="showAmountField = $event"></app-adjustemnt-details>
+
+            <ng-container *ngIf="(platformLists | async)?.adjustments_optional_parameters as adjustParams">
+                <app-add-parameters [platformParams]="adjustParams" [haveCPSGaol]="showAmountField" class="pl-0"></app-add-parameters>
+            </ng-container>
+        </ng-container>
+
+        <app-download-conversions-via-csv
+            *ngIf="form.value.action_id === adjustmentActionsEnum.InsertConversionsViaCSV"
+        ></app-download-conversions-via-csv>
+
+        <div class="form-group col-md-6 pl-0" *ngIf="form.value.action_id !== adjustmentActionsEnum.ChangePayouts" formGroupName="details">
+            <app-custom-switch
+                [label]="'reports_page.adjustments.detail.fire_affiliate_postback' | translate"
+                formControlName="fire_affiliate_postback"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-textarea [maxLength]="'255'" [label]="'table.column.notes' | translate" formControlName="notes"></app-textarea>
+        </div>
+
+        <ui-button-link
+            *ngIf="editId && form.value.status === 2 && form.value.state === 1"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-50"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-25">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-25">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <ui-skeleton-textarea></ui-skeleton-textarea>
+
+        <ui-skeleton-block height="large" size="large" width="100"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #modalMessageForInsConvTpl>
+    <span class="text-pre-wrap">{{ 'reports_page.adjustments.insert_conversions_via_csv.add_confirm.confirm_text' | translate }}</span>
+    <span class="title font-size is-6 line-height is-23 pl-1">
+        {{ 'reports_page.adjustments.insert_conversions_via_csv.add_confirm.confirm_text_bold' | translate }}
+    </span>
+</ng-template>

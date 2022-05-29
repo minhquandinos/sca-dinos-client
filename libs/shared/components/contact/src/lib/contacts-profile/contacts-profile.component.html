@@ -1,0 +1,8 @@
+<app-detail-info *ngIf="contacts.length > 0">
+    <app-detail-info-row *ngFor="let contact of contacts; let i = index">
+        <app-detail-info-col class="col-5 color__gray2">{{ contact.type | contactTitleByType }}:</app-detail-info-col>
+        <app-detail-info-col>
+            <shared-contact-icon #contactIconComponent [icon]="contact"></shared-contact-icon>
+        </app-detail-info-col>
+    </app-detail-info-row>
+</app-detail-info>

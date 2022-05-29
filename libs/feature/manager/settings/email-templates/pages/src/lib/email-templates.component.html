@@ -1,0 +1,27 @@
+<scaleo-card2 class="pb-1">
+    <scaleo-card2-header>
+        <scaleo-card2-title>
+            <div class="title text-size-16">
+                {{ 'administration_settings.email_templates.title' | translate }}
+            </div>
+        </scaleo-card2-title>
+    </scaleo-card2-header>
+
+    <ui-divider></ui-divider>
+
+    <scaleo-card2-content class="pt-0 pb-0 mx-n3-5">
+        <ui-tab-nav-bar>
+            <a ui-tab-nav-link [routerLink]="['general']" routerLinkActive="active">
+                {{ 'administration_settings.email_templates.general.title' | translate }}
+            </a>
+            <a ui-tab-nav-link [routerLink]="['signup']" routerLinkActive="active">
+                {{ 'administration_settings.email_templates.signup.title' | translate }}
+            </a>
+            <a ui-tab-nav-link [routerLink]="['offers']" routerLinkActive="active">
+                {{ 'administration_settings.email_templates.offers.title' | translate }}
+            </a>
+        </ui-tab-nav-bar>
+
+        <router-outlet></router-outlet>
+    </scaleo-card2-content>
+</scaleo-card2>

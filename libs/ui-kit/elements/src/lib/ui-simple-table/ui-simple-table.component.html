@@ -1,0 +1,84 @@
+<div class="ui-simple-table__wrapper">
+    <header class="ui-simple-table-header" [hidden]="headersHidden">
+        <ng-container *ngIf="headers; else defaultHeaderTpl">
+            <div
+                uiSimpleTableCol
+                *ngFor="let header of headers"
+                [ngStyle]="{ width: header.width }"
+            >
+                {{ header.translateSchema | translate }}
+            </div>
+            <div
+                *ngIf="controlTemplate"
+                uiSimpleTableCol
+                style="width: 1px"
+                class="ui-simple-table-header__control"
+            ></div>
+        </ng-container>
+        <ng-template #defaultHeaderTpl>
+            <ng-content select="[header]"></ng-content>
+        </ng-template>
+    </header>
+    <div class="ui-simple-table-body">
+        <ng-container *ngIf="isLoad; else skeletonTpl">
+            <ng-container *ngIf="items; else defaultContentTpl">
+                <div uiSimpleTableRow  *ngFor="let item of items">
+                    <div uiSimpleTableCol
+                         *ngFor="let header of headers"
+                         [colHeight]="colHeight"
+                         [colWidth]="columnTemplatesMap[header.value]?.width"
+                         [align]="columnTemplatesMap[header.value]?.align">
+                        <ng-container
+                            [ngTemplateOutlet]="columnTemplatesMap[header.value]?.tpl || defaultColTpl"
+                            [ngTemplateOutletContext]="{ $implicit: item[header.value], valueRow: item }"
+                        ></ng-container>
+                    </div>
+                    <div uiSimpleTableCol *ngIf="controlTemplate" [colHeight]="colHeight" align="right">
+                        <ng-template
+                            [ngTemplateOutlet]="controlTemplate"
+                            [ngTemplateOutletContext]="{ $implicit: item }"
+                        ></ng-template>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #defaultContentTpl>
+                <ng-content></ng-content>
+            </ng-template>
+        </ng-container>
+
+        <div
+            uiSimpleTableRow
+            style="height: 3rem"
+            *ngIf="isLoad && notFound"
+        >
+            <div
+                uiSimpleTableCol
+                class="ui-simple-table-not-found"
+                align="center"
+            >
+                {{ 'interface.basic.not_found' | translate }}
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</div>
+
+<ng-template #skeletonTpl>
+    <div
+        uiSimpleTableRow
+         *ngFor="let fake of skeletonRowCount | uiFakeArray; let i = index, trackBy: trackBySkeletonFn"
+    >
+        <div
+            uiSimpleTableCol
+            *ngFor="let key of skeletonColCount | uiFakeArray; let i = index, trackBy: trackBySkeletonFn"
+        >
+            <ui-skeleton>
+                <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+            </ui-skeleton>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #defaultColTpl let-value>
+    {{ value }}
+</ng-template>

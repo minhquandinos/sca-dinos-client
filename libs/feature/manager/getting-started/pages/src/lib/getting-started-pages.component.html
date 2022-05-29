@@ -1,0 +1,33 @@
+<div class="d-flex flex-md-row flex-column justify-content-start">
+    <aside class="m-r-24">
+        <div class="sticky-top">
+            <ul class="nav d-flex flex-column m-b-16 mb-md-0">
+                <li *ngFor="let item of routerMap$ | async" class="nav-item nav-item-getting-started" routerLinkActive="active">
+                    <div class="step-status" [ngClass]="{'step-status-done': item.complete}"></div>
+                    <a [routerLink]="item.router" class="text-nowrap">
+                        {{ ('getting_started.'+ item.title +  '.title') | translate }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <section>
+        <router-outlet></router-outlet>
+        <div class="d-flex align-items-center m-t-8">
+            <ui-button-link
+                *ngIf="showHideGettingStartedMenuButton | async"
+                type="base"
+                icon="hide"
+                class="box-shadow-none btn-hide-getting-started"
+                [label]="'getting_started.hide_getting_started'  | translate"
+                (toggle)="hideGettingStartedMenu()">
+            </ui-button-link>
+        </div>
+    </section>
+    <manager-getting-started-schedule-call></manager-getting-started-schedule-call>
+</div>
+
+<ng-template #modalMessageTpl>
+    <span class="text-pre-wrap">{{ 'getting_started.hide_getting_started_desc' | translate }}</span>
+    <span class="title font-size is-6 line-height is-23 pl-1">{{ 'getting_started.path_to_settings' | translate}}</span>
+</ng-template>

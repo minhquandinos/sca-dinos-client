@@ -1,0 +1,11 @@
+{
+    "offers_requests_page": {
+        "title": "Angebotsanfragen"
+    },
+    "statuses": {
+        "paid": "Bezahlt",
+        "not_paid": "Unbezahlt",
+        "in_progress": "In Bearbeitung",
+        "require_approval": "Genehmigung erforderlich"
+    }
+}

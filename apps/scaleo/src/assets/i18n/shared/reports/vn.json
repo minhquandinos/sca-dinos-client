@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Chuyển đổi được duyệt",
+                "cv_pending": "Chuyển đổi đang chờ xử lí",
+                "cv_rejected": "Chuyển đổi bị từ chối",
+                "cv_total": "Tổng Chuyển đổi ",
+                "clicks": "Tổng",
+                "impressions": "Số lượng",
+                "antifraud_logic_score": "Fraud",
+                "cv_trash": "Số lượng"
+            },
+            "tooltip": {
+                "tr": "Tổng tỷ lệ chuyển đổi",
+                "cr": "Tỷ lệ chuyển đổi được duyệt",
+                "pr": "Tỷ lệ chuyển đổi chờ duyệt",
+                "rr": "Tỷ lệ chuyển đổi bị từ chối",
+                "rpc": "Doanh thu trên mỗi lượt click",
+                "cpc": "Giá mỗi click",
+                "epc": "Số tiền kiếm được trên mỗi click",
+                "rpa": "Doanh thu trên mỗi chuyển đổi được duyệt",
+                "cpa": "Giá trên mỗi chuyển đổi được duyệt",
+                "epa": "Số tiền kiếm được trên mỗi chuyển đổi được duyệt",
+                "rpm": "Doanh thu trên 1000 lần hiển thị",
+                "cpm": "Giá trên mỗi 1000 lần hiển thị",
+                "epm": "Số tiền kiếm được trên mỗi 1000 lần hiển thị ",
+                "total_conversions": "Approved and Pending conversions",
+                "total_conversions_without_rejected": "Approved, Pending",
+                "total_conversions_include_rejected_in_totals": "Approved, Pending, Rejected and Trash conversions",
+                "ctr": "Click-through rate (Clicks to Impressions)",
+                "cv_total": "Approved, Pending, Rejected, Trash",
+                "ar": "Approved  Conversions Rate per Total Conversions",
+                "trash_conversions": "Conversions with incorrect data, fraud or test conversions"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Affiliate",
+            "affiliates_sources": "Affiliate Source",
+            "affiliates_subids1": "Affiliate Sub ID 1",
+            "affiliates_subids2": "Affiliate Sub ID 2",
+            "affiliates_subids3": "Affiliate Sub ID 3",
+            "affiliates_subids4": "Affiliate Sub ID 4",
+            "affiliates_subids5": "Affiliate Sub ID 5",
+            "affiliates_params1": "Affiliate Param 1",
+            "affiliates_params2": "Affiliate Param 2",
+            "affiliates_params3": "Affiliate Param 3",
+            "affiliates_params4": "Affiliate Param 4",
+            "affiliates_params5": "Affiliate Param 5",
+            "deep_links": "Deep Link URL",
+            "aff_click_ids": "Affiliate Click ID",
+            "reasons": "Lý do",
+            "redirections": "Chuyển hướng"
+        },
+        "logs": {
+            "title": "Traffic Logs",
+            "menus": {
+                "clicks": "Traffic không hợp lệ",
+                "postbacks": "Postbacks"
+            },
+            "info_conversions": "Can’t find certain conversions? Check the ",
+            "info_clicks": "Can’t find certain clicks? Check the "
+        }
+    }
+}

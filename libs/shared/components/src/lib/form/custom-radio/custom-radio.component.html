@@ -1,0 +1,42 @@
+<label class="field-label field-label-top" *ngIf="label"
+    >{{ label }} <span class="field-label__required" *ngIf="required">*</span></label
+>
+<div class="d-flex">
+    <div class="d-flex align-items-center radio" *ngFor="let item of items; let i = index, trackBy: trackByFn">
+        <div class="radio__wrapper">
+            <div class="mdc-radio mdc-radio--touch radio__touch">
+                <ng-container *ngIf="trackByKey; else withOutTackByKey">
+                    <input
+                        type="radio"
+                        name="radios"
+                        [checked]="value === item[trackByKey]"
+                        [id]="item[trackByKey]"
+                        [value]="item[trackByKey]"
+                        (change)="onChange(item[trackByKey])"
+                    >
+                </ng-container>
+                <ng-template #withOutTackByKey>
+                    <input
+                        type="radio"
+                        name="radios"
+                        [checked]="value === item"
+                        [id]="item"
+                        [value]="item"
+                        (change)="onChange(item)"
+                    >
+                </ng-template>
+
+                <div class="radio__background">
+                    <div class="mdc-radio__outer-circle radio__outer-circle"></div>
+                    <div class="mdc-radio__inner-circle radio__inner-circle"></div>
+                </div>
+            </div>
+        </div>
+        <label [for]="item" class="radio__title" *ngIf="itemLabel">{{ item[itemLabel] | async  }}</label>
+    </div>
+</div>
+
+<app-validation-message2
+    *ngIf="control && control?.invalid && control?.touched"
+    [validation]="control?.errors"
+></app-validation-message2>

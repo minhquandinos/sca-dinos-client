@@ -1,0 +1,52 @@
+<ui-tab-nav-bar>
+    <a ui-tab-nav-link routerLink="all" routerLinkActive="active">
+        {{ 'offers_page.navigation.all' | translate }}
+        <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: total$ | async }"></ng-template>
+    </a>
+
+    <a ui-tab-nav-link routerLink="featured" routerLinkActive="active">
+        {{ 'offers_page.navigation.featured' | translate }}
+        <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: featured$ | async }"></ng-template>
+    </a>
+
+    <a ui-tab-nav-link routerLink="my" routerLinkActive="active">
+        {{ 'offers_page.navigation.my' | translate }}
+        <ng-template [ngTemplateOutlet]="countTpl" [ngTemplateOutletContext]="{ $implicit: my$ | async }"></ng-template>
+    </a>
+
+    <ng-container *ngxPermissionsOnly="[planFeature.smartLink]">
+        <ui-divider
+            orientation="vertical"
+            height="16px"
+            class="m-r-12 m-l-12"
+        ></ui-divider>
+
+        <a ui-tab-nav-link routerLink="smart-links" routerLinkActive="active">
+            {{ 'smart_link_page.title2' | translate }}
+            <ng-template
+                [ngTemplateOutlet]="countTpl"
+                [ngTemplateOutletContext]="{ $implicit: smartlink$ | async }"
+            ></ng-template>
+            <app-custom-info-tooltip
+                class="h-100"
+                [customTemplate]="smartLinkTooltipTpl"
+            ></app-custom-info-tooltip>
+        </a>
+    </ng-container>
+
+</ui-tab-nav-bar>
+
+<ng-template #smartLinkTooltipTpl>
+    <app-custom-info-tooltip [text]="smartLinkTextTooltipTpl"></app-custom-info-tooltip>
+</ng-template>
+
+<ng-template #smartLinkTextTooltipTpl>
+    <app-custom-info-tooltip-template
+        [text]="'smart_link_page.info' | translate"
+        beaconId="608fb3ebf8c0ef2d98df889c"
+    ></app-custom-info-tooltip-template>
+</ng-template>
+
+<ng-template #countTpl let-count>
+    <span class="m-l-6 color__gray3 font-family-normal">{{ count | format:'number' }}</span>
+</ng-template>

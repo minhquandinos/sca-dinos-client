@@ -1,0 +1,74 @@
+{
+    "info": {
+        "invoices": [
+            {
+                "id": 1,
+                "invoice": "INV-AFF-0323-001",
+                "date": "2021.05.04 09:01:03",
+                "affiliate": {
+                    "id": 1,
+                    "title": "Affiliate name"
+                },
+                "payment_methods": {
+                    "id": 1,
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/payments-methods/5.WebMoney.svg",
+                    "value": "webmoney"
+                },
+                "amount": {
+                    "value": 100,
+                    "currency": "USD"
+                },
+                "status": 1,
+                "attachment": "",
+                "notes": ""
+
+            },
+            {
+                "id": 2,
+                "invoice": "INV-AFF-0323-002",
+                "date": "2021.03.04 09:01:03",
+                "affiliate": {
+                    "id": 2,
+                    "title": "Affiliate name 2"
+                },
+                "payment_methods": {
+                    "id": 1,
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/payments-methods/1.PayPal.svg",
+                    "value": "paypal"
+                },
+                "amount": {
+                    "value": 100,
+                    "currency": "USD"
+                },
+                "status": 1,
+                "attachment": "",
+                "notes": ""
+
+            },
+            {
+                "id": 3,
+                "invoice": "INV-AFF-0323-003",
+                "date": "2021.03.04 09:01:04",
+                "affiliate": {
+                    "id": 3,
+                    "title": "Affiliate name 3"
+                },
+                "payment_methods": {
+                    "id": 1,
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/payments-methods/2.Payoneer.svg",
+                    "value": "kozak@ukraine.com.ua"
+                },
+                "amount": {
+                    "value": 100,
+                    "currency": "USD"
+                },
+                "status": 1,
+                "attachment": "",
+                "notes": "some notes"
+
+            }
+        ]
+    }
+}
+
+

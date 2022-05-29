@@ -1,0 +1,34 @@
+<label *ngIf="label" [for]="formControlName" class="field-label field-label-top">
+    {{ label }} <span class="field-label__required" *ngIf="required">*</span>
+</label>
+<quill-editor
+    #editor
+    [(ngModel)]="model"
+    [placeholder]="placeholder"
+    (onFocus)="onFocus()"
+    (onBlur)="onBlur()"
+    (onContentChanged)="handleContentChanged($event)"
+>
+    <div quill-editor-toolbar>
+        <ng-container [ngTemplateOutlet]="defaultEditorToolbarTemplate"></ng-container>
+    </div>
+</quill-editor>
+
+<app-validation-message2
+    *ngIf="control && control?.invalid && control?.touched"
+    [validation]="control?.errors"
+></app-validation-message2>
+
+<ng-template #defaultEditorToolbarTemplate>
+    <span class="ql-formats mr-0">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-link"></button>
+    </span>
+</ng-template>

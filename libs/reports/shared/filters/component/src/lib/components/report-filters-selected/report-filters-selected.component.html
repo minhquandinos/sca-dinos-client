@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center">
+    <app-filters
+        [title]="'interface.basic.filtered_by' | translate"
+        className="p-0"
+    >
+        <div class="report-filters-selected__filters-wrap">
+            <form [formGroup]="filterForm" *ngIf="selectedFilters">
+                <app-filter
+                    className="report-filters-selected__filter d-inline-block"
+                    *ngFor="let item of selectedFilters; trackBy: trackByFn"
+                >
+                    <app-dropdown-popup
+                        [dropdownId]="item.filter"
+                        [label]="'reports_page.filters.' + item.filter | translate"
+                        [count]="filterForm.get(item.filter).value | reportFilterCountSelected"
+                        (toggle)="applyFilterHandler(item)"
+                    >
+                        <ng-container
+                            appDynamicFieldDirective
+                            [selectedFilters]="item"
+                            [dynamicFormControlName]="item.filter"
+                        >
+                        </ng-container>
+                    </app-dropdown-popup>
+                </app-filter>
+            </form>
+        </div>
+    </app-filters>
+</div>

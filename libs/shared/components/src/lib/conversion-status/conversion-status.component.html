@@ -1,0 +1,18 @@
+<div class="d-flex pl-0" *ngIf="status$ | async as status">
+    <ui-chip
+        [color]="status?.bgColor"
+        [colorText]="status?.colorText"
+        [tooltip]="tooltipTemplate"
+        contentType="template"
+        className="conversion-status"
+    >
+        {{ (status?.id | statusLabel:'conversion_statuses' | async) | firstCharacter | uppercase }}
+    </ui-chip>
+
+    <ng-template #tooltipTemplate>
+        <div class="d-flex flex-wrap">
+            <span *ngIf="showConversionStatusLabel" class="mr-1">{{ label$ | async }}:</span>
+            <span>{{ status.id | statusLabel:'conversion_statuses' | async }}</span>
+        </div>
+    </ng-template>
+</div>

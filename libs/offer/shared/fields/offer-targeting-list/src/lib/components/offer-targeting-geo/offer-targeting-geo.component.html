@@ -1,0 +1,51 @@
+<app-offer-targeting-item
+    *ngIf="showTargetingGeo$ | async"
+    [allowed]="item?.allowed"
+    [denied]="item?.denied"
+    [template]="outputTpl"
+    [translateName]="translateName"
+    [key]="itemKey"
+    [icon]="icon"
+    [tooltipTemplate]="outputTooltipTpl"
+    [showIfMore]="5"
+>
+    <ng-container *ngIf="item?.allowed?.length <= 0 && item?.denied?.length <= 0">
+        {{ 'offers_page.targeting.offers_targeting_rules.worldwide' | translate }}
+    </ng-container>
+</app-offer-targeting-item>
+
+<ng-template #outputTpl let-allowed="allowed" let-denied="denied">
+
+    <ng-container *ngIf="allowed.length || denied.length">
+        <ng-template [ngTemplateOutlet]="countryFlagTpl" [ngTemplateOutletContext]="{ $implicit: allowed, counts: 5 }"></ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="denied.length && !allowed.length">
+        {{ 'interface.basic.denied' | translate }}:
+        <ng-template [ngTemplateOutlet]="countryFlagTpl" [ngTemplateOutletContext]="{ $implicit: denied, counts: 5 }"></ng-template>
+    </ng-container>
+</ng-template>
+
+<ng-template #outputTooltipTpl let-allowed="allowed" let-denied="denied">
+    <div class="d-flex flex-wrap" *ngIf="allowed?.length > 0">
+        <span *ngIf="translateName" class="title-for-tooltip pr-1">
+            {{ 'offers_page.targeting.geo_allowed' | translate }}:
+        </span>
+        <span class="color__green text-for-tooltip">{{ item?.allowed | offerTargetingJoin: { key:'title' } }}</span>
+    </div>
+    <div class="d-flex flex-wrap" *ngIf="denied?.length > 0">
+        <span *ngIf="translateName" class="title-for-tooltip pr-1">
+            {{ 'offers_page.targeting.geo_denied' | translate }}:
+        </span>
+        <span class="color__red text-for-tooltip">{{ item?.denied | offerTargetingJoin: { key:'title' } }}</span>
+    </div>
+</ng-template>
+
+<ng-template #countryFlagTpl let-items let-counts="counts">
+    <app-country-flag
+        *ngFor="let item of items | slice:0:counts; trackBy: trackByFn; let i = index;"
+        className="p-l-6"
+        [countryCode]="item.code"
+        [tooltip]="item.title"
+    ></app-country-flag>
+</ng-template>

@@ -1,0 +1,85 @@
+<app-card-widget>
+    <app-card-widget-header>
+        <div class="title is-4">{{ 'offers_page.profile.page_title.targeting' | translate }}</div>
+        <div class="d-flex align-items-center ml-auto">
+            <ui-button-link
+                *ngxPermissionsOnly="permissions.canAddEditDeleteOffers"
+                [label]="'shared.dictionary.edit' | translate"
+                type="floating"
+                (click)="editForm()"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+    <app-card-widget-content className="py-0">
+        <ng-container *ngIf="showGeo$ | async">
+            <ng-container *ngIf="allowedGeo$ | async as allowedGeo">
+                <app-detail-info-row *ngIf="allowedGeo.length > 0">
+                    <app-detail-info-col class="col-px-200 color__gray2">
+                        {{ 'offers_page.targeting.geo_allowed' | translate }}:
+                    </app-detail-info-col>
+
+                    <app-detail-info-col class="d-flex flex-wrap">
+                        <app-allowed-tags
+                            *ngFor="let allowed of allowedGeo; trackBy: trackByGeoFn; let i = index"
+                            [allowed]="true"
+                            [tag]="allowed | geo"
+                            className="mt-0"
+                        ></app-allowed-tags>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+            </ng-container>
+
+            <ng-container *ngIf="deniedGeo$ | async as deniedGeo">
+                <app-detail-info-row *ngIf="deniedGeo.length > 0">
+                    <app-detail-info-col class="col-px-200 color__gray2">
+                        {{ 'offers_page.targeting.geo_denied' | translate }}:
+                    </app-detail-info-col>
+
+                    <app-detail-info-col class="d-flex flex-wrap">
+                        <app-allowed-tags
+                            *ngFor="let denied of deniedGeo; trackBy: trackByGeoFn; let i = index"
+                            [allowed]="false"
+                            [tag]="denied | geo"
+                            className="mt-0"
+                        ></app-allowed-tags>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+            </ng-container>
+        </ng-container>
+
+        <app-detail-info-row *ngFor="let extend of extendedTargeting$ | async; trackBy: trackByFn; let i = index">
+            <app-detail-info-col class="col-px-200 color__gray2">
+                {{ extend.type.id | platformListTranslate:'offers_targeting_rules' | async }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col class="d-flex flex-wrap">
+                <ng-container *ngIf="extend.conditions | typeof:'array'; else singleTagTpl">
+                    <app-allowed-tags
+                        *ngFor="let tag of extend.conditions; trackBy: trackByFn; let i = index"
+                        [allowed]="extend.permission.id | isTruthy: allowedDeniedIdEnum.Allowed"
+                        [tag]="tag | offerTargetingConditionTitle | async"
+                        className="mt-0"
+                    ></app-allowed-tags>
+                </ng-container>
+
+                <ng-template #singleTagTpl>
+                    <app-allowed-tags
+                        [allowed]="extend.permission.id | isTruthy: allowedDeniedIdEnum.Allowed"
+                        [tag]="extend.conditions"
+                        className="mt-0"
+                    ></app-allowed-tags>
+                </ng-template>
+            </app-detail-info-col>
+        </app-detail-info-row>
+
+        <app-detail-info-row *ngIf="showStrictTargeting$ | async" class="p-b-30">
+            <app-detail-info-col class="col-px-200 color__gray2">
+                {{ 'offers_page.targeting.form.strict_targeting' | translate }}:
+            </app-detail-info-col>
+
+            <app-detail-info-col class="d-flex flex-wrap">
+                <app-boolean-label [value]="strictTargeting$ | async"></app-boolean-label>
+            </app-detail-info-col>
+        </app-detail-info-row>
+    </app-card-widget-content>
+</app-card-widget>

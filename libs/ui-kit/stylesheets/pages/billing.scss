@@ -1,0 +1,46 @@
+.payment-methods-config-lists {
+    margin: 0;
+
+    thead {
+        tr {
+            th {
+                &:first-child {
+                    padding-left: 36px;
+                }
+            }
+        }
+    }
+
+    table {
+        tbody {
+            tr {
+                td {
+
+                    &:first-child {
+                        padding-left: 0;
+                    }
+
+                    &:last-child {
+                        min-width: 100px;
+                    }
+
+                    .config-list__sort {
+                        display: none;
+
+                        .custom-icon {
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    td .config-list__sort {
+                        display: flex;
+                    }
+                }
+
+            }
+        }
+    }
+}

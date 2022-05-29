@@ -1,0 +1,14 @@
+<ng-container
+    [ngTemplateOutlet]="(hyperlink$ | async)?.link && (permission$ | async) ? linkTemplate : textTemplate"
+    [ngTemplateOutletContext]="{context: hyperlink$ | async}"
+></ng-container>
+
+<ng-template #linkTemplate let-item="context">
+    <a [ngClass]="linkClassName" routerLink="{{ item?.link }}">
+        <ng-container [ngTemplateOutlet]="textTemplate" [ngTemplateOutletContext]="{context: item}"></ng-container>
+    </a>
+</ng-template>
+
+<ng-template #textTemplate let-item="context">
+    <span [ngClass]="valueClassName" [innerHTML]="item?.title"></span>
+</ng-template>

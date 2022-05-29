@@ -1,0 +1,34 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Rémunération",
+            "approved_revenue": "Rémunération",
+            "pending_revenue": "Rémunération",
+            "rejected_revenue": "Rémunération",
+            "total_revenue": "Rémunération",
+            "revenue": "Rémunération"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Coût par clic",
+                "rpa": "Coût par conversion approuvée",
+                "rpm": "Coût pour 1000 impressions"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Rémunération"
+                }
+            }
+        }
+    }
+}
+

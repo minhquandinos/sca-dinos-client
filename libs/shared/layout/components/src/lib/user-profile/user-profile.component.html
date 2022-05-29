@@ -1,0 +1,74 @@
+<ui-dropdown-entity
+    #dropdownEntity
+    [width]="{size: 200, units: 'px'}"
+    [scrollDisabled]="true"
+    (click)="dropdownEntity.open()"
+    [extraLeftPadding]="20"
+    class="user-profile__dropdown"
+>
+    <ng-container actionContent>
+        <div class="user-profile-info d-flex align-items-center pl-3 pr-4">
+            <div class="blockForImage" [tooltip]="'interface.header.account' | translate" placement="bottom">
+                <ui-image class="cursor-pointer" [image]="image$ | async" width="38" height="38"></ui-image>
+            </div>
+            <div class="user-profile-info__block flex-column ml-2 justify-content-center">
+                <span class="user-profile-info__name text-nowrap line-height is-17 font-family-medium">{{ name$ | async }}</span>
+                <span class="user-profile-info__role text-break truncate-text" [tooltip]="roleLabel$ | async">
+                    {{ roleLabel$ | async  | titlecase | truncateText:13 }}
+                </span>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container dropdownContent>
+        <ng-content></ng-content>
+<!--        <div class="dropdown-item" (click)="openModal()">-->
+<!--            <ui-svg-icon class="mr-2" icon="ic_profile"></ui-svg-icon>-->
+
+<!--            <span>{{ 'interface.header.profile' | translate }}</span>-->
+<!--        </div>-->
+<!--        <div-->
+<!--            class="dropdown-item position-relative"-->
+<!--            [uiDropdownEntityTriggerFor]="languageSwitcher"-->
+<!--            *ngIf="showLanguageSelect"-->
+<!--        >-->
+<!--            <ui-svg-icon icon="ic_language" class="mr-2"></ui-svg-icon>-->
+<!--            <span>{{ 'interface.header.language' | translate }}</span>-->
+<!--            <ui-svg-icon class="ml-auto" icon="ic_arrow_right"></ui-svg-icon>-->
+
+<!--            <div-->
+<!--                class="position-absolute dropdown-menu user-profile__dropdown-language mt-0"-->
+<!--                uiDropdownEntityItemRef #languageSwitcher="uiDropdownEntityItemRef"-->
+<!--            >-->
+<!--                <app-language-switcher></app-language-switcher>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <ng-container *ngIf="false">-->
+<!--            <ui-divider class="my-1" color="#f3f5f8"></ui-divider>-->
+
+<!--            <div class="dropdown-item" (click)="showInfo('billing')">-->
+<!--                <ui-svg-icon icon="ic_billing"></ui-svg-icon>{{ 'billing' | translate }}-->
+<!--            </div>-->
+
+<!--            <div class="dropdown-item" routerLink="/affiliate/referrals" *ngxPermissionsOnly="['AFFILIATE']">-->
+<!--                <ui-svg-icon icon="ic_referral_program"></ui-svg-icon>{{ 'interface.header.referral' | translate }}-->
+<!--            </div>-->
+<!--        </ng-container>-->
+
+        <ui-divider class="my-1" color="#f3f5f8"></ui-divider>
+
+        <div class="dropdown-item" (click)="logout()">
+            <ui-svg-icon icon="ic_logout" class="mr-2"></ui-svg-icon>
+            <span>{{ 'interface.header.logout' | translate }}</span>
+        </div>
+    </ng-container>
+</ui-dropdown-entity>
+
+<!--<ng-template #billingTemplate>-->
+<!--    {{ 'billing2.header.info_text' | translate }}-->
+<!--</ng-template>-->
+
+<!--<ng-template #referralTemplate>-->
+<!--    {{ 'interface.header.referral_info_text' | translate}}-->
+<!--</ng-template>-->
+

@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Báo cáo",
+        "dashboard": "Dashboard",
+        "offers": "Chiến dịch",
+        "manage": "Quản lý",
+        "activity-log": "Nhật ký hoạt động"
+    }
+}

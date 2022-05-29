@@ -1,0 +1,34 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Pagament",
+            "approved_revenue": "Pagament",
+            "pending_revenue": "Pagament",
+            "rejected_revenue": "Pagament",
+            "total_revenue": "Pagament",
+            "revenue": "Pagament"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Preu per clic",
+                "rpa": "Preu per conversió aprovada",
+                "rpm": "Preu per 1000 impressions"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Pagament"
+                }
+            }
+        }
+    }
+}
+

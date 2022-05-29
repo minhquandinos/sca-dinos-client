@@ -1,0 +1,19 @@
+<div class="custom-dashboard-widget-shortcuts__reports">
+    <ui-button-link
+        *ngxPermissionsOnly="permissions.canAccessConversions"
+        type="floating"
+        [label]="'dashboard_grid.widget.shortcuts.conversions_report' | translate"
+        [icon]="'arrow-link2'"
+        iconPosition="right"
+        (click)="navigate('conversions')"
+    ></ui-button-link>
+
+    <ui-button-link
+        *ngxPermissionsOnly="permissions.canAccessInvalidClicks"
+        type="floating"
+        [label]="'reports_page.logs.title' | translate"
+        [icon]="'arrow-link2'"
+        iconPosition="right"
+        (click)="navigate('invalid-clicks')"
+    ></ui-button-link>
+</div>

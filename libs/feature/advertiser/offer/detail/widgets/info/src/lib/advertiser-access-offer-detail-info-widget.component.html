@@ -1,0 +1,101 @@
+<app-detail-info-widget [isLoad]="!!offerData?.id">
+    <app-detail-info-widget-header
+        [image]="offerData?.image | pathFile: 'offers' | defaultImage: 'offer'"
+        imageType="rounded"
+        [title]="offerData?.title"
+    >
+        <ng-container titleContent>
+            <app-status-dot-color
+                class="mt-1 h-auto align-items-center d-flex"
+                [status]="offerData.status"
+                type="statuses"
+                [showLabel]="true"
+            ></app-status-dot-color>
+        </ng-container>
+
+        <ng-container controlContent>
+            <ui-button-link
+                type="floating"
+                icon="visibility"
+                (click)="preview()"
+                [tooltip]="'interface.basic.preview' | translate"
+            ></ui-button-link>
+        </ng-container>
+
+    </app-detail-info-widget-header>
+    <app-detail-info-widget-content>
+        <ng-container>
+            <app-detail-info>
+
+                <app-detail-info-row *ngIf="offerData?.tags_selected?.length > 0">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.tags' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-tags-lists
+                            [tags]="offerData?.tags_selected"
+                            [showAll]="true"
+                        ></app-tags-lists>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.traffic_types_selected?.length > 0">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.traffic_type' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-tags-lists
+                            [tags]="offerData?.traffic_types_selected"
+                            [showAll]="true"
+                        ></app-tags-lists>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.description">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.description' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-expand class="quill-results">
+                            <div
+                                class="text-break d-inline"
+                                [innerHTML]="offerData?.description | expandTruncateText: textLimit | async"
+                            ></div>
+                        </app-expand>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.internal_info">
+                    <app-detail-info-col class="col-4 color__gray2">
+                        {{ 'interface.form.internal_information' | translate }}:
+                    </app-detail-info-col>
+                    <app-detail-info-col>
+                        <app-expand>
+                            {{ offerData.internal_info | expandTruncateText: textLimit | async }}
+                        </app-expand>
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.timezone">
+                    <app-detail-info-col class="col-4 color__gray2">{{ 'interface.form.timezone' | translate }}:</app-detail-info-col>
+                    <app-detail-info-col>
+                        {{ offerData?.timezone }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.currency && offerData?.currency_name">
+                    <app-detail-info-col class="col-4 color__gray2">
+                        {{ 'interface.form.currency' | translate }}:
+                    </app-detail-info-col>
+                    <app-detail-info-col>
+                        {{ offerData?.currency_name }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+
+                <app-detail-info-row *ngIf="offerData?.is_expires">
+                    <app-detail-info-col class="col-4 color__gray2">
+                        {{ 'interface.form.expires' | translate }}:
+                    </app-detail-info-col>
+                    <app-detail-info-col>
+                        {{ offerData.expiration_date | format:'date' }}
+                    </app-detail-info-col>
+                </app-detail-info-row>
+            </app-detail-info>
+        </ng-container>
+
+    </app-detail-info-widget-content>
+</app-detail-info-widget>

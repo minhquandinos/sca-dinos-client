@@ -1,0 +1,153 @@
+<div class="registration-form" *ngIf="allowSignup && allSignUpFields">
+    <form [formGroup]="form" appScrollFirstInvalidField>
+        <ng-container *ngFor="let field of allSignUpFields">
+            <ng-container [ngSwitch]="field.name">
+                <ng-container *ngSwitchCase="'password'">
+                    <div class="form-group">
+                        <app-input
+                            type="password"
+                            [label]="field.name | translate"
+                            [formControlName]="field.name"
+                            [size]="'medium'"
+                        ></app-input>
+                    </div>
+                    <div class="form-group">
+                        <app-input
+                            type="password"
+                            [label]="'password_confirm' | translate"
+                            formControlName="password_repeat"
+                            [size]="'medium'"
+                        ></app-input>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'country'">
+                    <div class="form-group country-selected">
+                        <app-find-country [label]="'interface.form.country' | translate" formName="country"></app-find-country>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'tags'">
+                    <div class="form-group">
+                        <app-select
+                            [items]="platformLists?.affiliates_tags"
+                            [label]="'interface.form.tags' | translate"
+                            [placeholder]="'interface.form.select_tags' | translate"
+                            classNames="w-100"
+                            itemLabel="title"
+                            itemValue="id"
+                            formControlName="tags"
+                            [searchable]="true"
+                            [clearable]="true"
+                            [multiple]="true"
+                            [hideSelected]="true"
+                        ></app-select>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'traffic_types'">
+                    <div class="form-group">
+                        <app-select
+                            [items]="platformLists?.traffic_types"
+                            [label]="'interface.form.traffic_type' | translate"
+                            classNames="w-100"
+                            itemLabel="title"
+                            itemValue="id"
+                            formControlName="traffic_types"
+                            [searchable]="true"
+                            [clearable]="true"
+                            [multiple]="true"
+                            [hideSelected]="true"
+                        ></app-select>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'contacts'">
+                    <div class="form-group">
+                        <shared-add-contact formName="contacts"></shared-add-contact>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'phone'">
+                    <div class="form-group">
+                        <app-input
+                            [label]="field.name | translate"
+                            [formControlName]="field.name"
+                            maxLength="20"
+                            [size]="'medium'"
+                        ></app-input>
+                    </div>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    <div class="form-group">
+                        <app-input
+                            authSharedInputMaxLength
+                            [fieldNamesForSetAttribute]="['company_name', 'firstname', 'lastname']"
+                            maxLengthValue="64"
+                            [label]="field.name | translate"
+                            [formControlName]="field.name"
+                            [size]="'medium'"
+                        ></app-input>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+
+        <div class="form-divider p-t-8"></div>
+
+        <div class="form-group" *ngIf="customFieldsConfig">
+            <app-custom-field formGroupName="custom_fields" [customFieldsConfig]="customFieldsConfig"></app-custom-field>
+        </div>
+
+        <app-input
+            class="signup-field-second-name"
+            type="text"
+            label="Second Name"
+            formControlName="second_user_name"
+            [size]="'medium'"
+        ></app-input>
+
+        <div class="form-group" *ngIf="mustAgreePrivacyPolicy || mustAgreeTermsAndConditions">
+            <div class="d-flex registration-form__agree" *ngIf="mustAgreeTermsAndConditions && form.get('agree_with_terms_and_conditions')">
+                <app-custom-checkbox
+                    checkboxId="mustAgreeTermsAndConditions"
+                    [label]="'registration.basic.agree_with' | translate"
+                    formControlName="agree_with_terms_and_conditions"
+                    class="d-block"
+                    [link]="agreeTermsAndConditionsLink"
+                    [linkLabel]="'registration.basic.agree_terms' | translate"
+                ></app-custom-checkbox>
+            </div>
+
+            <div class="d-flex registration-form__agree" *ngIf="mustAgreePrivacyPolicy && form.get('agree_with_privacy_policy')">
+                <app-custom-checkbox
+                    checkboxId="mustAgreePrivacyPolicy"
+                    [label]="'registration.basic.agree_with' | translate"
+                    formControlName="agree_with_privacy_policy"
+                    class="d-block"
+                    [link]="privacyPolicyLink"
+                    [linkLabel]="'registration.basic.agree_policy' | translate"
+                ></app-custom-checkbox>
+            </div>
+        </div>
+
+        <ng-content></ng-content>
+
+        <div class="p-t-21">
+            <ui-button-link
+                class="form-button"
+                type="main"
+                [label]="'auth.REGISTRATION_BUTTON' | translate"
+                [isLoad]="!isLoading"
+                [disabled]="isLoading"
+                (toggle)="registerUser()"
+                [size]="'medium'"
+            ></ui-button-link>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="alraeady-have-account">
+            <a routerLink="/login">{{ 'auth.ALREADY_HAVE_ACCOUNT' | translate }}</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<ng-container *ngIf="customOptions && isLoad; else legendSkeleton">
+    <div
+        class="dashboard-chart-legend mt-3 mb-3"
+        *ngIf="showLegend"
+    >
+        <div
+            class="chart-legend d-flex flex-column"
+            *ngFor="let item of customOptions?.series; let i = index"
+            (click)="hideSeries(i)"
+            [ngClass]="{'chart-legend--hide': !item?.visible}"
+        >
+            <div class="d-flex align-items-center">
+                <div class="chart-legend__value title is-1">{{ item?.totals | formatByKey:item?.key }}</div>
+                <div class="chart-legend__diff" *ngIf="false">15%</div>
+            </div>
+            <div class="chart-legend__title subtitle is-6">{{ 'dashboard_page.legend.' + item?.key | translate }}</div>
+            <div class="chart-legend__color mt-auto" [ngStyle]="{backgroundColor: item?.color}"></div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #legendSkeleton>
+    <div class="dashboard-chart-legend mt-3 mb-3" style="grid-template-columns: 1fr;" *ngIf="showLegend">
+        <div class="skeleton">
+            <div class="skeleton__animation skeleton__block" style="height: 92px;"></div>
+        </div>
+    </div>
+</ng-template>
+
+<div class="dashboard-chart position-relative" [hidden]="!isLoad" [ngClass]="{'mt-3': !showLegend}">
+    <div class="dashboard-chart--no-data" *ngIf="ranges?.length <= 0 && series?.length <= 0 && !totals">
+        {{ 'dashboard_page.chart-no-data' | translate }}
+    </div>
+    <app-custom-chart
+        [customOptions]="customOptions"
+    ></app-custom-chart>
+</div>
+
+<div *ngIf="!isLoad">
+    <div class="skeleton" style="padding: 0 16px;" [ngClass]="{'mt-3': !showLegend, 'pb-3': !showLegend}">
+        <div class="skeleton__animation skeleton__block" style="height: 290px;"></div>
+    </div>
+</div>

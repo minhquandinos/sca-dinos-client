@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Nhật ký hoạt động",
+        "details": "Chi tiết",
+        "new_values": "Giá trị mới",
+        "old_values": "Giá trị cũ",
+        "object": {
+            "affiliate": "Affiliate",
+            "postback": "Postback",
+            "gloabal_postback": "Global postback",
+            "source": "Source",
+            "advertiser": "Advertiser",
+            "domain": "Domain",
+            "manager": "Manager",
+            "offer": "Chiến dịch",
+            "offer_request": "Yêu cầu chiến dịch",
+            "goal": "Mục tiêu",
+            "tracking": "Tracking",
+            "targeting": "Targeting",
+            "affiliate_access": "Affiliate Access",
+            "landing_page": "Landing Page",
+            "creative": "Creative",
+            "custom_param": "Custom Parameters",
+            "you": "You",
+            "announcement": "Announcement"
+        },
+        "owner": {
+            "offer" : "for offer",
+            "affiliate": "for affiliate",
+            "you": "for you"
+        },
+        "action": {
+            "add": "Đã thêm",
+            "edit": "Đã cập nhật",
+            "view": "Đã xem",
+            "delete": "Đã xóa",
+            "signup": "Đăng ký",
+            "login": "Đăng nhập",
+            "profile_edit": "Updated his profile",
+            "logout": "Đăng xuất",
+            "approved": "Đã duyệt",
+            "declined": "Đã từ chối",
+            "login_as": "Đăng nhập vào"
+        },
+        "action_for_offer_request": {
+            "add": "requested",
+            "approved": "Đã duyệt",
+            "declined": "Đã từ chối"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "requested",
+            "approved": "Đã duyệt",
+            "declined": "Đã từ chối"
+        },
+        "action_for_goal": {
+            "add": "Đã thêm",
+            "edit": "Đã cập nhật",
+            "delete": "Đã xóa"
+        },
+        "action_custom_params": {
+            "add": "Đã thêm",
+            "edit": "Đã cập nhật",
+            "delete": "Đã xóa"
+        }
+    }
+}

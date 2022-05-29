@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center justify-content-center" style="height: calc(100vh - 63px - 48px - 35px)">
+    <ui-page-wrapper borderRadius="4" class="h-auto">
+        <ui-page-wrapper-content>
+            <div class="d-flex h-100 align-items-center justify-content-center">
+
+                <div class="d-flex align-items-center" [ngStyle]="{flexDirection: 'column'}">
+                    <div class="title">{{ 'errors.permission_denied.title' | translate }}</div>
+                    <p class="mt-5">{{ 'errors.permission_denied.text' | translate }}</p>
+                    <ui-button-link
+                        className="mt-4"
+                        [label]="'errors.return_home_page' | translate"
+                        (click)="homePage()"
+                    ></ui-button-link>
+                </div>
+            </div>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+</div>

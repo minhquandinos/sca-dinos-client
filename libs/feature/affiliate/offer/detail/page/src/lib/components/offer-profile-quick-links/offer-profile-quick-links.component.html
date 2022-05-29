@@ -1,0 +1,25 @@
+<ui-page-wrapper id="quick-links">
+    <ui-page-wrapper-header [haveBorderBottom]="false">
+        <div class="page-wrapper-header__title page-wrapper-header__title--small cursor-pointer">{{'quick_links.title' | translate}}</div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="page-wrapper-quick-links py-3 p-l-16">
+        <ui-button-link
+            [icon]="'context-statistics'"
+            type="floating"
+            [label]="'quick_links.buttons.statistics' | translate"
+            (click)="toLink('statistics')"
+        ></ui-button-link>
+        <ui-button-link
+            type="floating"
+            [icon]="'context-conversions'"
+            [label]="'quick_links.buttons.conversions' | translate"
+            (click)="toLink('conversions')"
+        ></ui-button-link>
+        <ui-button-link
+            [icon]="'context-clicks'"
+            type="floating"
+            [label]="'quick_links.buttons.clicks' | translate"
+            (click)="toLink('clicks')"
+        ></ui-button-link>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>

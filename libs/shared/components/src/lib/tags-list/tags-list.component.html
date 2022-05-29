@@ -1,0 +1,15 @@
+<div class="tags-list">
+    <span
+        class="tags-list__item"
+        [ngClass]="className"
+        *ngFor="let tag of tags  | tagsListSorted | tagsListTake: showAll;i as index ;trackBy: trackByFn"
+    >
+        <ui-chip>{{ tag?.title }}</ui-chip>
+    </span>
+
+    <div
+        class="table-dotted d-inline-flex align-items-center i-more-horisontal-small m-l-3"
+        *ngIf="!showAll && tags.length > 6"
+        [tooltip]="tags | tagsListSorted | tagsListTooltip"
+    ></div>
+</div>

@@ -1,0 +1,90 @@
+<ng-container *ngIf="showCard">
+    <ui-page-wrapper borderRadius="4" *ngIf="isLoad; else skeleton">
+        <ui-page-wrapper-header [haveBorderBottom]="false">
+            <div class="title is-4">{{ 'offers_page.profile.page_title.targeting' | translate }}</div>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content className="p-0">
+            <div class="info-list__block pb-0" *ngIf="allowedGeo || deniedGeo || (extended.length > 0)">
+                <div class="profile-info__row d-flex align-items-md-center flex-column flex-md-row" *ngIf="allowedGeo || deniedGeo">
+                    <div class="profile-info__row-name pl-0 col-3 align-self-start align-self-md-center">
+                        {{ 'offers_page.profile.targeting.geo' | translate }}:
+                    </div>
+                    <div class="profile-info__row-value d-flex flex-wrap">
+                        <div *ngIf="allowedGeo" class="d-flex flex-wrap">
+                            <p  class="mb-0" *ngFor="let allowed of allowedGeo">
+                                <app-allowed-tags [allowed]="true" [tag]="allowed"></app-allowed-tags>
+                            </p>
+                        </div>
+
+                        <div *ngIf="deniedGeo" class="d-flex flex-wrap">
+                            <p class="mb-0" *ngFor="let denied of deniedGeo">
+                                <app-allowed-tags [allowed]="false" [tag]="denied"></app-allowed-tags>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info__row d-flex align-items-md-center flex-column flex-md-row align-self-start align-self-md-center" *ngFor="let extend of extended; let i = index">
+                    <div class="profile-info__row-name pl-0 col-3">{{ 'offers_page.targeting.offers_targeting_rules.' + extend.translate  | translate }}:</div>
+                    <div class="profile-info__row-value flex-wrap d-flex">
+                        <app-allowed-tags *ngFor="let tag of extend.conditions" [allowedAsNumber]="extend.permission" [tag]="tag | extendedTargetingProfileTranslate | async"></app-allowed-tags>
+                    </div>
+                </div>
+            </div>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+</ng-container>
+
+<ng-template #skeleton>
+    <div class="page-wrapper skeleton">
+        <div class="page-wrapper-header  d-flex align-items-center bg-unset">
+            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-25"></div>
+            <div class="ml-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--medium w-25"></div>
+            </div>
+        </div>
+
+        <div class="page-wrapper-content">
+            <div class="w-100 p-l-16 justify-content-center">
+                <div class="info">
+
+                    <div class="info__title m-b-10">
+                        <div class="skeleton__animation skeleton__block skeleton__block--large w-25"></div>
+                    </div>
+
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50 d-flex">
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium m-l-8 w-25"></div>
+                        </div>
+                    </div>
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50 d-flex">
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium m-l-8 w-25"></div>
+                        </div>
+                    </div>
+
+                    <div class="info__row d-flex w-100  m-t-12">
+                        <div class="info__row-name w-25">
+                            <div class="skeleton__animation skeleton__block skeleton__block--small w-25"></div>
+                        </div>
+                        <div class="info__row-value color__color__cyan w-50 d-flex">
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                            <div class="skeleton__animation skeleton__block skeleton__block--medium m-l-8 w-25"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

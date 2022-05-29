@@ -1,0 +1,125 @@
+<app-card-widget [autoSetBottomPaddingWhenFooterEmpty]="true">
+    <app-card-widget-header>
+        <span class="title is-4">{{ 'offers_page.profile.page_title.creatives' | translate }}</span>
+        <div class="ml-auto d-flex align-items-center" *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]">
+            <div class="mr-2" [tooltip]="'offers_page.creatives.add' | translate">
+                <ui-button-link
+                    icon="plus-small"
+                    type="floating"
+                    (click)="addCreative()"
+                ></ui-button-link>
+            </div>
+
+            <ui-button-link
+                [label]="'interface.basic.manage' | translate"
+                type="floating"
+                routerLink="creatives"
+            ></ui-button-link>
+        </div>
+    </app-card-widget-header>
+
+    <app-card-widget-content className="p-0">
+        <ui-simple-table
+            [isLoad]="isLoad$ | async"
+            [notFound]="notFound$ | async"
+            [items]="items$ | async"
+            [headers]="columns"
+            tableStyle="clear"
+            [skeletonColCount]="columns.length"
+            [skeletonRowCount]="5"
+            colHeight="3rem"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiSimpleTableColTpl="title" let-title let-item="valueRow">
+                <app-status-dot-color type="creatives_statuses" [status]="item.status"></app-status-dot-color>
+
+                <span class="text-pre-wrap pl-2">{{ title | format: 'idName':item.id }}</span>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="type" let-type>
+                <ui-chip>{{ type.id | platformListTranslate: 'creatives_types' | async }}</ui-chip>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="details" let-item="valueRow">
+                <ng-container *ngIf="item.image">
+                    {{ item.image_height }}x{{ item.image_width }}, {{ item.image_size | fileSizeFormat | async }}
+                </ng-container>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="offer_url" let-offer_url>
+                {{ offer_url.title }}
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="preview" let-item="valueRow">
+                <app-creative-preview
+                    *ngIf="!item.isXmlFeed"
+                    [creative]="item"
+                ></app-creative-preview>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="tracking_url" let-item="valueRow">
+                <ng-container *ngIf="!item.isXmlFeed">
+                    <app-link-to-modal-info
+                        [linkLabel]="'table.column.tracking_url' | translate"
+                        [content]="trackingTemplate"
+                        [modalTitle]="'table.column.tracking_url' | translate"
+                    ></app-link-to-modal-info>
+
+                    <ng-template #trackingTemplate>
+                        <app-field-text-info preset="copy">
+                            <span class="text-break-all">{{ item.offer_url.url }}</span>
+                        </app-field-text-info>
+                    </ng-template>
+                </ng-container>
+            </ng-template>
+
+            <ng-template uiSimpleTableColTpl="html_code" let-item="valueRow">
+                <ng-container *ngIf="!item.isXmlFeed;">
+                    <app-link-to-modal-info
+                        [linkLabel]="'shared.dictionary.html_code' | translate"
+                        [content]="htmlInfoTemplate"
+                        [modalTitle]="'table.column.html_code' | translate"
+                    ></app-link-to-modal-info>
+
+                    <ng-template #htmlInfoTemplate>
+                        <app-textarea [appCreativeViewHtmlCode]="item | creativeHtmlCodeConvert"></app-textarea>
+                    </ng-template>
+                </ng-container>
+            </ng-template>
+        </ui-simple-table>
+    </app-card-widget-content>
+
+    <app-card-widget-footer divider="inline" *ngIf="(total$ | async) > 10">
+        <ng-container *ngTemplateOutlet="(canManager$ | async) ? managerLinkTpl : paginationTp"></ng-container>
+    </app-card-widget-footer>
+</app-card-widget>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        class="ml-auto"
+        *ngxPermissionsOnly="[permissions.canAddEditDeleteOffers]"
+        (toggleEdit)="addCreative(item.id)"
+    ></ui-table-navigation>
+</ng-template>
+
+<ng-template #managerLinkTpl>
+    <ui-button-link
+        *ngxPermissionsOnly="permissions.canAddEditDeleteOffers"
+        routerLink="creatives"
+        iconPosition="right"
+        icon="ic_arrow_right_blue"
+        type="link"
+        class="ml-auto btn__view-all"
+        [label]="'interface.basic.view_all_count' | translate: { count: total$ | async }"
+    ></ui-button-link>
+</ng-template>
+
+<ng-template #paginationTp>
+    <app-custom-pagination
+        *ngIf="showPagination$ | async"
+        [pagination]="pagination$ | async"
+        [showPerPageDropdown]="false"
+        [scrollToTopAfterPageChange]="false"
+        (toggle)="pageWasChanged($event)"
+    ></app-custom-pagination>
+</ng-template>

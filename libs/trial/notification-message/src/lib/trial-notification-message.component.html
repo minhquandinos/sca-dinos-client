@@ -1,0 +1,15 @@
+<ng-container *ngxPermissionsOnly="baseRole.admin">
+    <ng-container *ngIf="isTrial">
+        <app-notification-header
+            [color]="trialNotificationColor"
+            [close]="!(trialExpiredDays <= 3)">
+            <ng-container *ngTemplateOutlet="trialNotification"></ng-container>
+        </app-notification-header>
+    </ng-container>
+</ng-container>
+
+<ng-template #trialNotification>
+    <div>
+        <span [innerHTML]="'notifications.expired_trial' | translate:{name: trialName, day: trialExpiredDays}"></span>
+    </div>
+</ng-template>

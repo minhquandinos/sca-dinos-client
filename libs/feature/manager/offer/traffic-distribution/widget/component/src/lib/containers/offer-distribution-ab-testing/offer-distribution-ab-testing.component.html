@@ -1,0 +1,35 @@
+<div [formGroup]="form">
+    <ui-simple-table
+        [headers]="columns"
+        [formArrayName]="formArrayName"
+        [isLoad]="loading$ | async"
+        skeletonRowCount="1"
+        skeletonColCount="6"
+        class="distribution-ab-testing-table"
+    >
+        <div
+            uiSimpleTableRow
+            [hoverDisabled]="true"
+            *ngFor="let item of items$ | async; trackBy: trackByFn let i = index"
+        >
+            <app-offer-distribution-ab-testing-item
+                class="d-contents"
+                [item]="item"
+                [landings]="landings$ | async"
+                [selectedLandings]="selectedLanding$ | async"
+                [index]="i"
+            ></app-offer-distribution-ab-testing-item>
+        </div>
+    </ui-simple-table>
+    <div class="p-x-20 mt-3">
+        <ui-button-link
+            *ngIf="showAddBtn$ | async"
+            type="simple"
+            icon="plus"
+            [iconSize]="12"
+            label="Add"
+            (toggle)="add()"
+        ></ui-button-link>
+    </div>
+</div>
+

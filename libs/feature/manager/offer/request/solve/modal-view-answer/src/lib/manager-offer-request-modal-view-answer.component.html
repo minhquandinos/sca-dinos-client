@@ -1,0 +1,16 @@
+<scaleo-offer-request-modal-qa
+    [id]="id"
+    [status]="status"
+    [questions]="questions"
+    [answer]="answer"
+    [footerControls]="control"
+></scaleo-offer-request-modal-qa>
+
+<ng-template #controlTpl>
+    <scaleo-manager-offer-request-control
+        [id]="id"
+        buttonSize="base"
+        (changed)="action($event)"
+    ></scaleo-manager-offer-request-control>
+</ng-template>
+

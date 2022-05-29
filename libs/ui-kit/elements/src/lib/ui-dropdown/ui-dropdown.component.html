@@ -1,0 +1,12 @@
+<div class="ui-dropdown__action d-flex" #dropdownActionRef>
+    <ng-content select="[actionContent]"></ng-content>
+</div>
+
+<ng-template #dropdownContentTpl>
+    <div class="ui-dropdown__content" [ngClass]="{'overflow-x-auto': scroll}" #dropdownContentWrapperRef>
+        <ng-container #dropdownContentHeaderContainerRef></ng-container>
+        <div uiDropdownContent>
+            <ng-content select="[dropdownContent]"></ng-content>
+        </div>
+    </div>
+</ng-template>

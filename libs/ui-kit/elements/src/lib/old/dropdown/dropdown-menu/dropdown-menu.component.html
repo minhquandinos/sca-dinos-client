@@ -1,0 +1,45 @@
+<div class="dropdown cursor-pointer dropdown--menu"
+     uiOldDropdown
+     #dropdownRef
+     [ngClass]="className"
+>
+    <div class="d-flex" data-toggle="dropdown" aria-expanded="false">
+        <ng-container *ngIf="label; else templateLabel">
+            <ui-button-link
+                [icon]="icon"
+                [iconSize]="16"
+                iconPosition="right"
+                [type]="buttonType"
+                [label]="label"
+                className="dropdown-arrows"
+            ></ui-button-link>
+        </ng-container>
+       <ng-template #templateLabel>
+           <ng-content select="ui-button-link"></ng-content>
+       </ng-template>
+    </div>
+
+    <div class="dropdown-menu" #dropdownMenuRef>
+        <div>
+            <ng-container *ngIf="elements?.length > 0; else templateElements">
+
+                <ng-container *ngFor="let element of elements">
+                    <div
+                        *ngIf="hideSelected ? !element.selected : true"
+                        class="dropdown-item"
+                        (click)="element.action()">
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown-item__label">
+                                {{ element.title | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-template #templateElements>
+                <ng-content></ng-content>
+            </ng-template>
+        </div>
+
+    </div>
+</div>

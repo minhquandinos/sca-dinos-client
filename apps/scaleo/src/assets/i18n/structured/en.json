@@ -1,0 +1,112 @@
+{
+    "delete": {
+        "delete_confirm_title": "Are you sure?",
+        "delete_confirm_text": "This item will be deleted."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Featured"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Available"
+    },
+    "quick_links": {
+        "title": "Quick Links"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Add Postback",
+            "created": "Postback has been successfully added",
+            "edit": "Edit Postback",
+            "deleted": "Postback has been successfully deleted",
+            "add_as_title": "Add Postback",
+            "global": "Global",
+            "offer": "Offer",
+            "list_postback": "Postback",
+            "list_html": "HTML Pixel (Cookie-based)",
+            "list_table_postback": "Postback",
+            "list_table_html": "HTML Pixel (Cookie-based)",
+            "all_postbacks": "All Postbacks",
+            "global_postbacks": "Global Postbacks",
+            "goal": "goal",
+            "description": {
+                "level_global_for_affiliate": "Global: Postback will be triggered for all offers (all goals except CPC type).",
+                "level_offer_for_affiliate": "Offer: Postback will be executed for the selected offer only. If the goal is not specified – it will be executed for all goals on that offer.",
+                "conversion_status_for_affiliate": "Postback will be triggered for this conversion status only.",
+                "method_for_affiliate": "Postback type supported by your system."
+            }
+        },
+        "source": {
+            "title": "Sources",
+            "add": "Add Source"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros Available",
+        "offer_id": "Offer’s ID in platform",
+        "affiliate_id": "ID of Affiliate promoting the offer.",
+        "sub_id1": "Affiliate Sub ID 1 specified in the tracking link.",
+        "sub_id2": "Affiliate Sub ID 2 specified in the tracking link.",
+        "sub_id3": "Affiliate Sub ID 3 specified in the tracking link.",
+        "sub_id4": "Affiliate Sub ID 4 specified in the tracking link.",
+        "sub_id5": "Affiliate Sub ID 5 specified in the tracking link.",
+        "click_id": "Unique 32 character alphanumeric string, which is generated and assigned to each click in platform",
+        "link_id": "Offer additional link specified in the tracking link.",
+        "source_id": "Affiliate Source ID specified in the tracking link.",
+        "aff_param1": "Affiliate additional parameter 1 specified in the tracking link.",
+        "aff_param2": "Affiliate additional parameter 2 specified in the tracking link.",
+        "aff_param3": "Affiliate additional parameter 3 specified in the tracking link.",
+        "aff_param4": "Affiliate additional parameter 4 specified in the tracking link.",
+        "aff_param5": "Affiliate additional parameter 5 specified in the tracking link.",
+        "adv_param1": "Advertiser additional parameter 1 specified upon the conversion.",
+        "adv_param2": "Advertiser additional parameter 2 specified upon the conversion.",
+        "adv_param3": "Advertiser additional parameter 3 specified upon the conversion.",
+        "adv_param4": "Advertiser additional parameter 4 specified upon the conversion.",
+        "adv_param5": "Advertiser additional parameter 5 specified upon the conversion.",
+        "amount": "Sale amount on Advertiser side.",
+        "conv_status": "Conversion status (approved / pending / rejected / trash).",
+        "offer_name": "Offer’s name in platform.",
+        "creative_id": "Offer Creative ID used.",
+        "aff_click_id": "Affiliate Click ID. Unique ID for every click sent from Affiliate.",
+        "deep_link": "Affiliate Source ID specified in the tracking link.",
+        "goal_id": "Offer’s goal ID in platform.",
+        "adv_order_id": "Advertiser's order ID specified upon the conversion.",
+        "adv_user_id": "Advertiser's user ID specified upon the conversion.",
+        "offer_currency": "Selected offer's currency.",
+        "transaction_id": "Transaction ID. Unique ID for every transaction in platform.",
+        "track_id": "Additional information from Advertiser, specified upon the conversion.",
+        "payout": "Value of Afiliate's payout",
+        "ip": "IP address that started the click session.",
+        "user_agent": "User's agent string determined at the time of click.",
+        "device_type": "User's device string determined at the time of click.",
+        "device_os": "User's OS string determined at the time of click.",
+        "connection_type": "User's connection type string determined at the time of click.",
+        "mobile_operator": "User's mobile operator string determined at the time of click.",
+        "geo_country_code": "User's country code determined at the time of click.",
+        "geo_country": "User's country determined at the time of click.",
+        "geo_region": "User's region determined at the time of click.",
+        "geo_city": "User's city determined at the time of click.",
+        "idfa": "Apple iOS Advertising Identifier (IDFA).",
+        "gaid": "Google Android Advertising Identifier (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Refer new affiliates and receive a {{ commission }} commission from those affiliates’ earnings every month.",
+        "commission_info_for_flat": "Refer new affiliates and receive a one-time commission of {{ commission }} for every referred affiliate.",
+        "referrals_title": "Referrals",
+        "link": "Your Personal Referral Link:",
+        "you_referrals_title": "Your Referrals",
+        "form": {
+            "referral_commission": "Referral Commission"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Please contact your manager to enable an API for you."
+        }
+    }
+}

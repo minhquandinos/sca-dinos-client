@@ -1,0 +1,253 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{
+            !editId
+                ? ('advertiser.basic.add_advertiser_as_title' | translate)
+                : ('advertiser.basic.edit_advertiser' | translate) + ' #' + editId
+        }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        *ngIf="isLoad"
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<ng-container *ngIf="isLoad; else skeletonTpl">
+    <div class="form w-100" [formGroup]="form">
+        <div class="form-row flex-nowrap">
+            <app-form-logo
+                [editId]="editId"
+                [typeForImage]="'advertisers'"
+                [image]="logo"
+                (change)="changeImage($event)"
+                (delete)="deleteImage()"
+            ></app-form-logo>
+
+            <div class="form-group w-100">
+                <div class="m-b-22">
+                    <app-input formControlName="company_name" [label]="'interface.form.company' | translate" maxLength="64"></app-input>
+                </div>
+
+                <div class="p-0 col-md-6">
+                    <app-find-platform-statuses
+                        statusList="statuses"
+                        itemLabel="title"
+                        itemValue="id"
+                        formName="status"
+                    ></app-find-platform-statuses>
+                </div>
+            </div>
+        </div>
+
+        <div class="title is-4 m-t-48">{{ 'interface.subtitle.access_credentials' | translate }}</div>
+
+        <div class="form-group">
+            <app-input formControlName="email" [label]="'email' | translate"></app-input>
+        </div>
+
+        <div class="form-row" *ngIf="changePasswordVisible || !editId">
+            <div class="form-group col-md-6">
+                <app-input type="password" [label]="'password' | translate" formControlName="password"></app-input>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input type="password" [label]="'password_confirmation' | translate" formControlName="password_repeat"></app-input>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="editId">
+            <ui-button-link
+                type="simple"
+                icon="edit"
+                [label]="(!changePasswordVisible ? 'password_change.button' : 'password_change.not_change') | translate"
+                (toggle)="changePassword()"
+            ></ui-button-link>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                [label]="'shared.dictionary.two_factor_auth_2fa' | translate"
+                formControlName="twoFA_enabled"
+            ></app-custom-switch>
+        </div>
+
+        <div class="title is-4">{{ 'interface.subtitle.contacts' | translate }}</div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input [label]="'firstname' | translate" formControlName="firstname" maxLength="64"></app-input>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input [label]="'lastname' | translate" formControlName="lastname" maxLength="64"></app-input>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input [label]="'interface.form.phone' | translate" formControlName="phone" maxLength="20"></app-input>
+            </div>
+        </div>
+
+        <shared-add-contact [selectedMessengers]="advertiserData?.contacts"></shared-add-contact>
+
+        <div class="title is-4">{{ 'interface.subtitle.address' | translate }}</div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-find-country
+                    [label]="'interface.form.country' | translate"
+                    formName="country"
+                    [clearable]="true"
+                    [hideSelected]="false"
+                ></app-find-country>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input [label]="'interface.form.region' | translate" formControlName="region"></app-input>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input [label]="'interface.form.city' | translate" formControlName="city"></app-input>
+            </div>
+            <div class="form-group col-md-6">
+                <app-input [label]="'interface.form.postcode' | translate" formControlName="postal_code"></app-input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-input [label]="'interface.form.street' | translate" formControlName="address"></app-input>
+        </div>
+
+        <div class="title is-4">{{ 'interface.subtitle.financial_information' | translate }}</div>
+
+        <div class="form-group">
+            <app-textarea formControlName="payment_details" [label]="'interface.form.payment_details' | translate"></app-textarea>
+            <div class="form-text mt-2">
+                {{ 'advertiser.basic.description.payment_details' | translate }}
+            </div>
+        </div>
+
+        <div class="title is-4" *ngIf="customFieldsConfig.length > 0">
+            {{ 'interface.subtitle.additional_information' | translate }}
+        </div>
+
+        <app-custom-field
+            *ngIf="customFieldsConfig"
+            formGroupName="custom_fields"
+            [customFieldsConfig]="customFieldsConfig"
+        ></app-custom-field>
+
+        <div class="title is-4">{{ 'interface.subtitle.administration' | translate }}</div>
+
+        <div class="form-group">
+            <app-find-platform-list
+                [label]="'interface.form.tags' | translate"
+                platformList="affiliates_tags"
+                formName="tags"
+                [searchable]="true"
+                [clearable]="true"
+                [multiple]="true"
+                [hideSelected]="true"
+            ></app-find-platform-list>
+            <div class="form-text m-b-16">
+                {{ 'advertiser.basic.description.tags' | translate }}
+            </div>
+        </div>
+
+        <div class="form-group" *ngxPermissionsOnly="permissions.canAccessTeammates">
+            <app-find-managers
+                [multiple]="true"
+                [label]="'shared.dictionary.teammates' | translate"
+                itemLabel="name"
+                itemValue="id"
+                formName="managers"
+            ></app-find-managers>
+            <div class="form-text m-b-16">
+                {{ 'advertiser.basic.description.managers' | translate }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-textarea formControlName="notes" [label]="'interface.form.internal_information' | translate"></app-textarea>
+            <div class="form-text mt-2">
+                {{ 'interface.subtitle.internal_information' | translate }}
+            </div>
+        </div>
+
+        <section *ngIf="editId">
+            <div class="title text-size-16">{{ 'main_navigation.settings' | translate }}</div>
+
+            <div class="form-group m-b-64" *ngIf="advertiserTokenPostback">
+                <app-custom-switch
+                    [label]="'advertiser.postback_security.labels.require_token_conversions' | translate"
+                    formControlName="require_postback_token"
+                ></app-custom-switch>
+                <div class="mt-2 text-size-13 line-height-16 color__gray2">
+                    {{ 'advertiser.postback_security.infos.require_token_conversions' | translate }}
+                </div>
+
+                <app-advertiser-security-token [id]="editId" [token]="advertiserData?.postback_token"></app-advertiser-security-token>
+            </div>
+
+            <app-api-access [canRefreshApi]="false" [apiLink]="apiLink" [apiKey]="advertiserData?.api_key"></app-api-access>
+        </section>
+    </div>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAddEditDeleteAdvertisers">
+        <ui-button-link
+            *ngIf="editId"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-48"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </ng-container>
+</ng-container>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <div class="form-row align-items-center p-0 flex-nowrap mx-0">
+            <ui-skeleton-image size="big" type="rounded"></ui-skeleton-image>
+
+            <div class="m-l-6 w-100">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+
+                <div class="col-5 p-0 mt-2">
+                    <ui-skeleton-block height="medium"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+
+            <div class="mt-2">
+                <ui-skeleton-block size="medium"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="col-3 p-0 mt-2 m-t-64">
+            <ui-skeleton-block height="medium"></ui-skeleton-block>
+        </div>
+    </ui-skeleton>
+</ng-template>

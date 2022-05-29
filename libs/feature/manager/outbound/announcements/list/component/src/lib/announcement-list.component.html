@@ -1,0 +1,166 @@
+<ui-page-wrapper [borderRadius]="4" class="announcements">
+    <ui-page-wrapper-header>
+        <div class="title">{{ 'outbound_page.announcements.title' | translate }}</div>
+        <div class="d-flex my-auto ml-auto pr-3">
+            <ui-button-link
+                [label]="'outbound_page.announcements.basic.add' | translate"
+                icon="plus-small"
+                type="floating"
+                *ngxPermissionsOnly="permissions.canAddEditDeleteAnnouncements"
+                (click)="openModal()"
+            ></ui-button-link>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <app-filters
+            [formGroup]="filterForm"
+            [title]="'interface.basic.filtered_by' | translate"
+            [results]="totalCount$ | async"
+        >
+            <app-filter>
+                <app-find-platform-statuses
+                    [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+                    statusList="announcement_statuses"
+                    itemValue="status"
+                    formName="status"
+                    (toggle)="setFilterStatus($event.newValue)"
+                ></app-find-platform-statuses>
+            </app-filter>
+
+            <div class="d-flex ml-sm-auto">
+                <app-filter>
+                    <app-custom-search
+                        [placeholder]="'interface.basic.search' | translate"
+                        (toggleSearch)="searching($event)"
+                    ></app-custom-search>
+                </app-filter>
+            </div>
+        </app-filters>
+
+        <ui-table2
+            class="table-offers"
+            [columns]="columns"
+            [items]="items$ | async"
+            [loading]="loading$ | async"
+            [stickyHead]="true"
+            [customHorizontalScroll]="true"
+            [rowSize]="'medium'"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiTable2ColTemplate="title" let-title="value" let-item="valueRow">
+                <div class="d-flex align-items-center">
+                    <div class="table__box-status m-r-12 d-flex align-items-center">
+                        <ui-status-color [status]="item.status" className="table__box-image-status"></ui-status-color>
+                    </div>
+
+                    <div class="table__box-image">
+                        <ui-image
+                            type="rounded"
+                            [image]="item.image"
+                            width="64"
+                            height="64"
+                        ></ui-image>
+                    </div>
+
+                    <div class="w-100 d-flex flex-column justify-content-center m-l-16">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="color__gray font-size is-6 line-height is-17 font-family-bold">{{ title }}</span>
+                            <ui-svg-icon
+                                *ngIf="item.pin_to_top"
+                                class="m-l-5"
+                                icon="ic_pin"
+                                [size]="16"
+                            ></ui-svg-icon>
+                        </div>
+                        <app-date-variant class="announcement__date" [changeColor]="false" [date]="item.created"></app-date-variant>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="connected_offers" let-item="valueRow">
+                <section class="d-flex flex-column">
+                    <ng-container *ngIf="item.connected_offers_selected.length  <= 3; else offerListWithTool">
+                        <ng-container
+                            [ngTemplateOutlet]="offerLinkTemp"
+                            [ngTemplateOutletContext]="{ offers: item.connected_offers_selected }"
+                        ></ng-container>
+                    </ng-container>
+
+                    <ng-template #offerListWithTool>
+                        <ng-container
+                            [ngTemplateOutlet]="offerLinkTemp"
+                            [ngTemplateOutletContext]="{ offers: item.connected_offers_selected, sliceLimit: 2 }"
+                        ></ng-container>
+                        <ui-svg-icon
+                            icon="more-horisontal-small"
+                            [size]="14"
+                            className="m-l-3"
+                            [tooltip]="TooltipContent"
+                            contentType="template"
+                        ></ui-svg-icon>
+                    </ng-template>
+
+                    <ng-template #TooltipContent>
+                        <div class="d-flex flex-column">
+                            <span  *ngFor="let offer of item.connected_offers_selected">{{ offer | format: 'idName' }}</span>
+                        </div>
+                    </ng-template>
+
+                </section>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="visible_for" let-item="valueRow">
+                <section class="announcement__visible-for">
+                    <span *ngFor="let role of item.visible_for">
+                        {{ 'outbound_page.announcements.visible_for.' + role | translate }}
+                    </span>
+                </section>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="author" let-author="value">
+                <app-manager-list
+                    className="manager-list--profile"
+                    *ngIf="author?.length > 0"
+                    [managers]="author"
+                ></app-manager-list>
+            </ng-template>
+
+<!--            <ng-template uiTable2ColTemplate="emails_sent" let-emails_sent="value">-->
+<!--                <div class="d-flex align-items-center color__main-link">-->
+<!--                    <ui-svg-icon class="m-r-4" icon="email" [size]="16"></ui-svg-icon>-->
+<!--                    <span class="cursor-pointer" (click)="showEmailsSent(emailsSentTemplate)">-->
+<!--                        {{ emails_sent }}-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </ng-template>-->
+        </ui-table2>
+
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer *ngIf="showPagination$ | async">
+        <app-custom-pagination
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChange($event)"
+        >
+        </app-custom-pagination>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>
+
+<ng-template #offerLinkTemp let-offers="offers" let-sliceLimit="sliceLimit">
+    <app-hyperlink
+        *ngFor="let offer of offers | slice : 0 : sliceLimit"
+        linkClassName="announcement__offer"
+        [link]="{
+            title: offer | format: 'idName',
+            link: '/offers/' + (offer | pregMatch: 'number') | navigateRoot
+        }"
+        [permission]="permissions.canAccessOffers"
+    ></app-hyperlink>
+</ng-template>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canAddEditDeleteAnnouncements"
+        (toggleEdit)="openModal(item.id)"
+    ></ui-table-navigation>
+</ng-template>

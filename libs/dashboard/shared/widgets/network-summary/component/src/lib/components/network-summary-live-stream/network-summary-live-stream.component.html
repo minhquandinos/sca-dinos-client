@@ -1,0 +1,17 @@
+<div class="custom-dashboard-widget-network_summary-live-stream">
+    <div class="custom-dashboard-widget-network_summary-live-stream__wrapper">
+        <div class="custom-dashboard-widget-network_summary-live-stream__title subtitle is-6">
+            {{ 'dashboard_grid.widget.live_stream.title' | translate }}
+        </div>
+        <div class="custom-dashboard-widget-network_summary-live-stream__date-update subtitle">
+            {{ 'dashboard_grid.widget.live_stream.last_30_min' | translate }}
+        </div>
+        <div class="custom-dashboard-widget-network_summary-live-stream__total title is-1">
+            {{ total | format: 'number' }}
+        </div>
+
+        <div class="custom-dashboard-widget-network_summary-live-stream__chart">
+            <app-chart-compare-period [options]="chartOptions" #dashboardChartComponent></app-chart-compare-period>
+        </div>
+    </div>
+</div>

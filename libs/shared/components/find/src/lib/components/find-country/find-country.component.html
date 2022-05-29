@@ -1,0 +1,41 @@
+<app-select
+    [items]="items$ | async"
+    [label]="label"
+    [loading]="loading"
+    [labelShowId]="false"
+    [searchable]="true"
+    [itemLabel]="itemLabel"
+    [itemValue]="itemValue"
+    [multiple]="multiple"
+    [formControlName]="formName"
+    (change)="selected($event)"
+    (changeFull)="selectedFull($event)"
+    (initialSelected)="initialSelectedHandler($event)"
+    [clearable]="clearable"
+    [hideSelected]="hideSelected"
+    (search)="findElement($event)"
+    id="country"
+    [addTemplate]="true"
+    [placeholder]="placeholder$ | async"
+    (scrolledToEnd)="scrolledToEnd()"
+    [searchFn]="customSearchFn"
+>
+    <ng-template #labelTmp ng-label-tmp let-item="item" let-clear="clear">
+        <ui-chip size="large" [close]="true" (closed)="clear(item)" appStopPropagation *ngIf="multiple; else singleTmp">
+            <ui-image type="rounded" height="20" [image]="item?.image"></ui-image>
+            {{ item?.title }}
+        </ui-chip>
+        <ng-template #singleTmp>
+            <div class="d-flex align-items-center">
+                <ui-image type="rounded" height="20" [image]="item?.image"></ui-image>
+                <span class="ml-2">{{item?.title}}</span>
+            </div>
+        </ng-template>
+    </ng-template>
+    <ng-template #optionTmp ng-option-tmp let-item="item" let-index="index">
+        <div class="d-flex align-items-center">
+            <ui-image type="rounded" height="20" [image]="item?.image"></ui-image>
+            <span class="ml-2">{{item?.title}}</span>
+        </div>
+    </ng-template>
+</app-select>

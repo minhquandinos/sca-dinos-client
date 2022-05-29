@@ -1,0 +1,20 @@
+<scaleo-card2>
+    <scaleo-card2-header>
+        <scaleo-card2-title>
+            <div class="title text-size-16">
+                {{ title }}
+            </div>
+        </scaleo-card2-title>
+
+        <div class="ml-auto">
+            <ng-content select="[actions]"></ng-content>
+        </div>
+    </scaleo-card2-header>
+
+    <ui-divider></ui-divider>
+
+    <scaleo-card2-content>
+       <ng-content></ng-content>
+    </scaleo-card2-content>
+</scaleo-card2>
+

@@ -1,0 +1,25 @@
+<ng-container *ngIf="balance || balance === 0; else skeletonTpl">
+    <div class="d-flex align-items-center">
+        <span class="line-height is-17 color__black white-space-nowrap font-family-medium">
+            {{ title }}
+        </span>
+
+        <app-custom-info-tooltip
+            [text]="tooltipText"
+        ></app-custom-info-tooltip>
+    </div>
+
+    <span class="affiliate-billing-balance__block-currency white-space-nowrap m-t-4 m-b-12">
+        {{'billing2.settings.payments_methods.all_currencies' | translate}}
+    </span>
+
+    <span class="affiliate-billing-balance__block-value white-space-nowrap">
+        {{ balance | format: 'money' }}
+    </span>
+</ng-container>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <ui-skeleton-block class="d-block" style="min-width: 10rem;" height="big" size="large" width="100"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

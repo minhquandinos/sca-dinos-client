@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Veure'n l'informe",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Les teves estadístiques"
+            },
+            "pending_records": {
+                "title": "Registres pendents"
+            },
+            "top_offer": {
+                "title": "Les millors ofertes"
+            },
+            "performance": {
+                "title": "Rendiment",
+                "cumulative": "Acumulatiu",
+                "settings": {
+                    "none": "Període previ",
+                    "impressions": "Impressions",
+                    "ctr": "CTR",
+                    "unique_clicks": "Clics únics",
+                    "duplicate_clicks": "Doble clics",
+                    "invalid_clicks": "Clics no vàlids",
+                    "clicks": "Clics",
+                    "cv_total": "Conversions",
+                    "tr": "CR",
+                    "total_payout": "Desemborsament",
+                    "cr": "CR",
+                    "gross_sales": "Venda bruta",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Ingrés aprovat",
+                    "cv_pending": "Conversions pendents",
+                    "pr": "PR",
+                    "cv_rejected": "Conversions rebutjades",
+                    "rr": "RR",
+                    "cv_approved": "Conversions aprovades",
+                    "approved_payout": "Desemborsament aprovat",
+                    "approved_profit": "Benefici aprovat",
+                    "approved_gross_sales": "Vendes aprovades",
+                    "pending_revenue": "Pendent d'ingrés",
+                    "pending_payout": "Desemborsament pendent",
+                    "pending_profit": "Benefici pendent",
+                    "pending_gross_sales": "Vendes pendents",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Ingressos clic",
+                    "clicks_payout": "Preu clic",
+                    "clicks_profit": "Benefici clic",
+                    "total_revenue": "Ingrés",
+                    "total_profit": "Benefici",
+                    "total_gross_sales": "Vendes brutes",
+                    "rejected_revenue": "Ingrés rebutjat",
+                    "rejected_payout": "Desemborsament rebutjat",
+                    "rejected_profit": "Beneficis rebutjats",
+                    "rejected_gross_sales": "Vendes rebutjades"
+                }
+            },
+            "offer_promote": {
+                "title": "Ofertes per promocionar",
+                "get_link": "Copia l'enllaç",
+                "all_categories": "Totes les categories"
+            },
+            "balance": {
+                "title": "El teu saldo",
+                "approved_payout": "Desemborsament aprovat",
+                "all_currencies": "Totes les divises",
+                "paid_to_date": "Pagat fins ara",
+                "recent_payments": "Els desemborsaments més recents"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Veure'n l'informe"
+    }
+}

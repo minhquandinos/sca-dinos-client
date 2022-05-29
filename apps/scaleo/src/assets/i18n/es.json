@@ -1,0 +1,11 @@
+{
+    "offers_requests_page": {
+        "title": "Solicitudes de oferta"
+    },
+    "statuses": {
+        "paid": "Pagado",
+        "not_paid": "Pendiente de pago",
+        "in_progress": "En curso",
+        "require_approval": "Requiere aprobación"
+    }
+}

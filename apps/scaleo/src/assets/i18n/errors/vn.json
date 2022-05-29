@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Access Denied",
+            "text": "Liên kết bạn nhấn vào có thể bị hỏng hoặc trang có thể đã bị xóa hoặc bị cấm."
+        },
+        "page_not_found": {
+            "title": "Page Not Found or Forbidden",
+            "text": "Liên kết bạn nhấn vào có thể bị hỏng hoặc trang có thể đã bị xóa hoặc bị cấm."
+        },
+        "connection_lost": {
+            "title": "Kết nối bị mất",
+            "text": "Vui lòng đợi một vài phút trước khi bạn thử lại.",
+            "try_again": "Thử lại"
+        }
+    }
+}

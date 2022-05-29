@@ -1,0 +1,46 @@
+<div class="form-group m-t-25 m-b-22">
+    <div class="title is-5">{{ 'reports_page.adjustments.parameters.title' | translate }}</div>
+</div>
+<div class="form-row">
+    <form formArrayName="parameters" class="col-md-12 mb-3">
+        <div class="caps">
+            <div class="d-flex align-items-center mb-3 justify-content-between" *ngFor="let item of paramsArray.controls; let i = index">
+                <ng-container [formGroupName]="i">
+                    <div class="form-row col-11 m-0 p-0 justify-content-between">
+                        <div class="col-md-6 p-0">
+                            <app-select
+                                [items]="selectedParams | customTranslate: 'reports_page.adjustments.parameters' | async"
+                                itemLabel="title"
+                                itemValue="id"
+                                formControlName="key"
+                                [hideSelected]="true"
+                                (change)="changeParams($event, i)"
+                            ></app-select>
+                        </div>
+
+                        <div class="col-md-5 p-0">
+                            <app-input formControlName="value"></app-input>
+                        </div>
+                    </div>
+                    <div class="col-1 p-0 d-flex align-items-center justify-content-end">
+                        <ui-svg-icon
+                            *ngIf="!parentFormDisabled"
+                            icon="delete"
+                            (click)="delete(i)"
+                            tooltip="{{ 'tooltip.basic.delete' | translate }}"
+                        ></ui-svg-icon>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="caps__button" *ngIf="selectedParams.length > 0 && !parentFormDisabled">
+                <ui-button-link
+                    type="simple"
+                    [label]="'reports_page.adjustments.parameters.add' | translate"
+                    icon="plus-small"
+                    (click)="add()"
+                ></ui-button-link>
+            </div>
+        </div>
+    </form>
+</div>
+

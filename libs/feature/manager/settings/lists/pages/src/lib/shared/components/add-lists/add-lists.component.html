@@ -1,0 +1,41 @@
+<div
+    *ngIf="newLists"
+    class="config-lists"
+    [sortablejs]="newLists"
+    [sortablejsOptions]="options"
+    [sortablejsContainer]="'tbody'"
+>
+    <ui-table
+        headerPosition="left"
+        [headers]="tableHeader"
+        [notFround]="newLists?.length <= 0"
+    >
+        <tr
+            ui-table-row
+			#tableElement
+            *ngFor="let item of newLists">
+            <td ui-table-col>
+                <div class="config-list__sort align-items-center position-absolute m-l-3">
+                    <ui-svg-icon
+                        icon="move" class="text-left cursor-move"
+                        [@showHideSortInList]="lists.length > 1 ? 'show' : 'hide'"
+                        [tooltip]="'tooltip.basic.move' | translate"
+                    ></ui-svg-icon>
+                </div>
+                <div class="status">
+                    <ui-status-color [status]="item.status"></ui-status-color>
+                </div>
+            </td>
+            <td ui-table-col>
+                <div class="d-flex align-items-center">
+                    {{ item.title }}
+                    <ui-svg-icon *ngIf="showIcon" [icon]="item.iconName" class="text-left mr-2" ></ui-svg-icon>
+                </div>
+                <div class="ml-auto mr-0">
+                    <ui-table-navigation (toggleEdit)="openModal(item.id)"></ui-table-navigation>
+                </div>
+            </td>
+        </tr>
+    </ui-table>
+
+</div>

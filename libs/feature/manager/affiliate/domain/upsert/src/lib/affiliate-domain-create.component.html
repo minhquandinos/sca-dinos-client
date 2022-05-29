@@ -1,0 +1,52 @@
+<ng-template appModal3Title>
+    <span class="title text-nowrap">
+        {{ !editId ? ('affiliate.domain.add_as_title' | translate) : ('affiliate.domain.edit' | translate) + ' #' + editId }}
+    </span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate" (toggle)="add()"></ui-button-link>
+</ng-template>
+
+<div class="container d-flex justify-content-center" *ngIf="isLoad || !editId; else skeleton">
+    <div class="form w-100" [formGroup]="form">
+        <div class="form-group w-50">
+            <app-find-platform-statuses
+                [label]="'shared.dictionary.status' | translate"
+                formName="status"
+                statusList="statuses"
+                [exceptIds]="exceptPendingStatus"
+            ></app-find-platform-statuses>
+        </div>
+
+        <div class="form-group">
+            <app-input [label]="'table.column.tracking_domain' | translate" formControlName="name" maxLength="128"></app-input>
+            <div class="form-text m-b-16">
+                {{ 'affiliate.domain.description.tracking_domain' | translate }}
+            </div>
+        </div>
+
+        <ui-button-link
+            *ngIf="editId"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-50"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </div>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <ui-skeleton-block height="medium" size="large" [width]="25"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

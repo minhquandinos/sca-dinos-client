@@ -1,0 +1,32 @@
+<div fxLayout="row" fxLayout.md="column" fxFlexFill fxLayoutGap="1rem">
+    <div fxFlex="400px" fxFlex.md="100" fxFlex.xxl="500px">
+        <div appSticky="bottomTop">
+            <scaleo-manager-offer-detail-widget
+                [id]="id$ | async"
+                [previewLink]="previewLink$ | async"
+                (offerData)="setOfferData($event)"
+            ></scaleo-manager-offer-detail-widget>
+        </div>
+    </div>
+
+    <div fxFlex fxLayoutGap="1rem" fxLayout="column">
+        <scaleo-manager-offer-detail-trends></scaleo-manager-offer-detail-trends>
+        <scaleo-manager-offer-goals-widget></scaleo-manager-offer-goals-widget>
+
+        <scaleo-manager-offer-affiliate-access></scaleo-manager-offer-affiliate-access>
+        <scaleo-manager-offer-targeting-widget></scaleo-manager-offer-targeting-widget>
+        <scaleo-manager-offer-landing-page-widget (changed)="landingPageUpdate()"></scaleo-manager-offer-landing-page-widget>
+        <scaleo-manager-offer-traffic-distribution
+            *ngxPermissionsOnly="permissions.canAddEditDeleteOffers"
+        ></scaleo-manager-offer-traffic-distribution>
+        <scaleo-manager-offer-creatives-widget></scaleo-manager-offer-creatives-widget>
+        <scaleo-manager-offer-custom-params-widget
+            *ngxPermissionsOnly="permissions.canManageCustomParameters"
+        ></scaleo-manager-offer-custom-params-widget>
+        <scaleo-activity-log-entity-detail-widget
+            *ngxPermissionsOnly="permissions.canAccessActivityLog"
+            [filter]="{'offer': id$ | async}"
+            [linkForViewAll]="'activity-log'"
+        ></scaleo-activity-log-entity-detail-widget>
+    </div>
+</div>

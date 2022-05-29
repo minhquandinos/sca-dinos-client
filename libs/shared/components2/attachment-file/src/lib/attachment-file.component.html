@@ -1,0 +1,31 @@
+<div class="d-flex align-items-end">
+    <app-custom-file-upload
+        [label]="label | translate"
+        [labelButton]="'finances_page.basic.select_file' | translate"
+        [formControlName]="formName"
+        [accept]="acceptFile"
+    ></app-custom-file-upload>
+
+    <div class="d-flex align-items-center mb-1 ml-3" *ngIf="selectedAttachment; else attachmentAllowFilesTpl">
+        <a
+            [href]="attachment"
+            target="_blank"
+            class="mr-1"
+        >
+            {{ 'table.column.attachment' | translate }}
+        </a>
+
+        <ui-svg-icon
+            class="cursor-pointer"
+            icon="close"
+            size="16"
+            (click)="deleteFileHandler()"
+        ></ui-svg-icon>
+    </div>
+
+    <ng-template #attachmentAllowFilesTpl>
+        <span class="color__light-blue-grey mb-1 ml-1 text-uppercase" *ngIf="!attachment">
+            {{ attachmentFileExtension }}
+        </span>
+    </ng-template>
+</div>

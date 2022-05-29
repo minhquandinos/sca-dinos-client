@@ -1,0 +1,152 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap">
+        {{ title }}
+    </div>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="save()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<ng-container *ngIf="isLoad; else skeletonTpl">
+    <div class="form w-100" [formGroup]="form">
+        <div class="form-group">
+            <app-input [label]="'interface.basic.title' | translate" formControlName="title" maxLength="128"></app-input>
+        </div>
+
+        <div class="form-row" *ngIf="showStatus">
+            <div class="form-group col-6">
+                <app-find-platform-statuses
+                    [label]="'shared.dictionary.status' | translate"
+                    statusList="offer_urls_statuses"
+                    itemValue="id"
+                    formName="status"
+                ></app-find-platform-statuses>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-input
+                appInputValuePattern="trim"
+                [label]="'offers_page.create.offer_url_main' | translate"
+                [labelTooltip]="'offers_page.urls.description' | translate"
+                formControlName="url"
+                placeholder="https://landing-page.com?sub1={click_id}"
+            ></app-input>
+            <manager-shared-available-macros></manager-shared-available-macros>
+        </div>
+
+        <div class="form-group">
+            <app-input
+                appInputValuePattern="trim"
+                [label]="'interface.basic.preview_url' | translate"
+                [labelTooltip]="'offers_page.urls.descriptions.preview_url' | translate"
+                formControlName="preview"
+                placeholder="https://landing-page.com"
+            ></app-input>
+        </div>
+
+        <app-show-hide
+            *ngIf="!isDefault"
+            [labelShow]="'interface.basic.advanced_options' | translate"
+            [labelHide]="'interface.basic.hide' | translate"
+            buttonPositionOnShow="bottom"
+            buttonClass="m-t-64"
+        >
+            <div class="title is-4">
+                {{ 'offers_page.affiliate.title' | translate }}
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <app-custom-switch
+                        [label]="'offers_page.urls.visible_to_all_affiliates' | translate"
+                        formControlName="visible_to_all_affiliates"
+                    ></app-custom-switch>
+                </div>
+                <div class="form-group col-6">
+                    <app-multi-select-block
+                        *ngIf="!form.get('visible_to_all_affiliates').value"
+                        [title]="'offers_page.urls.visible_to_specific_affiliates_only' | translate"
+                        formName="visible_to_specific_affiliates_only"
+                        [data]="multiSelectAffiliatesDataConfig"
+                        [initSelectedItems]="initSpecificAffiliatesOnly"
+                        height="236px"
+                    >
+                        <ng-template appMultiSelectItemTemplate let-item>
+                            {{ item.title | format: 'idName':item.id | truncateText }}
+                        </ng-template>
+                    </app-multi-select-block>
+                </div>
+            </div>
+
+            <div class="title is-4">{{ 'table.column.targeting' | translate }}</div>
+
+            <div class="form-row">
+                <div class="col-6 form-group">
+                    <app-multi-select-block
+                        [title]="'offers_page.targeting.geo_allowed' | translate"
+                        formName="geo_allowed"
+                        [data]="multiSelectGeoDataConfig"
+                        type="allowed"
+                        [initSelectedItems]="initAllowed"
+                        [exclude]="form.get('geo_denied').value"
+                    >
+                        <ng-template appMultiSelectItemTemplate let-item>
+                            {{ item | geo | truncateText }}
+                        </ng-template>
+                    </app-multi-select-block>
+                </div>
+
+                <div class="col-6 form-group">
+                    <app-multi-select-block
+                        [title]="'offers_page.targeting.geo_denied' | translate"
+                        formName="geo_denied"
+                        [data]="multiSelectGeoDataConfig"
+                        type="denied"
+                        [initSelectedItems]="initDenied"
+                        [exclude]="form.get('geo_allowed').value"
+                    >
+                        <ng-template appMultiSelectItemTemplate let-item>
+                            {{ item | geo | truncateText }}
+                        </ng-template>
+                    </app-multi-select-block>
+                </div>
+            </div>
+
+            <app-extended-targeting #extendedTargetingRef formArrayName="rules"></app-extended-targeting>
+        </app-show-hide>
+    </div>
+
+    <ui-button-link
+        *ngIf="editId && showDelete"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</ng-container>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <div class="form-group col-md-6">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group col-md-6">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group col-md-12">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group col-md-12">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+    </ui-skeleton>
+</ng-template>

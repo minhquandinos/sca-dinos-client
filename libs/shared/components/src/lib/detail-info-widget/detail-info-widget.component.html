@@ -1,0 +1,55 @@
+<app-card-widget *ngIf="isLoad; else skeleton">
+    <app-card-widget-header [divider]="true" [size]="null" className="py-3">
+        <ng-template [ngTemplateOutlet]="header?.template"></ng-template>
+    </app-card-widget-header>
+    <app-card-widget-content className="detail-info-widget__content d-block p-x-20 pt-3 p-b-30">
+        <ng-template [ngTemplateOutlet]="content?.template"></ng-template>
+    </app-card-widget-content>
+</app-card-widget>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <app-card-widget>
+            <app-card-widget-header
+                [size]="null"
+                [divider]="true"
+                className="flex-column flex-md-row py-3"
+            >
+                <div class="w-100 d-flex flex-column flex-md-row">
+                    <ui-skeleton-image size="big" [type]="header?.imageType"></ui-skeleton-image>
+
+                    <div class="ml-4 w-100">
+                        <div class="d-flex m-t-15">
+                            <ui-skeleton-block height="medium" [width]="75"></ui-skeleton-block>
+
+                            <div class="ml-auto">
+                                <ui-skeleton-block height="medium" customWidth="65px" [width]="75"></ui-skeleton-block>
+                            </div>
+                        </div>
+
+                        <ui-skeleton-block className="mt-3" [width]="25"></ui-skeleton-block>
+                    </div>
+                </div>
+            </app-card-widget-header>
+
+            <app-card-widget-content>
+                <div class="w-100" *ngFor="let fake of [1,2]">
+                    <app-detail-info>
+                        <app-detail-info-title class="mb-2">
+                            <ui-skeleton-block className="mt-3" customHeight="20px" [width]="25"></ui-skeleton-block>
+                        </app-detail-info-title>
+
+                        <app-detail-info-row *ngFor="let fake of [1,2,3,4]">
+                            <app-detail-info-col class="col-5 color__gray2">
+                                <ui-skeleton-block [width]="50"></ui-skeleton-block>
+                            </app-detail-info-col>
+                            <app-detail-info-col>
+                                <ui-skeleton-block [width]="75"></ui-skeleton-block>
+                            </app-detail-info-col>
+                        </app-detail-info-row>
+                    </app-detail-info>
+                </div>
+            </app-card-widget-content>
+        </app-card-widget>
+    </ui-skeleton>
+</ng-template>

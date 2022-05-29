@@ -1,0 +1,151 @@
+<div class="form-group m-t-25 m-b-22">
+    <div class="title is-5">{{ 'reports_page.adjustments.conditions.title' | translate }}</div>
+</div>
+<div class="form-row" [formArrayName]="formArrayName">
+    <div class="col-md-12 mb-3">
+        <ng-container>
+            <div
+                class="d-flex align-items-center mb-3 justify-content-between"
+                *ngFor="let item of conditionsArray['controls']; let i = index"
+            >
+                <ng-container [formGroupName]="i">
+                    <div class="form-row col-11 m-0 p-0 justify-content-between">
+                        <div class="col-md-5 p-0">
+                            <ng-container [ngSwitch]="true">
+                                <ng-container *ngSwitchCase="conditionsArray.controls[i].value.key === 'dates_range'">
+                                    <span>{{ 'reports_page.adjustments.conditions.dates_range' | translate }}</span>
+                                </ng-container>
+                                <ng-container
+                                    *ngSwitchCase="conditionsArray.controls[i].value.key === 'goal'"
+                                ></ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    <app-select
+                                        [items]="
+                                            selectedConditions
+                                                | customTranslate: 'reports_page.adjustments.conditions'
+                                                | async
+                                        "
+                                        itemLabel="title"
+                                        itemValue="id"
+                                        formControlName="key"
+                                        [hideSelected]="true"
+                                        (change)="changeCond($event, i)"
+                                    >
+                                    </app-select>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-md-6 p-0">
+                            <ng-container [ngSwitch]="true">
+                                <ng-container *ngSwitchCase="item.value.key === 'dates_range'">
+                                    <app-custom-date-range
+                                        type="input"
+                                        [startDate]="item.value.dates_range?.from"
+                                        [endDate]="item.value.dates_range?.to"
+                                        (toggle)="dateWasChange($event)"
+                                        [disabled]="parentForm.form.disabled"
+                                    ></app-custom-date-range>
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="item.value.key === 'offer'">
+                                    <app-find-offer
+                                        [multiple]="false"
+                                        formName="offer"
+                                        [hideSelected]="true"
+                                        (toggle)="selectedOffer($event, i)"
+                                        [placeholder]="'interface.basic.select' | translate"
+                                    ></app-find-offer>
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="item.value.key === 'goal'">
+                                    <app-find-goals
+                                        itemLabel="title"
+                                        formName="goal"
+                                        [offerId]="selectedOfferId"
+                                        [hideTypeGoal]="1"
+                                    ></app-find-goals>
+                                </ng-container>
+
+                                <ng-container
+                                    *ngSwitchCase="item.value.key === 'conversion_status'"
+                                >
+                                    <app-find-platform-statuses
+                                        formName="conversion_status"
+                                        statusList="conversion_statuses"
+                                    ></app-find-platform-statuses>
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="item.value.key === 'click_ids'">
+                                    <app-textarea
+                                        [shouldAutosize]="false"
+                                        [placeholder]="'interface.basic.one_per_line' | translate"
+                                        formControlName="click_ids"
+                                    ></app-textarea>
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="item.value.key === 'track_ids'">
+                                    <app-textarea
+                                        [shouldAutosize]="false"
+                                        [placeholder]="'interface.basic.one_per_line' | translate"
+                                        formControlName="track_ids"
+                                    ></app-textarea>
+                                </ng-container>
+
+                                <ng-container
+                                    *ngSwitchCase="item.value.key === 'transactions_ids'"
+                                >
+                                    <app-textarea
+                                        [shouldAutosize]="false"
+                                        [placeholder]="'interface.basic.one_per_line' | translate"
+                                        formControlName="transactions_ids"
+                                    ></app-textarea>
+                                </ng-container>
+
+                                <ng-container
+                                    *ngSwitchCase="item.value.key === 'transactions_ips'"
+                                >
+                                    <app-textarea
+                                        [shouldAutosize]="false"
+                                        [placeholder]="'interface.basic.one_per_line' | translate"
+                                        formControlName="transactions_ips"
+                                    ></app-textarea>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div
+                        class="col-1 p-0 d-flex align-items-center justify-content-end"
+                        [ngClass]="{ 'align-self-start': item.value.key === 'offer' }"
+                    >
+                        <ng-container [ngSwitch]="true">
+                            <ng-container
+                                *ngSwitchCase="item.value.key === 'goal'"
+                            ></ng-container>
+                            <ng-container
+                                *ngSwitchCase="item.value.key === 'dates_range'"
+                            ></ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <ui-svg-icon
+                                    *ngIf="!parentFormDisabled"
+                                    icon="delete"
+                                    (click)="delete(i, conditionsArray.controls[i].value.key)"
+                                    tooltip="{{ 'tooltip.basic.delete' | translate }}"
+                                ></ui-svg-icon>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <div class="caps__button" *ngIf="selectedConditions.length > 0 && !parentFormDisabled">
+            <ui-button-link
+                type="simple"
+                [label]="'reports_page.adjustments.conditions.add' | translate"
+                icon="plus-small"
+                (click)="add()"
+            ></ui-button-link>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<app-detail-info class="p-b-10">
+    <app-detail-info-header class="justify-content-between">
+        <span class="title is-4 line-height is-19">{{ 'offers_page.tracking.title' | translate }}</span>
+
+        <ui-button-link
+            class="m-r-2"
+            [label]="'offers_page.tracking.form.link_builder.title' | translate"
+            type="floating"
+            (click)="openLinkBuilder()"
+            icon="link_builder"
+        ></ui-button-link>
+    </app-detail-info-header>
+
+    <scaleo-offer-shared-affiliate-tracking-link
+        class="mt-4"
+        [offerId]="offerId"
+        [affiliateId]="affIdInfo"
+        [infoTemplate]="infoTemplate"
+        [trackingDomain]="trackingDomain"
+    ></scaleo-offer-shared-affiliate-tracking-link>
+</app-detail-info>
+
+<ng-template #infoTemplate>
+    <div class="container">
+        <div class="row p-y-10" *ngFor="let param of params">
+            <div class="col color__gray2 col-3">
+                <ui-chip>
+                    <span class="font-family-monaco">{{ param }}</span>
+                </ui-chip>
+            </div>
+
+            <div class="col pl-0">
+                {{ 'offers_page.tracking.optional_params.' + param | translate }}
+            </div>
+        </div>
+    </div>
+
+    <section class="pb-2">
+        <span class="title m-t-25 m-b-14 d-block font-size is-14">{{ 'offers_page.tracking.form.usage_examples' | translate }}</span>
+
+        <app-field-text-info *ngFor="let link of links" className="mt-2" preset="copy">
+            <span class="text-break-all">{{ link }}</span>
+        </app-field-text-info>
+    </section>
+</ng-template>

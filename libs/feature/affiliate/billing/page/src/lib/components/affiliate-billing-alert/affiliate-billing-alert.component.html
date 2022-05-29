@@ -1,0 +1,15 @@
+<ui-alert className="affiliate-billing-alert">
+    <div class="w-100 d-flex align-items-center">
+        <ui-svg-icon icon="info-3" size="32"></ui-svg-icon>
+        <span>{{ paymentInfo }}</span>
+    </div>
+
+    <div class="ml-auto">
+        <ui-button-link
+            type="simple"
+            icon="close"
+            [iconSize]="24"
+            (toggle)="close()"
+        ></ui-button-link>
+    </div>
+</ui-alert>

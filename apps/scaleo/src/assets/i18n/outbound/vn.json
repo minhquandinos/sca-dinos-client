@@ -1,0 +1,13 @@
+{
+    "outbound_page": {
+        "announcements": {
+            "title": "Thông báo",
+            "widget": {
+                "menus": {
+                    "all": "Tất cả",
+                    "offers": "Chiến dịch của tôi"
+                }
+            }
+        }
+    }
+}

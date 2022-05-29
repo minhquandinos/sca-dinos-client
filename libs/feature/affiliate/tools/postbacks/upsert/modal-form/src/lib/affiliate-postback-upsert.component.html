@@ -1,0 +1,143 @@
+<ng-template appModal3Title>
+    <div class="title">
+        {{ !editId ? ('affiliate.postback.add_as_title' | translate) : ('affiliate.postback.edit' | translate) + ' #' + editId }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (click)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<div class="form w-100" [formGroup]="form" *ngIf="isLoad || !editId; else skeleton">
+    <div class="form-row" *ngIf="showSelectStatus">
+        <div class="form-group col-md-6">
+            <app-find-platform-statuses
+                [label]="'shared.dictionary.status' | translate"
+                formName="status"
+                statusList="postback_statuses"
+                [exceptIds]="filterPostbackStatus"
+            ></app-find-platform-statuses>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+            <app-find-platform-list
+                [label]="'shared.dictionary.level' | translate"
+                platformList="postback_levels"
+                itemLabel="title"
+                itemValue="id"
+                formName="level_id"
+                (toggle)="selectedLevel($event)"
+                [disableSelect]="disableLevelOfferSelect"
+            ></app-find-platform-list>
+        </div>
+        <div class="col-md-12 form-text pl-0">
+            <ul class="ul-description">
+                <li>{{ 'affiliate.postback.description.level_global_for_affiliate' | translate }}</li>
+                <li>{{ 'affiliate.postback.description.level_offer_for_affiliate' | translate }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="showOfferSection">
+        <div class="form-group col-md-6">
+            <app-find-offer
+                [label]="'shared.dictionary.offer' | translate"
+                itemLabel="title"
+                itemValue="id"
+                [disableSelect]="disableLevelOfferSelect"
+                formName="offer_id"
+                [status]="'active'"
+                [clearable]="true"
+                (toggle)="selectedOffer()"
+                (clear)="clearOffer()"
+            ></app-find-offer>
+        </div>
+        <div class="form-group col-md-6">
+            <app-find-goals
+                [label]="'shared.dictionary.goal' | translate"
+                itemLabel="title"
+                itemValue="id"
+                formName="goal_id"
+                [hideTypeGoal]="1"
+                [offerId]="form.value.offer_id"
+                [firstItemObject]="goalsFirstItem"
+            ></app-find-goals>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-statuses
+                [label]="'shared.dictionary.conversion_status' | translate"
+                [placeholder]="'shared.dictionary.status' | translate"
+                formName="conversion_status"
+                statusList="conversion_statuses"
+                [exceptIds]="exceptConversionStatus$ | async"
+                [firstElement]="{ id: 0, title: 'shared.dictionary.all' }"
+            ></app-find-platform-statuses>
+        </div>
+        <div class="col-md-12 form-text p-l-8 m-b-16">
+            {{ 'affiliate.postback.description.conversion_status_for_affiliate' | translate }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-list
+                platformList="postback_tracking_methods"
+                itemLabel="title"
+                itemValue="id"
+                formName="type"
+                (change)="selectedType($event)"
+            ></app-find-platform-list>
+        </div>
+        <div class="col-md-12 form-text p-l-8 m-b-16">
+            <div class="pr-3">
+                {{ 'affiliate.postback.description.method_for_affiliate' | translate }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group mb-0" *ngIf="!!codeLabel">
+        <app-textarea
+            [label]="'affiliate.postback.' + (form.value.type === 1 ? 'list_postback' : 'list_html') | translate"
+            formControlName="code"
+            appTextareaValuePattern="trim"
+            applyEventPattern="afterFocusOut"
+        ></app-textarea>
+        <manager-shared-available-macros [className]="'mt-0'" [typeMacroses]="'postback'"></manager-shared-available-macros>
+    </div>
+
+    <ui-button-link
+        *ngIf="editId"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group w-50">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+        </div>
+
+        <ui-skeleton-block height="medium" size="large" [width]="25"></ui-skeleton-block>
+    </ui-skeleton>
+</ng-template>

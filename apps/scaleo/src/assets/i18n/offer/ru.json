@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Смарт линк",
+        "title2": "Смарт линки",
+        "table": {
+            "allowed_traffic_types": "Разрешенные виды трафика",
+            "available_for_aff": {
+                "available": "Доступен партнерам",
+                "unavailable": "Недоступен партнерам"
+            },
+            "offers_with_tags": "Офферы с тегами",
+            "offers_with_tags_description": "Все активные офферы с выбранными тегами будут включены в смарт линк.",
+            "other_offers": "Другие офферы",
+            "get_link": "Получить ссылку",
+            "traffic_distribution": {
+                "highest_epc": "Наивысший EPC"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Распределение трафика"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Топ-офферы",
+            "my": "Мои офферы"
+        },
+        "tracking": {
+            "title": "Трекинг",
+            "form": {
+                "additional_parameters": "Дополнительные параметры",
+                "tracking_link_for_affiliate": "Ваша трекинг-ссылка",
+                "tracking_link_description_for_affiliate": "Ваша персональная ссылка, которая используется для продвижения оффера.",
+                "landing_page": "Лендинг",
+                "usage_examples": "Примеры использования",
+                "link_builder": {
+                    "title": "Генератор ссылок",
+                    "affiliate_link_builder": "Генератор ссылок для партнера",
+                    "add_sub_id": "Добавить Sub ID",
+                    "add_aff_click_id": "Добавить Click ID партнера",
+                    "add_mobile_parameters": "Добавить мобильные параметры",
+                    "apple_ios_idfa": "Apple iOS идентификатор",
+                    "google_android_gaid": "Google Android идентификатор",
+                    "set_deeplink": "Добавить диплинк",
+                    "deeplink": "Диплинк URL",
+                    "add_more": "Добавить больше",
+                    "affiliate": {
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "aff_param1": "Параметр 1 партнера",
+                        "aff_param2": "Параметр 2 партнера",
+                        "aff_param3": "Параметр 3 партнера",
+                        "aff_param4": "Параметр 4 партнера",
+                        "aff_param5": "Параметр 5 партнера"
+                    },
+                    "impressions_pixel": "Пиксель для подсчета показов"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "Клик ID партнера. Уникальный ID отправляемый партнером с каждым кликом.",
+                "sub_id1": "Sub ID 1 партнера.",
+                "sub_id2": "Sub ID 2 партнера.",
+                "sub_id3": "Sub ID 3 партнера.",
+                "sub_id4": "Sub ID 4 партнера.",
+                "sub_id5": "Sub ID 5 партнера.",
+                "aff_param1": "Дополнительный параметр 1 партнера.",
+                "aff_param2": "Дополнительный параметр 2 партнера..",
+                "aff_param3": "Дополнительный параметр 3 партнера.",
+                "aff_param4": "Дополнительный параметр 4 партнера.",
+                "aff_param5": "Дополнительный параметр 5 партнера.",
+                "source_id": "Источник (площадка) партнера, который был добавлен предварительно (должен существовать и быть активным).",
+                "link_id": "ID альтернативной ссылки для оффера (должна существовать и быть активной).",
+                "deep_link": "Ссылка на внутреннюю страницу сайта рекламодателя. Возможность должна быть включена для оффера.",
+                "creative_id": "ID креатива для оффера (должен существовать и быть активным).",
+                "idfa": "Apple iOS идентификатор рекламодателя",
+                "gaid": "Google Android идентификатор рекламодателя"
+            }
+        },
+        "custom_url": {
+            "title": "API для отправки"
+        },
+        "request": {
+            "active": "Вы можете продвигать этот оффер.",
+            "pending": "Запрос на этот оффер был отправлен {{ date }}",
+            "rejected": "Запрос на этот оффер был отклонен.",
+            "button": "Отправить запрос"
+        }
+    }
+}

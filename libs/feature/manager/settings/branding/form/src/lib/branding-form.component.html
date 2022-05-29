@@ -1,0 +1,236 @@
+<div class="form" [formGroup]="form">
+    <div class="form-row mb-0">
+        <div class="form-group col-md-6 mb-0">
+            <app-input
+                [label]="'administration_settings.branding.network_name' | translate"
+                formControlName="network_name"
+            ></app-input>
+        </div>
+    </div>
+
+    <ui-br></ui-br>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">
+                {{ 'administration_settings.branding.logo' | translate }}
+            </label>
+            <div
+                class="settings-logo position-relative border-radius-4"
+                [ngStyle]="logo && {'background': '#eaeaea url(' + logo + ') no-repeat'}"
+            >
+                <!--                        <img [src]="logo" alt="" *ngIf="logo" class="settings-logo__img border-radius-4">-->
+                <div class="hover-buttons-wrapper position-absolute d-flex">
+                    <div
+                        class="hover-button m-auto cursor-pointer"
+                        [ngClass]="{'hover-button--radius-right': logo}"
+                    >
+                        <ui-svg-icon icon="edit" (click)="changeLogo()"></ui-svg-icon>
+                    </div>
+                    <div
+                        class="hover-button d-flex m-auto cursor-pointer"
+                        [ngClass]="{'hover-button--radius-left': logo}"
+                        *ngIf="logo"
+                        (click)="deleteImage('logo')"
+                    >
+                        <div class="hover-button__icon i-delete my-auto mx-auto"></div>
+                    </div>
+                </div>
+                <app-image-cropper
+                    *ngIf="showChangeLogo"
+                    [onlyScaleDown]="true"
+                    [aspectRatio]="false"
+                    cropperMinWidth="342"
+                    cropperMinHeight="117"
+                    (cancelCropped)="cancelCropped('logo')"
+                    (imageWasCropped)="imageWasCropped($event, 'logo')"
+                ></app-image-cropper>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="field-label field-label-top">
+                {{ 'administration_settings.branding.favicon' | translate }}
+            </label>
+            <div (mouseenter)="showEditFavicon = true" (mouseleave)="showEditFavicon = false">
+                <div
+                    class="settings-favicon position-relative border-radius-4"
+                    [ngStyle]="favicon && {'background': '#eaeaea url(' + favicon + ') no-repeat', 'border': 'solid 1px #cacaca'}"
+                >
+                    <div
+                        class="hover-buttons-wrapper position-absolute d-flex"
+                        [ngClass]="{'active': showEditFavicon}"
+                        [ngStyle]="favicon && {'left': '85px'}"
+                    >
+                        <div
+                            class="hover-button m-auto cursor-pointer"
+                            [ngClass]="{'hover-button--radius-right': favicon}"
+                        >
+                            <ui-svg-icon icon="edit" (click)="changeFavicon()"></ui-svg-icon>
+                            <!--                                    <div class="hover-button__icon i-edit my-auto mx-auto"-->
+                            <!--                                         ></div>-->
+                        </div>
+                        <div
+                            class="hover-button d-flex m-auto cursor-pointer"
+                            [ngClass]="{'hover-button--radius-left': favicon}"
+                            *ngIf="favicon"
+                            (click)="deleteImage('favicon')"
+                        >
+                            <div class="hover-button__icon i-delete my-auto mx-auto"></div>
+                        </div>
+                    </div>
+                    <app-image-cropper
+                        *ngIf="showChangeFavicon"
+                        [width]="40"
+                        [height]="40"
+                        [ratio]="1"
+                        (cancelCropped)="cancelCropped('favicon')"
+                        (imageWasCropped)="imageWasCropped($event, 'favicon')"
+                    ></app-image-cropper>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-row mb-0">
+        <div class="form-group form-group-input--color-picker col-md-6">
+            <label for="main_color" class="field-label field-label-top">
+                {{ 'administration_settings.branding.main_color' | translate }}
+            </label>
+
+            <div class="color-selected position-relative">
+                <div class="color-selected__wrapper position-absolute">
+                            <span
+                                class="d-block color-selected__choose-color"
+                                [ngStyle]="{background: form.get('main_color').value}"
+                                [colorPicker]="form.get('main_color').value"
+                                [cpAlphaChannel]="'disabled'"
+                                [cpOutputFormat]="'hex'"
+                                (colorPickerChange)="form.get('main_color').setValue($event)"
+                            ></span>
+                </div>
+                <input
+                    type="text"
+                    class="field-text "
+                    aria-label="Small"
+                    aria-describedby="inputGroup-sizing-sm"
+                    formControlName="main_color"
+                    id="main_color"
+                >
+            </div>
+        </div>
+        <div class="form-group col-md-6 mb-0">
+            <label for="links_color" class="field-label field-label-top">
+                {{ 'administration_settings.branding.links_color' | translate }}
+            </label>
+
+            <div class="color-selected position-relative">
+                <div class="color-selected__wrapper position-absolute">
+                            <span
+                                class="d-block color-selected__choose-color"
+                                [ngStyle]="{background: form.get('links_color').value}"
+                                [colorPicker]="form.get('links_color').value"
+                                (colorPickerChange)="form.get('links_color').setValue($event)"
+                            >
+                            </span>
+                </div>
+                <input
+                    type="text"
+                    class="field-text"
+                    aria-label="Small"
+                    aria-describedby="inputGroup-sizing-sm"
+                    formControlName="links_color"
+                    id="links_color"
+                >
+            </div>
+        </div>
+    </div>
+
+    <ui-br></ui-br>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input
+                [label]="'administration_settings.branding.company_website_url' | translate"
+                formControlName="company_website_url"
+                appInputValuePattern="trim"
+            ></app-input>
+        </div>
+    </div>
+
+    <div class="form-row mb-0">
+        <div class="form-group col-md-6">
+            <app-input
+                [label]="'administration_settings.branding.privacy_policy_url' | translate"
+                formControlName="privacy_policy_url"
+                appInputValuePattern="trim"
+            ></app-input>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input
+                [label]="'administration_settings.branding.terms_and_conditions_url' | translate"
+                formControlName="terms_and_conditions_url"
+                appInputValuePattern="trim"
+            ></app-input>
+        </div>
+        <div class="form-text col-md-12">
+            {{ 'administration_settings.branding.login_page_text' | translate }}
+        </div>
+    </div>
+
+    <ng-container *ngIf="false">
+        <ui-br></ui-br>
+        <div class="d-flex flex-column">
+            <label for="login_page_theme" class="m-b-5">
+                {{'administration_settings.branding.login_page_theme_id' | translate}}
+            </label>
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-0">
+                    <app-select
+                        [items]="platformLists?.themes"
+                        itemLabel="title"
+                        itemValue="id"
+                        formControlName="login_page_theme_id"
+                        [searchable]="false"
+                        [clearable]="false"
+                        [multiple]="false"
+                        [hideSelected]="false"
+                        id="login_page_theme"
+                    ></app-select>
+                </div>
+                <div class="form-group col-md-6 mb-0 p-l-8 d-flex align-items-center">
+                    <app-custom-checkbox
+                        label="administration_settings.branding.set_theme_automatically"
+                        formControlName="set_theme_automatically"
+                    ></app-custom-checkbox>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ui-br></ui-br>
+
+    <div class="form-row mb-0">
+        <div class="form-group col-md-12">
+            <app-textarea
+                formControlName="client_custom_code"
+                [label]="'administration_settings.branding.client_custom_code' | translate"
+            ></app-textarea>
+        </div>
+        <div class="form-text mt-0">
+            {{ 'administration_settings.branding.client_custom_code_text' | translate }}
+        </div>
+    </div>
+
+    <ui-br></ui-br>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input
+                [label]="'administration_settings.branding.intercom_client_id' | translate"
+                [placeholder]="'administration_settings.branding.intercom_client_id_placeholder' | translate"
+                formControlName="intercom_client_id"
+            ></app-input>
+        </div>
+    </div>
+
+</div>

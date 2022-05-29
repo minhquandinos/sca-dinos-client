@@ -1,0 +1,18 @@
+{
+    "table": {
+        "column": {
+            "cpc": "EPC",
+            "cpa": "EPA",
+            "cpm": "EPM"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "cpc": "Beneficis per clic",
+                "cpa": "Preu per conversió aprovada",
+                "cpm": "Beneficis per conversió aprovada"
+            }
+        }
+    }
+}

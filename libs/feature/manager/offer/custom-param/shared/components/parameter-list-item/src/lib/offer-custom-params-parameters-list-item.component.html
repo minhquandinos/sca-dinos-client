@@ -1,0 +1,9 @@
+<span class="mr-1">{{ parameterTitle$ | async }}</span>
+
+<ui-chip *ngIf="!isTooltip; else parameterData">
+    <ng-container [ngTemplateOutlet]="parameterData"></ng-container>
+</ui-chip>
+
+<ng-template #parameterData>
+    <span>{{ parameter | offerCustomParamsFormatData: (offerCurrency$ | async) }}</span>
+</ng-template>

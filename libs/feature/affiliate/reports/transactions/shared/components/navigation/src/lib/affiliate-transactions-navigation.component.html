@@ -1,0 +1,30 @@
+<ui-tab-nav-bar class="h-100">
+    <ng-container *ngxPermissionsOnly="permissions.canAccessConversions">
+        <a ui-tab-nav-link routerLink="conversions" routerLinkActive="active">
+            {{ 'reports_page.conversions.title' | translate }}
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessClicks">
+        <a ui-tab-nav-link routerLink="clicks" routerLinkActive="active">
+            {{ 'reports_page.clicks.title' | translate }}
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessInvalidClicks">
+        <a ui-tab-nav-link routerLink="invalid-clicks" routerLinkActive="active">
+            {{ 'reports_page.logs.menus.clicks' | translate }}
+        </a>
+    </ng-container>
+
+    <ng-container *ngxPermissionsOnly="permissions.canAccessAffiliatePostbacksLog">
+        <a
+            ui-tab-nav-link routerLink="affiliates-postbacks"
+            routerLinkActive="active"
+        >
+            {{ 'reports_page.logs.menus.affiliates_postbacks' | translate }}
+        </a>
+    </ng-container>
+</ui-tab-nav-bar>
+
+

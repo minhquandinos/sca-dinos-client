@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Ilość",
+                "cv_pending": "Ilość",
+                "cv_rejected": "Ilość",
+                "cv_total": "Ilość",
+                "clicks": "Brutto",
+                "impressions": "Ilość",
+                "antifraud_logic_score": "Oszustwo",
+                "cv_trash": "Ilość"
+            },
+            "tooltip": {
+                "tr": "Całkowity współczynnik konwersji",
+                "cr": "Współczynnik zatwierdzonych konwersji",
+                "pr": "Współczynnik oczekujących konwersji",
+                "rr": "Współczynnik odrzuconych konwersji",
+                "rpc": "Przychody za kliknięcie",
+                "cpc": "Koszt kliknięcia",
+                "epc": "Zyski za kliknięcie",
+                "rpa": "Przychody na zatwierdzoną konwersję",
+                "cpa": "Koszt na zatwierdzoną konwersję",
+                "epa": "Zyski na zatwierdzoną konwersję",
+                "rpm": "Dochody za 1000 wyświetleń",
+                "cpm": "Koszt za 1000 wyświetleń",
+                "epm": "Dochody za 1000 wyświetleń",
+                "total_conversions": "Zatwierdzone i oczekujące konwersje",
+                "total_conversions_without_rejected": "Zatwierdzone, oczekujące",
+                "total_conversions_include_rejected_in_totals": "Zatwierdzone, oczekujące, odrzucone i usunięte konwersje ",
+                "ctr": "Współczynnik klikalności (kliknięcia a wyświetlenia)",
+                "cv_total": "Zatwierdzone, oczekujące, odrzucone",
+                "ar": "Zatwierdzone Współczynniki konwersji na Konwersje ogółem",
+                "trash_conversions": "Konwersje z niepoprawnymi danymi, oszustwa lub konwersje testowe"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Afiliant",
+            "affiliates_sources": "Źródło afilianta",
+            "affiliates_subids1": "ID podrz. afilainta 1",
+            "affiliates_subids2": "ID podrz. afilainta 2",
+            "affiliates_subids3": "ID podrz. afilainta 3",
+            "affiliates_subids4": "ID podrz. afilainta 4",
+            "affiliates_subids5": "ID podrz. afilainta 5",
+            "affiliates_params1": "Param. afilianta 1",
+            "affiliates_params2": "Param. afilianta 2",
+            "affiliates_params3": "Param. afilianta 3",
+            "affiliates_params4": "Param. afilianta 4",
+            "affiliates_params5": "Param. afilianta 5",
+            "deep_links": "URL głębokiego linku",
+            "aff_click_ids": "ID kliknięcia afilianta",
+            "reasons": "Powód",
+            "redirections": "Przekierowanie"
+        },
+        "logs": {
+            "title": "Dzienniki ruchu",
+            "menus": {
+                "clicks": "Nieprawidłowe kliknięcia",
+                "postbacks": "Postbacks"
+            },
+            "info_conversions": "Ne możesz znaleźć określonych konwersji? Sprawdź ",
+            "info_clicks": "Ne możesz znaleźć określonych klknięć? Sprawdź "
+        }
+    }
+}

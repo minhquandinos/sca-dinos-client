@@ -1,0 +1,190 @@
+<ng-template appModal3Title>
+    <span class="title text-nowrap">{{ title }}</span>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="buttonLabel"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form" autocomplete="off" *ngIf="isLoad || !id; else skeleton">
+    <div class="form-group">
+        <app-input
+            [label]="'interface.basic.title' | translate"
+            formControlName="title"
+            maxLength="128"
+        ></app-input>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-statuses
+                statusList="creatives_statuses"
+                formName="status"
+                [label]="'shared.dictionary.status'| translate"
+            ></app-find-platform-statuses>
+        </div>
+    </div>
+
+    <div class="form-row mb-2">
+        <div class="form-group col-md-6 mb-0">
+            <app-find-platform-list
+                [searchable]="false"
+                formName="type"
+                platformList="creatives_types"
+                [label]="'interface.form.type' | translate"
+                [labelShowId]="false"
+            ></app-find-platform-list>
+        </div>
+
+        <div
+            *ngIf="creativeType$ | async | isCreativeType: [creativeTypesIdEnum.Email, creativeTypesIdEnum.Html]"
+            class="form-group col-md-6"
+        >
+            <app-custom-switch
+                [label]="'offers_page.creatives.form.count_impressions' | translate"
+                formControlName="count_impressions"
+            ></app-custom-switch>
+        </div>
+    </div>
+
+    <ul class="form-text ul-description m-b-22">
+        <li>{{ 'offers_page.creatives.form.descriptions.banner' | translate }}</li>
+        <li>{{ 'offers_page.creatives.form.descriptions.email' | translate }}</li>
+        <li>{{ 'offers_page.creatives.form.descriptions.other' | translate }}</li>
+        <li>{{ 'offers_page.creatives.form.descriptions.xml_feed' | translate }}</li>
+    </ul>
+
+    <div class="form-group" *ngIf="creativeType$ | async | isCreativeType: creativeTypesIdEnum.Banner">
+        <app-custom-file-upload
+            [labelButton]="'offers_page.creatives.form.select_files' | translate"
+            [placeholder]="requiredUploadTypesTranslate$ | async"
+            formControlName="banner"
+            (selectedFile)="selectedFile($event)"
+        ></app-custom-file-upload>
+    </div>
+
+    <ng-container *ngIf="creativeType$ | async | isCreativeType: [creativeTypesIdEnum.Email, creativeTypesIdEnum.Html]">
+        <div class="form-group">
+            <app-textarea
+                [label]="'interface.form.html_code' | translate"
+                formControlName="html_code"
+            ></app-textarea>
+            <div class="form-text mb-3 mt-0">
+                <ui-button-link
+                    [label]="'offers_page.creatives.form.macros_available.title' | translate"
+                    (toggle)="showInfo()"
+                    type="link-static"
+                ></ui-button-link>
+            </div>
+        </div>
+
+        <div class="form-group" *ngIf="creativeType$ | async | isCreativeType: creativeTypesIdEnum.Email">
+            <app-textarea
+                [label]="'interface.form.plain_text' | translate"
+                formControlName="plain_text"
+            ></app-textarea>
+            <div class="form-text mb-3 mt-0">
+                <ui-button-link
+                    [label]="'offers_page.creatives.form.macros_available.title' | translate"
+                    (toggle)="showInfo()"
+                    type="link-static"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="form-group" *ngIf="creativeType$ | async | isCreativeType: creativeTypesIdEnum.XMLFeed">
+        <app-input
+            [label]="'offers_page.creatives.form.xml_feed_url' | translate"
+            formControlName="xml_feed_url"
+        ></app-input>
+
+        <span class="form-text">{{ 'offers_page.creatives.form.xml_feed_limitation' | translate }}</span>
+    </div>
+
+    <div class="form-group" *ngIf="!(creativeType$ | async | isCreativeType: creativeTypesIdEnum.XMLFeed)">
+        <app-find-landing-page
+            *ngIf="form.value.offer_url_id; else skeletonInputTpl"
+            [label]="'offers_page.creatives.form.offer_url' | translate"
+            formName="offer_url_id"
+            [offerId]="offerId"
+        ></app-find-landing-page>
+
+        <span class="form-text">{{ 'offers_page.creatives.form.descriptions.offer_link' | translate }}</span>
+    </div>
+
+    <div class="form-group">
+        <app-textarea
+            [label]="'interface.form.description' | translate"
+            formControlName="description"
+            maxLength="200"
+        ></app-textarea>
+    </div>
+
+    <ui-button-link
+        *ngIf="id"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-64"
+        (toggle)="delete()"
+    ></ui-button-link>
+</form>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <ui-skeleton-block height="medium" size="medium" [width]="25"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-group">
+            <ui-skeleton-textarea></ui-skeleton-textarea>
+        </div>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #infoTemplate>
+    <div class="container">
+        <div class="row p-y-10" *ngFor="let macros of mapMacrosAvailable">
+            <div class="col color__gray2 col-3">
+                <ui-chip>
+                    <span class="font-family-monaco">{{ '{' + macros + '}' }}</span>
+                </ui-chip>
+            </div>
+
+            <div class="col pl-0">
+                {{ 'offers_page.creatives.form.macros_available.' + macros | translate }}
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #skeletonInputTpl>
+    <ui-skeleton>
+        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+    </ui-skeleton>
+</ng-template>

@@ -1,0 +1,29 @@
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label class="field-label field-label-top m-b-8 line-height is-17 m-t-22">
+            {{ 'advertiser.postback_security.labels.token' | translate }}
+        </label>
+
+        <app-field-text-info
+            className="py-0"
+        >
+            <span>{{ newToken }}</span>
+            <ng-container action>
+                <div
+                    (click)="refresh()"
+                    class="d-flex align-items-center h-fit-content position-relative w-fit-content ml-auto"
+                >
+                    <ui-svg-icon
+                        class="cursor-pointer"
+                        #iconRef
+                        icon="refresh24"
+                        [size]="24"
+                        withAnimation="rotate"
+                        [tooltip]="'advertiser.postback_security.labels.generate_new_token' | translate"
+                    ></ui-svg-icon>
+
+                </div>
+            </ng-container>
+        </app-field-text-info>
+    </div>
+</div>

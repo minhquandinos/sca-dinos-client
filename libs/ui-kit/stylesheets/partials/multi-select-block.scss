@@ -1,0 +1,54 @@
+$border: 1px solid $color__light-blue;
+$scrollContainerPadding: .25rem;
+
+.multi-select-block {
+
+    &__body {
+        border: $border;
+        border-radius: 3px;
+
+    }
+
+    &__search {
+        border-bottom: $border;
+    }
+
+    &__custom-search {
+
+        input {
+            height: 3rem;
+            background: transparent;
+            border: unset;
+            border-radius: unset;
+            padding-left: 2.75rem;
+
+            &:focus {
+                border: unset;
+                outline: unset;
+                box-shadow: unset;
+            }
+        }
+
+        .input-group-prepend.custom-search__icon {
+            left: .6rem;
+        }
+    }
+
+    &__items {
+        &-wrapper {
+            padding: .25rem .25rem .25rem 0;
+        }
+
+        padding: calc(.688rem - .25rem) calc(1rem - .25rem) calc(.688rem - .25rem) 1rem;
+        overflow-y: auto;
+        height: 470px;
+    }
+
+    &__item {
+        padding-bottom: .625rem;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}

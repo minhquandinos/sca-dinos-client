@@ -1,0 +1,130 @@
+.skeleton {
+    .skeleton__animation {
+        animation: loading 1.7s infinite linear;
+        background: $color__light-gray3;
+        background-image: -webkit-linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+        background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+        background-repeat: no-repeat;
+    }
+
+    &__block,
+    &__form,
+    &__button {
+        border-radius: 4px;
+    }
+
+    &__block {
+
+        min-width: 50px;
+        width: 100%;
+
+        &--large {
+            height: 20px;
+        }
+
+        &--medium {
+            height: 16px;
+        }
+
+        &--small {
+            height: 12px;
+        }
+    }
+
+    &__form {
+        &--label {
+            height: 13px;
+            margin-bottom: 8px;
+        }
+
+        &--input {
+            height: 32px;
+        }
+
+        &--textarea {
+            height: 52px;
+        }
+        &--wysiwyg{
+            height: 84px;
+        }
+    }
+
+    &__button {
+
+        min-width: 100px;
+
+        &--large {
+            height: 40px;
+        }
+
+        &--medium {
+            height: 32px;
+        }
+
+        &--small {
+            height: 12px;
+        }
+    }
+
+    &__image--64 {
+        width: 64px;
+        height: 64px;
+    }
+
+    &__image--80 {
+        width: 80px;
+        height: 80px;
+    }
+
+    &__image--96 {
+        width: 96px;
+        height: 96px;
+    }
+
+    &__image--111 {
+        width: 111px;
+        height: 111px;
+    }
+
+    &__checkbox {
+        height: 16px;
+        width: 16px;
+        margin-right: 16px;
+    }
+
+    &__profile-image {
+        border-radius: 15%;
+        width: 8rem;
+        height: 8rem;
+    }
+
+    &--height-24, &--height-small {
+        height: 24px;
+    }
+
+    &--height-20 {
+        height: 20px;
+    }
+
+    &--height-32, &--height-medium {
+        height: 32px;
+    }
+
+    &--height-40, &--height-large {
+        height: 40px;
+    }
+
+    &--height-big {
+        height: 96px;
+    }
+}
+
+@keyframes loading {
+    0% {
+        background-position: -100px;
+    }
+
+    100% {
+        background-position: 200px;
+    }
+}

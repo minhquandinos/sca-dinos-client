@@ -1,0 +1,61 @@
+<!--<ng-template-->
+<!--    [ngxPermissionsExcept]="'AFFILIATE'"-->
+<!--    [ngxPermissionsElse]="affiliateBlock"-->
+<!--    [ngxPermissionsThen]="adminBlock"-->
+<!--&gt;</ng-template>-->
+
+<ng-template [ngTemplateOutlet]="trackingTypeFor === 'affiliate' ? affiliateTpl : managerTpl"></ng-template>
+
+<ng-template #affiliateTpl>
+    <div class="offer-tracking-params">
+        <div
+            class="field-label title m-t-26 m-b-8"
+            [ngClass]="className"
+        >
+            {{ 'offers_page.tracking.form.tracking_link_for_affiliate' | translate }}
+        </div>
+        <div class="form-text col-md-12 px-0">
+            {{ 'offers_page.tracking.form.tracking_link_description_for_affiliate' | translate }}
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #managerTpl>
+    <div [formGroup]="form" class="offer-tracking-params">
+        <div
+            class="field-label title mb-2 mt-4"
+            [ngClass]="className"
+        >
+            {{ 'offers_page.tracking.form.generate_tracking_link' | translate }}
+        </div>
+        <div class="form-text col-md-12 px-0 m-b-12 line-height is-16 mt-0">
+            {{ 'offers_page.tracking.form.tracking_link_description' | translate }}
+        </div>
+        <div class="col-md-7 m-0 p-0">
+            <app-find-affiliates
+                formName="a"
+                itemValue="id"
+                [hideSelected]="true"
+                [placeholder]="'offers_page.tracking.form.link_builder.select_affiliate' | translate"
+            ></app-find-affiliates>
+        </div>
+    </div>
+</ng-template>
+
+<ng-container *ngIf="form.value.a">
+    <div class="col-md-12 m-t-16 p-0">
+        <app-field-text-info preset="copy">
+            {{(link | async)}}
+        </app-field-text-info>
+    </div>
+
+    <div class="form-text mt-2 optional-font">
+        <a
+            href="#"
+            appStopPropagation
+            (click)="showInfo()"
+            class="toggle-link ">
+            {{ 'offers_page.tracking.form.additional_parameters' | translate }}
+        </a>
+    </div>
+</ng-container>

@@ -1,0 +1,36 @@
+.payments {
+    app-filters .filter {
+
+        .filter__wrapper {
+            padding-left: 32px;
+        }
+
+        .filter__block .filter__title {
+            border-right: 0;
+            margin-right: 0;
+        }
+    }
+
+    app-config-table-column2 {
+        ui-button-link button {
+            margin-right: 0 !important;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    app-payments {
+        .page-wrapper-header {
+            overflow-x: scroll;
+            margin-right: 1rem;
+        }
+
+        .payments {
+            app-filters .filter {
+                overflow-x: scroll;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+}

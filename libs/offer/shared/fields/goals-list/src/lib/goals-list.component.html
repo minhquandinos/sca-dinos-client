@@ -1,0 +1,63 @@
+<app-short-list-in-column
+    [templateRow]="templateRow"
+    [templateTooltip]="templateTooltip"
+    [items]="goals"
+    limit="2"
+></app-short-list-in-column>
+
+<ng-template
+    #affiliateRowTemplate
+    let-goal="context"
+    let-first="first"
+>
+    <app-custom-info
+        [className]="!first ? 'm-t-6' : ''"
+        *ngIf="goal?.goal_type_name"
+    >
+        <ui-chip info-label [colorText]="'white'" [color]="goal?.goal_type_name?.toLowerCase()">
+            {{ goal.goal_type_name }}
+        </ui-chip>
+        <div info-value>
+            {{ goal.payout_for_affiliate }}
+        </div>
+    </app-custom-info>
+</ng-template>
+
+<ng-template #affiliateTooltipTemplate let-goal="context">
+    {{ goal.goal_type_name }} {{ goal.payout_for_affiliate }}
+</ng-template>
+
+<ng-template
+    #defaultRowTemplate
+    let-goal="context"
+    let-first="first"
+>
+    <app-custom-info [className]="!first ? 'm-t-6' : ''">
+        <ui-chip
+            *ngIf="goal?.goal_type_name"
+            info-label
+            [colorText]="'white'"
+            [color]="goal?.goal_type_name?.toLowerCase()"
+        >
+            {{ goal.goal_type_name }}
+        </ui-chip>
+        <div info-value>
+            <ng-container *ngIf="goal.goal_type === goalTypeEnum.CPS; else defaultGoalTemplate">
+                {{ (goal | goalListValue | number: '1.0' ) + '%' }}
+            </ng-container>
+            <ng-template #defaultGoalTemplate>
+                {{ goal | goalListValue  | format:'money':{currency: currency} }}
+            </ng-template>
+        </div>
+    </app-custom-info>
+</ng-template>
+
+<ng-template #defaultTooltipTemplate let-goal="context">
+    {{ goal.goal_type_name }}
+    <ng-container *ngIf="goal.goal_type === goalTypeEnum.CPS; else defaultGoalTemplate">
+        {{ (goal | goalListValue | number: '1.0' ) + '%' }}
+    </ng-container>
+    <ng-template #defaultGoalTemplate>
+        {{ goal | goalListValue | format:'money':{currency: currency} }}
+    </ng-template>
+</ng-template>

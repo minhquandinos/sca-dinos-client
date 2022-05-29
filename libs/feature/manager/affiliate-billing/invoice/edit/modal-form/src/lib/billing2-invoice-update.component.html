@@ -1,0 +1,89 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap p-l-20">
+        {{ 'invoice.edit_title' | translate }}
+    </div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link [label]="'shared.dictionary.save' | translate" (toggle)="update()" appDisableButtonDuringRequest></ui-button-link>
+</ng-template>
+
+<form [formGroup]="form">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-statuses
+                [label]="'shared.dictionary.status' | translate"
+                *ngIf="isLoad; else skeletonTpl"
+                formName="status"
+                statusList="invoices_statuses"
+                [hideDotTooltip]="true"
+                itemValue="status"
+                itemIncrement="status"
+                (toggle)="changeStatusHandler($event)"
+            ></app-find-platform-statuses>
+        </div>
+    </div>
+
+    <div class="form-row m-b-48">
+        <div class="form-group col-md-6">
+            <app-input-date
+                *ngIf="isLoad; else skeletonTpl"
+                formControlName="date_due"
+                [label]="'invoice.update.due_date' | translate"
+                [featuresDate]="true"
+            ></app-input-date>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <app-textarea
+                *ngIf="isLoad; else skeletonTextareaTpl"
+                formControlName="invoice_memo"
+                [label]="'invoice.generate.invoice_memo' | translate"
+            ></app-textarea>
+        </div>
+    </div>
+
+    <div class="form-row m-b-48">
+        <div class="form-group col-md-12">
+            <app-textarea
+                *ngIf="isLoad; else skeletonTextareaTpl"
+                formControlName="internal_notes"
+                [label]="'table.column.notes' | translate"
+            ></app-textarea>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="isLoad">
+        <div class="form-group col-md-12">
+            <app-attachment-file
+                formName="attachment"
+                [allowedAcceptFile]="allowedAcceptFile"
+                (deleteFile)="deleteAttachment()"
+            ></app-attachment-file>
+            <div class="form-text">{{ 'invoice.update.attachment_info' | translate }}</div>
+        </div>
+    </div>
+
+    <ui-button-link
+        *ngIf="canDelete"
+        [label]="'shared.dictionary.delete' | translate"
+        icon="delete"
+        type="delete"
+        className="m-t-50"
+        (toggle)="delete()"
+    ></ui-button-link>
+</form>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton>
+        <app-ui-skeleton-input size="large"></app-ui-skeleton-input>
+    </ui-skeleton>
+</ng-template>
+
+<ng-template #skeletonTextareaTpl>
+    <ui-skeleton>
+        <ui-skeleton-textarea></ui-skeleton-textarea>
+    </ui-skeleton>
+</ng-template>

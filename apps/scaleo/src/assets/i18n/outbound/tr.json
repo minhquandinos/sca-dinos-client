@@ -1,0 +1,13 @@
+{
+    "outbound_page": {
+        "announcements": {
+            "title": "Duyurular",
+            "widget": {
+                "menus": {
+                    "all": "Tümü",
+                    "offers": "Tekliflerimde"
+                }
+            }
+        }
+    }
+}

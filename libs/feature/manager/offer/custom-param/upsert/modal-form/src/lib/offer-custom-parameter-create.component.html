@@ -1,0 +1,113 @@
+<ng-template appModal3Title>
+    <div class="title">{{ title }}</div>
+</ng-template>
+
+<ng-template appModal3Action>
+    <ui-button-link
+        *ngIf="!hideShowUpdateDeleteButton"
+        [label]="buttonLabel"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<form class="w-100" [formGroup]="form" autocomplete="off" *ngIf="isLoad; else skeleton">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-find-platform-statuses
+                statusList="custom_params_statuses"
+                formName="status"
+                [label]="'shared.dictionary.status'| translate"
+            ></app-find-platform-statuses>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <app-find-affiliates
+                [multiple]="true"
+                [clearable]="true"
+                [hideSelected]="true"
+                itemValue="id"
+                formName="affiliates"
+                [label]="'table.column.affiliate' | translate"
+            ></app-find-affiliates>
+        </div>
+
+        <span *ngxPermissionsExcept="permissions.frontCanShowAffiliateInfoUpsertCustomParam" class="form-text">
+            {{ 'offers_page.custom_parameters.form.affiliate_info' | translate }}
+        </span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <app-input-date
+                [label]="'interface.date.start_date' | translate"
+                [featuresDate]="true"
+                formControlName="start_date"
+            ></app-input-date>
+        </div>
+        <div class="form-group col-md-6">
+            <app-input-date
+                [label]="'interface.date.end_date' | translate"
+                [autoUpdateInput]="id && !!form.value.end_date"
+                [featuresDate]="true"
+                formControlName="end_date"
+            ></app-input-date>
+        </div>
+
+        <div class="form-text">{{'offers_page.custom_parameters.form.date_info' | translate}}</div>
+    </div>
+
+    <app-offer-custom-parameter-conditions formName="conditions"></app-offer-custom-parameter-conditions>
+
+    <app-offer-custom-parameter-parameters formName="parameters"></app-offer-custom-parameter-parameters>
+
+    <ng-container *ngxPermissionsOnly="permissions.canManageCustomParameters">
+        <ui-button-link
+            *ngIf="id && !hideShowUpdateDeleteButton"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-50"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </ng-container>
+</form>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="form-text">
+                    <ui-skeleton-block size="small" width="100"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <ui-skeleton-block></ui-skeleton-block>
+            </div>
+            <div class="form-group col-md-6">
+                <ui-skeleton-block></ui-skeleton-block>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="form-text">
+                    <ui-skeleton-block size="small" width="100"></ui-skeleton-block>
+                </div>
+            </div>
+        </div>
+
+    </ui-skeleton>
+</ng-template>

@@ -1,0 +1,65 @@
+{
+    "finances_page": {
+        "filters": {
+            "paid": "Paid",
+            "not_paid": "Unpaid",
+            "in_progress": "In Progress"
+        },
+        "balance": {
+            "title": "Balance",
+            "approved_payout": "Approved Payout",
+            "pending_payout": "Pending Payout",
+            "paid_to_date": "Paid To Date",
+            "balance_due": "Balance Due"
+        },
+        "details": {
+            "select_payment_method": "Select Payment Method",
+            "payment_method_added": "Payment Method has been successfully added",
+            "minimal_threshold": "Minimal Threshold",
+            "payment_method_details": "Account ID, Number, etc.",
+            "payment_method_info_message": "Please select the Payment Method and enter your details",
+            "request_payment_was_sent": "Payment Request has been successfully added",
+            "amount_condition": "Minimum: {{ min }}, maximum: {{ max }}",
+            "request": "Request"
+        }
+    },
+    "billing2": {
+        "settings": {
+            "payments_methods": {
+                "all_currencies": "All Currencies",
+                "commission": "Commission"
+            }
+        },
+        "balance": {
+            "advance": "Advance",
+            "pending": "Pending Balance",
+            "approved": "Approved Balance",
+            "due": "Balance Due",
+            "tooltips": {
+                "pending": "Balance of Pending Conversions. If you work with several currencies, this is an approximate amount and may vary depending on the exchange rate.",
+                "approved": "Balance for Approved Conversions (to be included in the Invoice). If you work with several currencies, this is an approximate amount and may vary depending on the exchange rate.",
+                "due": "The total balance of all the Unpaid Invoices. This amount will be paid to the Affiliate. If you work with multiple currencies, a separate Invoice is generated for each currency."
+            }
+        },
+        "payment_methods": {
+            "payment_method_added": "Payment Method has been successfully added",
+            "payment_method_edited": "Payment Method has been successfully changed",
+            "payment_method_deleted": "Payment Method has been successfully deleted",
+            "exists_for_this_currency": "Payment method for this currency already exists"
+        }
+    },
+    "invoice": {
+        "invoices_title": "Invoices",
+        "invoice_title": "Invoice",
+        "generation_date": "Date Generated",
+        "update": {
+            "due_date": "Due Date"
+        },
+        "view_conversions": "View Conversions",
+        "items": "Items",
+        "total": "Total",
+        "generate": {
+            "invoice_memo": "Invoice Memo"
+        }
+    }
+}

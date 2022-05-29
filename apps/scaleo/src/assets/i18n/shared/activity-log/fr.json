@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Journal d'activité",
+        "details": "Détails",
+        "new_values": "Nouvelles valeurs",
+        "old_values": "Anciennes valeurs",
+        "object": {
+            "affiliate": "Affilié",
+            "postback": "Postback",
+            "gloabal_postback": "Postback global",
+            "source": "Source",
+            "advertiser": "Annonceur",
+            "domain": "Domaine",
+            "manager": "Gestionnaire",
+            "offer": "Offre",
+            "offer_request": "Demande d'offre",
+            "goal": "Objectif",
+            "tracking": "Tracking",
+            "targeting": "Ciblage",
+            "affiliate_access": "Accès affilié",
+            "landing_page": "Page d'atterrissage",
+            "creative": "Contenus publicitaires",
+            "custom_param": "Paramètres personnalisés",
+            "you": "Vous",
+            "announcement": "Notifications"
+        },
+        "owner": {
+            "offer" : "pour l'offre",
+            "affiliate": "pour l'affilié",
+            "you": "pour vous"
+        },
+        "action": {
+            "add": "a été ajouté(e)",
+            "edit": "a été mis(e) à jour",
+            "view": "a été consulté(e)",
+            "delete": "a été supprimé(e)",
+            "signup": "s'est inscrit(e)",
+            "login": "s'est connecté(e)",
+            "profile_edit": "a mis à jour son profil",
+            "logout": "s'est déconnecté(e)",
+            "approved": "a été approuvé(e)",
+            "declined": "a été refusé(e)",
+            "login_as": "connecté(e) en tant que"
+        },
+        "action_for_offer_request": {
+            "add": "demandée",
+            "approved": "a été approuvée",
+            "declined": "a été refusée"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "demandée",
+            "approved": "a été approuvée",
+            "declined": "a été refusée"
+        },
+        "action_for_goal": {
+            "add": "a été ajouté",
+            "edit": "a été mis à jour",
+            "delete": "a été supprimé"
+        },
+        "action_custom_params": {
+            "add": "ont été ajoutés",
+            "edit": "ont été mis à jour",
+            "delete": "ont été supprimés"
+        }
+    }
+}

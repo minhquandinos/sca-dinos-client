@@ -1,0 +1,108 @@
+.nav {
+
+    $self: &;
+    @include font-family-medium;
+
+    &:not(&--horizontal) {
+        *.nav-item {
+            margin-bottom: 4px;
+        }
+
+        //*.nav-item:last-child {
+        //    margin-bottom: 0;
+        //}
+    }
+
+    *.nav-item {
+        border-radius: 6px;
+        min-height: 2rem;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+
+        a {
+            font-size: $font-size-base;
+            color: $color__gray2;
+            padding: .625rem .75rem;
+            display: block;
+
+            .count {
+                color: $color__gray3;
+                font-size: $font-size-base;
+                @include font-family-normal;
+                margin-left: 5px;
+            }
+        }
+
+        &:hover,
+        &.active {
+            background: $color__full-white;
+
+            a {
+                color: $color__black3;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &--horizontal {
+
+        *.nav-item {
+
+            margin-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.tab {
+
+    $self: &;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        height: 100%;
+
+        a {
+            display: flex;
+            height: inherit;
+            font-size: $font-size-base;
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            padding: 0 16px;
+            color: $color__gray2;
+
+            &:hover {
+                color: $color__gray;
+                text-decoration: none;
+            }
+
+            &.active {
+                color: $color__main-links;
+                border-bottom: 2px solid $color__main-links;
+
+                .budges {
+                    background-color: $color__orange;
+                }
+            }
+        }
+
+        .budges, #{$self}__counts {
+            margin-left: 7px;
+            @include font-family-normal;
+        }
+
+        #{$self}__counts {
+            color: $color__gray3;
+        }
+    }
+}

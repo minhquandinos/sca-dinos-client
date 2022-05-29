@@ -1,0 +1,469 @@
+{
+    "your_manager": "Yöneticiniz",
+    "firstname": "Adı",
+    "lastname": "Soyadı",
+    "email": "E-posta",
+    "password": "Şifre",
+    "password_confirmation": "Şifre Onayı",
+    "statuses": {
+        "status": "Durum",
+        "active": "Aktif",
+        "inactive": "İnaktif",
+        "pending": "Bekleyen",
+        "rejected": "Reddedilmiş",
+        "testing": "Test ediliyor",
+        "approved": "Onaylanmış",
+        "all": "Tümü"
+    },
+    "user_profile": {
+        "edited_notification": "Profiliniz başarıyla güncellendi"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Filtrele",
+            "results": "sonuçlar",
+            "filtered_by": "Filtrele",
+            "preview": "Ön izleme",
+            "close": "Kapat",
+            "clear": "Temizle",
+            "today": "Bugün",
+            "yesterday": "Dün",
+            "filters": {
+                "country": "Ülke",
+                "tag": "Etiket",
+                "goals_types": "Hedef Türleri",
+                "no_data_found": "Veri bulunamadı"
+            },
+            "search": "Ara",
+            "not_found": "Hiçbir veri bulunamadı.",
+            "api_key": "API Anahtarı",
+            "api_access": "API Erişimi",
+            "columns": "Sütunlar",
+            "breakdown_by": "Grupla",
+            "breakdown": "Grupla",
+            "copy": "Kopyala",
+            "expand": "Genişlet",
+            "hide": "Sakla",
+            "link_copy": "Bağlantı kopyalandı",
+            "choose_image": "Resim seç",
+            "total": "Toplam:",
+            "adblock": "AdBlock çalışıyor, bazı platform işlevleri düzgün çalışmayabilir",
+            "refresh": {
+                "button": "Yenile",
+                "new_version": "Yeni sürüm mevcut.",
+                "latest_version": "En son sürümü edinmek için güncelleyin."
+            },
+            "undefined": "Tanımlanmamış",
+            "learn_more": "Daha fazlasını öğrenin",
+            "view_all": "Tümünü Gör",
+            "view_all_count": "Tümünü Gör ({{ count }})",
+            "allowed": "İzin Verilen",
+            "denied": "Reddedilen"
+        },
+        "header": {
+            "help": "Yardım",
+            "profile": "Profil",
+            "account": "Hesabım",
+            "language": "Dil",
+            "logout": "Çıkış"
+        },
+        "form": {
+            "tags": "Etiketler",
+            "tag": "Etiket",
+            "country": "Ülke",
+            "traffic_type": "Trafik Türleri",
+            "timezone": "Saat Dilimi",
+            "currency": "Para Birimi",
+            "contact_type": "İletişim Türü",
+            "contact_name": "İletişim",
+            "phone": "Telefon",
+            "street": "Sokak",
+            "city": "Şehir",
+            "region": "Bölge",
+            "postcode": "Posta Kodu",
+            "payment_details": "Ödeme Detayları",
+            "date_format": "Tarih Formatı",
+            "number_format": "Sayı Formatı",
+            "featured": "Öne Çıkan",
+            "description": "Tanım",
+            "internal_information": "Dahili Bilgi",
+            "expires": "Bitiyor"
+        },
+        "date": {
+            "basic": {
+                "from": "-den",
+                "to": "-e -a"
+            },
+            "days": {
+                "su": "Pa",
+                "mo": "Pz",
+                "tu": "Sl",
+                "we": "Çr",
+                "th": "Pr",
+                "fr": "Cm",
+                "sa": "Ct"
+            },
+            "month": {
+                "january": "Ocak",
+                "february": "Şubat",
+                "march": "Mart",
+                "april": "Nisan",
+                "may": "Mayıs",
+                "june": "Haziran",
+                "july": "Temmuz",
+                "august": "Ağustos",
+                "september": "Eylül",
+                "october": "Ekim",
+                "november": "Kasım",
+                "december": "Aralık"
+            },
+            "ranges": {
+                "today": "Bugün",
+                "yesterday": "Dün",
+                "last7Days": "Son 7 Gün",
+                "last14Days": "Son 14 Gün",
+                "last30Days": "Son 30 Gün",
+                "last90Days": "Son 90 Gün",
+                "thisMonth": "Bu Ay",
+                "custom": "Özel aralık",
+                "lastMonth": "Geçen Ay",
+                "thisYear": "Bu Yıl"
+            },
+            "based_on": "-e dayalı ",
+            "time_zone": " Saat Dilimi"
+        },
+        "subtitle": {
+            "access_credentials": "Erişim Kimlik Bilgileri",
+            "contacts": "Kişiler",
+            "address": "Adres",
+            "financial_information": "Finansal Bilgi",
+            "additional_information": "Ek Bilgi",
+            "preferences": "Tercihler"
+        },
+        "export_file": {
+            "title": "Dışa Aktar",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Dosya oluşturma hatası, daha sonra deneyin"
+        },
+        "pagination": {
+            "per_page": "Gösterme"
+        },
+        "table_columns_config": {
+            "cv_approved": "Miktar",
+            "cv_pending": "Miktar",
+            "cv_rejected": "Miktar",
+            "cv_total": "Miktar",
+            "clicks": "Brüt",
+            "impressions": "Miktar",
+            "cv_trash": "Miktar"
+        },
+        "validation": {
+            "password_repeat": "Parolalar eşleşmiyor",
+            "email_already_taken": "E-posta zaten alınmış",
+            "required": "Alan gerekli",
+            "email": "E-posta geçersiz",
+            "min_length_password": "Şifre en az 8 sembol olmalı",
+            "max": "Sayı izin verilen sayıyı aşıyor",
+            "incorrect_amount": "Yanlış Miktar"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "İstatistikler",
+            "conversions": "Dönüşümler",
+            "clicks": "Tıklamalar"
+        }
+    },
+    "auth": {
+        "forgot_password": "Şifrenizi mi unuttunuz?"
+    },
+    "password_change": {
+        "button": "Şifreyi Değiştir",
+        "not_change": "Şifreyi Değiştirme"
+    },
+    "password_reset": {
+        "title": "Şifre Sıfırlama",
+        "text": "Şifrenizi sıfırlamak için, lütfen oturum açmak için kullandığınız e-posta adresini girin ",
+        "button": "Sıfırlama Bağlantısını Al",
+        "return_to_login": "Giriş Yapmaya Dön"
+    },
+    "password_reset_confirm": {
+        "title": "Onay",
+        "text": "Lütfen e-postanızı kontrol edin. Şifre sıfırlama işlemi için size daha talimatlar gönderdik",
+        "link": "Giriş Yapmaya Dön"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Kişi Ekle",
+            "description": {
+                "payment_details": "Örneğin: banka hesap bilgileri, kart numaraları, PayPal kimliği vb."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "Günlük",
+        "weekly": "Haftalık",
+        "monthly": "Aylık",
+        "total": "Toplam"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "14 Günlük İstatistikler"
+        },
+        "navigation": {
+            "all": "Tüm Teklifler"
+        },
+        "targeting": {
+            "except": "Hariç:",
+            "denied": "Reddedildi",
+            "offers_targeting_rules": {
+                "connection_type": "Bağlantı Türü",
+                "mobile_operator": "Mobil Operatör",
+                "device_type": "Cihaz Türü",
+                "device_os": "Cihaz İS",
+                "device_os_version": "Cihaz İS Sürümü",
+                "device_brand": "Cihaz Markası",
+                "device_model": "Cihaz Modeli",
+                "browser": "Tarayıcı",
+                "language": "Dil",
+                "worldwide": "Dünya Çapında",
+                "geo": "Jeo",
+                "expect": "Bekle",
+                "denied": "Reddedildi",
+                "connection_type_allowed": "İzin Verilen Bağlantı Türü",
+                "mobile_operator_allowed": "İzin Verilen Mobil Operatör",
+                "device_type_allowed": "İzin Verilen Cihaz Türü",
+                "device_os_allowed": "İzin Verilen Cihaz İS",
+                "device_os_version_allowed": "İzin Verilen Cihaz İS Sürümü",
+                "device_brand_allowed": "İzin Verilen Cihaz Markası",
+                "device_model_allowed": "İzin Verilen Cihaz Modeli",
+                "browser_allowed": "İzin Verilen Tarayıcı",
+                "language_allowed": "İzin Verilen Dil",
+                "geo_allowed": "İzin Verilen Jeo",
+                "connection_type_denied": "Reddedilen Bağlantı Türü",
+                "mobile_operator_denied": "Reddedilen Mobil Operatör",
+                "device_type_denied": "Reddedilen Cihaz Türü",
+                "device_os_denied": "Reddedilen Cihaz İS",
+                "device_os_version_denied": "Reddedilen Cihaz İS Sürümü",
+                "device_brand_denied": "Reddedilen Cihaz Markası",
+                "device_model_denied": "Reddedilen Cihaz Modeli",
+                "browser_denied": "Reddedilen Tarayıcı",
+                "language_denied": "Reddedilen Dil",
+                "geo_denied": "Reddedilen Jeo",
+                "affiliate_sub_id_1": "Ortak Alt 1",
+                "affiliate_sub_id_2": "Ortak Alt 2",
+                "affiliate_sub_id_3": "Ortak Alt 3",
+                "affiliate_sub_id_4": "Ortak Alt 4",
+                "affiliate_sub_id_5": "Ortak Alt 5"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Çoklu Dönüşümler"
+            }
+        },
+        "creatives": {
+            "title": "Kreatifler"
+        },
+        "profile": {
+            "page_title": {
+                "goals": "Hedefler",
+                "creatives": "Kreatifler",
+                "targeting": "Hedeflenen"
+            },
+            "targeting": {
+                "geo": "Jeo"
+            }
+        },
+        "urls": {
+            "title": "Açılış Sayfaları",
+            "type": {
+                "default": "Varsayılan",
+                "preview": "Ön izleme"
+            },
+            "visible_to_affiliates": "Visible to Affiliates"
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "Tekliflerin nasıl performans gösterdiğine dair hızlı bir genel bakış. Günde bir kez güncellenir.",
+                    "ar": "Onay Oranı â€” Toplam Dönüşümlerden Onaylanmış Dönüşümlerin sayısı. Bir önceki ay için tüm ortaklar arasında hesaplanır.",
+                    "cr": "Dönüşüm Oranı â€” Tıklama başına Toplam Dönüşümlerin ortalama sayısı. Son 7 gün bazında tüm ortaklar arasında hesaplanır.",
+                    "epc": "Tıklama başına kazanç â€” tıklama başına ortalama kazanç. Son 7 gün bazında tüm ortaklar arasında hesaplanır.",
+                    "n_a": "Metriği görüntülemek için yeterli veri yok"
+                },
+                "conversions": {
+                    "info": "Önceki 7 güne kıyasla son 7 gün için Toplam Dönüşümler. Sıralama verileri günde bir kez güncellenir."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Banner",
+        "email": "E-posta",
+        "html": "HTML",
+        "xml_feed": "XML Akışı"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finansmanlar"
+        },
+        "table": {
+            "transaction_id": "Ödeme Kimliği",
+            "payment_details": "Ödeme Yöntemi"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Ağ Özeti",
+        "top_offers": "En İyi Teklifler",
+        "volume": "Hacim",
+        "metrics": "Metrikler",
+        "trends": "Trendler",
+        "legend": {
+            "cv_pending": "Bekleyen Dönüşümler",
+            "impressions": "İzlenimler",
+            "clicks": "Brüt Tıklamalar",
+            "cv_approved": "Onaylanmış Dönüşümler",
+            "cr": "CR",
+            "cv_rejected": "Reddedilmiş Dönüşümler",
+            "approved_payout": "Onaylanmış Ödeme",
+            "pending_payout": "Bekleyen Ödeme",
+            "rejected_payout": "Reddedilmiş Ödeme",
+            "ctr": "CTR",
+            "unique_clicks": "Benzersiz Tıklamalar",
+            "duplicate_clicks": "Yinelenen Tıklamalar",
+            "invalid_clicks": "Geçersiz Tıklamalar",
+            "pr": "PR",
+            "cv_total": "Toplam Dönüşümler",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Tıklama Ödemesi",
+            "total_payout": "Toplam Ödeme"
+        },
+        "message_when_column_max": "Maksimum 6 metrik seçmek mümkün."
+    },
+    "conversion_statuses": {
+        "pending": "Bekleyen",
+        "rejected": "Reddedilmiş",
+        "approved": "Onaylanmış",
+        "default": "Varsayılan",
+        "trash": "Çöp"
+    },
+    "reports_page": {
+        "custom": "Genel",
+        "last_updated": "Son güncelleme: {{ minutes }} dk. önce",
+        "filters": {
+            "popular": "Popüler",
+            "offers": "Teklif",
+            "offer": "Teklif",
+            "offers_goals": "Hedef",
+            "goals_types": "Hedef Türü",
+            "currencies": "Para Birimi",
+            "offers_creatives": "Kreatif",
+            "offers_links": "Açılış Sayfası",
+            "ips": "IP",
+            "track_ids": "Reklam Veren İzleme Kimliği",
+            "advertisers_params1": "Reklam Veren Param 1",
+            "advertisers_params2": "Reklam Veren Param 2",
+            "advertisers_params3": "Reklam Veren Param 3",
+            "advertisers_params4": "Reklam Veren Param 4",
+            "advertisers_params5": "Reklam Veren Param 5",
+            "conversions_referrers": "Dönüşüm Davetçi URL'si",
+            "countries": "Ülke",
+            "devices_type": "Cihaz Türü",
+            "devices_brands": "Cihaz Markası",
+            "devices_models": "Cihaz Modeli",
+            "devices_os": "Cihaz İS",
+            "browsers": "Tarayıcı",
+            "connections_types": "Bağlantı Türü",
+            "languages": "Dil",
+            "mobile_operators": "Mobil Operatör",
+            "technical": "Teknik",
+            "clickIds": "Tıklama Kimliği",
+            "data": "Veri",
+            "transactions": "İşlem Kimliği",
+            "statuses": "Dönüşüm Durumu",
+            "orders_ids": "Reklam Veren Sipariş Kimliği",
+            "users_ids": "Reklam Veren Kullanıcı Kimliği",
+            "devices_os_version": "Cihaz İS Sürümü",
+            "browser_version": "Tarayıcı Sürümü",
+            "geo": "Jeo",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "Satır başına bir öğe",
+            "visible_tooltip": "Her Zaman Görünür Tut"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Masaüstü",
+                "smartphone": "Telefon",
+                "tablet": "Tablet",
+                "feature_phone": "Eski Telefon",
+                "console": "Konsol",
+                "tv": "TV",
+                "car_browser": "Araba Tarayıcısı",
+                "smart_display": "Akıllı Ekran",
+                "camera": "Kamera",
+                "portable_media_player": "Taşınabilir Medya Oynatıcı",
+                "phablet": "Phablet"
+            }
+        },
+        "statistics": {
+            "title": "İstatistik",
+            "menus": {
+                "affiliate": "Ortak",
+                "offer": "Teklif",
+                "advertiser": "Reklam Veren",
+                "country": "Ülke",
+                "goal": "Hedef",
+                "day": "Günlük",
+                "monthly": "Aylık",
+                "hour": "Saat",
+                "device_type": "Cihaz Türü",
+                "connection_type": "Bağlantı Türü"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Onaylanmış Dönüşümler",
+                    "pending_conversions": "Bekleyen Dönüşümler",
+                    "rejected_conversions": "Reddedilmiş Dönüşümler",
+                    "trash_conversions": "Çöp Dönüşümler"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Bir ziyaretçi Teklif açılış sayfasına yönlendirildiğinde, ortak izleme bağlantısını tıklar.",
+                    "clicks": "Benzersiz, Yinelenen ve Geçersiz dahil olmak üzere tüm tıklamalar",
+                    "unique_clicks": "Farklı kullanıcılardan alınan tıklamalar",
+                    "invalid_clicks": "Hedeflenen koşullara uyulmaması veya bozuk bir ortak bağlantısı nedeniyle Trafficback URL'sine yönlendirilen tıklamalar.",
+                    "approved_conversions": "Reklam Veren tarafından onaylanan dönüşümler.",
+                    "pending_conversions": "Reklam Veren tarafından incelendikten sonra, bu dönüşümler Onaylanmış veya Reddedilmiş olur.",
+                    "rejected_conversions": "Reklam Veren tarafından onaylanmayan dönüşümler."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Dönüşümler"
+        },
+        "clicks": {
+            "title": "Tıklamalar"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Hedefleme koşullarına uyulmaması veya bozuk bir ortaklık bağlantısı nedeniyle Trafficback URL'sine yönlendirilen tıklamalar."
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Reklam verenden alınan Geri göndermeler (veya pikseller), dönüşümün başarılı bir şekilde kaydedilip kaydedilmediğini veya bir hata olup olmadığını gösterir."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Ortağa gönderilen Geri göndermeler (veya pikseller). Bir ortak kendi izleyicisini kullanıyorsa ve bu izleyicinin geri gönderimini platformunuza yüklediyse görüntülenir."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Toplu dönüşüm düzenleme: durumu değiştirin, ödemeyi değiştirin veya dönüşümler ekleyin."
+        }
+    },
+    "POWERED_BY": "Geliştiren "
+}

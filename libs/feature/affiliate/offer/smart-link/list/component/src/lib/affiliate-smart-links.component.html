@@ -1,0 +1,115 @@
+<ui-table2
+    [columns]="tableHeaders"
+    [items]="items$ | async"
+    [loading]="loading$ | async"
+    [stickyHead]="true"
+    [customHorizontalScroll]="true"
+    [skeletonTemplate]="skeletonTpl"
+    rowSize="medium"
+    class="smart-links__table"
+>
+    <ng-template uiTable2ColTemplate="smart_link" let-item="valueRow">
+        <div class="table__box-image d-flex align-items-center">
+            <ui-image
+                class="cursor-pointer"
+                type="rounded"
+                [image]="item.image"
+                [width]="64"
+                [height]="64"
+            ></ui-image>
+        </div>
+
+        <div class="d-flex flex-column align-items-start justify-content-center m-l-8">
+            <span>{{ item.id + ' ' + item.title | format:'idName' }}</span>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="offers" let-item="valueRow">
+        <div class="d-flex flex-column">
+            <div class="d-flex align-items-center" *ngIf="item?.offers_with_tags?.length > 0">
+                <span class="mr-1">{{'smart_link_page.table.offers_with_tags' | translate}}:</span>
+                <app-tags-lists [tags]="item.offers_with_tags"></app-tags-lists>
+            </div>
+
+            <div class="d-flex" *ngIf="item.other_offers_count > 0">
+                {{'smart_link_page.table.other_offers' | translate}}: {{item.other_offers_count}}
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="types" let-item="valueRow">
+        <ng-container *ngIf="item.allowed_traffic_types as types">
+            <app-allowed-tags *ngFor="let type of types" [allowed]="true">
+                <span>{{type}}</span>
+            </app-allowed-tags>
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="traffic_distribution" let-item="valueRow">
+        <ng-container *ngIf="item.traffic_distribution_title as traffic_distribution">
+            {{'smart_link_page.table.traffic_distribution.' + traffic_distribution | translate}}
+        </ng-container>
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="description" let-description="value">
+        {{description}}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="tracking_domain" let-item="valueRow">
+        {{ item.domain_for_tracking_link }}
+    </ng-template>
+
+    <ng-template uiTable2ColTemplate="tracking_link" let-item="valueRow">
+        <ui-button-link
+            icon="link_builder"
+            type="floating"
+            (click)="getLink(item.id, item.domain_for_tracking_link)"
+            [label]="'smart_link_page.table.get_link' | translate"
+        ></ui-button-link>
+    </ng-template>
+</ui-table2>
+
+<ng-template #filterContainer>
+    <app-smart-links-filters
+        [params]="params$ | async"
+        [totals]="totalCount$ | async"
+    ></app-smart-links-filters>
+</ng-template>
+
+<ng-template #footerContainer>
+    <app-custom-pagination
+        [pagination]="pagination$ | async"
+        [pageInQueryParams]="true"
+        (toggle)="pageWasChanged($event)"
+        (togglePerPage)="perPageWasChange($event)"
+        *ngIf="showPagination$ | async"
+    ></app-custom-pagination>
+</ng-template>
+
+<ng-template #skeletonTpl>
+    <ui-table2-row rowSize="medium" className="skeleton" *ngFor="let fake of fakeRows; trackBy: trackBySkeletonFn">
+        <ui-table2-col [inlineStyle]="{paddingLeft: '1.25rem'}">
+            <div class="table__box-image d-flex align-items-center">
+                <ui-skeleton-image type="rounded"></ui-skeleton-image>
+            </div>
+            <div class="d-flex flex-column align-items-start justify-content-center m-l-8 w-100">
+                <ui-skeleton-block [width]="50"></ui-skeleton-block>
+                <ui-skeleton-block className="mt-2" [width]="25"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <div class="w-100">
+                <ui-skeleton-block [width]="50"></ui-skeleton-block>
+                <ui-skeleton-block className="mt-2" [width]="50"></ui-skeleton-block>
+            </div>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block [width]="25"></ui-skeleton-block>
+        </ui-table2-col>
+        <ui-table2-col>
+            <ui-skeleton-block [width]="25"></ui-skeleton-block>
+        </ui-table2-col>
+
+    </ui-table2-row>
+
+</ng-template>

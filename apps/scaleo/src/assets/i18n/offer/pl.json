@@ -1,0 +1,92 @@
+{
+    "smart_link_page": {
+        "title": "Inteligentny link",
+        "title2": "Inteligentne linki",
+        "table": {
+            "allowed_traffic_types": "Dozwolone typy ruchu",
+            "available_for_aff": {
+                "available": "Dostępne dla afiliantów",
+                "unavailable": "Niedostępne dla afiliantów"
+            },
+            "offers_with_tags": "Oferty z tagami",
+            "offers_with_tags_description": "Wszystkie aktywne oferty z zaznaczonymi tagami zostaną uwzględnione w inteligentnym linku.",
+            "other_offers": "Inne oferty",
+            "get_link": "Zdobądź link",
+            "traffic_distribution": {
+                "highest_epc": "Najwyższy EPC"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Dystrybucja ruchu"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Wyróżnione oferty",
+            "my": "Moje oferty"
+        },
+        "tracking": {
+            "title": "Śledzenie",
+            "form": {
+                "additional_parameters": "Dodatkowe parametry",
+                "tracking_link_for_affiliate": "Twój link do śledzenia",
+                "tracking_link_description_for_affiliate": "To jest Twój spersonalizowany link, który może być użyty do promocji oferty.",
+                "landing_page": "Strona docelowa",
+                "usage_examples": "Przykłady użycia",
+                "link_builder": {
+                    "title": "Kreator linków",
+                    "affiliate_link_builder": "Kreator linków afiliacyjnych",
+                    "add_sub_id": "Dodaj podrz. ID",
+                    "add_aff_click_id": "Dodaj ID kliknięcia afilianta",
+                    "add_mobile_parameters": "Dodaj parametry mobilne",
+                    "apple_ios_idfa": "Apple iOS IDFA",
+                    "google_android_gaid": "Google Android GAID",
+                    "set_deeplink": "Dodaj głęboki link",
+                    "deeplink": "URL głębokiego linku",
+                    "add_more": "Dodaj więcej",
+                    "affiliate": {
+                        "sub_id1": "ID podrz. 1",
+                        "sub_id2": "ID podrz. 2",
+                        "sub_id3": "ID podrz. 3",
+                        "sub_id4": "ID podrz. 4",
+                        "sub_id5": "ID podrz. 5",
+                        "aff_param1": "Param. afiliacyjny 1",
+                        "aff_param2": "Param. afiliacyjny 2",
+                        "aff_param3": "Param. afiliacyjny 3",
+                        "aff_param4": "Param. afiliacyjny 4",
+                        "aff_param5": "Param. afiliacyjny 5"
+                    },
+                    "impressions_pixel": "Piksel wyświetleń"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "ID kliknięć afilianta. Unikalny identyfikator dla każdego kliknięcia wysłanego od afilianta.",
+                "sub_id1": "ID podrz. afilianta 1 do określenia podźródła ruchu.",
+                "sub_id2": "ID podrz. afilianta 2 do określenia podźródeł ruchu.",
+                "sub_id3": "ID podrz. afilianta 3 do określenia podźródeł ruchu.",
+                "sub_id4": "ID podrz. afilianta 3 do określenia podźródeł ruchu.",
+                "sub_id5": "ID podrz. afilianta 5 do określenia podźródeł ruchu.",
+                "aff_param1": "Dodatkowy parametr 1 dla wszystkich celów.",
+                "aff_param2": "Dodatkowy parametr 2 dla wszystkich celów.",
+                "aff_param3": "Dodatkowy parametr 3 dla wszystkich celów.",
+                "aff_param4": "Dodatkowy parametr 4 dla wszystkich celów.",
+                "aff_param5": "Dodatkowy parametr 5 dla wszystkich celów.",
+                "source_id": "ID źródła afilianta poprzednio dodanego do platformy (powinien istnieć i być aktywny).",
+                "link_id": "Dodatkowy link oferty (powinien istnieć i być aktywny).",
+                "deep_link": "Link do dowolnej strony na stronie reklamodawcy. Funkcja musi być włączona dla oferty.",
+                "creative_id": "ID zasobu kreatywnego dla oferty (powinien istnieć i być aktywny).",
+                "idfa": "Identyfikator reklamowy Apple iOS (iOS 6+).",
+                "gaid": "Identyfikator reklamowy Google Android."
+            }
+        },
+        "custom_url": {
+            "title": "Wyślij ofertę API"
+        },
+        "request": {
+            "active": "Możesz uruchomić tę ofertę.",
+            "pending": "Prośba o ofertę została wysłana {{ date }}",
+            "rejected": "Prośba o ofertę została odrzucona.",
+            "button": "Poproś o ofertę"
+        }
+    }
+}

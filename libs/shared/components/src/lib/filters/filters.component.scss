@@ -1,0 +1,8 @@
+@import "libs/ui-kit/stylesheets/utils";
+.filter {
+    .find-platform-statuses {
+        .ng-value-container {
+            @include font-family-medium;
+        }
+    }
+}

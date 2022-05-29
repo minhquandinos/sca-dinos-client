@@ -1,0 +1,20 @@
+<div class="mt-3 mx-n3-5">
+    <ng-container *ngIf="messengers$ | async as messengersList; else skeleton">
+        <scaleo-mng-add-lists
+            *ngIf="messengersList?.length > 0"
+            [lists]="messengersList"
+            (toggle)="openModal($event)"
+            (toggleChangeSort)="changeSort($event)"
+            [showIcon]="true"
+        ></scaleo-mng-add-lists>
+    </ng-container>
+    <ng-template #skeleton>
+        <ui-skeleton>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+            <ui-skeleton-block height="large" size="large" className="m-b-1"></ui-skeleton-block>
+        </ui-skeleton>
+    </ng-template>
+</div>
+

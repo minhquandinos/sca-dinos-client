@@ -1,0 +1,38 @@
+<ui-page-wrapper-header className="align-items-center">
+    <div class="d-flex align-items-center">
+        <div class="btn-group" appDashboardSummaryChartTypeSwitcher>
+            <ui-button-link
+                type="floating-light"
+                [active]="menu === 'volume'"
+                [label]="'dashboard_page.volume' | translate"
+                (click)="switchMenu('volume')"
+            ></ui-button-link>
+            <ui-button-link
+                type="floating-light"
+
+                [active]="menu === 'finances'"
+                [label]="'finances_page.basic.finances' | translate"
+                (click)="switchMenu('finances')"
+            ></ui-button-link>
+        </div>
+    </div>
+    <div class="d-flex align-items-center ml-0 ml-md-auto justify-content-between justify-content-md-end w-100">
+        <app-config-table-column
+            [config]="columnConfig$"
+            max="6"
+            [messageWhenMax]="'dashboard_page.message_when_column_max' | translate"
+            [showGroup]="menu !== 'volume'"
+            [alternativeColumnsConfigTranslateKey]="menu === 'volume' ? 'dashboard_page.volume_columns_config.' : null"
+            [title]="'dashboard_page.metrics' | translate"
+            [configType]="menu === 'volume' ? 'dashboard-volume' : 'dashboard-finances'"
+        ></app-config-table-column>
+        <app-select
+            class="ml-2"
+            [items]="breakdownsItems | customTranslate:'table.column' | async"
+            [(ngModel)]="breakdown"
+            (change)="changeBreakdown()"
+            itemValue="value"
+            itemLabel="title"
+        ></app-select>
+    </div>
+</ui-page-wrapper-header>

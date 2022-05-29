@@ -1,0 +1,146 @@
+.table-activity-log {
+    thead tr {
+        min-height: 48px;
+
+        th {
+            height: 48px;
+            max-width: 20%;
+            white-space: pre;
+        }
+
+        th:nth-child(1) {
+            padding-left: 32px;
+        }
+    }
+
+    tbody tr {
+        height: 48px;
+        .cursor-info {
+            display: none;
+        }
+
+        &:hover {
+            .cursor-info{
+                display: block;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+        }
+
+        td {
+            padding: 4px 25px 4px 0;
+            min-width: 60px;
+            width: 20%;
+            min-height: 3rem;
+            height: auto !important;
+
+            &:first-child {
+                padding-left: 32px;
+                width: 10%;
+
+                .table__box {
+                    white-space: pre;
+                }
+            }
+
+            &:nth-child(2) {
+                width: auto;
+                max-width: 40%;
+            }
+
+            &:nth-child(3) {
+                width: 14%;
+            }
+
+            &:nth-child(4) {
+                width: 18%;
+            }
+
+            &:nth-child(5) {
+                width: 14%;
+            }
+        }
+    }
+
+    &-config {
+        thead tr th:first-child, tbody tr td:first-child {
+            padding-left: 16px;
+        }
+    }
+}
+
+.table-dashboard-activity-log, .table-activity-log {
+    tbody tr {
+        .activity-col {
+            align-items: center;
+            transition: .4s ease-in-out;
+            line-height: 1.43;
+            flex-wrap: wrap;
+
+            &:only-child {
+                margin-right: 4px;
+            }
+
+            app-link-to-item a {
+                white-space: pre-wrap;
+            }
+
+            .details {
+                opacity: 0;
+                cursor: default;
+                color: $color__main-links;
+                width: fit-content;
+                border-bottom: 1px dotted $color__main-links;
+                margin-bottom: -2px;
+            }
+        }
+
+        &:hover {
+            .details {
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.activity-log-modal {
+    .modal-dialog {
+        max-width: 80vw;
+        width: fit-content;
+    }
+
+    .activity-values {
+        background-color: $color__light-gray3;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        font-size: $font__12;
+        font-family: monaco, monospace;
+        margin: 8px 0;
+        white-space: pre-wrap;
+
+        &:nth-child(2) {
+            margin-left: 16px;
+        }
+
+        &-old {
+            color: $color__red;
+        }
+
+        &-new {
+            color: $color__green;
+        }
+    }
+}
+
+.activity-log-config {
+    app-filters .filter .filter__wrapper {
+        padding-left: 16px;
+    }
+}
+
+@media screen and ( max-width: 640px ) {
+
+}

@@ -1,0 +1,61 @@
+<scaleo-manager-settings-card [title]="'administration_settings.security.title' | translate">
+    <ng-container actions>
+        <ui-button-link *ngIf="isLoad" [label]="'shared.dictionary.save' | translate" (click)="save()"></ui-button-link>
+    </ng-container>
+
+    <div class="title is-5">{{ 'shared.dictionary.two_factor_auth' | translate }} (2FA)</div>
+    <div class="mt-2 font-size is-7 line-height is-16 color__gray2">
+        {{ 'administration_settings.security.content' | translate }}
+    </div>
+
+    <div class="form m-t-40" [formGroup]="form">
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="managerLabel$ | async"
+                [formControlName]="securityControlEnum.Manager"
+                (toggle)="changeTwoFa($event, securityControlEnum.Manager)"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="affiliateLabel$ | async"
+                [formControlName]="securityControlEnum.Affiliate"
+                (toggle)="changeTwoFa($event, securityControlEnum.Affiliate)"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="advertiserLabel$ | async"
+                [formControlName]="securityControlEnum.Advertiser"
+                (toggle)="changeTwoFa($event, securityControlEnum.Advertiser)"
+            ></app-custom-switch>
+        </div>
+
+        <div class="title is-5">
+            {{ 'advertiser.postback_security.labels.advertiser_token_postback' | translate }}
+        </div>
+        <div class="mt-2 font-size is-7 line-height is-16 color__gray2">
+            {{ 'advertiser.postback_security.infos.advertiser_token_postback' | translate }}
+        </div>
+
+        <div class="form-group m-t-20">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="'advertiser.postback_security.labels.advertiser_token_postback' | translate"
+                [formControlName]="securityControlEnum.AdvertiserPostbackToken"
+                (toggle)="changeAdvertiserPostbackToken($event)"
+            ></app-custom-switch>
+        </div>
+    </div>
+</scaleo-manager-settings-card>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton className="w-50">
+        <app-ui-skeleton-input></app-ui-skeleton-input>
+    </ui-skeleton>
+</ng-template>

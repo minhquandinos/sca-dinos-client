@@ -1,0 +1,44 @@
+<div class="form-image mr-3">
+    <div class="form-image__preview position-relative">
+
+        <div class="btn-group btn-group--shadow btn-group--center btn-group-form-logo position-absolute d-flex">
+            <ui-button-link type="simple" icon="main_upload" (click)="changeImage()"></ui-button-link>
+            <ui-button-link
+                *ngIf="editId && (placeholderImage !== image)"
+                type="delete"
+                icon="delete"
+                (click)="deleteImage()"
+            ></ui-button-link>
+
+
+<!--            <div-->
+<!--                class="hover-button m-auto cursor-pointer"-->
+<!--                (clicks)="changeImage()"-->
+<!--                [ngClass]="{'hover-button&#45;&#45;radius-right': editId && (placeholderImage !== image)}"-->
+<!--            >-->
+<!--                <div class="hover-button__icon i-edit my-auto mx-auto"></div>-->
+<!--            </div>-->
+<!--            <div-->
+<!--                class="hover-button d-flex m-auto cursor-pointer hover-button&#45;&#45;radius-left"-->
+<!--                (clicks)="deleteImage()"-->
+<!--                *ngIf="editId && (placeholderImage !== image)"-->
+<!--            >-->
+<!--                <div class="hover-button__icon i-delete my-auto mx-auto"></div>-->
+<!--            </div>-->
+        </div>
+
+        <div class="form-image__overlay" [ngClass]="{'form-image__overlay--rounded': type === 'rounded'}">
+            <img [src]="image" [ngClass]="imageClass" alt="">
+        </div>
+    </div>
+
+    <app-image-cropper
+        *ngIf="showImageChanges"
+        [width]="256"
+        [height]="256"
+        ratio="1"
+        (cancelCropped)="cancelCropped()"
+        (imageWasCropped)="imageWasCropped($event)"
+    ></app-image-cropper>
+
+</div>

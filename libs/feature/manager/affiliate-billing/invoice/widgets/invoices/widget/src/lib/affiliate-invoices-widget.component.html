@@ -1,0 +1,99 @@
+<ui-page-wrapper [borderRadius]="4">
+    <ui-page-wrapper-header className="p-x-20" [haveBorderBottom]="false" [size]="'medium'">
+        <div class="title text-nowrap">
+            {{ 'invoice.invoices_title' | translate }}
+        </div>
+
+        <div
+            *ngxPermissionsOnly="permissions.canGenerateEditDeleteInvoices"
+            class="ml-auto d-flex align-items-center"
+        >
+            <ui-button-link
+                type="floating"
+                icon="plus-small"
+                [label]="'invoice.generate.invoice' | translate"
+                (toggle)="generate()"
+            ></ui-button-link>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="p-0">
+        <ui-simple-table
+            [isLoad]="loading$ | async"
+            [notFound]="notFound$ | async"
+            tableStyle="clear"
+            [skeletonColCount]="6"
+            [skeletonRowCount]="6"
+            colHeight="3rem"
+            class="invoices-widget-table"
+        >
+            <ng-container header>
+                <div
+                    *ngFor="let col of columns"
+                    uiSimpleTableCol
+                    [ngStyle]="{ width: col.width }"
+                >
+                    {{ col.translateSchema | translate }}
+                </div>
+            </ng-container>
+
+            <div uiSimpleTableRow *ngFor="let item of invoices$ | async" class="invoices-widget-table__row">
+                <div uiSimpleTableCol>
+                    <app-billing2-invoice-link-to-detail
+                        [id]="item?.id"
+                        [link]="'/billing/invoices/' + item?.id  | navigateRoot"
+                        [status]="item?.status"
+                        [invoice]="item.invoice_number"
+                    ></app-billing2-invoice-link-to-detail>
+                </div>
+
+                <div uiSimpleTableCol>
+                    <app-payment-method-detail
+                        *ngIf="item.payment_method as paymentMethod"
+                        [logo]="paymentMethod.image"
+                        [method]="paymentMethod.info"
+                        [tooltipText]="paymentMethod.title"
+                        [logoWidth]="24"
+                    ></app-payment-method-detail>
+                </div>
+
+                <div uiSimpleTableCol>
+                    <span [appStatus2Color]="item.status" type="invoices_statuses">
+                        {{ item.status | statusLabel:'invoices_statuses' | async }}
+                    </span>
+                </div>
+
+                <div uiSimpleTableCol>
+                    {{ item?.amount?.value | format:'money': { currency: item?.amount?.currency } }}
+                </div>
+
+                <div uiSimpleTableCol>
+                    {{ item?.period }}
+                </div>
+
+                <div uiSimpleTableCol align="right">
+                    <ng-container *ngxPermissionsOnly="permissions.canGenerateEditDeleteInvoices">
+                        <ui-table-navigation
+                            *ngIf="item?.status !== invoiceStatusNameEnum.InProgress"
+                            (toggleEdit)="update(item?.id)"
+                        ></ui-table-navigation>
+                    </ng-container>
+                </div>
+            </div>
+        </ui-simple-table>
+    </ui-page-wrapper-content>
+
+    <ui-page-wrapper-footer className="p-x-20" *ngIf="showViewAllLink$ | async">
+        <div class="w-100 d-flex align-items-center">
+            <div class="ml-auto">
+                <ui-button-link
+                    iconPosition="right"
+                    icon="arrow-right-3"
+                    type="simple"
+                    color="main"
+                    (click)="navigate()"
+                    [label]="'interface.basic.view_all' | translate"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ui-page-wrapper-footer>
+</ui-page-wrapper>

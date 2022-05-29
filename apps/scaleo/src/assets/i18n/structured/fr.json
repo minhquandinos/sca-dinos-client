@@ -1,0 +1,115 @@
+{
+    "billing": "Facturation",
+    "referrals": "Parrainages",
+    "tools": " Outils",
+    "delete": {
+        "delete_confirm_title": "Êtes-vous sûr ?",
+        "delete_confirm_text": "Cet élément sera supprimé."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "À la une"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Disponible"
+    },
+    "quick_links": {
+        "title": "Liens rapides"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Ajouter un Postback",
+            "created": "Le Postback a été ajouté avec succès",
+            "edit": "Modifier un Postback",
+            "deleted": "Le Postback a été supprimé avec succès",
+            "add_as_title": "Ajouter un Postback",
+            "global": "Global",
+            "offer": "Offre",
+            "list_postback": "Postback",
+            "list_html": "Pixel HTML (basé sur les cookies)",
+            "list_table_postback": "Postback",
+            "list_table_html": "Pixel HTML (basé sur les cookies)",
+            "all_postbacks": "Tous les Postbacks",
+            "global_postbacks": "Postbacks globaux",
+            "goal": "objectif",
+            "description": {
+                "level_global_for_affiliate": "Global : Le Postback sera déclenché pour toutes les offres (tous les objectifs sauf le type CPC).",
+                "level_offer_for_affiliate": "Offre : Le postback sera exécuté pour l'offre sélectionnée uniquement. Si l'objectif n'est pas spécifié, il sera exécuté pour tous les objectifs de cette offre.",
+                "conversion_status_for_affiliate": "Le postback sera déclenché pour cet état de conversion uniquement.",
+                "method_for_affiliate": "Type de postback pris en charge par votre système."
+            }
+        },
+        "source": {
+            "title": "Sources",
+            "add": "Ajouter une source"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros disponibles",
+        "offer_id": "ID de l'offre dans la plateforme",
+        "affiliate_id": "ID de l'affilié faisant la promotion de l'offre.",
+        "sub_id1": "Sous-ID Affilié 1 spécifié dans le lien de Tracking.",
+        "sub_id2": "Sous-ID Affilié 2 spécifié dans le lien de Tracking.",
+        "sub_id3": "Sous-ID Affilié 3 spécifié dans le lien de Tracking.",
+        "sub_id4": "Sous-ID Affilié 4 spécifié dans le lien de Tracking.",
+        "sub_id5": "Sous-ID Affilié 5 spécifié dans le lien de Tracking.",
+        "click_id": "Chaîne de 32 caractères alphanumériques unique, qui est générée et attribuée à chaque clic dans la plate-forme.",
+        "link_id": "Lien supplémentaire de l'offre spécifié dans le lien de Tracking.",
+        "source_id": "ID Source Affilié spécifié dans le lien de Tracking.",
+        "aff_param1": "Paramètre supplémentaire Affilié 1 spécifié dans le lien de Tracking.",
+        "aff_param2": "Paramètre supplémentaire Affilié 2 spécifié dans le lien de Tracking.",
+        "aff_param3": "Paramètre supplémentaire Affilié 3 spécifié dans le lien de Tracking.",
+        "aff_param4": "Paramètre supplémentaire Affilié 4 spécifié dans le lien de Tracking.",
+        "aff_param5": "Paramètre supplémentaire Affilié 5 spécifié dans le lien de Tracking.",
+        "adv_param1": "Paramètre supplémentaire Annonceur 1 spécifié lors de la conversion.",
+        "adv_param2": "Paramètre supplémentaire Annonceur 2 spécifié lors de la conversion.",
+        "adv_param3": "Paramètre supplémentaire Annonceur 3 spécifié lors de la conversion.",
+        "adv_param4": "Paramètre supplémentaire Annonceur 4 spécifié lors de la conversion.",
+        "adv_param5": "Paramètre supplémentaire Annonceur 5 spécifié lors de la conversion.",
+        "amount": "Montant de la vente du côté de l'annonceur.",
+        "conv_status": "État de la conversion (approuvée / en attente / rejetée).",
+        "offer_name": "Nom de l'offre dans la plateforme.",
+        "creative_id": "ID Contenu publicitaire de l'offre utilisé.",
+        "aff_click_id": "ID Clic Affilié. ID unique pour chaque clic envoyé par l'affilié.",
+        "deep_link": "ID Source Affilié spécifié dans le lien de Tracking.",
+        "goal_id": "ID Objectif de l'offre dans la plateforme.",
+        "adv_order_id": "ID Commande de l'annonceur spécifié lors de la conversion.",
+        "adv_user_id": "ID Utilisateur de l'annonceur spécifié lors de la conversion.",
+        "offer_currency": "Devise de l'offre sélectionnée.",
+        "transaction_id": "ID Transaction. ID unique pour chaque transaction dans la plateforme.",
+        "track_id": "Informations supplémentaires de l'annonceur, spécifiées lors de la conversion.",
+        "payout": "Valeur de la rémunération de l'affilié",
+        "ip": "Adresse IP qui a démarré la session du clic.",
+        "user_agent": "Chaîne Agent de l'utilisateur déterminée au moment du clic.",
+        "device_type": "Chaîne Appareil de l'utilisateur déterminée au moment du clic.",
+        "device_os": "Chaîne OS de l'utilisateur déterminée au moment du clic.",
+        "connection_type": "Chaîne Type de connexion de l'utilisateur déterminée au moment du clic.",
+        "mobile_operator": "Chaîne Opérateur de réseau mobile de l'utilisateur déterminée au moment du clic.",
+        "geo_country_code": "Code pays de l'utilisateur déterminé au moment du clic.",
+        "geo_country": "Pays de l'utilisateur déterminé au moment du clic.",
+        "geo_region": "Région de l'utilisateur déterminée au moment du clic.",
+        "geo_city": "Ville de l'utilisateur déterminée au moment du clic.",
+        "idfa": "Apple iOS Advertising Identifier (IDFA).",
+        "gaid": "Google Android Advertising Identifier (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Parrainez de nouveaux affiliés et recevez une commission de {{ commission }} sur les gains de ces affiliés tous les mois.",
+        "commission_info_for_flat": "Parrainez de nouveaux affiliés et recevez une commission unique de {{ commission }} pour chaque affilié parrainé.",
+        "referrals_title": "Parrainages",
+        "link": "Votre lien de parrainage personnel :",
+        "you_referrals_title": "Vos parrainages",
+        "form": {
+            "referral_commission": "Commission de parrainage"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Veuillez contacter votre gestionnaire pour vous faire activer une API."
+        }
+    }
+}

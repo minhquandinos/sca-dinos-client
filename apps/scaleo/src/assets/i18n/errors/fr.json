@@ -1,0 +1,17 @@
+{
+    "errors": {
+        "permission_denied": {
+            "title": "Page introuvable ou interdite",
+            "text": "Le lien sur lequel vous avez cliqué est peut-être rompu ou la page peut avoir été supprimée ou interdite."
+        },
+        "page_not_found": {
+            "title": "Page introuvable ou interdite",
+            "text": "Le lien sur lequel vous avez cliqué est peut-être rompu ou la page peut avoir été supprimée ou interdite."
+        },
+        "connection_lost": {
+            "title": "Connexion perdue",
+            "text": "Veuillez patienter quelques minutes avant de réessayer.",
+            "try_again": "Réessayer"
+        }
+    }
+}

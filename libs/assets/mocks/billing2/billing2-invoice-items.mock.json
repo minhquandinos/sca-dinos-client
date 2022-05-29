@@ -1,0 +1,58 @@
+{
+    "info": {
+        "invoice": {
+            "elements": [
+                {
+                    "id": 1,
+                    "offer": {
+                        "id": 1,
+                        "title": "Hot Spot [NL]"
+                    },
+                    "goal": {
+                        "id": 1,
+                        "type": 2,
+                        "name": "CPA"
+                    },
+                    "count": 4,
+                    "price": 1.00,
+                    "each": "Conv.",
+                    "amount": 6.00,
+                    "currency": "USD"
+                },
+                {
+                    "id": 2,
+                    "offer": {
+                        "id": 5,
+                        "title": "Make my Survey [DE]"
+                    },
+                    "goal": {
+                        "id": 4,
+                        "type": 3,
+                        "name": "CPL"
+                    },
+                    "count": 10,
+                    "price": 10.00,
+                    "each": "Conv.",
+                    "amount": 100.00,
+                    "currency": "USD"
+                }
+            ],
+            "summary": {
+                "subtotal": "174.00",
+                "vat": 20,
+                "total": 208.80,
+                "currency": "USD"
+            },
+            "adjustments": [
+                {
+                    "name": "Conversions for July",
+                    "amount": 50
+                }
+            ],
+            "advance": {
+                "name": "Advance",
+                "amount": 10
+            }
+        }
+    }
+}

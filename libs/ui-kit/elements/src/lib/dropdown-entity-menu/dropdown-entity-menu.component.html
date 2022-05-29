@@ -1,0 +1,54 @@
+<ui-dropdown-entity
+    #dropdownEntityComponent
+    [rightDropdownMenu]="rightDropdownMenu"
+    [scrollDisabled]="true"
+    [width]="{size: dropWidth, units: 'px'}"
+    [className]="className"
+    [searchBox]="false"
+>
+    <ng-container actionContent>
+        <ui-button-link
+            [label]="label"
+            [type]="buttonType"
+            [icon]="buttonIcon"
+            [iconSize]="buttonIconSize"
+            (toggle)="dropdownEntityComponent.open()"
+        ></ui-button-link>
+    </ng-container>
+
+    <ng-container dropdownContent>
+        <ng-container>
+            <app-entity-list
+                class="entity-list-menu"
+                [classNameListWarp]="classNameList"
+                [searchDisabled]="true"
+                *ngIf="menu?.length > 0; else templateElements">
+                <ng-container *ngFor="let element of menu">
+                    <app-entity-item
+                        [value]="element"
+                        (toggle)="action($event)"
+                        [className]="classNameListItem"
+                    >
+                        <ng-template appEntityItemTemplate>
+                            <ng-container *ngIf="dropdownItemTemplate; else defaultDropdownItemTemplate">
+                                <ng-container
+                                    [ngTemplateOutlet]="dropdownItemTemplate"
+                                    [ngTemplateOutletContext]="{context: element}"
+                                ></ng-container>
+                            </ng-container>
+                            <ng-template  #defaultDropdownItemTemplate>
+                                {{ element.title | async }}
+                            </ng-template>
+                        </ng-template>
+                    </app-entity-item>
+
+                    <ui-divider *ngIf="element.showDivider" color="#F3F5F8" class="my-1"></ui-divider>
+                </ng-container>
+            </app-entity-list>
+        </ng-container>
+
+        <ng-template #templateElements>
+            <ng-content></ng-content>
+        </ng-template>
+    </ng-container>
+</ui-dropdown-entity>

@@ -1,0 +1,55 @@
+.modal--config-table-clicks {
+
+    .modal-dialog {
+        width: 730px;
+    }
+
+    .config-table-column__group {
+        &:nth-child(3) {
+            grid-column-start: 1;
+            grid-row-start: 2;
+            grid-row-end: 5;
+        }
+
+        &:nth-child(4) {
+            grid-column-start: 2;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+
+        &:nth-child(5) {
+            grid-column-start: 3;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+    }
+}
+
+.modal--config-table-clicks {
+    &-advertiser {
+        .config-table-column__group {
+            &:nth-child(5) {
+                grid-column-start: 3;
+                grid-row-start: 1;
+            }
+
+            &:nth-child(4) {
+                grid-column-start: 1;
+                grid-row-start: 2;
+                grid-row-end: 2;
+                margin-top: -300px;
+            }
+
+            &:nth-child(3) {
+                grid-column-start: 2;
+                grid-row-start: 1;
+                grid-row-end: 5;
+            }
+
+            &:nth-child(2) {
+                grid-column-start: 2;
+                margin-top: -300px;
+            }
+        }
+    }
+}

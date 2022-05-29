@@ -1,0 +1,17 @@
+<div class="entity-list__wrap">
+    <div class="entity-list__search" *ngIf="!searchDisabled">
+        <ui-entity-list-search
+            [placeholder]="searchPlaceholder"
+            (toggleSearch)="searching($event)"
+        ></ui-entity-list-search>
+    </div>
+
+    <div class="entity-list__items" [ngClass]="classNameListWarp">
+        <ng-content></ng-content>
+    </div>
+    <div class="entity-list__not-found color__gray3 text-center font-size is-6">
+        {{ notFound | async }}
+    </div>
+</div>
+
+

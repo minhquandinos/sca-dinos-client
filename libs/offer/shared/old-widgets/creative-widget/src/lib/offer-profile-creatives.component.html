@@ -1,0 +1,113 @@
+<ui-page-wrapper borderRadius="4" *ngIf="creativesList; else skeleton">
+        <ui-page-wrapper-header [haveBorderBottom]="false">
+            <div class="title is-4">{{ 'offers_page.profile.page_title.creatives' | translate }}</div>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content className="p-0"  *ngIf="creativesList?.length > 0">
+            <ui-table
+                [headers]="(headers) ? headers : tableHeadersForCreatives"
+                headerPosition="left"
+                [notFround]="creativesList?.length <= 0"
+                [skeletonTemplate]="skeleton"
+                className="table-offer-creatives-in-offer-profile"
+                [items]="creativesList"
+                [rowTemplate]="(rowTemplate) ? rowTemplate : defaultRowTemplate"
+                [isTransparentHead]="true"
+            ></ui-table>
+        </ui-page-wrapper-content>
+
+    </ui-page-wrapper>
+
+<ng-template #defaultRowTemplate let-creative="context">
+    <td ui-table-col>
+        {{creative.id + ' ' + creative.title | format: 'idName'}}
+    </td>
+    <td ui-table-col>
+        <ui-chip class="info__label">
+            {{ creative?.type | creativeTypeTitle | async }}
+        </ui-chip>
+    </td>
+    <td ui-table-col>
+        <app-creative-preview
+            *ngIf="!(creative.type | creativeTypeIsXmlFeed)"
+            [creative]="creative"
+        ></app-creative-preview>
+    </td>
+    <td ui-table-col>
+        <a
+            *ngIf="!(creative.type | creativeTypeIsXmlFeed)"
+            href="#"
+            appStopPropagation
+            class="toggle-link white-space-nowrap"
+           (click)="showInfo('tracking', trackingTemplate)"
+        >{{ 'table.column.tracking_url' | translate }}</a>
+
+        <ng-template #trackingTemplate>
+            <app-field-text-info preset="copy">
+                <div class="text-break-all">{{ creative.tracking_url }}</div>
+            </app-field-text-info>
+        </ng-template>
+    </td>
+    <td ui-table-col>
+        <ng-container *ngIf="creative.type | creativeTypeIsXmlFeed; else htmlTemplate">
+            <ui-button-link
+                *ngIf="offerId"
+                type="link"
+                (toggle)="downloadXMLFile(creative.id)"
+                [isLoad]="creativeIdForLoadingXMLFile !== creative.id"
+                [label]="'interface.basic.download' | translate"
+            ></ui-button-link>
+        </ng-container>
+
+        <ng-template #htmlTemplate>
+            <a href="#" appStopPropagation class="toggle-link"
+               (click)="showInfo('html', htmlInfoTemplate)">{{ 'shared.dictionary.html_code' | translate }}</a>
+            <ng-template #htmlInfoTemplate>
+                <textarea autosize readonly [minRows]="1" [value]="creative.html_code"></textarea>
+            </ng-template>
+        </ng-template>
+    </td>
+</ng-template>
+
+<ng-template #skeleton>
+    <div class="page-wrapper skeleton">
+
+        <div class="page-wrapper-header  d-flex align-items-center bg-unset">
+            <div class="skeleton__animation skeleton__block skeleton__block--large skeleton--height-32 w-25"></div>
+            <div class="ml-auto">
+                <div class="skeleton__animation skeleton__button skeleton__button--medium w-25"></div>
+            </div>
+        </div>
+
+        <div class="info-list">
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+            <div class="info-list__row d-flex align-items-center">
+                <div class="info-list__item m-r-8">
+                </div>
+                <div class="info-list__item info-list__item--wide m-r-14">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+                <div class="info-list__item flex-grow-1">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-50"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="skeleton__animation skeleton__block skeleton__block--medium w-25"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

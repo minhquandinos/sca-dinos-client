@@ -1,0 +1,160 @@
+<div>
+    <ui-page-wrapper borderRadius="4">
+        <ui-page-wrapper-header [haveBorderBottom]="false" className="p-x-20 w-100 align-items-center">
+            <div class="d-flex align-items-center w-100">
+                <div class="title is-6">{{ 'invoice.items' | translate }}</div>
+                <div class="ml-auto">
+                   <ng-content select="[actionButton]"></ng-content>
+                </div>
+            </div>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content className="p-0">
+            <ui-simple-table
+                tableStyle="clear"
+                [isLoad]="!!data?.items"
+                skeletonColCount="6"
+                skeletonRowCount="3"
+            >
+                <ng-container header>
+                    <div uiSimpleTableCol>{{ 'table.column.offers' | translate }}</div>
+                    <div uiSimpleTableCol>{{ 'table.column.goals' | translate }}</div>
+                    <div uiSimpleTableCol align="right">{{ 'table.column.quantity' | translate }}</div>
+                    <div uiSimpleTableCol align="right">{{ 'table.column.price' | translate }}</div>
+                    <div uiSimpleTableCol align="right">{{ 'table.column.amount' | translate }}</div>
+                    <div uiSimpleTableCol [ngStyle]="{ width: '82px' }"></div>
+                </ng-container>
+
+                <div uiSimpleTableRow *ngFor="let item of data?.items">
+                    <div uiSimpleTableCol>
+                        <span class="text-pre-wrap">{{ item.offer.id + ' ' + item.offer.name | format:'idName' }}</span>
+                    </div>
+                    <div uiSimpleTableCol>
+                        {{ item.goal_name }}
+                    </div>
+                    <div uiSimpleTableCol align="right">
+                        {{ item.quantity }}
+                    </div>
+                    <div uiSimpleTableCol align="right">
+                        {{ item.price | format:'money': { currency: currency } }} /
+                        {{ item.transaction_type | invoiceTransactionType | translate }}
+                    </div>
+                    <div uiSimpleTableCol align="right">
+                        {{ item.amount | format:'money': { currency: currency } }}
+                    </div>
+                    <div uiSimpleTableCol align="center"></div>
+                </div>
+
+                <div uiSimpleTableRow *ngIf="showReferralAmount">
+                    <div uiSimpleTableCol>
+                        <span class="text-pre-wrap">{{ 'table.column.referral_commission' | translate }}</span>
+                    </div>
+                    <div uiSimpleTableCol>
+
+                    </div>
+                    <div uiSimpleTableCol align="right">
+
+                    </div>
+                    <div uiSimpleTableCol align="right">
+
+                    </div>
+                    <div uiSimpleTableCol align="right">
+                        {{ data?.referral_amount | format:'money': { currency: currency } }}
+                    </div>
+                    <div uiSimpleTableCol align="center"></div>
+                </div>
+
+                <div class="d-contents" [formGroup]="form">
+                    <ng-container *ngIf="isDraftStatus">
+                        <div
+                            uiSimpleTableRow
+                            [hoverDisabled]="true"
+                            *ngIf="adjustmentsAdvanceAccess; else elseBlock"
+                        >
+                            <app-billing2-invoice-adjustment
+                                class="d-contents"
+                                [control]="form.get('adjustment')"
+                                [currency]="currency"
+                                (saveEvent)="save()"
+                            ></app-billing2-invoice-adjustment>
+                        </div>
+                        <ng-template #elseBlock>
+                            <ng-template
+                                [ngTemplateOutlet]="defaultRowTpl"
+                                [ngTemplateOutletContext]="{
+                                    title: data?.adjustment?.name,
+                                    value: data?.adjustment?.amount
+                                }"
+                            ></ng-template>
+                        </ng-template>
+
+                        <ng-container *ngIf="form.get('advance')">
+                            <div
+                                uiSimpleTableRow
+                                [hoverDisabled]="true"
+                                *ngIf="adjustmentsAdvanceAccess; else elseBlock"
+                            >
+                                <app-billing2-invoice-advance
+                                    class="d-contents"
+                                    [control]="form.get('advance')"
+                                    [currency]="currency"
+                                    (saveEvent)="save()"
+                                    (deleteEvent)="deleteAdvance()"
+                                ></app-billing2-invoice-advance>
+                            </div>
+                            <ng-template #elseBlock>
+                                <ng-template
+                                    [ngTemplateOutlet]="defaultRowTpl"
+                                    [ngTemplateOutletContext]="{
+                                    title: 'invoice.advance' | translate,
+                                    value: data?.advance?.amount
+                                }"
+                                ></ng-template>
+                            </ng-template>
+                        </ng-container>
+                    </ng-container>
+
+                </div>
+
+                <app-billing2-invoice-summary
+                    class="d-contents"
+                    [data]="data?.summary"
+                    [currency]="currency"
+                    [status]="status"
+                ></app-billing2-invoice-summary>
+            </ui-simple-table>
+        </ui-page-wrapper-content>
+    </ui-page-wrapper>
+    <ng-container *ngIf="adjustmentsAdvanceAccess">
+        <a
+            *ngIf="(advanceBtnShow$ | async) && isDraftStatus"
+            class="mt-4 d-inline-block"
+            href="#"
+            appStopPropagation
+            (click)="addAdvanceControl()"
+        >
+            {{ 'invoice.add_advance' | translate }}
+        </a>
+    </ng-container>
+</div>
+
+<ng-template #defaultRowTpl let-title="title" let-value="value">
+    <div uiSimpleTableRow [hoverDisabled]="true" *ngIf="value">
+        <div uiSimpleTableCol>
+            <span class="text-pre-wrap">{{ title }}</span>
+        </div>
+        <div uiSimpleTableCol>
+
+        </div>
+        <div uiSimpleTableCol align="right">
+
+        </div>
+        <div uiSimpleTableCol align="right">
+
+        </div>
+        <div uiSimpleTableCol align="right">
+            {{ value | format:'money': { currency: currency } }}
+        </div>
+        <div uiSimpleTableCol align="center"></div>
+    </div>
+</ng-template>

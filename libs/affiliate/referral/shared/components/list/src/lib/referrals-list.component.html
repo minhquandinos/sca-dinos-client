@@ -1,0 +1,28 @@
+<ui-table
+    [headers]="tableHeaders"
+    [headerSticky]="true"
+    headerPosition="left"
+    className="table-referrals"
+    [skeletonTemplate]="skeleton"
+    [notFround]="items?.length <= 0"
+    [isLoad]="isLoad"
+    [items]="items"
+    [rowTemplate]="template"
+    rowSize="medium"
+    #tableRef
+></ui-table>
+
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of shared.generateFake(4)" class="skeleton">
+        <td ui-table-col></td>
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+        </td>
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+        </td>
+        <td ui-table-col>
+            <ui-skeleton-block size="medium" [width]="25"></ui-skeleton-block>
+        </td>
+    </tr>
+</ng-template>

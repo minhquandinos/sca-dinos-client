@@ -1,0 +1,24 @@
+<div *ngIf="items.length > 0">
+    <div
+        class="m-y-6"
+        *ngFor="let item of itemsWithLimit; let last = last"
+    >
+        <ng-container [ngTemplateOutlet]="templateRow" [ngTemplateOutletContext]="{context: item, last: last, first: first}"></ng-container>
+    </div>
+    <div
+        class="d-flex align-items-center m-b-6"
+        *ngIf="displayTooltip && items.length > limit"
+    >
+        <ui-svg-icon
+            icon="more-horisontal-small"
+            size="14"
+            [tooltip]="tooltipContent"
+            contentType="template"
+        ></ui-svg-icon>
+    </div>
+    <ng-template #tooltipContent>
+        <div *ngFor="let item of items">
+            <ng-container [ngTemplateOutlet]="templateTooltip" [ngTemplateOutletContext]="{context: item}"></ng-container>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Zobacz raport",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Twoje statystyki"
+            },
+            "pending_records": {
+                "title": "Oczekujące wpisy"
+            },
+            "top_offer": {
+                "title": "Najlepsze oferty"
+            },
+            "performance": {
+                "title": "Wydajność",
+                "cumulative": "Kumulacyjne",
+                "settings": {
+                    "none": "Poprzedni okres",
+                    "impressions": "Wyświetlenia",
+                    "ctr": "CTR",
+                    "unique_clicks": "Unikalne kliknięcia",
+                    "duplicate_clicks": "Zduplikowane kliknięcia",
+                    "invalid_clicks": "Nieprawidłowe kliknięcia",
+                    "clicks": "Kliknięcia",
+                    "cv_total": "Konwersje",
+                    "tr": "CR",
+                    "total_payout": "Wypłata",
+                    "cr": "CR",
+                    "gross_sales": "Sprzedaż brutto",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Zatwierdzony dochód",
+                    "cv_pending": "Oczekujące konwersje",
+                    "pr": "PR",
+                    "cv_rejected": "Odrzucone konwersje",
+                    "rr": "RR",
+                    "cv_approved": "Zatwierdzone konwersje",
+                    "approved_payout": "Zatwierdzona wypłata",
+                    "approved_profit": "Zatwierdzony zysk",
+                    "approved_gross_sales": "Zatwierdzona sprzedaż",
+                    "pending_revenue": "Oczekujący dochód",
+                    "pending_payout": "Oczekująca wypłata",
+                    "pending_profit": "Oczekujący zysk",
+                    "pending_gross_sales": "Oczekujące sprzedaże",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Przychody z kliknięć",
+                    "clicks_payout": "Wypłata z kliknięć",
+                    "clicks_profit": "Zysk z kliknięć",
+                    "total_revenue": "Dochód",
+                    "total_profit": "Zysk",
+                    "total_gross_sales": "Sprzedaż brutto",
+                    "rejected_revenue": "Odrzucony dochód",
+                    "rejected_payout": "Odrzucona wypłata",
+                    "rejected_profit": "Odrzucony zysk",
+                    "rejected_gross_sales": "Odrzucona sprzedaż"
+                }
+            },
+            "offer_promote": {
+                "title": "Oferty do promocji",
+                "get_link": "Zdobądź link",
+                "all_categories": "Wszystkie kategorie"
+            },
+            "balance": {
+                "title": "Twoje saldo",
+                "approved_payout": "Zatwierdzona wypłata",
+                "all_currencies": "Wszystkie waluty",
+                "paid_to_date": "Zapłacono do daty",
+                "recent_invoices": "Ostatnie płatności"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Zobacz raport"
+    }
+}

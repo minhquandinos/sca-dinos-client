@@ -1,0 +1,76 @@
+<ui-page-wrapper [borderRadius]="4" className="mb-3" class="affiliate-domains">
+    <ui-page-wrapper-header>
+        <div class="title"> {{ 'affiliate.domain.title' | translate }}</div>
+
+        <div class="d-flex my-auto ml-auto">
+            <ui-button-link
+                *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+                type="floating"
+                [label]="'affiliate.domain.add' | translate"
+                icon="plus-small"
+                (click)="openModal()"
+            ></ui-button-link>
+        </div>
+    </ui-page-wrapper-header>
+    <ui-page-wrapper-content className="mb-0 p-0">
+        <div [formGroup]="filterForm">
+            <app-filters
+                [title]="'interface.basic.filtered_by' | translate"
+                [results]="counts$ | async"
+                className="p-l-16"
+
+            >
+                <app-filter>
+                    <app-find-platform-statuses
+                        statusList="statuses"
+                        formName="status"
+                        itemValue="status"
+                        [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+                        [exceptIds]="exceptPendingStatus"
+                        (toggle)="setFilterStatus($event)"
+                    ></app-find-platform-statuses>
+                </app-filter>
+
+            </app-filters>
+        </div>
+
+        <ui-table2
+            [columns]="columns"
+            [items]="items$ | async"
+            [sort]="false"
+            [stickyHead]="true"
+            [loading]="loading$ | async"
+            [customHorizontalScroll]="true"
+            [controlTemplate]="controlTemplate"
+        >
+            <ng-template uiTable2ColTemplate="status" let-status="value">
+                <app-status-dot-color [status]="status" type="statuses"></app-status-dot-color>
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="tracking_domain" let-item="valueRow">
+                #{{ item.id }}&nbsp;&nbsp;{{ item.name }}
+            </ng-template>
+
+            <ng-template uiTable2ColTemplate="conversion_status" let-configuration="value">
+                {{ configuration }}
+            </ng-template>
+        </ui-table2>
+
+    </ui-page-wrapper-content>
+    <ui-page-wrapper-footer>
+        <app-custom-pagination
+            *ngIf="showPagination$ | async"
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChange($event)"
+        ></app-custom-pagination>
+    </ui-page-wrapper-footer>
+
+</ui-page-wrapper>
+
+<ng-template #controlTemplate let-item>
+    <ui-table-navigation
+        *ngxPermissionsOnly="permissions.canAddEditDeleteDomains"
+        (toggleEdit)="openModal(item.id)"
+    ></ui-table-navigation>
+</ng-template>

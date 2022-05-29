@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Afficher le rapport",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Vos statistiques"
+            },
+            "pending_records": {
+                "title": "Dossiers en attente"
+            },
+            "top_offer": {
+                "title": "Meilleures offres"
+            },
+            "performance": {
+                "title": "Performances",
+                "cumulative": "Cumulatif",
+                "settings": {
+                    "none": "Période précédente",
+                    "impressions": "Impressions",
+                    "ctr": "CTR",
+                    "unique_clicks": "Clics uniques",
+                    "duplicate_clicks": "Clics en double",
+                    "invalid_clicks": "Clics non valides",
+                    "clicks": "Clics",
+                    "cv_total": "Conversions",
+                    "tr": "CR",
+                    "total_payout": "Rémunération",
+                    "cr": "CR",
+                    "gross_sales": "Vente brute",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Revenu approuvé",
+                    "cv_pending": "Conversions en attente",
+                    "pr": "PR",
+                    "cv_rejected": "Conversions rejetées",
+                    "rr": "RR",
+                    "cv_approved": "Conversions approuvées",
+                    "approved_payout": "Rémunération approuvée",
+                    "approved_profit": "Bénéfice approuvé",
+                    "approved_gross_sales": "Ventes approuvées",
+                    "pending_revenue": "Revenu en attente",
+                    "pending_payout": "Rémunération en attente",
+                    "pending_profit": "Bénéfice en attente",
+                    "pending_gross_sales": "Ventes en attente",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Revenu des clics",
+                    "clicks_payout": "Rémunération des clics",
+                    "clicks_profit": "Bénéfice des clics",
+                    "total_revenue": "Revenu",
+                    "total_profit": "Bénéfice",
+                    "total_gross_sales": "Ventes brutes",
+                    "rejected_revenue": "Revenu rejeté",
+                    "rejected_payout": "Rémunération rejetée",
+                    "rejected_profit": "Bénéfice rejeté",
+                    "rejected_gross_sales": "Ventes rejetées"
+                }
+            },
+            "offer_promote": {
+                "title": "Offres à promouvoir",
+                "get_link": "Obtenir un lien",
+                "all_categories": "Toutes les catégories"
+            },
+            "balance": {
+                "title": "Votre solde",
+                "approved_payout": "Rémunération approuvée",
+                "all_currencies": "Toutes les devises",
+                "paid_to_date": "Payé à ce jour",
+                "recent_invoices": "Paiements récents"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Afficher le rapport"
+    }
+}

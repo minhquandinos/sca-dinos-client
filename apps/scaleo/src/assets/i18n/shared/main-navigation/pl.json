@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Raporty",
+        "dashboard": "Kokpit",
+        "offers": "Oferty",
+        "manage": "Zarządzaj",
+        "activity-log": "Dziennik aktywności"
+    }
+}

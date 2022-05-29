@@ -1,0 +1,14 @@
+<div class="report-col-field__insights">
+    <app-report-field-insights-country [data]="field?.country"></app-report-field-insights-country>
+<!--    <app-country-flag-->
+<!--        [countryCode]="field?.country?.country_code"-->
+<!--        [tooltip]="field?.country | transformGeo"-->
+<!--    ></app-country-flag>-->
+
+    <app-report-field-device-type-icon [data]="field?.device"></app-report-field-device-type-icon>
+
+    <app-report-field-insights-os
+        [data]="field?.os"
+    ></app-report-field-insights-os>
+</div>
+

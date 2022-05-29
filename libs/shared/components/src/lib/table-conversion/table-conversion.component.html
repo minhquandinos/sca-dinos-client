@@ -1,0 +1,11 @@
+<div class="d-flex flex-column justify-content-end m-r-8">
+    <ng-container *ngIf="liveStats.current">
+        <span class="d-flex justify-content-end line-height is-17">{{liveStats.current.total | format: 'number'}}</span>
+        <div class="d-flex p-t-2 line-height is-16 font-size is-7" appChangeColorOfNumber [value]="liveStats.current.total_change">
+            <span *ngIf="liveStats.current.total_change > 0">+</span>
+            <span>{{ liveStats.current.total_change | format: 'percent':{digitsAfterPoint: 0} }}</span>
+        </div>
+    </ng-container>
+</div>
+
+<app-table-conversion-highcharts class="m-b-17 p-b-4" [data]="liveStats"></app-table-conversion-highcharts>

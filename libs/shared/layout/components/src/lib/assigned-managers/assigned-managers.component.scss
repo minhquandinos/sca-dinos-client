@@ -1,0 +1,103 @@
+@import "libs/ui-kit/stylesheets/utils";
+:host {
+    .assigned-manager {
+
+        margin-top: 26px;
+
+        &__title {
+            @include font-family-medium;
+            font-size: $font-size-x-small;
+            line-height: 2.08;
+            color: $color__gray3;
+            text-transform: uppercase;
+            margin-left: .6rem;
+            margin-bottom: 7px;
+        }
+
+        &__card {
+            border-radius: 4px;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.03), 0 1px 4px 0 rgba(0, 0, 0, 0.04), 0 0 3px 0 rgba(0, 0, 0, 0.05);
+            background-color: $color__full-white;
+            padding: 15px;
+            margin: 0 -8px 8px -8px;
+
+            &:last-child {
+                margin-bottom: 3rem;
+            }
+        }
+
+        &__image {
+
+            img {
+                display: block;
+                margin: 0 auto;
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+            }
+        }
+
+        &__name {
+            @include font-family-medium;
+            line-height: 1.43;
+            color: $color__black;
+            text-align: center;
+            margin-top: 7px;
+            margin-bottom: 8px;
+        }
+
+        &__contact {
+            font-size: $font-size-small;
+            line-height: 1.54;
+            color: $color__gray;
+            margin-top: 4px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &__contact_value {
+            width: 8rem;
+        }
+    }
+}
+
+:host-context(.menu-folded) {
+    @media  (min-width: 1080px) {
+        .assigned-manager {
+            &__title {
+                display: none;
+            }
+
+            &__card {
+                box-shadow: unset;
+                background-color: unset;
+                margin: 0 0 1rem 0;
+                padding: 0;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &__image {
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid $color__full-white;
+                    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.03), 0 1px 4px 0 rgba(0, 0, 0, 0.04), 0 0 3px 0 rgba(0, 0, 0, 0.05);
+                }
+            }
+
+            &__name {
+                display: none;
+            }
+
+            &__contact {
+                display: none;
+            }
+        }
+    }
+}

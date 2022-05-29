@@ -1,0 +1,14 @@
+<ui-dropdown-entity-menu
+    [menu]="menu"
+    buttonIcon="ic_help"
+    [buttonIconSize]="32"
+    [dropdownItemTemplate]="dropdownItemTemplate"
+    [dropWidth]="200"
+    className="help-menu__dropdown"
+></ui-dropdown-entity-menu>
+
+<ng-template #dropdownItemTemplate let-element="context">
+    <ui-svg-icon [icon]="element.icon"></ui-svg-icon>
+
+    <span>{{ element.title | async }}</span>
+</ng-template>

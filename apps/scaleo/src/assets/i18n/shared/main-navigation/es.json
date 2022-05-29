@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Informes",
+        "dashboard": "Panel",
+        "offers": "Ofertas",
+        "manage": "Gestionar",
+        "activity-log": "Registro de actividad"
+    }
+}

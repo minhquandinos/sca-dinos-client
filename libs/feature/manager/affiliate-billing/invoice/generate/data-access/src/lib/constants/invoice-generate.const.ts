@@ -1,0 +1,1 @@
+export const INVOICE_GENERATE_AFFILIATE_ALL = 0;

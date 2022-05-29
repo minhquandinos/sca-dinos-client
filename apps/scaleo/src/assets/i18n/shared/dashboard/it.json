@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Vedi report",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Le tue statistiche"
+            },
+            "pending_records": {
+                "title": "Record in sospeso"
+            },
+            "top_offer": {
+                "title": "Offerte principali"
+            },
+            "performance": {
+                "title": "Prestazione",
+                "cumulative": "Cumulativa",
+                "settings": {
+                    "none": "Periodo precedente",
+                    "impressions": "Impression",
+                    "ctr": "CTR",
+                    "unique_clicks": "Clic unici",
+                    "duplicate_clicks": "Clic duplicati",
+                    "invalid_clicks": "Clic non validi",
+                    "clicks": "Clic",
+                    "cv_total": "Conversioni",
+                    "tr": "CR",
+                    "total_payout": "Provente",
+                    "cr": "CR",
+                    "gross_sales": "Vendita lorda",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Ricavo approvato",
+                    "cv_pending": "Conversioni in sospeso",
+                    "pr": "PR",
+                    "cv_rejected": "Conversioni rifiutate",
+                    "rr": "RR",
+                    "cv_approved": "Conversioni approvate",
+                    "approved_payout": "Provente approvato",
+                    "approved_profit": "Profitto approvato",
+                    "approved_gross_sales": "Vendite approvate",
+                    "pending_revenue": "Ricavo in sospeso",
+                    "pending_payout": "Provente in sospeso",
+                    "pending_profit": "Profitto in sospeso",
+                    "pending_gross_sales": "Vendite in sospeso",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Ricavo clic",
+                    "clicks_payout": "Provente clic",
+                    "clicks_profit": "Profitto clic",
+                    "total_revenue": "Ricavo",
+                    "total_profit": "Profitto",
+                    "total_gross_sales": "Vendite lorde",
+                    "rejected_revenue": "Ricavo rifiutato",
+                    "rejected_payout": "Provente rifiutato",
+                    "rejected_profit": "Profitto rifiutato",
+                    "rejected_gross_sales": "Vendite rifiutate"
+                }
+            },
+            "offer_promote": {
+                "title": "Offerte da promuovere",
+                "get_link": "Ottieni Link",
+                "all_categories": "Tutte le categorie"
+            },
+            "balance": {
+                "title": "Il tuo saldo",
+                "approved_payout": "Provente approvato",
+                "all_currencies": "Tutte le valute",
+                "paid_to_date": "Pagato ad oggi",
+                "recent_invoices": "Pagamenti recenti"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Vedi report"
+    }
+}

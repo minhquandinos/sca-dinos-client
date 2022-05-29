@@ -1,0 +1,11 @@
+<app-card *ngIf="customUrl" contentClassName="pt-0">
+    <ng-container cardHeader>
+        <div class="title is-4">{{ 'offers_page.custom_url.title' | translate }}</div>
+    </ng-container>
+    <app-field-text-info
+        preset="copy"
+        [action]="copy()"
+    >
+        <div class="text-break-all">{{ customUrl }}</div>
+    </app-field-text-info>
+</app-card>

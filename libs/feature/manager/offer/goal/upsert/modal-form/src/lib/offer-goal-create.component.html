@@ -1,0 +1,332 @@
+<ng-template appModal3Title>
+    <div class="title text-nowrap">
+        {{ !editId ? ('offers_page.goals.add_as_title' | translate) : ('offers_page.goals.edit' | translate) + ' #' + editId }}
+    </div>
+    <ui-svg-icon
+        *ngIf="showDefaultButton && goalIsNotCPC$ | async"
+        class="star cursor-pointer m-l-10"
+        [ngClass]="{ 'star-goals': this.form.get('is_default').value }"
+        [icon]="this.form.get('is_default').value ? 'star-fill-static-goals' : 'star-fill-outline'"
+        tooltip="{{ 'offers_page.goals.default_goal' | translate }}"
+        (click)="setDefaultGoal()"
+    ></ui-svg-icon>
+</ng-template>
+<ng-template appModal3Action>
+    <ui-button-link
+        [label]="(!editId ? 'shared.dictionary.add' : 'shared.dictionary.save') | translate"
+        (toggle)="add()"
+        appDisableButtonDuringRequest
+    ></ui-button-link>
+</ng-template>
+
+<div class="container d-flex justify-content-center" *ngIf="isLoad || !editId; else skeleton">
+    <form class="w-100" [formGroup]="form" autocomplete="off">
+        <div class="form-group">
+            <app-input [label]="'interface.basic.title' | translate" formControlName="title" maxLength="128"></app-input>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-find-platform-statuses
+                    [label]="'shared.dictionary.status' | translate"
+                    formName="status"
+                    statusList="goals_statuses"
+                    [disableSelect]="disabledStatus"
+                    [exceptIds]="extendsGoalsStatuses"
+                ></app-find-platform-statuses>
+            </div>
+            <div class="form-group col-md-6" *ngIf="goalIsNotCPC$ | async">
+                <app-custom-switch [label]="'offers_page.goals.form.hidden' | translate" formControlName="is_private"></app-custom-switch>
+            </div>
+            <div class="form-text">{{ 'offers_page.goals.form.descriptions.hidden' | translate }}</div>
+        </div>
+
+        <div class="title is-4">{{ 'offers_page.goals.form.revenue_payout_title' | translate }}</div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-find-platform-list
+                    [label]="'offers_page.goals.form.type' | translate"
+                    formName="type"
+                    platformList="goals_types"
+                    [disableSelect]="disabledEditGoalType"
+                    [exceptIds]="hideCpcGoalType$ | async"
+                    [labelShowId]="false"
+                ></app-find-platform-list>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-input
+                    [inputText]="form.get('type').value | revenuePayoutSymbol: currency"
+                    inputTextPosition="left"
+                    numeric="float"
+                    [label]="'offers_page.goals.form.revenue' | translate"
+                    formControlName="revenue"
+                    maxLength="9"
+                ></app-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-input
+                    [inputText]="form.get('type').value | revenuePayoutSymbol: currency"
+                    inputTextPosition="left"
+                    numeric="float"
+                    [label]="'offers_page.goals.form.payout' | translate"
+                    formControlName="payout"
+                    maxLength="9"
+                ></app-input>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group ml-auto col-md-6" *ngIf="editId">
+                <app-input
+                    [label]="'offers_page.goals.form.payout_for_affiliate' | translate"
+                    formControlName="payout_for_affiliate"
+                    [placeholder]="'offers_page.goals.form.payout_for_affiliate_placeholder' | translate"
+                    maxLength="9"
+                ></app-input>
+            </div>
+
+            <!--            <ng-container *ngIf="false">-->
+            <!--                <div class="form-group col-md-6">-->
+            <!--                    <app-custom-switch-->
+            <!--                        [label]="'offers_page.goals.form.payout_tiers' | translate"-->
+            <!--                        formControlName="payout_tiers"-->
+            <!--                    ></app-custom-switch>-->
+            <!--                </div>-->
+
+            <!--                <div class="form-group col-md-6">-->
+            <!--                    <ng-container *ngIf="form.value.payout_tiers">-->
+            <!--                        <div class="form-group">-->
+            <!--                            <app-input-->
+            <!--                                [inputText]="form.get('type').value | revenuePayoutSymbol:currency"-->
+            <!--                                inputTextPosition="left"-->
+            <!--                                numeric="float"-->
+            <!--                                [label]="'offers_page.goals.form.tier_silver' | translate"-->
+            <!--                                formControlName="tier_silver"-->
+            <!--                            ></app-input>-->
+            <!--                        </div>-->
+            <!--                        <div class="form-group">-->
+            <!--                            <app-input-->
+            <!--                                [inputText]="form.get('type').value | revenuePayoutSymbol:currency"-->
+            <!--                                inputTextPosition="left"-->
+            <!--                                numeric="float"-->
+            <!--                                [label]="'offers_page.goals.form.tier_gold' | translate"-->
+            <!--                                formControlName="tier_gold"-->
+            <!--                            ></app-input>-->
+            <!--                        </div>-->
+            <!--                        <div class="form-group">-->
+            <!--                            <app-input-->
+            <!--                                [inputText]="form.get('type').value | revenuePayoutSymbol:currency"-->
+            <!--                                inputTextPosition="left"-->
+            <!--                                numeric="float"-->
+            <!--                                [label]="'offers_page.goals.form.tier_platinum' | translate"-->
+            <!--                                formControlName="tier_platinum"-->
+            <!--                            ></app-input>-->
+            <!--                        </div>-->
+            <!--                    </ng-container>-->
+            <!--                </div>-->
+            <!--            </ng-container>-->
+
+            <div class="form-text col-md-12 d-flex flex-column">
+                <span>{{ 'offers_page.goals.form.descriptions.goal_type' | translate }}:</span>
+                <ul class="ul-description">
+                    <li>{{ 'offers_page.goals.form.descriptions.cpc' | translate }}</li>
+                    <li>{{ 'offers_page.goals.form.descriptions.cpa' | translate }}</li>
+                    <li>{{ 'offers_page.goals.form.descriptions.cpl' | translate }}</li>
+                    <li>{{ 'offers_page.goals.form.descriptions.cps' | translate }}</li>
+                    <li>{{ 'offers_page.goals.form.descriptions.cpi' | translate }}</li>
+                </ul>
+                <span>{{ 'offers_page.goals.form.descriptions.revenue' | translate }}</span>
+                <span>{{ 'offers_page.goals.form.descriptions.payout' | translate }}</span>
+            </div>
+        </div>
+
+        <ng-container *ngIf="goalIsNotCPC$ | async">
+            <div class="title is-4">{{ 'offers_page.goals.form.conversion_title' | translate }}</div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <app-find-platform-statuses
+                        [label]="'table.column.initial_status' | translate"
+                        formName="conversion_status"
+                        statusList="conversion_statuses"
+                        [exceptIds]="extendsConversionStatuses"
+                    ></app-find-platform-statuses>
+                </div>
+                <div class="form-group col-md-6">
+                    <app-custom-switch
+                        [label]="'offers_page.goals.form.multiple_conversions' | translate"
+                        formControlName="multiple_conversions"
+                    ></app-custom-switch>
+                </div>
+                <div class="form-text">
+                    <div>{{ 'offers_page.goals.form.descriptions.initial_status' | translate }}</div>
+                    <div>{{ 'offers_page.goals.form.descriptions.multiple_conversion' | translate }}</div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="editId">
+            <app-add-caps2 [caps]="caps"></app-add-caps2>
+        </ng-container>
+
+        <ng-container *ngIf="editId">
+            <div class="title is-4">{{ 'interface.basic.advanced' | translate }}</div>
+
+            <div class="form-row mb-0">
+                <div class="form-group col-md-6 mb-0">
+                    <app-custom-switch
+                        [label]="'offers_page.goals.form.fire_affiliate_postback' | translate"
+                        formControlName="fire_affiliate_postback"
+                    ></app-custom-switch>
+                </div>
+                <div class="form-group col-md-6 mb-0">
+                    <app-custom-switch
+                        [label]="'offers_page.goals.form.unique_track_id' | translate"
+                        formControlName="unique_track_id"
+                    ></app-custom-switch>
+                </div>
+            </div>
+
+            <div class="form-text">
+                <div>{{ 'offers_page.goals.form.descriptions.fire_affiliate_postback' | translate }}</div>
+                <div>{{ 'offers_page.goals.form.descriptions.unique_track_id' | translate }}</div>
+            </div>
+
+            <div class="form-group m-t-22">
+                <div class="col-md-6 pl-0">
+                    <app-input
+                        [transformPattern]="aliasPattern"
+                        [label]="'offers_page.goals.form.goal_alias' | translate"
+                        formControlName="alias"
+                        maxLength="64"
+                    ></app-input>
+                </div>
+
+                <div class="form-text">
+                    <div>{{ 'offers_page.goals.form.descriptions.goal_alias' | translate }}</div>
+                    <div>{{ 'offers_page.goals.form.descriptions.goal_alias_example' | translate }}</div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="displayPostback">
+            <div class="title is-4">{{ 'offers_page.goals.form.tracking_title' | translate }}</div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-2">
+                    <app-find-platform-list
+                        platformList="goal_tracking_methods"
+                        [label]="'offers_page.goals.form.tracking_method' | translate"
+                        formName="tracking_method"
+                        itemLabel="title"
+                        itemValue="id"
+                        [disableSelect]="form.value.type === goalTypeEnum.CPI"
+                        (toggle)="changeTrackingMethods()"
+                    ></app-find-platform-list>
+                </div>
+
+                <ng-container *ngIf="editId">
+                    <div class="form-group col-12">
+                        <app-field-text-info preset="copy">
+                            {{ trackingCode }}
+                        </app-field-text-info>
+                        <manager-shared-available-macros
+                            [trackingLink]="trackingLink"
+                            typeMacroses="goals"
+                            [isMacroses]="false"
+                        ></manager-shared-available-macros>
+                    </div>
+                </ng-container>
+
+                <div class="form-text col-md-12 d-flex flex-column">
+                    <span>{{ 'offers_page.goals.form.descriptions.tracking_method' | translate }}</span>
+                    <ul class="ul-description">
+                        <li>
+                            <div class="d-flex flex-column">
+                                <span>{{ 'offers_page.goals.form.descriptions.postback' | translate }}</span>
+                                <span>{{ 'offers_page.goals.form.descriptions.postback_aff' | translate }}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex flex-column">
+                                <span>{{ 'offers_page.goals.form.descriptions.iframe' | translate }}</span>
+                                <span>{{ 'offers_page.goals.form.descriptions.iframe_aff' | translate }}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex flex-column">
+                                <span>{{ 'offers_page.goals.form.descriptions.img' | translate }}</span>
+                                <span>{{ 'offers_page.goals.form.descriptions.img_aff' | translate }}</span>
+                            </div>
+                        </li>
+                        <li>{{ 'offers_page.goals.form.descriptions.javascript' | translate }}</li>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+
+        <ui-button-link
+            *ngIf="editId && (goalIsNotCPC$ | async) && canRemove"
+            [label]="'shared.dictionary.delete' | translate"
+            icon="delete"
+            type="delete"
+            className="m-t-50"
+            (toggle)="delete()"
+        ></ui-button-link>
+    </form>
+</div>
+
+<ng-template #skeleton>
+    <ui-skeleton>
+        <div class="form-group">
+            <app-ui-skeleton-input></app-ui-skeleton-input>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+            <div class="form-group col-md-6">
+                <ui-skeleton-block height="medium" size="medium" [width]="25"></ui-skeleton-block>
+            </div>
+        </div>
+
+        <div class="title is-4 mb-2">
+            <ui-skeleton-block height="medium" size="small" [width]="25"></ui-skeleton-block>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+        </div>
+
+        <div class="title is-4 mb-2">
+            <ui-skeleton-block height="medium" size="medium" [width]="25"></ui-skeleton-block>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <app-ui-skeleton-input></app-ui-skeleton-input>
+            </div>
+            <div class="form-group col-md-6">
+                <ui-skeleton-block height="medium" size="medium" [width]="25"></ui-skeleton-block>
+            </div>
+        </div>
+    </ui-skeleton>
+</ng-template>

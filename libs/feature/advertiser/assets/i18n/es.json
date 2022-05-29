@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Pago",
+            "approved_revenue": "Pago",
+            "pending_revenue": "Pago",
+            "rejected_revenue": "Pago",
+            "total_revenue": "Pago",
+            "revenue": "Pago"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Coste por clic",
+                "rpa": "Coste por conversión aprobada",
+                "rpm": "Coste por cada 1000 impresiones"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Pago"
+                }
+            }
+        }
+    }
+}

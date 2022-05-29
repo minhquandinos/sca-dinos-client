@@ -1,0 +1,45 @@
+<div class="dashboard-grid">
+    <app-dashboard-toolbar></app-dashboard-toolbar>
+    <div class="dashboard-grid-active" [ngClass]="{'dashboard-grid-active--edit': isEdit$ | async}">
+
+        <gridster
+            #gridsterComponent
+            [options]="dashboardConfigService?.options$ | async"
+            style="background-color: transparent; min-height:100%;width: 100%"
+        >
+            <gridster-item
+                    [id]="item.id"
+                    *ngFor="let item of activeWidgets; trackBy: trackBy;"
+                    [item]="item.gridConfig"
+                >
+                    <app-dynamic-widget
+                        [widget]="item"
+                    ></app-dynamic-widget>
+                </gridster-item>
+        </gridster>
+    </div>
+
+    <div
+        class="dashboard-grid-inactive"
+        [ngClass]="{'dashboard-grid-inactive--edit': isEdit$ | async}"
+         *ngIf="dashboardConfigService?.isEdit"
+    >
+        <div class="title" id="inactive-widgets">{{ 'dashboard_grid.inactive_widget' | translate }}</div>
+        <hr>
+            <gridster
+                [options]="dashboardConfigService?.optionsInactive$ | async"
+                style="background-color: transparent; min-height:100%;"
+            >
+                <gridster-item
+                        [id]="item.id"
+                        *ngFor="let item of inactiveWidgets; trackBy: trackBy"
+                        [item]="item.gridConfig"
+                    >
+                        <app-dynamic-widget
+                            [widget]="item"
+                        ></app-dynamic-widget>
+                    </gridster-item>
+            </gridster>
+    </div>
+</div>
+

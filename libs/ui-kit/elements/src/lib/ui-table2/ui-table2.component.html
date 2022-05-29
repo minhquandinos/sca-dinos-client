@@ -1,0 +1,127 @@
+<div class="table2" [ngClass]="{'table2--header-sticky': stickyHead}">
+    <div class="table2__before table2__scroll-shadow-left" uiTable2ScrollShadow="left"></div>
+<!--    <ui-table2-update  *ngIf="updated$ | async"></ui-table2-update>-->
+    <table #tableRef uiTable2ScrollEvent>
+            <thead #theadRef>
+            <div class="d-contents" #customThead>
+                <ng-content select="[thead]"></ng-content>
+            </div>
+            <ui-table2-header
+                *ngIf="!customThead.innerHTML.trim()"
+                [columns]="columns"
+                [withControl]="!!controlTemplate"
+            ></ui-table2-header>
+            </thead>
+
+            <tbody>
+
+            <div class="d-contents" #customRows>
+                <ng-content select="[rows]"></ng-content>
+            </div>
+
+            <ng-container *ngIf="!customRows.innerHTML.trim()">
+                <ng-container #itemsContainer *ngIf="asyncBuildData; else defaultDataTpl"></ng-container>
+                <ng-template #defaultDataTpl>
+                    <ng-container *ngFor="let item of _items; let i = index; trackBy: trackByRowsFn">
+                        <ng-container
+                            [ngTemplateOutlet]="itemTpl"
+                            [ngTemplateOutletContext]="{item: item, index: i}"
+                        ></ng-container>
+                    </ng-container>
+                </ng-template>
+            </ng-container>
+
+            <div class="d-contents" #customTbodySkeleton>
+                <ng-content select="[skeleton]"></ng-content>
+            </div>
+
+            <ng-container *ngIf="(loading || preloadingItems) && !customTbodySkeleton.innerHTML.trim()">
+                <ng-container *ngIf="skeletonTemplate; else defaultSkeletonTpl">
+                    <ng-template [ngTemplateOutlet]="skeletonTemplate"></ng-template>
+                </ng-container>
+                <ng-template #defaultSkeletonTpl>
+                    <ui-table2-row *ngFor="let fake of [1, 2, 3, 4]; let i = index;">
+                        <ui-table2-col *ngIf="showSelect" className="skeleton">
+                            <ui-skeleton-block customWidth="16px" customHeight="16px"></ui-skeleton-block>
+                        </ui-table2-col>
+                        <ui-table2-col
+                            *ngFor="let column of columns; trackBy: trackByColumnsFn"
+                            className="skeleton"
+                        >
+                            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                        </ui-table2-col>
+                        <ui-table2-col *ngIf="controlTemplate"></ui-table2-col>
+                    </ui-table2-row>
+                </ng-template>
+            </ng-container>
+
+            </tbody>
+
+            <tfoot #tfootRef>
+                <ng-content select="[tfoot]"></ng-content>
+            </tfoot>
+        </table>
+        <div
+            class="table-not-found d-flex align-items-center justify-content-center"
+            *ngIf="itemsLength <= 0 && !loading"
+        >
+            {{'interface.basic.not_found' | translate}}
+        </div>
+    <div class="table2__after table2__scroll-shadow-right" uiTable2ScrollShadow="right"></div>
+</div>
+
+<ng-template #defaultColTpl let-value="value">
+    {{ value }}
+</ng-template>
+
+<ui-table2-scroll [tableElement]="tableRef"></ui-table2-scroll>
+
+<ng-template #itemTpl let-item="item" let-index="index" let-isEven="isEven">
+
+    <ng-container *ngIf="rowTemplate; else contentTemplate">
+        <ui-table2-row [rowSize]="rowSize">
+            <ui-table2-col-select
+                *ngIf="showSelect"
+                uiTable2ColSelect
+                [index]="index"
+                [item]="item"
+                [selectItemValue]="selectItemValue"
+            ></ui-table2-col-select>
+            <ng-container [ngTemplateOutlet]="rowTemplate" [ngTemplateOutletContext]="{context: item}"></ng-container>
+            <ui-table2-row-control *ngIf="controlTemplate">
+                <ng-container
+                    [ngTemplateOutlet]="controlTemplate"
+                    [ngTemplateOutletContext]="{context: item}"
+                ></ng-container>
+            </ui-table2-row-control>
+        </ui-table2-row>
+    </ng-container>
+    <ng-template #contentTemplate>
+        <ui-table2-row [rowSize]="rowSize">
+            <ui-table2-col-select
+                *ngIf="showSelect"
+                uiTable2ColSelect
+                [index]="index"
+                [item]="item"
+                [selectItemValue]="selectItemValue"
+            ></ui-table2-col-select>
+            <ui-table2-col
+                *ngFor="let column of columns; trackBy: trackByColumnsFn"
+                [className]="columnTemplatesMap?.[column.value]?.className"
+                [innerClassName]="columnTemplatesMap?.[column.value]?.innerClassName"
+            >
+                <ng-container
+                    [ngTemplateOutlet]="columnTemplatesMap?.[column.value]?.tpl || defaultColTpl"
+                    [ngTemplateOutletContext]="{value: item[column.value], valueRow: item }"
+                ></ng-container>
+            </ui-table2-col>
+            <ui-table2-row-control *ngIf="controlTemplate">
+                <ng-container
+                    [ngTemplateOutlet]="controlTemplate"
+                    [ngTemplateOutletContext]="{$implicit: item}"
+                ></ng-container>
+            </ui-table2-row-control>
+        </ui-table2-row>
+    </ng-template>
+</ng-template>
+

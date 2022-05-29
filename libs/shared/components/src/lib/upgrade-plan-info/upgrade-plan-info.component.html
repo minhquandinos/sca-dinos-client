@@ -1,0 +1,15 @@
+<a
+    *ngIf="planForUpgrade"
+    target="_blank"
+    [href]="urlToPricing"
+    class="d-flex align-items-center cursor-pointer text-decoration-none"
+>
+    <ui-svg-icon
+        [icon]="icon"
+        size="16"
+    ></ui-svg-icon>
+
+    <span class="m-l-6 font-family-normal font-size is-6 line-height is-17">
+        {{ planForUpgrade | upgradePlanInfoTitle | async }}
+    </span>
+</a>

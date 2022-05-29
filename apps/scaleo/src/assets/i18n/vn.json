@@ -1,0 +1,11 @@
+{
+    "offers_requests_page": {
+        "title": "Yêu cầu Offer"
+    },
+    "statuses": {
+        "paid": "Đã thanh toán",
+        "not_paid": "Chưa thanh toán",
+        "in_progress": "Đang xử lý",
+        "require_approval": "Yêu cầu phê duyệt"
+    }
+}

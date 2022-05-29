@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icons/main menu/mailroom/default</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/main-menu/mailroom/default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/main-menu/mailrooms">
+            <g id="Mail" stroke-width="1" fill-rule="evenodd">
+                <rect id="Rectangle" x="0" y="0" width="32" height="32"></rect>
+                <path d="M25,11.2549067 C24.939185,11.3302005 24.8721454,11.4020047 24.7989097,11.4696069 L17.3565602,18.1086987 C16.5904368,18.8158895 15.4095632,18.8158895 14.6434398,18.1086987 L7.2010903,11.4696069 C7.12839987,11.402508 7.06126515,11.3305666 7,11.2544994 L7,22 L25,22 L25,11.2549067 Z M7,8 L25,8 C26.1045695,8 27,8.8954305 27,10 L27,22 C27,23.1045695 26.1045695,24 25,24 L7,24 C5.8954305,24 5,23.1045695 5,22 L5,10 C5,8.8954305 5.8954305,8 7,8 Z M8.5576505,10 L16,16.6390918 L23.4423495,10 L8.5576505,10 Z" id="Combined-Shape" fill="#ccd6dd"></path>
+            </g>
+            <rect id="Rectangle" x="0" y="0" width="32" height="32"></rect>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<scaleo-billing-preferences-view
+    [data]="data$ | async"
+    [fields]="fields"
+>
+    <ng-container header="">
+        <div class="m-b-14 d-flex align-items-center w-100">
+            <span class="title is-4 line-height is-19">{{ 'billing2.affiliate.preferences.title' | translate }}</span>
+            <div class="ml-auto">
+                <ui-button-link
+                    type="floating"
+                    [label]="'shared.dictionary.short_edit' | translate"
+                    (toggle)="edit()"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ng-container>
+</scaleo-billing-preferences-view>

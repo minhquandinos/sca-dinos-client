@@ -1,0 +1,68 @@
+<div class="auth__wrapper container-fluid d-flex align-items-center px-0">
+    <div class="auth__content mx-auto d-flex flex-column">
+        <div class="auth__title">
+            {{ 'two_fa_verification.title' | translate }}
+        </div>
+        <div class="auth__form">
+            <form [formGroup]="form">
+                <div class="color__gray2 text-size-14 line-height-17">
+                    {{ 'two_fa_verification.content' | translate }}
+                    <span class="font-family-medium color__black" *ngIf="email">{{ email }}</span>
+                </div>
+
+                <div class="m-t-32">
+                    <label class="auth__label">{{ 'two_fa_verification.code_label' | translate }}</label>
+                    <ng-container formGroupName="codes">
+                        <div class="d-flex justify-content-between">
+                            <ng-container *ngFor="let item of [0, 1, 2, 3]; let i = index">
+                                <div>
+                                    <app-input
+                                        class="verification-2fa__input"
+                                        [ngClass]="{ 'verification-2fa__input-entered': !!form.get('codes').get('code' + (i + 1)).value }"
+                                        type="text"
+                                        numeric="integer"
+                                        maxLength="1"
+                                        [formControlName]="'code' + (i + 1)"
+                                        (keyup)="onDigitInput($event, i)"
+                                    ></app-input>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="text-size-13 m-t-2 text-right color__gray2 line-height-22">
+                            <div
+                                class="cursor-pointer"
+                                appDebounceClick
+                                (debounceClick)="resendCode()"
+                                *ngIf="showResendCodeBtn$ | async; else timerDelayTpl"
+                            >
+                                {{ 'two_fa_verification.resend_code' | translate }}
+                            </div>
+                            <ng-template #timerDelayTpl>
+                                <div
+                                    class="two-fa-resend-code-timer"
+                                    [innerHTML]="'two_fa_verification.resend_code_delay' | translate: { time: delayTimer$ | async }"
+                                ></div>
+                            </ng-template>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <app-error class="m-t-6" [error]="error"></app-error>
+
+                <ui-button-link
+                    className="w-100 m-t-26"
+                    type="main"
+                    [label]="'shared.dictionary.submit' | translate"
+                    (toggle)="submit()"
+                    [isLoad]="!form.disabled"
+                    [disabled]="form.disabled || (disabledSubmit$ | async)"
+                    [size]="'medium'"
+                ></ui-button-link>
+
+                <div class="dont-have-account cursor-pointer">
+                    <a routerLink="/login">{{ 'password_reset.return_to_login' | translate }}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

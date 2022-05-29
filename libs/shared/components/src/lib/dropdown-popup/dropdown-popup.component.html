@@ -1,0 +1,30 @@
+<div class="dropdown dropdown--filter dropdown--popup dropdown--animation cursor-pointer" [ngClass]="className" uiOldDropdown #dropdownRef>
+    <div class="d-flex" id="filterStatus" data-toggle="dropdown" aria-expanded="false">
+        <div class="d-flex align-items-center dropdown-item-selected">
+            <div class="dropdown-item-selected__label">{{ label }}</div>
+        </div>
+
+        <div class="dropdown-arrows d-flex align-self-center" *ngIf="!!!count || show; else counter">
+            <ui-svg-icon class="angle-down" icon="down" iconType="stroke"></ui-svg-icon>
+        </div>
+        <ng-template #counter>
+            <div class="d-flex align-self-center">
+                <ui-badges [content]="count"></ui-badges>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="dropdown-menu filter-dropdown-wrapper" aria-labelledby="filterGroup" x-placement="bottom-end" appStopPropagation>
+        <ng-content></ng-content>
+
+        <ui-button-link
+            className="m-t-12 btn-block"
+            [label]="'shared.dictionary.apply' | translate"
+            (click)="applyFilter()"
+        ></ui-button-link>
+
+        <!--        <div class="form-button filter-row m-b-0" >-->
+        <!--            <button type="submit" class="btn btn-main btn-size-medium" >{{  }}</button>-->
+        <!--        </div>-->
+    </div>
+</div>

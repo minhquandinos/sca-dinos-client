@@ -1,0 +1,21 @@
+<span
+    [tooltip]="tooltipTpl"
+    [display]="column | uiTable2ColumnShowTooltip:'default'"
+    contentType="template"
+>
+    <ng-content></ng-content>
+</span>
+
+<ng-template #tooltipTpl>
+    <ng-container *ngIf="(column | uiTable2ColumnTooltipTpl); else defaultTooltipTpl">
+        <ng-template [ngTemplateOutlet]="column?.tooltipKey || column?.tooltipTpl"></ng-template>
+    </ng-container>
+    <ng-template #defaultTooltipTpl>
+        {{ column?.tooltipTranslate | translate }}
+    </ng-template>
+
+</ng-template>
+
+<ng-template #customTooltipTpl>
+    <ng-template [ngTemplateOutlet]="column?.tooltipTpl"></ng-template>
+</ng-template>

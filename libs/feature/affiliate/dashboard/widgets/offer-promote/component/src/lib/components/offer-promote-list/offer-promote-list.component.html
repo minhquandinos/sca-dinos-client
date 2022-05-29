@@ -1,0 +1,86 @@
+<ui-table
+    [headers]="headers"
+    [hideHeader]="true"
+    [rowTemplate]="rowTemplate"
+    [items]="items$ | async"
+    [skeletonTemplate]="skeleton"
+    [notFround]="(items$ | async)?.length <= 0"
+    [isLoad]="!(isLoadingItems$ | async)"
+    className="custom-dashboard-widget-offer_promote-table"
+    tableRowTheme="default-new"
+    #tableRef
+></ui-table>
+
+<ng-template #rowTemplate let-item="context">
+    <td ui-table-col>
+        <div class="table__box-image">
+            <ui-image
+                class="cursor-pointer"
+                type="rounded"
+                routerLink="affiliate/offers/{{ item.id }}"
+                [image]="item.image"
+                width="64"
+                height="64"
+            ></ui-image>
+        </div>
+
+        <div class="d-flex align-self-center ml-3">
+            <div class="mr-2">
+                <div class="d-flex align-items-center offers-title">
+                    <a [routerLink]="['/affiliate/offers/' + item.id]">
+                        <span>#{{ item.id }}</span
+                        >&nbsp;&nbsp;{{ item.title }}
+                    </a>
+                    <ui-svg-icon
+                        class="ml-1"
+                        *ngIf="item?.isFeatured"
+                        icon="star-fill-static"
+                        tooltip="{{ 'interface.basic.sort.is_featured' | translate }}"
+                    ></ui-svg-icon>
+                </div>
+
+                <app-offer-visibility-affiliate-access [visibility]="item?.visible_type_selected"></app-offer-visibility-affiliate-access>
+            </div>
+        </div>
+    </td>
+    <td ui-table-col>
+        <div>
+            <app-goals-list
+                [currency]="item?.currency"
+                [goals]="item.goals"
+                [affiliateTemplateRowAndTooltip]="true"
+            ></app-goals-list>
+        </div>
+    </td>
+    <td ui-table-col className="justify-content-end">
+        <div class="custom-dashboard-widget-offer_promote-control mr-3">
+            <app-offer-promote-actions [item]="item" (openLinkBuilder)="linkBuilderPopupHandler(item)"></app-offer-promote-actions>
+        </div>
+    </td>
+</ng-template>
+
+<ng-template #skeleton>
+    <tr ui-table-row *ngFor="let fake of shared.generateFake(2)" class="skeleton">
+        <td ui-table-col>
+            <div class="table__box-image">
+                <ui-skeleton-image type="rounded"></ui-skeleton-image>
+            </div>
+
+            <div class="w-100 d-flex align-self-center m-l-8">
+                <div class="w-100 mr-2">
+                    <div class="name-title">
+                        <ui-skeleton-block size="large" [width]="50"></ui-skeleton-block>
+                    </div>
+
+                    <div class="name-subtitle">
+                        <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <ui-skeleton-block size="small" [width]="50"></ui-skeleton-block>
+        </td>
+        <td></td>
+    </tr>
+</ng-template>

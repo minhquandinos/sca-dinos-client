@@ -1,0 +1,12 @@
+<div class="custom-dashboard-widget-shortcuts__actions">
+    <ng-container *ngFor="let item of items; trackBy: trackByFn">
+        <ui-button-link
+            *ngxPermissionsOnly="item.permission"
+            type="floating"
+            icon="plus-small"
+            [label]="('dashboard_grid.widget.shortcuts.add_' + item.item) | translate"
+            (click)="createItem(item.item)"
+        ></ui-button-link>
+    </ng-container>
+
+</div>

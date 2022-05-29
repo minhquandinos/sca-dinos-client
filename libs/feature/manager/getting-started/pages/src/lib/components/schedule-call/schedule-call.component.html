@@ -1,0 +1,30 @@
+<ui-page-wrapper className="page-wrapper schedule-call" [borderRadius]="4">
+    <ui-page-wrapper-content>
+        <div class="container">
+            <div class="m-r-13">
+                <ui-image
+                    [image]="image"
+                    class="m-t-3"
+                ></ui-image>
+            </div>
+            <div class="d-flex flex-column align-items-start">
+
+                <div class="text">
+                    {{('getting_started.hint_create_first_item.hey' | translate) + ' ' + firstname + '!' }}<br>
+                    {{ 'getting_started.hint_create_first_item.manager_message' | translate }}
+                </div>
+
+                <ui-button-link
+                    [label]="'getting_started.schedule_demo_call' | translate"
+                    type="floating"
+                    (click)="scheduleCall()"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ui-page-wrapper-content>
+</ui-page-wrapper>
+
+<platform-calendly *ngIf="showCalendly" (close)="close($event)"></platform-calendly>
+
+
+

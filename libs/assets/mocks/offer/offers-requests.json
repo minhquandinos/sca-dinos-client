@@ -1,0 +1,71 @@
+{
+    "info": {
+        "requests": [
+            {
+                "id": 1,
+                "status": "pending",
+                "date": "2021-06-10 13:54:23",
+                "offer": {
+                    "id": 1,
+                    "title": "Offer name"
+                },
+                "affiliate": {
+                    "id": 1,
+                    "title": "Affiliate name"
+                },
+                "fraud": 10,
+                "questions": "- What traffic sources do you use?\n- List your websites\n- Describe your business",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                "action": {
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/users/img609cd3097b742.png",
+                    "firstname": "Wade",
+                    "lastname": "Warren"
+                }
+            },
+            {
+                "id": 2,
+                "status": "approved",
+                "date": "2021-06-10 13:54:23",
+                "offer": {
+                    "id": 3,
+                    "title": "Offer name 3"
+                },
+                "affiliate": {
+                    "id": 2,
+                    "title": "Affiliate name 2"
+                },
+                "fraud": 22,
+                "questions": "- What traffic sources do you use?\n- List your websites\n- Describe your business",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                "action": {
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/users/img609cd3097b742.png",
+                    "firstname": "Wade",
+                    "lastname": "Warren"
+                }
+            },
+            {
+                "id": 3,
+                "status": "rejected",
+                "date": "2021-06-10 13:54:23",
+                "offer": {
+                    "id": 4,
+                    "title": "Offer name 4"
+                },
+                "affiliate": {
+                    "id": 6,
+                    "title": "Affiliate name 6"
+                },
+                "fraud": 40,
+                "questions": "- What traffic sources do you use?\n- List your websites\n- Describe your business",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                "action": {
+                    "image": "https://s3.eu-central-1.amazonaws.com/storage.scaleo.io/users/img609cd3097b742.png",
+                    "firstname": "Wade",
+                    "lastname": "Warren"
+                }
+            }
+        ]
+    }
+}
+
+

@@ -1,0 +1,35 @@
+<app-trends-widget (activeTab)="activeTab($event)">
+    <ng-template appTrendTab label="interface.basic.volumes">
+        <scaleo-trend-chart-widget
+            [date$]="trendsWidgetComponent.date$"
+            [itemId]="offerId$ | async"
+            [metrics]="volumeMetrics"
+            filterBy="offers"
+        ></scaleo-trend-chart-widget>
+    </ng-template>
+
+    <ng-container *ngIf="financeMetrics.length">
+        <ng-template appTrendTab label="finances_page.basic.finances" >
+            <scaleo-trend-chart-widget
+                [date$]="trendsWidgetComponent.date$"
+                [itemId]="offerId$ | async"
+                [metrics]="financeMetrics"
+                filterBy="offers"
+            ></scaleo-trend-chart-widget>
+        </ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="showTopAffiliates$ | async">
+        <ng-template appTrendTab label="dashboard_grid.widget.top_affiliate.title">
+            <scaleo-manager-top-affiliates
+                [offerId]="offerId$ | async"
+                [date$]="trendsWidgetComponent.date$"
+                (initFooterEvent)="topAffiliateInitFooter($event)"
+            ></scaleo-manager-top-affiliates>
+        </ng-template>
+    </ng-container>
+
+    <ng-container widgetFooter>
+        <ng-template [ngTemplateOutlet]="footerTpl"></ng-template>
+    </ng-container>
+</app-trends-widget>

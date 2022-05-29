@@ -1,0 +1,81 @@
+{
+    "dashboard_grid": {
+        "view_report": "Xem Thống kê",
+        "widget": {
+            "network_summary": {
+                "title_affiliate": "Thống kê của bạn"
+            },
+            "pending_records": {
+                "title": "Yêu cầu đang chờ xử lý"
+            },
+            "top_offer": {
+                "title": "Chiến dịch HOT"
+            },
+            "performance": {
+                "title": "Thống kê số liệu",
+                "cumulative": "Tổng cộng dồn",
+                "settings": {
+                    "none": "Kỳ trước",
+                    "impressions": "Số lần hiển thị",
+                    "ctr": "CTR",
+                    "unique_clicks": "Số lần click duy nhất",
+                    "duplicate_clicks": "Số lần click trùng lặp",
+                    "invalid_clicks": "Click không hợp lệ",
+                    "clicks": "Số lần click",
+                    "cv_total": "Tổng Chuyển đổi",
+                    "tr": "CR",
+                    "total_payout": "Hoa hồng",
+                    "cr": "CR",
+                    "gross_sales": "Tổng doanh số",
+                    "cpc": "CPC",
+                    "epc": "EPC",
+                    "rpc": "RPC",
+                    "approved_revenue": "Doanh thu được duyệt",
+                    "cv_pending": "Chuyển đổi chờ duyệt",
+                    "pr": "PR",
+                    "cv_rejected": "Chuyển đổi bị từ chối",
+                    "rr": "RR",
+                    "cv_approved": "Chuyển đổi được duyệt",
+                    "approved_payout": "Hoa hồng được duyệt",
+                    "approved_profit": "Lợi nhuận được duyệt",
+                    "approved_gross_sales": "Approved Sales",
+                    "pending_revenue": "Doanh thu chờ xử lí",
+                    "pending_payout": "Hoa hồng chờ xử lí",
+                    "pending_profit": "Lợi nhuận chờ xử lí",
+                    "pending_gross_sales": "Sale Amount chờ xử lí",
+                    "rpa": "RPA",
+                    "cpa": "CPA",
+                    "epa": "EPA",
+                    "rpm": "RPM",
+                    "cpm": "CPM",
+                    "epm": "EPM",
+                    "clicks_revenue": "Doanh thu trên tổng số clicks",
+                    "clicks_payout": "Hoa hồng trên tổng số clicks",
+                    "clicks_profit": "Lợi nhuận trên tổng số clicks",
+                    "total_revenue": "Tổng doanh thu",
+                    "total_profit": "Tổng lợi nhuận",
+                    "total_gross_sales": "Tổng Sale Amount",
+                    "rejected_revenue": "Doanh thu bị từ chối",
+                    "rejected_payout": "Hoa hồng bị từ chối",
+                    "rejected_profit": "Lợi nhuận bị từ chối",
+                    "rejected_gross_sales": "Sale Amount bị từ chối"
+                }
+            },
+            "offer_promote": {
+                "title": "Chiến dịch để triển khai",
+                "get_link": "Lấy Link",
+                "all_categories": "Tất cả danh mục"
+            },
+            "balance": {
+                "title": "Số dư của tôi",
+                "approved_payout": "Hoa hồng được duyệt",
+                "all_currencies": "Tất cả đơn vị tiền tệ",
+                "paid_to_date": "Tổng thanh toán",
+                "recent_invoices": "Thanh toán gần đây"
+            }
+        }
+    },
+    "dashboard_page": {
+        "view_report": "Xem thống kê"
+    }
+}

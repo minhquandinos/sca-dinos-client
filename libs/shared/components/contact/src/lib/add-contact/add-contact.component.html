@@ -1,0 +1,68 @@
+<div class="add-contact">
+        <div
+            [formArrayName]="formName"
+            *ngIf="messengers$ | async as messengersList"
+            [sortablejs]="form.value.contacts"
+            [sortablejsOptions]="{ handle: '.add-contact__move' }"
+        >
+            <div class="add-contact__item" *ngFor="let contact of contactsGroupArray.controls; let i = index;">
+                <div [formGroupName]="i">
+                    <!--              <div class="d-flex mb-3">-->
+                    <!--                <div-->
+                    <!--                  class="add-contact__remove ml-auto cursor-pointer"-->
+                    <!--                  (clicks)="removeContact(i)"-->
+                    <!--                >-->
+                    <!--                  <i class="fas fa-minus"></i>-->
+                    <!--                </div>-->
+                    <!--              </div>-->
+                    <div class="form-group mb-0">
+                        <div class="d-flex">
+
+                            <div class="w-100 p-r-8">
+                                <div class="form-group position-relative">
+                                    <ui-svg-icon
+                                        icon="move"
+                                        class="add-contact__move text-left cursor-move position-absolute"
+                                        [@showHideSortInList]="contactsGroupArray.controls.length > 1 ? 'show' : 'hide'"
+                                    ></ui-svg-icon>
+                                    <app-select
+                                        classNames="ng-select-messengers"
+                                        [label]="'interface.form.contact_type' | translate"
+                                        [items]="messengersList"
+                                        itemLabel="title"
+                                        itemValue="id"
+                                        formControlName="type"
+                                        [hideSelected]="true"
+                                        [multiple]="false"
+                                        [searchable]="false"
+                                        [clearable]="false"
+                                        (clear)="clearContactField(i)"
+                                    ></app-select>
+                                </div>
+                            </div>
+
+                            <div class="w-100 p-l-8">
+                                <div class="form-group">
+                                    <app-input
+                                        [label]="'interface.form.contact_name' | translate"
+                                        formControlName="account"
+                                    ></app-input>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <ui-button-link
+        type="simple"
+        [label]="'affiliate.basic.add_contact' | translate"
+        icon="plus-small"
+        (click)="addContact()"
+        *ngIf="contactsGroupArray?.controls?.length < (messengersCount$ | async) && opportunityAddContact"
+    ></ui-button-link>
+</div>

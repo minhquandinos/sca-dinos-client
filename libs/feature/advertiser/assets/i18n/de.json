@@ -1,0 +1,33 @@
+{
+    "table": {
+        "column": {
+            "rpc": "CPC",
+            "rpa": "CPA",
+            "rpm": "CPM",
+            "clicks_revenue":  "Auszahlung",
+            "approved_revenue": "Auszahlung",
+            "pending_revenue": "Auszahlung",
+            "rejected_revenue": "Auszahlung",
+            "total_revenue": "Auszahlung",
+            "revenue": "Auszahlung"
+        }
+    },
+    "reports": {
+        "table": {
+            "tooltip": {
+                "rpc": "Kosten pro Click",
+                "rpa": "Kosten pro genehmigter Conversion",
+                "rpm": "Kosten pro 1000 Impressionen"
+            }
+        }
+    },
+    "dashboard_grid": {
+        "widget": {
+            "performance": {
+                "settings": {
+                    "total_revenue": "Auszahlung"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Qté",
+                "cv_pending": "Qté",
+                "cv_rejected": "Qté",
+                "cv_total": "Qté",
+                "clicks": "Brut",
+                "impressions": "Qté",
+                "antifraud_logic_score": "Fraude",
+                "cv_trash": "Qté"
+            },
+            "tooltip": {
+                "tr": "Taux de conversion Total",
+                "cr": "Taux de conversion Approuvées",
+                "pr": "Taux de conversion En attente",
+                "rr": "Taux de conversion Rejetées",
+                "rpc": "Revenu par clic",
+                "cpc": "Coût par clic",
+                "epc": "Gains par clic",
+                "rpa": "Revenu par conversion approuvée",
+                "cpa": "Coût par conversion approuvée",
+                "epa": "Gains par conversion approuvée",
+                "rpm": "Revenu pour 1000 impressions",
+                "cpm": "Coût pour 1000 impressions",
+                "epm": "Gains pour 1000 impressions",
+                "total_conversions": "Conversions approuvées et en attente",
+                "total_conversions_without_rejected": "Approuvées, En attente",
+                "total_conversions_include_rejected_in_totals": "Conversions approuvées, en attente, rejetées et mises au rebut",
+                "ctr": "Taux de clics (Clics sur Impressions)",
+                "cv_total": "Approuvées, En attente, Rejetées",
+                "ar": "Taux de conversions approuvées par rapport au nombre total de conversions",
+                "trash_conversions": "Conversions contenant des données incorrectes, fraudes et conversions de test"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Affilié",
+            "affiliates_sources": "Source Affilié",
+            "affiliates_subids1": "Sous-ID Affilié 1",
+            "affiliates_subids2": "Sous-ID Affilié 2",
+            "affiliates_subids3": "Sous-ID Affilié 3",
+            "affiliates_subids4": "Sous-ID Affilié 4",
+            "affiliates_subids5": "Sous-ID Affilié 5",
+            "affiliates_params1": "Paramètres Affilié 1",
+            "affiliates_params2": "Paramètres Affilié 2",
+            "affiliates_params3": "Paramètres Affilié 3",
+            "affiliates_params4": "Paramètres Affilié 4",
+            "affiliates_params5": "Paramètres Affilié 5",
+            "deep_links": "URL Lien profond",
+            "aff_click_ids": "ID Clic Affilié",
+            "reasons": "Motif",
+            "redirections": "Redirection"
+        },
+        "logs": {
+            "title": "Journaux du trafic",
+            "menus": {
+                "clicks": "Clics non valides",
+                "postbacks": "Postbacks"
+            },
+            "info_conversions": "Vous ne trouvez pas certaines conversions ? Vérifiez le ",
+            "info_clicks": "Vous ne trouvez pas certains clics ? Vérifiez le "
+        }
+    }
+}

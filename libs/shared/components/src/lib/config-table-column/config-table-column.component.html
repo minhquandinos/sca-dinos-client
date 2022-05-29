@@ -1,0 +1,49 @@
+<ui-button-link [label]="title" [icon]="icon" type="simple" [className]="classNameForButton" (click)="showInfo()"></ui-button-link>
+
+<ng-template #infoTemplate>
+    <div class="config-table-column" #tableConfig>
+        <div class="config-table-column__groups" *ngIf="configs" [ngClass]="{ 'config-table-column__groups--half': grid === 2 }">
+            <div class="config-table-column__group" *ngFor="let column of configs; let iGroup = index">
+                <div class="mb-2" [ngClass]="{ 'd-none': !showGroup }">
+                    <div class="d-flex align-items-center line-height is-17">
+                        <span
+                            (click)="checkAllItemsInGroup(column)"
+                            class="title is-6"
+                            [ngClass]="{ 'cursor-pointer': allowCheckAllItemsInGroup }"
+                        >
+                            {{ 'table.column.' + column?.key | translate }}
+                        </span>
+                        <span
+                            class="ml-1"
+                            *ngIf="
+                                ('reports.table.tooltip.' + column?.key | translate) !== 'reports.table.tooltip.' + column?.key &&
+                                ('reports.table.tooltip.' + column?.key | translate) !== ''
+                            "
+                        >
+                            <ui-svg-icon
+                                class="cursor-info"
+                                icon="info-4"
+                                size="14"
+                                [tooltip]="'reports.table.tooltip.' + column?.keyForTooltip | translate"
+                            ></ui-svg-icon>
+                        </span>
+                    </div>
+                </div>
+                <app-config-table-column-list [params]="column.items"></app-config-table-column-list>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #infoFooterTemplate>
+    <div class="modal-footer__message ml-1" *ngIf="configTableColumnService?.showMessageWhenMax?.value">{{ messageWhenMax }}</div>
+    <div class="d-flex align-items-center justify-content-center" *ngIf="configs">
+        <ui-button-link
+            type="simple"
+            [label]="'shared.dictionary.cancel' | translate"
+            (click)="cancel()"
+            className="m-r-8"
+        ></ui-button-link>
+        <ui-button-link [label]="confirmButtonLabel | translate" (click)="apply()"></ui-button-link>
+    </div>
+</ng-template>

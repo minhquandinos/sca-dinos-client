@@ -1,0 +1,47 @@
+<div class="d-flex w-100" [formGroup]="group">
+    <div class="form-crud__item col-4 px-0">
+        <app-select
+            [items]="fields | customTranslate: 'leads_ui_page.receive.campaigns.fields.names' | async"
+            [placeholder]="'leads_ui_page.receive.campaigns.validations.placeholder.select_field' | translate"
+            formControlName="name"
+            itemValue="name"
+            itemLabel="title"
+            [hideSelected]="true"
+        ></app-select>
+    </div>
+
+    <div class="form-crud__item col-4 px-0">
+        <app-find-platform-list
+            platformList="leads_receive_validations_type"
+            itemLabel="title"
+            itemValue="id"
+            formName="type"
+            (change)="changeType()"
+            [hideSelected]="true"
+            [labelShowId]="false"
+            [placeholder]="'leads_ui_page.receive.campaigns.validations.placeholder.type' | translate"
+        ></app-find-platform-list>
+    </div>
+
+    <div class="form-crud__item m-r-8 col-3 px-0">
+        <ng-container *ngIf="validationType$ | async | isTruthy: campaignFieldValidationTypeEnum.RegExp; else chooseValueViaSelect">
+            <app-textarea formControlName="value"></app-textarea>
+        </ng-container>
+
+        <ng-template #chooseValueViaSelect>
+            <app-find-platform-list
+                [platformList]="validationType$ | async | campaignFieldValidationSelectPlatformList"
+                itemLabel="title"
+                itemValue="id"
+                formName="value"
+                [labelShowId]="false"
+                [placeholder]="'interface.basic.select' | translate"
+                [multiple]="validationType$ | async | isTruthy: campaignFieldValidationTypeEnum.Format"
+            ></app-find-platform-list>
+        </ng-template>
+    </div>
+
+    <div class="form-crud__item mt-1">
+        <ui-svg-icon icon="delete" (click)="delete()" tooltip="{{ 'tooltip.basic.delete' | translate }}"></ui-svg-icon>
+    </div>
+</div>

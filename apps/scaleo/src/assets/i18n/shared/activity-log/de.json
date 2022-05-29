@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Aktivitätsprotokoll",
+        "details": "Details",
+        "new_values": "Neue Werte",
+        "old_values": "Alte Werze",
+        "object": {
+            "affiliate": "Affiliate",
+            "postback": "Postback",
+            "gloabal_postback": "Globale postback",
+            "source": "Quelle",
+            "advertiser": "Werbender",
+            "domain": "Domain",
+            "manager": "Teammate",
+            "offer": "Angebot",
+            "offer_request": "Angebotsanfrage",
+            "goal": "Ziel",
+            "tracking": "Tracking",
+            "targeting": "Targeting",
+            "affiliate_access": "Affiliate Zugang",
+            "landing_page": "Landing Page",
+            "creative": "Creative",
+            "custom_param": "Custom Parameters",
+            "you": "Du",
+            "announcement": "Ankündigung"
+        },
+        "owner": {
+            "offer" : "für Angebot",
+            "affiliate": "für affiliate",
+            "you": "für dich"
+        },
+        "action": {
+            "add": "wurde hinzugefügt",
+            "edit": "wurde aktualisiert",
+            "view": "wurde angeschaut",
+            "delete": "wurde gelöscht",
+            "signup": "registriert",
+            "login": "angemeldet",
+            "profile_edit": "sein Profil akutalisiert",
+            "logout": "abgemeldet",
+            "approved": "wurde genehmigt",
+            "declined": "wurde abgelehnt",
+            "login_as": "angemeldet als"
+        },
+        "action_for_offer_request": {
+            "add": "angefragt",
+            "approved": "wurde genehmigt",
+            "declined": "wurde abgelehnt"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "angefragt",
+            "approved": "wurde genehmigt",
+            "declined": "wurde abgelehnt"
+        },
+        "action_for_goal": {
+            "add": "wurde hinzugefügt",
+            "edit": "wurde aktualisiert",
+            "delete": "wurde gelöscht"
+        },
+        "action_custom_params": {
+            "add": "wurden hinzugefüt",
+            "edit": "wurden aktualisiert",
+            "delete": "wurden gelöscht"
+        }
+    }
+}

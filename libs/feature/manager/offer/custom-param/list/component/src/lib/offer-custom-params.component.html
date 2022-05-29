@@ -1,0 +1,46 @@
+<app-card [headerDivider]="true" contentClassName="p-0">
+    <ng-container cardHeader>
+        <span class="title">{{ 'offers_page.custom_parameters.title' | translate }}</span>
+
+        <div class="ml-auto my-auto">
+            <ui-button-link
+                type="floating"
+                [label]="'offers_page.custom_parameters.add' | translate"
+                icon="plus-small"
+                (click)="addCustomParams()"
+            ></ui-button-link>
+        </div>
+    </ng-container>
+
+    <app-filters
+        [formGroup]="form"
+        [title]="'interface.basic.filtered_by' | translate"
+        [results]="totalCount$ | async"
+        className="pl-3"
+    >
+        <app-filter>
+            <app-find-platform-statuses
+                statusList="custom_params_statuses"
+                itemValue="status"
+                formName="status"
+                (toggle)="statusWasChanged($event)"
+                [firstElement]="{ id: 0, status: '', title: 'statuses.status' }"
+            ></app-find-platform-statuses>
+        </app-filter>
+    </app-filters>
+
+    <app-offer-custom-params-list
+        [items]="items$ | async"
+        [loading]="loading$ | async"
+        (openEditForm)="addCustomParams($event)"
+    ></app-offer-custom-params-list>
+
+    <ng-container cardFooter>
+        <app-custom-pagination
+            *ngIf="showPagination$ | async"
+            [pagination]="pagination$ | async"
+            (toggle)="pageWasChanged($event)"
+            (togglePerPage)="perPageWasChanged($event)"
+        ></app-custom-pagination>
+    </ng-container>
+</app-card>

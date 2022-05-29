@@ -1,0 +1,10 @@
+<app-card contentClassName="p-t-25 p-b-41 p-x-20">
+    <ng-container cardHeader>
+        <div class="title">{{ 'finances_page.balance.title' | translate }}</div>
+    </ng-container>
+
+    <app-affiliate-billing-balance
+        [affiliateId]="affiliateId"
+        [showPendingBalance]="showPendingBalance"
+    ></app-affiliate-billing-balance>
+</app-card>

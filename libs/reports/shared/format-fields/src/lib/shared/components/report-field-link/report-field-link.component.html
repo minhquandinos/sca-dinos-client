@@ -1,0 +1,4 @@
+<span class="text-pre-wrap" *ngIf="(item$ | async) && (hasTitle$ | async)">
+    <app-hyperlink [link]="item$ | async" [permission]="hasUrl$ | async" valueClassName="additionalClass"></app-hyperlink>
+</span>
+

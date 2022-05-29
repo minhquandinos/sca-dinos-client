@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+
+  # See https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html
+
+  build:
+    on-failure: ABORT
+    commands:
+      - echo "Run some tests here..."

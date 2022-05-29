@@ -1,0 +1,35 @@
+<scaleo-manager-settings-card [title]="'mobile_app.title' | translate">
+    <scaleo-feature-shared-generate-deep-link></scaleo-feature-shared-generate-deep-link>
+
+    <form class="m-t-40" [formGroup]="form">
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="'administration_settings.mobile_app.access.role.managers' | translate"
+                [formControlName]="mobileAppControlEnum.Managers"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="'administration_settings.mobile_app.access.role.affiliates' | translate"
+                [formControlName]="mobileAppControlEnum.Affiliates"
+            ></app-custom-switch>
+        </div>
+
+        <div class="form-group">
+            <app-custom-switch
+                *ngIf="isLoad; else skeletonTpl"
+                [label]="'administration_settings.mobile_app.access.role.advertisers' | translate"
+                [formControlName]="mobileAppControlEnum.Advertisers"
+            ></app-custom-switch>
+        </div>
+    </form>
+</scaleo-manager-settings-card>
+
+<ng-template #skeletonTpl>
+    <ui-skeleton className="w-50">
+        <app-ui-skeleton-input ></app-ui-skeleton-input>
+    </ui-skeleton>
+</ng-template>

@@ -1,0 +1,83 @@
+<app-container-widget
+    [title]="title$ | async"
+    [activeWidget]="widget?.active"
+>
+    <div class="custom-dashboard-widget-network_summary__items">
+        <div
+            class="custom-dashboard-widget-network_summary__item"
+            *ngFor="let item of widgetData$ | async; trackBy: trackByFn"
+            [ngClass]="{ 'custom-dashboard-widget-network_summary__item-live-stream': item.key === 'live_stream' }"
+        >
+            <scaleo-chart-compare-widget
+                *ngIf="item.key !== 'live_stream'; else liveStreamWidget"
+                [widget]="item"
+                [date]="selectedCurrentPeriod$ | async"
+                [dateRange]="date$ | async"
+            ></scaleo-chart-compare-widget>
+            <ng-template #liveStreamWidget>
+                <app-network-summary-live-stream [configRows]="widget.gridConfig.rows"></app-network-summary-live-stream>
+            </ng-template>
+        </div>
+    </div>
+
+    <ng-container containerFooter *ngIf="widget.gridConfig.rows !== gridConfigRowEnum.One">
+        <div class="w-100 d-flex align-items-center">
+            <div class="custom-dashboard-compare-period d-flex">
+                <div class="custom-dashboard-compare-period__current"><i></i> {{ selectedCurrentPeriod$ | async }}</div>
+                <div class="custom-dashboard-compare-period__previous"><i></i> {{ selectedPreviousPeriod$ | async }}</div>
+            </div>
+            <div class="ml-auto">
+                <ui-button-link
+                    *ngxPermissionsOnly="permissions.canAccessReports"
+                    iconPosition="right"
+                    icon="arrow-right-3"
+                    type="simple"
+                    color="main"
+                    (click)="toReport()"
+                    [label]="'dashboard_grid.view_report' | translate"
+                ></ui-button-link>
+            </div>
+        </div>
+    </ng-container>
+</app-container-widget>
+
+<ng-template #settingsTemplate>
+    <!--    <ui-old-dropdown-menu-->
+    <!--        label="Edit"-->
+    <!--        dropMenuPosition="left"-->
+    <!--    >-->
+    <!--        <div class="d-flex">-->
+    <!--            <div>-->
+    <!--                Advanced widget-->
+    <!--            </div>-->
+    <!--            <div>-->
+    <!--                <app-custom-switch></app-custom-switch>-->
+    <!--            </div>-->
+    <!--        </div>-->
+
+    <!--        <div-->
+    <!--            [sortablejs]="settingsWidget"-->
+    <!--            [sortablejsOptions]="{ handle: '.test__move' }"-->
+    <!--        >-->
+    <!--            <div-->
+    <!--                *ngFor="let menu of settingsWidget"-->
+
+    <!--            >-->
+    <!--                <div class="d-flex">-->
+    <!--                    <div>input</div>-->
+    <!--                    <div>{{ menu.name }}</div>-->
+    <!--                    <div>-->
+    <!--                    <span class="test__move cursor-move">-->
+    <!--                        <ui-svg-icon icon="drag"></ui-svg-icon>-->
+    <!--                    </span>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </ui-old-dropdown-menu>-->
+    <!--    <ui-button-link-->
+    <!--        icon="main_columns"-->
+    <!--        type="floating"-->
+    <!--        label="Edit"-->
+    <!--    ></ui-button-link>-->
+</ng-template>

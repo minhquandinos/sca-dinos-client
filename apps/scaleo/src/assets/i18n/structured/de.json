@@ -1,0 +1,115 @@
+{
+    "billing": "Rechnung",
+    "referrals": "Empfehlungen",
+    "tools": "Tools",
+    "delete": {
+        "delete_confirm_title": "Bist du dir sicher?",
+        "delete_confirm_text": "Diese Gegenstände werden gelöscht."
+    },
+    "interface": {
+        "basic": {
+            "sort": {
+                "is_featured": "Hervorgehoben"
+            }
+        }
+    },
+    "visibility_types": {
+        "available": "Verfügbar"
+    },
+    "quick_links": {
+        "title": "Quick-Links"
+    },
+    "affiliate": {
+        "postback": {
+            "title": "Postbacks",
+            "add": "Postback hinzufügen",
+            "created": "Postback wurde erfolgreich hinzugefügt",
+            "edit": "Postback bearbeiten",
+            "deleted": "Postback wurde erfolgreich gelöscht",
+            "add_as_title": "Postback hinzufügen",
+            "global": "Global",
+            "offer": "Angebot",
+            "list_postback": "Postback",
+            "list_html": "HTML Pixel (Cookie-basierend)",
+            "list_table_postback": "Postback",
+            "list_table_html": "HTML Pixel (Cookie-basierend)",
+            "all_postbacks": "Alle Postbacks",
+            "global_postbacks": "Globale Postbacks",
+            "goal": "Ziel",
+            "description": {
+                "level_global_for_affiliate": "Global: Postback wird für alle Angebote ausgelöst (alle Ziele außer CPC-Typ).",
+                "level_offer_for_affiliate": "Angebot: Postback wird nur für das gewählte Angebot ausgeführt. Wenn das Ziel nicht angegeben ist â€\" wird er für alle Ziele auf diesem Angebot ausgeführt",
+                "conversion_status_for_affiliate": "Postback wird nur für diesen Conversion-Status ausgelöst.",
+                "method_for_affiliate": "Postback Typ, der von deinem System unterstützt wird."
+            }
+        },
+        "source": {
+            "title": "Quellen",
+            "add": "Quelle hinzufügen"
+        }
+    },
+    "macros_available_postbacks": {
+        "title": "Macros Verfügbar",
+        "offer_id": "Angebot â€™s ID der Plattform",
+        "affiliate_id": "ID des Affiliates, der das Angebot bewirbt.",
+        "sub_id1": "Affiliate Sub ID 1 im Tracking Link angegeben.",
+        "sub_id2": "Affiliate Sub ID 2 im Tracking Link angegeben.",
+        "sub_id3": "Affiliate Sub ID 3 im Tracking Link angegeben.",
+        "sub_id4": "Affiliate Sub ID 4 im Tracking Link angegeben.",
+        "sub_id5": "Affiliate Sub ID 5 im Tracking Link angegeben.",
+        "click_id": "Einzigartige 32-stellige alphanumerische Zeichenfolge, die generiert und jedem Klick in der Plattform zugewiesen wird",
+        "link_id": "Biete zusätzlichen Link an, der im Tracking Link angegeben ist.",
+        "source_id": "Die im Tracking Link angegebene Affiliate Quellen ID.",
+        "aff_param1": "Affiliate Zusatzparameter 1 im Tracking Link angegeben.",
+        "aff_param2": "Affiliate Zusatzparameter 2 im Tracking Link angegeben.",
+        "aff_param3": "Affiliate Zusatzparameter 3 im Tracking Link angegeben.",
+        "aff_param4": "Affiliate Zusatzparameter 4 im Tracking Link angegeben.",
+        "aff_param5": "Affiliate Zusatzparameter 5 im Tracking Link angegeben.",
+        "adv_param1": "Werbender Zusatzparameter 1 bei der Conversion angegeben.",
+        "adv_param2": "Werbender Zusatzparameter 2 bei der Conversion angegeben.",
+        "adv_param3": "Werbender Zusatzparameter 3 bei der Conversion angegeben.",
+        "adv_param4": "Werbender Zusatzparameter 4 bei der Conversion angegeben.",
+        "adv_param5": "Werbender Zusatzparameter 5 bei der Conversion angegeben.",
+        "amount": "Verkaufsbetrag auf Advertiser Seite.",
+        "conv_status": "Status der Conversion  (genehmigt / ausstehend / abgelehnt).",
+        "offer_name": "Angebotâ€™s Name der Plattform.",
+        "creative_id": "Angebot Creative ID verwendet.",
+        "aff_click_id": "Affiliate Click ID. Eindeutige ID für jeden vom Affiliate gesendeten Klick.",
+        "deep_link": "Die im Tracking Link angegebene Affiliate Quellen ID.",
+        "goal_id": "Angebotâ€™s Ziel ID der Plattform.",
+        "adv_order_id": "Die bei der Conversion angegebene Order-ID des Werbenden.",
+        "adv_user_id": "Die bei der Conversion angegebene Benutzer-ID des Werbenden.",
+        "offer_currency": "Ausgewählte Währung des Angebots.",
+        "transaction_id": "Transaktions-ID. Eindeutige ID für jede Transaktion auf der Plattform.",
+        "track_id": "Zusätzliche Informationen vom Werbetreibenden, die bei der Conversion angegeben werden.",
+        "payout": "Wert der Auszahlung des Afiliate",
+        "ip": "IP-Adresse, die die Click-Session gestartet hat.",
+        "user_agent": "Der Agent-String des Nutzers wird zum Zeitpunkt des Clicks bestimmt.",
+        "device_type": "Geräte-String des Nutzers, der zum Zeitpunkt des Clicks ermittelt wird.",
+        "device_os": "OS String des Benutzers, der zum Zeitpunkt des Clicks bestimmt wurde.",
+        "connection_type": "Der Verbindungstyp des Benutzers wird zum Zeitpunkt des Clicks bestimmt.",
+        "mobile_operator": "Der Verbindungstyp des Benutzers wird zum Zeitpunkt des Clicks bestimmt.",
+        "geo_country_code": "Ländercode des Nutzers, der zum Zeitpunkt des Clicks ermittelt wird.",
+        "geo_country": "Das Land des Nutzers wird zum Zeitpunkt des Clicks bestimmt.",
+        "geo_region": "Region des Nutzers zum Zeitpunkt des Clicks bestimmt.",
+        "geo_city": "Die Stadt des Nutzers wird zum Zeitpunkt des Clicks bestimmt.",
+        "idfa": "Apple iOS Advertising Identifier (IDFA).",
+        "gaid": "Google Android Advertising Identifier (GAID)."
+    },
+    "referrals_page": {
+        "commission_info": "Empfehle neue Affiliates und erhalte eine {{ commission }} Provision von den Einnahmen dieser Affiliates jeden Monat.",
+        "commission_info_for_flat": "Empfehle neue Affiliates und erhalte eine einmalige Provision {{ commission }} für jeden empfohlenen Affiliate.",
+        "referrals_title": "Empfehlungen",
+        "link": "Dein persönlicher Empfehlungs-Link:",
+        "you_referrals_title": "Deine Empfehlungen",
+        "form": {
+            "referral_commission": "Empfehlungsprovision"
+        }
+    },
+    "tools_page": {
+        "api": {
+            "title": "API",
+            "hint_for_enable_api": "Bitte kontaktiere deinen Manager, um eine API für dich zu aktivieren."
+        }
+    }
+}

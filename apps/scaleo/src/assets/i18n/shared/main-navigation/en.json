@@ -1,0 +1,32 @@
+{
+    "main_navigation": {
+        "getting-started": "Getting Started",
+        "affiliates": "Affiliates",
+        "advertisers": "Advertisers",
+        "statistics": "Reports",
+        "reports": "Reports",
+        "payments": "Payments",
+        "outbound": "Outbound",
+        "team": "Team",
+        "pay": "Pay",
+        "analyse": "Analyse",
+        "administer": "Administer",
+        "configure": "Configure",
+        "administrate": "Administrate",
+        "administration": "Administration",
+        "settings": "Settings",
+        "affiliate_billing": "Affiliate Billing",
+        "transactions": "Transactions",
+        "dashboard": "Dashboard",
+        "offers": "Offers",
+        "manage": "Manage",
+        "activity_log": "Activity Log",
+        "leads": "Manage Leads",
+        "logs": "Logs",
+        "receive-leads": "Receive Leads",
+        "deliver-leads": "Deliver Leads",
+        "billing": "Billing",
+        "referrals": "Referrals",
+        "tools": "Tools"
+    }
+}

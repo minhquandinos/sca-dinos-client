@@ -1,0 +1,32 @@
+<div [ngClass]="{'d-flex': showHintTimeZone}">
+    <label class="field-label field-label-top" *ngIf="type === 'input' && label">{{ label }}</label>
+    <div [ngClass]="{'date-range': type === 'block'}" #dateRange (click)="datepickerRef.click()">
+        <span #hiddenValueRef id="hiddenBlock" class="position-absolute" style="visibility: hidden">{{ inputValue }}</span>
+        <input
+            class="datepicker-input"
+            readonly
+            type="text"
+            #datepickerRef
+            name="daterangeInput"
+            [ngClass]="{'field-text field-text-size-base': type === 'input'}"
+            daterangepicker
+            [disabled]="disabled"
+            [options]="options$ | async"
+            (applyDaterangepicker)="appliedDate($event)"
+            (showDaterangepicker)="showPicker($event)"
+            (hideDaterangepicker)="hidePicker($event)"
+            [placeholder]="placeholder || ''"
+        />
+    </div>
+    <ng-container *ngIf="showHintTimeZone">
+        <div
+            class="d-none d-md-flex align-items-center based-on-time-zone color__gray3"
+        >
+            {{ ('interface.date.based_on' | translate) + timeZoneHint }}
+        </div>
+    </ng-container>
+</div>
+
+<div id="timezone" class="timezone-daterange" #timezone (change)="$event">
+
+</div>

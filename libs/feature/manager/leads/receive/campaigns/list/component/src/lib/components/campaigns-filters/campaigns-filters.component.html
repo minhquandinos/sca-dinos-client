@@ -1,0 +1,40 @@
+<app-filters [title]="'interface.basic.filtered_by' | translate" [results]="totals">
+    <form [formGroup]="filterForm" class="d-flex align-items-md-center">
+        <app-filter>
+            <app-find-platform-statuses
+                statusList="statuses"
+                [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+                [exceptIds]="excludeStatusId"
+                itemValue="status"
+                formName="status"
+                (toggle)="setFilterStatus($event)"
+            ></app-find-platform-statuses>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'reports_page.filters.offers' | translate"
+                [count]="offersCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-offer
+                    #findOfferComponent
+                    formName="offers"
+                    itemValue="id"
+                    itemLabel="title"
+                    [multiple]="true"
+                ></app-find-offer>
+            </app-dropdown-popup>
+        </app-filter>
+    </form>
+
+    <section filter-selected *ngIf="selectedAnyFilters">
+        <app-output-selected-filters
+            [title]="'reports_page.filters.offers' | translate"
+            [selected]="offersSelected$ | async"
+            [findComponent]="findOfferComponent"
+            (clear)="clearFilter('offers')"
+            (remove)="removeFilter('offers', $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>

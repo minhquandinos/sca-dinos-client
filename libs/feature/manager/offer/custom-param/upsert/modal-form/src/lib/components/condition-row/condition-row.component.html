@@ -1,0 +1,90 @@
+<div [formGroup]="group">
+    <div class="d-flex">
+        <section class="d-flex w-100 flex-column flex-md-row m-r-8">
+            <div class="form-crud__item">
+                <app-find-platform-list
+                    platformList="custom_params_conditions"
+                    [placeholder]="'offers_page.custom_parameters.form.conditions.select_conditions' | translate"
+                    formName="type"
+                    [labelShowId]="false"
+                    (toggle)="changeCondition()"
+                ></app-find-platform-list>
+            </div>
+
+            <ng-container *ngIf="conditionType$ | async as condition">
+                <div class="form-crud__item">
+                    <app-find-platform-list
+                        platformList="custom_params_types"
+                        [labelShowId]="false"
+                        [placeholder]="'offers_page.targeting.select_permission' | translate"
+                        formName="permission"
+                    ></app-find-platform-list>
+                </div>
+
+                <div class="form-crud__item">
+                    <ng-container [ngSwitch]="true">
+                        <ng-container *ngSwitchCase="condition | isConditionId: [
+                            customParamsConditionsIdEnum.AffiliateSub1,
+                            customParamsConditionsIdEnum.AffiliateSub2,
+                            customParamsConditionsIdEnum.AffiliateSub3,
+                            customParamsConditionsIdEnum.AffiliateSub4,
+                            customParamsConditionsIdEnum.AffiliateSub5
+                        ]">
+                            <app-input
+                                formControlName="conditions"
+                                [placeholder]="'offers_page.custom_parameters.form.conditions.affiliate_sub' | translate"
+                            ></app-input>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="condition | isConditionId: customParamsConditionsIdEnum.DeviceOSVersion">
+                            <app-input
+                                formControlName="conditions"
+                                numeric="float"
+                                [placeholder]="'offers_page.targeting.select_permission_device_os' | translate"
+                            ></app-input>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="condition | isConditionId: customParamsConditionsIdEnum.ConnectionType">
+                            <app-find-platform-list
+                                platformList="connection_types"
+                                [placeholder]="'interface.basic.select2' | translate"
+                                formName="conditions"
+                                [multiple]="true"
+                                [hideSelected]="true"
+                            ></app-find-platform-list>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="condition | isConditionId: customParamsConditionsIdEnum.DeviceType">
+                            <app-find-platform-list
+                                platformList="device_types"
+                                [placeholder]="'interface.basic.select2' | translate"
+                                formName="conditions"
+                                [multiple]="true"
+                                [hideSelected]="true"
+                            ></app-find-platform-list>
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <app-select
+                                *ngIf="condition"
+                                [items]="conditions$ | async"
+                                [placeholder]="'interface.basic.select2' | translate"
+                                [multiple]="true"
+                                [hideSelected]="true"
+                                formControlName="conditions"
+                                itemLabel="title"
+                                [searchable]="true"
+                                (change)="searching('')"
+                                (search)="searching($event)"
+                            ></app-select>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </section>
+
+        <div class="d-flex align-items-center">
+            <ui-svg-icon
+                icon="delete"
+                (click)="delete()"
+                [tooltip]="'tooltip.basic.delete' | translate"
+            ></ui-svg-icon>
+        </div>
+    </div>
+</div>

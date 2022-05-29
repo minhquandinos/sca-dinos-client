@@ -1,0 +1,25 @@
+<div [ngClass]="className" class="manager-list flex-wrap" *ngIf="managersAll?.length > 0">
+    <div
+        class="d-block manager-list__item"
+        *ngFor="let manager of managersAll | slice: 0: endIndex; let i = index; trackBy: trackByFn"
+    >
+        <div
+            class="d-flex align-items-center"
+        >
+            <app-manager-chip
+                [image]="manager?.image | defaultImage: 'manager'"
+                [name]="manager?.firstname + ' ' + manager?.lastname"
+            ></app-manager-chip>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center" *ngIf="managersAll.length > 2  && !showAll">
+        <ui-svg-icon
+            icon="more-horisontal-small"
+            size="14"
+            className="m-l-3"
+            [tooltip]="managersAll | managerListTooltip"
+        ></ui-svg-icon>
+    </div>
+
+</div>

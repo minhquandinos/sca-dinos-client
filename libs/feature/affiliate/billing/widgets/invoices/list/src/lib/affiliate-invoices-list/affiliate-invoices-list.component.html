@@ -1,0 +1,158 @@
+<div>
+    <ui-page-wrapper borderRadius="4" className="mt-3">
+        <ui-page-wrapper-header
+            className="d-flex flex-wrap p-l-32 p-r-20 align-items-center"
+            [haveBorderBottom]="false"
+            [appUiPageWrapperHeaderColor]="selectedRows.length > 0"
+        >
+            <ng-container [ngTemplateOutlet]="!headerColor?.toggleColor ? defaultHeader : selectedHeader"></ng-container>
+        </ui-page-wrapper-header>
+
+        <ui-page-wrapper-content className="mb-0 p-0">
+            <ui-table2
+                [columns]="columns$ | async"
+                [items]="items$ | async"
+                [sort]="true"
+                [defaultSortDirection]="sortDirection$ | async"
+                [defaultSortField]="sortField$ | async"
+                [stickyHead]="true"
+                [loading]="loading$ | async"
+                (sorting)="sortWasChanged($event?.current)"
+                [showSelect]="true"
+                selectItemValue="id"
+                (selectAll)="selectAll($event)"
+                [customHorizontalScroll]="true"
+                [controlTemplate]="controlTemplate"
+                class="invoice-items-table"
+            >
+                <ng-template uiTable2ColTemplate="invoice_number" let-invoiceNumber="value" let-item="valueRow">
+                    <app-billing2-invoice-link-to-detail
+                        [link]="item?.id"
+                        [id]="item?.id"
+                        [status]="item?.status"
+                        [invoice]="invoiceNumber"
+                    ></app-billing2-invoice-link-to-detail>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="status" let-status="value">
+                    <span class="text-nowrap" [appStatus2Color]="status" type="invoices_statuses">
+                        {{ status | statusLabel:'invoices_statuses' | async }}
+                    </span>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="affiliate" let-affiliate="value">
+                    <app-hyperlink
+                        *ngIf="affiliate"
+                        linkClassName="text-nowrap"
+                        [permission]="permissions.canAddEditDeleteAffiliates"
+                        [link]="{
+                            title: affiliate?.id + ' ' + affiliate?.name | format:'idName',
+                            link: '/affiliates/' + affiliate?.id | navigateRoot
+                        }"
+                    ></app-hyperlink>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="date" let-date="value">
+                     <span class="text-nowrap">
+                        {{ date | format:'date': 'onlyDateWithTime' }}
+                    </span>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="amount" let-amount="value">
+                    {{ amount?.value | format:'money': { currency: amount?.currency } }}
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="attachment" let-attachment="value" let-item="valueRow">
+                    <scaleo-billing2-invoice-attachment
+                        *ngIf="item.id"
+                        [id]="item.id"
+                        [attachment]="attachment"
+                        [status]="item.status"
+                        (upload)="uploadFile($event, item.id)"
+                    ></scaleo-billing2-invoice-attachment>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="payment_method" let-paymentMethod="value">
+                    <app-payment-method-detail
+                        *ngIf="paymentMethod"
+                        [logo]="paymentMethod.image"
+                        [method]="paymentMethod.info"
+                        [tooltipText]="paymentMethod.title"
+                        [logoWidth]="24"
+                    ></app-payment-method-detail>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="period" let-period="value" >
+                    <span class="text-nowrap">{{ period }}</span>
+                </ng-template>
+
+                <ng-template uiTable2ColTemplate="internal_notes" let-internal_notes="value" >
+                    {{ internal_notes | truncateText:20 }}
+                </ng-template>
+            </ui-table2>
+        </ui-page-wrapper-content>
+
+        <ui-page-wrapper-footer>
+            <app-custom-pagination
+                [pagination]="pagination$ | async"
+                [pageInQueryParams]="true"
+                (toggle)="pageWasChanged($event)"
+                (togglePerPage)="perPageWasChanged($event)"
+                *ngIf="showPagination$ | async"
+            ></app-custom-pagination>
+        </ui-page-wrapper-footer>
+
+    </ui-page-wrapper>
+</div>
+
+<ng-template #defaultHeader>
+    <div class="d-flex align-items-center">
+        <ng-content select="[header]"></ng-content>
+    </div>
+
+    <div class="d-flex my-auto ml-0 ml-sm-auto flex-wrap">
+        <app-report-export
+            (exportFormat)="exportData($event)"
+            buttonType="simple"
+            buttonIcon="ic_export"
+        ></app-report-export>
+
+        <app-config-table-column2
+            class="ml-2"
+            [hidden]="headerColor.toggleColor"
+            [title]="'interface.basic.columns' | translate"
+            [configs]="columnsOptions$ | async"
+            grid="2"
+            (columnChanged)="columnWasChanged($event)"
+            [requiredFields]="requiredColumns"
+        ></app-config-table-column2>
+    </div>
+</ng-template>
+
+<ng-template #selectedHeader>
+    <div class="d-flex align-items-center page-wrapper-header__selected-value-counter">
+        <span class="color__white">
+            {{ selectedRows.length }} {{ 'interface.basic.selected' | translate }}
+        </span>
+        <ui-svg-icon
+            aria-hidden="true"
+            icon="remove-tag"
+            [size]="24"
+            className="report-conversions__close"
+            (click)="clearSelected()">
+        </ui-svg-icon>
+    </div>
+
+    <app-report-export
+        (exportFormat)="exportData($event)"
+        buttonType="main-floating"
+        buttonIcon="ic_export_white"
+    ></app-report-export>
+
+    <app-invoice-download
+        class="ml-2"
+        place="all"
+        [invoice]="selectedRows"
+        (downloaded)="downloadedPdf()"
+    ></app-invoice-download>
+</ng-template>

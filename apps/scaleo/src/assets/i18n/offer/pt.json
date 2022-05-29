@@ -1,0 +1,91 @@
+{
+    "smart_link_page": {
+        "title": "Smart Link",
+        "title2": "Smart Links",
+        "table": {
+            "allowed_traffic_types": "Allowed Traffic Types",
+            "available_for_aff": {
+                "available": "Available for Affiliates",
+                "unavailable": "Unavailable for Affiliates"
+            },
+            "offers_with_tags": "Offers with tags",
+            "offers_with_tags_description": "All active offers with selected tags will be included into Smart Link.",
+            "other_offers": "Other offers",
+            "get_link": "Get Link",
+            "traffic_distribution": {
+                "highest_epc": "Highest EPC"
+            }
+        },
+        "form": {
+            "traffic_distribution": "Traffic Distribution"
+        }
+    },
+    "offers_page": {
+        "navigation": {
+            "featured": "Ofertas em destaque"
+        },
+        "tracking": {
+            "title": "Rastreamento",
+            "form": {
+                "additional_parameters": "Parâmetros adicionais",
+                "tracking_link_for_affiliate": "Seu link de rastreamento",
+                "tracking_link_description_for_affiliate": "Este é seu link personalizado, que pode ser usado para promover a oferta.",
+                "landing_page": "Landing page",
+                "usage_examples": "Exemplos de uso",
+                "link_builder": {
+                    "title": "Criador de link",
+                    "affiliate_link_builder": "Criador de link de afiliado",
+                    "add_sub_id": "Adicionar Sub ID",
+                    "add_aff_click_id": "Adicionar ID de clique de afiliado",
+                    "add_mobile_parameters": "Adicionar parâmetros móveis",
+                    "apple_ios_idfa": "Identificador de Publicidade do iOS da Apple iOS (IDFA)",
+                    "google_android_gaid": "Identificador de Publicidade do Android da Google (GAID)",
+                    "set_deeplink": "Adicionar Deeplink",
+                    "deeplink": "URL do Deeplink",
+                    "add_more": "Adicionar mais",
+                    "affiliate": {
+                        "sub_id1": "Sub ID 1",
+                        "sub_id2": "Sub ID 2",
+                        "sub_id3": "Sub ID 3",
+                        "sub_id4": "Sub ID 4",
+                        "sub_id5": "Sub ID 5",
+                        "aff_param1": "Parâmetro 1 do afiliado",
+                        "aff_param2": "Parâmetro 2 do afiliado",
+                        "aff_param3": "Parâmetro 3 do afiliado",
+                        "aff_param4": "Parâmetro 4 do afiliado",
+                        "aff_param5": "Parâmetro 5 do afiliado"
+                    },
+                    "impressions_pixel": "Impressions Pixel"
+                }
+            },
+            "optional_params": {
+                "aff_click_id": "ID de clique do afiliado. ID único para cada clique enviado do afiliado.",
+                "sub_id1": "SUB ID 1 do afiliado para especificar subfonte de tráfego.",
+                "sub_id2": "SUB ID 2 do afiliado para especificar subfonte de tráfego.",
+                "sub_id3": "SUB ID 3 do afiliado para especificar subfonte de tráfego.",
+                "sub_id4": "SUB ID 4 do afiliado para especificar subfonte de tráfego.",
+                "sub_id5": "SUB ID 5 do afiliado para especificar subfonte de tráfego.",
+                "aff_param1": "Parâmetro 1 adicional para qualquer finalidade.",
+                "aff_param2": "Parâmetro 2 adicional para qualquer finalidade.",
+                "aff_param3": "Parâmetro 3 adicional para qualquer finalidade.",
+                "aff_param4": "Parâmetro 4 adicional para qualquer finalidade.",
+                "aff_param5": "Parâmetro 5 adicional para qualquer finalidade.",
+                "source_id": "ID da fonte do afiliado previamente adicionado na plataforma (deve existir e estar ativo).",
+                "link_id": "Link adicional de oferta (deve existir e estar ativo).",
+                "deep_link": "Link para qualquer página no site do anunciante. O recurso deve ser ativado para a oferta.",
+                "creative_id": "ID do criativo para a oferta (deve existir e estar ativo).",
+                "idfa": "Identificador de Publicidade do iOS da Apple (iOS 6+).",
+                "gaid": "Identificador de Publicidade do Android da Google."
+            }
+        },
+        "custom_url": {
+            "title": "API de envio do pedido "
+        },
+        "request": {
+            "active": "Você está autorizado a administrar esta oferta.",
+            "pending": "O pedido de oferta foi enviado {{ date }}",
+            "rejected": "O pedido da oferta foi rejeitado.",
+            "button": "Solicitar oferta"
+        }
+    }
+}

@@ -1,0 +1,134 @@
+.modal--config-table-conversions {
+    //.modal-dialog {
+    //    width: 760px;
+    //}
+
+    &-admin, &-manager, &-limited-affiliate-manager, &-limited-advertiser-manager {
+        //.modal-dialog {
+        //    width: 970px;
+        //}
+
+
+
+        //.config-table-column__group {
+        //    &:nth-child(2) {
+        //        grid-row-start: 1;
+        //        grid-column-start: 1;
+        //    }
+        //
+        //    &:nth-child(3) {
+        //        grid-row-start: 2;
+        //        grid-column-start: 2;
+        //    }
+        //
+        //    &:nth-child(3), &:nth-child(6), &:nth-child(7) {
+        //        margin-top: -330px;
+        //    }
+        //}
+    }
+}
+
+.modal--config-table-conversions {
+
+    &-affiliate {
+        .config-table-column__group {
+            &:nth-child(4), &:nth-child(5) {
+                margin-top: -145px;
+            }
+        }
+    }
+
+    &-advertiser {
+        .config-table-column__group {
+            &:nth-child(4) {
+                grid-row-start: 1;
+            }
+
+            &:nth-child(3) {
+                grid-column-start: 2;
+                grid-row-start: 1;
+            }
+
+            &:nth-child(2) {
+                grid-column-start: 2;
+                grid-row-start: 1;
+                margin-top: 100px;
+            }
+
+            &:nth-child(5) {
+                grid-row-start: 1;
+                grid-column-start: 3;
+            }
+
+            &:nth-child(1) {
+                grid-column-start: 2;
+                grid-row-start: 1;
+                margin-top: 230px;
+            }
+        }
+    }
+}
+
+.report-conversions {
+
+    $self: &;
+
+    &__selected {
+        background-color: $color__main-bg-color;
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+    &__dropdown-menu {
+        &.show {
+            box-shadow: none !important;
+            background-color: unset !important;
+        }
+    }
+
+    &__transactions-counter {
+        position: relative;
+        padding-right: .5rem;
+        margin-right: 1rem;
+
+        &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            height: 24px;
+            width: 1px;
+            background: $color__light-blue2;
+        }
+    }
+
+    &__close {
+        cursor: pointer;
+        fill: white;
+    }
+
+    &-import {
+
+        $self: &;
+
+        &__items {
+            *:first-child > #{$self}__item {
+                border-top: none;
+            }
+        }
+
+        &__item {
+            border-top: 1px solid $color__light-gray10;
+        }
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    .report-conversions {
+        &-import {
+            .btn-icon .custom-icon {
+                margin-left: 0;
+            }
+        }
+    }
+}

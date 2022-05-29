@@ -1,0 +1,13 @@
+{
+    "offers_requests_page": {
+        "title": "Teklif Talepleri"
+    },
+    "statuses": {
+        "paid": "Ödenmiş",
+        "not_paid": "Ödenmemiş",
+        "in_progress": "İşlemde",
+        "require_approval": "Onay Gerektir"
+    }
+}
+
+

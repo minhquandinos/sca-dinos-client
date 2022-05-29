@@ -1,0 +1,31 @@
+<label
+    class="form-checkbox d-flex align-items-center"
+    [ngClass]="className"
+    [for]="checkboxId || formControlName"
+>
+    <span class="text-nowrap">
+        <span class="form-checkbox_title">
+            {{ label | translate }}
+        </span>
+        <span class="form-checkbox__placeholder d-block" *ngIf="placeholder">{{ placeholder }}</span>
+        <a *ngIf="link && linkLabel; else withOutLink" target="_blank" [href]="link">{{linkLabel}}</a>
+        <ng-template #withOutLink>
+              <span *ngIf="linkLabel" class="form-checkbox_title text-nowrap">{{ linkLabel  }}</span>
+        </ng-template>
+        <span class="field-label__required" *ngIf="required">*</span>
+    </span>
+
+    <input
+        type="checkbox"
+        #checkboxRef
+        [id]="checkboxId || formControlName"
+        [checked]="inputChecked"
+        [value]="value$ | async"
+        [disabled]="disabled"
+        (change)="onChange($event)"
+    >
+    <span class="checkmark"></span>
+</label>
+
+<app-validation-message2 *ngIf="control && control?.invalid && control?.touched"
+                         [validation]="control?.errors"></app-validation-message2>

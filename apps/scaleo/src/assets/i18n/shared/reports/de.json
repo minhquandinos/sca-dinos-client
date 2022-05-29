@@ -1,0 +1,67 @@
+{
+    "reports": {
+        "table": {
+            "column": {
+                "cv_approved": "Anz.",
+                "cv_pending": "Anz.",
+                "cv_rejected": "Anz.",
+                "cv_total": "Anz.",
+                "clicks": "Brutto",
+                "impressions": "Anz.",
+                "antifraud_logic_score": "Betrug",
+                "cv_trash": "Anz."
+            },
+            "tooltip": {
+                "tr": "Gesamt Conversion Rate",
+                "cr": "Genehmigte Conversion Rate",
+                "pr": "Ausstehende Conversion Rate",
+                "rr": "Abgelehnte Conversion Rate",
+                "rpc": "Umsatz pro Click",
+                "cpc": "Kosten pro Click",
+                "epc": "Einnahmen pro Click",
+                "rpa": "Umsatz pro genehmigter Conversion",
+                "cpa": "Kosten pro genehmigter Conversion",
+                "epa": "Ergebnis pro Genehmigte Conversion",
+                "rpm": "Umsatz pro 1000 Impressionen",
+                "cpm": "Kosten pro 1000 Impressionen",
+                "epm": "Einnahmen pro 1000 Impressionen",
+                "total_conversions": "Genehmigte und anstehende Conversions",
+                "total_conversions_without_rejected": "Genehmigt, Ausstehend",
+                "total_conversions_include_rejected_in_totals": "Genehmigte, ausstehende, abgelehnte und Trash Conversions ",
+                "ctr": "Click-through Rate (Clicks zu Impressionen)",
+                "cv_total": "Genehmigt, Ausstehend, Abgelehnt",
+                "ar": "Genehmigte Conversions Rate pro gesamten Conversions",
+                "trash_conversions": "Conversions mit falschen Daten, Betrug oder Test Conversions"
+            }
+        }
+    },
+    "reports_page": {
+        "filters": {
+            "affiliate": "Affiliate",
+            "affiliates_sources": "Affiliate Quelle",
+            "affiliates_subids1": "Affiliate Sub ID 1",
+            "affiliates_subids2": "Affiliate Sub ID 2",
+            "affiliates_subids3": "Affiliate Sub ID 3",
+            "affiliates_subids4": "Affiliate Sub ID 4",
+            "affiliates_subids5": "Affiliate Sub ID 5",
+            "affiliates_params1": "Affiliate Param 1",
+            "affiliates_params2": "Affiliate Param 2",
+            "affiliates_params3": "Affiliate Param 3",
+            "affiliates_params4": "Affiliate Param 4",
+            "affiliates_params5": "Affiliate Param 5",
+            "deep_links": "Deep Link URL",
+            "aff_click_ids": "Affiliate Click ID",
+            "reasons": "Grund",
+            "redirections": "Umleitung"
+        },
+        "logs": {
+            "title": "Traffic Logs",
+            "menus": {
+                "clicks": "Invalid Clicks",
+                "postbacks": "Postbacks"
+            },
+            "info_conversions": "Kannst du keine genauen conversions finden? Überprüfe das ",
+            "info_clicks": "Kannst du bestimmte Clicks nicht finden? Überprüfe das "
+        }
+    }
+}

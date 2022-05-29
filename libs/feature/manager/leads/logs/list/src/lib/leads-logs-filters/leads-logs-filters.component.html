@@ -1,0 +1,55 @@
+<form [formGroup]="filterForm">
+    <app-filters [title]="'interface.basic.filtered_by' | translate">
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.affiliate' | translate"
+                [count]="affiliatesCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-affiliates
+                    #findAffiliatesRef
+                    itemValue="id"
+                    [multiple]="true"
+                    [hideSelected]="true"
+                    [formName]="leadsLogsFiltersEnum.Affiliates"
+                ></app-find-affiliates>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'table.column.offer' | translate"
+                [count]="offersCount$ | async"
+                (toggle)="applyFilter()"
+            >
+                <app-find-offer
+                    #findOfferRef
+                    itemValue="id"
+                    [multiple]="true"
+                    [hideSelected]="true"
+                    [formName]="leadsLogsFiltersEnum.Offers"
+                ></app-find-offer>
+            </app-dropdown-popup>
+        </app-filter>
+
+        <section filter-selected *ngIf="selectedAnyFilters">
+            <app-output-selected-filters
+                [findComponent]="findAffiliatesRef"
+                [title]="'table.column.affiliate' | translate"
+                itemTitle="title"
+                [selected]="affiliates$ | async"
+                (clear)="clearFilter(leadsLogsFiltersEnum.Affiliates)"
+                (remove)="removeFilter(leadsLogsFiltersEnum.Affiliates, $event)"
+            ></app-output-selected-filters>
+
+            <app-output-selected-filters
+                [findComponent]="findOfferRef"
+                [title]="'table.column.offer' | translate"
+                itemTitle="title"
+                [selected]="offers$ | async"
+                (clear)="clearFilter(leadsLogsFiltersEnum.Offers)"
+                (remove)="removeFilter(leadsLogsFiltersEnum.Offers, $event)"
+            ></app-output-selected-filters>
+        </section>
+    </app-filters>
+</form>

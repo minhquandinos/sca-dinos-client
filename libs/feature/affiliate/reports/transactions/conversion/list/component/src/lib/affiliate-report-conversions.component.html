@@ -1,0 +1,120 @@
+<scaleo-transaction-report-wrapper
+    [loading]="loading$ | async"
+    [pagination]="pagination$ | async"
+    [totalCount]="totalCount$ | async"
+    [defaultHeaderTemplate]="defaultHeaderTemplate"
+    [actionHeaderTemplate]="actionHeaderTemplate"
+    [selectedItems]="selectedItems"
+    (changePage)="pageWasChanged($event)"
+    (changePerPage)="perPageWasChanged($event)"
+>
+    <scaleo-ui-loader class="d-flex justify-content-center p-3" *ngIf="initialLoading$ | async" [sizeInPx]="50"></scaleo-ui-loader>
+    <scaleo-transaction-report-list
+        [@fade]
+        *ngIf="isInitialLoad$ | async"
+        class="d-block"
+        [columns]="columns$ | async"
+        [items]="newItems$ | async"
+        [sortDirection]="sortDirection$ | async"
+        [sortField]="sortField$ | async"
+        [loading]="loading$ | async"
+        keyForSelectItemValue="transaction_id"
+        [showSelect]="true"
+        [rowTemplate]="rowTemplate"
+        (sorting)="sortWasChanged($event)"
+        (selectItems)="selectItems($event)"
+    ></scaleo-transaction-report-list>
+</scaleo-transaction-report-wrapper>
+
+<ng-template #rowTemplate let-item let-column="column">
+    <app-report-col-fields
+        *ngIf="item"
+        [_key]="column?.value"
+        [_item]="item"
+        reportType="conversions"
+    ></app-report-col-fields>
+</ng-template>
+
+<ng-template #defaultHeaderTemplate>
+    <div class="d-flex align-items-center w-100">
+        <app-result-count [count]="totalCount$ | async"></app-result-count>
+        <ui-divider orientation="vertical" height="24px" class="mx-3"></ui-divider>
+
+        <app-report-info *ngxPermissionsOnly="permissions.canAccessAdvertiserPostbacksLog">
+            <span class="color__gray3">{{ 'reports_page.logs.info_conversions' | translate }}</span>
+
+            <a
+                class="cursor-pointer color__gray3 "
+                (click)="trafficLogsLink()"
+            >
+                {{ 'reports_page.logs.menus.advertiser_postbacks' | translate }}
+            </a>
+        </app-report-info>
+
+        <div class="d-flex ml-0 ml-sm-auto flex-wrap">
+            <app-report-export
+                *ngxPermissionsOnly="permissions.canExportConversions"
+                (exportFormat)="exportData($event)"
+                buttonType="simple"
+                buttonIcon="ic_export"
+            ></app-report-export>
+
+            <app-config-table-column2
+                class="ml-2"
+                [title]="'interface.basic.columns' | translate"
+                [configs]="columnsOptions$ | async"
+                popupMinWidth="730px"
+                configType="conversions"
+                grid="3"
+                (columnChanged)="columnWasChanged($event)"
+            ></app-config-table-column2>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #actionHeaderTemplate>
+    <div class="d-flex align-items-center">
+        <div class="report-conversions__transactions-counter d-flex align-items-center">
+            <span class="color__white">
+                {{ selectedItems.length }} {{ 'interface.basic.selected' | translate }}
+            </span>
+
+            <ui-svg-icon
+                aria-hidden="true"
+                icon="remove-tag"
+                [size]="24"
+                className="report-conversions__close"
+                (click)="clearSelected()">
+            </ui-svg-icon>
+        </div>
+
+        <app-report-export
+            *ngxPermissionsOnly="permissions.canExportConversions"
+            (exportFormat)="exportData($event)"
+            buttonType="main-floating"
+            buttonIcon="ic_export_white"
+        ></app-report-export>
+    </div>
+</ng-template>
+
+<ng-template #layoutHeaderTpl>
+    <ui-page-wrapper-header className="p-l-32 p-r-16">
+        <app-report-filters
+            [filterList]="getFilters$ | async"
+            [filtersSelected]="filtersSelected$ | async"
+            (changedFilters)="changedFilters($event)"
+        ></app-report-filters>
+    </ui-page-wrapper-header>
+
+    <ui-page-wrapper-header className="p-l-32 p-r-20" [haveBorderBottom]="false">
+        <div class="my-auto">
+            <app-report-date-range
+                [showTimeZone]="true"
+                [showHintTimeZone]="true"
+            ></app-report-date-range>
+        </div>
+        <div class="my-auto ml-auto">
+            <app-report-last-updated (refreshed)="refreshed()"></app-report-last-updated>
+        </div>
+    </ui-page-wrapper-header>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="d-flex flex-column">
+    <span class="title is-5">
+        <ng-container *coreScaleoIsMobile>
+            {{ 'mobile_app.access.title' | translate }}
+        </ng-container>
+
+         <ng-container *coreScaleoIsNotMobile>
+            {{ 'mobile_app.qr_code.title' | translate }}
+        </ng-container>
+    </span>
+
+    <span class="mt-2 font-size is-7 line-height is-16 color__gray2">
+         <ng-container *coreScaleoIsMobile>
+            {{ 'mobile_app.access.description' | translate }}
+         </ng-container>
+
+         <ng-container *coreScaleoIsNotMobile>
+            {{ 'mobile_app.qr_code.description' | translate }}
+        </ng-container>
+    </span>
+</div>
+
+<div class="w-fit-content">
+    <ng-container *coreScaleoIsNotMobile>
+        <qrcode *ngIf="link$ | async as link" [qrdata]="link" [width]="180"></qrcode>
+
+        <div class="d-flex align-items-center justify-content-center mt-1" [ngStyle]="{'column-gap': '1rem'}">
+            <ui-svg-icon
+                *ngFor="let os of availableOses"
+                [size]="24"
+                [icon]="os | availableOsIcon"
+            ></ui-svg-icon>
+        </div>
+    </ng-container>
+
+    <div *coreScaleoIsMobile class="mt-2">
+        <scaleo-feature-shared-application-store [link]="link$ | async"></scaleo-feature-shared-application-store>
+    </div>
+</div>

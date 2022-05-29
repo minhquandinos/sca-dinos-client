@@ -1,0 +1,12 @@
+<span class="color__gray2">{{ 'interface.basic.breakdown_by' | translate }}</span>
+<ng-container *ngIf="selectedBreakdowns?.length > 0">
+    <ui-chip
+        *ngFor="let item of selectedBreakdowns; let last = last"
+        size="x-large"
+        className="ml-2 mb-md-1 mb-lg-0"
+        [close]="true"
+        (closed)="removeHandler(item.breakdown)"
+    >
+        <span class="color__black3">{{ 'table.column.' + item.breakdown | translate }}</span>
+    </ui-chip>
+</ng-container>

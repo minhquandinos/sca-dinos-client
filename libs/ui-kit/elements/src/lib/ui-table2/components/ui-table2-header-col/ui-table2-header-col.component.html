@@ -1,0 +1,16 @@
+<th
+    [attr.colspan]="newColumn?.colspan"
+    [attr.class]="newColumn?.className"
+    [attr.data-column-index]="index"
+    [attr.data-column-level]="level"
+    [style.width]="(newColumn?.colWidth) ? newColumn?.colWidth : 'auto'"
+    [style.max-width]="(newColumn?.maxWidth) ? newColumn?.maxWidth : ''"
+    [style.min-width]="(newColumn?.minWidth) ? newColumn?.minWidth : ''"
+    #containerRef
+>
+    <div class="d-flex align-items-center h-100">
+        <ui-table2-header-col-tooltip [column]="newColumn">
+            <ui-table2-header-col-item [column]="newColumn"></ui-table2-header-col-item>
+        </ui-table2-header-col-tooltip>
+    </div>
+</th>

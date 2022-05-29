@@ -1,0 +1,9 @@
+{
+    "main_navigation": {
+        "reports": "Raporlar",
+        "dashboard": "Pano",
+        "offers": "Teklifler",
+        "manage": "Yönet",
+        "activity-log": "Etkinlik Kaydı"
+    }
+}

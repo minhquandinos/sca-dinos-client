@@ -1,0 +1,13 @@
+{
+    "outbound_page": {
+        "announcements": {
+            "title": "Announcements",
+            "widget": {
+                "menus": {
+                    "all": "All",
+                    "offers": "On My Offers"
+                }
+            }
+        }
+    }
+}

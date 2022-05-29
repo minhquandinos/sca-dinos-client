@@ -1,0 +1,14 @@
+<ng-container *ngIf="item.tracking_method && item.tracking_domain && item.type.id !== goalTypeEnum.CPC">
+    <ui-button-link
+        type="link-static"
+        [label]="item.tracking_method.id | platformListTranslate:'goal_tracking_methods' | async"
+        (toggle)="showInfo(previewTemplate)"
+    ></ui-button-link>
+</ng-container>
+
+<ng-template #previewTemplate>
+    <div class="h-100 m-b-8">
+        <app-field-text-info preset="copy">{{ trackingCode }}</app-field-text-info>
+        <manager-shared-available-macros [trackingLink]="link" typeMacroses="goals" [isMacroses]="false"></manager-shared-available-macros>
+    </div>
+</ng-template>

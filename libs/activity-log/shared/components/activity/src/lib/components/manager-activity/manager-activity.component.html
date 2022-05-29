@@ -1,0 +1,94 @@
+<div class="activity-col font-size is-6 line-height is-17">
+    <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="item | isActivityObjectType: [
+            activityObjectTypeEnum.Goal,
+            activityObjectTypeEnum.LandingPage,
+            activityObjectTypeEnum.CustomParam,
+            activityObjectTypeEnum.Creative
+        ]"
+        >
+            {{ ('activity_logs.object.' + item.activity.object_type) | translate }}
+            <app-link-to-item [item]="item" [id]="item.activity.object_id" [name]="item.activity.object_name" [type]="item.activity.object_type" [isObject]="true"></app-link-to-item>
+
+            {{ ('activity_logs.' + actionPath + '.' + item.activity.action_title) | translate }}
+            {{ ('activity_logs.owner.' + item.activity.owner_type) | translate }}
+
+            <app-link-to-item [item]="item" [id]="item.activity.owner_id" [name]="item.activity.owner_name" [type]="item.activity.owner_type"></app-link-to-item>
+
+            <ng-container *ngIf="item.activity.target_type">
+                {{ ('activity_logs.owner.' + item.activity.target_type) | translate }}
+                <app-link-to-item [item]="item" [id]="item.activity.target_id" [name]="item.activity.target_name" [type]="item.activity.target_type"></app-link-to-item>
+            </ng-container>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="item | isActivityObjectType: activityObjectTypeEnum.Announcement">
+            {{('activity_logs.object.' + item.activity.object_type) | translate}}
+            <app-link-to-item [item]="item" [id]="item.activity.object_id" [name]="item.activity.object_name" [type]="item.activity.object_type" [isObject]="true"></app-link-to-item>
+
+            {{ ('activity_logs.' + actionPath + '.' + item.activity.action_title) | translate}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="item | isActivityObjectType: activityObjectTypeEnum.OfferRequest">
+            {{('activity_logs.object.' + item.activity.target_type) | translate}}
+
+            <app-link-to-item [item]="item" [id]="item.activity.target_id" [name]="item.activity.target_name" [type]="item.activity.target_type"></app-link-to-item>
+
+            {{ ('activity_logs.' + actionPath + '.' + item.activity.action_title) | translate}}
+
+            {{ ('activity_logs.owner.' + item.activity.owner_type) | translate}}
+
+            <app-link-to-item [item]="item" [id]="item.activity.owner_id" [name]="item.activity.owner_name" [type]="item.activity.owner_type"></app-link-to-item>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="item.activity.action_id === activityActionEnum.LoginAs">
+            {{ ('activity_logs.object.' + item.activity.object_type) | translate }}
+            <app-link-to-item [item]="item" [id]="item.activity.owner_id" [name]="item.activity.owner_name" [type]="item.activity.owner_type"></app-link-to-item>
+            {{ ('activity_logs.' + actionPath + '.' + item.activity.action_title) | translate }}
+            {{ ('activity_logs.object.' + item.activity.target_type) | translate }}
+            <app-link-to-item [item]="item" [id]="item.activity.target_id" [name]="item.activity.target_name" [type]="item.activity.target_type"></app-link-to-item>
+        </ng-container>
+
+
+        <ng-container *ngSwitchDefault>
+            {{('activity_logs.object.' + item.activity.object_type) | translate}}
+            <app-link-to-item
+                *ngIf="!(item | isActivityObjectType: [activityObjectTypeEnum.Targeting, activityObjectTypeEnum.Tracking, activityObjectTypeEnum.AffiliateAccess])"
+                [item]="item" [id]="item.activity.object_id" [name]="item.activity.object_name" [type]="item.activity.object_type"></app-link-to-item>
+
+            <ng-container *ngIf="item.activity.owner_id && item.activity.owner_type && item.activity.object_type !== item.activity.owner_type">
+                {{ ('activity_logs.owner.' + item.activity.owner_type) | translate }}
+                <app-link-to-item [item]="item" [id]="item.activity.owner_id" [name]="item.activity.owner_name" [type]="item.activity.owner_type"></app-link-to-item>
+            </ng-container>
+
+            <ng-container *ngIf="item | isActivityObjectType: activityObjectTypeEnum.Postback">
+                {{ ('activity_logs.owner.' + item.activity.target_type) | translate }}
+                <app-link-to-item [item]="item" [id]="item.activity.target_id" [name]="item.activity.target_name" [type]="item.activity.target_type"></app-link-to-item>
+            </ng-container>
+
+            {{ ('activity_logs.' + actionPath + '.' + item.activity.action_title) | translate }}
+        </ng-container>
+
+        <span
+            *ngIf="(item.activity.action_id === activityActionEnum.Edit || item.activity.action_id === activityActionEnum.ProfileEdit)"
+            class="details" (click)="showInfo()">
+            {{ 'activity_logs.details' | translate}}
+        </span>
+    </ng-container>
+</div>
+
+<ng-template #valuesTemplate>
+    <div class="manager-activity__value-compare-data">
+        <section>
+            <span class="profile-info__title">{{'activity_logs.old_values' | translate}}</span>
+            <div class="activity-values activity-values-old ml-0">
+                <div [outerText]="item.activity.old_values"></div>
+            </div>
+        </section>
+        <section>
+            <span class="profile-info__title p-l-16">{{'activity_logs.new_values' | translate}}</span>
+            <div class="activity-values activity-values-new">
+                <div [outerText]="item.activity.new_values"></div>
+            </div>
+        </section>
+    </div>
+</ng-template>

@@ -1,0 +1,121 @@
+<scaleo-activity-log-list
+    [items]="items$ | async"
+    [pagination]="pagination$ | async"
+    [headers]="headers"
+    [loading]="loading$ | async"
+    [rowTemplate]="adminDataTemplate"
+    (pageWasChanged)="pageWasChanged($event)"
+    (perPageWasChange)="perPageWasChange($event)"
+>
+    <ng-container header>
+        <div class="my-auto p-l-16">
+            <ng-container *ngIf="headerTitle$ | async as title; else dataRangeTpl">
+                <div class="title">{{ title }}</div>
+
+            </ng-container>
+            <ng-template #dataRangeTpl>
+                <ng-template *ngIf="dataRangeInHeader$ | async" [ngTemplateOutlet]="dateRangeTpl"></ng-template>
+            </ng-template>
+        </div>
+    </ng-container>
+    <app-filters
+        filters
+        [title]="'interface.basic.filtered_by' | translate"
+        [results]="totalCount$ | async"
+    >
+        <form action="" [formGroup]="filterForm" class="d-flex align-items-start align-items-md-center flex-column flex-md-row">
+            <app-filter>
+                <app-find-platform-list
+                    platformList="roles"
+                    itemValue="role"
+                    formName="role"
+                    [firstElement]="{ role: '', title: 'shared.dictionary.role' }"
+                    (toggle)="managersRoleChange($event)"
+                ></app-find-platform-list>
+            </app-filter>
+
+            <app-filter *ngxPermissionsOnly="permissions.canAccessTeammates">
+                <app-dropdown-popup
+                    [label]="'shared.dictionary.teammates' | translate"
+                    [count]="managersCount$ | async"
+                    (toggle)="managerChange()"
+                >
+                    <app-find-managers
+                        formName="managers"
+                        [itemTemplate]="itemManagerTpl"
+                        [multiple]="true"
+                        itemValue="id"
+                    ></app-find-managers>
+                </app-dropdown-popup>
+            </app-filter>
+        </form>
+
+        <div class="ml-md-2 mt-md-0" *ngIf="dataRangeInFilter$ | async">
+            <ng-template  [ngTemplateOutlet]="dateRangeTpl"></ng-template>
+        </div>
+
+        <section filter-selected *ngIf="showOutputManagers$ | async">
+            <app-output-selected-filters
+                [findComponent]="findManagersRef"
+                [title]="'shared.dictionary.teammate' | translate"
+                [selected]="managers$ | async"
+                [showImage]="true"
+                itemStyle="rounded"
+                itemTitle="title"
+                (remove)="removeManagerElement($event)"
+                (clear)="clearManagers($event)"
+            ></app-output-selected-filters>
+        </section>
+    </app-filters>
+
+</scaleo-activity-log-list>
+
+
+<ng-template #adminDataTemplate let-item="context" let-index="index">
+    <td ui-table-col>
+        <app-date-variant [showTime]="true" [date]="item.added_timestamp"></app-date-variant>
+    </td>
+    <td ui-table-col>
+        <scaleo-activity [item]="item"></scaleo-activity>
+    </td>
+    <td ui-table-col>
+        {{ item?.user?.role | titlecase }}
+    </td>
+    <td ui-table-col>
+        <app-activity-log-user [item]="item"></app-activity-log-user>
+    </td>
+    <td ui-table-col>
+        <div class="profile-info__row-value d-flex align-items-center">
+            <div class="mr-2">{{ item.user.ip }}</div>
+            <div class="d-flex align-items-center">
+                <ui-svg-icon
+                    class="cursor-info"
+                    icon="info-4"
+                    size="16"
+                    [tooltip]="TooltipIp"
+                    contentType="template"
+                ></ui-svg-icon>
+            </div>
+            <ng-template #TooltipIp>
+                <div class="profile-info__row-value--geo">
+                    <app-country-flag [countryCode]="item.user.country_code"></app-country-flag>
+                    {{ item.user?.country }}, {{item.user?.region }}, {{ item.user?.city }}
+                </div>
+            </ng-template>
+        </div>
+    </td>
+</ng-template>
+
+<ng-template #itemManagerTpl let-item>
+    {{ item.firstname }} {{ item.lastname }}
+</ng-template>
+
+<ng-template #dateRangeTpl>
+        <app-custom-date-range
+            *ngIf="initialData$ | async as initialData"
+            position="right"
+            [startDate]="initialData?.rangeFrom"
+            [endDate]="initialData?.rangeTo"
+            (toggle)="dateWasChanged($event)"
+        ></app-custom-date-range>
+</ng-template>

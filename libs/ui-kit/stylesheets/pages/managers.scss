@@ -1,0 +1,100 @@
+.managers {
+
+    app-filters .filter {
+        //min-width: 979px;
+
+        .filter__block .filter__title {
+            border-right: 0;
+            margin-right: 0;
+        }
+
+        .managers-role {
+            margin-left: 10px;
+
+            ng-select .ng-select-container{
+                height: 32px;
+            }
+        }
+    }
+
+    .table-managers {
+        thead tr {
+            th:nth-child(1) {
+                width: 30%;
+                padding-left: 32px;
+            }
+            th:nth-child(2) {
+                width: 25%;
+                text-align: left;
+            }
+            th:nth-child(3) {
+                width: 15%;
+            }
+            th:nth-child(4) {
+                width: 15%;
+            }
+            th:nth-child(5) {
+                width: 10%;
+                min-width: 120px;
+            }
+        }
+
+        tbody{
+            td:first-child {
+                padding-left: 0;
+            }
+
+            td {
+                padding-right: 5px;
+
+                .name-subtitle {
+                    ui-svg-icon {
+                        margin-right: 5px;
+                        margin-bottom: 2px;
+                    }
+                }
+
+                app-link-group {
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
+                    .table__box-wrapper {
+                        height: 36px;
+                        min-width: 68px;
+
+                        .table__box-edit {
+                            ui-svg-icon {
+                                margin-right: 6px;
+                            }
+                        }
+
+                        &--one-element {
+                            width: 36px;
+                            min-width: auto;
+
+                        }
+                    }
+
+                    .table__box-info {
+                        padding-top: 2px;
+                        padding-left: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .managers {
+        app-filters .filter {
+            overflow-x: scroll;
+            margin-right: 1rem;
+
+            .managers-role {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+    }
+}

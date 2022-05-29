@@ -1,0 +1,10 @@
+{
+    "main_navigation": {
+        "statistics": "Relatórios",
+        "reports": "Relatórios",
+        "dashboard": "Painel",
+        "offers": "Ofertas",
+        "manage": "Gerenciar",
+        "activity-log": "Registro de atividade"
+    }
+}

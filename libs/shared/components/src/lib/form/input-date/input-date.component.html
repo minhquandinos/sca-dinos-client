@@ -1,0 +1,24 @@
+<label
+    [for]="formControlName"
+    class="field-label field-label-top"
+    *ngIf="label"
+>
+    {{ label }} <span class="field-label__required" *ngIf="required">*</span>
+</label>
+<div>
+    <app-custom-date-range
+        [single]="true"
+        [autoUpdateInput]="autoUpdateInput"
+        type="input"
+        [startDate]="value"
+        [disabled]="control?.disabled"
+        [availableFeaturesDate]="featuresDate"
+        (toggle)="onChangeDate($event)"
+        [placeholder]="placeholder"
+    ></app-custom-date-range>
+</div>
+
+<app-validation-message2
+    *ngIf="control && control?.invalid && control?.touched && !hideValidationMessage"
+    [validation]="control?.errors"
+></app-validation-message2>

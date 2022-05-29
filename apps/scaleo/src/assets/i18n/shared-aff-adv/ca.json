@@ -1,0 +1,472 @@
+{
+    "your_manager": "El teu mànager",
+    "firstname": "Nom",
+    "lastname": "Cognoms",
+    "email": "Adreça electrònica",
+    "full_name": "Full Name",
+    "password": "Contrasenya",
+    "password_confirmation": "Torna a verificar la contrasenya",
+    "statuses": {
+        "status": "Estat",
+        "active": "Actiu",
+        "inactive": "Inactiu",
+        "pending": "Pendent",
+        "rejected": "Rebutjat",
+        "testing": "Examinant",
+        "approved": "Aprovat",
+        "all": "Tot"
+    },
+    "user_profile": {
+        "edited_notification": "El teu perfil s'ha actualitzat amb èxit"
+    },
+    "interface": {
+        "basic": {
+            "filter": "Filtre",
+            "results": "Resultats",
+            "filtered_by": "Filtrar per",
+            "preview": "Vista prèvia",
+            "close": "Tancar",
+            "clear": "Netejar",
+            "today": "Avui",
+            "yesterday": "Ahir",
+            "filters": {
+                "country": "País",
+                "tag": "Etiqueta",
+                "goals_types": "Tipus d'objectius",
+                "no_data_found": "No s’han trobat dades"
+            },
+            "search": "Cercar",
+            "not_found": "No s’han trobat dades",
+            "api_key": "Clau d’API",
+            "api_access": "Accés a l'API",
+            "columns": "Columnes",
+            "breakdown_by": "Agrupar per",
+            "breakdown": "Grup",
+            "copy": "Copia",
+            "advanced": "Advanced",
+            "expand": "Expandir",
+            "hide": "Amagar",
+            "link_copy": "L'enllaç s'ha copiat",
+            "choose_image": "Tria una imatge",
+            "total": "Total:",
+            "adblock": "Si l'AdBlock està activat és possible que algunes funcions de la plataforma no funcionin correctament",
+            "refresh": {
+                "button": "Refresca",
+                "new_version": "Hi ha una actualització disponible.",
+                "latest_version": "Refresca per obtenir l’actualització."
+            },
+            "undefined": "Indefinit",
+            "learn_more": "Per saber-ne més",
+            "view_all": "View All",
+            "view_all_count": "View all ({{ count }})",
+            "allowed": "Allowed",
+            "denied": "Denied"
+        },
+        "header": {
+            "help": "Ajuda",
+            "profile": "Perfil",
+            "account": "El meu compte",
+            "language": "Idioma",
+            "logout": "Tanca la sessió"
+        },
+        "form": {
+            "tags": "Etiquetes",
+            "tag": "Etiqueta",
+            "country": "País",
+            "traffic_type": "Tipus de trànsit",
+            "timezone": "Zona horària",
+            "currency": "Divisa",
+            "contact_type": "Tipus de contacte",
+            "contact_name": "Contacte",
+            "phone": "Telèfon",
+            "street": "Carrer",
+            "city": "Ciutat",
+            "region": "Regió",
+            "postcode": "Codi postal",
+            "payment_details": "Dades de pagament",
+            "date_format": "Format de data",
+            "number_format": "Format del número",
+            "featured": "Destacat",
+            "description": "Descripció",
+            "internal_information": "Informació interna",
+            "expires": "Expira"
+        },
+        "date": {
+            "basic": {
+                "from": "Des de",
+                "to": "Fins a"
+            },
+            "days": {
+                "su": "Dg.",
+                "mo": "Dl.",
+                "tu": "Dt.",
+                "we": "Dc.",
+                "th": "Dj.",
+                "fr": "Dv.",
+                "sa": "Ds."
+            },
+            "month": {
+                "january": "Gener",
+                "february": "Febrer",
+                "march": "Març",
+                "april": "Abril",
+                "may": "Maig",
+                "june": "Juny",
+                "july": "Juliol",
+                "august": "Agost",
+                "september": "Setembre",
+                "october": "Octubre",
+                "november": "Novembre",
+                "december": "Desembre"
+            },
+            "ranges": {
+                "today": "Avui",
+                "yesterday": "Ahir",
+                "last7Days": "Els últims 7 dies",
+                "last14Days": "Els últims 14 dies",
+                "last30Days": "Els últims 30 dies",
+                "last90Days": "Els últims 90 dies",
+                "thisMonth": "Aquest mes",
+                "custom": "Altres dates",
+                "lastMonth": "L'últim mes",
+                "thisYear": "Aquest any"
+            },
+            "based_on": "Basat amb ",
+            "time_zone": "Zona horària"
+        },
+        "subtitle": {
+            "access_credentials": "Credencials d'accés",
+            "contacts": "Contactes",
+            "address": "Direcció",
+            "financial_information": "Informació financera",
+            "additional_information": "Informació addicional",
+            "preferences": "Preferències"
+        },
+        "export_file": {
+            "title": "Exporta",
+            "csv": "CSV",
+            "xlsx": "XLSX",
+            "exception": "Error on file generating, try late"
+        },
+        "pagination": {
+            "per_page": "Mostra"
+        },
+        "table_columns_config": {
+            "cv_approved": "Quantitat",
+            "cv_pending": "Quantitat",
+            "cv_rejected": "Quantitat",
+            "cv_total": "Quantitat",
+            "clicks": "Brut",
+            "impressions": "Quantitat",
+            "cv_trash": "Qty"
+        },
+        "validation": {
+            "password_repeat": "Les contrasenyes no coincideixen",
+            "email_already_taken": "Aquesta adreça electrònica ja existeix",
+            "required": "Aquest camp és obligatori",
+            "email": "Aquesta adreça electrònica no és vàlida",
+            "min_length_password": "La contrasenya ha de tenir a l'almenys vuit símbols",
+            "max": "Aquest número excedeix els números permesos",
+            "incorrect_amount": "Incorrect Amount"
+        }
+    },
+    "quick_links": {
+        "buttons": {
+            "statistics": "Estadístiques",
+            "conversions": "Conversions",
+            "clicks": "Clics"
+        }
+    },
+    "auth": {
+        "forgot_password": "Forgot password?"
+    },
+    "password_change": {
+        "button": "Canvïa la contrasenya",
+        "not_change": "No canviïs la contrasenya"
+    },
+    "password_reset": {
+        "title": "Password Reset",
+        "text": "To reset your password, please enter the email address you use to log in",
+        "button": "Get Reset Link",
+        "return_to_login": "Return to Log in"
+    },
+    "password_reset_confirm": {
+        "title": "Confirmation",
+        "text": "Please check your email. We sent you the further instructions for password reset",
+        "link": "Return to Log in"
+    },
+    "affiliate": {
+        "basic": {
+            "add_contact": "Afegeix un contacte nou",
+            "description": {
+                "payment_details": "Per exemple, les dades del compte bancari, números de targeta, ID de PayPal, etc."
+            }
+        }
+    },
+    "goals_caps_periods": {
+        "daily": "Diari",
+        "weekly": "Setmanal",
+        "monthly": "Mensual",
+        "total": "Total"
+    },
+    "offers_page": {
+        "basic": {
+            "14_days_statistics": "Estadístiques de 14 dies"
+        },
+        "navigation": {
+            "all": "Totes les ofertes"
+        },
+        "targeting": {
+            "except": "Excepte",
+            "denied": "Denedat",
+            "offers_targeting_rules": {
+                "connection_type": "Tipus de connexió",
+                "mobile_operator": "Operador de telefonia mòbil",
+                "device_type": "Tipus de dispositiu",
+                "device_os": "Sistema operatiu del dispositiu",
+                "device_os_version": "Versió del sistema operatiu del dispositiu",
+                "device_brand": "Marca del dispositiu",
+                "device_model": "Model del dispositiu",
+                "browser": "Navegador",
+                "language": "Idioma",
+                "worldwide": "Internacional",
+                "geo": "Geo",
+                "expect": "Esperar",
+                "denied": "Denegat",
+                "connection_type_allowed": "Tipus de connexió permesa",
+                "mobile_operator_allowed": "Operador de telefonia mòbil permès",
+                "device_type_allowed": "Tipus de dispositiu permès",
+                "device_os_allowed": "Sistema operatiu del dispositiu permès",
+                "device_os_version_allowed": "Versió permesa del sistema operatiu del dispositiu",
+                "device_brand_allowed": "Marca del dispositiu permesa",
+                "device_model_allowed": "Model del dispositiu permès",
+                "browser_allowed": "Navegador permès",
+                "language_allowed": "Idioma permès",
+                "geo_allowed": "Geo permesa",
+                "connection_type_denied": "Tipus de connexió denegada",
+                "mobile_operator_denied": "Operador de telefonia mòbil denegat",
+                "device_type_denied": "Tipus de dispositiu denegat",
+                "device_os_denied": "Sistema operatiu del dispositiu denegat",
+                "device_os_version_denied": "Versió del sistema operatiu del dispositiu denegada",
+                "device_brand_denied": "Marca del dispositiu denegada",
+                "device_model_denied": "Model del dispositiu denegat",
+                "browser_denied": "Navegador denegat",
+                "language_denied": "Idioma denegat",
+                "geo_denied": "Geo denegada",
+                "affiliate_sub_id_1": "Afiliat Sub 1",
+                "affiliate_sub_id_2": "Afiliat Sub 2",
+                "affiliate_sub_id_3": "Afiliat Sub 3",
+                "affiliate_sub_id_4": "Afiliat Sub 4",
+                "affiliate_sub_id_5": "Afiliat Sub 5"
+            }
+        },
+        "goals": {
+            "form": {
+                "multiple_conversions": "Conversions múltiples",
+                "conversion_status": "Estat de conversió"
+            }
+        },
+        "creatives": {
+            "title": "Creativitats"
+        },
+        "profile": {
+            "view_all": "Veure-ho tot",
+            "page_title": {
+                "goals": "Objectius",
+                "creatives": "Creativitats",
+                "targeting": "Segmentació"
+            },
+            "targeting": {
+                "geo": "Geo"
+            }
+        },
+        "urls": {
+            "title": "Pàgines landing",
+            "type": {
+                "default": "Per defecte",
+                "preview": "Vista prèvia"
+            }
+        },
+        "tooltip": {
+            "table": {
+                "performance": {
+                    "update": "Un resum general de com van les ofertes. S’actualitza un cop al dia.",
+                    "ar": "Taxa d'aprovació: el nombre de conversions aprovades del total de conversions. Calculat en totes les filials del mes anterior.",
+                    "cr": "Percentatge de conversions: nombre mitjà de conversions totals per clic. Calculat entre tots els afiliats dels darrers 7 dies. ",
+                    "epc": "Taxa de conversió: la mitjana de conversions totals per clic. Calculat a través de tots els afiliats durant els darrers set dies.",
+                    "n_a": "No hi ha prou dades per mostrar la mètrica"
+                },
+                "conversions": {
+                    "info": "Les conversions totals dels darrers set dies comparades amb les dels set dies anteriors. Les dades de classificació s'actualitzen un cop al dia."
+                }
+            }
+        }
+    },
+    "creatives_types": {
+        "banner": "Bàner",
+        "email": "Adreça electrònica",
+        "other": "HTML",
+        "xml_feed": "XML Feed"
+    },
+    "finances_page": {
+        "basic": {
+            "finances": "Finances"
+        },
+        "table": {
+            "transaction_id": "ID del pagament",
+            "payment_details": "Mètode de pagament"
+        }
+    },
+    "dashboard_page": {
+        "network_summary": "Resum de la xarxa",
+        "top_offers": "Les millors ofertes",
+        "volume": "Quantitat",
+        "metrics": "Mètrica",
+        "trends": "Tendències",
+        "legend": {
+            "cv_pending": "Conversions pendents",
+            "impressions": "Impressions",
+            "clicks": "Clics bruts",
+            "cv_approved": "Conversions aprovades",
+            "cr": "CR",
+            "cv_rejected": "Conversions rebutjades",
+            "approved_payout": "Pagament aprovat",
+            "pending_payout": "Pagament pendent",
+            "rejected_payout": "Pagament rebutjat",
+            "ctr": "CTR",
+            "unique_clicks": "Clics únics",
+            "duplicate_clicks": "Clics duplicats",
+            "invalid_clicks": "Clics no vàlids",
+            "pr": "PR",
+            "cv_total": "El total de conversions",
+            "tr": "TR",
+            "rr": "RR",
+            "epc": "EPC",
+            "epa": "EPA",
+            "epm": "EPM",
+            "clicks_payout": "Pagament per clics",
+            "total_payout": "Pagament total"
+        },
+        "message_when_column_max": "Es pot seleccionar un màxim de sis mètriques"
+    },
+    "conversion_statuses": {
+        "pending": "Pendent",
+        "rejected": "Rebutjat",
+        "approved": "Aprovat",
+        "default": "Per defecte",
+        "trash": "Trash"
+    },
+    "reports_page": {
+        "custom": "General",
+        "last_updated": "Última actualització fa {{ minutes }} min.",
+        "filters": {
+            "popular": "Popular",
+            "offers": "Oferta",
+            "offer": "Oferta",
+            "offers_goals": "Objectiu",
+            "goals_types": "Tipus d'objectiu",
+            "currencies": "Divisa",
+            "offers_creatives": "Creativitat",
+            "offers_links": "Pàgina landing",
+            "ips": "IP",
+            "track_ids": "ID de pista de l'anunciant",
+            "advertisers_params1": "Paràmetre 1 de l’anunciant",
+            "advertisers_params2": "Paràmetre 2 de l’anunciant",
+            "advertisers_params3": "Paràmetre 3 de l’anunciant",
+            "advertisers_params4": "Paràmetre 4 de l’anunciant",
+            "advertisers_params5": "Paràmetre 5 de l’anunciant",
+            "conversions_referrers": "URL de la referència de la conversió",
+            "countries": "País",
+            "devices_types": "Tipus de dispositiu",
+            "devices_brands": "Marca del dispositiu",
+            "devices_models": "Model del dispositiu",
+            "devices_os": "Sistema operatiu del dispositiu",
+            "browsers": "Navegador",
+            "connections_types": "Tipus de connexió",
+            "languages": "Idioma",
+            "mobile_operators": "Operador de telefonia mòbil",
+            "technical": "Tècnic",
+            "clickIds": "Clic ID",
+            "data": "Dades",
+            "transactions": "ID de la transacció",
+            "statuses": "Estat de la conversió",
+            "orders_ids": "ID de la comanda de l’anunciant",
+            "users_ids": "ID de l’usuari de l’anunciant",
+            "devices_os_version": "Versió del sistema operatiu del dispositiu",
+            "browser_version": "Versió del navegador",
+            "geo": "Geo",
+            "idfa": "IDFA",
+            "gaid": "GAID",
+            "textarea_hint": "Un article per línia",
+            "visible_tooltip": "Mantenir-ho sempre visible"
+        },
+        "fields": {
+            "device_type": {
+                "desktop": "Escriptori",
+                "smartphone": "Mòbil",
+                "tablet": "Tauleta",
+                "feature_phone": "Telèfon bàsic",
+                "console": "Consola",
+                "tv": "Televisió",
+                "car_browser": "Navegador per a cotxes",
+                "smart_display": "Pantalla intel·ligent",
+                "camera": "Càmera",
+                "portable_media_player": "Reproductor multimèdia portàtil",
+                "phablet": "Phablet"
+            }
+        },
+        "statistics": {
+            "title": "Estadístiques",
+            "menus": {
+                "affiliate": "Afiliat",
+                "offer": "Oferta",
+                "advertiser": "Anunciant",
+                "country": "País",
+                "goal": "Objectiu",
+                "day": "Diari",
+                "monthly": "Mensual",
+                "hour": "Hora",
+                "device_type": "Tipus de dispositiu",
+                "connection_type": "Tipus de connexió"
+            },
+            "table": {
+                "headers": {
+                    "approved_conversions": "Conversions aprovades",
+                    "pending_conversions": "Conversions pendents",
+                    "rejected_conversions": "Conversions rebutjades",
+                    "trash_conversions": "Trash Conversions"
+                }
+            },
+            "tooltip": {
+                "table": {
+                    "clicks_main": "Clics a l'enllaç de seguiment de l'afiliat, quan un visitant és redirigit a la pàgina landing de l'oferta",
+                    "clicks": "Tots els clics inclosos els únics, els dobles i els no vàlids",
+                    "unique_clicks": "Clics rebuts de diferents usuaris",
+                    "invalid_clicks": "Clics que es van redirigir a l'URL del trànsit a causa de l'incompliment de les condicions de segmentació o causa d'un enllaç d'afiliat que no funciona ",
+                    "approved_conversions": "Conversions aprovades per l’anunciant.",
+                    "pending_conversions": "Un les hagi revisat l’anunciant, aquestes conversions es designaran com a aprovades o rebutjades.",
+                    "rejected_conversions": "Conversions aprovades per l’anunciant."
+                }
+            }
+        },
+        "conversions": {
+            "title": "Conversions"
+        },
+        "clicks": {
+            "title": "Clics"
+        },
+        "invalid_clicks": {
+            "nav_tooltip": "Clics que es van redirigir a la URL del trànsit a causa de l'incompliment de les condicions de segmentació o causa d'un enllaç d'afiliat que no funciona"
+        },
+        "advertisers_postback": {
+            "nav_tooltip": "Postbacks (o píxels) rebuts de part de l'anunciant i que mostren si la conversió es va registrar amb èxit o es va produir algun error."
+        },
+        "affiliates_postback": {
+            "nav_tooltip": "Postbacks (o píxels) enviats per a l'afiliat. Es mostra si un afiliat utilitza el seu propi rastrejador i si ha instal·lat un postback d'aquest rastrejador en la teva plataforma."
+        },
+        "adjustments_postback": {
+            "nav_tooltip": "Edició massiva de conversions: canviar-ne l'estat, el pagament o afegir-hi conversions."
+        }
+    },
+    "POWERED_BY": "Desenvolupat per"
+}

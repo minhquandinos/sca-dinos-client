@@ -1,0 +1,27 @@
+<scaleo-report-referrals
+    [items]="items$ | async"
+    [tableConfig]="tableConfig"
+    [loading]="loading$ | async"
+    [pagination]="pagination$ | async"
+    [showFilter]="false"
+    [initialDateRange]="initialDateRange$ | async"
+    (dateWasChanged)="dateWasChanged($event)"
+    (pageWasChanged)="pageWasChanged($event)"
+    (perPageWasChanged)="perPageWasChanged($event)"
+    (reload)="reload()"
+>
+</scaleo-report-referrals>
+
+<ng-template #referredAffiliateTpl let-item>
+    {{ item.referral | format: 'idName' }}
+</ng-template>
+
+<ng-template #referredRateTpl let-item>
+   <span *ngIf="referralCommissionsType === referralCommissionsTypeEnum.Percentage">
+       {{ item.rate | format: 'percent' }}
+   </span>
+</ng-template>
+
+<ng-template #referralCommissionTpl let-item>
+    {{ item.referral_commission | format: 'money':{ currency: referralCommissionCurrency, digitsAfterPoint: 2 } }}
+</ng-template>

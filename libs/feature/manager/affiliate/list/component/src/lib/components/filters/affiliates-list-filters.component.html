@@ -1,0 +1,108 @@
+<app-filters
+    [title]="'interface.basic.filtered_by' | translate"
+    [results]="totals"
+>
+    <form action="" [formGroup]="filterForm" class="d-flex align-items-md-center">
+
+        <app-filter>
+            <app-find-platform-statuses
+                formName="status"
+                statusList="statuses"
+                itemValue="status"
+                [placeholder]="'statuses.status' | translate"
+                [firstElement]="{ id: '', status: '', title: 'statuses.status' }"
+                *ngIf="pathPage !== 'pending'"
+                (toggle)="setFilterStatus($event)"
+            ></app-find-platform-statuses>
+        </app-filter>
+
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'interface.form.country' | translate"
+                [count]="(filterParams$ | async).countries?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-country
+                    #findCountriesRef
+                    formName="countries"
+                    [hideSelected]="true"
+                    [multiple]="true"
+                ></app-find-country>
+            </app-dropdown-popup>
+        </app-filter>
+        <app-filter>
+            <app-dropdown-popup
+                [label]="'interface.form.tag' | translate"
+                [count]="(filterParams$ | async).tags?.length"
+                (toggle)="applyFilter()"
+            >
+                <app-find-platform-list
+                    #findTagsRef
+                    platformList="affiliates_tags"
+                    formName="tags"
+                    class="w-100"
+                    [searchable]="true"
+                    [multiple]="true"
+                    itemLabel="title"
+                    [disableTranslate]="true"
+                ></app-find-platform-list>
+            </app-dropdown-popup>
+        </app-filter>
+        <ng-container *ngxPermissionsOnly="permissions.canAccessTeammates">
+            <app-filter *ngIf="pathPage !== 'my'">
+                <app-dropdown-popup
+                    [label]="'shared.dictionary.teammates' | translate"
+                    [count]="(filterParams$ | async)?.managers?.length"
+                    (toggle)="applyFilter()"
+                >
+                    <app-find-managers
+                        #findManagerRef
+                        formName="managers"
+                        [itemTemplate]="itemManagerTpl"
+                        [multiple]="true"
+                        itemValue="id"
+                    ></app-find-managers>
+                </app-dropdown-popup>
+            </app-filter>
+        </ng-container>
+    </form>
+
+    <div class="d-flex align-items-center ml-md-auto my-auto">
+        <ng-content></ng-content>
+    </div>
+
+    <section filter-selected="" *ngIf="selectedAnyFilters">
+        <app-output-selected-filters
+            [title]="'interface.basic.filters.country' | translate"
+            [showImage]="true"
+            [selected]="(filterParams$ | async)?.countries"
+            [findComponent]="findCountriesRef"
+            (clear)="clearFilter(filterEnum.Countries)"
+            (remove)="removeFilter(filterEnum.Countries, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            [title]="'interface.basic.filters.tag' | translate"
+            [selected]="(filterParams$ | async)?.tags"
+            [findComponent]="findTagsRef"
+            (clear)="clearFilter(filterEnum.Tags)"
+            (remove)="removeFilter(filterEnum.Tags, $event)"
+        ></app-output-selected-filters>
+
+        <app-output-selected-filters
+            *ngIf="pathPage !== 'my'"
+            [title]="'interface.basic.filters.manager' | translate"
+            [selected]="(filterParams$ | async)?.managers"
+            [showImage]="true"
+            itemStyle="rounded"
+            [itemTemplate]="itemManagerTpl"
+            [findComponent]="findManagersRef"
+            (clear)="clearFilter(filterEnum.Managers)"
+            (remove)="removeFilter(filterEnum.Managers, $event)"
+        ></app-output-selected-filters>
+    </section>
+</app-filters>
+
+<ng-template #itemManagerTpl let-item>
+    {{ item.firstname }} {{ item.lastname }}
+</ng-template>

@@ -1,0 +1,66 @@
+{
+    "activity_logs": {
+        "title": "Лог активности",
+        "details": "Детали",
+        "new_values": "Новые значение",
+        "old_values": "Старые значение",
+        "object": {
+            "affiliate": "Партнер",
+            "postback": "Постбек",
+            "gloabal_postback": "Глобальный постбек",
+            "source": "Источник",
+            "advertiser": "Рекламодатель",
+            "domain": "Домен",
+            "manager": "Менеджер",
+            "offer": "Оффер",
+            "offer_request": "Запрос на оффер",
+            "goal": "Цель",
+            "tracking": "Трекинг",
+            "targeting": "Таргетинг",
+            "affiliate_access": "Доступность партнерам",
+            "landing_page": "Лендинг",
+            "creative": "Креатив",
+            "custom_param": "Персональные параметры",
+            "you": "Вы",
+            "announcement": "Новость"
+        },
+        "owner": {
+            "offer" : "для оффера",
+            "affiliate": "для партнера",
+            "you": "для вас"
+        },
+        "action": {
+            "add": "был добавлен",
+            "edit": "был обновлен",
+            "view": "was viewed",
+            "delete": "был удален",
+            "signup": "зарегистрировался",
+            "login": "вошел в систему",
+            "profile_edit": "обновил свои данные",
+            "logout": "вышел из системы",
+            "approved": "был подтвержден",
+            "declined": "был отклонен",
+            "login_as": "вошел в систему как"
+        },
+        "action_for_offer_request": {
+            "add": "отправил запрос",
+            "approved": "был одобрен",
+            "declined": "был отклонен"
+        },
+        "action_for_offer_request_for_affiliate": {
+            "add": "отправили запрос",
+            "approved": "были одобрены",
+            "declined": "были отклонены"
+        },
+        "action_for_goal": {
+            "add": "была добавлена",
+            "edit": "была обновлена",
+            "delete": "была удалена"
+        },
+        "action_custom_params": {
+            "add": "были добавлены",
+            "edit": "были обновлены",
+            "delete": "были удалены"
+        }
+    }
+}
