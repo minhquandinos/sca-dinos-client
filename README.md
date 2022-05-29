@@ -1,4 +1,4 @@
-# Scaleo Client
+# SCA Dinos Client
 
 ## Run on Local Computer
 
